@@ -29,7 +29,7 @@
 
 新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
 --------------------------------------------------
-パズループ2 [Andreas Thorsé, Razoola]
+パズループ2 [Andreas Thorse, Razoola]
 
 
 新規追加クローンセット：

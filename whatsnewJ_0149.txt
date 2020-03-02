@@ -495,7 +495,7 @@ Pacuman (Spanish bootleg of Puck Man) [Roselson (from AUMAP)]
 フェニックス (Spanish bootleg) [Enricnes (from AUMAP)]
 Ataque Sideral (Spanish bootleg of UniWar S) [Ricky2001 (from AUMAP)]
 ボンジャック (Tecfri, Spain) [F.J.Jimenez (Gijon)]
-Le Bagnard (Itisa, Spain) [Asociación de Usuarios de Máquinas Arcade y Pinballs]
+Le Bagnard (Itisa, Spain) [Asociacion de Usuarios de Maquinas Arcade y Pinballs]
 
 
 追加された未動作ゲーム
@@ -645,9 +645,9 @@ GTI Poker? (SMS hardware) [Kevin Eshbach, Roberto Fresca]
 シャカっとタンバリン！ 2K1 SPR (GDR-0013)
   [gamerfan, CaH4e3, Smitdogg, The Dumping Union, R. Belmont]
 Fruit [Any, R. Belmont]
-Pinball 2000: Star Wars Episode 1 [R. Belmont, José Renato Castro Milanez]
-Pinball 2000: Revenge From Mars (rev. 1) [R. Belmont, José Renato Castro Milanez]
-Pinball 2000: Revenge From Mars (rev. 2) [José Renato Castro Milanez]
+Pinball 2000: Star Wars Episode 1 [R. Belmont, Jose Renato Castro Milanez]
+Pinball 2000: Revenge From Mars (rev. 1) [R. Belmont, Jose Renato Castro Milanez]
+Pinball 2000: Revenge From Mars (rev. 2) [Jose Renato Castro Milanez]
 Golden Tee Fore! 2004 [R. Belmont, Brian Troha, uncletom]
 Golden Tee Fore! 2005 [R. Belmont, Brian Troha, uncletom]
 

@@ -103,7 +103,7 @@
 ■「Asterock」のDIP修正。[Pierpaolo Prazzoli]
 	src/drivers/asteroid.c
 
-■一部の画面回転ゲームでアスペクト比計算を修正(galspnblなど)。[Sébastien Volpe]
+■一部の画面回転ゲームでアスペクト比計算を修正(galspnblなど)。[Sebastien Volpe]
 	src/common.c
 	src/windows/wind3d.c
 	src/windows/winddraw.c
@@ -119,7 +119,7 @@
 	src/drivers/tceptor.c
 	src/vidhrdw/tceptor.c
 
-■「キャッスルオブドラゴン / Dragon Unit」のDIP修正。[Iñigo Luja]
+■「キャッスルオブドラゴン / Dragon Unit」のDIP修正。[Inigo Luja]
 	src/drivers/seta.c
 
 ■twin16.c / tmnt.cのクリーンアップ。手前のレイヤーをタイルマップに変換。[Curt Coder]

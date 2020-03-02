@@ -443,7 +443,7 @@ Trivia Master [Pierpaolo Prazzoli]
 
 - Renegadeドライバを実際のMCUのデータを元に改良。[BUT]
 
-- VCコンパイラ用の修正。[René Single]
+- VCコンパイラ用の修正。[Rene Single]
 
 - 古くなったMESSのコードを削除。[Nathan Woods]
 

@@ -9,7 +9,7 @@ DIPスイッチについての変更を提出する場合は、必ずデバッ�
 ソース全般の変更：
 ------------------
 
-■DIPスイッチの修正。[Iñigo Luja]
+■DIPスイッチの修正。[Inigo Luja]
 	src/drivers/gameplan.c
 	src/drivers/cps1.c (kodj064gra)
 	src/drivers/ms32.c

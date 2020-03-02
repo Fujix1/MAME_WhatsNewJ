@@ -7,7 +7,7 @@
   [Olivier Galibert]
 
 ■ソース名のcfgファイルがセット名のcfgとだぶって保存されるのを変更。
-  [René Single]
+  [Rene Single]
 
 ■memory.hの静的な関数の実装をインラインに変更。[Brad Oliver]
 
