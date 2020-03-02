@@ -1,0 +1,227 @@
+0.147u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03427: [グラフィック] (galaxold.c) porter: グラフィックスバンキングが無い。
+         (Robbbert)
+- 05057: [クラッシュ/フリーズ] (harddriv.c) racedriv1: ゲーム開始後にMAMEがクラッシュ
+         する。(hap)
+- 04478: [クラッシュ/フリーズ] (nbmj8891.c) nbmj8688.c, nbmj8891.c, nbmj8900.c 
+         (hyhoo, hyhoo2, gionbana, mjsikaku, ohpaipee, club90s etc.): ソフトリセット
+         を1回か2回かけるとゲームが起動しなくなる。(Angelo Salese)
+- 05054: [クラッシュ/フリーズ] (namcos12.c) tekken3, tektagt and clones : 黒画面しか
+         表示されない。(smf)
+- 05053: [コンパイル] subtarget=TINYでビルドエラーが起こる。
+
+
+ソースの変更点
+--------------
+- avr8.c: FMUL、FMULS、FMULSUオペコード追加: [MooglyGuy]
+ * RORオペコードのNフラグ演算間違いを修正
+ * SBIC/SBISオペコードのビットテスト間違いを修正
+
+- Nitchibutsu麻雀ドライバ(hyhoo.c, nbmj8688.c, nbmj8891.c, nbmj8991.c, pastelg.c)で、
+  ソフトリセット時のネストしたNMI動作を修正。[Angelo Salese, Takahiro Nogi]
+
+- avr8.c: モダンCPUデバイス化。[MooglyGuy]
+
+-「Super Card」用の新ドライバ。Z80ベースのFun WorldカスタムCPUを暗号化と8255 PPIが2個、
+  サウンド用のYM3812 / Y3014。ステータスはまだ未動作状態。[Roberto Fresca]
+
+- IRQのCDとROOTカウンタを修正。[smf]
+
+- z8000: trdb、trdrb、trib、trirb、trtdb、trtdrb、trtib、trtirb命令の実装を修正。
+  [Christian Grsler]
+
+- suprloco.c: Rev Aを親セットに設定。DIP配置追加。基板の基本パーツについてドキュメン
+  ト追加。[Brian Troha]
+
+-「天聖龍」セット2のグラフィックを復号化。[Luca Elia]
+
+- cpu.mak: 組み合わせや派生版のテストを簡単にするため、tmsmake/m68kmakeのオーバーライ
+  ドを可能に変更。[Robert Muth]
+
+- netlist: BSD系環境のため、アンダーバーで始まるシンボルをリザーブ。[Robert Muth]
+
+- itech32.c: ROM名をDOSの8.3方式から、ラベル名を正しく反映したものに改名。
+  [Brian Troha]
+
+- video/、またはmachine/が必要に応じて常にインクルードされるように、インクルードパス
+  を整理。[Robert Muth]
+
+- konicdev: Clang警告を発生させていた何もしない行を修正。[Robert Muth]
+
+- Mega Lines: 基板、バイポーラPROM回路、DIP配置追加。テクニカルノートの追加と、コード
+  の整理。[Roberto Fresca, Team Europe]
+
+-「Planet Probe」用にタイル反転、DIP追加、クリーンアップなど。動作可能に設定。古い、
+  pprobe.cドライバは不要。[David Haywood]
+
+- vaster.cドライバのDIP配置追加。[Tafoid]
+
+- 6502: モダン化、サイクル単位での正確性、割り込み可能化。[O. Galibert]
+
+- m6800.c:「Coleco Adam」が起動しない問題の対策。フリーに回るカウンタの値は受け付けら
+  れないので、出力比較レジスタから読み込むように変更。のちほど正しい形に修正予定。
+  [Curt Coder]
+
+- m6502: IRQの修正。[O. Galibert]
+
+- avr8.c: IOマップをデータマップに改名して、IOマップ経由のポートを割り当て。
+ * ST Z+、SBIWオペーコード実装 [MooglyGuy]
+
+- m6502: 割り込みをさらに修正。[O. Galibert]
+
+- btime: Deco CPU-7、C10707の実装。[O. Galibert]
+
+- deco16: ベクターは規格外。[O. Galibert]
+
+- FLACエンコーダがFIRリニアプレディクションを使用していなかったのを修正(r18882で発生)。
+  [William Coolay]
+
+- cosmac: IRQ ACKを追加。[Curt Coder]
+
+- 65c02: bitwise opとその逆アセを修正。[O. Galibert]
+
+- funworld: bitwise opが必要。[O. Galibert]
+
+- n2a03: ノーマルのIRQに加え、ORを適用した2つめのIRQライン追加。[O. Galibert]
+
+-「Python」のjedtestスクリプトをコンバート。[Andrew Gardner]
+
+- quiz18kのハックを削除。[David Haywood]
+
+- Dino 4プロテクト付きハード: 基板レイアウトとテクニカルノートを追加。
+  [Roberto Fresca, Team Europe]
+
+- Dino 4ハードの「Pool 10」を改良: [Roberto Fresca]
+ * 基板レイアウトとテクニカルノートを追加
+ * プログラムROMデータとアドレスを復号化
+ * グラフィックROMを復号化
+ * デフォルトNVRAM追加
+ * ボタンランプレイアウト追加
+ * 動作可能ステートに設定
+ * 基板レイアウトを改良
+ * 暗号化処理について記述を追加
+
+-「Bonus Card」「Power Card」に正しいPLDを追加。[Team Europe]
+
+- m6509: フェッチバンク内で通常のリードライトが発生。[O. Galibert]
+
+- hcastle.c - プログラムROMの配置を修正とセット名の変更。[Phil Bennett]
+
+- psx_sio_install_handlerとpsx_sio_inputをデバイスを使うように変更。[smf]
+
+- m107.c: IREM M107基板の「ドリームサッカー'94」のROM名を修正。
+  [Brian Troha, Andrew Welburn, The Dumping Union]
+
+- 「Harem」のコードを復号化。[Luca Elia]
+
+- tms5220&friends: 甲高いウェーブフォームを実チップにより近いものに変更。ただし、完全
+  に正確なものかを確認するにはデキャップが必要だが、再現性はかなり向上。
+  [Lord Nightmare]
+
+- tms5220.c: ハックをほとんど削除。残りはほとんど、コメントを整理するためスペースとタ
+  ブにしている部分。また、コメントにあった綴りミスを修正。time_to_readyのコードにあっ
+  た、マイナーなバグ修正。[Lord Nightmare]
+
+- ballbomb : BGM追加。[Robbbert]
+
+- lupin3a : BGM追加。[Robbbert]
+
+- i386: 仮想アドレスを物理アドレスに変換するためのデバッガヘルパ追加。[Carl] 
+
+- sound_stream::generate_resampled_data (emu/sound.c)の混乱を減らすためにさらにコメン
+  トを追加。[Anders Hallstrom]
+
+-「Baldlands」に未吸い出しのGALを2つ追加。また、チェックサムが無いことについてドキュ
+  メントに追加。[Kevin Eshbach]
+
+- mbomberj、mbombrd、mbombrdjのROMラベル、配置、基板情報修正。全て実機で検証。
+  [Team CPS-1]
+
+- TAB blueの不明な暗号化基板からの「Jolly Card」のセットを追加。グラフィックを復号化。
+  プログラムの復号化が必要。[Roberto Fresca]
+
+-「Jolly Card」スペイン版プロテクト付きセットの改良: [Roberto Fresca]
+ * プログラムROMの復号化
+ * ボタンランプレイアウト追加
+ * デフォルトNVRAM追加
+ * 動作可能ステートに設定
+
+- rollingc : このゲームの「Moon Base」部にサウンド追加。[Robbbert]
+
+- darthvdr : インベーダーのサウンド追加。[Robbbert]
+
+- darthvdr : DIPスイッチ追加。[Robbbert]
+
+- dec8ハードウェアのクリーンアップいろいろ。「Shackled / ブレイウッド」
+  「ラストミッション」「キャプテンシルバー」にIRQ ACKメカニズム追加(コメントアウトさ
+  れていたもの)。また、ドライバ内の全ゲームにSCREEN_RAW_PARAMSを実装。[Angelo Salese]
+
+- ghostb、oscar、srdarwinで新モデルを使用するため、DECO0222暗号化を書き直し。
+  [Olivier Galibert]
+
+- scsicd: STOPコマンド追加。[PKGINKO]
+
+- firebeat: ATAPIサポートの更新。[PKGINKGO]
+
+- v9938.c: スプライトリミットを無視するハックを完全削除。[Wilbert Pol]
+
+- rtc65271: FirebeatのRTCチェックをパスできるようにマイナーな修正。[R. Belmont]
+
+-firebeat: YMZ経由のフラッシュリードバックを修正。PPPタイプのゲームは全て初期化と起動
+  可能。[R. Belmont]
+
+- porter: グラフィック修正。[Robbbert]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Planet Probe [Alberto Grego, Corrado Tomaselli, f205v, David Haywood]
+Harem [Dave Hollister, hap, Luca Elia]
+Kkot Bi Nyo Special (Korea) [gp-lee, Guru, Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+Super Ranger (NOVA) [ShouTime]
+Magix / Rock (海賊版) [Darran]
+ジェットウエーブ (JAB, Japan v1.04) [ShouTime, The Dumping Union]
+Golden Tee Diamond Edition Tournament (v3.05T ELC)
+  [Brian Troha, Andrew Welburn, The Dumping Union]
+ウエスタンエクスプレス (Japan, rev 4) [ShouTime, The Dumping Union]
+サンセットライザーズ (4 Players ver UAB) [Dave F]
+Kkot Bi Nyo (Korea) [gp-lee, Guru, Luca Elia ]
+ワールドクラスボウリング v1.1 [Brian Troha, The Dumping Union]
+悪魔城ドラキュラ / Haunted Castle (version E) [Andrew Welburn]
+Jolly Card (Spanish, blue TAB board, encrypted) [Roberto Fresca]
+トリプルパンチ (set 2) [Siftware]
+Street Fighter 2 Accelerator! (set 2) [Smitdogg, Dumping Union]
+ガンサバイバー2 -バイオハザード・コード：ベロニカ- (BHF2 Ver. E) [ShouTime]
+ラジルギ (Rev A) (GDL-0032A) [ShouTime]
+ニンジャアサルト (NJA4 Ver. A) [The Dumping Union]
+ストリートファイターII’-チャンピオンエディション- (Alpha Magic-F, 海賊版)
+  (not working) [Darran, Smitdogg, The Dumping Union, ReadOnly]
+ストリートファイターII -ザ・ワールドウォーリアー- (TAB Austria, 海賊版) (set 2)
+  (not working) [Darran, Smitdogg, The Dumping Union, ReadOnly]
+ストリートファイターII -ザ・ワールドウォーリアー- (unknown 海賊版) (not working)
+  [Darran, Smitdogg, The Dumping Union, ReadOnly]
+ワインディングヒート (AAA, Asia v2.11) [any, The Dumping Union]
+Ultra Invaders [Andy Welburn, MisfitMAME]
+マーヴルVSカプコン -クラッシュ・オブ・スーパーヒーローズ- (Japan 980123) (Single PCB)
+  [ranger_lennier, Yohji, Tormod, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Super Card (encrypted) [Roberto Fresca, Team Europe]
+Mega Lines [Roberto Fresca]
+Pool 10 (Italian, encrypted) [Roberto Fresca, Team Europe]
+Fearless Pinocchio [letoram, Kevin Eshbach, Smitdogg, The Dumping Union]
+Jolly Card (unknown, encrypted) [robertof]
+パラパラパラダイス 1st Mix Plus [PKGINKO, R. Belmont]
+Stone Age (Astro, Ver. ENG.03.A) [any, The Dumping Union]

@@ -1,0 +1,291 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.125u7</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.125u7.txt</div>
+	<div class="main">
+<div class="wn">
+0.125u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01931: [Gameplay] sqix: [possible] スプライト動作が遅くなった。(couriersud)
+- 01631: [Core] sqixbl, perestro, perestrf: ゲーム開始後にリセットする。(couriersud)
+- 01874: [Core] windheat: ゲームがフリーズする。(Aaron Giles)
+- 01905: [Misc.] Many Sets: エラーメッセージ: 
+         Fatal Error crash - Fatal error: Input ports cannot be read at init time! (src/emu/inptport.c:1278) 
+         (Aaron Giles)
+- 01928: [DIP/Input] chplft, chplftb, chplftbl: プレイヤー2の画面が逆さま。(couriersud)
+- 01712: [DIP/Input] exerizrb, skyfox: コイン1がダブっている。(couriersud)
+- 01886: [Graphics] gradius4: 3Dグラフィックの問題。(Aaron Giles)
+- 01927: [Misc.] エフェクトのオーバーレイがスクリーンショットに保存されてしまう。(Aaron Giles)
+- 01901: [Graphics] kinst13, kinst14, kinstp: アトラクトモードのグラフィック不具合。(Aaron Giles)
+- 01916: [Misc.] srmvs: アサート。(Aaron Giles)
+- 01900: [DIP/Input] All sets in kinst.c: コインをたくさん入れるとDIPスイッチにアクセスできなくなる。
+         さらにコインも入らない。 (Aaron Giles)
+- 01709: [DIP/Input] startrek, tacscan, zektor: P1とP2のスタートがダブっている。(couriersud)
+- 01715: [DIP/Input] ballbomb: P1左と右、ボタン1がダブっている。(couriersud)
+- 01714: [DIP/Input] ssfindo: P2スタートボタンがダブっている。(couriersud)
+- 01818: [DIP/Input] All sets in rastan.c: 2つ目の使われていないサービスモードDIPが割り当てられている。(stephh)
+- 01912: [DIP/Input] Various: Unable to construct input ports!のエラー(part 2) (Aaron Giles)
+- 01889: [DIP/Input] realbrk, realbrkk, realbrkj: 画面反転のDIPスイッチが動作しない。(couriersud)
+- 01869: [DIP/Input] alienar, alienaru, splat: 入力割り当てがダブっている。(couriersud)
+- 01575: [DIP/Input] joust, joustr, joustwr: P1とP2のスタートボタンがダブっている。(couriersud)
+- 01866: [DIP/Input] gstream: 入力割り当てがダブっている。(couriersud)
+- 01903: [Graphics] mooncrst and most clones: 3rd+4th面の敵が化けている。(couriersud)
+- 01908: [Misc.] Various: スクリーンショット保存時にAccess Violationが起こる。(Aaron Giles)
+- 01911: [DIP/Input] nomnlndg: Unable to locate input port 'DSW'エラー。(Fabio Priuli)
+- 01906: [Misc.] All sets in atartig1.c: Fatal Exceptionエラークラッシュ。(Aaron Giles)
+- 01904: [DIP/Input] teetert: プレイヤーの動作が以前に比べて遅い。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- grchamp.cの初期化時入力ポート読み込みを修正。[Curt Coder]
+
+- 入力ポート読み込みチェックを修正。前回のものは厳しすぎでCUSTOM_INPUTを他のポー
+  トから読み込めませんでした。これは、設定データがロードされるとすぐに"all 
+  clear"フラグをセットします。[Aaron Giles]
+
+- GX世代のハードウェア: ビデオパラメータを実際にCCUに書き込まれている値に更新。
+  [Yasuhiro Ogawa]
+
+- MultiPCM/315-5560の書き直し。PLFOとALFOを含む全機能をサポート。[ElSemi]
+
+- namcofl.cでのVIDEO_START中の入力ポートからの読み込みを修正。[couriersud]
+
+- z80dmaインターフェイスのクリーンアップ。[couriersud]
+ * 旧z80dmaドライバとの互換性を削除
+ * std.コールバック (READ8_HANDLER、WRITE8_HANDLER)を使用
+ * marioとdkong3をこれに合わせて更新
+
+- 8257 DMAコントローラをデバイスとして実装。[couriersud]
+ * 8257dma.[ch]を書き直し
+ * dkong.cをこれに合わせて更新
+
+- dkong.c: draktonとstrheatのドライバinitコードをマージ。[couriersud]
+ * draktonとstrheatの復号化をよりコンパクトに改良
+ * 復号化とドライバ初期化コードをdkong.cに移動
+ * drakton.cとstrheat.cを削除
+
+- ST-0026 NiLe(サウンド)のエミュレーションを追加。「スーパーリアル麻雀P6」にサウ
+  ンド追加。[Tomasz Slanina, R. Belmont]
+
+- i8x41の改良: [Wilbert Pol]
+ - i8x41 CPUコアからi8x41.ramのハックを削除
+ - 命令コード0x67の逆アセンブリを修正
+ - 設定変更可能なi8x41/i8x42サブタイプサポート
+ - ADDC A,#N命令のキャリーフラグ処理を修正
+ - RLC A命令のキャリーフラグ処理を修正
+ - RAMサイズを更新。8041は128バイト、8042は256バイトを使用
+ - 割り込みハンドラ内での割り込み再有効化をサポート
+ - DJNZ命令のサイクルカウントを修正
+
+- voodooを正しいデバイスへコンバート。ドライバを更新。[Aaron Giles]
+
+- Cal Omegaドライバを更新: [Roberto Fresca]
+ - 入力システムの多くの改良
+ - system 903と904用に、CPUアドレッシングを14ビットに調整
+ - system 905用に、CPUアドレッシングを15ビットに設定
+ - これらの変更に合わせて、全てのROMロードを書き直し
+ - CPU、UART、サウンドのクロックを定義
+ - サウンドインターフェイスが他のシステムをカバーできるように分割
+ - PIAインターフェイスが他のシステムをカバーできるように分割
+ - system 905ゲームにサウンド追加
+ - デバイスを正しく初期化するため、MACHINE_STARTとMACHINE_RESETを追加
+ - system 903/904 UART接続をドキュメント化
+ - system 903/904/905のPIA配線をトレースして追加
+ - system 903用に、AY8910へDIPスイッチバンクを実装
+ - system 903/904で、シリアル/UARTの予備サポート
+ - system 903/904向けに、ACIA 6850のDIPスイッチバンクを実装。これでUARTの正しい
+   転送レートを選択できます
+ - 異なるホットライン版のため、グラフィックROMロードを修正
+ - Game 8.0 (Aracede Black Jack)をサポート
+ - Game 12.3 (Ticket Poker)をサポート
+ - Game 23.0 (FC Bingo (4-card))をサポート
+ - システム配線図とオフィシャルリストを元に、全てのROMを改名。
+ - セットのクリーンアップ
+ - ドライバのクリーンアップ
+ - テクニカルノートの更新
+
+- セーブステートのサポート: [Aaron Giles]
+ * MIPS3再コンパイラ、CAGEオーディオシステム、Voodooエミュレータ、
+   smc91c9xエミュレータ、kint、seattle、vegasドライバ、SHARC CPUコア、
+   PowerPC再コンパイラ、バーチャルTLBシステム、RF5C400サウンドコア、
+   konppcモジュール、K056800ホストコントローラ、Konami hornetドライバ
+ * 動的な画面解像度変更をするもののセーブステート処理を修正
+
+- SMC91C9x: [Aaron Giles]
+ * 正しいデバイスへコンバート
+ * seattle、vegasドライバでデバイスを割り当てるように更新
+ * 将来的な2049の使用に備え、単独の91C96デバイスを追加
+ * コードのクリーンアップ
+
+- memory_region()とmemory_region_length()にmachine引数を追加。ループ時にこれらの
+  関数を繰り返し呼び出すのではなく、ポインタをキャッシュするようにコード全体を更
+  新。[Atari Ace]
+
+- voodooドライバの不完全なデフォルトのCLUT処理を修正。[Aaron Giles]
+
+- 追加のNaomi BIOS。[Brian Troha, Guru]
+
+- DRCを修正: [Aaron Giles]
+ * 64-bitのWRITEM命令について、メモリ経由で呼び出すよう修正。これでgcc 4.3と
+   64-bit linuxのアサートが修正
+ * 32-bitバックエンドでの、DCMP命令を修正
+ * x86とx64バックエンドでのLZCNT命令を修正
+ * x86とx64バックエンドでのLZCNTとBSWAP命令のフラグをサポート
+
+- デバッガについて、付随したイベントが起きるのを待つ間停止しないよう変更。これに
+  より、リセットやステートロードのときの混乱が無くなります。[Aaron Giles]
+
+- ネイティブでないスナップショットのオーバーレイを明示的に無効化(ネイティブショッ
+  ト以前は無効になっていました)。[Aaron Giles]
+
+- Konami PowerPCゲームのより完全なreadmeを追加。[Guru]
+
+- Konami PowerPCゲームのシステムレジスタアクセスをクリーンアップ。hornetドライバ
+  のEEPROMを接続(あまり効果はなし)。いくつかの問題修正のためネットワークIRQを調
+  整。ほとんどのゲームが以前の"動作可能な"状態に戻っています。[Aaron Giles]
+
+- DRCフロントエンドが、デスクライブ時に前の命令へのポインタを渡すように変更。
+  PowerPCフロントエンドについて、タイミング演算時に分岐とCRロジックの畳み込みを
+  おおおよそ考慮するよう更新。[Aaron Giles]
+
+- チートシステムの更新: [Shimapong]
+ - 3種類のサーチメニュー関数をsearch_main_menu()に統合
+ - 新しいチートオプション追加 "Vertical/Horizontal Key Repeat Speed"
+     注: スタート前、またはチートメニューからデフォルトオプションを再読み込み
+         (Shift + Reloadキー)する前には、データベースの全てのチートオプションを
+         削除してください
+ - Activation Keyと予め有効にするためのコマンドコードエントリを変更。これまでの
+   インデックス番号ではなく、コメントフィールドのタグをチェックします。ただし、
+   これは新しいフォーマットのコマンド用で、古いものは以前のままです
+ - save_activation_key()とsave_pre_enable()内にタグ出力を追加
+ - save_cheat_options()が説明を出力するようにクリーンアップ
+ - "Debugger"のウォッチポイントが、間違って"Cheat"のウォッチポイントにヒットしな
+   いように、ウォッチポイントのメモリ読み込み関数を変更
+ - 報告のあったバグと見つけたバグを修正
+ - 関数名、enum名をコーディングガイドラインに従って改名。全ての関数について完了
+
+- DEBUGGERフラグをmakefileから、またソースからENABLE_DEBUGGERを削除。全てのMAME
+  ビルドでデバッガを含むようになり、起動時のコマンドライン、またはiniにより有効・
+  無効を設定するようになりました。今のところ、若干速度に影響がりますが、最適化を
+  さらに進める予定です。[Aaron Giles]
+
+- makefileで最後にdを付けた設定はDEBUGビルドに適用するよう変更。[Aaron Giles]
+
+- machine->debug_modeをmachine->debug_flagsに変更。これらのフラグは、デバッグが
+  有効かどうか、CPUコアが命令毎にデバッガを呼び出すかどうか、各アドレス空間に有
+  効なウォッチポイントがあるかなどを示すようになりました。各CPUに対し、より類似
+  し、より完全な内部フラグセットを全体的に保持する考えを元にdebugcpu.cの重要箇所を
+  再設計。以前の機能も設計通り動くはずですが、連動するためにはもっと強固でさらに
+  高速化が必要です。[Aaron Giles]
+
+- CPUの実行開始と停止の操作をデバッガに追加。これにより、与えられたCPUが次のタイ
+  ムスライス内の各命令について、デバッガを呼び出す必要があるかどうかをデバッガか
+  ら決定できます。さらに、例外のレポート用フックも追加。ただし、例外の正しいブレー
+  クポイントは未実装。[Aaron Giles]
+
+- GTMRに360度ホイール(ダイヤル)入力を追加。ControllerのDIPを"wheel"に、また
+  ControlのDIPを"1P Side"にしたときに有効です。これを"Both Sides"にしたときは270
+  度ホイール(パドル)入力になります。[Minwah]
+
+-「フェアリーランドストーリー」のクロックチェックとサウンドボリューム調整。
+  [Corrado Tomaselli]
+
+- さらにinput_port_readへコンバート: [Fabio Priuli]
+ * 一部の入力コードを共有するmid*unit系ドライバ、settleドライバ、zeusドライバ全
+   てを更新
+ * namcoシステムほとんどと、入力処理を共有する古いドライバ数本を更新(namcos22.c
+   以外)
+ * 頭文字M～Qのドライバのほとんど更新と、megadriv.cからインデックス読み込みをつ
+   いに削除(ssf2ghwを壊さずに)
+ * 頭文字Rで始まるドライバからインデックス読み込みを削除(また、royalmah.cの入力
+   も少しシンプル化)
+ * nichibutsu麻雀入力ポートを統合(nbmj9195.cの共用ポートを他のドライバでも使用)。
+   インデックス化した読み込みや、いくつかのハンドラで複雑さを低減するための間違っ
+   たタグ付けを削除
+
+- ampoker2.c、atarigx2.c、cabal.c、ksys573.cのSHA1値が無かったものを追加。
+  [John Gilbert]
+
+- CPUとサウンドコア、M65CE02、ALPHA8201、TMC0285、TMS5200のビルド問題修正と、
+  MIPSコアへの依存状態を訂正。[Atari Ace]
+
+- ddragon3の作業完了: [Sonikos]
+ - 間違っていたDIPスイッチSW1-8を正しくマップ
+ - ctribeにFBIロゴ設定のDIP追加
+ - ctribeで条件付きDIP表示がクラッシュしていたのを修正
+ -「(Italian bootleg)」をもっとよい「(bootleg Set 2)」に変更
+
+- gotchaドライバで、OKI6295ピン7をhighに設定。[Sonikos]
+
+- make MSVC_BUILD=1 -j2の修正と、クロスビルドサポートでのミスを訂正。[Atari Ace]
+
+- src/emu/machineからMachine系のものほとんどを整理。まだ少し作業が残っていますが、
+  ほとんどはインターフェイス系のものです。[Oliver Stoeneberg]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Survival [nuapete]
+WonderLeague '96 [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cal Omega - Game 8.0 (Arcade Black Jack) [Roberto Fresca]
+Cal Omega - Game 12.3 (Ticket Poker) [Roberto Fresca]
+Cal Omega - Game 23.0 (FC Bingo (4-card)) [Roberto Fresca]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

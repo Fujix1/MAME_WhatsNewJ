@@ -1,0 +1,86 @@
+0.87u3
+
+全般的な改良点：
+----------------
+
+■Exidy製ゲームのアップデート。[Aaron Giles]
+    このアップデートはExidyドライバのクリーンアップがメインです。メモリマッ
+    プのマージや、実機では存在していないRAMをかなり削除しました。さらに海賊
+    版も何本かで入力ポートの修正をしています。
+
+■Cinematronics Vectorドライバのアップデート。[Aaron Giles]
+    * CCPUコアをシンプルになるように完全に書き直して、MAME流にしました
+    * CCPUの逆アセンブラで“オフィシャル”なシンタックスを使うように書き直し
+    * 新しく見つけたプロトタイプゲーム「QB-3」追加
+    * 全部のゲームでCCPU用のPROMが必要になりました
+    *「バリアー」「スターホーク」「War of the Worlds」「Boxing Bugs」にサウ
+      ンド追加（サンプルはまだありませんが、Zonn Moore氏と共同で「バリアー」
+      以外について作業中です）
+    * Zonn氏のドキュメントと回路図に基づき全ゲームのサウンドルーチンを書き直
+      し
+    *「Demon」のサウンド修正（以前のはぜんぜん間違い）
+    *「Solar Quest」で、サンプルの代わりに矩形波のループでBGMがかかるように
+      サウンド処理を変更
+    *「Solar Quest」で64レベルのサポート
+    *「Boxing Bugs」「War of the Worlds」のカラーサポートを修正
+    * 星が光るエフェクト追加（vector.cを更にアップデートする必要有り）
+    *「War of the World」を「Star Castle」のアップグレードとしてよくあるよう
+      に白黒画面版に変更
+    * wotwcをカラーハード版として追加（同じROM）
+    * 全ゲームの入力ポートのクリーンアップと修正
+
+■Namco ICのアップデート。[Phil Stroffolino]
+    System FL、Namco NB2、Namco System 2の一部で使っている拡張ROZチップの修
+    正。「マッハブレイカーズ」の大幅改善と、各ゲーム固有のROZハックを削除
+
+    System2ゲームのROZシステム修正; 「ドラゴンセイバー」の不具合修正
+
+    多くのNamcoタイトルで使われいるタイルマップシステムのアブストラクト
+
+    メモリマップのマージ
+
+    このROZの修正でカスタムコードを多く使うようになってしまったので、
+    tilemap.cのROZサポートに一時的な制限追加。機会があればtilemap.cの改良
+    予定
+
+■jalmah.cの改良。[Angelo Salese]
+
+■recalhとintcup94のサウンド改善。[David Haywood]
+
+■GCC 3.4.2でのコンパイラ警告をクリーンアップ。[Olivier Galibert]
+
+■Segaデクリプトの更新に備えてC68kコアに機能追加。[Olivier Galibert]
+
+■GNETバイオスROMの実装。起動画面が表示。[smf]
+
+■xfilesドライバの改良。起動画面が表示。[Tomasz Slanina]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+QB-3 (プロトタイプ) [Aaron Giles]
+    グラフィックの問題あり
+スペースレイダー [Frank Palazzolo]
+    グラフィック関係と基板との比較が必要な問題あり
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+War of the Worlds (color) [Aaron Giles]
+オペレーションサンダーボルト (US, older) [Fabrice Arzeno] 
+Killer Instinct (proto v4.7) [Aaron Giles]
+Killer Instinct 2 (v1.0) [Aaron Giles]
+Farmer Rebelion (いっきのクローン版) [Pierpaolo Prazzoli]
+Atlant Olimpic (trackfldの海賊版) [Pierpaolo Prazzoli]
+銀河任侠伝 (set 2) [Mash]
+'99: The Last War (Kyugo) [Mash]
+トロン (set 3) と (set 4) [Mash]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Oriental Legend Super
+    プロテクト未エミュレート
+Killer Instinct 2 (v1.4k, upgrade kit) [Aaron Giles]
+Beat the Champ [R.Belmont]
+    SCSI / CD-ROM エミュレーションの問題

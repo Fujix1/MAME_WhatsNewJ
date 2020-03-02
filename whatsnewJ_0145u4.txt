@@ -1,0 +1,197 @@
+0.145u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04592: [インターフェイス] GUIのメニュー最下段に"Return to Prior Menu"ではなく、
+         "Return to Game"と表示されてしまう。(hap)
+- 04721: [サウンド] opwolf: BGMと効果音がノイズだらけに聞こえる。(hap)
+- 04699: [システムコア] cubeqst: CHDバージョン5にするとSHA1が変わる。(Aaron Giles)
+- 04702: [インターフェイス] UI Menus: メニューから一段戻るところが、ゲームに戻る動作
+         をする。(hap)
+- 04684: [グラフィック] All sets in vmetal.c: グラフィック表示がおかしくなっている。
+         (hap)
+- 04677: [DIP/入力] ebases: アナログ操作が効かない。(hap)
+- 04720: [サウンド] mainevt and clones: 音が出ない。(hap)
+- 04715: [DIP/入力] cavenger: カクテルモードのプレイヤー2でボムボタンが働かない。
+         (Tafoid)
+
+
+ソースの変更点
+--------------
+- LR35902 CPUコアをC++にコンバート。[Wilbert Pol]
+
+- doncdoonとkurefevでROMセットが入れ替わっていたのを修正。[Angelo Salese]
+
+- SDL: chdmanで使用するアンオフィシャルな(OSDクラスにない)、num_processors APIをサ
+  ポート。非Windows環境でのchdmanによるマルチコア・プロセッサが使用可能。[R. Belmont]
+
+- naomi: starseekのPIC番号情報を修正。[Guru]
+
+- CPS-1の更新: [Team CPS-1]
+ * ドキュメントの追加や修正
+ * video\cps1.cのゲームテーブルを拡大と更新
+ * forgottnuのLW-13.10D ROM、wonder3のRT_23.13B ROMの現在の吸い出しは良好なのでノート
+   を削除
+ * qadのラベル修正と基板情報を確認
+ * ROMラベル修正、基板配置追加、サブリビジョンのドキュメント改良、一部のROMセットをリ
+   ビジョンコードを使うように改名
+
+- MAMEとMESSで同じ名前のマシンステートを持つドライバが衝突する可能性があったのを修正。
+  [David Haywood]
+
+- megatech.c: 制限時間の警告音出力と画面点滅を実装。[bdam]
+
+- undrfire.c: undrfireとcbomberの出力実装。ランプ、ガン、反動、ホイール振動を実装。
+  [bdam]
+
+- senjyo.cドライバの色修正(senjyoの背景色など)。[Tsuyoshi Hasegawa]
+
+- 68k: 68301/68307エイリアスをドキュメントに追加。[David Haywood]
+
+- ins8250 - 16550 FIFOをサポート。[Carl]
+
+- viper: メインボードのDS2430 EEPROMとcode1dのドングルEEPROMを追加。[Guru]
+
+- viper: 一部のIDEパラメータのせいで、HDDゲームが再度起動するのを修正。[Ville Linde]
+
+-「Popo Bear」の改良。表示とサウンドの問題はいろいろあるが、なんとかプレイ可能。
+  [Angelo Salese]
+
+- namcos23: 3D画面のフレームレートを大幅に改善するため、ワークキューを有効化。
+  [O. Galibert]
+
+-「Area 51: Site 4」(a51site4a)の再吸い出しCHD追加。[ninjakid]
+
+- bfm_sc1.c:  [James Wallace]
+ * Scorpion 1の全てのROMをテストを行うために一旦クローンへ移動
+ * 重複したり、既に統合されていたROMファイルを調査
+
+- m6502.c: Acid5200のテストを通るように、OALの不正なm6502命令を修正。[Wilbert Pol]
+
+- Votrax SC-01をデバイスとして形式化。特許文書より、タイミング回路、トランジション回
+  路、グロッタルジェネレータ、ノイズソースを含む全てのデジタルロジックセットを実装。
+  クロッキングについては、特許内に正反対の記述があるため、いくつか不明な点があります。
+  ただし、今のところ全パラメータをフェッチして処理し、音素は全て鳴っています。
+  理論的にあと残っているのは、アナログサウンドに詳しい人が出力フィルタをシミュレート
+  してくれるだけです。現状では、音声と摩擦音の増幅をベースにしたノイズ信号混じりの生
+  グロッタルパルスが聞こえます。これはかなりの進展と言えますが、まだ満足いく結果では
+  ありません。[Aaron Giles, Lord Nightmare, Olivier Galibert]
+
+- Gottlieb r1とr2サウンドボードを、最近追加したミキサーインタフェースを使って完全デバ
+  イス化。音出力は全て新型サウンドデバイス自体を経由して、状況に応じて新しいサウンド
+  デバイス出力へ送ることができます。また、可変クロック付きのVotraxチップを正しく実装。
+  現在のVotraxエミュレーションはオフにしてますが、gottlieb.hのUSE_FAKE_VOTRAXを0にす
+  ると有効に出来ます。[Aaron Giles]
+
+- ゲーム選択UIとゲーム情報画面にドライバを表示する機能追加。たぶん便利。[Tafoid]
+
+- chdman: GDIファイルの処理を訂正。CDを.gdiファイルに抽出する機能追加。.GDIファイルと
+  交互に変換して完全にチェックサムが一致するのを確認。[R. Belmont]
+
+- MAMEのビルドシステムでのlibflac再生を改善; Tsuruchiyo Nitro氏による提案をもとに、特
+  定の設定でのコンパイル問題を修正。[R. Belmont]
+
+- k054539: モダン化。[O. Galibert]
+
+- PowerPC: XERからCR0にSOビットを正しくミラーリングするように修正。[R. Belmont]
+
+- ioport: コンパイル時間が少しましなように改良。[O. Galibert]
+
+- ioport: 古いgcc版をサポート。[O. Galibert]
+
+- CHDをコピーするとき、SHA1にメタデータが含まれるかどうかを示すフラグをキープするよう
+  に変更。LDのCHDを作成するときは、以前同様AVLDメタデータに対してチェックサムを使わな
+  いで下さい。これにより、レーザーディスクCHDの再圧縮が修正されます。[Aaron Giles]
+
+- YM3526でdevcbを使うように更新。[Curt Coder]
+
+- 新デバイスbuffered_spriteram<n>_deviceを作成。これは、バッファされたspriteramを管理
+  します。旧来のコアでサポートするspriteramは削除して、全てのドライバで新デバイスを使
+  うようにアップデートしました。[Aaron Giles]
+
+- required/optional_shared_sizeヘルパを削除。既存のrequired/optional_shared_ptrヘルパ
+  は、共有領域のサイズを問い合わせするbytes()メソッドを追加。[Aaron Giles]
+
+- ymf271: タイマー設定の修正。[trap15]
+
+- votrax: アナログパス。[O. Galibert]
+
+- tms57002: モダン化。[O. Galibert]
+
+- i386、x87、PICの修正いろいろ。[Carl]
+
+- neodrvr.c:「メタルスラッグ5」基板のプログラムROM追加。[Guru]
+
+- Neo-Geoのドキュメント更新: [Johnboy]
+ * SNKの開発基板を追加
+ * MVSマザーボードリストを更新
+ * sengoku2、zupapa、mslug、neodrift、ctomaday、pbobbl2n、jockeygpのチップ情報追加
+ * vliner、jockeygpに正しいプロダクトIDコード追加
+ * \hash\neogeo.xmlを更新
+
+- aleck64が終了時にクラッシュするのを修正。[Oliver Stoneberg]
+
+- dec8.cの改良: [stephh]
+ * lastmisn*, shackled, breywood, gondo, makyosen, garyoret, ghostb*, meikyuh*, 
+   csilver*, oscar*, srdarwin*, cobracom* : 
+    DIPスイッチと入力の修正(M6809/HD6309コードの検証より);
+    ただし、実際のMCUがないげーむのコインエイジはまだ推測
+ * lastmisn*, csilver*, srdarwin* : DIPスイッチを元に、コインエイジのシミュレーション
+   追加
+ * garyoret : シミュレーションではなくgondoベースのフェイクMCUを使用
+
+- DIVW ゼロ除算クラッシュ、フラグ、コーナーケースリザルトを訂正。[R. Belmont] 
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+スケーター (デコカセ)
+ [Chack'n & Team Japump!!!, Charles MacDonald, Dr. Spankenstein, Kevin Eshbach,
+  T. Huff, SteveS, E. Page-Hanify, Hikari, ArcadeDude, F. Bukor, N. Francfort,
+  jmurjr, arcade-history.com, ThumB, Hurray Banana, Paratech, Xiaou2, Cornishdavey, 
+  A. Costin, M. Ponweiser, Tormod & Rambo]
+スーパーダブルステニス (デコカセ) 
+ [Chack'n & Team Japump!!!, Charles MacDonald, Dr. Spankenstein, Kevin Eshbach,
+ T. Huff, SteveS, E. Page-Hanify, Hikari, ArcadeDude, F. Bukor, N. Francfort, 
+ jmurjr, arcade-history.com, ThumB, Hurray Banana, Paratech, Xiaou2, Cornishdavey, 
+ A. Costin, M. Ponweiser, Tormod & Rambo]
+メタルスラッグ5 (JAMMA PCB) [Guru]
+
+
+新しく追加されたクローンセット
+------------------------------
+ファイナルファイト (World, set 2) [Bonky0013, JacKc]
+Forgotten Worlds / ロストワールド (USA, B-Board 88618B-2, Rev. C) [Bonky0013, JacKc]
+ストリートファイターII -ザ・ワールドウォリアー- (USA 920522, Rev. G) 
+  [Bonky0013, JacKc]
+バーチャコップ (Revision A) [Layne, Smitdogg, The Dumping Union]
+スーパーストリートファイターII X (Japan 940223 rent version)
+  [idc/Team Avalaunch]
+ヴァンパイアハンター (Japan 950307 stop version) [idc/Team Avalaunch]
+JoJo's Venture / ジョジョの奇妙な冒険 (990128) [idc/Team Avalaunch]
+Pit Boss Megatouch II (9255-10-06 ROE, California version) [Anondumper]
+Megatouch IV (9255-40-01 RO, Standard version) [Anondumper]
+スーパーチェイス -クリミナルターミネーション- (Japan)
+  [Stefan Lindberg, The Dumping Union]
+Deer Hunting USA V3 [Brian Troha, The Dumping Union]
+バトルギア2 (2.01J) [Uncle Tom, The Dumping Union]
+ソウルキャリバーIII (SC31002-NA-NA) [Smitdogg, The Dumping Union]
+鉄拳4 (TEF1 Ver. C) [Tormod, Smitdogg, The Dumping Union]
+ストリートファイターII' -チャンピオンエディション- (Japan 920803) [Dominic Nater]
+雷電ファイターズJET (Taiwan) [ANY, R. Belmont, The Dumping Union]
+アルカノイド -リベンジオブDOH- (Japan 海賊版) [ANY, R. Belmont, The Dumping Union]
+Dynablaster / ボンバーマン (海賊版, alt) [ANY, R. Belmont, The Dumping Union]
+Caveman Ninja / 戦え原始人 ジョー＆マック (alternate)  [Corrado Tomaselli]
+
+
+追加された未動作ゲーム
+----------------------
+ワールドサッカーウイニングイレブン アーケードゲームスタイル [Team Japump, Guru]
+ワールドサッカーウイニングイレブン アーケードゲーム2003  [Team Japump, Guru]
+パワーショベルに乗ろう！ [Uncle Tom, The Dumping Union]
+魔斬 (MAZ1 Ver. A) [Hans Johanson]
+Fantastic (ギャラクシアン/ムーンクレスタ基板で動作するギャラガ海賊版)
+  [Augusto Garcia, Silvio Finotti, Marcello Mancini, Haze & hap]

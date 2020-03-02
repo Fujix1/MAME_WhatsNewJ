@@ -1,0 +1,32 @@
+0.86u5
+
+その他の改良：
+--------------
+
+■MESS関係のコードをクリーンアップ。[Nathan Woods]
+
+■rabbitの入力を改良。[deadscreem]
+
+■draktonのDIPスイッチ修正。[David Widel]
+
+■「エキサイティングサッカーII」のプロテクト処理を改良。[Pierpaolo Prazzoli]
+
+■rongrongのDIPスイッチ修正。[sonikos]
+
+■crospangのサウンド周波数調整。[Pierpaolo Prazzoli]
+
+■subsのDIPスイッチと、chelnovの入力修正。[Iñigo Luja]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+(New) Multi 5 [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+リカルホーン (プロトタイプ)
+コマンドウォー -明晰なる指揮官- (プロトタイプ)
+    taito_f3ドライバに追加。まだ深刻な問題あり

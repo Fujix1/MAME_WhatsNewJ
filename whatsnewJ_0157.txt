@@ -1,0 +1,251 @@
+0.157
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05808: [DIP/入力] (cps1.c) sf2amf: 動作させるには入力をsf2hackと同じにする。
+- 05805: [サウンド] (cps1.c) dinohunt: [バグかもね] YM2151は使われてない？
+- 05804: [DIP/入力] (cps1.c) dinohunt: プレイヤー3の操作系が間違っている。
+- 03659: [クラッシュ/フリーズ] (atarisy2.c) All Sets in atarisy2.c: -autosaveと-str 2
+         を指定するとクラッシュする。(Osso)
+- 01591: [グラフィック] (atarisy2.c) paperboy, paperboyr1, paperboyr2: サービスモード
+         のテキストが点滅する。(Alex Jackson)
+- 00380: [グラフィック] (atarisy2.c) 720: スプライトがちらつく。よくわかるのは、ゲー
+         ム開始直後のスピーカー。また、メインキャラクタを動かしてもちらつく。0.114u4
+         から。(Alex Jackson)
+- 05789: [DIP/入力] (prehisle.c) vblank IP_ACTIVE_HIGHの値が間違っている。
+         (Alex Jackson)
+- 04648: [画面反転/カクテルモード] (btime.c) All sets in btime.c: カクテルモードのプ
+         レイヤー2のグラフィックがずれる。(Alex Jackson)
+
+
+ソースの変更点
+--------------
+- dreamwld.c:「Cute Fighter」のDIPスイッチ指定と基板レイアウト追加。[Brian Troha]
+
+- Atari System 1 TTLマザーボードPALを追加。[Kevin Eshbach]
+
+-「パズルボブル3(日本版)」の基板配置とPALの情報追加。[Kevin Eshbach]
+
+- GitHubのreadmeが誤解を与えないように更新。[Justin Kerk]
+
+-「Smashing Drive」ハードの詳細を追加。[Demul Team]
+
+-「ファイトフィーバー」ROMセットを再吸い出しと検証。[DsNo]
+
+-「ライディングヒーロー」のプロトタイプから吸い出した通信MCU ROMを追加。
+  [Brian Hargrove]
+
+-「Smashing Drive」がハングしないようにatvtrack.cを修正。[MetalliC, Demul team]
+
+- renegade.c: カスタムサウンドをMSM5205に置き換え。[Alex Jackson]
+
+- raiden2cop.c: エンディアンの修正。[Alex Jackson]
+
+- btime.c: 画面反転修正。[Alex Jackson]
+
+- naomi.c: M4 PIC16について、部分的な読み出しを完全吸い出しに置き換え。また、PICの
+  正確な吸い出しがまだないのでマスターキーを仕込んだお手製のものを追加。
+  [rtw, MetalliC]
+
+- Chihiroのバーテックスプログラムを更新。[Samuele Zannoli]
+
+- SDL: OS Xで非フレームワークSDL 2問題のあるビルドを修正。[mbcoguno]
+
+- lindbergh: フェイクのPITと本物のPCIブリッジ。[O. Galibert]
+
+- pci: ROM管理の拡張。[O. Galibert]
+
+- lindbergh: カードとビデオBIOSの一致。[O. Galibert]
+
+- リトルエンディアンのメモリ領域のデバッグ表示を修正。[Alex Jackson]
+
+- m68k: FTRAP逆アセンブラサポート。[R. Belmont]
+
+- luaengine: APIバージョン付け追加。[Luca Bruno]
+
+- viper.c:「Police 911 2」にNVRAMとドングル追加。[Guru, dogpn]
+
+- pci: valgrindが文句をいわないように初期化を修正。[O.Galibert]
+
+- pci: マルチファンクションデバイスの自動検出。[O. Galibert]
+
+- i82875p: toudディスプレイの修正。[O. Galibert]
+
+-「メルティブラッドアクトカデンツァバージョンB」を再吸い出し。[rtw, ShouTime]
+
+-「メルティブラッド」シリーズのゲーム名をタイトル画面に合わせて修正。[metallic]
+  
+- igs009.c -「Jinble Bell」「Gran Prix '98」のマニュアルを元にDIPスイッチ更新と配置追
+  加。[Bad A. Billy]
+
+- 82875p: オーバーフローデバイス、ハイsmram追加。[O. Galibert]
+
+- pci: pciブリッジレジスタを追加。[O. Galibert]
+
+- hikaru.cと「エアトリックス」「プラネットハリアーズ」のプロテクトキー更新。
+  [CaH4e3, MetalliC] 
+
+- ROMラベルとROM_LOADの訂正。[MetalliC]
+
+- ジョイスティックのレジストログに共通の論理IDを仕様。[tomyun]
+
+- *nix manページのバージョンアップ。[wallyweek]
+
+-「Dona Barata」の初期実装。[Felipe Sanches]
+
+- SH-2: デフォルトSSR値を追加して「EGWord」が起動可。[Angelo Salese]
+
+-「Yam! Yam!?」「Last Day / D-Day」のクロック検証。[system11]
+
+- OpenGLサポートが無い場合、gl_lib()をチェックしないよう変更。[Tarnyko]
+
+- k053936.c: アウトオブバウンズメモリアクセスの可能性があったのを修正; デッドコードの
+  削除。[Alex Jackson]
+
+- 新しいStepperデバイスがAWPゲームで正しく読み込まれるよう修正試行。devcb2設定時に
+  stepper_interfaceを削除するための第一段階。[James Wallace]
+
+- debug: 小さいフォント用にGUIを修正。[Fabrice Bellet]
+
+- fontWidthが整数値にならないため11pt以外のサイズを使用。[Fabrice Bellet]
+
+- debug: コメントの文字列はみ出し修正。[Fabrice Bellet]
+
+- debug: start_hook()のasmビューを更新しないよう更新。[Fabrice Bellet]
+
+- curpcは命令デコード中にあるので、そのアドレスから始まる逆アセンブリを再計算するのは
+  適切ではない。[Fabrice Bellet]
+
+- debug: avlツリーロジックを修正。[Fabrice Bellet]
+
+- 先祖ノード高さが正しく更新されないのを修正。[Fabrice Bellet]
+
+- debug: 重複したメモリアクセスの処理改善。[Fabrice Bellet]
+
+- ツリーの再バランスはパフォーマンスを損ねるので、重複したメモリアクセスに対応するノ
+  ードを削除・再挿入せずにエレメントコンテンツを更新するよう変更。[Fabrice Bellet]
+
+- debug: メモリビューのm_topleft.x初期値を修正。[Fabrice Bellet]
+
+- Stepperモーターデバイス動作を大幅変更。devcb2インタフェースで使用。
+  [James Wallace]
+
+- cpu: Rockwell PPS-4 CPUコアをbitsavers.orgにあるドキュメントを元に書き直し。
+  rendlay.c/hにleg8seg_gts1(Futaba)を追加しgts1.layで使用。Rockwellデバイスの10696、
+  10788、A17xxを追加。[Juergen Buchmueller]
+
+- 新関数追加: 
+
+  MCFG_STEPPER_ADD(tag) - Stepperデバイス追加
+  MCFG_STEPPER_REEL_TYPE(type) - 旧インタフェースの第一ラインと同等。プリンタなどのア
+  プリケーション向けにNOT_A_REELも取れる
+  MCFG_STEPPER_START_INDEX(int index) - インタフェースの旧第二ライン。光学タブをトリ
+  ガする最初の位置
+  MCFG_STEPPER_END_INDEX(int index) - インタフェースの旧第三ライン。光学タブをトリガ
+  する最後の位置
+  MCFG_STEPPER_INDEX_PATTERN(int pattern) - コイルパターンは16進数でトリガする
+  モーターのインデックス(特定パターンが不要のときは0)
+  MCFG_STEPPER_INIT_PHASE(int phase) - モーターのフェーズ開始
+
+  全ドライバを更新し、具体的なドライバのテストも完了。Scorpion 4は特に複雑。
+  [James Wallace]
+
+- qt/debug: デバイスツリービュー。mu100やlindbiosがかっちょよく表示。
+  [O. Galibert]
+
+- tms5110.c: 出力とリードbitコマンド実装。[Lord Nightmare]
+
+- namcops2の更新:
+ *「タイムクライシス4」のBIOSとドングル追加 [Guru]
+ *「ガンダムVS.ガンダム」のドングル追加 [Guru, Darksoft]
+
+- debug/qt: デバイス単位のウィンドウ追加。[O. Galibert]
+
+- SDL2: Alt+Enterが全ての画面で1回で動作するよう改良。ウィンドウモードでのウィンドウ
+  の左上位置改良。[R. Belmont]
+
+- dinohunt: プレイヤー3の入力修正(MT05804)。 [darq]
+
+- luaengine: メモリ読み込み機能追加。[Luca Bruno]
+
+- chihiro: Zバッファとステンシル、レンダターゲットメソッドをサポート。
+  [Samuele Zannoli]
+
+- SDLMAMEのWindowsビルドでの-mtを修正。[Calamity, Couriersud].
+
+- sdl_window_infoをC++に近づけて修正: [Couriersud]
+ * 一部メンバをプライベート化
+ * static関数をsdl_window_infoに移動
+ * 信頼性向上のためwork_param構造体コンストラクタ追加
+ 
+ - 以下のドライバでセーブステートに起きていた不具合を修正: [Osso]
+ * arcadecl.c, batman.c, eprom.c, foodf.c, liberatr.c, atarisys2.c, gstream.c,
+   pasha2.c, f-32.c, lastfght.c, bfm_sc1.c, bmcpokr.c, centiped.c, jangou.c, merit.c,
+   segas16a.c, asteroid.c, seibuspi.c
+
+- ARCompact命令セットベースのプロセッサ用CPUコア、ARCtangent A-5の開発開始。これはま
+  だ準備段階で逆アセンブリはほぼ完成したものの、出力はまだ整理できるはず。さらに多く
+  の命令は未実装で、間違っているものあり。現在lapsterドライバで使用。[David Haywood]
+ 
+- m68k: 68010のバスエラー対策として正しいスタックフレームを生成。[R. Belmont]
+
+
+新規追加、またはNOT_WORKINGステートから昇格したゲーム
+-----------------------------------------------------
+Cute Fighter [system11, David Haywood]
+Su Ho Seong [system11, David Haywood]
+
+
+新しく追加されたクローンセット
+------------------------------
+スターウォーズ (set 3) [Andrew Welburn]
+モータルコンバット (Yawdim bootleg, set 3) [Guru]
+Brick Blast (ウォールクラッシュ海賊版) [Edcross & Rockman (from Aumap)]
+D-Day (Dooyong) (Korea) [system11]
+Yam Yam (Korea) [system11]
+スペースデュエル (version 1) [Mariusz Wojcieszek]
+スペースデュエル (prototype) [Mariusz Wojcieszek]
+Montana Choice (MG0183) Multi-Game [BrianT] (not working)
+Player's Edge Plus (X002478P+XP000154) Joker Poker - French [BrianT]
+Player's Edge Plus (X002479P+XP000154) Joker Poker - French [BrianT]
+Player's Edge Plus (X002478P+XP000154) Joker Poker (Aces or Better) - French [BrianT]
+Player's Edge Plus (X002485P+XP000154) Standard Draw Poker - French [BrianT]
+ギルティギアXX #Reload (GDL-0019) [rtw]
+メルティブラッド アクトカデンツァ (GDL-0028) [rtw, ShouTime]
+リッジレーサーV -アーケードバトル- (RRV2 Ver. A) [Guru, Darksoft]
+Atari Football II [Mariusz Wojcieszek]
+スーパーストリートファイターII ターボ (Asia 940223 Phoenix Edition) (bootleg) 
+  [Anonymous]
+F-1エキゾーストノート (Japan) [ShouTime, The Dumping Union]
+ラジカルバイカーズ (Version 2.02) [Ricky2001 (from AUMAP)]
+だるま道場 -目指せ、達麿王- (World) [rtw]
+Dominos 4 (Cocktail) [Mariusz Wojcieszek]
+スーパーブレイクアウト (Cocktail, prototype) [Mariusz Wojcieszek]
+
+
+追加された未動作ゲーム
+----------------------
+ザ・ハウス・オブ・ザ・デッド4 (Export) [soyandroid, Guru] 
+バーチャファイター5 (Export) [soyandroid] 
+アフターバーナークライマックス (Export) [soyandroid] 
+レッツゴー ジャングル！ (Export) [soyandroid] 
+アウトラン2 スペシャルツアーズ SDX [soyandroid] 
+パワースマッシュ3 / Virtua Tennis 3 (Export) [soyandroid] 
+パワースマッシュ3 (Japan) [Guru]
+頭文字D アーケードステージ4 (Rev D) [Guru] 
+頭文字D アーケードステージ4 (Rev C)  [Guru] 
+SEGA-RaceTV (Export) [soyandroid, Guru] 
+愛されるより愛シタイ -THE HOUSE OF THE DEAD EX- (Japan) [soyandroid] 
+RAMBO (Export) [soyandroid, Guru] 
+ハマーエクストリームエディション  [soyandroid] 
+VBios updater [Guru] 
+2 Spicy  [Guru] 
+ゴーストスカッドエボリューション [Guru] 
+プライミーバルハント [Guru]
+スターホースプログレスリターンズ (satellite) [CaH4e3]
+プライドGP2003 (PR21 Ver. A) [Guru, Darksoft]
+クイズ機動戦士ガンダム 問・戦士 (QG1 Ver. A) [Guru, Darksoft]
+タイムクライシス4 [Guru]
+鉄拳5 ダークリザレクション [Guru, Darksoft]

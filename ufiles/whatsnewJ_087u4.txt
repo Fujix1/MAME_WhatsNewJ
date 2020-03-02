@@ -1,0 +1,53 @@
+﻿0.87u4
+
+全般的な改良点：
+----------------
+
+■u3でAtari/Midayドライバのゲームがクラッシュしていたバグを修正。
+  [Olivier Galibert]
+
+■ソース名のcfgファイルがセット名のcfgとだぶって保存されるのを変更。
+  [René Single]
+
+■memory.hの静的な関数の実装をインラインに変更。[Brad Oliver]
+
+■Hyper Neogeo 64のレンダリングを改良。3Dグラフィックも表示されるようになりまし
+  たが、エミュレーションはまだ不完全です。「餓狼伝説ワイルドアンビジョン」が起動
+  するにはまだハックが必要です。
+    [Andrew Gardner, Rasterizing code provided in part by Andrew Zaferakis]
+
+■FD1094 CPU 317-0092のステータス0x00～0xff（0x00はリセット、0x10はIRQ）の解読を
+  するコード追加。これは「テトリス」で使っているCPU。コード自体の実装はまだ。
+  [Nicola Salmoria]
+
+■instr86.cを以下に基づいて変更：
+
+  cpu/i86コードのCMPSW命令をエミュレートする部分に、カット＆ペーストのミスのよう
+  なバグあり：instr86.cの524行目で、SUBW()マクロを呼び出すところがSUBB()を呼び出
+  していてる
+    [Juergen Buchmueller]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Puzzle Club (Yun Sung) [Pierpaolo Prazzoli]
+Pop Bingo [David Haywood]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Explosive Breaker (爆裂ブレイカーのマスタセット) [David Haywood]
+ストリートファイター2 EX (USA) [Brian Troha]
+トップレーサー (海賊版, set 2) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Funny Strip [David Haywood]
+    プロテクト未エミュレート?
+
+Ping Pong Masters '93
+Twin Brats
+Twins
+Mighty Warriors
+    上の4ドライバはまだ作業中

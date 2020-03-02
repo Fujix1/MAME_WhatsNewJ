@@ -1,0 +1,69 @@
+0.82u1
+------
+
+全般的なソースの変更：
+----------------------
+
+■「エリア51」のR3000版を親セットに変更。[smf]
+
+■memory.c用パッチ。[Nathan Woods]
+    src/memory.c:
+    src/memory.h:
+        - memory_install_[read|write][8|16|32|64]_handler_mirror()を追加。
+          AM_MIRRORマクロと同じようにミラーリング可能なメモリハンドラを設定するもの
+
+■STV VDP-1のアップデート。[Mariusz Wojcieszek]
+    - VDP1の描画（スプライト）にフレームバッファを使うように変更
+    - スプライトプライオリティ追加（shanhigwのプレイ時やcolumn97のタイトル画面修正）
+    - スプライトのカラーオフセット追加
+    - スプライトのアルファブレンディング改良（ejihonとshienryuのイントロの改良）
+    - フレームバッファインタフェース追加（elandoreのキャラ選択画面修正）
+    - ビットマップのカラーオフセット追加
+    - ビットマップのの縦スクロール追加（shanhigwのゲームプレイ修正）
+
+    以上の変更（ユーザから見える部分）により、shanghigwが問題なくプレイ出来るように
+    なりました（タイトル画面の不具合は除く）
+
+■STV VDP-2のアップデート。[Angelo Salese]
+    ウィンドウモード時のバグを修正。
+
+■PSX sioのバグ修正。[smf]
+
+■Z80 RETN / RETIのサイクルカウントを修正。[Juergen Buchmueller]
+
+■「1945kIII」のサウンドとDIP修正。[Pierpaolo Prazzoli]
+
+■hyprduel.cのスプライトプライオリティ修正。[Hau]
+
+■tecmo16.cの画面反転修正。[Hau]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+ブラッディロア2 [smf]
+    ROMが一つ不良
+
+FireHawk [Pierpaolo Prazzoli]
+    アトラクトモードのAfega特有のハードプロテクトの問題があるので
+    実はまだ動作不可印付き
+
+上海 - 万里の長城 [Mariusz Wojcieszek]
+    タイトル画面にまだ不具合あり
+
+ヘッドオン (Irem M15基板) [David Haywood]
+    音無し
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Target Ball (脱衣無しセット) [David Haywood]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Open Golf Championship / ゴルフィンググレイツ2 (ver EAE) [R.Belmont]
+    動作せず
+
+パチンコ銀玉勝負DX [Brian Troha]
+パチンコ銀玉勝負 [Brian Troha]
+    realbreakに似たハードでもまだ動作せず

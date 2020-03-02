@@ -1,0 +1,110 @@
+0.142u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03552: [ドキュメント] kodure: ゲーム名がKodureになっているが、漫画や映画に合わせて
+         Kozureにした方がよいのでは。(Angelo Salese)
+- 04314: [ドキュメント] lca, lca2: ゲーム名は正しくは"Lights... Camera... Action!"。
+- 04191: [サウンド] dynablstb: 起動時のノイズ以外、サウンドが全く出ない。
+         (Alex Jackson)
+- 02087: [サウンド] qbert, qbertqub and clones: 起動時の"Hello. I'm turned on."のボイ
+         スがまた鳴らなくなっている。(Robbbert)
+- 04307: [ドキュメント] jokrz_l6, jokrz_l3: ゲーム名は正しくは「Jokerz!」
+- 02072: [グラフィック] mooncmw, spcdraga, mooncrgx: 3面と4面でグラフィックがおかしく
+         なる。(Robbbert)
+
+
+ソースの変更点
+--------------
+-「アームドF」基板ゲームにIRQ ACKメカニズムを追加。[Angelo Salese]
+
+-「テラフォース」海賊版のbit-rotビットを手修正。アトラクトモードのクラッシュが解消。
+  [Angelo Salese]
+
+-「テラフォース」海賊版セットのもう一つのZ80エミュレーションを修正(プロテクト用のリプ
+  レースとして使用)。動作可能に昇格。[Angelo Salese]
+
+- terrafu / terrafaのMCUシミュレーションを実装。[Angelo Salese]
+
+-「子連れ狼」のテキストプロテクトシミュレートを実装。ゲーム中のスコアやコピーライト画
+  面が表示可能。[Angelo Salese]
+
+-「子連れ狼」のFGスクロールラッチを実装。ゲームのイントロシーンでのレイヤーオフセット
+  を修正。[Angelo Salese]
+
+- taito_b.c - qzshowbyにPLDの吸いだし追加。[Tafoid]
+
+-「超時迷宮レジオン」に1414M4エミュレーションを追加。[Angelo Salese]
+
+-「クレイジークライマー2」の1414Mエミュレーションを実装。[Angelo Salese]
+
+- ドライバの開始時にRTCを特定の日付時刻で初期化を行うため、device_rtc_interfaceを追加。
+  不具合テストで便利。ほとんどのRTCデバイスにこのインタフェースを実装。
+  注: コマンドラインにはまだ実装していません。[Curt Coder]
+
+- Namco System 11のクローンセットを国コードとバージョンを元に改名。[smf]
+
+- SDL: バックワードテクスチャレクトアングルオプションを修正。[AWJ]
+
+- NB1414M4プライオリティビットを実装。「アームドF」ドライバ全ゲームのテキストプライオ
+  リティが修正。[Angelo Salese]
+
+-「86 Lions」をAristocrat Mk-4ドライバに統合。[Angelo Salese]
+
+- m90ドライバの改良: [AWJ] 
+ * MTバグ4191(dynablstb: 音出ない)の修正
+ * bbmanwとクローンのサンプル再生を実装し、GAME_IMPERFECT_SOUNDを削除(bbmanwjでははじ
+   めから動作していたので、フラグがついていたのはおかしかった)
+ * V35の割り込み生成に、前に自分がやったdeprecat.hを使ったアホな方法から、
+   generic_pulse_irq_line()を使う方法に変更
+ * cb2001.cにも同様の修正
+ * 入力系のスペルミスを修正
+ * quizf1を、モダンバンクスイッチにコンバート
+ * R.Belmont氏の協力で、quizf1とbomblordをエンディアンセーフに変更
+ * セーブステートをサポート
+
+- m90ドライバでdeprecat.hを使わないように更新。[Angelo Salese]
+
+-「アームドF」ドライバのRAMベースなスプライトパレットを実装。この基板の全ゲームで色の
+  サイクルエフェクトに使用。[Angelo Salese]
+
+-「エイリアン・ザ・アーケード -メダルエディション」のコンパクトフラッシュを吸い出し。
+  [Smitdogg, The Dumping Union]
+
+-「Buster」の修正をいろいろ。ゲームの起動とプレイが可能。[Angelo Salese]
+
+-「戦え！ビッグファイター」を「アームドF」ドライバに統合。[Angelo Salese]
+
+- terrafbのビットロットしてたROMを再吸い出し。[Bill D., The Dumping Union]
+
+- astring: toupper()がマクロのところで、NetBSDや他のシステムでビルドできない問題を修
+  正。[Thomas Klausner]
+
+-「コップ01」「マイティガイ」にIRQ ACKメカニズム実装とCPUクロックスピードの修正。
+ 「マイティガイ」のクラッシュが解消。[Angelo Salese]
+
+- es5503: オシレータイネーブルビットの設定時に正しくマスク。[R.Belmont]
+
+-「コップ01」の音程を実機資料を元にして調整。[Tafoid]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+マイティガイ [Angelo Salese]
+
+
+新しく追加されたクローンセット
+------------------------------
+鉄拳2 (TES3 VER.D) [atchoo, Smitdogg, The Dumping Union, smf]
+ソウルエッジ (SO2/VER.A) [f205v, Smitdogg, The Dumping Union, smf]
+ソウルキャリバー (SOC13 VER.C) [f205v, Smitdogg, The Dumping Union, smf]
+鉄拳タッグトーナメント (TEG2 VER.C1) [f205v, Smitdogg, The Dumping Union, smf]
+リベログランデ (LG1 VER.A)
+  [B. Munger, S. Ruiz, Smitdogg, The Dumping Union] (動作せず)
+天聖龍 (set 2) [Tirino73] (not working)
+
+
+追加された未動作ゲーム
+----------------------

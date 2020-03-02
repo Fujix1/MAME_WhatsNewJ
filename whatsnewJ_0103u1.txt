@@ -1,0 +1,92 @@
+0.103u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+upsidedown0103yel [Mamesick]
+
+
+
+ソースの変更点
+-------------
+- Berzerkドライバの大幅なクリーンアップと書き直し: [smf]
+ * メモリとIOのリード・ライトマップを統合
+ * ビデオRAMとMagic RAMで同じメモリを共有
+ * frenzyのメモリマップにnvram実装
+ * 回路図を元に、9個の74LS153についてMagic RAMのシフタ・フロッパをエミュレート
+ * 回路図を元に、2個の74LS181のMagic RAM ALUをエミュレート
+ * データシートの論理回路を元に74LS181のエミュレーション追加。ロジックモードと演
+   算モードをサポート
+
+-「Thunder Strike」の割り込み、表示領域、ラスタ更新を修正。[Bryan McPhail]
+
+- ARMコアのアップデート: [Bryan McPhail]
+ * ソフトウェア割り込みの修正
+ * モード変更のバグ修正
+ * コプロセッサの予備サポート
+
+- Decoの修正: [Bryan McPhail, Pierpaolo Prazzoli] 
+ * Deco MLCビデオハードがほとんどの部分でほぼ完成。ただし、DE156チップに付いてい
+   る演算用コプロセッサが未エミュレートのため、きちんと動作するゲームはまだなし
+ * Deco 32:「ナイトスラッシャーズ」はサウンドが無いのを除けばほぼ完璧
+ * Deco 32:「タトゥーアサシン」のグラフィック修正
+ * Deco 156:「ヘビースマッシュ」がほぼ完成
+
+- ソース内の定数変数の多くをstaticに設定。[Atari Ace]
+
+- H2680/PCEの修正いっぱい: [Rob Bohms, Charles MacDonald]
+ * スプライトがバッファ外でも描画できたのを修正
+ * VRAMからVRAM DMAを追加 (Charles)
+ * h6280の修正を多数 (Charles)
+ * VRAMの128Kの領域全体へのアクセスを正しく処理する関数を追加 (Charles)
+ * ハードウェアのページからI/Oバッファビットを追加
+ * ミラーリングを正しくサポートするためh6280のIRQレンジを修正
+ * h6280のIRQをPCエンジンに実装
+ * スプライト間のプライオリティ修正
+ * 部分的に16スプライトの制限を実行
+
+- デバッガコマンド traceflush 追加。[Nathan Woods]
+
+- v810コアの境界外の配列書き込みを修正。[Atari Ace]
+
+- BCDとデータ関係の関数をmamecore.hに移動。[Nathan woods]
+
+-「Triple Hunt」のSE実装。[Derrick Renaud, Stefan Jokisch]
+
+-「Super Model」のOKI周波数修正。[Sonikos]
+
+- PowerPC MMUコード追加。ただしModel 3ゲームが壊れているのでMESSでのみ有効化。
+  [Nathan Woods]
+
+-「Grand Tour」のグラフィックレイヤープライオリティ修正。[Tomasz Slanina, Guru]
+
+-「スターウォーズ」のマスボックス乗算機能について回路を元に書き換え。
+  [Mathis Rosenhauer]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ナイトスラッシャーズ [Bryan McPhail]
+ヘビースマッシュ - ハイパーハンドボール [Bryan McPhail]
+アベンジャーズ・イン・ギャラクティックストーム [Bryan McPhail]
+Power Instinct Legends / 豪血寺外伝 - 最強伝説 
+ [Brian Troha, Pierpaolo Prazzoli, Guru]
+シャトルインベーダー [Tomasz Slanina]
+麻雀 大中華圏 [Luca Elia, Guru, bnathan]
+
+
+
+新規クローンセット
+------------------
+Pasha Pasha Champ Mini Game Festival [Pierpaolo Prazzoli]
+Thunder Strike (Newer) [Bryan McPhail]
+Super Star Battle [Pierpaolo Prazzoli]
+Quiz (Revision 2.1) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ミラックス [Tomasz Slanina]

@@ -1,0 +1,194 @@
+0.119u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+createconfig+debug0119yel [Nathan Woods]
+jrpacman0119gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- System C2とSystem 18ゲームのクラッシュと表示化け修正。[David Haywood]
+
+- MB86233コアをElSemi氏のものとシンクロ。バグの修正。[Ernesto Corvi]
+
+- Model 2ドライバのシンクロコードを修正。[Ernesto Corvi]
+
+- i960コアの、SCALER、SCALERL、ATANRL命令を修正。[Ernesto Corvi]
+
+- gdrawpkrドライバを更新: [Roberto Fresca]
+ -「El Grande - 5 Card Draw」にサウンド追加
+ - CPUとサウンドクロックを#defindedで定義されている周波数から導出
+ - マイナーな入力関係のクリーンアップ
+
+- ARM7コアの修正: [R. Belmont]
+ - unalignedなリード・ライトの再修正
+ - Thumbモードのための最小命令バイトを修正
+ - ARM7ビルドルールの依存関係を修正
+ - ThumbモードのASR命令を修正
+
+- BIOS ROMの再吸い出しと、「ポップンミュージック7」のSPUボードエミュレーション初
+  期版をFirebeatドライバに追加。[Ville Linde]
+
+- taito_z.cドライバの入力ポートクリーンアップ。[Brian Troha]
+
+- -wno-unused-functionを削除するためソースの更新。デッドコードは#ifdef 
+  UNUSED_FUNCTIONで識別され、さらなる解析と将来的な削除が可能なようになっていま
+  す。?[Atari Ace]
+
+- h6280 CPUコアの問題をいろいろ修正: [Wilbert Pol]
+ - 既に命令パイプラインに保留中の命令を考慮して割り込みの遅延をとるように変更
+ - ADCとSBC命令のデシマルモードに1サイクル追加
+ - CSH、CSL命令のサイクルカウントを3に変更
+ - SBC命令にTフラグサポート
+ - ADC Tフラグを、読み込んだ値を元にZフラグに設定
+ - Tフラグが設定されているとき、ADC、AND、EOR、ORA、SBC命令のペナルティを3に設定
+ - サイクルカウントの修正と、TAI、TDD、TIA、TIN命令の65536バイトブロックサポート
+ - 逆アセンブラのRDWORDマクロ修正
+ - TST命令のNとVフラグ設定を修正
+ - 不要になってたdebug_mmrコードを削除
+ - TSBとTRB命令を修正
+ - VDC、またはVCEエリアにアクセスするときに1ディレイ追加
+ - 低速と高速のCPUモード実装
+
+- srmp5(「スーパーリアル麻雀 P5」)をst0016.cから単独ドライバに移行。ビデオハード
+  エミュレーションの初期版追加。プレイ不可、サウンド無し。[Tomasz Slanina]
+
+- marioドライバのDIPスイッチ修正。[stephh]
+
+- Namco System 21のメジャーアップデート。変更点は以下の通り: [Phil Stroffolino]
+ - EPROM処理修正(Namco System 2にも影響)
+ - namcoic.cのスプライトエミュレーションでのスクロール修正
+ -「スターブレード」「サイバースレッド」「ソルバルウ」がフル3Dで動作
+ - 再構成が必要な深度キューテーブル以外はグラフィックは100%のはず
+ -「エアーコンバット」の改良。ただしウォッチドッグエミュレーションが不完全なので
+   118秒で固まる
+ -「ウィニングラン」ハードウェアはこの更新では未動作
+
+- RAMからのREGION_CPU1のデカップリングでundoukaiが壊れていたのを修正。
+  [Pierpaolo Prazzoli]
+
+- SCSPの修正: [R. Belmont]
+ * グローバルレジスタを破棄しないように、SCSPのアドレス空間(0x430〜0x5ff)への
+   書き込みを修正
+ * SCSP DMAが自身のレジスタとして、ランダムなメモリを読み込まないように修正
+
+-「ビデオピンボール」のビルトインレイアウトにランプ表示を追加。[Mr. Do!]
+
+- Model 2の大更新。改良点が多すぎるので、動作していないものリストします:
+ [Ernesto Corvi, El Semi]
+ - トライアングルパーサにまだ不具合あり。motoraidのSegaロゴ、dynamcopのプレイヤー
+   選択画面の矢印など。daytonaの道路が変なのも多分このせい
+ - Zクリッピングの問題あり。カメラに近い位置のトライアングルのクリップが早すぎる。
+   また、逆にクリップされないものもあって、1、2フレームの間ミューポートを遮る
+ - サブウィンドウは未実装。dynacopのミッション選択、「セガラリー」の車選択など
+ - デカールテクスチャがフレームおきに点滅する。透過変換後のZ座標のフロート解像度
+   の問題?
+ - デフォルトでテクスチャがラップしている。本来はフラグが設定されたときのみ。ラッ
+   ピングしない場合の動作は不明
+
+- Z180コアの改良: [Pierpaolo Prazzoli]
+ - Programmable Reload Timerを2つ追加
+ - 内部I/Oレジスタ再マップを修正
+ - 論理→物理メモリ変換を追加
+ - ループハック無効化
+ - "extra icount"を削除
+ - 割り込み処理変更。Z80コアと同様にチェックされます
+ - RETNとEI命令を単純化
+ - PRT割り込みを修正
+ - どのIRQについても、割り込みフリップフロップの両方をクリア
+ - _IFF2 = _IFF1を追加; _IFF1 = 0の手前; NMIを取るとき
+
+- Z180エミュレーションの改良により、20pacgalからパッチを削除。サウンドも動作。
+  [Pierpaolo Prazzoli]
+
+- othunder.cドライバのDIPスイッチ修正と、ノート追加。opwolf.cドライバにもノート
+  追加。[stephh]
+
+- MegaTech/MegaPlayドライバを新しいGenesisコアコードに移行開始。[David Haywood]
+
+-「ぐっすんおよよ / Risky Challenge」で、多くの新しい追加命令を割り出し。
+  [robiza]
+
+- Voodooのビデオタイミングをマニュアルを元に修正。ブランク間隔、VSync割り込みな
+  ど。これにより「Carnevil」とその他いくつかが、再び正しい速度で動作。
+  [Aaron Giles]
+
+- Voodooの描画コードについて、フロントバッファの変更を追跡して、フレームレートを
+  上げるためにレンダリングが不要なフレームをスキップできるように更新。
+  [Aaron Giles]
+
+- マルチスレッドでデバッガが有効なとき、ウィンドウを動かそうとするとハングするのを
+  修正。[Aaron Giles]
+
+- MIPS 3/4 CPUのx64の新ダイナミックコンパイラを試験的に追加。現在のバージョンは
+  基本的なゲーム（kinst、carevil）を何本か動作するだけです。さらに、このバー
+  ジョンは既に、レジスタ割り当てやコンスタントフォールディングを行う改良版に置き
+  換えられています。今のところデフォルトでは無効にしています。[Aaron Giles]
+
+- i386dasm.cの、64ビット逆アセンブラの問題をさらに修正。x86emit.hのコード生成に
+  ついても64ビットでのエラーを修正。[Aaron Giles]
+
+- 8バイトチャンクサイズのメモリ表示機能をデバッガに追加。未マップのアドレスをア
+  スタリスクで表示できない古いバグを修正。また、Windowsのデバッガに論理、物理メ
+  モリの表示機能追加。
+
+- 4bppの場合を除き、タイルマップのタイル幅が2の倍数という制限を削除。アサートで
+  チェックします。[Aaron Giles]
+
+- -switchresを使わないときに、Direct3Dを使ったフルスクリーンの動作を、フルスクリー
+  ンのDirect3Dデバイスを作成しなように試験的に変更。これにより、フルスクリーンに
+  移るときのグラフィックカードのモード切替を最小限に抑え（特にVistaのグラス処理を
+  無効にしない）ます。古い方法を使いたい場合は、-switchresを有効にして、
+  -resolusionのパラーメータにデスクトップのサイズを指定します。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Deer Hunting USA [Luca Elia]
+Turkey Hunting USA [Luca Elia]
+Wing Shooting Championship [Luca Elia]
+Trophy Hunting - Bear & Moose [Luca Elia]
+赤マルQ上昇ドントアール [Team Japump]
+サイバースレッド [Phil Stroffolino]
+ソルバルウ [Phil Stroffolino]
+スーパーリアル麻雀 PVI (Japan) [686]
+一発逆転 [BET] (Japan) [Luca Elia]
+清水市代女流四冠王監修 女流将棋教室 (Japan) [Luca Elia]
+Mazin Wars / Mazin Saga (Mega Play) [David Haywood]
+Grand Slam (Mega Play) [David Haywood]
+
+
+
+新規クローンセット
+------------------
+スクランブル (海賊版) [David Haywood]
+エイリアンストーム (海賊版, set 2) [David Haywood]
+Zero Team Selection [David Haywood]
+Passing Shot (Japan, 4 Players, System 16A, FD1094 317-0071)
+  [Arzeno Fabrice, ShinobiZ, Gerald Coy]
+パウンドフォーパウンド (Japan) [Team Japump]
+ビッグイベントゴルフ (Japan) [Team Japump]
+S.C.I (Japan) [Team Japump]
+ロイヤルマージャン (Japan, v1.13) [Team Japump]
+サイバースレッド (Japan) [Brian Troha]
+クラウンズゴルフ (new set) [Arzeno Fabrice]
+ドンデンラバー Vol.1 白黒つけよっ! (Japan) [Team Jampump]
+マリオブラザーズ (US, set 2) [stephh]
+Puzznic (Italy) [Corrado Tomaselli]
+ドンデンラバー Vol.1 (Korea, 海賊版) [David Haywood]
+ジェネシス / Boomer Rang'r (set 2) [Team Japump]
+ならず者戦闘部隊 ブラッディウルフ (Japan) [Team Japump]
+オープン麻雀 [BET] (Japan) [Team Japump]
+
+
+
+追加された未動作ゲーム
+----------------------
+レーザーグランプリ [Andrew Gardner]
+Saloon (France, encrypted) [Roberto Fresca]
+麻雀カフェドール (Japan) [Team Japump]

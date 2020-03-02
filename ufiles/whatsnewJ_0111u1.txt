@@ -1,0 +1,189 @@
+0.111u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+jspecter074gra [Robert]
+spcenctr36b16gre [Robert]
+spcewars0108u3red [Robert]
+invad2ct0110u4gre [Robert]
+mngrecording0110u1ora [Buddabing]
+ninjaw0104u2gre [robiza]
+orunners0105u4gre [robiza]
+twinbee0105yel [Mamesick]
+gwarrior0108u1yel [Mamesick]
+tst_galx0101u3 [Atari Ace]
+m660_0108yel [Atari Ace]
+shootouj0102red [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- 8080bwドライバのドキュメント追加。音が出ていないゲーム向けのポートとビットにつ
+  いて解説。ほとんどのケースで、さらに開発を進めるためにサンプルサウンドが添付さ
+  れています。変更のあったゲーム以下の通り:
+   invrvnge/invrvnga, rollingc, spcenctr, gunfight, m4, gmissile, schasrcv, 
+   280zzzap, lagunar, lupin3, phantom2, blueshrk, desertgu, ballbomb,
+   yosakdon/yosakdoa, shuttlei
+
+  cosmoとdogpatchはサウンドが出ますがNO_SOUNDのマークがついています。[Robert]
+
+- プラットフォーム専用のコードをchdcd.cとromcmp.cからods_toolコードへ移動。
+  [Nathan Woods]
+
+- 逆アセンブラとCPUインターフェイスについてプロジェクト全般に渡ってクリーンアッ
+  プ:  [Giuseppe Gorgoglione]
+ - 多くの逆アセンブラで、eainfo.hへの依存性を削除。これらの逆アセンブラからの出
+   力は以前と同じくチェックされます
+ - 6309dasm.cと6809dasm.c逆アセンブラを全体的に書き直し
+ - v810とhd6309インターフェイスのバグを修正
+ - m68000\cpudefs.hを削除。これは昔のm68000アセンブラコアで使っていたものです。
+   m68kmame.cとm68kmame.hも旧コア(A68K0、A68K2など)へ多くの参照があったので削除。
+ - cpuinfo共用体を正しくtypedef化。cpuintrf.hとその他多くのファイルに影響があり
+   ます
+ - 8051dasm.c、m65ce02.c、t11dasm.cで、ローカルな文字列保持に変えて、
+   cpuintrf_temp_str()を使うようにコンバート
+ - info.s = cpuintrf_temp_str()の初期化を以下に移動:
+    activecpu_get_info_string()、cpunum_get_info_string()、 
+    cputype_get_info_string()
+   これにより、各CPUコアのxxx_get_info()アクセサから、info->s = 
+   cpuintrf_temp_str()ステートメントを大量に削除して、可読性が上がりました
+
+- tms5220とtms5110の"chirp"なテーブルの問題を修正。また、tms5110.cとtms5220.cか
+  ら、Jarek氏のPRNG実装部をバックポート。これによりrand()へ依存しなくなりました。
+  [Lord Nightmare]
+
+- m68000コアのバグを2つ修正: [Alex Jackson]
+ -「獣王記」で見つかったGCC4との非互換性問題を修正。この他にも「ムーンウォーカー」
+  「ギャラクシーフォース2」など多くのゲームに影響していました
+ - コアのコンパイル時の自動設定を修正して、LP64プラットフォーム(64-bit Linuxなど)
+   で、LLP64(64-bit Windows)と32-bitプラットフォームと同じコードパスを使用します。
+
+- magmaxドライバにセーブステート追加。[Svante Gerhard]
+
+- perfrmanのBGM速度修正。[Mamesick]
+
+- i8051コアのda_a命令の実装を修正。[Special LIU]
+
+- チートエンジン大改造の第3弾: [ShimaPong]
+  注：以前のコマンドコードは削除して、Optionsメニューから新規に保存してください
+ * オペレーション:
+   - プログラムスペースへの直接アクセスを実験的に追加。ROMコードのカスタム処理
+      (segas16b.cなど)をハックできます。ただしいくつか問題があります。
+     また、プログラムスペースのウォッチポイント表示も追加。
+   - 新処理"Write if Match"を追加。追加データフィールドに保存された値に読み込み
+     値が一致したときだけ、チートエンジンが値を書き出します
+ * サーチメニュー:
+   - 3つめのサーチモード"Minimum Search Mode"を追加。以前のモードよりもシンプル
+     なものです。また、ui_clearキーでのサーチメモリの初期化と、このモードで矢印
+     キーでの値編集を追加
+   - "View Last Results"、"Restore Reslut"、"Region Selection"をadvanced search
+     メニューに追加
+ * リザルトビューア:
+   - HazeMDのsms.cのように検索領域が無い場合はMAMEがクラッシュするので
+     このメニューは開かないでください
+   - 左右の矢印キーでページ切り替えできるように改良。また、このメニューのキーを
+     いくつか変更
+   - 結果の無いページのスキップを改良。ただし、最初と最後のページの結果が無くて
+     もスキップしないので、まだ不完全
+ * コードローディング:
+   - デフォルトで旧フォーマットのロードをしないように変更。必要な場合は、Options
+     メニューの"Load Old Format"を選んでください
+ * 入力:
+   - Enable/Disableメニューのアクティベーションキーセーブを修正
+   -ウォッチコード追加用のキー処理を、ウォッチリストメニューからチートリストに修
+    正。ウォッチリストメニュー内ではCTRL + save cheatキーで動作します。
+   - ui_clearキーを値編集時(データクリア)とウォッチリストメニュー(全ウォッチポイ
+     ントのリセット)で有効化
+ * オプション:
+   - 内部データチェック用のデバッグオプション初期版を追加
+   - コマンドコードのセーブ追加。Optionsメニューのsave cheatキーでコマンドコードを
+     保存できます
+ * その他:
+   - クイックメニュースイッチ追加。ui_zoom in/outのキーに設定しています。
+     この機能は、Enable/Disable、Add/Edit、Search、Watchpointメニューでも動作し
+     ます
+  - メニューの一部項目について配置を修正.
+
+- Win32のOSDコードでchar文字列を使っていた部分を、TCHAR文字列を使うようにコンバー
+  ト。[Nathan Woods]
+
+- airbustrドライバのROMパッチを削除; 代わりにウォッチドッグを追加。
+  [David Haywood]
+
+- 6526 CIA (Amiga)エミュレーションのワンショットタイマーモードを再実装。
+  [Ernesto Corvi]
+
+- ゼロリフレッシュレートのバリディティチェック追加。[Nathan Woods]
+
+-「カルテット」「カルテット2」のデフォルトDIPスイッチを修正。[Alex Jackson]
+
+- troangelのグラフィック描画を修正。[Robiza]
+
+- 逆アセンブラのチェックが厳しくなって引っかかった項目を修正。[Aaron Giles]
+
+-「Funny Strip」「Rebus」のプロテクトチェックにパッチ。でもどちらもまだ動作せず。
+  [Tomasz Slanina]
+
+- -createconfigで、FILEではなくmame_fileを使ってINIを出力するように変更。
+  [Nathan Woods]
+
+- tetriunkドライバのグラフィック改良。[Tomasz Slanina]
+
+- MSM5235チップ関係のIremサウンドハードのコピペバグを修正。[Mamesick]
+
+-「Toki / JuJu伝説」の表示領域修正。[Mamesick]
+
+- Toshiba TMP90840/TMP94640 CPUコアを追加。[Luca Elia]
+
+- msm6242リアルタイムクロックを独自ファイルに移動。[Luca Elia]
+
+- dynaxドライバのblitterROMバンキングを改良。[Luca Elia]
+
+-「ラピッドヒーロー」の効果音追加(サンプルのバンキングが間違っていました)。
+  [Luca Elia]
+
+- tiaエミュレーションのリセット問題を修正。[Nathan Woods]
+
+- MESSサウンドコアの残りをMAMEのコアソースに追加。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Ms. Pac-Man/Galaga - 20 Year Reunion [Nicola Salmoria]
+麻雀 イフ [Luca Elia]
+麻雀 立直 (海賊版) [Luca Elia]
+麻雀 天開眼 (海賊版) [Luca Elia]
+Live Quiz Show [Luca Elia]
+Pool 10 (Italia) [Roberto Fresca]
+Tortuga Family (Italia) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Booby Kids (Italian manufactured graphic hack) [David Haywood]
+エアバスター (海賊版) [David Haywood]
+戦球 (US) [Arzeno Fabrice]
+Darth Vader [Tomasz Slanina]
+Rタイプ (World) [Stefan Lindberg]
+パズループ2 (Euro 010302) [Razoola, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Moonwar (prototype on Frenzy hardware) [Lord Nightmare]
+BanBam / ぺったんピュー [David Haywood, Brian Troha]
+Double Dealer [Tomasz Slanina]
+Sky Lancer [Luca Elia]
+麻雀 天神牌 [Luca Elia]
+麻雀 雷神牌 DX [Luca Elia]
+麻雀 天開眼 Part 2 [Luca Elia]
+麻雀 天開眼 [Luca Elia]
+Cow Race [Luca Elia]
+Mongolfier New (Italia) [Roberto Fresca]
+Soccer New (Italia) [Roberto Fresca]

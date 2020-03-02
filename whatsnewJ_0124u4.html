@@ -1,0 +1,219 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.124u4</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.124u4.txt</div>
+	<div class="main">
+<div class="wn">
+0.124u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+00426: [Core] tenkaibb, mjreach: 起動しない。(Emuman)
+01711: [Gameplay] connect4, mpu4met0, mpu4tst2, mpu4utst, bctvidbs: -cheatを有効にするとクラッシュする。(Atari Ace)
+00149: [Misc.] BIOS設定が無効でもエラーが出ない。(Atari Ace)
+01588: [Core] timecrsa, timecris: F3を押すとMAMEが終了してゲームに進めない。(Atari Ace)
+01733: [Core] diehard: 起動できない。(Aaron Giles)
+01710: [DIP/Input] spacetrk, sptrekct: コインが入らない。(Aaron Giles)
+01721: [DIP/Input] sspaceat, sspacat2, sspacat3, sspacatc : コインが入らない。(Aaron Giles)
+01740: [DIP/Input] carnival, headon, heiankyo, pulsar, samurai, tranqgun : コインが入らん。(Aaron Giles)
+01724: [Core] garou, garouo: ゲームがスタートできない。(Aaron Giles)
+01732: [Core] kof99, kof99a, kof99e: ゲームが始まらない。(Aaron Giles)
+01742: [Interface] punchout, armwrest + many vsnes.c and playch10.c games: リフレッシュスピードのせいで
+       例外エラーが起こる。(Aaron Giles)
+01670: [Graphics] kungfum, kungfud, spartanx, kungfub, kungfub2: 面終了シーンで、プレイヤーのスプライトが
+       見えている。(Nicola Salmoria)
+01686: [Graphics] ldrun3, ldrun3jp: 表示領域の問題。(Nicola Salmoria)
+00248: [Graphics] repulse: 自機がやられると、変なタイルが現れる。(robiza)
+01145: [Graphics] sonofphx, 99lstwar, 99lstwrk, repulse: 最初の面でやられると、画面左下に赤いグラフィックが
+       現れる。(robiza)
+00498: [Graphics] sonofphx, 99lstwar, 99lstwra, 99lstwrk, repulse: 4面のボスと木のプライオリティがおかしい。(robiza)
+
+
+
+ソースの変更点
+--------------
+- aerfboo2を改良: [robiza]
+ - BG1とBG2のオフセットを修正
+ - スプライト修正
+ - 動作可能(音無し)に設定
+
+- CDP1869インタフェースにマクロ追加。書き込みハンドラをオプショナルに設定。
+  [Curt Coder]
+
+- kyugo.cのスプライトと背景のオフセット修正。[robiza]
+
+- 6502ファミリーの逆アセンブラで、BBR、BBS、RMB、SMB命令の正しいビットを表示する
+  ように修正(65C02/65CE02 CPUとその派生版)。[Roberto Fresca]
+
+- quizf1の命令コードを2つ修正: 小さいF1マシンの動作修正。[robiza]
+
+- ppi8255をデバイスの実装に変換。[Wilbert Pol]
+
+- GCCのバグ#35885の対応するため、インラインバリディティチェックを変更。
+  [Wilbert Pol]
+
+- メモリアクセサ関数セットを拡張。全バスサイズ用のdirect byte、word、dword、
+  qwordに加え、masked word、dword、qwordアクセサを追加。[Aaron Giles]
+
+- CPS1をさらに改良: [Nicola Salmoria, Corrado Tomaselli, Charles MacDonald]
+ *「バース」の4面終わり部分でのレイヤーの切り替えを修正
+ *「バース」でスローダウンを減らすため、CPUクロックを12MHzに変更(このゲームは
+   sf2ceより後に出たので、高速なAボードが使えた)。
+ * グラフィックROMをPALダンプとさらに検証(Corrado氏の協力)
+ * AボードのPALダンプを使ってメモリマップを検証(Charles氏協力)
+ * CPS-AとCPS-Bカスタムのアドレス領域を分離。これによって、ゲームによって更新さ
+   れるレジスタと固定されたレジスタがある理由がようやく分かりました
+ * CPS-B-21カスタムの3つの不明レジスタが判明。ただし目的は不明
+ * CPS-A/CPS-Bレジスタへのハンドルなしアクセスを全てレポートするように変更。これ
+   は本来残ってはいけないものです。見つかると"contact MAMEDEV"のメッセージが出ま
+   す
+ * メモリマップをクリーンアップ。「ロストワールド/Forgotten Worlds」の特殊入力用
+   メモリハンドラをDRIVER_INITへ移動
+ * 追加の入力ハンドラをvideo/cps1.cに移動。追加入力のコネクタはCボードにあるため
+ *「Final Crash」にサウンド追加
+ * SF2のクロックを10MHzに変更。これは、12MHzのAボードが"89626A-4 DASH"と呼ぶこと
+   から、SF2ダッシュ(sf2ce)から使われたとする仮定に基づきます
+
+- リード・ライトハンドラに渡されるメモリマスクの方向を反転。以前は、読み・書きに
+  使わないビットを指定するマスクでしたが、どのビットを読み書きに使うかのマスクに
+  なりました。この方が論理的です。ドライバとMIPS CPUコアをこれに合わせて更新。
+  [Aaron Giles]
+
+- Funworldの更新: [Roberto Fresca]
+ - jolyc980用の一時的なハックを削除
+ - テクニカルノートを更新
+ - snookr10を独自ドライバに移動
+ - 細かいクリーンアップ
+
+- IGS017ベースのゲームを改良: [Luca Elia]
+  - iqblocka: プロテクトをバイパス。ビデオハード、入力、サウンドをエミュレート
+  - tjsb: 起動可能。グラフィックを一部復号化
+
+- Windowsオプション、-watchdogを追加。これはウォッチドッグスレッドを生成して、指
+  定した秒数が経過するとアプリケーションを強制的に終了します。主にリグレッション
+  テストで、ハングするゲームに対応するためのものです。[Aaron Giles]
+
+- popper.cの色改良。回路図より取得したレジスタ値を使用。
+  [couriersud, Joe Magiera]
+
+- kyugo.cゲームのCPU周波数修正、及び検証。「ジャイロダイン」と「99 The Last War/
+  リパルス」は同じ基板で動作。[Corrado Tomaselli]
+
+- 68681 DUART(machine\68681.c)の初期版追加。[Mariusz Wojcieszek]
+
+- Microtouchのタッチスクリーンコントローラエミュレーションを独自モジュレーション
+  に移動(machine\microtch.c)。[Mariusz Wojcieszek]
+
+- 無効なBIOS指定を致命的エラーに指定。また、"default"は特別なBIOS指定ではなくな
+  りました; デフォルトのBIOSを使いたい場合は、BIOSオプションを空白にして下さい。
+  [Atari Ace]
+
+- DEC T-11 CPUの改良: [Miodrag Milanovic]
+ - HALT - 割り込みベクタを呼び出す
+ - ILLEGAL - had PC=0 at the end which makes code not run fine
+ - MARK - 実装
+
+- twin16ドライバのメモリマップ統合。[Andrew Gardner]
+
+- prehisleドライバのおばかなアイドルスキップを削除。[David Haywood]
+
+- AY-3-8910の書き直し: [couriersud]
+ * 抵抗負荷の違いでチャンネルのミキシングを割り出すモデルを追加
+ * 上をベースに、各チャンネルがそれぞれにケースで異なる負荷を指定可能
+ * ay8910.cのエミュレーションをシンプルするため書き直し
+ * 設定の構造体がフラグフィールドとレジスタロードを持つように変更
+ * 関係する全てのドライバを更新
+ * データシートを読んだときに見付けたTodoな項目を追加
+ * disc_flt.c (konamiフィルタ)のバグ修正
+
+- galaxianドライバでのディスクリートサウンドとkonamiフィルタアドレッシングを修正。
+  また、AY-3－8910のアドレッシングを回路図に合うように変更。[couriersud]
+
+- gyruss.cに、コナミ風フィルタリングとミキシング用のディスクリートサウンドを追加。
+  [couriersud]
+
+- UIの音量を2.0以上設定できるように変更。[Nicola Salmoria]
+
+- 条件式内で割り当てを使うコードについて、割り当てから抜けるように変更。
+  [Atari Ace]
+
+- Machine -> machineを大量にコンバート。"deprecat.h"を削除可能なところから削除。
+  [Atari Ace]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+サイドバイサイド [Maruwa]
+Jumping Pop (NICs, プランプポップの韓国製海賊版) 
+  [Robin Cooper, David Haywood]
+Touchmaster [Mariusz Wojcieszek]
+Touchmaster 3000 [Mariusz Wojcieszek]
+Touchmaster 4000 [Mariusz Wojcieszek]
+Touchmaster 5000 [Mariusz Wojcieszek]
+Touchmaster 7000 [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+ソニックウイングス (海賊版 set 2) [robiza]
+1942 (Williams Electronics license) [Quarterarcade]
+Rygar / アルゴスの戦士  (US set 3 Old Version) [Corrado Tomaselli]
+Ghosts'n Goblins / 魔界村 (イタリア製海賊版, harder) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Apple 10 (Ver 1.21) [Roberto Fresca]
+Ten Balls (Ver 1.05) [Roberto Fresca]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

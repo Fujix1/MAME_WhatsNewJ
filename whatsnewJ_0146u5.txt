@@ -1,0 +1,198 @@
+0.146u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04975: [DIP/入力] (dcon.c) sdgndmps: [バグかもね] 3つめの不明DIPスイッチはデモサウ
+         ンドの切り替え。(hap)
+- 04959: [ドキュメント] (hikaru.c) braveff: BIOSセットとして報告される。
+- 03696: [クラッシュ/フリーズ] (tetrisp2.c) nndmseal: [デバッグ限定] アサート。
+         (Luca Elia)
+- 04972: [ドキュメント] (vega.c) vega: Olympiaのスペルが間違ってる。
+- 04962: [クラッシュ/フリーズ] (taito_l.c) plottinga: 起動直後にクラッシュする。
+         (David Haywood)
+- 04961: [ゲームプレイ] (darkhors.c) darkhors: ゲームが起動しない。(David Haywood)
+- 04960: [クラッシュ/フリーズ] (cdi.c) All sets in cdi.c: 初期スタートアップ画面のあ
+         と、ゲームが起動しない。(David Haywood)
+
+
+ソースの変更点
+--------------
+- Sega 16-bitドライバを完全にモダン化。FD1089、FD1094、Segaメモリマッパ、除算、積算器、
+  比較、タイマチップをモダンデバイス化。[Aaron Giles]
+
+-「スカイデストロイヤー」に、色サイクルエフェクトの初期版追加。[David Haywood]
+
+-「スカイデストロイヤー」の入力系の残りの問題を修正。[Angelo Salese]
+
+-「サイクルマー坊」のスプライト表示順序を修正。[Angelo Salese]
+
+-「サイクルマー坊」の入力実装。[Angelo Salese]
+
+- ppc: バッファ済み外部DMAのコールバックを追加。[Ville Linde]
+
+-「Lock N Loaded」のサウンドの予備実装。[Angelo Salese]
+
+- Kaneko製ゲームの一部について、デバイスを使用するように変更作業開始。[David Haywood]
+
+- crgolf.c: ROM名を実際のROMラベルに合わせて改善、またその他のセットについてもドキュ
+  メントを改良。プロテクト付きのPAL吸い出し追加。[Kevin Eshbach, Tafoid]
+
+- st0020 (setaブリッタ+スプライト拡大処理器)をデバイス化。[David Haywood]
+
+-「ゼノフォーブ」の音良好な基板からPLDを追加。[Kevin Eshbach]
+
+- memory: ダイナミックにマッピングするデバイスをサポート。[O. Galibert]
+
+- v30mz.c: C++にコンバート。[Wilbert Pol]
+
+- H8: H8S/2294の超初期バージョンサポート。[R. Belmont]
+
+- invqix: 汎用EEPROM、FPGA、IRQを実装。[R. Belmont]
+
+- invqix.c:「Space Invaders / Qix Silver Anniversary Edition」の基板レイアウト追加。
+  [Brian Troha]
+
+- invqix: 入力とサウンド追加により動作可能に昇格。「QIX」はTBDテキストが一部変。
+  [R. Belmont]
+
+-「Bega's Battle」「ロードブラスター」ハードウェアに入力、サウンドグラフィック追加、
+  さらに色の修正。[Angelo Salese]
+
+- invqix: ソース整理、スタートボタン4つ全部マッピング、カクテル反転動作可能。
+  [R. Belmont]
+
+- tickee.c:「Mouse Attack」のDIPスイッチ訂正とDIP配置追加。[Brian Troha]
+
+-「タンクフォース」4人版(tankfrce4)の入力が入れ替わっていて、プレイヤー2がプレイヤー3
+  に割り当てられなかったり、またその逆もできなかったのを修正。[Tafoid]
+
+- model2.c:「セガラリーチャンピオンシップ」のサウンドサンプルの読み込み修正。また、
+  ROMに正しいIC配置追加。現在のセットをツイン筐体版として、新しくデラックス筐体版セッ
+  トを追加。デラックス版(未吸い出し)についてのドキュメント追加。[Brian Troha]
+  
+- H8/H8S: MULXS.Bが正しいソースレジスタを選択するように修正。これにより、invqixの
+  「QIX」セクションでテキストが改善。[R. Belmont]
+
+- H8/H8S: MULXS.BとMULXS.Wの逆アセンブリを修正。[R. Belmont]
+
+- 新しいSN76496デバイス実装を使うようにドライバを更新。[Osso]
+
+- Kanekoスプライトをデバイス化。これにより、ビデオ関連ファイル(スプライトとタイルマッ
+  プ)も整理がつくはず。[David Haywood]
+
+- [SAA5050] ダブルハイキャラクタモードを修正。キャラクタデータを7-bitに固定。
+  [Curt Coder]
+
+- drcbec: ADDC/SUBBのフラグ演算を修正。[R. Belmont]
+
+- SDL: SDLビルドでの-prescaleオプションを修正。[Matthias Reichl]
+
+-「バルガス」の実機により、クロック速度とVSYNCを確認。[Corrado Tomaselli]
+
+- emucore: ダウンキャストエラーをより使える形に変更。[O. Galibert]
+
+- drcbec: MULSで32x32=32のフォームのとき、NZフラグが正しく演算されるように修正。
+  [R. Belmont]
+
+-「危機一髪真由美ちゃん」にi8255を実装。[Angelo Salese]
+
+- bzone: ボーナスタンクの綴り違いを修正。[Don Hodges]
+
+- addrmap: ビッグエンディアンシステムでのデバイスマッピングを修正。[O. Galibert]
+
+- rp5c15: パワーオン時に初期化(x68kの起動が安定化する)。[O. Galibert]
+
+- 8080bw.c:「ムーンランダー」のカラーPROMが正確なものと確認。
+  [Smitdogg, The Dumping Union]
+
+- lwings.c:「Trojan / 闘いの挽歌」の基板レイアウト追加。[Brian Troha]
+
+- parodius.c:「パロディウスだ!」全セットの基板上ROM配置を訂正。[Brian Troha]
+
+- dassault.c:「サンダーゾーン / Desert Assault」の全セットに基板構成図を追加。
+  [Brian Troha, ShouTime]
+
+- dassault.c: 複数枚基板の積み重ねについてドキュメント追加と、クロックをオンボードOSC
+  の分周で求めるように変更。[Brian Troha, Stefan Lindberg]
+
+- クリック可能なアートワークを使ったときに、メニュー内で表示する内部用マウスカーソル
+  追加。[Miodrag Milanovic]
+
+- V810 CPUコアのMOVBSUオペコード暫定版追加。[Angelo Salese]
+
+- V810 CPUコアのANDNBSUとORBSUオペコードを追加。[Angelo Salese]
+
+- ROMリージョン長に応じたカラーPROMのデコードルーチンを追加。これにより、DEBUG=1ビル
+  ドでハングやクラッシュが起きていたのが改善。[Roberto Fresca]
+
+- PPC: CバックエンドでのSRAWの動作を修正。x86/x64 BEはパスする動作が必要。
+  [R. Belmont]
+
+- Hyper Neo Geo 64にEpson 62423 RTCデバイスを実装。[Angelo Salese]
+
+- Epson 62423 RTCデバイスの24/12h bitレジスタが正しくアクティベートされるように修正。
+  [Angelo Salese]
+
+- Hyper Neo Geo 64のIRQ ACK/保留メカニズムを実装。[Angelo Salese]
+
+- PowerPC: CMP/CMPI命令を修正; これらはCMPL/CMPLIの動作をしていて、間違ったフラグを生
+  成していた。[R. Belmont]
+
+- 6000本以上のギャンブル・スロットセットが再構成により生まれた。[David Haywood]
+
+- GD-ROMの再吸い出しの第一弾。残りも吸い出し予定。[The Dumping Union, R. Belmont]
+
+- peplus.c: IGTのIDO22パルスプロトコルをエミュレートするため1ドル札検証器(DBV)を追加。
+  非スーパーボードゲーム全てと一部のスーパーボードゲームで、IPT_COIN2経由で1ドル札を
+  受け付け。通貨の単位はドライバで設定可能。DBV使用前には、セットチップのステップがま
+  だ必要。[Jim Stolis]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+スカイデストロイヤー
+  [Gnoppi, P. Vining, C. Bristow, gatt9, Phil Bennett, Tormod, Andrew Welburn, 
+   Smitdogg, The Dumping Union, Angelo Salese, David Haywood]
+サイクルマー坊 [Angelo Salese]
+Space Invaders / Qix Silver Anniversary Edition
+  [Tormod, Smitdogg, The Dumping Union, R. Belmont, Angelo Salese]
+Pairs Redemption (V1.0, 10/25/94) [Brian Troha, The Dumping Union]
+Last Survivor
+  [ShouTime, Charles MacDonald, Aaron Giles, 9ofzeven, TrevEB, Dr. Spankenstein, 
+   ghoolster, Surgeville, Tormod, Tjaberg, Waremonger]
+サイバータンク [David Haywood, Angelo Salese, hap]
+
+
+新しく追加されたクローンセット
+------------------------------
+GPライダー (Japan) [ShouTime, Charles MacDonald, Aaron Giles]
+ABコップ (Japan) [ShouTime]
+Ninja Baseball Bat Man II (海賊版/ハック)
+  [Smitdogg, The Dumping Union, David Haywood] (動作不可)
+サンバ・デ・アミーゴ (プロトタイプ) [Arzeno Fabrice] (動作不可)
+Blood Storm v1.04 [Brian Troha, The Dumping Union]
+JuJu伝説 (Playmark海賊版)  [skiltz]
+なんでもシール委員会 (Astro Boy ver.) [Guru, Luca Elia] 
+GTIクラブ (ver UAA) [Brian Troha, The Dumping Union] (動作不可)
+セガラリーチャンピオンシップ - DX (Revision A)
+  [Brian Troha, The Dumping Union] (動作不可)
+パニックロード (Germany) [ShouTime] (動作不可)
+パロディウスだ! (Asia) [Andrew Welburn, The Dumping Union]
+Megatouch IV (9255-40-01 ROA, Standard version)
+  [Brian Troha, The Dumping Union]
+Olympic Soccer '92 (set 2) [Corrado Tomaselli, The Dumping Union] (動作不可)
+Trojan / 闘いの挽歌 (US set 2) [Corrado Tomaselli, The Dumping Union]
+サンダーゾーン (Japan) [ShouTime]
+サンダーゾーン (Rev 1, World) [Stefan Lindberg]
+777 Heaven (Project) (20p 6GBP Jackpot Version 114) (PROCONN) [launton /MPU Mecca]
+  (動作不可)
+777 Heaven (Project) (10p 3GBP Jackpot Version 380) (PROCONN) [sam20sam  /MPU Mecca]
+  (動作不可)
+777 Heaven (Project) (5p 3GBP Jackpot Version 105) (PROCONN) [sam20sam  /MPU Mecca]
+  (動作不可)
+777 Heaven (Project) (10GBP Jackpot) (PROCONN)[launton  /MPU Mecca] (動作不可)
+Jumping Jacks (Project) (set 2) (PROCONN) [Pete W. /MPU Mecca] (動作不可)
+頭文字D アーケードステージ Ver.3 for CYCRAFT (Rev. B) (GDS-0029B) [The Dumping Union]
+セガネットワーク対戦麻雀MJ3 (Rev F) (GDX-0017F) [The Dumping Union]

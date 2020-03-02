@@ -1,0 +1,627 @@
+0.194
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06847: [グラフィック] (hh_tms1k.cpp) bankshot: 一番左のカラムが表示されない。(hap)
+- 06845: [ゲームプレイ] (sms.cpp) gamegear [shinfrc2]: ゲーム内のテキストボックス表示化けとロード時の音がおかしい。(Tafoid)
+- 06710: [クラッシュ/フリーズ] (snes.cpp) snes [blackhwk]: blackhwkのカセットが動作しない。(Angelo Salese)
+- 06282: [クラッシュ/フリーズ] (snes.cpp) snes [rivaltrfu, rushbeat]: 黒画面のみ。(Angelo Salese)
+- 03790: [クラッシュ/フリーズ] (ms32.cpp) gratia, gratiaa: ゲーム内で"unhandled priority type f8"エラーが起きてMAMEが落ちる。(Angelo Salese)
+- 06831: [クラッシュ/フリーズ] (compucolor.cpp) compclr2: -flop asndwareで、AddressSanitizer: FPEエラー発生。(Firewave)
+- 05632: [クラッシュ/フリーズ] (nwk-tr.c) racingj2, racingj2j: [デバッグ限定] OK直後クラッシュする。
+- 06791: [グラフィック] (splash.cpp) splash and clones: ボーナスアイテムのスプライトプライオリティが間違っている。(AJR)
+- 06825: [サウンド] (gng.cpp) diamond: 面スタートBGMがならない。(AJR)
+- 06816: [インターフェイス] DIPスイッチメニューを閉じるときにAddressSanitizer: alloc-dealloc-mismatchエラーが起こる。(Firewave)
+- 06817: [その他] (naomi.cpp) mushi2k4: runtime error: index out of boundsエラー発生。(MetalliC)
+- 06623: [インターフェイス] フルスクリーンの明るさ・コントラスト・ガンマ設定が動作していない。(smf)
+- 06799: [クラッシュ/フリーズ] (dynax.cpp) hjingi: ゲームが途中で固まる。(AJR)
+- 06810: [その他] m6502 CPUコアでメモリリーク。(AJR)
+- 06811: [その他] m6809 CPUコアのメモリリーク。(AJR)
+- 06548: [クラッシュ/フリーズ] (namcos21.cpp) winrun, winrun91, winrungp: [デバッグ限定] エミュレート開始時にアサート。(cuavas)
+- 06804: [クラッシュ/フリーズ] (midyunit.cpp) strkforc: ROMチェック後黒画面のまま。
+
+
+新規動作可能マシン
+------------------
+Alphie - The Electronic Robot (patent) [hap]
+Cyberstorm (prototype)
+  [ShouTime, The Dumping Union, Christophe Marignol, Sean Sutton, gamerfan, Brandon Munger, Renato Mucciarelli, Jan Stuhler,
+  Jeffrey Gray, (Aaron Giles) Giles, Phil Bennett]
+Electronic Number Muncher [hap, Sean Riddle]
+Genesis Collection Volume 1 (Radica, Arcade Legends) (USA) [David Haywood]
+Golden Axe (Tiger handheld) [hap, Sean Riddle]
+Last KM (Ver 1.0.0275) [Asociacion Retroaccion, Ricardo Puerto]
+Kingsford Match Me [hap, Sean Riddle]
+ワンピース お宝いただきルフィ海賊団！ (Japan, v1.02) [SpinalFeyd, Chris Penny, Luca Elia, The Dumping Union]
+Sensible Soccer plus [Cannon Fodder, Mega lo Mania] (Radica, Arcade Legends) (Europe) [Sean Riddle]
+Skeleton Warriors - The Dark Crusade (Tiger handheld) [hap, Sean Riddle]
+Space Invaders [Lunar Rescue, Colony 7, Qix, Phoenix] (Radica, Arcade Legends TV Game) [Team Europe, Sean Riddle]
+Street Fighter II: Special Champion Edition [Ghouls'n Ghosts] (Radica, Arcade Legends) (Europe) [David Haywood]
+Super Double Dragon (Tiger handheld) [hap, Sean Riddle]
+Super TV Boy (PAL) [Sean Riddle, incog]
+The Incredible Crash Dummies (Tiger handheld) [hap, Sean Riddle]
+Thief in Garden [hap, Sean Riddle, ssj]
+TI unknown electronic maze game (patent) [hap, Sean Riddle]
+TV Boy II (PAL) [David Shah]
+unknown electronic Space Invaders game (patent) [hap]
+Vindicators (Tiger handheld) [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+Amstrad CPC6128 (Spain) [Enrique Ausina, Guru]
+Area 51 / Maximum Force Duo (R3000, 2/02/98) [Brian Troha, The Dumping Union]
+Bioplaything Cop (Ver. 1.0.1823, prototype) [Asociacion Retroaccion, Ricardo Puerto]
+カダッシュ (Spain, version 1) [caius, The Dumping Union]
+Cookie & Bibi 2 (set 2) [Hammy]
+Driving Force (Galaxian conversion, Seatongrove UK) [Ivan Adria, The Dumping Union]
+フォートラックス (Asia) [Arzeno Fabrice, The Dumping Union]
+Game Fighter (bootleg) [incog]
+Kick Goal (set 2) [balrog]
+三国戦紀2 -ナイツオブヴァラー- (ver. 104, 102, 100HK) [twistedsymphony]
+三国戦紀2 -乱世英雄- / Knights of Valour 2 New Legend (V300, Oversea) [unknown]
+三国戦紀2 -乱世英雄- / Knights of Valour 2 New Legend (V301, Oversea) [unknown]
+三国戦紀2 -乱世英雄- / Knights of Valour 2 New Legend (V302, Oversea) [unknown]
+三国戦紀3 / Knights of Valour 3 (V101, China, Hong Kong, Taiwan) 
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Maniac Square (unprotected, Version 1.0, Checksum 66B1, 960419/1 PCB) [f205v]
+燃えろ!!プロ野球・ホームラン競争 (New Ver.)
+  [ShouTime, Ryan Holtz, Neil Moore, Bryan Mobley, Gary Kertopermono, Jeffrey Gray, Damian Rogers, Smitdogg, The Dumping Union]
+西遊釋厄傳2 / Oriental Legend 2 (V101, Japan)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, ShouTime, Mouloud Bessaad, Dullaron, Christian Ricolleau, Marisol Nunez Serrano,
+  Renato Mucciarelli, Jeffrey Gray, John Wilke, Darksoft, Ryan Holtz, Smitdogg, The Dumping Union]
+西遊釋厄傳2 / Oriental Legend 2 (V103, Japan)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, ShouTime, Mouloud Bessaad, Dullaron, Christian Ricolleau, Marisol Nunez Serrano,
+  Renato Mucciarelli, Jeffrey Gray, John Wilke, Darksoft, Ryan Holtz, Smitdogg, The Dumping Union]
+西遊釋厄傳2 / Oriental Legend 2 (V104, Japan)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, ShouTime, Mouloud Bessaad, Dullaron, Christian Ricolleau, Marisol Nunez Serrano,
+  Renato Mucciarelli, Jeffrey Gray, John Wilke, Darksoft, Ryan Holtz, Smitdogg, The Dumping Union]
+ポパイ (bootleg set 2) [Joe Magiera]
+ポパイ (bootleg set 3) [caius]
+美少女戦士セーラームーン (Ver. 95/03/21, Europe) [rtw, ShouTime, The Dumping Union]
+美少女戦士セーラームーン (Ver. 95/03/21, Hong Kong) [rtw, ShouTime, The Dumping Union]
+美少女戦士セーラームーン (Ver. 95/03/21, Japan) [rtw, ShouTime, The Dumping Union]
+美少女戦士セーラームーン (Ver. 95/03/21, Korea) [rtw, ShouTime, The Dumping Union]
+美少女戦士セーラームーン (Ver. 95/03/21, Taiwan) [rtw, ShouTime, The Dumping Union]
+美少女戦士セーラームーン (Ver. 95/03/21, USA) [rtw, ShouTime, The Dumping Union]
+サムライスピリッツ零 / Samurai Shodown V (NGM-2700, set 2) [Sugoi Helsinki]
+スーパーワールドコート (World, bootleg) [hammy, The Dumping Union]
+ハイパーオリンピック / Track ＆ Field (Centuri, unencrypted) [RiddledTV, Bryan McPhail, The Dumping Union]
+ターボフォース (World, set 2) [Corrado Tomaselli, The Dumping Union]
+ワールドクラスボウリング (v1.0) [Brian Troha, The Dumping Union]
+エックスメン -チルドレンオブジアトム- (Brazil 950331) [SHVB, David Haywood, smf]
+
+
+動作可能に昇格したマシン
+------------------------
+100 in 1 (D-CAT8 8bit Console, set 1) (v5.01.11-frd, BL 20041217) [David Shah]
+110 in 1 CoolBaby (CoolBoy RS-1S) [David Shah]
+138 in 1 CoolBaby (CoolBoy RS-5, PCB060-10009011V1.3) [David Shah]
+777777 in 1 (8 bit Slim Station, NEWPXP-DVT22-A PCB) [David Shah]
+888888 in 1 (8 bit Slim Station, NEWPXP-DVT22-A PCB) [David Shah]
+Defender M2500P 120-in-1 [David Shah]
+dreamGEAR 101 in 1 [David Shah]
+dreamGEAR 75-in-1 [David Shah]
+dreamGEAR Wireless Motion Control with 130 games (DGUN-2500) [David Shah]
+Game Prince RS-1 [David Shah]
+Game Prince RS-16 [David Shah]
+三国戦紀3 / Knights of Valour 3 (V104, China, Hong Kong, Taiwan)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+マイブレーン3000 [Edstrom, Fredrik Ohrstrom]
+ロードバーナーズ (ver 1.04) [Ted Green]
+TeleVideo Model 910 [R. Belmont, AJR]
+VG Pocket (VG-2000) [David Shah]
+VG Pocket Mini (VG-1500) [David Shah]
+
+
+動作可能に昇格したクローン
+--------------------------
+100 in 1 (D-CAT8 8bit Console, set 2) [David Shah]
+Ericsson Step/One [Edstrom, Fredrik Ohrstrom]
+三国戦紀3 / Knights of Valour 3 (V102, China, Hong Kong, Taiwan) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+三国戦紀3 / Knights of Valour 3 (V100, China, Hong Kong, Taiwan) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+ロードバーナーズ (ver 1.0) [Ted Green]
+
+
+
+新規追加された未動作マシン
+--------------------------
+BittBoy Mini FC 300 in 1 [David Shah]
+dreamGEAR My Arcade Gamer V Portable Gaming System (DGUN-2573) [David Shah]
+ゲームウォッチ: スーパーマリオブラザース (new wide screen) [hap, Sean Riddle, Ryan Holtz]
+Golden Tee Golf: Home Edition [Sean Riddle]
+Lucky Ball 96 (Ver 3.50 - 627) [Roberto Fresca]
+Missing In Action [Roberto Fresca, Ioannis Bampoulas]
+Odyssey (Silicon Gaming) [Roberto Fresca]
+Quick Pick 5 [R. Belmont, coolmod, Ryan Holtz, Smitdogg, The Dumping Union]
+Sagitta 180 serial terminal [Felipe Sanches, Werner Moecke]
+Sartorius-Werke GmbH 3733 (digital scale) [Mike McBike, rfka01, Vas Crabb]
+Strike Zone (Purple Star) [unknown]
+SY-889 300 in 1 Handheld [David Shah]
+Tetris (Radica, Arcade Legends TV Game) [Sean Riddle, incog]
+Tiger (slot) [Roberto Fresca, Ioannis Bampoulas]
+Trocana [trap15, The Dumping Union]
+Video Challenger [hap, Sean Riddle, incog]
+VTech Reader Laptop E (Germany) [David Haywood]
+
+
+
+新規追加された未動作クローン
+----------------------------
+DEC VT220 (Version 2.1) [AJR]
+Jolly Card (Italian, bootleg, set 2) [Roberto Fresca, Ioannis Bampoulas]
+Lucky Ball 96 (Ver 3.50 - 616) [Roberto Fresca]
+Lucky Ball 96 (Ver 3.50 - 623) [Roberto Fresca]
+Lucky Ball 96 (Ver 3.50 - 626) [Roberto Fresca]
+Super 97-2 (Witch Bonus) [Roberto Fresca, Ioannis Bampoulas]
+TVI-912B [modem7]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+bbc_flop_6502: Advanced BASIC [Nigel Barnes]
+bbc_flop_80186: Problem Solver 2.0, Rat Driver 1.0 [Nigel Barnes]
+cd32:
+  Base Jumpers, Beavers, Bump 'N Burn, Deep Core, D-Generation, Fireforce, Guardian, Naughty Ones, Quik the Thunder Rabbit
+  [EoceneMiacid]
+dragon_cart: FarmFax Trainer [Nigel Barnes]
+electron_cart: Advanced Battery-Backed RAM, Click v1.00, Click v1.01, Click v1.04, Pegasus 400 v1.01 [Nigel Barnes]
+electron_flop: P.R.E.S. ADFS E00, Advanced Electron DFS E00 [Nigel Barnes]
+electron_rom:
+  Addcom v1.00, Addcom v1.10, Addcom v1.20, Addcom v1.30, Advanced Control Panel v1.00, Advanced Control Panel v1.02,
+  Advanced Control Panel v1.03, Advanced Control Panel v1.04, Advanced Control Panel v3.01, Advanced Disc Investigator v1.00,
+  Advanced Disc Investigator v1.00a, Advanced Disc Investigator v1.10, Advanced Disc Investigator v1.20,
+  Advanced Disc Investigator v1.20a, Advanced Disc Investigator v1.22, Advanced Disc Investigator v2.00,
+  Advanced Disc Toolkit v1.20, Advanced Disc Toolkit v1.40, Advanced Disc Toolkit v1.50, Advanced Disc Toolkit v1.60,
+  Advanced Disc Toolkit v1.72, Advanced Disc Toolkit v1.73, Advanced Disc Toolkit v1.74, Advanced Disc Toolkit v1.75,
+  Advanced Disc Toolkit v1.76, Advanced Disc Toolkit v1.77 [cracked], Advanced Disc Toolkit v1.78, Advanced Disc Toolkit v2.00,
+  Advanced EPROM Programmer v1.00, Advanced File Manager v1.06, Advanced File Manager v1.07, Advanced File Manager v1.09,
+  Advanced ROM Manager v1.00, Advanced ROM Manager v1.10, Advanced ROM Manager v1.12, Advanced ROM Manager v1.13,
+  Electron BasicEd DEMO, Electron RAM Test, ElkMan v1.4, ElkMan v1.5, EPROM Programmer v1.01, Mode 7 Simulator v1.1,
+  Pluscom Plus v2.00, Printer ROM v1.00, Printer ROM v1.00 (ROMBOX Expansion), StarGraph v2.01, StarGraph v3.01, StarMon v1.20b,
+  StarSpell, StarStore II v2.03, StarStore II v2.04, StarStore v1.00, StarStore v1.00 (alt), StarTrek v1.06, StarTrek v1.07,
+  StarWord: Printer Driver Generator, StarWord v1.01, StarWord v1.01 (Cumana), StarWord v1.01 (No Auto LF), T2C3 v1.00, T2CU v1.01,
+  T2CU v2.01, T2P3 v1.00, T2P3 v1.01, T2P3 v2.00, T2P3 v2.01, T2P3 v2.02, T2P4 v2.00, T2P4 v2.01, T2P4 v2.02, T2PEG400 v2.02,
+  T2SD v2.01, T2SEDFS v2.00, T2SEDFS v2.02, Utility v1.4, WordPower v0.4, XBasic [Nigel Barnes]
+fmtowns_flop:
+  15 Puzzle, Abas, Abas New, B-Braker 3, Battle Fighters 2 - Yume o Kaketa Tatakai, Bau, Break of Tower, Ground Attack,
+  Haou Soudatsu Battle Fighters, Heboris, Heli-Command, Heli-Rescue, An Illusional World Kastalia, Iron Fist - The Revised Edition,
+  Mahjong Gensoukyoku / Mahjong Fantasia Taikenban, Mister - Meitantei Toujou, Panic Ball II, Quazzle [Justin Kerk]
+ibm5150:
+  Paperboy 2, Stellar 7 [Arcade Shadow]
+  Advanced Dungeons & Dragons - Eye of the Beholder II: The Legend of Darkmoon [breiztiger]
+  A-Train (5.25"), A-Train (3.5"), Arcade Blockbusters! (Ghosts'n Goblins & Sarge) [Justin Kerk]
+ibm5170:
+  Blake Stone: Aliens of Gold (v2.1), Blake Stone: Aliens of Gold (v3.0), Inca 2: Wiracocha (French/German/English) Inca (Italian),
+  Links 386 Pro, Links Championship Course: Bountiful Golf Club Championship Course, Simon the Sorcerer,
+  Wing Commander II - Vengeance of the Kilrathi - Speech Accessory Pack [Arcade Shadow]
+  A-Train Construction Set, Aces of the Pacific, Aces of the Pacific Expansion Disk - WWII: 1946, Aces Over Europe (French),
+  Byte Size Software #137 - Boppin' & Dits and Dats, Byte Size Software #149 - AJ's Quest & Machine Nation,
+  Spectre Challenger (V1.1, 1993-11-08) [Justin Kerk]
+ibm5170_cdrom.xml:
+  3-D Ultra Pinball (Budget Sierra Originals Version), 5 Plus One - Super Tetris (Compilation), A-10 Cuba!, Ace Ventura (Germany),
+  Activision Game Vault Volume 3, Activision's Atari 2600 Action Pack 2, Activision's Atari 2600 Action Pack (Megapak 8) (Europe),
+  Advanced Destroyer Simulator, Advanced Dungeons & Dragons 2nd Edition Masterpiece Collection, Afterlife (US v1.1),
+  AH-64D Longbow (Spain), Air Warrior III, Air Warrior Plus (v1.16b), Alien Legacy (v1.10),
+  Aliens - A Comic Book Adventure (v1.01A), Amazon - Guardians of Eden, Arcade's Greatest Hits - The Midway Collection 2,
+  Are You Afraid of the Dark - The Tale of Orpheo's Curse, Armored Fist, Around the World in 80 Days, Ascendancy,
+  Ascendancy (Germany), Atari Arcade Hits 1, A.T.F. - Advanced Tactical Fighters (Germany v1.01f),
+  A.T.F. - Advanced Tactical Fighters (v1.03f), A.T.F. - NATO Fighters (Data Disc), Atlantis - Das sagenhafte Abenteuer (Germany),
+  Awesome Adventures of Victor Vector & Yondo, The - The Cyberplasm Formula, Bad Mojo, Bad Mojo (Germany), Banzai Bug,
+  Baphomets Fluch, BARQ - The Rise of Freedom, Battle Isle 3 - Shadow of the Emperor, Beneath a Steel Sky (Multi 5),
+  Bermuda Syndrome (Germany), Betrayal in Antara, Bioforge (vf1.01), Blade Runner, Bloodwings - Pumpkinhead's Revenge, Blue Force,
+  Bobby Fischer Teaches Chess, Bodyworks Voyager, Brain Dead 13 Starring Fritz (Germany), Bram Stoker's Dracula (Multi 5),
+  Bud Tucker in Double Trouble (Germany), Buichi Terasawa's Takeru - Letter of the Law, Bundesliga Manager Professional,
+  Buried in Time - Verschollen in der Zeit (Germany), Burntime, Caesar II (Budget v1.2), Caesar II (CMC v1.2),
+  Caesar II (Germany v1.0), Campaign, Capitalism (Germany v1.0), Capitalism (Germany v1.02), Castle of Dr. Brain,
+  Central Intelligence, Championship Manager 2, Chewy - Esc from F5, Chill Manor (v1.99), Civilization (Budget),
+  Civilization & Mantis, Classic Games for OS/2 Warp, Club Dead, Club Football - The Manager, Comanche 3, Comanche 3 (Germany),
+  Comanche CD - White Lightning, Combat Air Patrol, Comix Zone, Command & Conquer Teil 1 - Der Tiberiumkonflikt (Germany),
+  Conspiracy, Creative Reader Collection, Crime City, Crusader - No Regret (Germany), CyberBykes - Shadow Racer VR,
+  Cyberia 2 - Resurrection, Cyberia - Mission Norway (OEM v1.87), Cyberia - Project Description (OEM), Cyclemania,
+  Detritus - The Daemon's Quest, Discoveries of the Deep, Dungeons of Kremlin, Dunkle Schatten 1 & 2,
+  EcoQuest 1 - The Search for Cetus, Enemy Star, Eric the Unready, Escape from Delirium, F-29 Retaliator, Formula One Grand Prix,
+  Front Page Sports - Baseball '94, Halloween Harry - Alien Carnage, Key CAD Complete Creations, Plumbers don't Wear Ties,
+  The Civil War, The Complete Ultima VII (Multi 3, Budget) [archive.org]
+  Geo Light Moon (Japan v1.00), Kotobuki (Japan), KU2 Impact (Japan), Saru Suberi (Japan), Seraphim Saigo No Tenshi (Japan),
+  Silicon Scream (Japan) [Rod_Wod]
+  S.T.G. [Uroko Sakanabito]
+  Sound Blaster 16 CD driver [VOGONS]
+  OS/2 Warp 4 [WinWorld]
+stepone_flop:
+  Collections of small games, Microsoft Multiplan v1.04, MS-DOS v1.25, RJE - IBM 3780 Remote Batch Terminal Emulator v1.0M,
+  Wordstar v3.24 [Mattis Lind, Edstrom]
+
+
+動作可能に昇格したソフトウェアリストの項目
+------------------------------------------
+dragon_cart: Delta DOS [Nigel Barnes]
+electron_cart: Click v1.03, Pegasus 400 v1.02 [Nigel Barnes]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+cd32:
+  Arabian Nights, Battletoads, Benefactor, Black Viper Bubba 'N' Stix, Bubble 'N Squeak, Chuck Rock, Chuck Rock II - Son of Chuck,
+  Dangerous Streets, Darkseed, Donk! The Samurai Duck!, Dragonstone, Emerald Mines, Flink, Fly Harder, Frontier - Elite II,
+  Global Effect, Gloom, International Karate +, Kid Chaos, Marvin's Marvellous Adventure, Myth - History in the Making,
+  Overkill + Lunar-C, Roadkill, Skeleton Krew [EoceneMiacid]
+electron_cart:
+  Advanced Plus 34, Advanced Quarter Meg RAM, Cumana Floppy Disc System v1.01, Cumana Floppy Disc System v1.02,
+  Slogger Electron Disk System v1.00, Slogger Electron Disk System v1.02, Slogger Electron Disk System v1.03 [Nigel Barnes]
+electron_rom:
+  Advanced BASIC Editor Plus, Advanced BASIC Editor & Toolkit, AMX Mouse Support v2.1 [Nigel Barnes]
+fmtowns_flop: Battle Fighters 3 - Inishie no Jashin Densetsu, Dream Fighters, Image, Rumstorm, Rumuder [Justin Kerk]
+ibm5150:
+  ABC's Wide World of Sports Boxing [Justin Kerk]
+ibm5170_cdrom:
+  3D Power Games Volume 1, 688I Hunter-Killer, Aces of the Pacific, Aces over Europe, Alien Odyssey (Europe), Animal,
+  Archibald Applebrook's Abenteuer (Germany v1.00), Archon Ultra (v1.1), Ark of Time, Back to Baghdad,
+  Baphomets Fluch II - Die Spiegel der Finsternis (Germany A707197),
+  Baphomets Fluch II - Die Spiegel der Finsternis (Germany CVIR102400), Battle Bugs, Battlecruiser 3000 AD, Blood Bowl, Blown Away,
+  Broken Sword II - Las Fuerzas del Mal (Spain), Chronomaster, Clif Danger, Command Adventures: Starship,
+  Command & Conquer: Red Alert, Command & Conquer - Red Alert (Budget), Command & Conquer - Red Alert (Netherlands),
+  Command & Conquer Teil 2 - Alarmstufe Rot (Germany), Conqueror AD 1086 (Germany), Conquest of the New World Deluxe Edition,
+  Creatures (Germany), Cyber Judas, Darker, Frankenstein - Life or Death, Fuzzy's World of Miniature Space Golf,
+  The 11th Hour - Der Nachfolger von 7th Guest (Germany), The Curse of Monkey Island, [archive.org]
+  Bakusou PC Choro Q (Japan), Battle BEAT 2000 L.E (Japan), Briganty - The Roots of Darkness for Windows (Japan), Moon (Japan)
+  [Rod_Wod]
+stepone_flop: Custom integrated office suite [Mattis Lind, Edstrom]
+
+
+追加・更新された翻訳
+--------------------
+Chinese (Simplified) [YuiFAN]
+Chinese (Traditional) [YuiFAN]
+Dutch [Jos van Mourik]
+German [RafTacker]
+Greek [BraiNKilleRGR]
+
+
+ソースの変更点
+--------------
+- ygv608.cppの改良: [Agiri]
+ *「ギャラガ」アレンジモードのエンディングとスタッフロールのモザイクエフェクト追加
+ * R#13は透過色と推測 - ND-1のセルフテストで'COLOR TEST'を修正
+ *「ラリーX」アレンジモードの表示不具合修正
+
+- NVRAMを終了時にセーブしないオプションを追加。[AJR]
+
+- シリアルEAROMデバイスER1400を追加。[AJR]
+
+- 逆アセンブラのバグを多数修正: [AJR]
+ * mc68hc11: 16ビットオペランド(イミディエイト、またはダイレクト)命令の逆アセンブリを修正
+ * m6809: 相対命令の逆アセンブリを修正
+ * lc8670: 完全に壊れないよう逆アセンブラを修正
+ * mcs48, s2650: 逆アセンブラでページモードを使用
+ * lr35902: 逆アセンブリを修正
+
+- attache: RS-232シリアルポートを追加。[AJR]
+
+- f1gp: "ID CHECK"で固まるのを修正。[AJR]
+
+- splash: 逆順でスプライトを描画(MT6791を修正)。[AJR]
+
+- デバッグステートでの符号付き整数のマスキング修正。[AJR]
+
+- citycon: サウンドCPUの速度修正とPSG読み込みの実装(パトカーのスピン音修正)。[AJR]
+
+- tigeroad, f1dream: DIPスイッチの配置追加。[AJR]
+
+- tv910: キャラクタ列フォーマット修正とビデオアトリビュート実装でセルフテストが動作可能。キーボードの改良とキャラクタセット
+  切り替え追加。[AJR]
+
+- vt220: 初期版を別セットに分割しROMロード修正。[AJR]
+
+- mcs48: 11ビットでプログラムカウンタをラップ。[AJR]
+
+- mcs48: Intel 8021のより詳細なエミュレーション:  [AJR]
+ * i802xの逆アセンブラを分割(未エミュレートの8022命令を含む)
+ * 独立した8021オペコードテーブルを追加
+ * 8021 P0への書き込みがメモリ空間を経由しないよう変更
+
+- mcs51: デバッグステートのレジストレーションにDPTR、P0、P1、P2、P3を追加。[AJR]
+
+- dec_lk201: カーソル上部にある6個のキーのため、より妥当なナチュラルキーボードの割当てに切り替え。[AJR, Bavarese]
+
+- stvvdp1.cpp: 非mode 5のスプライトとmode 2の透過ペンをカラー演算を修正。[Angelo Salese]
+ *「ヴァーチャルハイドライド」のアバターの影と「Scud: the Disposable Assassin」の改善
+
+- ms32.cpp: タイル間のプライオリティ改良とクリーンアップ。[Angelo Salese]
+ *「スーチーパイ2」のタイトル画面、「グラティア」のインターミッション、「早押しクイズ 熱闘生放送」の炎画面修正。
+
+- hng64.cpp:「餓狼伝説 -ワイルドアンビジョン-」「武力ONE」のROZ床表示を有効化。[Angelo Salese]
+
+- snes_snd.cpp: 設定書き込み0のときにTnDIVを256で割るよう変更。タイマーカウンタを単一関数に統合。[Angelo Salese]
+
+- blockout.cppの改良: [Angelo Salese]
+ *「アグレス」のテキストレイヤーオフセット修正。初期VRAMチェックへの対策
+ * SCREEN_RAW_PARAMSにコンバートし、「アグレス」「ブロックアウト」の表示領域を修正
+ * マニュアルやゲーム内での表記を元に、入力のラベルと実装を修正
+
+- taito_f3.cpp:「ダライアス外伝」で大昔の対策を削除。[Angelo Salese]
+
+- x1.cpp: ビデオ関数を独自ファイルに移動しカプセル化の改善。[Angelo Salese]
+
+- calchase.cpp: キーボードの入力追加。[Angelo Salese]
+
+- PC/ATの2Dアクセラレータを更新: [Barry Rodewald]
+ * s3: ドキュメントより、CR45の読み込み時にハードウェアポインタの色選択をリセット
+ * mach8/mach32: sourcex/yを11ビットに制限(バンドルされているwin9xドライバでのmach32検出を修正)
+ * mach32: ハードウェアポインタレジスタのマッピングと、ハードウェアカーソルの表示(要作業)
+ * mach32: 8514/A互換DACレジスタを追加 (DOS mach32ユーティリティのI/Oポートと、win9x上での8bpp色修正)
+ * mach8: Scan To Xコマンド追加 (win9xドライバでカーソルデータの書き込みに使用)
+ * mach32: Windows 9xでの16bppビデオおモード表示を修正
+
+- r9751: キーボード入力キューとCBX OSスタックトレーシング追加。[Brandon Munger]
+
+- vgmplay: HuC6280ステレオ出力、K05439、デュアルOKIM6295、NMK112バンキング、QSoundをサポート。[cam900]
+
+- qdrmfgp, djmain, konamigq: サンプルRAMをK054539アドレスマップに移動。[cam900]
+
+- plygonet: K054321を追加。[cam900]
+
+- Sega MultiPCMのバンクスキームをデバイスアドレスマップに移動。segas32とsegam1audioをバンク指定にコンバート。[cam900]
+ * 512サンプルに0x1800バイトヘッダを、サンプルデータに512KiBバンクを2つ使用する「アウトランナーズ」を修正
+
+- psikyo4.cpp: YMF278Bのバンキングをクリーンアップ。[cam900]
+
+- Data East ACEチップエミュレーションをデバイス化。アルファブレンド、フェード、パレットエフェクトを改良。[cam900]
+
+- drgnmst: パレットの修正(12ビットRGB、4ビット明度) - フェーディングの修正。[cam900]
+
+- rohga.cpp: プライオリティとアルファブレンディングを改良。古くなったコメントを削除。[cam900]
+
+- DECOドライバの無駄なコードを削除。エフェクトが再現されていないゲームをMACHINE_IMPERFECT_GRAPHICSに降格。[cam900]
+
+- dassault: RAW画面パラメータ追加。[cam900]
+
+- deco16ic: pf1/pf2 RAMを異なるサイズにできるように分割。[cam900]
+
+- cninja.cpp: I/Oとプロテクト処理をクリーンアップ。[cam900]
+
+- plugins/portname: 外部ファイルから入力名を読み込むプラグインのテスト版追加。[Carl]
+
+- blackt96: サウンドの実装とピックアップ色修正。[David Haywood]
+
+- pgm2の改良: [David Haywood]
+ * 前景のタイルマップサイズを修正(kov3のボスを倒したシーンを修正)
+ * 拡大縮小のMSBを処理(kov3で使用)
+ * スプライトディセーブルビットを実装(kov3のアトラクトモード表示修正)
+ * デフォルトSRAM追加。kov3のスピードアップと表示領域修正
+ * セーブステートをサポート(ARM CPUコアにも影響)
+
+- Playstationの周辺機器、Datel Game Boosterをサポート。[David Haywood]
+
+- Radica 6502ベースのTVゲーム用ドライバ追加。[David Haywood]
+
+- tvboyドライバの修正と整頓。[David Haywood]
+
+-「Grudge Match」のフリープレイDIPスイッチデフォルトを改善。[David Haywood]
+ * 親セットではフリープレイは動作しないのでデフォルトでオフ。コインモードが動作しない旧セットはデフォルトでフリープレイをオン
+
+- VTech Geneis IQドライバで異なるCPUを使うものを移動。[David Haywood]
+
+- Radica製Mega DriveベースのTVゲームをソフトウェアリストからシステムドライバに変換。[David Haywood]
+
+- vii.cpp: 親クローン関係の訂正と動作不可に降格。[David Haywood]
+
+- SY-889 ROMとマシンを追加。正しい色表示のためにメモリマップ、DMAを、RGPパレットを実装。[David Shah]
+
+- グラフィックとメモリマッピングの修正を含むnes_vtドライバの改善。[David Shah]
+
+- sound/gaelco.cppのサンプル終了位置を修正 - いろいろなゲームでのノイズを解消。[dink]
+
+- SN54/74166 8ビットパラレルイン/シリアルアウトシフトレジスタデバイスを追加。[Dirk Best, Luca Elia]
+
+- asteroid: コインカウンタの追加とLEDの明確化。[Dirk Best]
+
+- 74153: インタフェースの改良。[Dirk Best]
+
+- d88_dsk: ファイルの終端を超えて読み込むのを防ぐためセーフティーチェックを追加。[Dirk Best]
+
+- didact.cpp: CandelaとEsselte 100コンピュータを分割し独自ドライバ化。[Edstrom]
+
+- マイブレーン3000/JB-3000/Ericsson PC Step/Oneの改良: [Edstrom, Fredrik Ohrstrom]
+ * グラフィック回路のリファクタリング、320x200モードの色追加、テキストスクロール修正、80キャラクタ640x200モード追加
+ * 回路図のRAMウェイトステートを元にCPUクロックを50%減らし速度の問題を修正
+ * -ramsizeに128Kのオプション追加。256Kをデフォルトに設定
+ * キーボード用にINT7プルダウンとプルアップをエミュレートし、キーボードを3種類追加
+ * 高解像度640x480モードを追加。40キャラクタモードで荒削りなカーソル表示をサポート
+ * Ericsson DU4721モニタで使用される525Nm P39蛍光体にパレットを合わせてモノクロモニタをサポート
+ * プリンタをサポート
+ * ジャンパ設定を含む割り込みサポート完成
+ * 36x25カラーテキストモードをテストサポート。グラフィックモード0を追加(解像度は使用するモニタに依存)
+
+- gba: ムービーカセット用に正しい初期マッピングを使用 - v_sharkt、v_shrek、v_shrek2が修正。[endrift, Ryan Holtz]
+
+- hp2645: RS232 I/O、マルチキャラクタセット、ビーパー、オプションスイッチ追加。[F.Ulivi]
+
+- 設定ファイルのロード用にverboseのログ出力追加。[Firehawke]
+
+- hh_sm510: ゲームウォッチのROMセットがすぐにわかるよう改名。[hap]
+
+- route16、metafox、maketraxのROMパッチをプロテクトのシミュレーションに置き換え。[iq_132, Robbbert]
+
+- aristmk5.cpp: 多くのゲームで名称の更新と内部アートワークの改良。[Heihachi_73]
+
+- ti85.cpp: ti83p、ti83pse、ti84p、ti84pseをNOT_WORKINGにマーク。ti84pのBIOS ROMを更に追加。[Julian Lachniet]
+
+- ymz770.cpp: ドキュメントの更新と整理。[MetalliC]
+
+- pgm2.cpp: kov3のROMモジュール通信をエミュレートし、ハックを削除。[MetalliC]
+
+- pgm2.cpp: 本物のデータを使用してシミュレーションを改良。kov3 V100とV104のフェイクなキーを作成。[MetalliC]
+
+- geneveの更新: [Michael Zapf]
+ * 完了前にモードを切り替えるとv9938はコマンドをアボートする
+ * 128Kと192KのVRAM選択を追加
+ * ログ処理をlogmacro.hヘルパーを使用するように変更
+
+- ti99: カセット選択ラインによりデバッガインタフェースを修正。[Michael Zapf]
+
+- 周辺機器、Acorn Electronのエミュレーションを改良: [Nigel Barnes]
+ * electron_plus1: Slogger Expansion 2.00と2.01を追加
+ * electron_plus3: Advanced 1770 DFS 2.10を追加
+ * electron: RomboxとRombox+拡張デバイスとelectron_romソフトウェアリストを追加
+ * electron: 6502バスに完全アクセスするため、拡張ポートインタフェースを再実装
+ * カセットスロットデバイスを再実装し、カセットデバイスをいくつか追加
+
+- BBC Opus FDCの更新: [Nigel Barnes]
+ * bbc_opus8272: TCストロボを接続。デバイス動作可能
+ * bbc_opus2791: DDOS 3.16 BIOSオプションを追加
+ * bbc_opus2793: DDOS 3.36 BIOSオプションを追加
+
+- 汎用スロットで、カセット(cart)とROMイメージ(rom)を区別。[Nigel Barnes]
+
+- dragon_fdc.cppの更新: [Nigel Barnes]
+ * DeltaDOS用にPremier FDCを追加
+ * Dragon FDCにREADYラインを接続、FlexとOS9のロード問題を解消
+ 
+- マシン設定ビルダをstateクラスのメンバ関数に変換し、プロトタイプをシンプル化。[O. Galibert]
+
+- swtpc09, isbc8010b, jtc_es40: 綴間違いを修正。[O. Galibert]
+
+- attache: SIOマッピングの修正。[O. Galibert]
+
+- クリスタル/レゾネータ/オシレータの周波数変更時に、全て再コンパイルしなくてもよい方法に置き換え。[O. Galibert]
+
+- Coverityさんより報告されている多くのエラー修正と対策。[Oliver Stoeneberg]
+
+- makeオプションSANITIZEを復活。[Oliver Stoeneberg]
+
+- アートワークのオーバーライドとフォールバックのオプション追加。[phulshof]
+
+- quickpick5: ROMのリードバックを実装。表示領域改良、カラーRAM実装。これらによりPOSTをパス可能。[R. Belmont]
+
+- konmedal: shuriboyでPOSTの表示とパス可能。I/Oポートの実装。[R. Belmont]
+
+- mac: maclc3の仮動作。ただしサウンドは不完全。[R. Belmont]
+
+- chdcd: ISOイメージを2336バイトセクタとして認識。[R. Belmont, Angelo Salese]
+
+- mac: AE Quadralink 4ポートシリアルの仮サポート。[R. Belmont, Al Kossow]
+
+- mac: NuBusリモートデバッガカードBootBugをサポート。[Al Kossow, R. Belmont]
+
+- FM Townsの改良: [r09]
+ * ビットマップレイヤーの水平方向ラップ修正
+ * 線描画のリファクタリグ。16倍までの拡大サポート、ラッピングの改良
+ * ハードウェアでサポートされる全16段階の水平ズームレベルをサポート(ミスティとライザンバーで使用)
+ * 線のラップ検出コードを単純化し、縦スクロールとスプライト付きレイヤー1を含む全てのケースをサポート
+ * シングルレイヤーかつハイカラーモードの場合、線幅を2倍に設定
+ * 線のラップ検出コードがVRAMのページ選択を考慮するよう改良
+ * ボトムラインがずれていたのを修正
+ * 0xcff86から読み込んだ垂直同期フラグを修正 - バーディーソフト製ゲーム起動可能
+ * 0xcff86から読み込んだ水平同期を実装 - 後期の「第4のユニット」が起動可能 (Barry Rodewaldさんの実装ベース)
+ * シングルレイヤーモードで不足していたピクセルを修正
+ * 一部ゲームが起動しなくなっていたCD-ROMの問題を修正 (「エメラルドドラゴン」「インディジョーンズ 最後の聖戦」など)
+ * 3dgolfhaのフロッピー吸い出しをHxC MFMフォーマットの吸い出しに置き換え。コピープロテクトチェックにパス可能
+ * ソフトウェアリスト項目で動作しないものをすべてドキュメント化
+
+- alphatpx: HSYNCコールバック追加 - P2シリーズマシーンがMOSモニタまで動作し、ディスク起動可能。[rfka01]
+
+- Lucky Ball 96の更新: [Roberto Fresca]
+ * I/O用にPPI 8255を実装。ST6265 MCUの解析、VRAM/VDPの解析
+ * DAC 08追加 (モード2で問題があるため、PPI 8255には未接続)
+ * プログラムROMを復号化/スクランブル解除
+ * I/O回路、基板レイアウト、エッジコネクタ、DIPスイッチのドキュメント化
+ * テクニカルノート追加
+
+- miaction, tigerslt: プログラムとパレットの復号化。[Roberto Fresca]
+
+- goldstar.cpp: lucky8とその派生版用に32KiBから64KiBへmaincpu領域を拡張。ROMを0xC000-0xF7FFの領域でマッピング。[Roberto Fresca]
+
+- Neraidoula: グラフィックROM内にある他のゲームからのタイルについてノートを追加。[Roberto Fresca]
+
+- funworld.cpp:「Jolly Card」イタリアセットのノートを更新。[Roberto Fresca]
+
+- e132xs: サポートするゲームで使用されるオペコードをカバーするリコンパイラを追加。[Ryan Holtz]
+
+- kof10thのセーブステートを修正するためのヤバめなハック追加。[smf]
+
+- 通常と異なるWindowsビルド設定のサポートを改善: [smf]
+ * clang staticビルドの対策追加で再び有効可
+ * clangビルドでは-01強制しない
+ * GCC 7でのリンクを修正するため、-lSDL2mainオプション追加
+ * リンカのバグ対策として、Windows SDLビルドでダイナミックリンキングを使用
+ * Qtデバッガでのビルドを修正
+
+- Segaネットワークデバイスのスケルトン追加。[smf]
+
+- vamphalf: mdigのスピードアップ。"space"コールを削除。マジックナンバーをenum定数に置き換え。[smf]
+
+-「Mr.Kicker」のスピードアップを改良と、aoh以外のものを標準化。[smf]
+
+- popeye: ビデオエミュレーションの改良: [smf]
+ * popeyej、popeyejo、popeyeblの背景修正
+ * popeyeの水平と垂直スクロールレジスタ動作を修正
+ * 関数名をゲーム名から最初に使用される機能のハードウェアIDに変更
+ * 画面反転時のpopeyeの背景スクロール修正
+ * TNX1ハードウェアのタイルパレットバンキング実装(PROMの内容から推測)
+ * MT03725の解説を元に、スプライトプライオリティとクリッピングを実装
+ * プロテクトのセーブステートをdriver_start()に移動し、復号化をドライバinitにおまかせ
+ * スプライトPROMの一体化とROMロードで海賊版PROMを反転
+ * スプライトパレットのバンキングと、バンクレジスタが変更されているときはパレットのみ更新
+ * 背景をビットマップに直接描画し、背景バッファを超える領域も包含
+
+- $ed、$dd、$fdのプリフィクスが使用されていても命令が無効な場合のZ80逆アセンブリを修正。[smf]
+
+- vg5k: 不良なROM吸い出しを削除。[Sylvain Glaize]
+
+- XMLファイルのint/floatにCのロケールを使用。[Vas Crabb]
+
+- OSXでトレース/ブレークポイントトラップの生成前にアタッチされたデバッガを検出。[Vas Crabb]
+
+- zippathディレクトリをC++インタフェースに変換。[Vas Crabb]
+
+- playch10: 出力システム経由でカウントダウンLEDを引き出し、これを表示するための内部レイアウト追加。[Vas Crabb]
+
+- k001604: フロントレイヤーの回転と拡大縮小を実装。[Ville Linde]
+
+- GLSLビットキュービックフィルタ(Catmull-Romスプライン曲線)を追加。GLSLのBilinearフィルタでピクセル座標とサンプリングを修正。
+  [webghost009]
+
+- mac: BootBugカードにバージョン1.3のROMを追加。[Al Kossow]
+
+- tv912c: プログラムROMを再吸い出し。[Al Kossow]
+
+- wd2010.cpp: MEMドライブで、ハードコードした値ではなく、計算したアクセスタイムを使用。[Bavarese]
+
+- ソースに空白文字を含む場合のVisual Studioのビルドを修正。[Bjorn Moser]
+
+- mosaic.cpp:「Mosaic」の基板レイアウト追加と、CPUとサウンドをオシレータの周波数から生成。[Brian Troha]
+
+- sorcerer_cass.xml: オリジナルのマニュアルを元に、Orb of HalucidonとAir Traffic Controllerの詳細を更新。[exidyboy]
+
+- gaelco2: 基板写真を元にドキュメントの更新。[f205v]
+
+- c65.cpp: ノートの追加とCPUクロックの修正。[Guru]
+
+- cps1.cpp: wofr1のプログラムROM吸い出しを検証。[hammy, The Dumping Union]
+
+- 2017の文字列を2018に更新。[Jonathan Holt]
+
+- hiscore.dat: 現在のMAMEバージョンに合わせて更新。[Leezer]
+
+- blockhl.cpp:「クオース/Block Hole」のボタン2とボタン3、下入力を復活。[Mikejmoffitt]
+
+- Coverityさんが報告した問題を修正。[MoochMcGee]
+
+- pgm2.cpp: kov3のファームウェアとkof3_102 ROMモジュールキーを吸い出し。[Peter Wilhelmsen, Morten Shearman Kirkegaard]
+
+-「ポパイ」のハードウェアドキュメントを更新。[Porchy]
+
+- csplayh5.cpp: nuretemiのサウンドROMを吸い出し直し。[ShouTime, The Dumping Union]
+
+-「バーチャファイター2」と「ビハインドエネミーライン」の年代修正。[sjy96525]
+
+- ibm5170.xml: ku2impactとkotobukiのCDを.isoと.bincue形式で再吸い出し。ソースデータのコメント。[Tafoid]
+
+- thepit.cpp:「イントレピッド」海賊版セットの残ライフ設定DIPスイッチを修正。[Tafoid]
+
+- gamegear.xml: shinfrc2とクローンセットのNVRAMサイズを修正しゲームが正しく動作 (MT06845)。[einstein95, Tafoid]

@@ -1,0 +1,149 @@
+0.134u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03403: [DIP/入力] rollfr_2: 初期化に失敗する。 (MetalliC)
+- 03458: [サウンド] bzone and clones: エンジン音がおかしくなっている。(couriersud)
+
+
+ソースの変更点
+--------------
+-「ラリーX」「ニューラリーX」の純正版追加。[Team Japump!!!]
+
+- discrete_sound_rでどのノードも問い合わせ可能: [couriersud]
+ - 返り値の型はUINT8です。そのため、デザイナ側はノードが適切にスケーリングされたデー
+   タを渡すようにする必要があります
+ - 入力ノードでは入力データがスケーリングされていても問題ありません。返り値はスケーリ
+   ング後のノード値です
+
+- DISCRETE_74LS624 - 高速化のための最適化。[Derrick Renaud]
+
+- DISCRETE_566 - 実ICでのテストを元にしてより正確なシミュレーション作成中。これにより
+ 「Sky Raiders」の残りのサウンドが動作。[Derrick Renaud]
+
+-「ガンサバイバー2」カートリッジの吸い出し完了。[Guru]
+
+- dsp56156の"Long Interrupts"をハッキング。SUB命令追加。「ポリゴネットコマンダーズ」
+  のゲーム動作。[Andrew Gardner]
+
+- plygonet.c: 53936 rozレイヤーを実装。[R. Belmont, David Haywood]
+
+- m68kコアのSCC68070定義を具体化。MESSのCD-i用。[Harmony]
+
+- m68k: PMOVE命令の逆アセンブル(move to/from PMMU)。[R. Belmont]
+
+- expは遅い。でもpowはもっと遅い: [couriersud]
+ - LS624をさらに最適化。pow(10, x)をpow10(x)と置き換え
+ - ミキサループの最適化
+
+- marioのディスクリートパフォーマンスを改善: [couriersud]
+ - pow から exp : 5%
+ - 並列タスク : 45%
+ - マイナーな改良
+
+- M680x0の更新: [R. Belmont]
+ - CPU型、65EC030、68030、68EC040を追加
+ - 030/040 PMMU開始。スタブPMOVEを含む
+
+- memdumpのクラッシュが起きないようにRAMバンク名を修正。明白なバンク数を96に拡張。
+  [Aaron Giles]
+
+- multfish.cドライバの修正と改良: [MetalliC]
+ -「Roll Fruit」の入力実装
+ - ホッパーのエミュレートでペイアウトが動作
+ -「Roll Fruit」の初期化方法についての情報追加
+ -「MultiFish」の不足ROM追加
+
+- DISCRETE_555_MSTABLE - 速度最適化と新しいオペレーションモード追加。[Derrick Renaud]
+
+- warpwarpのROM名修正。実機には無い4番目のプログラムROMを削除。[Team Japump!!!]
+
+- メモリアクセスについて、論理アクセスと物理アクセスを先頭にlかpを付けることで明示的
+  に行うことができます。論理アクセスはまだデフォルト設定です。
+  例: ppb@1000 = アドレス$1000の物理プログラム空間バイト値
+      ldw@2000 = アドレス$2000の論理データ空間ワード値
+  チート検索では、新しいチートを書き出す時に明示的に物理アドレスを参照するように変更
+  しました。[Aaron Giles]
+
+- チートに関係しそうなRAM領域を自動で見つけるシステム追加。[Sandro Ronco]
+
+- 実行中に新しい入力デバイスを繋いだとき、MAMEがクラッシュしないようにNULLチェック追
+  加。[David Haywood]
+
+- カスタムプロファイラエリアを8つまでサポートするようにPROFILER_USERxを拡張。
+  [Christophe Jaillet]
+
+- 標準のネーミング基準に合わせるため、_NAMEマクロをさらに追加。[Atari Ace]
+
+- HazeMDへの統合を改良するためコードのいじり回し。[David Haywood, Fabio Priuli]
+
+- mario_custom_run()ディスクリートの速度をスピードアップ。[Derrick Renaud]
+
+-「スプリント8」にディスクリートサウンド追加。[Derrick Renaud]
+
+- コンデンサのエイジングコードの削除と、全74LS629のレンジ入力をgnd扱い。[couriersud]
+
+- ディスクリートサウンドでのバッファされたタスクノード用 m:n ロジックを実装:
+  [couriersud]
+ - タスクノードの出力バッファが1つ以上の後続タスクから読み込みされることを見越した準
+   備作業
+ - 目標: タスクグループの実装: グループ内のタスクは並列、タスクグループは逐次動作
+
+-「Space Walk」のディスクリートサウンド追加開始。[Derrick Renaud]
+
+- コード全体で可能な箇所にstatic qualifierを追加。[Atari Ace]
+
+- ディスクリートタスクグループ: [couriersud]
+ - DISCRETE_TASK_STARTで、引数TASK_GROUP(>=0, <=9)が必要になりました
+ - タスクは、そのタスクグループの順序でスケジュールされます
+ - ノードはタスクグループ間で自動的にバッファリングされます
+ - ディスクリートコアは、オーバーヘッドを最小化するために、どのノードをバッファリング
+   するかを決定します(DISCRETE_LOGに情報出力)
+ - ディスクリートブロックリストがタスクを使用する場合は、各ステップコードをタスクに配
+   置する必要があります
+ - タスクを使用しないドライバには、自動で一つのタスクが割り当てられます
+ - これに合わせてドライバを更新
+ - さらに定数化
+
+- srccleanのタブ削除を最適化。[Atari Ace]
+
+- 色定義の集中化と、一部の色をさらに特定化。[Mamesick]
+
+-「ポリネットウォリアーズ」のジョイスティックを正しく実装。[Andrew Gardner]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+オセロ (version 3.0) [Tomasz Slanina, Stefan Lindberg]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+トータルバイス (ver UAC) [Phil Bennett]
+ストリートファイターII -ザ・ワールドウォリアー- (Quicken Pt-I, 海賊版)
+   [D. Beneke, Guru, Smitdogg, The Dumping Union]
+ストリートファイターII’-チャンピオンシップエディション- (Accelerator!, 海賊版) 
+   [D. Beneke, Guru, Smitdogg, The Dumping Union]
+Ironman Ivan Stewart's Super Off-Road Track-Pak (2 Players) [Darran]
+ギャルズパニック4 (Korean) [Choi Sung Ho]
+モータルコンバットII (rev L3.1 (European)) [Andy Welburn]
+カダッシュ (Germany) [Volker Hann, Team Europe]
+Space Empire (bootleg) [Team Europe]
+Target Hits (ver 1.0) [Andrew Conroy]
+Vulcan Venture / グラディウスII (Older) [Irongiant]
+アストロブラスター (German) [Volker Hann & Team Europe]
+パックマン (Galaxian hardware, set 2) [Team Europe]
+ザクソン (Japan) [Team Japump!!!]
+
+
+
+追加された未動作ゲーム
+----------------------
+バーチャファイター4 エボリューション (Cartridge) [f205v, David Haywood]
+48-in-1 MAME bootleg (ver 3.09) [Guru]
+48-in-1 MAME bootleg (ver 3.02) [Guru]
+Seta Roulette? [Team Europe]

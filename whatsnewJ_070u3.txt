@@ -1,0 +1,42 @@
+0.70u3
+
+ソース全般の変更：
+------------------
+
+■cave.cのBanpresto製ゲームのリージョンをDIPスイッチで変更可能に。[David Haywood]
+	src/drivers/cave.c
+
+■MAME.EXEがコマンドラインから起動されずに、ダブルクリックされた場合、windows.txtファイルを読むように
+  メッセージボックスを表示。[Leon van Rooij]
+	注：Win9x系でのテストが必要。2000とXPでは正常動作を確認。もし問題があるようならはずす予定。
+	src/windows/winmain.c
+
+■「マスタッシュボーイ」に新PROM追加で色修正。[Tomasz Slanina]
+	src/drivers/mustache.c
+	src/vidhrdw/mustache.c
+
+■「Tricky Doc」に新PROM追加で色修正。[David Haywood]
+	src/drivers/sauro.c
+
+■「Enigma 2」にカラーマップ追加。セットの入れ替えともっと細かいCPU周波数設定。[Tomasz Slanina]
+	src/drivers/enigma2.c
+
+■「カントリークラブ」のトラックボール操作修正。[Tomasz Slanina]
+	src/drivers/snk.c
+
+
+新規サポートゲーム：
+--------------------
+
+バトルクライ [Tomasz Slanina]
+	表示系がちょっと不具合気味
+	src/drivers/homedata.c
+	src/vidhrdw/homedata.c
+	src/includes/homedata.h
+
+
+新規サポートクローン：
+----------------------
+
+Dock Man (ポートマンの親セット) [TheGuru]
+	src/drivers/thepit.c

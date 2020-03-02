@@ -1,0 +1,83 @@
+0.114u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+cannonb078u6yel [couriersud]
+hatris0111u4gre [couriersud]
+pipedrm0111u4gre [couriersud]
+galaxianc058gre [couriersud]
+ssf2ghw0114u1yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- CDP1802の追加更新。MESSより。[Curt Coder]
+
+-「One + Two」の色修正。[Tomasz Slanina]
+
+- PowerPCのdynarecオプションを、実行時に調整可能に修正。[Ville Linde]
+
+- hatris/pipedrmドライバにセーブステートサポート追加。[couriersud]
+
+-「マスタッシュボーイ」の実基板で計った値を元に、メインCPUの割り込みレート、クロッ
+  ク周波数、画面のリフレッシュレートを訂正。[Tormod Tjaberg]
+
+- simp156ドライバのDECO製とMitchell製ゲームを分割。また、詳細なドキュメントを追
+  加。[Brian Troha]
+
+-「ソーラーアサルト」のアナログ操作を修正。[Ville Linde]
+
+- optionsコードのレンジを、option_entry構造体で定義するように変更。
+  [Nathan Woods]
+
+- K001604のROZレイヤーエミュレーションを更に改良。[Ville Linde]
+
+- Konami ZR107のアップデート: [Ville Linde]
+ -「ワインディングヒート」のサウンドハードチェックを修正
+ - 正しいタイルマップチップタイプを使うように変更
+ - アナログ操作の実装
+ - テクスチャROMロードとデコードを修正
+ - 2Dタイルマップを改良
+
+- mame_options_init()を補完するために、mame_options_exit()を導入。[Nathan Woods]
+
+- mame_fopen_options()を追加。mame_fopen()と似たものですが、使用するcore_options
+  オブジェクトを指定できます。[Nathan Woods]
+
+- SN76496エミュレータのノイズエミュレーションを改良。元になるノイズジェネレータ
+  と異なったパラメータを設定するための変数を追加。[Lord Nightmare]
+
+- plot_pixelとread_pixelを全てBITMAP_ADDRXXマクロに変更。[Zsolt Vasvari]
+
+- サウンドタイプのエイリアス化をサポート。これにより、サウンドコアの基本"タイプ"を
+  共有して、マイナーな差異を持たせることができます。また、下位タイプに関わらず
+  sndti_*関数を使うことができます。[Aaron Giles]
+
+- セーブステートファイルの保存場所を変更しました。新しい場所は、
+  <savestate>/<gamename>ディレクトリです。自動生成されるステートファイルは
+  "auto.sta"という名称になります。その他のセーブステートファイルは<slot>.staです。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ミッドナイトラン [Ville Linde]
+ワインディングヒート [Ville Linde]
+
+
+
+新規クローンセット
+------------------
+Night Warriors: Darkstalkers' Revenge (Euro 950316) / ヴァンパイアハンター
+  [Johan Samuelsson, Nicola Salmoria]
+テラフォース (set 2) [Stefan Lindberg]
+
+
+
+追加された未動作ゲーム
+----------------------
+それいけココロジー2 [David Haywood]

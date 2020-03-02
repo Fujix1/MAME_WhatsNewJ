@@ -1,0 +1,455 @@
+0.184
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 04454: [クラッシュ/フリーズ] (saturn.cpp) seabass: パテント画面のあと、黒画面しか表示されない。(Angelo Salese)
+- 06337: [DIP/入力] (mz2500.cpp) mz2500: HELPキーが未実装。
+- 06492: [クラッシュ/フリーズ] (model3.cpp) scud: -bench 90が完走できない。(Phil Bennett)
+- 06513: [クラッシュ/フリーズ] (gba.cpp) gba: 以前動作していたsl_romがフリーズする。(R. Belmont)
+- 06361: [チートシステム] チートを有効にするとNESゲームがクラッシュする。(Pugsy)
+- 06504: [その他] (coleco.cpp) coleco and clones, adam: -listxmlでColelo製カセットデバイスの名前が間違っている。
+- 06512: [グラフィック] (seattle.cpp) hyprdriv: レース開始時にグラフィックが乱れることがある。(R. Belmont)
+
+
+新規動作可能マシン
+------------------
+Ampro Computers Little Board/186 [Carl, Al Kossow]
+Coleco Quiz Wiz Challenger [hap, Sean Riddle, Rik]
+Conic Electronic I.Q. [hap, Sean Riddle]
+CXG Chess 2001 [hap, Berger]
+Micro Genius IQ-501 [kazblox]
+Micro Genius IQ-502 [kazblox]
+Shiny Golds [caius, The Dumping Union]
+USG/Tandy 2-Player Football [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+2 On 2 Open Ice Challenge (rev 1.2A) [Brian Troha, Sean Sutton, Smitdogg, The Dumping Union]
+Chesster Challenger (V1.3) [yovan]
+Dendy Classic 2 [kazblox]
+ボンバーマン / Dynablaster (bootleg, set 3) [Hammy, The Dumping Union]
+Fidelity Designer 2100 [hap]
+Fidelity The Excellence (model EP12, set 2) [yovan]
+Fidelity The Par Excellence (rev. B) [hap]
+フラッシュギャル (set 1, Kyugo logo) [Corrado Tomaselli, The Dumping Union]
+ギャルズパニック (MCU Protected, set 2) [Hammy, The Dumping Union]
+Granit 'S' [hap]
+Kishon Chesster [yovan]
+Milton Bradley Simon (Rev F) [Sean Riddle]
+NBAプレイバイプレイ (ver AAB) [alca]
+Phoenix (IDI bootleg) [f205v]
+ラジカルラジアル (Japan) [ShouTime, The Dumping Union]
+雷電II (Germany) [caius, The Dumping Union]
+サンフランシスコラッシュ -エクストリームレーシング- (boot rom L 1.06A) [Andrew Welburn, The Dumping Union]
+上海III (US, prototype) [coolmod, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォリアー- (World 910129) [Janniz]
+スーパークラウンズゴルフ (World) [Kevin Eshbach, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+Novag Constellation Forte (version B) [hap]
+Heathkit H-19 [Mark Garlanger]
+HP-9845C [f.ulivi, Angus Kueckes]
+SM 7238 [shattered]
+
+
+動作可能に昇格したクローン
+--------------------------
+Heathkit H-19 w/ Super-19 ROM [Mark Garlanger]
+Heathkit H-19 w/ Watzman ROM [Mark Garlanger]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Alchemist (01J02046, Venezuela) [Heihachi_73]
+Arizona [PinMAME]
+Bachelorette Party (BHG1248, US) [Heihachi_73]
+Caprice Pro-Action Baseball [hap, Sean Riddle]
+Cowboy 8 Ball [PinMAME]
+Disco Dancing [PinMAME]
+Dream Weaver (0200586V, NSW/ACT) [Heihachi_73]
+Eltec Eurocom II V7 [shattered]
+Fast Fortune (0100651V, NSW/ACT) [Heihachi_73]
+Force [PinMAME]
+Haunted Hotel [PinMAME]
+Hustler [PinMAME]
+Jumpin' Joey (0100383V, NSW/ACT) [Heihachi_73]
+King Kong [PinMAME]
+Lucky Clover (0300109V, NSW/ACT) [Heihachi_73]
+Mammoth Money (0100425V, NSW/ACT) [Heihachi_73]
+Penguin Pirate (0100674V, NSW/ACT) [Heihachi_73]
+Reel Power (0100400V, NSW/ACT) [Heihachi_73]
+Rushin Rooster (0100534V, NSW/ACT) [Heihachi_73]
+Silver Wolf (0100673V, NSW/ACT) [Heihachi_73]
+Snow Cat (0100405V, NSW/ACT) [Heihachi_73]
+Soreike! Anpanman Popcorn Factory (Rev B) [ShouTime, Anonymous Donator, The Dumping Union]
+Space Ship [PinMAME]
+Subor SB-486 [kazblox]
+Thor (0200319V, NSW/ACT) [Heihachi_73]
+Thunder Heart (0200333V, NSW/ACT) [Heihachi_73]
+Time Machine (LTD, 4 players) [PinMAME]
+Trick Shooter [PinMAME]
+USG Programmable Baseball [hap, Sean Riddle]
+Viking King [PinMAME]
+White Force [PinMAME]
+Wicked Winnings (0100553V, NSW/ACT) [Heihachi_73]
+Wild Angels (0100337V, NSW/ACT) [Heihachi_73]
+Yukon Gold (03J00191, NSW/ACT) [Heihachi_73]
+Zoofari [R. Belmont, Sean Sutton, Smitdogg, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Boot Scootin' (GHG1008-03, US) [Heihachi_73]
+Cash Cat (0100557V, NSW/ACT) [Heihachi_73]
+Cash Cat (0100676V, NSW/ACT) [Heihachi_73]
+The Chariot Challenge (0100787V, NSW/ACT) [Heihachi_73]
+Desert Bloom (0300111V, NSW/ACT) [Heihachi_73]
+Dolphin Treasure - Cash Express (AHG1519, US) [Heihachi_73]
+Dolphin Treasure - Cash Express (AHG1607, US) [Heihachi_73]
+Griffon (Olympia bootleg of Phoenix) [f205v, The Dumping Union]
+Harley Davidson (L-2) [PinMAME]
+Karnov (Japan, bootleg with NEC D8748HD) [The Iron Goat]
+King Galah (0100536V, NSW/ACT) [Heihachi_73]
+Loco Loot (0100473V, NSW/ACT) [Heihachi_73]
+M82 Display Unit (PAL) [kazblox]
+Magic Mask (AHG1549, US) [Heihachi_73]
+Magic Touch (0300455V, NSW/ACT) [Heihachi_73]
+Mine, Mine, Mine (0400115V, NSW/ACT) [Heihachi_73]
+Money Mouse (0300469V, NSW/ACT) [Heihachi_73]
+Mountain Money (0100289V, NSW/ACT) [Heihachi_73]
+Orchid Mist (0100849V, NSW/ACT) [Heihachi_73]
+Oscar (0100348V, NSW/ACT) [Heihachi_73]
+アウトラン2 スペシャルツアーズ (GDX-0014) [Ordyne, The Dumping Union]
+Penguin Brothers (Japan, bootleg) [Rod_Wod, Team Europe and The Dumping Union]
+Penguin Pays (0100113V, NSW/ACT) [Heihachi_73]
+Penguin Pays - Penguin Pucks (EHG1257, US) [Heihachi_73]
+Penguin Pirate (0200578V, NSW/ACT) [Heihachi_73]
+Pot O' Gold (U.S. Games, v580F) [deathmock]
+PPG Waveterm A [shattered]
+Queen of the Nile (0101139V, NSW/ACT) [Heihachi_73]
+Queen of the Nile (0101707V, Brazil) [Heihachi_73]
+Queen of the Nile (04J00784, Venezuela) [Heihachi_73]
+Queen of the Nile - Cash Express (AHG1525, US) [Heihachi_73]
+Queen of the Nile - Cash Express (AHG1609, US) [Heihachi_73]
+San Francisco Rush: The Rock (Wavenet, boot rom L 1.38, GUTS Aug 19 1997 / MAIN Aug 19 1997) [Andrew Welburn, The Dumping Union]
+San Francisco Rush: The Rock (Wavenet, boot rom L 1.38, GUTS Aug 6 1997 / MAIN Aug 5 1997)  [Andrew Welburn, The Dumping Union]
+Skins Game Tournament Edition [mrsinister]
+Super Bucks III (0100711V, NSW/ACT) [Heihachi_73]
+Sweethearts II (0200465V, NSW/ACT) [Heihachi_73]
+Time Machine (LTD, 2 players) [PinMAME]
+Thunder Heart (0200334V, NSW/ACT) [Heihachi_73]
+Tropical Delight (0100269V, NSW/ACT) [Heihachi_73]
+タイムトラベラー (set 2) [Ordyne, The Dumping Union]
+Unicorn Dreaming (0100813V, NSW/ACT) [Heihachi_73]
+湾岸ミッドナイト マキシマムチューン2 (Export) (GDX-0016) [Ordyne, The Dumping Union]
+Zephy (alternate set) [PinMAME]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+archimedes: Over 20 games and applications [Nigel Barnes]
+bbcb_flop: Disk User coverdisks, Bad Apple and X-Pansions Elevation demos [Nigel Barnes]
+bbcm_flop: Enjoy The Silence and Retribution X demos [Nigel Barnes]
+c64_cass: speakeasy [Dagarman]
+ibm5150:
+  Bivouac, Chuck Yeager's Advanced Flight Trainer, Double Dragon (5.25", older), EDITEXTE,
+  Indianapolis 500: The Simulation (3.5", newer), Label Magic, Licence to Kill, Multitexte, Pick'n Pile, Prehistorik,
+  PrintMaster Plus, Rockford, Skweek
+  [breiztiger]
+ibm5170:
+  Adaptec EZ-SCSI 3.1 German, AMouse Driver Disk v7.0, Borland Eureka 1.0, Borland Paradox 3.01 (German),
+  Borland Paradox 4.0 (German, 2 versions),
+  IBM DOS 5.02 (German), MS-DOS 6.22 (German), Windows 3.1 (German), Windows for Workgroups 3.11 (German)
+  [darkstar]
+megadriv: TOm and Jerry (Jpn) [ElBarto]
+nes: Magic Kid GooGoo [kazblox]
+ti74: Maths and Finance cartridges [PockEmul]
+vic1001_cass: speakeasy (partial dump) [Dagarman]
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+ibm5150:
+  Ikari Warriors (alt), First Samurai, JetFighter I: The Adventure, Turbo Driver [breiztiger]
+
+
+ソースの変更点
+--------------
+- 4方向ジョイスティックに変更。[AJR]
+ * assault, bagman.cpp (all games except squasitsa), bballs, darktowr, ddungeon, horekid, klax, maddonna, pushman, stoffy, 
+   supduck, toffy, trog (trogpa4 prototype uses different inputs)
+
+- tms1024/tms1025: 入力コールバックとリードハンドラを追加。[AJR]
+ * docastle.cpp: TMS1025経由での入力読み込み
+
+- hanaroku: NVRAMとホッパーの追加。[AJR]
+
+- feversoc: コインホッパー出力追加(プライズホッパーは動作せず)。[AJR]
+
+- hp9845b: オプションROMで、スタンダードなインスタンス名(と型)を使用。[AJR]
+
+- merit.cpp: PSGタイプはAY-3-8912。[AJR]
+
+- screen_devicenのVBLANKコールバックをdevcb_write_lineにコンバート。[AJR]
+ * 多数のドライバでscreen_eof_xxxをscreen_vblank_xxxに改名
+
+- lastbank: コインカウンタ追加。[AJR]
+
+- Video System C7-01 GGAのスケルトンドライバ追加。[AJR]
+
+- taito_z.cpp:「コンチネンタルサーカス」のメキシコGP面で起こるカラーペンのバグ修正。[Angelo Salese]
+
+- 8x300dasm: JMPターゲットアドレスを訂正。[Barry Rodewald]
+
+- msys2 CランタイムがDInputコントローラを使うとコンソールでガベージが発生するので対策。[Brad Hughes]
+
+- abc80: スキャンラインベースのレンダリングに変更、グラフィックキャラクタの修正、サウンドの修正。[Curt Coder]
+ * Genesis Projectデモ(abcdemo, hiresinv)が完全動作
+
+- Ambush: ドライバステートのクリーンアップ。[Dirk Best]
+
+- ay8910: bc1=a0かつbc2=a1の場合の書き込みハンドラ追加。[Dirk Best]
+
+- blockade: ドライバ書き直し: [Dirk Best]
+ * 偽の割り込み削除、コイン処理書き直し、CPUタイプの訂正
+ * 画面RAWパラメータと、汎用8x8x1グラフィックレイアウト使用
+
+- popper: 機能の肉付け: [Dirk Best]
+ * 回路図をもとにメインとサブCPU用の完全なメモリマップ作成
+ * 両方のDIPスイッチを正しいデフォルト値を設定して追加
+ * 割り込み生成ロジックを実装
+ * キャラクタとスプライトレイアウトをデコード、キャラクタタイルマップを描画
+ * RAW画面パラメータ追加(検証用)
+ * 入力と画面反転を実装
+ * オーディオの修正
+
+- HP9845Cの改善: [f.ulivi, Angus Kueckes]
+ * I/Oスロットを1本から4本に拡張
+ * RAMサイズを-ramオプションで指定可能
+ * HP-9845Cドライバを実装(マシンの9845レンジカラー版)
+ * 9845Cライトペンエミュレーションを改良
+ * nanoprocessor: 割り込み処理の細かなバグを修正
+
+- n64の更新: [Happy]
+ * RSP IRQが最初に来るよう、RDPフルシンクとDP割り込み間に短いディレイを追加
+ * デバッガの逆アセウィンドウがRSP PCをトラックするよう変更
+ * SP DMAがIMEMを変更したときRSP DRCキャッシュを消去
+ *  Make element selection in vector load/store RSP DRC C functions consistent with other implementations.
+ * Load Block用のRDP逆アセンブリリスティングの問題を修正
+
+- mips3 DRC : ブランチディレイスロット命令が、ブロックチェックサムに自身を追加するコードを生成する前に、仮想命令とならないように
+  変更。FPUレジスタエイリアシングを修正。[Happy]
+
+- z80sio: i8274/upd7201派生型追加、割り込みのリファクタリング、ログ処理の改良。[Joakim Larsson Edstrom]
+ * isbc: z80dart.cppのものでなくz80sio.cppのi8274デバイスを使用。m1_r()による回避策を削除
+
+- fcisio: レイアウト追加と全8シリアルポートのターミナル用にRS232を設定。[Joakim Larsson Edstrom]
+
+- netlist: ヒープのプライオリティキューを追加。netlistの統計収集が修正。新しいclang警告を修正、拡張クロックのフットプリントを削減。
+ [couriersud]
+
+- 正しいカラーPROMをデコード。[Joe Magiera, couriersud]
+
+- sdk86.cpp: ROMロード修正。[Lord Nightmare]
+
+- pes.cpp: MCU/CPUが理論上両方のラインを同時に変更できるため、/RSと/WSを統合。また、TMS5220Cを使うのでこの場合関係がある。
+  [Lord Nightmare]
+
+- segas32.cpp:「エアレスキュー」のuPD7725 DSP追加。ROMもロード(現在無効化)。[Lord Nightmare]
+
+- upd7725: IRQの仮サポート。SI/SOビットオーダ修正、SIACK/SOACKレジスタ追加、セーブステート登録修正、リセットステート修正。
+  [Lord Nightmare]
+
+- SNESゲームでupd96050 ROMをロードしたときのオブバイワンエラーを修正。[Lord Nightmare]
+
+- potgoldu.cpp: 未吸い出しのMCUをNO_DUMPとして追加。[Lord Nightmare]
+
+- konmedal/tsukande: Z80 CPU用のクロックXTAL定義を追加。分周は推測。[Lord Nightmare]
+
+- Heath H19: キーボード修正、25番ラインの有効化/無効化処理を修正、内部MM5740 ROMを使用、WatzmanROMでH-19を修正、Super19を修正。
+  [Mark Garlanger]
+
+- ti99: TI-99/4(not A)のいろいろな修正。[Michael Zapf]
+  * 起動時のクラッシュを修正する初期化を追加、GROMの問題を修正(クロックをオフにするのが早すぎた)
+
+- geneve: 暗黙のシークなしでHFDCでのセクターリード問題を修正(CRCをチェックしてなかったので密度切り替えに失敗していた)。
+  [Michael Zapf]
+
+- ti99/geneve: バスマウスを別デバイス化、evpcでも使用できるかも。[Michael Zapf]
+
+- ti99/geneve: スムーズでないマウスの動きを修正。[Michael Zapf]
+
+- ti99_8: TI-99/8のデバッグを修正。[Michael Zapf]
+
+- Softlist/slotの改善: [Nathan Woods]
+ * デバイスオプション(-cartなど)が動作しているのに不明とレポートされるのを修正
+ * ソフトリストの評価をさらに前もって行い、その結果をドライブスロット/イメージの設定に使用
+ * どのスロットが選択可能オプションを持つかを調べるdevice_slot_interface::has_selectable_options()を追加
+
+- AM_REGIONが意味のあるものに関連づけられていないのをキャッチするため、addrmap.cppバリディティチェックを追加。[Nathan Woods]
+
+- CoCo: カセット固有サウンドのオン・オフ切り替えサポート。デフォルトで3番目と4番目のフロッピーを装備。[Nathan Woods]
+
+- CoCo 3: GIME割り込みクリアの問題修正($FF92/3への書き込みによる割り込み無効化は割り込みの承認も行う)。
+  [Nathan Woods, tim lindner, Glen Hewlett]
+
+- 6821pia.cpp: 必要に応じてintをboolに変更。マクロを静的関数に変更。[Nathan Woods]
+
+- archimedes: JASPP (Archimedes Software Preservation Project)で使われいるJFDフロッピーフォーマットを追加。[Nigel Barnes]
+
+- electron: First Byteジョイスティックインタフェースを追加。[Nigel Barnes]
+
+- side effect suppressionをマシンプロパティ化。[O. Galibert]
+
+- ダイレクトアップデートハンドラを削除: [O. Galibert]
+ * a2600, atm (まだ動作不可、少しまし), mpf1 (ステップ動作可能), mpz80, pentagon, sage2, scorpion, tms32031
+
+- mb86233: 逆アセンブラの大幅なオーバーホール。[O. Galibert]
+
+- arm7ops.cpp: 未実装命令でPCを進める。[Peter Ferrie]
+
+- apple2: 言語カード処理を書き直し。[Peter Ferrie]
+
+- apple2: IIe/IIcのセルフテスト不具合を修正。[R. Belmont]
+
+- apple2: IIe $C800仲裁を修正、Zellyn/kqumbaテストをパス可能。[R. Belmont]
+
+- z180: DMAの修正: [R. Belmont]
+ * 他のDMAコントローラ同様、0カウントは0x10000を意味する
+ * バーストモードDMAがCPU命令インタリーブ無しで常に即サービスされるようにスケジューリングを修正
+
+- gba: 修正されたコピープロテクトハンドラで正しいPCを取るように修正(MT6513)。[R. Belmont]
+
+- vp101: フレームバッファ、入力、ATA、NVRAM、プロテクションチート追加; ATA DMA実装。[R. Belmont]
+
+- MIPS: VR5500とTX4925 CPUの初期サポート。[R. Belmont]
+
+- コベリティが検出したエラーの修正: [shattered]
+ * argo, unior, x07: CID: 138563-138565 "Overlapping buffer in memory copy"
+ * pc88va: CID: 138607 "Operands don't affect result"
+ * peplus: CID: 138606 "Logical vs. bitwise operator"
+ * formats/cbm_tap: CID: 138003 "Dereference before null check"
+ * machine/hdc92x4: CID: 138631 "Operands don't affect result"
+ * machine/roc10937: CID: 138793 "Logically dead code"
+
+- tosh1000: ROM-DOSの実装。[shattered]
+
+- agat: apple2から分離、基本的なagat7ハードの実装。[shattered]
+
+- sm7238: 倍サイズキャラクタとスムーススクロールの実装。[shattered]
+
+- poisk1: ROMをさらに追加。[shattered]
+
+- ibm6580: メモリサイズを設定可能にし、Coverityの発見を修正。[shattered]
+
+- ie15: フロントエンド付きデバイスにコンバート(スタンドアロンドライバとRS232スロットデバイス)。[shattered]
+
+- debugger: CPUが8進数の場合、トレースで8進数アドレスを出力。[shattered]
+
+- dec_lk201: PORT_CHAR/PORT_CODEの不足箇所を修正。[shattered]
+
+- wd_fdc: デバッグメッセージでのコマンド名をタグ付け。[shattered]
+
+- cpu/i86とフロッピーコードのlogerror()からtag()引数を削除。[shattered]
+
+- bitgraph: レイアウトからローテーションフラグに変更。キーボードを修正。[shattered]
+
+- legacy floppy: floppy_stp_wを修正。[shattered]
+
+- a7150: 非スケルトン化。[shattered]
+
+- t11 cpu: MFPT命令をエミュレート; MOV、CAR、SXTは書き込み前にメモリを読み込む。[shattered]
+
+- hp_ipc: 非スケルトン化。[shattered]
+
+- Commodore LCD: キャラクタROM領域を半分サイズ化と、大文字・小文字セットの切り替えを修正。[smf]
+
+- UPD7725逆アセンブリ修正。[smf]
+
+- zorba keyboard: 残りのキーの割り当て、残りのDIPスイッチのドキュメント化、MCUプログラムについてノート追加。[Vas Crabb]
+
+- gotcha/ppchamp/pasha2: ランプ出力実装とクリッカブルなアートワーク追加。[Vas Crabb]
+
+- sun3x.cpp: キーボードポートを実装。[Vas Crabb]
+
+- vg9kキーボード用のナチュラルキーボードマッピングを修正。[Vas Crabb]
+ * キーラベルの修正と、デフォルトのマッピングを物理レイアウトに合わせて更新
+ * "triangle"キーは割り当てていない - キーの目的やテスト方法が不明
+
+- GMLがステーブルブランチ(0.9.8.5 pre-release)をチップするように更新 - MacPorts clangでのビルド修正。[Vas Crabb]
+
+- デバイスタイプをセルフレジスタに変更: [Vas Crabb]
+ * MAMEは-listxml、-romident、-veryfyroms用に、リンクされたデバイスタイプを使用の有無にかかわらず全て調べる
+ * device_creatorを変数テンプレート化
+ * emu.hからscreen.hとspeaker.hを削除し、画面とスピーカーファインダテンプレートのインスタンス化を一カ所に集中
+ * -validによるチェックに基本的なデバイスチェックを追加
+ * -listxml(最低30%)、-verifyroms、-romidentを大幅高速化
+
+- コマンドライン引数が多すぎるときのクラッシュを修正。long-deadオプションを削除。[Vas Crabb]
+
+- ti85.cpp: TI-8xリンクポートをエミュレートされた周辺機器のあるバスにコンバート。TI-82とTI-85で動作。[Vas Crabb]
+ * Teeコネクタ、HLE TI-Graph Link、ステレオ/モノスピーカ、RAWシグナルフォーワーディングソケットをサポート
+
+- 新しいデバイスバリデーションの問題を修正。[Vas Crabb, O. Galibert, AJR]
+
+- triforce.cpp:「マリオカート2」のROMロードを修正。[MetalliC]
+
+- naomi.cpp: 837-14438ホッパーコントローラ基板(「Kick'4'Cash」やその他SWPゲームで使用)を吸い出しとドキュメント化。
+  [big10p, Darksoft, MetalliC]
+
+- NaomiのMIE MCU速度を計測。[rtw, MetalliC]
+
+- naomi.cpp:「のーコネパズル たころん」 (GDL-0042)と「バーチャファイター4」(Rev B) (GDS-0012B)を再吸い出し。[rtw]
+
+- model1: 吸い出した内部TGP ROMを追加。[Caps0ff]
+
+- naomi.cpp: BIOSの新規吸い出し:
+ *「フェラーリF355チャレンジ」(deluxe, no link) Export BIOS [Darksoft]
+ *「フェラーリF355チャレンジ」(deluxe, no link) Japan BIOS [Ordyne, The Dumping Union]
+ *「ザ・ハウス・オブ・ザ・デッド2」Japan BIOS [Nomax]
+
+- triforce.cpp: セキュリティPICの吸い出し:
+ *「マリオカート アーケードグランプリ2 」[Soyandroid, Darksoft]
+ *「マリオカート アーケードグランプリ」[Soyandroid]
+
+- taito.cpp: voleybalのプログラムROM追加とタイトルの訂正。[PinMAME]
+
+- phoenix.cpp: 海賊版のPROM吸い出し、及び再吸い出し。[f205]
+
+- viper.cpp: conde1db用のtimekeeper吸い出し追加。[ShouTime]
+
+- midwunit.cpp: "Ulitmate Mortal Kombat 3" U2-U5サウンドROMを再吸い出し。[ShouTime]
+
+- marineb.cppのメインクリスタルを基板写真にあるように12MHzに訂正。galaxianドライバのクロック定義を整理、ladybuggをgalaxoldから
+  galaxianドライバに移動、mooncrst_audioをgalaxoldのmooncrstで使用、spcwrpでhunchbkgのパレットROMを使うように変更。[kazblox]
+
+- nes: Magic Kid Googooボード追加(iNESマッパー190)。[kazblox]
+
+- i386/pc_vga/cs4031のセーブステート修正: [moralrecordings]
+ * cs4031のエミュレートされたA20ステート、追加のi386アトリビュートレジスタ/フラグ、VGAパレット設定をセーブ
+ * ステートロード時に、VGAポートの読み込みが壊れるの修正
+ * i386のenum範囲チェックを修正
+
+- vicdual: nsubのグラデーションのシミュレートを追加(水平線上の黒い駆逐艦が見えるように)。[SailorSat]
+
+- homedata.cpp:「霊界導士」で8方向スティックを使用; ボタンの説明とDIP配置追加。[Bad A. Billy]
+
+- チートファイルのロードを起動プロセスの後半に移動し、ソフトウェアリストのカセットメモリチートを修正。[Pugsy]
+
+- ColecoVisionのソフトがフロントエンドで起動しない原因だったimage_interfaceのコロンを削除。[gordon-fish]
+
+- ay8910: クロック周波数の変更をサポート。[tim lindner]
+
+- chihiro.cpp:「オーリーキング」(GDX-0007)を再吸い出し。[Ordyne, The Dumping Union]
+
+- konamigx.cpp:「Rushing Heroes」のROM名2つを訂正と、サウンドROMの再吸い出し。[Smitdogg, The Dumping Union]
+
+- hiscore.datを更新。[Leezer]

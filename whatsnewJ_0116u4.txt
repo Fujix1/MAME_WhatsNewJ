@@ -1,0 +1,135 @@
+0.116u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+kinst0116u3gra [Zsolt Vasvari]
+
+
+
+ソースの変更点
+--------------
+- system1ドライバでSN7489Aを使うように巻き戻し。[Lord Nightmare]
+
+- changelaドライバに、道路のグラフィック修正、表示されていないグラフィックの修正、
+  当たり判定の追加、セーブステートサポート。色も修正。[Adam Bousley]
+
+- 全ドライバでmame_timer_*を使うように変更。古いdouble型ベースのタイマーは廃止予
+  定です。[Zsolt Vasvari]
+
+- 最後に残っていたrand()をmame_rand()に変更。再び使われないように#defineを追加。
+  [Zsolt Vasvari]
+
+- clifront.cのinfo_list*()関数を、staticからpublic関数に変更。[Dave Dribin]
+
+- maxaflex.c、megadriv.c、monzagp.c、tetriunk.c、gticlub.cがクラッシュするように
+  なっていたのを修正。[Atari Ace]
+
+- TIAグラフィックとサウンドをさらに改良: [Wilbert Pol]
+ - INPT4とINPT5を、指定時から必要なときに読み込むように変更
+ - HMOVE機能の処理を改良
+ - 一部のAtari 2600ゲームで画面のちらつきを減らすコードを追加
+ - サウンド和音生成を改良
+ - POLY5_DIV3サウンドモード処理を改良
+
+- djboyドライバの更新: [Phil Stroffolino]
+ - djboyjをサポート; MCUは同じ、ROMバンキングビットはXORが必要
+ - ゲームオーバーと勝利のステート遷移処理を修正
+ - DIPスイッチ修正
+ - コインエイジ追加
+
+- ドライバコードが正しく実装されていない箇所があったのを修正。ほとんどのケースで
+  は大きな問題ではありませんでしたが、セーブステートがされなくなるケースが2箇所
+  ありました。また、他にクラッシュを起こす可能性があったのも修正されています。
+  [Atari Ace]
+
+-「Space Raider」の不具合修正。[Zsolt Vasvari]
+
+- Gaelco 3dドライバのフレームスキップ処理を改良。[couriersud]
+
+-「ワープ＆ワープ」「ジービー」のパレット不具合が出たの修正。[Atari Ace]
+
+- chdmanに、cue2tocで作成したtocのサポートを追加。[smf]
+
+- CPS3の更新: [David Haywood, ElSemi]
+ - クロック速度訂正。クロックを下げずに、アイドルスキップを使用
+ - グラフィック関数の最適化。データ変更の度ではなく、描画の必要がある場合だけ、
+   RAMベースのタイルをデコードします
+ - CDフラッシングのサポート
+ - 他のBIOSセットのサポート
+ - カスタムレンダー関数を使うようにコードを変更
+
+- gussunの暗号化した命令コードをさらにたくさん発見。[robiza]
+
+- BIOSセットの内部処理を単純化。構造体を追加するのではなく、各BIOSのROM定義に
+  BIOS情報を埋め込むようにしました。[Atari Ace]
+
+-「ミリピード」のプレイヤー2入力を修正。[Mike Haaland]
+
+- evilngtでCDイメージが無いためにクラッシュしていたのを修正。[R. Belmont]
+
+- cfarm/cclownがアウトオブバウンズな引数でクラッシュしていたのを修正。
+  [R. Belmont]
+
+- CD-ROMが無いときに、ゲームがクラッシュしないように、cdrom.cでのチェックを強化。
+  [R. Belmont]
+
+- dkongjrとpestplceで、メモリマップの間違いでスプライトが描画されすぎていたのを
+  修正。[couriersud]
+
+- SUBTARGET=tinyビルドを修正。[neoforma]
+
+- 白黒画面8080ゲームで、アップライトモードでP1ジョイスティック入力をP2に割り当て。
+  適当なもの以外はカクテルモードの設定を削除。spclaserのデュアルプレーヤーモードを
+  有効化。[Mike Haaland]
+
+- x64コンパイル関係の修正: [Oliver Stoneberg]
+ - VS2005 x64警告を修正
+ - VS2005のx64ポーティング警告を有効
+ - tstring_from_utf8()を使わないようにするため、
+   win_create_window_ex_utf8()を追加
+ - win_extract_icon_utf8()を削除
+
+- Irem M62ゲームのカラーデコードを改良。[Zsolt Vasvari]
+
+- MPU4コードについて、MAMEとAGEMAMEをシンクロ。「Connect 4」のレイアウト改善。コー
+ ドの大幅簡略化。[James Wallace, Atari Ace]
+
+- 6532riotタイマの実装を改良。IRQコールバックをサポート。[Wilbert Pol]
+
+- minx CPUコアの更新: [Wilbert Pol]
+ - TEST (94, 95, 96, 97)命令を修正
+ - MOV命令を2つ(BFとBE)を修正
+ - AND命令を1つ(DC)修正
+
+- z80gbコードの割り込み処理を簡略化。[Wilbert Pol]
+
+-「アフターバーナー2」ドライバのランプを実装。[Zsolt Vasvari]
+
+- PGMゲームの鳴っていないサウンドを修正。[Zsolt Vasvari]
+
+-「ミリピード」のカクテルモードでのスプライトを修正。[Mike Haaland]
+
+- ddribleとironhorsのRCフィルタの動作を修正。[couriersud]
+
+- m92ドライバに、X軸方向のスプライトラップ追加。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Change Lanes [Adam Bousley]
+DJボーイ [Phil Stroffolino]
+
+
+
+新規クローンセット
+------------------
+B.Rap Boys (World) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Final Godori [Pierpaolo Prazzoli]

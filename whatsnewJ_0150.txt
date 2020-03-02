@@ -1,0 +1,439 @@
+0.150
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02106: [速度] (ddragon.c) ddragon2, ddragon2u: [バグかもね] 1面でヘリコプターが現れ
+         るとゲーム速度が落ちる。(Phil Bennett)
+- 03908: [グラフィック] (ddragon.c) ddragon2, ddragon2u: [バグかもね] プレイヤー2開始
+         時にグラフィックが欠けている。(Phil Bennett)
+- 00416: [クラッシュ/フリーズ] (ddragon.c) ddragonw1: 全クリア後勝手にリセットして、
+         ROMチェックが始まるが、不良ROMが出てフリーズする。(Phil Bennett)
+- 05287: [DIP/入力] (namcos2.c) sgunner2, sgunner2j: プレイヤー2のスタートボタンがな
+         い。(Tafoid)
+- 05241: [その他] (moo.c) All moo.c sets: AddressSanitizer: heap-use-after-freeエラー
+         が起こる。(Firewave)
+- 05281: [色/パレット] (8080bw.c) rollingc: 色がおかしい。(hap)
+- 05207: [グラフィック] All vector games: ベクター表示ゲームを終了させてもメニュー内
+         に画像が残る。(MooglyGuy)
+- 05162: [システムコア] CTRL+ALT+F5でHLSLのON/OFFを切り替えるとaperture.pngが適用され
+         ない。(MooglyGuy)
+- 05218: [グラフィック] hlsl_readを1に設定するとクラッシュする。(MooglyGuy)
+- 05214: [色/パレット] (bzone.c) bzone: 画面が白黒になっている。hlslを有効にするとカ
+         ラー表示になる。(MooglyGuy)
+- 05235: [システムコア] ALT+TABでHLSLの切り替えが出来なくなった。(MooglyGuy)
+- 05056: [クラッシュ/フリーズ] (badlands.c) badlandsb, badlandsb2: OK画面後にクラッシ
+         ュする。(Osso)
+- 05268: [色/パレット] (mappy.c) todruaga: プレイヤーと敵のスプライトの色がおかしい。
+         (Osso)
+- 00032: [グラフィック] (taito_f3.c) tcobra2: 自機左下に黒いドットが表示される。
+         (David Haywood)
+- 00942: [サウンド] (topspeed.c) topspeed: トンネルの中か、橋の下を走ってるときにしか、
+         エンジン音が鳴らない。またターボの音は一切出ない。(Phil Bennett)
+- 05089: [クラッシュ/フリーズ] (aristmk5.c) goldprmd, magicmsk: OK画面後クラッシュす
+         る。(Firewave)
+- 05284: [サウンド] (exprraid.c) exprraid and clones: YM3526の周波数が間違ってる。
+         (Phil Bennett)
+
+
+
+ソースの変更点
+--------------
+- モダン化したi86コアを再度エンディアンセーフ化。[Alex Jackson]
+
+- device_video_interfaceを追加。[Aaron Giles]
+  今のところ、スクリーンタグを保持して起動時の画面を探し出すためだけのもので、
+  m_screenオブジェクトを提供します。これのナイスな機能としては、画面が1つしかなかった
+  り画面が指定されていない場合に、自動的にこちらの画面に割り当てを行います。これによ
+  り、大きなドライバの塊に対して画面を明示的に指定する必要がなくなります。ただし、デ
+  バイス側でどのデバイスが対象となるかを明確にするための独自マップを定義するのがふさ
+  わしいのでMCFG_VIDEO_SET_SCREENマクロを追加しました。device_video_interfaceでは、無
+  効な画面が定義されていたり、画面が存在しないのに複数画面が存在する場合にエラーを返
+  します。
+
+  既存デバイスでm_screenを持つもの全てをdevice_video_interfaceを使用するに置き換えま
+  した。これにより、ビデオ関係デバイスのカテゴライズのためのフラグ付けができるという
+  ナイスな利点もあります。また、こういったデバイス全てが同一の画面検出動作を継承する
+  ことになり、スクリーンタグを指定するインタフェースを持つデバイスを削除し、既存構造
+  体を全て更新しました。
+ 
+  ベースのdriver_deviceにoptional_device<screen_device> m_screenを追加。もし独自の画
+  面を"screen"という名前にした場合、これを利用して自在にアクセスできます。
+
+  今後のアップデート予定:
+  * machine.primary_screenを参照する全てのデバイスをdevice_video_interfaceを使うよう
+    に更新
+  * machine.primary_screenを参照する全てのデバイスをm_screenを使うように更新
+  * machine.primary_screenを完全に削除
+
+- i286: モダン化。[Carl] 
+
+- galeco、okim6376、vr0video、mb87078、snk6502デバイスのモダン化。[Osso]
+
+- ウォッチポイントデバッグビュー追加。[Andrew Gardner]
+
+- QTデバッガの"Break|Watchpoints"ウィンドウにウォッチポイントビュー追加。
+  [Andrew Gardner]
+
+- 長年の構造的欠陥を修正: [Aaron Giles]
+  プライオリティビットマップをタイルマップシステムから外してmachine内のグローバルに存
+  在しないようにし、全てのシステムで画面毎の割り当てに変更。この変更による影響:
+
+ 1. pdrawgfx*関数はプライオリティビットマップを引数に取るように既に変更されています。
+    現在、その他のプライオリティビットマップに絡む手作り関数もプライオリティビット
+    マップを引数にとる必要があるため、更新しました
+
+ 2. タイルマップシステムへのコールはscreen_deviceを提供する必要があります。このことは
+    priority_bitmapだけでなく、画面反転に対してもです。これは以前、画面反転の演算をす
+    る際に常に"primary screen"を想定していたものです
+
+ 3. タイルマップ風の機能を持つ全デバイスも、同様のパターンになるよう更新しました。こ
+    れらの大部分はあるポイントでコアのタイルマップシステムをコールするためです
+
+- ym2413.c - 実物のYM2413でテストした結果に基づき、KSL値の順を0、1.5、3.0、6.0dB/oct
+  に反転。[Wouter Vermaelen]
+
+-「ギャラクシアン」のサウンドデバイスをモダン化。[Osso]
+
+- eeprom.cを基底クラスのbase_eepr-om_deviceとシリアル専用サブクラスの
+  serial_eeprom_deviceに分離。後者を独自のeepromser.cファイルに移動し、コードを大幅に
+  整理。新コードも以前のものと機能的には同一だが、すぐ変更予定。この結果、EEPROMのサ
+  イズとバス幅はインタフェース構造体ではなくADDマクロで指定を行う。[Aaron Giles]
+
+- シリアルEEPROMデバイスを、適切なサイズとプロトコルの別チップに分けて書き直し。
+  全てのドライバを更新し、カスタムな実装を削除してスタンダードなものに置き換え。
+  コアのリードライトイレース機能をEEPROM基底クラスに移動し、ライト・イレースのサイク
+  ルのディレイをシミュレート。さらにテストと検証作業が必要。[Aaron Giles]
+
+- tms52xxのCD2501ECD派生版をサポート。TI 99/8プロトタイプで使用。TI 99/4aのTMC0285を
+  正しいTMC0285に改名。[mizapf, Lord Nightmare]
+
+- Charles氏がDECO104について見つけだした事柄を取り入れ開始。「ダブルウイングス」で試
+  験的な実装(入力ポートビット順はまだ未検証)。DWの古いシミュレーションコードは削除。
+  [Charles MacDonald, David Haywood]
+
+- MultiPCM、mjkjidai、renegade、ninjaw_subwooferデバイスをモダン化。[Osso]
+
+- 3x3puzzl.c:「Casanova」のDIPスイッチ設定修正と配置追加。[Brian Troha]
+
+- opwolf.c: opwolfjのコインエイジDIPスイッチを修正。[Alex Jackson]
+
+- src/emu/cpu/i386/i386priv.hの FETCH*とREAD*関数にあった未定義の評価命令を修正。
+  [Carl, Oliver Steberg]
+
+- s14001aとExidyサウンドデバイスのモダン化。[Osso]
+
+- Seibu ADPCMデバイスのモダン化と、Seibuサウンドシステムをデバイス化。[Osso]
+
+- makefileにFASTDEBUG定義を追加。これは、パフォーマンスに影響のあるデバッグ専用のもの
+  (プロファイリングなど)を無効にする。[Oliver Steberg]
+
+- neogeo.c: kof2003プロテクトのエンディアン修正。[Alex Jackson]
+
+- T5182をデバイス化。[Osso]
+
+- kov2pセットのChina内部ROMをサポート。[XingXing]
+
+- Micro3Dノイズデバイスをモダン化。[Osso]
+
+- 内部ウェブサーバの初期コードを追加。[Miodrag Milanovic]
+
+- SDL: *IXマンのページを更新。[wallyweek]
+
+- tilemap_memoryを汎用のmemory_arrayクラスに移動。タイルマップにあるより汎用化したほ
+  うが便利なので。コードはmemarray.*に変更。[Aaron Giles]
+
+- Atari RLEモーションオブジェクトデバイスを中途半端なものから完全なデバイスに変更。
+  memory_arrayクラスのてこ入れ。[Aaron Giles]
+
+- neogeo.c: メモリリークの修正と入力系のクリーンアップ。[Alex Jackson]
+
+- eeprompar.*の追加。パラレルEEPROM用のシンプルインタフェース実装。[Aaron Giles]
+
+- Atari書き込みロックメカニズムを持つ2804、2816 EEPROMをラップするatari_eeprom_device
+  を作成。この機能を使用する全ドライバを更新。atarigenからEEPROM関連のものを削除。
+  [Aaron Giles]
+
+- wd_fdc: FDCがモーター制御PINを持たない場合に、モーターをOFFにしないよう変更。
+  [O. Galibert, Duke]
+
+- 実機を元に修正: [system11]
+ * galpanic.c - newfantのROM名修正と新セットの追加
+ * splash.c - msm5205クロックを正しい値に調整
+ * tumblep.c - chokchok、htchctch、cookbibのサウンドハードを実機に合うよう修正
+
+- segas16b.c: 「MVP」(set 2, US, FD1094 317-0143)のROMラベルの訂正と基板配置の追加。
+  [Layne]
+
+- sandscrp.c: DIP配置追加とデフォルト設定の訂正。[Brian Troha]
+
+- MC6801/6803の更新: [R. Belmont]
+ * pin P21のタイマー出力キャプチャ
+ * 外部クロックシグナルサポート
+ * 他のPort 2更新からのxmitとシリアルxmitの区別が容易になるよう、devcb2の実装
+
+- captcommb: 表示系の問題をいろいろ修正。動作可能にマーク。[Barry Harris]
+
+- taito_b.c:「テトリス」C12版セットの修正と「Nastar/ラスタンサーガII」の改造用に必要
+  な不明ROMの追加、サウンドサンプル追加。このセットと「テトリス」Bシステム版改造版の
+  不明PALについてノート追加。[Brian Troha]
+
+- altbeastbl - グラフィック書き込みを正しく実装。[Barry Harris]
+
+- taitosnd.c - TC0140SYT/PC060HA NMIの処理を改良。割り込みのとりこぼしを防止。
+  [Phil Bennett]
+
+- topspeed.c - アップデートいろいろ: [Phil Bennett, Andy Welburn]
+ * MSM5205の実装修正とエンジンサウンドの追加
+ * Z80 CTCの追加
+ * 音量調整の追加
+ * 68000のクロックとVSYNC周波数の訂正
+ * 割り込みハンドリングを実ハードに合わせて変更
+ * モーター制御についての説明を追加
+ * スプライトリストのパースを修正(画面左の謎の赤いドットが修正)
+ * b14-67-1/b14-68-1 ROMの配置を訂正
+
+- PGM: asic25/asic28レジスタの一部が未実装だったのを修正。oldとクローンセットのハイス
+  コア画面が改善。[rockywall, Creamy Mami]
+
+- multipcm: ダイレクトメモリ領域からアドレス空間を使うように変更。[R. Belmont]
+
+- Chihiro.c:  [Samuele Zannoli]
+ * USB未実装状態に対応するパッチをさらに追加
+ * 3Dアクセラレータにテクスチャフォーマットと描画プリミティブをさらに追加
+
+- Ensoniqの"pump"デバイスをesq5505.cから分離。[R. Belmont]
+
+- tcobra2とクローンセットの吸い出し不良なスプライトROMを置き換え。[Kevin Eshbach]
+
+- cninja.c:「戦え原始人 ジョー＆マック / Caveman Ninja」(World Rev 1)の再吸い出しROM
+  の修正とオリジナルセットの基板配置追加。[Bonky0013, The Dumping Union]
+
+- intelfsh.cにMacronix 29LV160TMC sub-typeを追加。Sega Dreamcastで使用。
+  [Angelo Salese]
+
+- i186: 80186周辺装置をCPUに移動。[Carl] 
+
+- leland: サウンドのモダン化と新型80186を使用。[Carl]
+
+- cps1.c:「マッスルボマー」(Japan 930713)セットの正しいMBJ 22B ROMを追加。
+  [Layne, Smitdogg, The Dumping Union]
+
+- nmk16.cのスプライトプライオリティ修正(tdragon2基板でテスト)。[trap15]
+
+- dblewingの残ライフDIPスイッチ修正。[lain]
+
+- Sega Model 1サウンドボードのモダン化; コピペではなく共有化。[R. Belmont]
+
+- segae.c: クリーンアップ、セーブステートサポート。[Alex Jackson]
+
+- terracre.c: terracrenから実際には存在しないYM2203を削除。horekidの無意味な入力ポー
+  トハック削除。[Alex Jackson]
+
+- BUS_MASTER_IDE_CONTROLLERが2つあるISA16_IDE_CDをsouthbridge_deviceに追加。[smf]
+
+- snk68.c: ドライバ内の全セットのDIP配置追加。[Brian Troha]
+
+- cave.c:「ぐわんげ」(Japan, Special Ver. 00/07/07)をHEXエディタで検証して名前を修正。
+  [Brian Troha]
+
+- 8080bw.c:最近の吸い出しを元に「スペースインベーダー」(TV/カクテル版)セットのセット
+  名修正: sitva→sitv (新しいバージョンのtv0h)、sitv->sitvo(古いバージョンのtv01)
+  [Lord Nightmare, Andrew Welburn]
+
+- 新しいコードに移行する準備としてローカルのATAPIコードを削除。ただし、最初の命令を実
+  行するとCPUが迷子になる。[smf]
+
+- ATA_INTERFCEを使うように再構成。[smf]
+
+- HLSLの更新: [MooglyGuy]
+ * hlsl_readとhlsl_writeオプションを削除。スライダ設定はINI値に自動設定
+ * デバイスのリセット用にサーフェスリリースコールをさらに追加
+ * quadsの描画順を修正。非HLSLモード時に、オーバーレイはベクターの上に描画
+ * aperture.pngの読み込みをcreate_resources/delete_resourcesに移動。HLSLの切り替え時
+   に正しくリロードが可能
+
+- galpani2.c: 完全版の基板レイアウト図を追加。[The Guru]
+
+- galpani2.c: 全セットにDIP位置追加。[Brian Troha]
+
+- NTSCのエンコード・デコードシェーダのコードを読みやすく再構成。[MooglyGuy]
+
+- MIDI: SysExの問題を修正。[Christian Brunschen]
+
+- zlibを1.2.8にアップデート。[Oliver Steberg]
+
+- MIPS、RSP、SH2コアのDRC版と非DRC版コンパイルを両方作成し、コマンドラインからDRCを切
+  り替えるオプション追加(-drc -nodrc: デフォルトはON)。[Miodrag Milanovic]
+
+- DRC Cバックエンドを強制指定するコマンドラインオプション追加。[Miodrag Milanovic]
+
+- SCSP: DMAのDGATE機能を実装。[Angelo Salese]
+
+- AICA: DMAを実装。[Angelo Salese]
+
+- SCSP: SH-2のDMA有効化を修正。[Angelo Salese]
+
+- PowerVR2: SPGコントロールレジスタを追加。以前はピクセルクロックを動的に変更していた。
+  [Angelo Salese]
+
+- nemesis.cのDIPスイッチ修正: twinbeeとgwarriorの"Upright Controls"のDIPスイッチを
+  "Players"に変更して2プレイヤーをデフォルトに設定(どちらのゲームをカクテル筐体をサ
+  ポートしない)。全てのゲームのデフォルト難易度をノーマルに設定。[Alex Jackson]
+
+- PowerVR2: YUVコンバータの試験版追加。[Angelo Salese]
+
+- Konami System 573でATA_INTERFACEを使うように再構成。[smf]
+
+- AICA: AICA-to-SH4 IRQを実装。[Angelo Salese]
+
+- HLSLシステムをデータ駆動型に再設計。[MooglyGuy]
+
+- PowerVR: YUV-TWテクスチャの実装(少なくとも「ソウルキャリバー」で使用)。
+  [Angelo Salese]
+
+- PowerVR: パック化かつ浮動小数点カラーのあるテクスチャなしポリゴンをサポート。
+  [Angelo Salese]
+
+- namcos22: ハードウェアの情報を更新。[Guru]
+
+- jedutilsとその他細かな更新: [Kevin Eschbach]
+ * Deco Casstte Systemの初期版についてドキュメント追加
+ *「フリーキック」海賊版の一部PALが再吸い出し必要なことについてドキュメント追加
+ *「究極タイガーII / Twin Cobra 2」のROM配置追加
+ * jedutilでPAL20X10、PAL20X8、PAL20X4の表示をサポート
+ * PALCE16V8のドキュメント化されていないヒューズについての解析開始(データシートにはこ
+   れらヒューズのことは全く触れられていない)
+
+- DreamcastでATAインタフェースを使うように再構成。[smf]
+
+- 新しいBIOS2つ。CHRROM1つと、既存のCHRROMの検証済み版。[Cowering]
+
+- stfight.c - ADPCM/コイン制御MCU実装。cshooterのYM2203のクロックを1.5MHzに、また
+  empcity/stfightのものを4.5MHzに変更。[Phil Bennett]
+
+- TLCS900HをTMP95C061に改名。I/O処理を独自クラスに移動し、TO1/TO3の出力をPort Aにする
+  よう実装。ngpcがPACR/PAFCを設定しないためハックが必要。もしかしてカスタムパーツかも。
+  Taito PJCでTMP95C063を使うように変更。devcb2のコールバックを別々に割り当てれるよう
+  に、両CPUのI/Oポートを分離。[smf]
+
+- TLCS900Hに8/16ビットデータバス設定追加。デフォルトは16ビットで、neogeo pocketは8
+  ビット。[smf]
+
+- ddealer.c:「Double Dealer」の実機に合わせてクロックを訂正。[system11]
+
+- ddealer.c: 不明だったDIPスイッチ設定の更新とDIP配置追加。[Brian Troha]
+
+- trvmadns.c:「Trivia Madness」の基板レイアウト追加。[Brian Troha]
+
+- ROM用の2864を使用。これによりXTIDECFGでROMのフラッシュが可能。2.0.0 beta 3でテスト
+  済み。eepromparがこれをみゅれー都しないためSDPを無効にする必要がある。また、EEPROM
+  からロードするようにファイルからロードしなければ、ゼロしかみつからないので注意。
+  [smf]
+
+- IDE8とXTIDEに改名。[smf]
+
+- polepos.c:「ポールポジション」「同2」のDIP配置追加。[Brian Troha]
+
+- ドキュメントにないオペコードがDPCLのように動作するのを追加。[smf]
+
+- SET FEATURESの試験的なサポート。セットトランスファモードのみ現在サポート。ただし、
+  これはデバイスバッファの判別時にフラグのチェックと設定を行う。このバッファは、
+  atahleに移動し、idehdはbyteではなくwordで動作するように変更。[smf]
+
+- yunsung8.c:「Cannon Ball」(Vertical)の基板レイアウト追加。[Brian Troha]
+
+- ddragon.c:「ダブルドラゴン」の回路図をもとにしたクリーンアップ: [Phil Bennett]
+ * サブCPUの割り込みメカニズム修正
+ * 共有RAMバスロック実装
+ * 割り込みACK追加
+ 
+- peplus.c: 一部セットについて、マイナーな修正と払い出しテーブルを含むドキュメントの
+  更新。[Brian Troha]
+
+- cubeqcpu.c, f8.c, minx.c, i8085.c, i860.c, i960.c, jaguar.c, lh5801.c, m6800.c, 
+  m37710.c, mb86233.c, mb88xx.c, mcs48.c, mc68hc11.c, mcs51.c, mn10200.c, 
+  pic16c5x.c, pic16c62x.c, tlcs900.c, pps4.c, s2650.c: CPUコアのモダン化。
+  [Wilbert Pol]
+  
+- exprraid.c: 回路図をもとにしたクリーンアップ: [Phil Bennett]
+ * CPUとYM3526の周波数訂正
+ * プロテクトのシミュレートを改良
+ * 割り込みACK追加
+ * サービスコイン入力追加
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Casanova [Yohji, Smitdogg, The Dumping Union, David Haywood, Mariusz Wojcieszek]
+ダブルウイングス -雙翼- [Charles MacDonald, David Haywood]
+ぱづり2 [David Haywood, rtw]
+ぱづり2スーパー [David Haywood, rtw]
+パニックロード [David Haywood]
+ポカポカサタン [bodger319, Yohji, Smitdogg, The Dumping Union, Luca Elia]
+Touchstar Bonanza [Mariusz Wojcieszek]
+ミッドナイトランディング (Germany) [Phil Bennett]
+Super Game Mega Type 1 [Tirino73, Mariusz Wojcieszek]
+Tap a Tune [Phil Bennett, Mariusz Wojcieszek]
+
+
+新しく追加されたクローンセット
+------------------------------
+グランドストライカー (Japan) [Yohji, Smitdogg, The Dumping Union]
+メカナイズドアタック (Japan) [ShouTime, The Dumping Union]
+サイバーボッツ -フルメタルマッドネス- (Japan 950424) (decrypted bootleg)
+  [Yohji, Smitdogg, The Dumping Union]
+三国戦紀 -スーパーヒーローズプラス- / Knights of Valour Super Heroes Plus (ver. 101)
+  [XingXing]
+ナイトスラッシャーズ (US Rev 1.2, HuC6280 Sound CPU)
+  [Smitdogg, The Dumping Union]
+コスミックゲリラ (Spanish bootleg) [Angel Maestre]
+ダンジョンズ&ドラゴンズ -タワーオブドゥーム- (Asia 940412)
+  [Tormod, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォーリアー- (Japan 920312)
+  [Tormod, Layne, Smitdogg, The Dumping Union]
+ストリートファイターEXプラス (Japan 970407) [Tormod, Smitdogg, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォーリアー- (Japan 910522)
+  [Yohji, Kevin Eshbach, bodger319, Smitdogg, The Dumping Union]
+マンクスT.T. -スーパーバイク- DX筐体 (Revision D) [ShouTime, The Dumping Union]
+鉄拳タッグトーナメント (Japan, TEG2/VER.C1)
+  [Brian Troha, Smitdogg, The Dumping Union]
+ストリートファイターII’ -チャンピオンエディション- (Hung Hsi, bootleg)
+  [iq_132, Smitdogg, The Dumping Union]
+エンフォース (Japan, Analog Controls) [ShouTime, The Dumping Union]
+バブルシンフォニー / Bubble Bobble II (Ver 0.0J 1993/12/13, prototype) 
+  [Dsyde, muddymusic]
+パイプドリーム (Taiwan) [Bonky0013, The Dumping Union]
+クレイジーコング (ギャラクシアン基板海賊版, encrypted) [Ricky2001 / AUMAP]
+Excelsior (set 2) [Bonky0013, The Dumping Union]
+スペースインベーダー (TV Version, set 2) [Andrew Welburn, The Dumping Union]
+Puzzle Bang Bang (Korea, version 2.9 / 990108) [gp-lee, The Guru]
+ターボアウトラン (Japan, アウトランアップグレード, FD1094 317-0117)
+  [Charles MacDonald, ShouTime, The Dumping Union]
+コットン (set 2, Japan, Rev B, FD1094 317-0179b)
+  [Charles MacDonald, ShouTime, The Dumping Union]
+チェイスボンバーズ (Japan) [ShouTime, The Dumping Union]
+New Fantasia (Set 2)  [system11]
+マンクスT.T. -スーパーバイク- DX筐体 (Revision D)
+  [ShouTime, The Dumping Union, R. Belmont, Brian Troha]
+ポールポジション (World) [Andrew Welburn, The Dumping Union]
+怒III (Korea, 8-Way Joystick) [jysx012]
+ギャルズパニック3 (Korea) [gp-lee, The Guru]
+パンチアウト!! (Japan) [ShouTime, The Dumping Union]
+Pigskin 621AD (rev 1.1 6/05/90)
+  [Ben Fino-Radin, Nicolas Francfort, Brian Troha, The Dumping Union]
+ジュラシックパーク (Japan, Rev A, Convertion) [ShouTime, The Dumping Union]
+バイオレントストーム (ver EAC) [RanaElia]
+Free Kick (bootleg set 3) [Kevin Eshbach, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォーリアー- (Japan 910411)
+  [Kevin Eshbach, Bill D., Layne, Smitdogg, The Dumping Union]
+怒首領蜂大往生 (2002.10.07.Black Ver) [djvinc]
+Trivia Madness - Series B Question set
+  [mister_rf, Paul Vining, Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+兎 -野性の闘牌- オンライン (v2.04J) [ShouTime, The Dumping Union, R. Belmont]
+Casanova [Yohji, Smitdogg, The Dumping Union]

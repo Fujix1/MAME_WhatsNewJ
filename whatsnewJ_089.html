@@ -1,0 +1,791 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.89</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.89.txt</div>
+	<div class="main">
+<div class="wn">0.89
+----
+
+全般的な改良点：
+----------------
+
+- Sega系の改良。
+    「DDクルー」の入力改善。プレイヤー4人全ての操作可能。ただし、コインは
+    サービスコインのみ動作。[David Haywood]
+
+    「ターボアウトラン」のターボボタン実装。[smf]
+
+    「GPライダー」のサウンド改善。[R.Belmont]
+
+    「コットン」「ターボアウトラン」のファイル名修正。[deadscreem]
+
+    「サンダーブレード」のファイル名修正。
+
+- Namco System 1のアップデート。[Nicola Salmoria]
+
+    - tilemap_draw_primask()関数追加。追加の引数をとり、指定したプライオリ
+      ティでのOR演算前に、priority_bitmapのコンテンツとAND演算します。
+      以前のtilemap_draw()は元々tilemap_draw_pribuffer(..., 0xff)と同等のも
+      のなので、2つについては統合したほうがよいかもしれません。
+      priority_bitmapを使えば前よりも直感的にpdrawgfx()を操作可能でレイヤー
+      数も増加します（最高で31、以前は5 - Namco System 1は8枚必要）
+
+      注：この変更のため、windows/oslinline.h内のASMに最適化したPDT16とPDO16
+      のルーチンを無効にする必要がありました。これらがパフォーマンス的に必要
+      な場合は、アップデートして再び有効にしなければいけません
+
+    - スプライト処理の修正。表示更新処理にあった意味のないハックを全て削除
+    - スプライト/タイルマップ間のプライオリティで直交性を考慮（必要かは不明）
+    - System86（System1と同じスプライトハード使用）も最新コードに更新。これ
+      により「ワンダーモモ」でスプライト間のプライオリティ問題が発生。なぜ？
+    - キーカスタムエミュレーションを超改善。3つの基本タイプにまとめました。
+      これにより「ピストル大名」の問題（爆弾が爆発するところや、他のランダム
+      なイベントなど）も修正
+    - pistoldm061yel修正
+    -「ベラボーマン」「フェイスオフ」のDACサウンド修正。以前は、2音が同時に
+      出力されるとかなりの速度が起きていました
+    -「デンジャラスシード」のNamcoロゴ修正
+    - 入力ポートでPORT_INCLUDEを使いクリーンアップ
+    - デバッグ用のDIPスイッチをさらに追加
+    - dspirit061gre修正
+    - ウィンドウ表示サポート。「ロンパーズ」のイントロなど、いろんなシーンで
+      画面切り替えの問題があったのを修正
+    - namcosx36rc2gre修正
+    -「ベラボーマン」入力修正
+    - ROMロードを改良。実ハードにより近くなってます（以前よりもメモリが必要）
+    - テストモードはDIPスイッチのON/OFFで動作するように修正。リセットは不要
+    - galaga88セット削除。これはキーカスタムチェックとROMチェックサムテス
+      トをしないようにハックしただけのもの
+    - CUS30 WAVEデータ/サウンド・コマンド/RAMインタフェースをクリーンアップ。
+      関数一つに全て集約
+    - splatter061gre: バグじゃない模様
+    - splatter061gre2: これもバグじゃない模様。アーケードモニタでは濃いこげ
+      茶色は黒に見えるかも
+    - splatter061gre3: まだ起きているか確認希望。個人的にはバグではないかと    
+    - splatter061gre4: 同上
+    - namcos1c070u5gre: バグじゃない模様。アトラクトモードでは、最後のプレイ
+      内容を繰り返す。ちょっと不完全な感じはあるものの、起動直後は前のデータ
+      が無いのでデモはプレイされない
+
+
+- ディスクリートサウンドのアップデート。[Derrick Renaud]
+
+    ディスクリートサウンドの変更点
+    ==============================
+    * ディスクリートコアのノード入力で、以前は各ステップ毎にデータを入力へ移
+      動していたのを、ポインタを使うように改良。これによりディスクリートエ
+      ミュレーションの速度が上がりました
+    * 全てのモジュールとドライバを新コードに移行
+
+
+    新規ディスクリートモジュール
+    ============================
+    * DISCRETE_555_ASTABL：電圧制御のサポートを削除
+      DISCRETE_555_ASTABL_CV：電圧制御が必要な場合のために追加
+
+
+    ゲームドライバの変更
+    ====================
+    * frogs- 舌出しのディスクリート音を一時的に削除してサンプルをサポート。
+      また、ディスクリートサポートが完全になるまで、正しくエミュレートできな
+      いため、ハエの飛ぶ音が鳴りっぱなしになります。サンプルはTwisty氏のとこ
+      より取得してください
+
+
+新規未動作/クローンゲーム：
+---------------------------
+ジャンボ尾崎のスーパーマスターズ / Super Masters Golf 
+    [Phil Bennett, Chris Hardy, David Haywood]
+    操作系未実装
+
+ハイパークラッシュ
+    予備ドライバ。未チェック
+
+スーパーモナコGP (日本版とUS版の新規セット2つ、ロゴ無し) [Charles MacDonald, David Haywood]
+    他のセットと同じ問題あり (操作できない)
+
+
+
+0.88u7
+------
+
+全般的な改良点：
+----------------
+
+- Sega System Pre16, 16A, 16B, 18ドライバの改良いっぱい。[Aaron Giles]
+    * ドライバのクリーンアップ
+
+    * 表示関係の問題はほとんど修正
+    「エイリアンストーム」「DDクルー」「クラッチヒッター」「レーザーゴースト」
+    「コットン」などの他、表示系は超改良
+
+    *「エイリアンストーム」が完全にプレイ可能
+
+    *「DDクルー」もプレイ可能。ただし、入力の修正が必要
+     (サービスコインとプレイヤー1の操作のみ動作中)
+
+    *「レーザーゴースト」も操作系を実装すればプレイできるはず
+
+    *「ムーンウォーカー」はMCUエミュレーションの改良が必要
+
+    * 次のドライバのゲームについてはテスターでのバグ報告は受け付けていません：
+        segas16a.c, segas16b.c, segas18.c
+      また、海賊版はほとんどがsystem16.cでまだ動作していますが、これの他、
+     「アウトラン」「アフターバーナー」ハードについてもバグ報告は控えてくだ
+      さい
+
+- Segaセット解読追加。[Chris Hardy]
+    mvpj, dcclubfd など
+
+- bublboblドライバのクリーンアップ。[Curt Coder]
+
+- M6803のパッチ。[Nathan Woods]
+    src/cpu/m6800/m6800.h:
+    src/cpu/m6800/m6800.c:
+    - M6803CPUで内部メモリマップを使うように改良
+
+-「スーパースティングレイ」で新しいPROMを使って色修正。[Pierpaolo Prazzoli]
+
+- rockolaドライバのサンプルサポート改善。[Mame32Plus]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+M.V.P (Japan) [Various, see sega update notes]
+ダイナミックカントリークラブ (US, Encrypted, Floppy Disk) [Various, see sega update notes]
+バンガード (Japan) [Mame32Plus]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Wizz Quiz (Konami) [Pierpaolo Prazzoli]
+    プログラムROM不良
+
+Sega S16セット数本
+
+
+
+0.88u6
+------
+
+全般的な改良点：
+----------------
+
+- SegaS16を更に改良。[Aaron Giles]
+    表示改善。「コットン」タイトル画面も改善。ただしまだ別な問題があるゲーム
+    あり
+
+- S16解読コードをさらに改良。[Nicola Salmoria]
+
+- Taito F2ドライバのエフェクトサポート。[Bryan McPhail]
+    「メタルブラック」1面の太陽の透過表示
+    「メタルブラック」5面ボス登場時にタイルマップ裏にあるときの特殊効果
+    「ガンフロンティア」の既知のエフェクト全て（アトラクトモードをチェック）
+    「クイズクレヨンしんちゃん2」のマップハイライト効果
+
+    このアップデートで、「メタルブラック」でのタイルマップレイヤー5枚のプラ
+    イオリティがサポートされました（以前はpdrawgfxの制限で4枚）。また「ニン
+    ジャキッズ」のプライオリティ（ninjak058gre）も修正されています
+
+-「リングレイジ」のサウンド改良。[Pierpaolo Prazzoli]
+
+- マイナーなMESS用のパッチ追加。[Nathan Woods]
+
+-「ティンクルピット」のプレイヤー2入力修正。[Pierpaolo Prazzoli]
+
+- PPmast93ドライバのクリーンアップ。[Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+バレット
+MVP (Japan)
+    未解読
+
+
+
+0.88u5
+------
+
+全般的な改良点：
+----------------
+
+-「フラワー」のPROM追加（未使用）。
+
+- デバッガの改良。[Aaron Giles]
+    背景色の変更がきちんと整列するようにWindows側の描画コード改良（メモリ
+    ビューでカーソルを使ったときなど）。
+
+- jalmah.cの更新。[Angelo Salese]
+
+-「ハイパーオリンピック」と「スクランブル」ドライバのファイル名を一部修正。 
+  [ShinobiZ]
+
+- hyperstoneのコンパイルエラー修正。[Brad Oliver]
+
+- i8x51CPUコア。[Steve Ellenoff]
+
+- SCU DSPのアップデート。[Angelo Salese]
+
+- Sega S16解読の改良をいろいろ。[Nicola Salmoria, Charles MacDonald]
+    CPUからのデータをさらに取得して、それを元に改良
+
+- Sega S16ドライバのアップデート。[Aaron Giles]
+    改良された部分もあれば、逆に悪くなったところもあり。
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+タイトルファイト (US)
+Plotting (set 2) [Pierpaolo Prazzoli]
+WWFレッスルフェスト (海賊版) [Pierpaolo Prazzoli]
+Tiger Road / 虎への道 (海賊版) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+GPライダー
+ターボアウトラン (アップグレードキット)
+スーパーモナコGP
+    解読済み(Charles MacDonald氏による)。まだ問題がかなりあり
+
+
+
+0.88u4
+------
+
+全般的な改良点：
+----------------
+
+-「スプリント2」のウォッチドッグの問題修正。[Stefan Jokisch]
+
+- nmg4.cのクラッシュ修正。[Pierpaolo Prazzoli]
+
+- nitrobalの入力修正。[Sonikos]
+
+- Jalmah.cのアップデート。[Angelo Salese]
+  このハードの初期版のプロテクト関係をいろいろ修正。カラープロテクトの完全なエ
+  ミュレートと、サウンドとタイル転送の初期型エミュレート追加
+
+- Sega System 16/18のいろんな更新（「ムーンウォーカー」の解読キーなど)
+  [Chris Hardy]
+  * ムーンウォーカーの動作にはMCU用のCPUコア（i8051コア?）が必要
+
+- fd1094dp.cのバグ修正と「コットン」の解凍対応。[Nicola Salmoria]
+
+- hyperstoneの他のモデル追加と、vamphalfドライバを16bit版にコンバート。
+  [Pierpaolo Prazzoli]
+
+- ディスクリートサウンドの更新。[Derrick Renaud]
+
+    ディスクリートサウンドの変更
+    ============================
+    * ディスクリート入力からメモリマッピングシステム削除。特に意味がなく機能
+      もしてませんでした。これが特にいらないドライバでも全部追加する必要が
+      あったため、コードを複雑にするだけでした。もし、メモリマップ入力が将来
+      的に必要になった場合（多分ないと思われますが）、DISCRETE_INPUT_MAP関数
+      で追加できます
+    * ディスクリート入力について、ノード名のみで記述するようにしました
+      例: discrete_sound_w(NODE_xx, data)
+    * DISCRETE_INPUTとDISCRETE_INPUTXは新しい入力モジュールを使った方が簡単
+      なので削除しました
+    * 現行の全ドライバで新コードを使うように変更
+    * ディスクリートサウンドコードをドライバからsndhrdw\に移動
+
+    新規ディスクリートモジュール
+    ============================
+    * DISCRETE_INPUT_DATA(node)  - discrete_sound_wからの8bitデータを受ける。
+      リセット時の出力は0
+    * DISCRETE_INPUT_LOGIC(node) - 0 if data=0; 1 if data=!0  リセット時の出
+      力は0
+    * DISCRETE_INPUT_NOT(node)   - 0 if data=!0; 1 if data=0  リセット時の出
+      力は1
+
+    * DISCRETE_INPUTX_DATA(node, gain, offset, init)
+    * DISCRETE_INPUTX_LOGIC(node, gain, offset, init)
+    * DISCRETE_INPUTX_NOT(node, gain, offset, init)
+                                 - 上と同じですが、GAINとOFFSETを与えて出
+      力を変調できるようにする予定です。リセットの出力はGAINとOFFSETでモディ
+      ファイされたINITです
+
+    ゲームドライバの変更
+    ====================
+    * skydiver - 正確なウォッチドッグ追加。メモリマップの統合、正しいミラー
+      リングを追加。skydiver078u3yelの入力バグ修正。100%正確な修正ではないも
+      のの、完璧な割り込みタイムがわかるまではとりあえずこれで
+
+
+Windows版デバッガのアップデート
+-------------------------------
+
+- コンパイル系のエラー修正。[Nathan Woods]
+
+- いろいろアップデート。[Aaron Giles]
+ * I386コアに“PC”レジスタ追加で新デバッガでも動作
+ * ステッピングコードをクリーンアップ
+ * ディスプレイとデバッガウィンドウ全部で各ステップ毎にリフレッシュするよう変更
+ * デバッガウィンドウを開きながら動作しているとき（F5か'go'）デバッガビューを毎
+   秒4回更新するように変更
+ * デバッガウィンドウににフォーカスがあってもデバッガへ割り込み可能
+ * デフォルトで選択されている現在のアクティブなCPUについて、メモリ/逆アセウィ
+   ンドウを表示
+ * コマンド追加：focus <cpunum>, 他のCPUを全部無視するのと同じ動作
+ * ignoreとobserveで複数パラメータをサポート。"ignore 2,3,4"など
+ * ignoreで最後のCPUは無視できないように変更
+ * 他のCPUが完全に無視されるようにignoreの動作を修正
+ * レジスタウィンドウで、ハイライト部分がスクロールやアップデートされても保持さ
+   れるように修正
+ * デバッグメモリアクセサが無効なメモリにログオンしないように変更
+ * ヘルプテキストがhelp <command>の動作を示すよう（？）に改良
+ * 新テキスト属性DCA_CURRENT追加。DGA_SELECTEDとは別もので、メモリビューの編集
+   カーソルが黄色から赤で表示されるようなったのが一番よくわかるところです
+
+- インラインメモリ編集機能をサポートしました。この機能のために、ビューシステムに
+  汎用カーソルシステムを追加しています。ただし必要なら各ビューでもカーソルを扱え
+  ます。今のところはメモリビューだけでのサポートです。[Aaron Giles]
+
+- メモリビューでクリックするとカーソルを配置できます。0～Fで上書きするか、矢印
+  キーで編集位置を移動します。TABキーでエディットボックスとメモリエディタ間の
+  フォーカスを移動できます。[Aaron Giles]
+
+- PSXコアで、さらにレジスタを表示するように更新。[smf]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+ウッドペッカー [Tomasz Slanina, Pierpaolo Prazzoli]
+
+Max-A-Flexドライバ [Mariusz Wojcieszek]
+    Astro Chase (Max-A-Flex)
+    Bristles (Max-A-Flex)
+    Flip & Flop (Max-A-Flex)
+    Boulder Dash (Max-A-Flex)
+
+コットン [Chris Hardy, Lodewijk, Asure, Nicola Salmoria, David Haywood]
+    グラフィック不具合多数、サウンドはまだ
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+Jr Pacman (ペンゴ基板の海賊版) [smf]
+忍 (set 3, 317-0049) [Chris Hardy]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+ライデンファイターズJET (US SPI, Asia SPI)
+    タイル/スプライトの解読不完全
+
+Twin Squash
+    プロテクトの問題
+
+ワンダーボーイ3, System 16a [Chris Hardy]
+    s16aエミュレーションが不完全
+
+
+
+0.88u3
+------
+
+全般的な改良点：
+----------------
+
+- FD1094を更に改良。etc/fd1094dp.cのダンプステートからキーテーブルを生成するプロ
+  グラム追加。新規に調べた結果を反映するためキーテーブルフォーマットが少し変更に
+  なってるので注意してください。[Nicola Salmoria]
+
+- X86-64のコンパイルがクラッシュしていたのを修正。[Hans de Goede]
+
+- 修正いろいろ。[Nathan Woods]
+    src/cpuintrf.c:
+    src/cpuintrf.h:
+        - MESS用のCPUコア追加
+
+    src/inptport.c:
+        - MESS専用の入力タイプのグループ定義修正
+
+    src/sound/astrocde.c:
+        - 変数定義をそれぞれのグループのトップ部分に移動
+  
+- mermaid.cをタイルマップにコンバート。[Curt Coder]
+    * Mermaid
+    drivers/mermaid.c
+    vidhrdw/mermaid.c
+
+    - タイルマップへコンバート
+    - ドライバのクリーンアップ
+    - メモリマップの統合
+    - フェイクの入力ポート削除
+
+- Liberatorドライバで正しいPROMを使うように改良。[Aaron Giles]
+
+- HyperstoneコアのADDC, SUBC, MULU, MULSをを修正。[Tomasz Slanina]
+    (suplp, bullets, misncrftのタイトル画面修正)
+
+- Hyperstoneのアップデート。[Pierpaolo Prazzoli]
+- ソフトウェア命令が遅延で使われた場合を修正
+- 遅延のネストを追加
+
+- SPIの解読を改善。[Ville Linde]
+
+- Jr Pacmanドライバのクリーンアップ。[Aaron Giles]
+
+
+Windowsベースの新デバッガ追加 [Aaron Giles]
+-------------------------------------------
+注：新型デバッガはフィードバックができるように、uリリースでデフォルトデバッ
+ガに設定してます（ただしデバッグビルドのみ）。makefileの設定で無効にもできます。
+
+(1回目の更新時の解説)
+
+* 操作系、動作系が新しくなっているものがあります。デフォルトでは“auto hide”し
+  なくなってます。デバッガウィンドウを全部閉じたい場合は、“メイン”のデバッグ
+  ウィンドウを閉じてください。ブレークすれば再表示されます。この動作は、昔のデ
+  バッガの動作が残っていたものですが、取っ払っちゃいました。
+
+*“メイン”ウィンドウには4枚のペインがあります。左側にレジスタリスト、上側は逆
+  アセンブラ、真ん中にコンソール出力ウィンドウ、入力ラインが下側です。入力ライン
+  では編集機能を全てサポートしています。また上下矢印キーでタイプヒストリを参照で
+  きます。
+
+* コンソールが空ラインのときにエンターキーを押すと、シングルステップと同じ意味
+  になります。F11と同じです。動作させるには“go”コマンドかF12を押します（または
+  メインウィンドウを閉じます）。次のCPUまで動作させるには“next”コマンドかF6
+  キーを使ってください。
+
+* メモリまたは逆アセンブラの独立した複数のウィンドウをデバッグメニューで表示でき
+  るようになりました。それぞれのウィンドウで別個のCPUの好きなアドレススペースを
+  参照できます。
+
+* 便利なコンソールコマンドを沢山追加しました。“help”とタイプすれば、これらの機
+  能の使用例など、広範なオンラインドキュメントを参照できます。条件付のウォッチポ
+  イントやブレークポイントなどの超クールな機能も使えるようになってます。
+
+* 新型デバッガはまだ作業中の項目ですが、通常のデバッグ作業なら（個人的には）なか
+  なかよろしくて安定もしてると思います。もし改良点やまだ足りない機能などがあった
+  ら知らせてください。
+
+
+(2回目の更新時の解説)
+
+* F12キーは“run兼デバッガを隠す”機能にしました。これの方がすごく便利です。
+* F5キーが通常の“run”で、デバッガを表示したままにします。
+
+* デバッガが有効にした場合、ウィンドウモード固定にするようにして、フルスクリーン
+  には変更できないようにしました。
+
+
+(3回目の更新時の解説)
+
+* ステップオーバー/ステップアウト機能を追加しました。F10か“over”で命令のステッ
+  プオーバー、Shift+F11か“out”でサブルーチン、または例外ハンドラのステップアウ
+  トができます。この機能はステップオーバーに必要な命令（通常CALLSとTRAP）、及び
+  ステップアウトのサーチをどの命令が終了させているか（通常RETURN）を示すフラグを
+  逆アセンブラが生成することで動作しています。
+
+* 680x0とMIPS3の逆アセンブラでこれらの機能をサポート。
+
+* 逆アセンブラビューでリセット時に命令を3つまでバックアップするように変更しまし
+  た（これにより、現在のPCは1行目ではなく4行目に表示されます）。これはまだ不完全
+  ですが、大体うまく動作しているようで、例えばウォッチポイントがヒットしたときな
+  ど、手前の命令をチェックできるので便利だとおもいます。
+
+* キー押下のフィルタリングを改良。デバッガでの入力がゲームの方へ漏れないように
+  しました。
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Super Lup Lup Puzzle [Tomasz Slanina, Pierpaolo Prazzoli]
+ミッションクラフト [Tomasz Slanina, Pierpaolo Prazzoli]
+    以上2つはCPUコアの修正により動作
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+
+ホットロッド (4 player, Japan) [Chris Hardy]
+Meteorites (アステロイドのイタリア版クローン) [Pierpaolo Prazzoli]
+リバレーター (set 2) [Aaron Giles]
+ストリートファイターEXプラス (USA, 970407) [Brian Troha]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+ライデンファイターズJET (Single Board, US) [J. Rodman]
+
+Sega Yボード スケルトンドライバ
+    ギャラクシーフォースII, パワードリフト, G-LOC, ストライクファイター
+    レールチェイス
+    注：ドライバファイルのみ、表示系はまだないので一切動作せず
+
+ウッドペッカー (2 sets)
+
+ヨットマン
+
+
+
+0.88u2
+
+全般的な改良点：
+----------------
+
+- FD1094の解読をさらに改良しました。動作はほぼ判明しましたが、残りの詳細について
+  はFD1094 CPUがさらに必要です。FD1094CPU内にキーデータがある本来の状態をできる
+  だけ再現するため、データをROMセットに保存するようにしました。[Nicola Salmoria]
+
+- Namco用の更新で、u1に入れそびれたものを修正。[Phil Stroffolino]
+
+-「クラウンズゴルフ」のROM名を訂正。[ShinobiZ]
+
+-「ペンゴ」のROM名を訂正。[Gerald]
+
+- Mighty Warriorsドライバの改良。[Pierpaolo Prazzoli]
+    スプライトバッファ追加で不可視のスプライトを修正
+    タイルマップスクロールのオフセット修正
+    Haze氏がパレットの明るさ設定追加
+
+-「Twin Brats」を改良。[Pierpaolo Prazzoli]
+    サウンドバンキング修正
+    サービススイッチボタン変更
+    表示エリア変更
+    メモリマップのマージ
+
+- pc10、nss、megatechのゲーム名の分類部分を後ろに移動。[Aaron Giles]
+
+- ジョイスティックの軸の不具合を修正。[Aaron Giles]
+
+- ディスクリートサウンドの改良。[Derrick Renaud]
+
+    ディスクリートサウンドの変更
+    ============================
+    * DISCRETE_555_ASTABLE - クイックチャージダイオードを使うオプション追加
+      (「フロッグス」で必要）。また、R1が回路外のときに振幅を止めるオプショ
+      ン追加（「インベーダー」で必要）
+    * DISCRETE_555_CC - 充電電流が無いときにコンデンサが自己放電するように改
+      良(「フロッグス」で必要）
+    * 全ドライバで新コードを使うように変更
+
+    新規ディスクリートモジュール
+    ============================
+    * DISCRETE_555_MSTABLE - 555単安定回路のシミュレーション
+
+    ドライバの変更点
+    ================
+    * frogs - サウンド実装。Added discrete "tongue" sound effect.
+
+- ディスクリートコードのバグ修正。[Brad Oliver]
+
+- Astrocadeドライバの改良。[Frank Palazzolo]
+    - Professor Pacman Driver - 動作するものの、セルフテスト2つがパスせず
+    - 全ゲームの当り判定を修正
+    - robby（とprofpac）にNVRAM処理追加 - 動作は不完全。ただしテストはパス
+    - astrocadeサウンドコードのバグ修正
+    - astrocadeサウンドをストリームシステムに切り替え
+    - wor、robby、gorf、profpacのステレオ出力サポート
+    - LEDとコインカウンタを追加
+    - astrocadeゲームから呼び出していた全てのactivecpu_get_reg()について、
+      メモリシステム経由のZ80の16bitポートをきちんとサポートして置き換え
+    - sndhrdw/astrocde.cをsndhrdw/wow.cに名称変更。ゲーム特有のため
+
+- NEC CPUコアのNMI処理修正。[Bryan McPhail]
+
+- TwinsドライバのクリーンアップとV20を使うように変更。[Pierpaolo Prazzoli]
+
+- hyperstoneデバッガのクリーンアップ。[Pierpaolo Prazzoli]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Bonks Adventure / 究極!!PC原人 [Sebastien Volpe]
+    グラフィック/サウンドの問題あり
+
+Professor Pacman [Frank Palazzolo]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+スーパーマン (Japan) [Fabrice Arzeno]
+
+Gun Ball [Bryan McPhail] 【更新】driver.cに入れ忘れたのでu3で追加
+
+Hot Bubble [David Haywood]
+
+Force Break / 強行突破 [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Super Lup Lup Puzzle
+    hyperstone CPUコアのバグ
+
+ライデンファイターズJET
+    グラフィック暗号化
+
+Born to Fight
+    グラフィックエミュレーションの問題
+
+
+
+0.88u1
+
+全般的な改良点：
+----------------
+- Namcoゲームのアップデート。[Phil Stroffolino]
+    - NB1ゲームのプライオリティ修正
+    - Namco System 2でPOSIRQサポートにより、各ゲーム毎のハック削除
+    -「メタルホーク」のタイルサイズのハックも不要
+    - System 2ハードのブランク画面（ウィンドウ）サポート
+    - System 2のレンダリングでスプライト・タイルマップ間の直交性を考慮
+
+    MAME Testersの修正項目：
+      nebulray066gre (とりあえずの修正。実際の動作は不明)
+      namcosx36rc2gre (System2について)
+      finehour053gre
+      ordyne080u1gre
+      rthun237b16gre
+
+- i960の修正。[R.Belmont, Stephan Cecchinel]
+    atanrとlogeprのエラー修正
+
+- FD1094エミュレーションの改良。[Charles MacDonald, Nicola Salmoria]
+    動作可能セット追加 (eswatu, fpoint, goldnaxc, cltchitr)
+
+-「Mighty Warriors」のスクロールオフセットと雨の表示プライオリティ修正。
+  [Pierpaolo Prazzoli]
+
+-「Steel Force」のEEPROMサポート追加。[Pierpaolo Prazzoli]
+
+- 修正いろいろ。[Curt Coder]
+    *「1943」
+    drivers/1943.c
+    vidhrdw/1943.c
+
+    - タイルマップにコンバート
+    - ドライバのクリーンアップ
+    - メモリマップの統合
+    - マニュアルを元に入力/DIPスイッチを修正
+    - 1943jの名称を"1943: Midway Kaisen (Japan)"に変更
+    - 1943kaiの名称を"1943 Kai: Midway Kaisen (Japan)"に変更
+
+    *「ガンスモーク」
+    drivers/gunsmoke.c
+    vidhrdw/gunsmoke.c
+
+    - タイルマップにコンバート
+    - ドライバのクリーンアップ
+    - メモリマップの統合
+    - マニュアルを元に入力/DIPスイッチを修正
+    - GUNSMOKE_HACKとフェイクのDIPを削除
+
+    *「ブループリント」
+    drivers/blueprnt.c
+    vidhrdw/blueprnt.c
+    
+    - 回路図に基づいてクロックを修正。音程が高くなりました
+    - タイルマップにコンバート
+    - メモリマップのマージ
+    - マニュアルを参考に入力/DIPを修正
+    - 回路図を元にROM名を修正
+    - クリーンアップ
+    - 2H/4Hのクロック訂正
+    
+    *「ナイトドライバー」
+    drivers/nitedrvr.c
+    machine/nitedrvr.c
+    vidhrdw/nitedrvr.c
+
+    - ギア/道路の表示用ハック削除
+    - メモリマップ統合
+    - 回路図を元にクロック修正
+    - 初期リビジョンのROM情報追加
+    - 回路図を元にROM名を修正
+    - クリーンアップ
+
+    *「1942」
+    drivers/1942.c
+    vidhrdw/1942.c
+    
+    - メモリマップの統合
+    - マニュアルを参考に入力/DIPスイッチの修正
+
+
+-「リブルラブル」のカスタムIOチップ番号を確認。[Shaun Stephenson]
+
+- jalmah.cの改善。[Angelo Salese]
+    最初のバージョンのプロテクトを更に改善。urashima/mjzoomin/daireikaが起動
+    可能になりました。色不良（データはMCUコードから取得）、タイルマップ位置
+    の間違い（RANGEレジスタを使っているが、更に調べる必要あり）など
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Twin Brats [Pierpaolo Prazzoli]
+    サウンドバンキング不完全
+
+B.C. Story [David Haywood]
+
+クラッチヒッター [Charles MacDonald, Nicola Salmoria, David Haywood]
+    サウンドは不完全。表示不具合あり
+
+D.D.クルー [Charles MacDonald, Nicola Salmoria, David Haywood]
+    サウンドは不完全。あちこちに表示不具合あり
+
+Ping Pong Masters '93 [David Haywood]
+    サウンドは未エミュレート
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+フラッシュポイント (Japan, Original) [Charles MacDonald, Nicola Salmoria]
+
+戦球 (set 2) [Fabrice Arzeno]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+System18ゲーム数本
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+0.134u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03475: [クラッシュ/フリーズ] exprraid: プレイ開始後しばらくするとフリーズする。
+         (Angelo Salese)
+
+
+ソースの変更点
+--------------
+- ディスクリートサウンドの改良: [couriersud]
+ - DSS_INVERTER_OSCの最適化
+ - OSD_PROFILINGを環境変数化。プロファイルの有効化に再コンパイルは不要です
+ - タスクプロセスに2つのアサート追加
+
+- バグ03473についてbeaminv.cドライバを更新。[stephh]
+
+-「Draw Poker Hi-Lo」 - ディスクリートサウンド追加。[Derrick Renaud]
+
+- romcmpのファイル名長さ制限を緩和。[Philip Bennett]
+
+-「ブルーシャーク」 - 鮫の効果音追加。[Derrick Renaud]
+
+- Sega System 16のROM名を実機に合わせて修正。「エイリアンシンドローム」「SDI」の
+  バージョン記述を訂正。[Team Japump!!!]
+
+- Atari XL/XEのGTIAにおけるTRIG3レジスタ処理を修正。[Mariusz Wojcieszek]
+
+- Noraut/DPHLドライバの改良: [Roberto Fresca]
+ *「Draw Poker Hi-Lo」(日本語)追加。8080A CPUベース
+ * gtipokerのメモリマップとマシンドライバをdphlと統合
+ * 基本のマシンドライバを作成して、ハードウェアによってそこから派生
+ * 通常RAMとNVRAMのシステムを分割
+ * SMS Manufacturing製の「Hi-Lo Double Up Joker Poker」を追加
+ * smshiloのハードウェア詳細と基板レイアウトを追加
+ * smshiloのディスクリートサウンド回路とドキュメントを追加
+
+- i386: SLDTとSTR命令を追加。[Angelo Salese]
+
+- scsihdの更新: [R. Belmont]
+ - READ(10)とREAD(12)のパラメータ割り込みを修正
+ - WRITE(10)を追加
+
+- Naomiの更新:
+ - 8888タイルのハック風なサポート(「シュートアウトプール」で一部表示)
+   [R. Belmont]
+ - ドライブゲーム用JVSアナログチャンネル数を増加 [R. Belmont]
+ -「クレイジータクシー」「ジャンボ！サファリ」「パワースマッシュ2 /
+    Virtua Tennis 2」用のプロテクトデータ追加 [Deunan Knute, ANY]
+
+-「Bingo Roll / Bell Star」(4セット)の基板レイアウト追加。[Team Europe]
+
+-「Bingo Roll / Bell Star」基板のクリスタル位置と値、基板レイアウト追加。
+  [Roberto Fresca]
+
+-「Multi Game I」 (V.Ger 2.4)の基板レイアウト追加。[Team Europe]
+
+- Mario - DISCRETE_MIXERの最終ミキシングステージをコンバート。これにより、歩行サ
+  ウンドにもフィルタリング追加。[Derrick Renaud]
+
+- dsp56156のDOとBSCC命令のバグ修正。[Andrew Gardner]
+
+- Z80CTCでdevcbを使うよう再構成。「Cosmic Chasm」のコインフラグ切り替えをエミュ
+  レート。[Curt Coder]
+
+- DISCRETE_RC_CIRCUIT_1 - skyraidのカスタムチャージを回路を「バトルゾーン」から
+  でも使用できるように、独自モジュールに拡張。[Derrick Renaud]
+
+-「バトルゾーン」 - 新モジュールを使うよう更新。音量レベル調整。エンジン音周波数
+  調整。周波数調整用のスライダが付いています。[Derrick Renaud]
+
+-「ドンキーコングJr.」 - ノイズクロックを計測した固定周波数に設定(速度の最適化)。
+  [Derrick Renaud]
+
+- マルチセッションサポート改良のため、静的に初期化されている変数インスタンスの残
+  りをほとんど削除。[Atari Ace]
+
+- 不要関数のプロトタイプを削除。[Atari Ace]
+
+- ddp2/ddp2aのプログラムROMをセット説明に合うように入れ替え。[Lei Wu]
+
+- ソース内のタイポを2ヶ所修正。[Christophe Jaillet]
+
+- Chihiro BIOSロードを追加。[Alex, Paul Hogger, David Alves, 
+   Hugo Cesar Somellera Calderon, Jeremy Ostrowski, Daniel Palmer]
+
+- crimfght 4P版の入力を修正。[Arthur Peale]
+
+-「Seta / Visco Roulette」にカラーPROM追加。[Team Europe]
+
+- ertictacドライバのVIDEO_UPDATEをスピードアップ。[Christophe Jaillet]
+
+- e132xsコアの速度を若干改良 - 割り込みハンドラ呼び出し時には命令コードを渡さな
+  いように変更。[Christophe Jaillet]
+
+- Model 3ビデオエミュレーションに両面ポリゴンフラグとバックフェイス間引きを追加。
+  [Naibo Zhang]
+
+- stepstagのゲーム名を「Stepping Stag Special」に変更。[Naibo Zhang]
+
+-「スクランブルフォーメーション / Tokio」に検証済みのPALを追加。
+  [Corrado Tomaselli]
+
+-「マイキー」の基板で全てのクロックを確認。M6809のクロックを1.536MHzに、Vsyncを
+  60.59Hzに変更。サウンドチップを基板上で見つかった派生版のSN76489Aに変更。
+  [Corrado Tomaselli]
+
+- Naomi:「18ホイーラーズ」のプロテクションデータ追加。[Deunan Knute, ANY]
+
+- DISCRETE_COUNTER - MIN引数追加と、速度の最適化。[Derrick Renaud]
+
+- naomi:「18ホイーラーズ」JVS I/Oとモーターコントローラの吸い出し。
+  [Gerald (COY)]
+
+- CDP1864画面生成用ヘルパマクロ追加。[Curt Coder]
+
+- starfireとfireoneに吸い出したPROM追加。[TrevEB]
+
+-「バトルゾーン」 - クリッピングが起きていない音量を50%に設定。これにより、実機
+  同様の音割れが発生。[Derrick Renaud]
+
+- CDP1869用ヘルパーマクロ追加。[Curt Coder]
+
+- Naomi: Revision G export BIOS追加。[R. Belmont]
+
+- Goldstarドライバの改良: [Roberto Fresca]
+ * 新ゲーム追加:「New Lucky 8 Lines / New Super 8 Lines」
+ * 入力とDIPスイッチをゼロから作り直し
+ *「New Lucky 8 Lines」セットにホッパーサービスボタンを追加 
+ *「New Lucky 8 Lines」セットに払い戻し率のDIP設定追加
+ * マイナーなクリーンアップ
+ * wcat3用に新しいマシンドライバ作成
+ * d000-efffのROM領域をマッピング
+ * ns8linesの基板とDIPスイッチバンクレイアウトを追加
+
+- UIのCPUクロック表示を、生クロック値ではなく、分周・乗算した値に変更。
+  [Dirk Best]
+
+- デバイスコールバックシステムについて、子デバイスが他のデバイスを参照していると
+  きは、同一親に保持されているデバイスを調べるように変更。[Dirk Best]
+
+- 不安定なプロファイリングコールを修正。また不安定なコール元を突き止めるための出
+  力を追加。[Christophe Jaillet]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Turbo Outrun (Mega-Tech) [Any, Dumping Union]
+フォト麻雀 -激写- [Luca Elia, Guru, Dyq, Bnathan]
+Miracle Derby - Ascot [Stefan Lindberg, David Haywood]
+ニューラッキーエイトライン / New Super 8 Lines 
+  [Roberto Fresca, Darklord & Team Europe]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+エイリアンシンドローム (System 16B, Japan, New version) [Team Japump!!!]
+華仁義 (Japan, Bet) [Luca Elia, Guru, Brian Troha, Yasuhiro Ogawa]
+スーパーハングオン (Japan, FD1094 317-0038) [The Dumping Union]
+ザクソン (set 3) [Team Europe]
+1942 (Revision A, bootleg) [Darran]
+ストリートファイターII' - チャンピオンエディション (Double K.O. Turbo II, bootleg)
+  [J. Bijl, krick, Smitdogg]
+ソニック・ザ・ファイターズ [Brian Troha, Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Criss Cross (Sweden) [Tormod]
+Shootout Pool [ANY, The Dumping Union]
+Virtua Tennis 2 / パワースマッシュ2 (cartridge) [ANY, The Dumping Union]
+Draw Poker Hi-Lo (Japanese) [Roberto Fresca]
+Hi-Lo Double Up Joker Poker [Roberto Fresca, Alan Griffin]
+Ten Spot [Smitdogg, N. Francfort, David Haywood]
+クレイジータクシー [ANY, The Dumping Union]
+18ホイーラーズ -アメリカンプロトラッカー- [ANY, The Dumping Union]
+ジャンボ！サファリ [ANY, The Dumping Union]
+フェラーリF355チャレンジ (Twin) [ANY, The Dumping Union]
+F355チャレンジ2 (Twin) [ANY, The Dumping Union]
+ゴー! ゴー! コニーちゃん! ジャカジャカジャンケン
+  [Mariusz Wojcieszek, Dumping Union]

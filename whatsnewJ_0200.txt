@@ -1,0 +1,292 @@
+0.200
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 07027: [サウンド] (vegas.cpp) warfa (and maybe clones): DCS2 OSバージョンテストを通らない。(tedgreen)
+- 04621: [タイミング] (ironhors.cpp) ironhors: 30fpsのフレームレートは間違いと思われる。(Angelo Salese)
+
+
+新規動作可能マシン
+------------------
+Acorn System 5 [Nigel Barnes]
+
+
+新規動作可能クローン
+--------------------
+Acorn System 2 [Nigel Barnes]
+Acorn System 3 (6502 CPU) [Nigel Barnes]
+Acorn System 4 [Nigel Barnes]
+エアレスキュー (World) [Porchy, Muddymusic, The Dumping Union]
+アパッチ3 (rev E) [coolmod, The Dumping Union]
+早押しクイズ 熱闘生放送 (ver 1.2) [Apocalypse, The Dumping Union]
+ラリー2011レッドストーム (US, prototype 12) [system11, Coolfox, The Dumping Union]
+Milmar Laser //c [R. Belmont, Peter Ferrie, KansasFest 2018]
+ピンクスゥイーツ自殺倶楽部 (2017/10/31 SUICIDECLUB VER., bootleg) [MetalliC]
+雷電DX (Portugal) [Jorge Silva, Atro, Kravex]
+スクランブル (bootleg, set 2) [hammy, The Dumping Union]
+ストリートファイターII' -チャンピオンエディション- (Mstreet-6, bootleg, set 1) [TwistedTom]
+ストリートファイターII' -チャンピオンエディション- (Mstreet-6, bootleg, set 2) [TwistedTom]
+ストリートファイターII' -チャンピオンエディション- (Mstreet-6, bootleg, set 3) [TwistedTom]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Boris - Electronic Chess Computer [TrevEB, Sean Riddle, The Dumping Union]
+Captain Zodiac [Siftware]
+CMS 6502 Development System [Nigel Barnes]
+DECstation 5000/133 [R. Belmont, Al Kossow]
+ドンキーコング / ドンキーコングJr. / マリオブラザーズ [Michael Moffitt, coolmod, The Dumping Union]
+Fever Chance [GoneMad]
+iPhone (A1203) [MoochMcGee]
+Marbella Vice [Recreativas.org, The Dumping Union]
+Topaz (Inder) [PinMAME]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Jokerz! (G-4) [PinMAME]
+Safe Cracker (1.0) [PinMAME]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+acrnsys_flop: Atom/System 3 File Server, System 3 Utilities, System 5 File Server, System BBC BASIC [Nigel Barnes]
+acrnsys_rom: Econet 2.40, Econet 3.40, Econet 3.50 [Nigel Barnes]
+camplynx_cass:
+  3D Monster Craze, 6845p, Aide (Label-Procedures) (Fra), Backgammon, Battle Brick, Card Index (96K), Centipede, Chopin (Fra),
+  Cinema (96K), Colossal Adventure, Compass, Dam Buster, Deathball, Digger Man, Disassembler (Fra), Dungeon Adventure, Floyds Bank,
+  Games Pack III, Games Pack IV, Gobble de Spook, Grid Trap (Fra), Generateur Basic (Fra), Generateur de Caracteres (96K)(Fra),
+  Hangman, Hi-Lo (96K), IntelTab (96K)(Fra), Introductory Tape (48K), L'odyssee d'Asterix (96K)(Fra), Labyrinthe (Fra),
+  LogiChess 2.2, Lynx Composer (96K), Lynx Disassembler (Fra), Lynx Invaders, Lynx Muncher, MODER-80, Mastermind (96K)(Fra),
+  Maths (Fra), Maxi-Mots (96K)(Fra), Mazeman, Mined Out, Moonfall, Moonfall (Fra), Music Master, Nuclear Invaders, Numerons (Fra),
+  Oh Mummy, Panik, Pengo, Planets, Power Blaster, Racer, Rising Moon, Rocketman, ScrabLynx (96K)(Fra), Screen Dump, Siege Attack,
+  Space Trek, Spellbound, Star Rover, The Forest (96K), The Worm, The Worm (96K)(Fra), Treasure Island, Triangles (96K),
+  Tron Blocker (96K)(Fra), Twinkle, Word Processor, Ynxvaders, Zombie Panic (Fra) [Nigel Barnes]
+ibm5150:
+  PC Globe 3.0, PC Globe 5.0 (Spanish), PC Globe 5.04, Starflight 2: Trade Routes of the Cloud Nebula (3.5") [ArcadeShadow]
+  Cadaver (5.25"), Cadaver (3.5") [Chism]
+  Cadaver (3.5", Quest and Glory Compilation) [Justin Kerk]
+ibm5170:
+  LucasArts Air Combat Classics, The Incredible Machine (alt), The Incredible Machine 2 [ArcadeShadow]
+  Excel (Version 3.0a) [darksabre76]
+  MS-DOS (Version 6.22, Thai) [Justin Kerk]
+st_flop: STE Language Disk (Swe, Rev. B) [FakeShemp]
+x68k_flop:
+  Ajisai (ldb_x68k conversion), Camerot (ldb_x68k conversion), Choro Choro, Choro Choro (ldb_x68k conversion),
+  Cuarto (ldb_x68k conversion), Dungeon Management (ldb_x68k conversion), Galseed II (ldb_x68k conversion), Kurupon, Leshies,
+  My Today's Job (ldb_x68k conversion), Over Driver, Programan Ace -Source68, Sekai Seifuku Set (ldb_x68k conversion), Stein
+  [Wayder]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+acrnsys_rom: System/3 Econet 1.48 [Nigel Barnes]
+ibm5150: PC Globe 4.0 [ArcadeShadow]
+ibm5170: POWER DoLLS [Justin Kerk]
+pc88va: Tetris (Bullet-Proof Software) [r09]
+
+
+
+ソースの変更
+------------
+- UIメニューでONとOFF項目の表示について、常にONがOFFの右側に来るよう統一。[AJR]
+
+- x68000: 既知のクリスタル値とCRTCパラメータからリフレッシュレートを算出。[AJR]
+
+- 新しいER2055デバイスの導入に伴い、Atari VG EAROMを削除。[AJR]
+
+- z8: BASIC/DEBUGインタプリタをプリプログラムされたZ8671 MCUダンプを追加。[AJR]
+
+- x68000: VINAS/VICON CRTCデバイスを分離。[AJR]
+
+- cischeat.cpp: 改良: [Angelo Salese]
+ * 割り込み生成の作り直し。「ビッグラン」のアトラクトモードがずれるのを修正
+ *「グランプリスター」のアトラクトモードでタイヤのスプライトが残るのを修正
+
+- ironhors.cpp: 「大列車強盗 / Iron Horse」のフレームレートを61Hzに変更。[Angelo Salese]
+
+- sigmab52.cpp: フレームレートを60Hzに変更。[Angelo Salese]
+
+- tetrisp2.cpp:「ステッピングステージ」のYUV422カラーをサポート。[Angelo Salese]
+
+- amstrad: Amstrad Plus ASICで実装されるPPIクローン用デバイスを追加。PlusとGX4000で使用。[Barry Rodewald]
+ * 一部ゲームでのPlus検知が修正。Barbarianで入力を正しくブレーク
+
+- taito_b.cpp, tc0180vcu.cpp: クリーンアップ: [cam900]
+ * TC0180VCUの機能をドライバの静的クラスからデバイスクラスに移動し、グラフィックデーコーディングを内部化
+ * バッファの割り当てをスタート時に行うよう繰り下げ
+ * 未使用・冗長なコードを削除
+
+- lastduel.cpp: クリーンアップ: [cam900]
+ * タグと変数の名称を改良。コードの重複を解消。ランタイムのタグマップ参照を削減
+ * パレット用にパレットデコーダ関数を追加
+
+- seta001.cpp: 割り当てをスタート時に繰り下げ。コードの整理。[cam900]
+
+- srmp2.cpp, thedealr.cpp, seta.cpp, champbwl.cpp: ランタイムのタグマップ参照削減とコードの整理。[cam900]
+
+- taito_x.cpp: 整理: [cam900]
+ * メモリマップの共通パーツを分割、kyustrkrのマシン設定を分離
+ * ランタイムのタグマップ参照を削減
+
+- atarigt.cpp, cage.cpp, metalmx.cpp: マイナーなクリーンアップとランタイムのタグマップ参照を削減。[cam900]
+
+- nmk16.cpp: アップデートと整理: [cam900]
+ * コードの重複を解消。タグの改良。バンキングのモダン化。ランタイムのタグマップ参照を削減
+ * スプライトとパレットサイズの制限を実装
+ * tdragon3hセットは異なる基板からなので吸出し不良フラグをROMに追加
+ * セーブステートのサポートを改善
+
+- unico.cpp: 整理: [cam900]
+ * メンバ名とタグを改良
+ * ビデオRAMの割り当てをスタート時に繰り下げ
+ * ランタイムのタグマップ参照とACCESSING_BITSのチェックを削減
+ * パレットデコーダ関数追加
+
+- silkroad.cpp: 冗長/未使用コードを削減。ACCESSING_BITSのチェックを削減。[cam900]
+
+- drgnmst.cpp: 重複コードの削減。パレットデコーダ関数追加。[cam900]
+
+- namcoic.cpp: グラフィックのデコード処理と操作をシンプル化、またコードの重複を解消。[cam900]
+ * Namco NB-2 ROZバンキングをnamconb1.cppドライバに移動
+
+- vgmplay.cpp: NMK112バンクテーブルマスクを修正。Irem GA20、RF5C68、RF5C164をサポート。[cam900]
+
+- c140.cpp, c45.cpp, namco_c139.cpp: コードをクリーンアップ。MCFG_系マクロを削除。オブジェクトファインダを追加。[cam900]
+
+- namcona1.cpp, tceptor2.cpp: マイナーなクリーンアップ。[cam900]
+
+- namcos2.cpp: 共通のC116設定を切り出し、MCFG_系マクロを削除。[cam900]
+
+- bbusters.cpp: mechattのステートクラスを分離。ランタムタグマップ参照を削減。グラフィックデコードのシンプル化。[cam900]
+
+- m107.cpp: バッファしたスプライトRAMデバイスを追加。ROMサイズとバンキングに応じてマシン設定を分離。[cam900]
+
+- lynx.cpp: バンキングのモダン化。ランタムタグマップ参照を削減。パレットコードの整理。[cam900]
+
+- argus.cpp: クリーンアップ: [cam900]
+ * argusのタイルマップ処理改良と、画面反転時にスクロールが変なのでMACHINE_NO_COCKTAILフラグ追加
+ * butasanのタイルマップスキャンをマッパー関数に移動
+ * コードの重複を解消
+
+- realbrk.cpp: スプライトプライオリティ修正。ランタムタグマップ参照を削減。ノート追加。[cam900]
+
+- sknsspr.cpp: ビットマップクリアの無効化ビットを実装 (galpani3で使用)。[cam900]
+
+- suprnova.cpp: ビットマップの描画をクリップ領域に限定。[cam900]
+
+- galpani3.cpp: エフェクトの実装や修正、ノートの追加。[cam900]
+ * イントロの背景色フェード、面スタート時のギャル表示を修正
+
+- kaneko_grap2.cpp: パレット用のdevice_palette_interfaceを追加。[cam900]
+
+- クラスメンバプライベートを大量に作成し、浮き出てきたデッドコードを削除。[David Haywood]
+
+- 315_5124.cpp: 更新と改良: [Enik Land]
+ * Game Gearのメンテナンスマニュアルに合わせて、VDPを315-5377に改名
+ * mode 4での315-5313固有の動作をサポートするデバイスを追加
+ * 315-5377 (Game Gear)と315-5212 (Mega Drive)を、314-5124 (SMS1)ではなく315-5256(SMS2)から派生するように変更
+ * タイミング動作を改良(Flubbaさんによるmode 4の315-5313用VDPテストで検証)
+ * オーバーフローする最初のスプライトを示すスプライトステータスレジスタビットをエミュレート
+ * 315-5124/315-5313でスプライト拡大リミット実装
+ * Charlesさんのスクロールテストで判明したスクロールの不具合修正
+ * mode 4でファインスクロール適用時の左端カラム色修正
+ * ディスプレイモード1(テキスト)とモード3(マルチカラー)実装
+
+- EmscriptenでDRC CPUコアを動かすとクラッシュするのを修正(github #2794)。[Justin Kerk]
+
+- cassette.cpp: マルチチャンネル読み込みの処理を修正。[Frank Palazzolo]
+
+- ARM1176JZF-S CPUデバイスの追加。[MoochMcGee]
+
+- i386: 2件のcppcheck警告を修正。[MoochMcGee]
+
+- Acorn Busスロットデバイス追加。[Nigel Barnes]
+ * Acorn Atom用: AtomSID, Acorn Atom Disc Pack, Econet Board
+ * Acorn System用: 32K Dynamic RAM Board, 8K Static RAM Board, Cassette Interface Board, Econet Board, 
+   Floppy Disc Controller Board, 40 Column VDU Board, 80x25 VDU Board, Versatile Interface Board
+ * CMS用: CMS 40/80 Video Terminal Card, CMS Floppy Disc Controller, CMS High Resolution Colour Graphics Card
+
+- a6809: acrnsys3_6809に改名。カードスロットデバイスを書き直し。[Nigel Barnes]
+
+- ef9365: リセット時にフレームバッファメモリをクリア。[Nigel Barnes]
+
+- camplynx_cas: TAPファイル内の連結されたマルチファイルをサポート。[Nigel Barnes]
+
+- emumem: 新型のモダン化したバックエンドに置き換え。[O. Galibert]
+
+- williams.cpp, wmg.cpp: ハードコーディングされていたデフォルトのサービスボタン割り当てを削除。[OzFalcon]
+
+- interpro.cpp: ip2000でCLIXが起動する段階まで改良。[Patrick Mackinlay]
+ * IOGA割り込みの書き直しとDMA処理を含む。CPUとMMUの問題も修正
+
+- nscsi: 512バイトブロックのあるCD-ROMドライバをサポート（UNIXワークステーションの多くで必要)。[Patrick Mackinlay]
+ * メディアの取り出し防止と許可のスタブを追加。ハードディスクの"inquirey"コマンド動作を改良
+
+-apple2eの更新: [R. Belmont]
+ * ROMを間違ってバンクアウトしないようデバッガのガードを追加
+ * 浮動小数点のバス読み込みを修正 - Talbot Fantasy Sevenのクレジット画面が同期
+
+- apple2gs: アドレスマップバンクデバイスを使ってドライバ書き直し。[R. Belmont]
+
+- apple2gs: Jam SessionとACS Demo Disk #2の問題を修正。[R. Belmont]
+
+- es5503: synthLABのサンプルアタックなループサスティン音源を修正。[R. Belmont]
+
+- z80scc: Apple IIgsのフリーズ原因だったトランスミット割り込み動作を修正。[R. Belmont, Patrick Mackinlay]
+
+- mc146818: MIPS DECstationで使用する、ダイレクトアクセスバス実装メソッドをサポート。[R. Belmont]
+
+- trs80の作業中: [Robbbert]
+ * 個別ソースに分割
+ * UIのペースト、ナチュラルキーボードの修正
+ * UART、RS-232、ボーレートクロック追加、BRGのハードウェア依存
+ * sys80でのUARTステータス修正
+ * カセットの波形修正
+ * コードの整理とモダン化
+ * モニタのドキュメント追加
+
+- ht1080z: ay8910追加。[Robbbert]
+
+- ps2sony: スケルトンドライバから実際の実装開始。[Ryan Holtz]
+ * PlayStation 2タイマーをカプセル化するデバイスを追加
+ * R5900コアが常に0x70000000にマッピングされたスクラッチパッドRAMを持つように、一時的なハック
+ * divtlbに参照カウント追加。他のエントリでまだ共有されているのにページをアンマップしないため
+ * スケルトンのGIF、VIF1、GSデバイスを追加
+
+- mips3: 基本的なEmotion Engineのサポート。[Ryan Holtz]
+
+- kr03: ネイティブキーボードのレイアウトを定義(MT05818に部分的に対処)。[shattered]
+
+- PowerVR2: 色演算を再実装。[snickerbockers]
+
+- device_finderのインタフェースクラスに対するインスタンス化を、実装ソースからインタフェースソースに移動。[Stefan Bruns]
+ * 同一のテンプレート引数を持つ、複数の明示的なインスタンス化を避けるため
+
+- devcb: よりフレキシブルな新型の実装に置き換え。[Vas Crabb]
+ * 多くのデバイスとドライバを、新しくサポートされたマクロ依存度の低いシンタックスに変換
+
+- レイアウトシステムの改良: [Vas Crabb]
+ * レイアウト内のタグで画面のリフレッシュが可能
+ * 内部レイアウトをシステム単位ではなく、相対画面と入力タグつきのデバイス単位で提供可能
+ * 2画面システムで、ビューの生成と選択を改良
+ * ユーザ変数とレイアウトの繰り返し使用をサポート。多くのレイアウトを変換
+
+- v550: キーボードプログラムのROMダンプ追加。[Al Kossow]
+
+- WD1007A ESDIハードディスクコントローラのスケルトンデバイスを追加。[Al Kossow]
+
+- hiscore.dat: 最近の変更に合わせて更新。[Leezer]
+
+- x68k_flop: 更新: [Wayder]
+ * エントリの整理と修正。ディスクイメージを新しいダンプに置き換え。
+ * Ninnin Battle (Alt)を削除 - 改造コピー版のため
+ * 不足している吸出し、リリース年、日本語タイトルの更新と訂正
+
+- ibm5170: Turbo Pascal 6.01(ドイツ語版)用のインタフェースで綴り間違い修正。[xinyingho]

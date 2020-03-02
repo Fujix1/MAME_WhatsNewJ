@@ -1,0 +1,92 @@
+0.90u2
+------
+
+■「バトルシティ」の色修正。[Roberto Gandola]
+
+■Arcadiaドライバを少し変更。[Nathan Woods]
+    src/drivers/arcadia.c:
+    src/includes/amiga.h:
+    src/machine/amiga.c:
+    - src/machi/amiga.cからArcadiaアーケードシステムとAmigaコンピュータ用の
+    コードをコールバックに再構成。これにより、src/machine/amiga.cから
+    #ifdef MESSを削除可能
+
+■ST-Vのアップデート。[Angelo Salese]
+    - VDP-1 RAMの読み込みバグ修正、SH-2よりbyteかwordのアクセス可能。long 
+    wordでは暗黙でアクセス不可。これにより「スティープスロープスライダーズ」
+    の起動部分の修正され動作可能です
+    - VDP-1 PTMの"draw by request"がkiwamesでスプライトのちらつきを起こして
+    いたので、今の状態が判明するまで古い方法に巻き戻し (clear_framebuffer?)
+    - ゲームヘッダの更新完了
+    - 表示エリアの間違いにより「バーチャルマージャン2」がサウンドRAMチェック
+    後にクラッシュしていたのを修正
+    - 倍密度インターレースモードでのウィンドウエフェクトバグを修正。
+    vmahjongとmyfairldのグラフィック修正
+    - 倍密度インターレースモードでのビットマップ配置の問題を推測で修正。
+    myfairldのNBG1の位置修正
+    -「バーチャルマージャンII」はサウンドをOFFにしたときだけ動作するようにな
+    りました。そのため、NOT_WORKINGステータスは外していません
+
+■サウンド機能追加。[Derrick Renaud]
+    Frank Palazzolo氏のDISCRETE_FILTER2コードをディスクリートシステム外で動
+    作するように変更。新機能についてはsound\filter.hを参照
+
+    OPアンプバンドパスフィルタ回路をsound\namco54.cに追加
+
+    ゲームドライバの変更
+    * bosco, galaga, polepos, xevious - 新Namco54ノイズソースに正しいフィル
+      タ追加
+
+■「Kid Niki / 快傑ヤンチャ丸」のプライオリティと最終面でクラッシュするのを修正。
+  [Nicola Salmoria]
+
+■「ロットロット」のプライオリティ修正。[Pierpaolo Prazzoli]
+
+■「スケバン雀士竜子」を解読。[Nicola Salmoria]
+
+■ARM7 CPUコア。[Steve Ellenoff]
+
+■G65816 CPUコア用パッチ。[Nathan Woods]
+    src/cpu/g65816/g65816.c:
+    src/cpu/g65816/g65816.h:
+    src/cpu/g65816/g65816ds.c:
+    src/cpu/g65816/g65816ds.h:
+    src/cpu/g65816/g65816op.h:
+    - コードのクリーンアップを少々; 一部の関数をstaticに変更と逆アセンブラ用
+    のステップオーバーとステップアウトをサポート
+
+■6809dasm.cのコンパイル時に警告が出るのを修正。[Hans de Goede]
+
+■Model 3のアップデート。[Ville Linde]
+    PowerPCコア: 
+    - 割り込み処理改良。ネストした割り込みが正常動作
+    - PPC602を一部サポート
+    - メジャーなバグ修正
+    - 未実装だった命令の追加
+
+    53c810 SCSI:
+    - シングルステッピングモードのDMAを修正
+    - メモリムーブとDMAのコールバック追加
+
+    Model 3:
+    - Epson RTC-72421エミュレーション追加
+    - ポリゴンエミュレーション初期版追加
+    - サウンドエミュレーション初期版追加（まだ動作せず）
+    - あといっぱいありすぎて書ききれないくらい :) Step 1.xのゲームのほとんど
+    は何か表示されるようになりました
+
+■マルチポートレコーディングを修正。[Chad Hurwitz]
+
+■コンパイル時の警告を修正。[Lawrence Gold]
+
+■zlib 1.2.2にアップグレード。[Santeri Saarimaa]
+
+■「クリスタルキャッスル」に未使用のPROM追加。[Santeri Saarimaa]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ウイニングスパイク (EAA version)  [Fabrice Arzeno]
+
+(その他、Model 3ゲームもvs215などが良好に動作)

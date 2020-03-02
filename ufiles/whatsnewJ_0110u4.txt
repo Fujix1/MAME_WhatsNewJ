@@ -1,0 +1,53 @@
+0.110u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+raiga0104u4yel [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- SCSI CDエミュレーションの改良: [Ville Linde]
+ - オーディオ再生コマンド(12)追加
+ - トラック番号修正と、Read Sub-ChannelコマンドでMSFサポート
+
+- MediaGXドライバをとりあえず修正。[Ville Linde]
+
+- SNESのラスタタイミングでMDRV_SCREEN_RAW_PARAMS()とその仲間達を使うように更新。
+  SNESのテストカセットの"electronics test"が、一つ以外は全部パスするようになりま
+  した。[R. Belmont]
+
+-「Super Breakout」のレイアウト修正。[Mr. Do]
+
+- CPS2のアップデート: [David Haywood]
+ - jyangoku用テーブル追加(Guru氏より)。グラフィックスとサウンドROMはこれでは未ダ
+   ンプなので注意
+ - CHDがある物については、“手作り”していたこれまでのXORを削除して、CHDを使って
+   MAMEで生成したXORと入れ替え。これにより、起動時間を短縮させたい場合なら、CHD
+   があれば誰でもXORを作成できることになります
+ - CHDがあるセットではデフォルトでXORの読み込みをしないように変更。この場合、CHD
+   から作成したXORのみについてロードする設定を変更してない限り、CHDのみがロード
+   されます
+
+- Windowsのバージョンによって、5つ以上のマウスボタンをサポート。Win98/MeはDX7以
+  降、XPはデフォルト。サポートされていないときはデフォルトの4ボタンです。
+  [Derrick Renaud]
+
+- PlayChoice-10の光線銃ゲームの照準がマルチモニタサポートの時におかしくなってい
+  たのを修正。[Derrick Renaud]
+
+- Dragon's Lairドライバを回路図を元に書き起こし。PR-7280とLD-V1000レーザーディス
+  クエミュレーション用のモジュールmachine/laserdsc.cを追加。レーザーディスクの
+  CHDオーディオとビデオのフルエミュレーションについては保留ですが、ゲーム自体の
+  動作とフレームナンバーは表示されます。またスコアと残ライフ、クレジット情報表示
+  用のビルトインレイアウトを追加。[Aaron Giles]
+
+- Windows Vista環境での“linpming”コンパイルができるようにwindows.makに細工。
+  これを動作させるには、mingwディレクトリと同じ値のVISTA_MINGW_ROOTという環境変
+  数を設定し、環境パスに%VISTA_MINGW_ROOT%\libexec\gcc\mingw32\3.4.2と追加します。
+  まだ少し問題が残ってますが、これでMSVCでのビルドとgccのほとんどのコード
+  (Windows OSDファイル2つ以外)はコンパイルできるようになるはずです。
+  [Aaron Giles]

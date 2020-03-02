@@ -1,0 +1,197 @@
+0.138u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02813: [サウンド] amerdart, amerdart2: ROMが未吸い出しのため、サウンドが出ない。
+         (Quench)
+- 03606: [マルチセッション] altbeast, aliensyn3: シングルセッション内で
+         segas16b.cのゲームを連続して起動するとグラフィックがおかしくなる。
+         (Atari Ace)
+- 03536: [その他] PowerPC core: PowerPCコアのデータバッファ重複。(Atari Ace)
+- 03943: [グラフィック] tknight, wildfang: 実機ではキャラクタがジャンプしたり壁
+         を抜けるとき、画面全体が揺れる。(hap)
+- 00790: [ドキュメント] armwrest: DIPスイッチ情報。(hap)
+- 03938: [クラッシュ/フリーズ] torus: 1面クリア後にMAMEがクラッシュする。
+         (Fabio Priuli)
+- 03928: [クラッシュ/フリーズ] Many sets: -cheatを有効にするとOut of Memoryのエ
+         ラーが出て起動できない。(Aaron Giles)
+
+
+ソースの変更点
+--------------
+- SH-2インタプリタを修正。[Atari Ace]
+
+- xmcotah/xmcotahr1のROMを修正。[Razoola]
+
+- i2cmemをC++デバイスに変換と、使っていないレガシーデバイスのお掃除。[smf]
+
+- デバイス単位のイメージソフトリストローディングルーチンを追加。
+  [Miodrag Milanovic]
+
+- feofをimage_feofに改名(device_image_interface内)。FreeBSDでのコンパイルを通す
+  ため。[El Barto]
+
+- devtag_get_device()を削除; machine->device()を代わりに使ってください。
+  [Aaron Giles]
+
+- グローバルなクロックアクセサとcpu_*エイリアスを削除: [Aaron Giles]
+
+   cpu_get_clock == device->unscaled_clock
+   cpu_set_clock == device->set_unscaled_clock
+   cpu_get_clockscale == device->get_clock_scale 
+   cpu_set_clockscale == device->set_clock_scale
+
+- -cheatを有効にすると無効なループ条件になるのを修正。[Aaron Giles]
+
+- 他のソフトウェアリストタイプをサポートする機能追加。フロッピー、カセット、
+  CD-ROMが使えます。[Miodrag Milanovic]
+
+- MAMEdev kant spel (Ubuntu/Canonical cares about this) [wallyweek]
+
+- MAMEとツールに*IX man pageを追加。[wallyweek]
+
+- GCC用に、ファイル終端が改行で終わっていないものを整理。[wallyweek]
+
+- ad2083に2つめのボタン追加。これはパワーがたまると次の面にハイパージャンプする
+  のに使用します。また、音量バランスの改良(AYがボイスに比べて低すぎ)。
+  [gravilidavide, Tafoid]
+
+- snowbros.c:「Puzzle King」「Hyper Pacman」「Cookie & Bibi 2」「Cookie & Bibi 3」
+  その他にDIP配置追加。「Puzzle Break」のDIP情報追加。[Brian Troha]
+
+- 以下のセットでデキャップしたMCUを読み込み(ただしまだ未使用): [Dr. Decapitator]
+ * kyros
+ * kyros (alt, オリジナルのMCUダンプ?)
+ * arkanoid (サポートしていたMCUは海賊版の模様)
+ * blackt96
+ * amerdarts
+ * cshooter
+ * josvolly (ほかにもデキャップが必要なチップあり)
+ * invasnab (このMCUが正確かどうかは微妙)
+ * pasha2
+ * empcity
+ * topshoot
+ * topbladv (このセットのCPUコアは未エミュレート)
+ * officeye (このセットのCPUコアは未エミュレート)
+ * revx
+
+-「Magical Odds」にPROM追加。[Smitdogg, The Dumping Union]
+
+- at28c16をC++デバイスに変換。[smf]
+
+- arkanoid.c: 純正ROMセットの基板配置追加とMCU Taito ID番号をドキュメント化。
+  [Brian Troha]
+
+-「キックスタート」の古いMCUダンプをデキャップしたものと置き換え。
+  [Dr. Decapitator]
+
+-「Pipeline」の古いMCUダンプをデキャップしたものと置き換え。[Dr. Decapitator]
+
+- [cb2001] 新命令追加。[robiza]
+
+- イメージのアンロードと生成を修正。[Sandro Ronco, Miodrag Milanovic]
+
+- cb2001: リールの実装。[David Haywood]
+
+- 'Wheels & Fire'ドライバを書き直し。[Tomasz Slanina]
+ * 新レンダリングコード
+ * ズーム処理の初期版(ルックアップテーブルをベース)
+ * メインCPUとサウンドCPUのコミュニケーション初期版
+ * スキャンライン割り込みとスクロール
+
+- segas16b.c: 使わなくなった"USER2 Work space"を2つ削除と、ドライバの整合性をと
+  る都合から、残りのUSER2をMCUに変更。[Brian Troha]
+
+- Naomi 171-8346Cカートリッジタイプの情報を追加。[f205v]
+
+- Neo Geoのドキュメントを大幅に更新: [Johnboy]
+ * SNK Playmoreのオフィシャルタイトルリストを追加
+ * AESシステム用に公式にリリースされていないMVSセットがすべて判明。タグ付け
+   (オフィシャルのタイトルリストとNeo-Geo Masterlistによる)
+ * 一部セットの種類判明(AES / MVS)と正しくタグ付け
+ * MULTI PLAY MODE (未エミュレート)についてドキュメント化; MCUが欠落
+ * ゲーム基板情報を更新
+ * kof99nをkof99k(韓国版)に改名
+ * mlug3のPチップを正しいチップラベルに改名とSMAコメント追加
+ * jockygpのROMをオリジナルカートリッジを元に改名、コメント追加
+ * vliner/vlineroのROM名をオリジナルカートリッジを元に改名、コメント追加
+ * neodrvr.cをクリーンアップ
+
+- MB88xx CPUコアのバグを修正。[Alex Jackson]
+
+- polepos.cの改良: [Alex Jackson]
+ * ハンドルを正しい方法で実装。MCUのあるセットの過敏なステアリング入力が修正
+ * MCU無しの海賊版セット(topracernとpoplepos2bi)に新しいレイアウト追加
+ * クロック周波数をxtal.cからのクリスタル値にコンバート
+ * Namco製セット(poleposとpolepos2)のROM名を訂正
+ * 使われていないグローバル変数polepos_gear_bitを完全に削除
+ * ビット化けが起きていたと思われる海賊版ROMを2つ修正
+
+- 欠落してたmakefileの依存関係を追加。[Atari Ace]
+
+- 非DRC RSPコアがまたビルド出来るよう改良(SH-2コアのように#defineで制御)。
+  [Atari Ace]
+
+- segas16b.c: FD1094 317-0120の「ゴールデンアックス」セットのROM名を訂正と、吸い
+  出し良好を確認。[Brian Troha]
+
+- lr35902.c: スピードレジスタが再び変更と取得可能なようにレジスタリストに追加。
+  [Sandro Ronco]
+
+- mb3773をレガシーデバイスからC++デバイスにコンバート。at28c16のコメントを整理。
+  [smf]
+
+- djboy.c: 未検証のBeast MCU内部ROMイメージを追加。
+  [Dr Decapitator, Tomasz Slanina, Lord Nightmare, Phil Bennett]
+
+- sfbonus.c: Amcoeの"Classic Edition Compact Format"基板レイアウトを追加。
+  [Brian Troha]
+
+- TMS32010コアに派生版のTMS32015とTMS32016 CPUを追加。またLST命令が時々間違って
+  内部RAMバンキングをいじってしまう問題を修正。[Quench]
+
+-「Ameri Darts」の内部DSPダンプ追加と、AmeridartドライバでTMS32015をサポート。ま
+  た、セーブステートもサポート。[Dr Decapitator, Quench]
+
+- RSP: VCL命令のサイン問題を修正。[angrylion]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Puzzle Break [David Haywood, Smitdogg, The Dumping Union]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Mystic Riders / 魔法警備隊ガンホーキ (海賊版?)  [David Raingeard]
+Magical Odds (set 2) [W. Herve, Smitdogg, The Dumping Union]
+ライデンファイターズJET - 2000 (China) [Brian Troha, Guru]
+ワンダーボーイIII モンスターレア (set 6, System 16A, FD1089A 317-xxxx) 
+  (better dump?) [Team Europe]
+ストリートファイターZERO (Hispanic 950718)
+  [Layne, N. Francfort, R. Mucciarelli, Smitdogg, The Dumping Union]
+キャプテンコマンド− (World 911202) [Stefan Lindberg, The Dumping Union]
+Space Ship [f4brice]
+獣王記 (set 5, Japan, FD1094 317-0069, not working)
+  [Stefan Lindberg, The Dumping Union]
+ワイルドファング [Stefan Lindberg, The Dumping Union]
+Fruit Bonus '06 - 10th anniversary (Version 1.3R CGA)
+  [Brian Troha, The Dumping Union]
+ターミネーター2 -Judgment Day- (rev LA4 08/03/92)
+  [Gor, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+機動戦士ガンダム バトルオペレーティングシミュレーター (GDX-0013)
+  [Team Europe, Joerg Hartenberger]
+セガゴルフクラブ バージョン2006 ネクストツアーズ (Rev A) (GDX-0018A)
+  [Team Europe, Joerg Hartenberger]
+オーリーキング (GDX-0007) [Team Europe, Joerg Hartenberger]
+Tokio/スクランブルフォーメーション (japanese?, newer)
+  [Guru, Roger Coltrane, Smitdogg, The Dumping Union]

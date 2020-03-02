@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.118</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.118.txt</div>
+	<div class="main">
+<div class="wn">
+0.118
+-----
+
+
+ソースの変更点
+--------------
+- mame.iniを2回読み込んで、inipathが反映されるようにINIファイルの解析を変更。
+  [Aaron Giles]
+
+- 最近の変更で、オプション処理に起きていたバグを修正。[Nathan Woods]
+
+- C89コンパイラで動作するようにstvcd.cのマクロを修正。[Mike Haaland]
+
+- 64ビットでの警告と未使用関数の修正。[Oliver Stoneberg]
+
+- fstarfrcのDIP設定 "Difficulty"を修正。また、tecmo16ドライバにDIP配置追加。
+  [BisonSAS]
+
+-　nemesisのビデオドライバコードを簡略化。[Atari Ace]
+
+- TMS5220コードをモジュラー化。[Lord Nightmare]
+
+-「R-タイプ」のROMセットの問題を修正。[Brian Troha]
+
+- HD6309コアの問題をたくさん修正。[Darren Atkinson]
+
+- AGEMAMEからの導入: [James Wallace]
+ * ソースツリーから'lamps.c'モジュールを削除
+ * BFM BD1ドライバの名称をクリーンアップ
+ * VFDの描画関数をビデオアップデート部から移動
+ * MPU4ドライバのサウンドシステムをオーバーホール
+
+- Windowsビルドの全てのツールで、utf8_mainエントリポイントを常に使用するように変
+  更。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Dancing Stage Euro Mix 2 [smf]
+
+
+
+新規クローンセット
+-------------------
+マキシマムフォース (No Gore version) [Brian Troha]
+
+
+
+0.117u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+headon0117u2ora [Aaron Giles]
+numpadremap0117u2gra [Aaron Giles]
+joystick0117u2gra [Aaron Giles]
+NewUI0117u2ora [Aaron Giles]
+mtrap0117u2ora [Aaron Giles]
+verifyroms0117u2ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+
+- Naomiドライバにセットアップコードを更に追加。[R. Belmont]
+
+- powerinsドライバのDIPスイッチ改良。[BisonSAS]
+
+- System 572ドライバに基本的なCD-ROM切り替え機能追加。「Best of Cool Dancers」と
+ 「Club Version」に実装。DIP配置追加。フェイクのスイッチを設定メニューに移動。
+  [smf]
+
+-「2 Minute Drill」ドライバにビデオハードエミュレーション追加とサウンドサポート。
+  [Tomasz Slanina]
+
+- TIAエミュレーションに、オプショナルなVSyncコールバック追加。画面設定を動的に変
+  更可能。[Wilbert Pol]
+
+- 古くなった関数名のクリーンアップ。[Atari Ace]
+
+- CreateWindowEX()で、win_create_window_ex_utf8()を呼び出すように変更。文字列の
+  変換を不要に。[Nathan Woods]
+
+- KonamiGX BIOSが単体で動作するように修正。オペレータにROMボードを接続するように、
+  文字列が表示されます。[Alex Jackson]
+
+- ハードリセットとソフトリセット用のデバッガコマンド追加。[Nathan Woods]
+
+- コンマとピリオドを追加した、14セグメントと16セグメントLEDを追加。vacfdispを
+  コンポーネントドライバに分割。システムはBD1に加えて、Rockwell 10937（別名 
+  MSC1937）と10957をサポートします。関連したドライバは全て、新コードと新レイアウ
+  トに置き換えました。[James Wallace]
+
+- 64bitビルドのエラーをいくつか修正。[Aaron Giles]
+
+- 汎用ツールから、ビルドツールを分離。ビルドツールはサブディレクトリ build/に配
+  置。[Aaron Giles]
+
+- 汎用モジュールastring.c追加。任意長の文字列割り当てと基本操作をサポートします。
+  [Aaron Giles]
+
+- assemble_x_strings()関数を、astringで置き換え。astringsを使うべきところを置き
+  換え。[Aaron Giles]
+
+- 新ツール、src2htmlを追加。MAMEのソースツリーを、リンク、キーワードとコメントの
+  色分けをしたHTMLフォーマットにコンバートします。[Aaron Giles]
+
+- メモリプールコードを、より汎用的なリソースプールへコンバート。MAMEの内部タイマー
+  トラッキングと、セーブステート登録で新システムを使うように変更。[Aaron Giles]
+
+- キーコード名から一部分のアンダースコアを削除。KEYCODE_0_PADは、KEYCODE_0PADと
+  なります。これは、マルチキーボードを判断するとき取り違えないようにするためです。
+  この変更により、かなり古いcfgファイル用の不完全な後方互換性は削除しました。
+  そのまま動作するものと、しないものがあります。また、これにより、既存のctrlr
+  ファイルも動作しません。新しいものを提供する予定です。[Aaron Giles]
+
+- タイルマップインターフェイスのクリーンアップ。タイルマップタイプタイプ定数を、
+  ただのTILEMAP_*から、TILEMAP_TYPE_*でプリフィクスしたenumに置き換え。tile_info
+  構造体から未使用のメンバを削除。[Aaron Giles]
+
+
+
+新規クローンセット
+-------------------
+クロスブレイズ (Japan) [Stefan Lindberg]
+シャドーフォース (Japan Version 2) [Stefan Lindberg]
+ディグダグ (Sidam 海賊版) [David Haywood]
+Dance Dance Revolution Best of Cool Dancers [smf]
+
+
+
+追加された未動作ゲーム
+----------------------
+アストロンベルト [Andrew Gardner]
+Cobra Command (Sega LaserDisc Hardware) [Andrew Gardner]
+Galaxy Ranger [Andrew Gardner]
+スターブレイザー [Andrew Gardner]
+
+
+
+0.117u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+joystickremap0117u1gra [Aaron Giles]
+mallocerror0117u1gra [Aaron Giles]
+mouse0117u1gra [Aaron Giles]
+newinterface0117u1gra [Aaron Giles]
+tapper0102gre2 [Ernesto Corvi]
+timber0100u3gre [Ernesto Corvi]
+tapper0102gre1 [Aaron Giles]
+timber099gre [Aaron Giles]
+mcr0103u3yel [Aaron Giles]
+dotrone0101u5yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Imola GP」の更新: [Phil Stroffolino]
+ - monzagpから名前を変更
+ - LEDを完全にマッピング
+ - blitterモードの修正。トンネル部分に影響
+ - DIPスイッチとポートの修正; いきなりゲームが始っていたのが、アトラクトモードか
+   ら開始するように修正
+ - プレースホルダカラー
+
+- マニュアルを元にtoplandとairfernoのDIPスイッチを修正。[Fabio Priuli]
+
+- SH-4コアをさらに改良: [Samuele Zannoli]
+ - 前回のパッチで逆アセブリと命令実行の問題があったので修正
+ - 割り込み管理追加
+ - レジスタバンク切り替え実装
+ - RTCタイマカウンタ追加
+ - メモリリフレッシュタイマ追加
+ - TMUにタイマを3つ追加
+ - プロセッサモードとピン設定を指定するための、設定用構造体を追加
+ - モードピンとCPUクロックから、内部プロセッサ周波数を割り出し
+ - SH-4プロセッサを使うシステムで、設定構造体を指定
+
+- littlerbのDIPスイッチ修正。[Sonikos]
+
+- コード内のマイナーなコード品質変更: [Atari Ace]
+ - avoided exporting a few global variables
+ - typedef名と衝突していた変数名を修正
+ - バグや不要なシャドウ変数を削除
+ - 余分な#definesを削除
+
+- sc61860コア、f3853コア、pckeybd.cが新しいタイミングコードで動作するように
+  修正。[Nathan Woods]
+
+- TIAをさらに改良: [Wilbert Pol]
+ - マイナーなミサイルグラフィックの配置問題を修正
+ - 初期化コードをtia_initからtia_resetに移動
+
+- ソースコードのハンドラ関係のエラーを修正。セルフインクルードが無いものの追加、
+  デッドプロトタイプの削除、mame/includesのヘッダにロケーションコメント追加。
+  一部のケースで、アイテムをエクスポートする必要がなかったので、staticに変更。
+  [Atari Ace]
+
+- gdrawpkrの入力のクリーンアップと、holdボタンをdiscardボタンに変更。
+  [Roberto Fresca]
+
+- アートワークシステムに14セグメントと16セグメントのLEDを追加。[Dirk Best]
+
+- bloodwarのプレイヤー2のボタン4を修正。[Barry Harris]
+
+- wolfpackドライバに、S14001Aスピーチチップ接続。[Lord Nightmare]
+
+- MCRドライバのSSIOボリューム調整が間違っていたのを修正。これで、「Spy Hunter」
+  のエンジン音が再び聞こえるようになりました。[Ernesto Corvi]
+
+- *_deviceオプションに"none"を再追加。[Nathan Woods]
+
+- HD6309のポストバイト、W++と--Wの逆アセンブリ修正。[Captain Ahab]
+
+- 6532 riotインターフェイスを、6522viaと6821piaインターフェイスにより近くなるよ
+  うに更新。[Wilbert Pol]
+
+- -listxmlの出力を新しいBIOSフラグを反映するように改良。新アトリビュート
+  isbios="yes"でそのゲームがBIOSなのを示します。[Aaron Giles]
+
+- ゲーム選択UIの改良: [Aaron Giles]
+ - TABキーを無効化
+ - Genral Inputの設定をメニューに追加
+ - セット名とゲーム名を左右のコラムに分割
+ - クローンセットのゲーム名に背景追加
+ - ゲーム選択メニューからスタートした場合、ESCキーを押すとすぐに終了せず、メニュー
+   に戻るように変更
+ - 各ゲームに対してINIファイルを読み込むようにロジックを修正
+
+- INIファイルハンドリングを完全にコアへ移動。この副作用として、<exename>.iniは読
+  み込まれなくなりました。このため、-createconfigでは<exename>.iniではなく、常に
+  mame.iniに出力するように変更してます。[Aaron Giles]
+
+- run_game()をmame_execute()に改名。ゲームドライバはパラメータで指定せず、
+  OPTION_GAMENAMEを通じてオプションからこの情報を取得します。[Aaron Giles]
+
+- RAW INPUTベースの光線銃ボタンを修正。[Aaron Giles]
+
+- options.cコードをクリーンアップ。設定されている通りにプライオリティレベルを追
+  加。新しいオプションは、手前の変更に対して同等か高い優先度があるときのみ受け付
+  けられます。設定した優先度から、デフォルトに戻す関数、options_revert()を追加し
+  ました。また、options_get_string()で常に有効な文字列（絶対NULLにならない）を返
+  すように変更。無効な文字列は空の文字列として返されます。[Aaron Giles]
+
+- conrefile.hに新しい関数、core_filename_extract_base()と
+  core_filename_ends_with()を追加。[Aaron Giles]
+
+- メニューレンダリングを少し変更。選択中の項目をより強調するために背景のハイライ
+  ト追加。メニューの上下にさらに項目があるのがわかるように矢印を追加。ハイライト
+  部分を少し控えめに変更。キーリピートレートがフレームレートに影響されないように
+  修正。[Aaron Giles]
+
+- メニュー全般でPage UP/Downをサポート。また、メニューが表示されている間のポーズ
+  切り替え追加。[Aaron Giles]
+
+- render_texturesがプールモデルで割り当てるように変更。大量のテクスチャを割り当
+  てるとき（14または16セグメントLED表示など）のメモリオーバーヘッドを回避するた
+  め。[Aaron Giles]
+
+- 64-bitコンパイラの警告がたくさん出るのを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+King Pin [Andrew Gardner]
+King Pin Multi-Game [Andrew Gardner]
+
+
+
+0.117u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+brkthru091u1gra [Luigi30]
+debbuger+psx_0117ora [Aaron Giles]
+cbtime0117red [Zsolt Vasvari]
+hotpinbl0117gra [Roberto Fresca]
+batrider0114red [Alex Jackson]
+battleg0113u4red [Alex Jackson]
+battleg0116u1ora [Alex Jackson]
+
+
+
+ソースの変更点
+--------------
+- スクリーンを使わないシステムのバグを修正。[Nathan Woods]
+
+- chdでファイルの終端を超えて読み込みをしようとするとクラッシュするのを修正。
+  [Roman Scherzer]
+
+-「サンドスコーピオン」「ギャルズパニック」でPandoraエミュレーションを使うように
+  変更。またPandoraエミュレーションの問題を修正して、「DJボーイ」のスプライト改
+  善。[David Haywood]
+
+- 新関数timer_call_after_resynch()追加。再シンクロを行うために持続時間がゼロのタ
+  イマーをセットします。コード内の持続時間ゼロのタイマーは、目的をはっきりさせた
+  この関数に置き換えました。[Zsolt Vasvari]
+
+- 新マクロ、TIMER_CALLBACKを定義。タイマーコールバックのラッピングに使います。
+  また、タイマーコールバックにrunning_machine *引数追加。既存の全タイマーコール
+  バックで新しいマクロを使うように更新。[Zsolt Vasvari]
+
+- gussunに命令の復号化をさらに追加。[Robiza]
+
+- vicdual.cのheadonとクローン版にディスクリートサウンド追加。[couriersud]
+
+- 信号のミキシングをサポートするため、2つのインバータ発信器をdiscrete.h / 
+  disc_wav.cに追加。[couriersud]
+
+-「Change Lanes」の表示バグを修正。[Adam Bousley]
+
+- monzagpドライバをなんとかプレイ可能な状態までアップデート。まだグラフィック関
+  係の不具合がいくつか残ってます。また、スコアと残りタイム表示用のLEDも実装する
+  必要があります。[Phil Stroffolino]
+
+- Neo-Geoのアップデート: [Zsolt Vasvari]
+ - BIOSのみのドライバのneogeoがクラッシュしないように修正
+ - メモリバンキングコードで、memory_set_bank_ptr()をmemory_set_bank()に置き換え
+   クリーンアップ
+ - LEDの修正
+
+- toaplan2ドライバの改良: [Alex Jackson]
+ - バイトスワップしていたtruxton2のM68KプログラムROMを正しいものと置き換え
+ - Raizing製ゲームのサウンドCPUコミュニケーションを修正。これは経験から推測した
+   ものですが、以前のものに比べればより完全で、多分正確なはずです。さらに、必要
+   以上にcpu_yield()を使うこともありません
+ - Raizingのゲームについてのコメントをドライバに追加。また間違いも修正
+ -「バトルガレッガ」のセットをもっとわかりやすく再構成
+
+- 入力システムについて、機能をさらにコアへ集約するため書き直し。依存関係を正しく
+  切り分けるため、アーキテクチャのクリーンアップ。ただし、この変更は入力処理の底
+  辺のレイヤーのみ対処したもので、高いレイヤー（ドライバレイヤーの入力ポート処理
+  など）についてはそのままにしてあります。[Aaron Giles]
+
+  大きな変更は以下の通り:
+
+  * システムからos_codeの概念を削除しました。全てのコードは、input.h内のマクロセッ
+    トを通じて定義されます。各コードは32ビットの値で、デバイスクラス、デバイス
+    インデックス、アイテムクラス、アイテムモディファイア、アイテムIDをエンコード
+    します
+
+  * OSD関数、osd_get_code_list()とosd_get_code_value()を削除。これに替わり、
+    osd_init()中にOSDレイヤーは、2つの新しい関数、input_device_add()と
+    input_device_item_add()を使って各デバイスに関連づけたデバイスと入力アイテムを
+    1つ以上登録する必要があります
+
+  * 入力シーケンスコードを新モジュール、inputseq.cに分離
+
+  * 以下のオプションサポートをコアに移動: -mouse, -joystick, -lightgun, 
+    -steadykey, -offscreen_reload, -joy_deadzone, -joy_saturation, 
+    -paddle_device, -adstick_device, -pedal_device, -dial_device, 
+    -trackball_device, -lightgun_device, -positional_device, -mouse_device
+
+    OSDレイヤーはosd_init()のときに全てのデバイスを登録して、オプションに応じて
+    コアに対しこれらの有効/無効を指定をさせます
+
+  * 新オプション追加: -multikeyboardと-multimouse
+    デフォルトではオフです。オフのときはコアは全てのキーポード入力、及びマウス入
+    力を1つのキーボードとマウス入力として重ね合わせます。ONのときは、コアが各キー
+    ボードやマウスの入力を独立したまま処理するように指定します
+
+  * 新オプション追加: -joystick_map
+    このオプションは、ジョイスティック入力のアナログからデジタルへのマッピングを
+    制御する9x9のグリッドを指定します
+
+  * Windowsの入力処理について、キーボードとマウスはRaw Inputインターフェイスを完
+    全にサポートしました。DirectInputは、ジョイスティック入力と、WindowsXPよりも
+    前のシステムでのキーボードとマウス入力のためにまだ使っています。これにより、
+    マルチキーボードとマウスのサポートが可能になります。また、キーボードとマウス
+    の動作を、DirectInputの非排他モードに変更し、より一貫した入力処理のため、ポー
+    ズ中でもデバイスが生きているようにしました。
+
+  * windows.txtから、コアでサポートされる共通なオプションとコマンドについては
+    config.txtへ移動。windows.txtはWindows専用の追加項目だけにしました
+
+- フレームアップデートコールバックを追加。ポーズと終了コールバックに似ていますが、
+  これはosd_update()と同時に呼び出されます。[Aaron Giles]
+
+- osd_init()が値を返さないように変更。OSDの初期化時の致命的なエラーの報告は
+  fatalerror()に依存します。[Aaron Giles]
+
+- 新関数、mame_schedule_new_driver()を追加。これは、ハードリセット後にキューされ
+  る新しいドライバを指定します。[Aaron Giles]
+
+- 試験的に最低限のゲーム選択インターフェイスを追加。パラメータ無しでMAMEを起動す
+  るか、メインメニューで"Select a New Game"を選ぶとこのインタフェイスにアクセス
+  できます。ここでは、ゲーム名をタイプしてゲームドライバを選択できます。タイプす
+  る毎に、MAMEのファジーネームマッチングコードが該当するトップ15のゲームを表示し
+  ます。このインターフェイスは、設定したrompathに見つかったゲームのみを表示しま
+  す。[Aaron Giles]
+
+- ゲーム選択画面を表示するために使う、空のドライバを追加。[Aaron Giles]
+
+- Windows版でアイコンをダブルクリックしたときの動作を、新しく追加したゲーム選択
+  インターフェイスを表示するように変更。[Aaron Giles]
+
+- NOT_A_DRIVERフラグが2つの違った意味を持つようになっていたので削除して、新しい
+  フラグを追加しました: GAME_IS_BIOS_ROOTは、完全なゲームではなく、BIOSを意味す
+  るドライバを示します。次に、GAME_NO_STANDALONEは、そのドライバが単体ではリスト
+  されたり、実行されたりしないものを指します。MAMEでは、ほとんどのBIOSはそれだけ
+  で、動作させることができるので、GAME_NO_STANDALONEフラグではなく、
+  GAME_IS_BIOS_ROOTフラグを持つことになります。[Aaron Giles]
+
+- 新ルーチン、mame_openpath()、mame_readpath()、mame_closepath()を追加。パス設定
+  の全ファイルを繰り返すのに使用するもので、複数パスサポートを含みます。
+  [Aaron Giles]
+
+- auditインターフェースで、ゲームのインデックスではなく、game_driver *を取るよう
+  に変更。[Aaron Giles]
+
+- driver_get_approx_matches()とdriver_get_count()のAPIについて、固定したドライバ
+  リストを決め打ちしていたのを、任意のドライバリストで動作するよう変更。また、
+  関数名をdriver_get_*からdriver_list_get_*に変更。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Sliver [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Space Dragon (ムーンクレスタ海賊版) [David Haywood]
+バトルガレッガ - Type 2 (Europe / USA / Japan / Asia) [Alex Jackson]
+
+
+
+追加された未動作ゲーム
+----------------------
+ギャルズパニック (US, EXPRO-02 PCB) [David Haywood]
+Balloon & Balloon [Tomasz Slanina]
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

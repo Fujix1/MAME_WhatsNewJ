@@ -1,0 +1,204 @@
+0.79u4
+
+ソース全般の変更：
+------------------
+
+■「アステリクス」の音程とバランスを修正。[Oliver Achten]
+
+■タイマーシステムの更新でいろいろなゲームがリセットする問題を修正。[Aaron Giles]
+
+■「Quasar」のDIPスイッチ修正。[Pierpaolo Prazzoli]
+
+
+
+0.79u3
+
+ソース全般の変更：
+------------------
+
+■変更をいろいろ。[Nathan Woods]
+    src/cpu/i86/i286.c:
+    src/cpu/i86/i286.h:
+    src/cpu/i86/i286intf.h:
+    - I286 CPUコアをMAME 0.79に合わせて更新
+
+    src/cpu/jaguar/jaguar.c:
+    - jaguargpu_get_info()に不明な場合を追加
+
+    src/cpu/m6502/m4510.c:
+    src/cpu/m6502/m4510.h:
+    src/cpu/m6502/m6509.c:
+    src/cpu/m6502/m6509.h:
+    src/cpu/m6502/ops09.h:
+    src/cpu/m6502/ops4510.h:
+    src/cpu/m6502/t65ce02.h:
+    - m4510とm6509 CPUコアをMAME 0.79に合わせて更新
+
+    src/sndhrdw/snes.c:
+    - グローバル変数の定義がダブっていたのを修正
+
+    src/cheat.c:
+    src/info.c:
+    src/usrintrf.c:
+    - NEOMAMEとCPSMAMEの定義を削除
+    
+    src/mame.c:
+    
+    - CPUに一貫性チェックを追加。デバッグ時に特定のget_infoによる場合分け
+    があるかどうかを調べるもの。MESSでのみ有効です
+
+    src/windows/input.c:
+    src/windows/input.h:
+    - key_trans_tableを非staticに変更、またwin_key_trans_tableをリネーム
+      (このテーブルはMAME32で使うようになりました)
+
+    src/memory.c:
+    - fatalerror()のコールをすべてosd_die()に変更
+
+    src/chdman.c:
+    - -createblankhdと-copydataコマンドを追加
+    - -createhdに新しい引数追加
+    - Macに移植
+
+    src/artwork.c:
+    - アートワークシステムが有効な場合、実際のアートワークが無くても常に
+      artwork_override_screenshot_params()が働くように変更
+    - static artwork_system_active()追加; アートワークシステムが有効かどうか
+      しらべる関数
+
+■PSXのクリーンアップをいろいろ。[smf]
+
+■メモリシステムのテスト用コードを削除。[Aaron Giles]
+
+■「ラジカルバイカーズ」で問題を起こしていたTMS32031のバグを修正。[Aaron Giles]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Quasar [Mike Coates, Pierpaolo Prazzoli]
+    (other Zaccaria games are still being worked on)
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+FX (S.R.D.ミッションの海賊版) [Pierpaolo Prazzoli]
+
+
+
+0.79u2
+
+ソース全般の変更：
+------------------
+
+■タイマーシステムの更新。[Aaron Giles]
+
+　タイマーシステムを浮動小数点から整数ベースにしました。64bitのIntが必要になります。
+96bitのタイム値である'mame_time'タイプを新しく定義しました。秒に32bit、小数秒に64bit
+を割り当てます。このタイプはコアのタイマーシステムとCPUスケジューラで広範囲にわたって
+使用しています。
+
+　新システムの精度は1アト秒(10^-18秒)です。細かすぎのように見えます。100MHzのCPUでは
+クロックサイクルは10^10アト秒で割り切れるのでうまく動作しますが、96MHzCPUの場合、クロッ
+クサイクルが1.041666667 * 10^10アト秒になるので、サイクル毎に1/3アト秒を誤って取りこ
+ぼすことになります。これに96000000を掛けるとエラーは最終的に32000000アト秒になり、こ
+れは0.032ナノ秒なのでなんとか問題ありませんが、これ以上精度が落ちると違いが目立つと
+思われます。
+
+　既存のAPIはまだ全てそのままで、引数にdouble値を渡すことができますが、すぐにmame_time
+値にコンバートします。
+
+　旧システムの浮動小数点丸め誤差が蓄積して起きていたエラーは解消されました。
+
+
+■Unixでのコンパイルを修正。(namconb1ドライバのrand_rをリネーム) [R.Belmont]
+
+■修正をいろいろ。[Nathan Woods]
+    src/cpuintrf.c:
+    src/cpuintrf.h:
+        - CP1610コアの修正
+        - activecpu_set_irq_callback()の定義を修正
+
+    src/mame.c:
+        - 存在しないCPUコアを使うドライバについての一貫性チェック追加
+
+    src/machine/snes.c:
+    src/includes/snes.c:
+        - MESS用コードを削除するために書き換え
+
+    src/machine/idectrl.c:
+    src/machine/idectrl.h:
+        - バスディレクトリにアクセスするide_bus_0_r()のコールを追加
+
+    src/cpu/z80/z80.c:
+        - Z80のサイクルテーブルをスタートアップ時にデフォルトに設定するように変更。
+          ドライバ側で終了時にサイクルテーブルをデフォルトにリセットする必要が
+          なくなります
+
+■itech32の記載事項を整理。[Brian Troha]
+
+■firebatlのDIPを修正。[B.S.Ruggeri]
+
+■CPU固有のメモリマップを修正。[Aaron Giles]
+
+■targのファイル名修正とPROMの追加。[chaneman]
+
+■PICコア及び、内部メモリマップを使うようにドライバを更新。[Quench]
+
+■TMS32031コアにIACKとIDLE命令のサポート追加。[Aaron Giles]
+
+■いろんなアップデート。[Curt Coder]
+
+■NeoGeoで正しいROMセットを使うように更新。[HPMAN]
+
+■Psikyo.cの表示修正。[Leon van Rooij]
+  - gunbirdのアトラクトモードの不具合 (タイルマップは不透明);
+  - s1945で飛行機が現れるところ (スプライト/タイルマップ間のプライオリティ);
+  - s1945の7面 (さらに別なタイル毎のスクロールあり)。テスターのs1945066greが修正
+
+■m68k逆アセンブラのバグ修正。[Leon van Rooij]
+
+■robowrest2001のカスタムCPUの情報をデコード。[Dave Widel]
+
+■Irem GA-20の音程を修正。[R.Belmont]
+
+■DMAベースのDAC“サウンドチップ”を追加。またDCS/CAGEで同機能を使うように更新。[Aaron Giles]
+
+■「Enigma 2」の修正。[Tomasz Slanina]
+  - サウンド
+  - 背景の星
+  - カクテルモード
+  - バグをいくつか (プロテクト?)
+  - 色s
+
+■「テイルガンナー」でサンプルサポート。[Erik Ruud]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+草野球 [Tomasz Slanina]
+    不完全、音と表示関係の問題あり
+Botanic [David Haywood]
+Bongo [Pierpaolo Prazzoli]
+プロ野球入団テスト トライアウト [Pierpaolo Prazzoli, Bryan McPhail]
+マッドエイリアン [Norbert Kehrer]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+エリア51 (新型 68020版) [Brian Troha]
+ズーム909 [Tomasz Slanina]
+ストライカーズ1945 (alt) [Brian Troha]
+Hunchback (ギャラクシアン基板) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Gaelco製3Dゲーム (ラジカルバイカーズ, サーフプラネット) [Aaron Giles]
+    3Dハードウェアのエミュレートが不完全
+Microprose製3D (botss, stankatkなど) [David Haywood]
+    ドライバのひな形のみ。ROMロードのみ動作

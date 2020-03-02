@@ -1,0 +1,77 @@
+0.113u1
+-------
+
+OSD移植者へ: このバージョンで大きな変更があります。特に大きいのは、速度制限とフ
+レームスキップがコア機能になったことです。このファイルをよく読んでください。
+
+
+
+MAMETestersの修正バグ
+---------------------
+janptr96_0110u4gra [Mike Ellery]
+dokidoki0111u5gra [Mike Ellery]
+
+
+
+ソースの変更点
+--------------
+- 以前よりも正確な新ビデオタイミング関数 (cpu_*に代わりvideo_screen_*関数)を使う
+  ように、ドライバの変換を開始。まず最初はatarigen.cを使うAtari製ゲームと、
+  TMS34010チップを使う全ゲーム。[Zsolt Vasvari]
+
+- Windows的なregrep.cを修正。[couriersud, Aaron Giles]
+
+- kanekoドライバの改良。プロテクトデータが全て正確になったはずです。
+  [Sebastien Volpe]
+
+- 以下のドライバについて、マニュアルを元にDIPスイッチ位置を追加: 
+  Karnov, Magmax, Omega Race, Spiders, Bagman, Bank Panic
+  [Justin Szczap]
+
+- winwindow_ui_exec_on_main_thread()を追加。メインスレッドで実行する関数を、ウィ
+  ンドウスレッドで生成可能。[Nathan Woods]
+
+- サンプルの名前がNULLなときに、サンプルチェックがクラッシュするのを修正。
+  [Nathan Woods]
+
+-「キーボードマニア 2nd MIX」と「ポップンミュージック7」用にiButtonのデータを作
+  成。この更新で「ポップンミュージック」のセルフテスト表示。[Ville Linde]
+
+-「マスタッシュボーイ」の反転を正しく修正。[David Haywood]
+
+- ppd用にiButtonデータを作成。[Ian Patterson]
+
+- AtariとCinematronics CCPUゲームの残りについても新ビデオタイミングシステムを使
+  うように修正。また「Destroyer」のリセット問題も修正。[Zsolt Vasvari]
+
+- サンプルチェックで、全部無いとレポートするのを修正。[BUT]
+
+-「005」のマニュアルを元に不明のDIPをマーク。[Mike Ellery]
+
+- cからeのドライバで新ビデオタイミングシステムを使うように更新。[Zsolt Vasvari]
+
+-「エイリアンシンドローム」セット1のタイマーDIPスイッチ修正。[Don Maeby]
+
+- 速度制限、フレームスキップ、早送り、タイマーをコアに移動。Windows OSDレイヤー
+  から同等部を削除。以前のosd_get_fps_text()を廃止、osd_update()でフレームスキッ
+  プされているかどうかを示すパラメータを取るように変更。osd_sleep()をOSDコアタイ
+  ミングライブラリに追加。[Aaron Giles]
+
+- フォントビルド用の新メカニズム追加。新ツールpng2bdcが、特別なフォーマットのPNG
+  ファイルから、MAMEのバイナリキャッシュフォントへ変換。このフォントキャッシュは
+  MAMEに埋め込み可能です。新フォントはプロポーショナルなので、画面解像度が小さく
+  ても使いでがあります。実際のフォントでのバランス調整などはまだ必要です。また、
+  png2bdcにも基本機能を追加する必要があります。とりあえずこれはWIPとしておきます。
+  [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+A Question of Sport (39-960-089) [Highwayman]
+
+
+
+追加された未動作ゲーム
+----------------------
+Megatouch 6 [chaneman]

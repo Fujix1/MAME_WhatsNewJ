@@ -1,0 +1,165 @@
+0.144u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04610: [クラッシュ/フリーズ] Multiple sets in cave.c: 各所でSegfaultsが起き、スプラ
+         イトが画面中央で欠けて表示される。(Aaron Giles)
+- 04268: [クラッシュ/フリーズ] All sets using OKI6295 audio: セーブステートを何回も使
+         うとMAMEがクラッシュするようになる。(R. Belmont)
+- 04629: [クラッシュ/フリーズ] topgunnr: [デバッグ限定] OK後にアサート。(Aaron Giles)
+- 04630: [クラッシュ/フリーズ] skyraid: [デバッグ限定] OK後にアサート。(Aaron Giles)
+- 03761: [グラフィック] edrandy and clones: 背景の雲が表示されない。(hap)
+- 04508: [グラフィック] charlien: 画面の左上にゼロが表示される。(David Haywood)
+- 04623: [タイミング] drivers that use SCREEN_VBLANK: SCREEN_EOFからSCREEN_VBLANKへの
+         変更に伴い、タイミングの問題が起きている。(hap)
+- 04637: [グラフィック] chukatai: 画面左端のスプライトに表示不具合が出る。
+         (David Haywood)
+- 04633: [グラフィック] rollerg and clones: 画面右側にグラフィック表示不具合あり。
+         (Aaron Giles)
+- 04638: [グラフィック] All sets in hng64.c: 3Dグラフィックが表示されない。
+         (Aaron Giles)
+- 04639: [グラフィック] wheelfir: 手前のレイヤーが表示されない。(Aaron Giles)
+- 04643: [クラッシュ/フリーズ] All sets in chsuper.c: [デバッグ限定] デバッグビルドで
+         OK画面後に例外が出る。(Aaron Giles)
+- 04620: [ドキュメント] j6cpalb: リリース年度は1998
+- 04606: [グラフィック] mach3, cobram3: グラフィック不具合あり。(Aaron Giles)
+- 04624: [グラフィック] blswhstl, detawin: グラフィックが表示されない。(hap)
+- 03600: [ゲームプレイ] gberet: 画面は30fpsではなく60fpsではないか?(hap)
+- 04618: [ドキュメント] All sets in taito.c: このドライバのゲームは全て製造元が
+         "Taito do Brasil"。
+- 04617: [ドキュメント] rally: リリース年度は1980年。
+- 04616: [ドキュメント] radcl_l1 and clones: 正しいゲーム名は"Radical!..."
+- 04615: [ドキュメント] rackempp: 正しいゲーム名は"Rack 'em Up! (Pinball)"
+- 04613: [グラフィック] pballoon: 画面のスクロールがおかしい。(hap)
+- 04612: [クラッシュ/フリーズ] All sets in aleck64.c: OK画面直後にクラッシュ。
+         (MooglyGuy)
+- 04611: [クラッシュ/フリーズ] galpanis galpanisj: リージョン情報画面でフリーズする。
+         (hap)
+- 04595: [クラッシュ/フリーズ] cryptklr: [64bit限定] 64ビット環境のみで起動直後にMAME
+         がクラッシュする。(Curt Coder)
+
+
+ソースの変更点
+--------------
+- tilemap.cをC++クラスとして書き直し。現在は、グローバル関数を保持して、クラスにイン
+  ラインでマッピングしていますが、間もなく実際にC++のメソッドを直接使う方法にドライバ
+  を更新予定です。また、タイルマップコールバックはデリゲート化し、モダンデバイスやこ
+  れからのドライバにより、クリーンな統合ができるようにしました。[Aaron Giles]
+
+- libjpegを追加;「Sliver」のピクチャをオンザフライで解凍するように変更。
+  [David Haywood, R. Belmont]
+
+- 4bpp packedグラフィックを削除。これは、4bppシステムでGFX_RAWを使うドライバだけのも
+  ので、大量の追加コードが必要でした。これらのドライバから4bpp packedグラフィックが無
+  くても動作するようにして、追加コードも削除しました。[Aaron Giles]
+
+- tagmapをC++テンプレート化。イテレータも追加。使用箇所の更新。[Aaron Giles]
+
+- VGA: Double Scan / Maximum Scan Line条件を修正。一時的な対策が多くあったのを削除。
+  [Angelo Salese]
+
+- CGA: ディスプレイディセーブルリードフラグ修正。[Angelo Salese]
+
+- i386: BTRとページフォールトの修正。[Carl]
+
+- i386: FPR命令のFISTとFBLDを基本実装。[Barry Rodewald]
+
+- i386: テストi386出力を元に、BSR/BSF、CMPSを修正。[Barry Rodewald]
+
+- VGA: 正しいリフレッシュレートの追加試み。[Angelo Salese]
+
+- i386: STR、SLDT命令の修正。[Barry Rodewald]
+
+- Intersil IM6402 UARTエミュレーション追加。[Curt Coder]
+
+- popobearの基板写真、マニュアルを元にドキュメント(ピンアウト、DIP、チップID)を作成。
+  [Tafoid]
+
+- i386: JCXZオペコードのバグを修正。[Carl]
+
+- GCC 4.7の互換性のための変更。[Belegdol]
+
+- FLAC(ロスレスオーディオ)コーデックを追加し、サンプルとchdmanに試験実装。zlib、flac
+  の圧縮率を上げるため、CHD-CDのハンクサイズを増加。[David Haywood, R. Belmont]
+
+- i386: IRETとRETFでの、16ビットと32ビット間の処理違いを改良するため、スタックリミッ
+  トチェックを追加。[Barry Rodewald]
+
+- i386: CPLがゼロのとき、IRETによりIOPLが変更されるのを停止。[Barry Rodewald]
+
+- ppu2c0x: NES PPUをモダンデバイス化。[Fabio Priuli]
+
+- Stepperをさらにクリーンアップ。[J. Wallace]
+
+- floppy: 専用のUI処理。[O. Galibert]
+
+-「Pluto 5」のクロック、EPROM設定、16ビットモードでの各EPORMタイプのアドレス・データ
+  スクランブル処理についてテクニカルノート追加。[Roberto Fresca]
+
+- デバイスの階層とハンドル名の移動。また、デバイス、I/Oポート、メモリ領域、メモリバン
+  ク、メモリシェアに沿ったパス配置。[Aaron Giles]
+
+- pcapネットワークデバイスの検索を修正。[Carl]
+
+-「Lemmings」「ダークシールII / Wizard Fire」「サンダーゾーン / Desert Assault」
+ 「ウルフファング -空牙2001- / Rohga Armor Force」「シュマイザーロボ」でdeco汎用スプ
+  ライトデバイスを使うように変更。[David Haywood]
+
+- VGAメモリハンドラの大規模な総点検。ついでにCGA、モノクロームエミュレーション追加と
+  テキストバンキングも修正。[Angelo Salese]
+
+- i386 x87エミュレーションを書き直し: [Phil Bennett]
+ * SoftFloat演算関数を使用
+ * タグワードの更新を実装
+ * ステータスワード/例外フラグの更新を実装
+ * Implemented stack underflow/overflow behaviour
+
+- i386: いろいろなプロテクモードの修正。[Carl]
+
+- KonamiとNamoc製ゲームの多くで、デフォルトのDIP設定修正と、DIP配置追加。[kanikani]
+
+- i386: SMSWの32ビットオペランドサイズ版を追加。[Barry Rodewald]
+
+- GX(以前)のビデオミキサーでの処理前提が間違っていたのを修正。[R. Belmont]
+
+- ksys573: ディスクリージョンの修正で、ゲームが再びブート可能。[R. Belmont]
+
+- taitogn: カードリージョンの修正で、ゲームが再びブート可能。[R. Belmont]
+
+-「ターボアウトラン」の2セットのうち1本について、Sega Security CPUナンバー(317-xxxx)
+  を確認、及び訂正。[Brian Troha]
+
+- oki6295: ゲームがセットするバンクがDIEする前にゲームがバンクをセットする後にからバ
+  ンクを強制的に作成するように変更(意味不明)。[R. Belmont]
+
+- SDL: .BDF UIフォントで誤解を与えるメッセージを出さないように修正。
+  [R. Belmont, The Flying Ape]
+
+- i386: セグメント制限とプロテクションチェックの大幅更新。[Carl]
+
+- VGAのメモリマップ書き込みを修正。[Grull Osgo]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Steal See (& Get Land) [N. A. Jimenez, M. Krug, ShiggsUnderground, C. Stefano,
+   Ted Bailey, R. Mucciarelli, Smitdogg, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Carrier Air Wing / U.S.ネイビー (海賊版) [Bonky0013] (not working)
+Flying Shark / 飛翔鮫 (海賊版, set 2) [Bonky0013]
+アルカナハート [Dumping Union]
+Rapid Fire v1.1 (Build 238) [Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+壱番雀 [Guru]
+甲虫王者ムシキング 2K3 2nd [f205v, The Dumping Union]
+バーチャNBA (プロトタイプ) [Arzeno Fabrice]
+Popo Bear [R. Mucciarelli, N. Francfort, Smitdogg, The Dumping Union]

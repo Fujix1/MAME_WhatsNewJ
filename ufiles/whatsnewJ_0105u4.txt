@@ -1,0 +1,95 @@
+0.105u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+invaders0105u2gre [Giuseppe Gorgoglione]
+taitosj0105u3yel [Aaron Giles]
+wardner0105u3red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Nintendo 64システムの改良: [Ville Linde, Ryan Holtz]
+ - RSPコアのメジャーなバグ修正
+ - PIFハンドリングの書き直し
+ - トライアングルのレンダリングを少し改善
+
+- memory_set_bankptr(), memory_configure_bank(), memory_configure_bank_decrypted()に
+  NULLチェック追加。[Nathan Woods]
+
+- デバッガのメモリウィンドウに列当たりに表示するバイト数を変更する機能追加。
+  [Andrew Gardner]
+
+- orlegend super / specialのプロテクトのシミュレート開始。[XingXing, ElSemi]
+
+-「パーフェクトビリヤード」の色とBGMテンポ修正。[Sonikos]
+
+- 6840のクリーンアップとscorpion2ドライバの未マップ領域の処理を修正。またMPU4のメモリ
+  マップも更新。[El Condor]
+
+- Toaplan 2ドライバの大幅クリーンアップ: [Quench]
+ -「ナックルバッシュ2」(kbash2)追加
+ - メモリマップのリード・ライトを統合
+ - 一部のゲームのコインカウンタ修正
+ - 一部のゲームの音量増加
+ - 入力のクリーンアップ:
+    入力の継承とDIPSWロケーション追加
+    DIPSWで必要な場合に条件による動作追加
+    あちこちで入力が間違っていたのを修正
+
+- m92、afega、tumbleb、yusun16ドライバのDIPスイッチ修正と改良。[Twisty]
+
+- liberate.cドライバのクリーンアップ。[Sonikos]
+
+- ARM7のThumbモード逆アセンブラを改良。[MooglyGuy]
+
+-「Air Raid / クロスシューター」の改善。グラフィックROMが無いのでプレイ不能。
+  [Tomasz Slanina]
+
+- アートワーク有効時にUIの表示位置がおかしくなるのを修正。[Giuseppe Gorgoglione]
+
+- ARM7コアのThumbモード、およびPGMドライバを大幅にアップデートと改良。
+  [David Haywood, ElSemi]
+
+- sslamとpowerblsのOKI周波数改善。[f205v]
+
+- m62.c、m72.c、ddragon.cのDIPスイッチをさらに改良。[Twisty]
+
+- デバッガのコマンドラインで表示部分よりも長く入力できないバグを修正。[Aaron Giles]
+
+- 新ツールjedutil追加。.JEDファイルをバイナリフォームへ変換、および元に戻します。
+  [Aaron Giles]
+
+- 新規ROM領域、REGION_PLDSを追加。PLDヒューズマップ(jedutilで生成した.JEDファイル)の
+  バイナリダンプを保持するためのものです。-romidentには自動的に.JEDファイルとバイナリ
+  のダンプとを見分けるロジックを組み込みました。PLDダンプは「ビンジケーターズ」
+ 「Batman」「ピットファイター」「ThunderJaws」「Rrlief Pitcher」ドライバに追加しまし
+  た。さらに追加予定です。[Aaron Giles]
+
+- 新バイナリフォーマットに合わせてcatnmousとlazarianのPLDをコンバート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+テトリス (D.R. Korea) [David Haywood]
+ナックルバッシュ 2 (海賊版) [Quench]
+
+
+
+新規クローンセット
+------------------
+Metal Slug 6 (メタルスラッグ3 海賊版) [Mame32Plus]
+Metal Slug 5 (JAMMA基板) [Mame32Plus]
+SVCカオス - SNK vs CAPCOM (JAMMA基板, set 2) [Mame32Plus]
+ナイトスラッシャーズ (Over Sea Rev 1.2) [Stefan Lindberg]
+ダブルドラゴン (World Set 2) [Stefan Lindberg]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+怒首領蜂 大往生 (V100) [Wu]

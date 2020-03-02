@@ -1,0 +1,110 @@
+0.125u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00181: [Sound] ddragon3: OKIチップの音量が低すぎる。(sonikos)
+- 00417: [Sound] ddragon3: タイトルのボイスが鳴らない。(sonikos)
+- 01441: [Sound] ctribe, ddragon3: OKI6295の周波数が高すぎる。(sonikos)
+- 01888: [DIP/Input] raidena, raidenk, raident: 画面反転のDIPスイッチが働かない。(couriersud)
+
+
+
+ソースの変更点
+--------------
+- MIPS3 リコンパイラ: [Aaron Giles]
+ * 汎用ステート変数についてのUMLコメント追加
+ * 未使用なフィールドを削除
+ * LL/LLD/SC/SCDを実装 (今のところシングルプロセッサでのみ動作)
+
+-「ワイリータワー / Atomic Boy」「ファイティングバスケットボール」にサウンド追加。
+  [Tomasz Slanina]
+
+- squahitsaを改良。[David Haywood]
+
+- Crystal Systemの2本のプロテクトシミュレーションの作業。まだ動作せず。[ElSemi]
+
+- tankfrc4の入力系について作業。[David Haywood]
+
+- 汎用仮想TLB管理モジュールを追加。MIPSとPowerPCのコードで使用。[Aaron Giles]
+
+- 初期化時の入力ポート読み込みに対してバリディティチェック追加。[Curt Coder]
+
+- ソフトウェアバイリニアフィルタリングコードをクリーンアップ。バウンドチェック追
+  加。スナップショットとムービーレンダリングに対してデフォルトで有効化。
+  [Aaron Giles]
+
+- 新オプション -snapsize 追加。出力するスナップショットとムービーの解像度を指定
+  します。元の解像度で出力するこれまでの動作がまだデフォルトになっています。
+  [Aaron Giles]
+
+- 新オプション -snapview 追加。これは、スナップショットやムービーの描画に使う
+  ビューを指定します。既存の動作(特別な内部ビューを使って各画面を各ファイルに出
+  力する)がまだデフォルトの設定です。"内部"のビューを指定するためにこのオプショ
+  ンを使う場合、ゲームの画面数に関わらず、常に一つのスナップショットだけが出力さ
+  れます。[Aaron Giles]
+
+- AVIとMNG保存で、正しいフレームレートを保つよう正確にフレームを再現、またはスキッ
+  プするよう改良。[Aaron Giles]
+
+- 新関数video_get_view_for_target()を追加。これは、コマンドラインパラメータベー
+  スのビュー選択と設定をします。WindowsのOSDコードで、独自ロジックからこれを使う
+  よう変更。-snapviewでもこのロジックを使って、-snapviewの設定に"auto"を追加。
+  [Aaron Giles]
+
+- Nintendo Z80GB CPUをSHARP LR35902に改名。[Wilbert Pol]
+
+- UML: [Aaron Giles]
+ - バックエンドバリデーションメカニズムを再び有効化
+ - ADD/SUB/MUL/DIV/CMPフォームにバックエンドバリデーションを追加
+ - 微妙なフラグの組み合わせでのエラーを修正
+
+- konamigxの周波数調整: [Yasuhiro Ogawa]
+ - 画面のリフレッシュレートを58Hzに設定 (開発用マニュアルの値は100%正しくありま
+   せん)
+ - サウンドCPUクロックのハックを削除
+
+- tecmosysの画面レートを測定した57.4458Hzに設定。[Guru]
+
+- 多くのdirver/とmachine/ファイルについて、machineパラメータの追加と、deprecat.hを
+  削除。[Oliver Stoenberg]
+
+-「ストリートファイター2 CE」以降の全てのゲームのクロックを12MHzに変更。
+ 「Megaman」「クイズ&ドラゴンズ」(オリジナルキット)で検証。ST2CE以降では全て
+  12MHzのDASH CPS1ボートでほぼ間違いなし。[Corrado Tomaselli]
+
+- 頭文字DからJのドライバについて、input_port_read_indexed()からinput_port_read()を
+  使うようにコンバート。[Fabio Puiuli]
+
+- ddragon3ドライバのクリーンアップと修正: [sonikos]
+ - ctribeのMESs DIP配置を修正
+ - ddragon3の全セットにDIP配置追加
+ - ctribe、ctribe1、ctribeb、ctribb2、ddrago3bに実装されていなかったDIPスイッチ
+   追加
+ - ctribeの"面クリア体力"を修正
+ - テスターの00417にあるように、フレームレートを60Hzから57Hzくらいに変更
+ - OKIチップの周波数を1.000MHzに変更 (テスターの00181より)
+ - ddragon3とctribeの音量を調整 (テスターの00181と01441より)
+
+-「テクモVゴールサッカー」「テクモワールドカップ98」のプロテクト改善。[nuapete]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+エイリアンストーム (2 player World) [Frederic Canoen]
+
+
+
+新規クローンセット
+------------------
+テラフォース (追加Z80付き海賊版) [David Haywood]
+ターボアウトラン - White Cockpit version [Frans van Egmond]
+ザ・コンバットライブス (Italian bootleg) [Sonikos]
+
+
+
+追加された未動作ゲーム
+----------------------
+ワンダーボーイIII モンスターレア (System16A FD1089A) [Volker Hann]

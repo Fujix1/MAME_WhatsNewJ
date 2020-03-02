@@ -1,0 +1,246 @@
+0.148u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03642: [DIP/入力] (cps1.c) 1941: DIPメニューの難易度の数値がサービスメニューのもの
+         と合っていない。
+- 00012: [DIP/入力] (dooyong.c) lastday: [バグかもね] テストモードで5キーを押すと
+         Coin B、6キーを押すとCoin Aが反応する。
+- 01797: [DIP/入力] (tank8.c) tank8: ゲーム時間のDIP設定が間違っている。マニュアルに
+         よると、60秒から210秒まで10秒刻みの設定。MAMEでは73秒から233秒。
+- 02117: [DIP/入力] (dooyong.c) superx: [バグかもね] サービスモードのDIPスイッチが動
+         作しない。
+- 03388: [DIP/入力] (atarisy1.c) roadrunn and clones: 入力ボタンのネーミングが非論理
+         的。オリジナルではプレイボタンとスタートボタンが共用。
+- 04196: [DIP/入力] (leland.c) offroadt2p: [バグかもね] 2人プレイゲームなのに、3人分
+         の操作がある。
+- 05119: [DIP/入力] (kaneko16.c) bloodwar oedfight: アトラクトモードのサウンドON/OFF
+         を設定するDIP設定が逆。
+- 05120: [DIP/入力] (namcos1.c) bakutotu: 無敵を設定するDIPスイッチが動作しない。下か
+         ら2つめのUnknownが無敵の設定として動作する。
+- 05194: [グラフィック] (tx1.c) buggyboy, tx1: Tabメニューの画面設定を切り替えると、
+         画面1と2がフリーズする。(Phil Bennett)
+- 04851: [クラッシュ/フリーズ] (pcxt.c) filetto: 起動できない。(crazyc)
+- 05190: [クラッシュ/フリーズ] (gomoku.c) gomoku: ROM/RAMテスト後にクラッシュする。
+         (hap)
+- 05189: [サウンド] (attckufo.c) attckufo: 音が出ない。(hap)
+
+
+ソースの変更点
+--------------
+- QSoundの内部DSP ROMをデバイスに追加。[Andrew Gardner]
+
+- 4ビットmathboxのPROMのうち未使用のビットにあるゴミを削除。[Andrew Welburn]
+
+- 結果が2に切り上げされるときにEフラグをセットせず結果のみを制限。[smf]
+
+- clifront.c: -romindentでディレクトリ内のzipファイルを処理するように改良。
+  [Fabio Priuli]
+
+- NaomiとTriforceのメタデータを更新。[f205v]
+
+- PSX BIOS ROMのメモリマップについて、内部レジスタでサイズ操作されるようにCPUコアで処
+  理。System 12のプロテクトハックで、BIOS ROM領域の再マッピングが不要。また、デフォル
+  トのRAM値も削除。[smf].
+
+-「チョコベーダー」の0.8e ROMを再吸い出し。[Smitdogg]
+
+- nbbatman2bl - 不良グラフィックROMの置き換え。[Smitdogg]
+
+- silkroad - 不良ROM置き換え、初期化ハック削除。[Brian Troha, Smitdogg,
+  The Dumping Union]
+
+- autobootコマンド追加。[Ben Geeves, Miodrag Milanovic]
+
+- 最近の吸い出しにより、「ワールドテニス」のmaincpu ROMサイズの修正。ラベルの更新。
+  [any, Tafoid]
+
+- travrusa.cの全セットについてDIP配置の検証と確認。[Tafoid]
+
+- 8042kbdc: 未初期化な変数を修正。[Peter Ferrie]
+
+- timekeeperのモダン化。[smf]
+
+- ライブラリにLUA 5.2.2追加。動作中のマシンにLUA VM基本実装。ドライバ起動後にLUAスク
+  リプトを実行するため、-script(または-autoboot_script)コマンドを追加。
+  [Miodrag Milanovic]
+
+- adc083x、ds2401、upd4701をモダン化。[smf]
+
+- デバッガにメモリトラッキングを追加。これには次の新コマンド2つを含む:
+  trackmem, pcatmem(p|d|i) [Andrew Gardner]
+
+- メモリウィンドウの左クリックによる選択のバグを修正。[Andrew Gardner]
+
+- at28c16のモダン化完了。[smf]
+
+- rallyx.cの全セットについてDIPスイッチ位置の検証。[Tafoid]
+
+- YMZ280B、YMF271、YM2610、YM2608、YM2203、AY8910、YM2612/YM3438のモダン化。[smf]
+
+- flstory.c:「ルンバランバ」のDIPスイッチ二つを修正と、XTALベースにクロックを変更。
+  [Brian Troha]
+ 
+- YM3526のモダン化。6502、6809、Z80への書き込みラインの追加も必要。[smf]
+
+- Y8950、YMF262、YM3812、YM2413、YMF278Bのモダン化。[smf]
+
+-「スポーツフィッシング2」の吸い出し直し。[f205v]
+
+- Crystals Coloursの改良: [Roberto Fresca]
+
+ * タイルマトリックスとVRAMの復号化
+ * メモリマップと入力をゼロから作成
+ * プログラムデータチャンネルのプロテクトをバイパス
+ * 表示色、カラーRAMの復号化
+ * ボタンランプをサポート
+ * デフォルトNVRAM作成
+ * 動作可能ステートに昇格
+ * テクニカルノートと、暗号化の仕組みについて追加
+
+- Snooker 10の改良: [Roberto Fresca]
+
+ * NVRAMサイズ修正
+ * デフォルトNVRAM追加
+
+- Apple 10の改良: [Roberto Fresca]
+
+ * NVRAMサイズ修正
+ * デフォルトNVRAM追加
+
+-「Ten Balls」の改良: [Roberto Fresca]
+
+ * NVRAMサイズ修正
+ * デフォルトのNVRAM追加
+
+- CDDAのモダン化と、再生開始時に音の不具合とタイミングの問題が起こらないようバッファ
+  したサンプルを破棄するよう改良。[smf]
+
+- デバッガにstatesave (ss)とstateload (sl)コマンドを追加。[Andrew Gardner]
+
+- TMS5220をモダン化。[smf]
+
+- nexus3d.c - ROMをマシなものに置き換え。[Smitdogg]
+
+- MAMEのアノニマスタイマーを一部削除。[Andrew Gardner]
+
+- itisa - ゲームはItisa製。未吸い出しのスペイン版オリジナルあり。[AUMAP]
+
+- TMS5110のモダン化開始。[smf]
+
+- pcxt.c: Fliettoを修正。[Carl]
+
+- fuukifg2.c - Z80クロックを6MHzに増加。gogomileのイントロBGMとボイスが修正。
+  [Phil Bennett]
+
+- fruitpc: 入力系追加。[Carl, R.Belmont]
+
+- CD-ROM / CHDMANの大幅な改善: [R. Belmont]
+ * プリギャップセクタが存在するbin/cueイメージのインポートとエクスポートを修正
+ * TOC処理の整理; トラックの開始を常に最初のプリギャップセクタに指定
+ * プリギャップの読み込みとCDDA再生をついにサポート。ファイルにプリギャップセクタが存
+   在しなくても動作
+
+- contcirc、chasehq、sci、topspeedのギア位置をデフォルトでLOWに変更。[MASH]
+
+- sspeedr.c: 汎用のギアシフトワートワーク追加。[MASH]
+
+- Golden Pokerドライバの改良: [Roberto Fresca]
+ *「Videotron Poker」のセレクタ用入力追加
+ * Royaleマルチプレクサシステムの解析
+ * 未使用のRoyaleドライバ初期化を削除
+ * Royaleセットを動作可能に昇格
+ * テクニカルノートを追加
+
+- "で、彼がCRTブルームを追加すると目が焦げ付き泣き出し、何も見えなくなってしまった"
+  [MooglyGuy]
+  * ベクターブルームと関連する.iniの制御を有効化
+  * ラスタブルームと関連する.iniの制御追加。各ブルーム"レベル"は、継続する半分サイズ
+    のサイズレンダターゲットに対するlin/earウェイト
+  * D3D8モードを削除
+  * D3Dレンダラで名前空間を使用するため大幅なリネーム処理。WindowsでのHALベースレンダ
+    ラ実装が初期計画ステップ(例：WindowsでのGLなど)
+  * d3d_info、d3d_poly_info、d3d_texture_infoをクラス化
+  * ベクタのバッチ化で速度が改善するかも
+  * シェーダステート設定のマイナーな整理
+
+- capcom.c: 一部ピンボールセットのSHA1を追加。[John Gilbert]
+
+- libflac: 旧バージョンのXcodeの互換性改善。[John Gilbert]
+
+- 一部ドライバの入力とDIPスイッチバグを修正。[Sonikos]
+
+- PGMの改良: [iq132]
+ - ビットスワッププロテクト実装で「Killing Blade」が全リージョン動作
+ -「Dragon World 3/中国龍3スペシャル」で必要な追加プロテクションを実装。ゲーム自体は
+   改善していないものの、コードは大幅にクリーン
+ - 古いゲーム用のビットスワッププロテクトとDMAモード実装。ram_dumpハックは不要。プロ
+   テクトのシミュレートはまだ不完全
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Mundial/Mondial (Italian/French) [Roberto Fresca, f205v]
+Let's Attack Crazy Cross (GV027 Asia 1.10)
+  [Tom Braider, Smitdogg, The Dumping Union]
+Crystals Colours (Ver 1.01) [Roberto Fresca, Any]
+Stunt Air [f205v, Tirino73, David Haywood] 
+  (imperfect gfx, sound, colours, need PCB measurements)
+Royale (set 1) [Roberto Fresca]
+Royale (set 2) [Roberto Fresca]
+Videotron Poker (cards selector) [Roberto Fresca, Any]
+Videotron Poker (normal controls) [Roberto Fresca, Any]
+Fruit Land [Carl, R. Belmont, Any]
+
+
+新しく追加されたクローンセット
+------------------------------
+クラッシュローラー (bootleg set 3) [ANY]
+獣王記 (Datsu bootleg) [ANY] (not working)
+ネクストスペース(set 2) [ANY]
+Traverse USA / ジッピーレース (I.P. - American Top Bootleg) [ANY]
+バスター (set 4) [ANY]
+クレイジークライマー (Model Racing bootleg) [ANY]
+ラリーX (Model Racing bootleg) [ANY]
+ルナレスキュー (Model Racing bootleg) set 2 [ANY]
+Power Spikes / スーパーバレー'91 (US) [ANY]
+ギャルズパニックII (English) [ANY] (uncertain set composition) (not working)
+パン (bootleg, set 4) [ANY]
+ファイナルファイト (bootleg) [ANY]
+Magic's 10 (ver. 16.54) [ANY]
+New Lucky 8 Lines (set 4, W-4) [Roberto Fresca, ANY] 
+New Lucky 8 Lines (set 5, W-4, main 40%, d-up 60%) [Roberto Fresca, ANY]
+New Lucky 8 Lines (set 6, W-4, main 40%, d-up 60%) [Roberto Fresca, ANY]
+Jack Potten's Poker (set 7, Royale GFX) [Roberto Fresca, ANY]
+Atom (ボンジャックツイン海賊版) [f205v] (not working)
+Dragon's Lair 2: Time Warp (Euro v3.17)  [italiandoh]
+Indiana Jones (JPM) (IMPACT, German set 2) [mathijs/MPU Mecca]
+インディアンバトル (Brazil) [Marcello Mancini]
+ライデンファイターズ (単体基板) [Smitdogg, Tormod, Brian Troha, The Dumping Union]
+Guardian Storm / 戦神 (vertical) [Brian Troha, The Dumping Union]
+Red Fox War Planes II (China, set 2) [Smitdogg, The Dumping Union]
+MotoTour / ジッピーレース (Tecfri license) [Ricky2001 (from AUMAP)]
+パックマン (Spanish, 'Made in Greece' bootleg) [F.J.Jimenez (Gijon)]
+ミズパックマン ('Made in Greece' bootleg) [Ricky2001 (from AUMAP)]
+Pacuman (Spanish bootleg of Puck Man) [Roselson (from AUMAP)]
+ムーンクレスタ (Electrogame S.A. Spanish bootleg) [Roselson (from AUMAP)]
+ムーンクレスタ (Petaco S.A. Spanish bootleg) [Ricky2001 (from AUMAP)]
+ギャラクシアン (Recreativos Franco S.A. Spanish bootleg) [Roselson (from AUMAP)]
+フェニックス (Spanish bootleg) [Enricnes (from AUMAP)]
+Ataque Sideral (Spanish bootleg of UniWar S) [Ricky2001 (from AUMAP)]
+ボンジャック (Tecfri, Spain) [F.J.Jimenez (Gijon)]
+Le Bagnard (Itisa, Spain) [Asociación de Usuarios de Máquinas Arcade y Pinballs]
+
+
+追加された未動作ゲーム
+----------------------
+Bonne Chance! (Golden Poker prequel hardware) [Roberto Fresca, Any]
+Time Fighter (タイムパイロットのギャラクシアン基板用改造版)
+  [Marcello Mancini, the hands of the hap]
+Sea Battle [ANY]
+Midcoin Juke Box 24CD [f205v]
+The Drink [Any]
+Unknown H8 Italian Gambling game [Any]
+このeたこ [Tormod, Smitdogg, The Dumping Union]

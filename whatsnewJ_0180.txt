@@ -1,0 +1,558 @@
+0.180
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06436: [DIP/入力] (tecmo.cpp) gemini, geminib: プレイヤー2の左右入力、両プレイヤーのボタン1と2が入れ替わっている。(Tafoid)
+- 06432: [グラフィック] 個別ゲーム用INIファイルを作るとHLSLフィルタが無効になる。(Jezze)
+- 04933: [画面反転/カクテルモード] (gaiden.cpp) gaiden and clones: 画面反転をすると1ドットだけ画面がずれる。(Osso)
+- 06427: [ドキュメント] (atarisy1.cpp) peterpak: ゲーム名にダッシュはいらない。
+- 03646: [グラフィック] (segas16b.cpp) altbeastj, altbeast6: デモシーンで水晶玉の中のグラフィックが表示されない。(David Haywood)
+- 06407: [コンパイル] (cps2.cpp) BUILD: cps2のタイニービルドがクラッシュする。(smf)
+- 06413: [インターフェイス] CONSOLE: SDLがスタートできない。(crazyc)
+- 05928: [クラッシュ/フリーズ] (zn.cpp) nbajamex: ゲームがクラッシュする、またはnvramが壊れる。(Phil Bennett)
+- 06418: [画面反転/カクテルモード] (8080bw.cpp) Color sets in 8080bw: カクテルモードでのP2の画面が表示されない。(Robbbert)
+- 06417: [クラッシュ/フリーズ] UIとHLSLを同時に使うとクラッシュする。(Jezze)
+- 06411: [画面反転/カクテルモード] (equites.cpp) splndrbt and clones, hvoltage: カクテルモードが正しく動作しない。(Osso)
+
+
+新規動作可能マシン
+------------------
+Candela CAN09 terminal [Joakim Larsson Edstrom]
+Draw 88 Poker (V2.0) [Roberto Fresca, Charles MacDonald]
+Entex Space Battle [hap, Sean Riddle]
+Fidelity Designer 2100 Display [hap, Berger]
+Fidelity Excel 68000 [hap, Berger]
+Mephisto Montreux [unknown]
+Player's Edge Plus (PP0001) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0050) Joker Poker (4 sets) [BrianT]
+Player's Edge Plus (PP0054) Deuces Wild Poker (El Cortez) [BrianT]
+Player's Edge Plus (PP0195) 4 of a Kind Bonus Poker [BrianT]
+Player's Edge Plus (PP0218) 4 of a Kind Bonus Poker [BrianT]
+Player's Edge Plus (PP0232) Patriot Poker [BrianT]
+Player's Edge Plus (PP0294) Aces and Faces Bonus Joker Poker [BrianT]
+Player's Edge Plus (PP0295) Super Deuces Wild Poker [BrianT]
+Player's Edge Plus (PP0445) Aces and Faces Bonus Joker Poker [BrianT]
+Player's Edge Plus (PP0450) Loose Deuce Deuces Wild! Poker [BrianT]
+Player's Edge Plus (PP0453) Joker Poker [BrianT]
+Player's Edge Plus (X002002P+XP000038) Double Double Bonus Poker [BrianT]
+Player's Edge Plus (X002240P+XP000038) Joker Poker (Two Pair or Better) [BrianT]
+Radio Shack Monkey See [hap, Sean Riddle]
+Bandai System Control Car: Cheetah/The Incredible Brain Buggy [hap, Sean Riddle]
+式神の城 - internal build (V1.02J 2001/09/27 18:45) [rtw, ShouTime, smf, O.Galibert]
+Intel iSBC 286/12 [Al Kossow]
+
+
+新規動作可能クローン
+--------------------
+1945k III (newer, OPCX1 PCB) [ShouTime, The Dumping Union]
+Blue Shark (Model Racing bootleg) [f205v]
+バーニングファイト (prototype, ver 23.3, 910326) [Collin Foust]
+Cosmic Invaders (bootleg of Space Invaders) [penrhos]
+Forgotten Worlds / ロストワールド (USA, B-Board 88618B-2, Rev. B) [Corrado Tomaselli, The Dumping Union]
+Gran Premio F1 (Spanish bootleg of Pole Position II) [Rockman, Arcade Hacker]
+グランプリスター (v3.0) [Hammy]
+Hit the Ice (US, with riser board) [coolmod]
+Mustache Boy (Italy) [ShouTime]
+Metal Slug 2 Turbo (hack/bootleg) [system11, trap15]
+Ozma Wars (Model Racing bootleg) [f205v]
+Player's Edge Plus (PP0008) Standard Draw Poker (set 2, El Cortez) [BrianT]
+Player's Edge Plus (PP0048) Joker Poker (set 4) [BrianT]
+Player's Edge Plus (PP0057) Deuces Wild Poker (set 4) [BrianT]
+Player's Edge Plus (PP0103) Deuces Wild Poker (set 2) [BrianT]
+Player's Edge Plus (PP0126) Deuces Wild Poker (set 3) [BrianT]
+Player's Edge Plus (PP0188) Standard Draw Poker (set 3) [BrianT]
+Player's Edge Plus (PP0434) Bonus Poker Deluxe (set 2) [BrianT]
+Player's Edge Plus (PP0447) Standard Draw Poker (set 3) [BrianT]
+Player's Edge Plus (PP0452) Double Deuces Wild Poker (set 2) [BrianT]
+ロードファイター (set 3, conversion hack on Hyper Sports PCB) [f205v]
+ソルディバイド - The Sword Of Darkness (Korea) [Nomax, The Dumping Union]
+Stone Ball (2 Players, v1-20 21/10/1994) [Nomax, The Dumping Union]
+Vendetta / クライムファイターズ2 (World, 2 Players, ver. ?) [Corrado Tomaselli, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+イグジーザス (EX 1.0, Magnet System, prototype) [David Haywood]
+RCでGo! (V2.03O 1999/05/25 13:31) [smf]
+Number Crash [kurobee]
+Saitek RISC 2500 v1.04 [unknown]
+Space Lords (rev C) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen]
+Tandy/Memorex Video Information System MD-2500 [Carl]
+タイムスキャナー (TS 2.0, Magnet System, prototype) [David Haywood]
+ザインドスリーナ (SC 3.0, Magnet System, prototype) [David Haywood]
+Intel iSBC 286/10 [Carl]
+
+
+動作可能に昇格したクローン
+--------------------------
+RCでGo! (V2.03J 1999/05/22 19:29) [smf]
+Space Lords (rev A) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen]
+Space Lords (rev A, German) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen]
+Space Lords (rev B) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen]
+
+
+
+新規追加された未動作マシン
+--------------------------
+ACI Destiny Prodigy [Joakim Larsson Edstrom]
+Acorn A4000 [Nigel Barnes]
+Acorn A5000 [Nigel Barnes]
+Bandai Super Note Club mu (Japan) [Team Europe]
+Candela CAN09 main unit [Joakim Larsson Edstrom]
+Datum [Robbbert]
+Diamond Fever (0200302V, NSW/ACT) [Heihachi_73]
+GMX Micro 20 [Al Kossow, R. Belmont]
+Hazeltine 1500 [Al Kossow, Ryan Holtz]
+Intel iSBC 86/05 [Al Kossow]
+Intel iSBC 86/30 [Al Kossow]
+Jungle Juice (0200240V, New Zealand) [Heihachi_73]
+Kron K-180 [Joakim Larsson Edstrom]
+Meng Hong Lou [Guru, Dyq, Bnathan]
+Montana Choice (MG0025) Multi-Game [BrianT]
+Montana Choice (MG0026) Multi-Game [BrianT]
+Montana Choice (MG0182) Multi-Game [BrianT]
+Player's Choice (MG0213) Multi-Game [BrianT]
+Player's Edge (PK0858-PC075) Deuces Wild Poker (El Cortez) [BrianT]
+Player's Edge Plus (X000013K+XK000012) Keno [BrianT]
+Player's Edge Plus (X000846S+XS000006) Wild Star Red White & Blue Slots [BrianT]
+Player's Choice - Original (30143011, NSW/ACT) [Heihachi_73]
+Rider's Surf [PinMAME]
+Simatic PG675 [R. Belmont, rfka01]
+SYS68K/CPU-30SEN-R [Joakim Larsson Edstrom]
+SYS68K/CPU-30SEN-R-501 [Joakim Larsson Edstrom]
+Televideo TV910 [Al Kossow, R. Belmont]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Acorn A3010 [Nigel Barnes]
+Acorn A3020 [Nigel Barnes]
+Acorn A4 [Nigel Barnes]
+Acorn A5000 Alpha [Nigel Barnes]
+Archimedes 3000 [Nigel Barnes]
+Archimedes 305 [Nigel Barnes]
+Archimedes 410/1 [Nigel Barnes]
+Archimedes 420/1 [Nigel Barnes]
+Archimedes 440 [Nigel Barnes]
+Archimedes 440/1 [Nigel Barnes]
+Archimedes 540 [Nigel Barnes]
+Cash Chameleon (0200437V, NSW/ACT) [Heihachi_73]
+Cash Chameleon (0300781V, New Zealand) [Heihachi_73]
+Chicken (0200530V, Queensland) [Heihachi_73]
+Inca Sun (CHG1458, US) [Heihachi_73]
+Star God (variable replay score) [PinMAME]
+SYS68K/CPU-30BE/16 [Joakim Larsson Edstrom]
+SYS68K/CPU-30BE/8 [Joakim Larsson Edstrom]
+SYS68K/CPU-30Lite/4 [Joakim Larsson Edstrom]
+SYS68K/CPU-30Lite/8 [Joakim Larsson Edstrom]
+SYS68K/CPU-30X [Joakim Larsson Edstrom]
+SYS68K/CPU-30XA [Joakim Larsson Edstrom]
+SYS68K/CPU-30ZA [Joakim Larsson Edstrom]
+SYS68K/CPU-30ZBE [Joakim Larsson Edstrom]
+SYS68K/CPU-33 [Joakim Larsson Edstrom]
+タイムクライシスII (Japan, TSS1 Ver. B) [Bill D., The Dumping Union]
+タイムクライシスII (US, TSS5 Ver. A) [Naoki, Smitdogg, The Dumping Union]
+Unicorn Dreaming (0101228V, New Zealand) [Heihachi_73]
+Wild Amazon (01J01996, Venezuela) [Heihachi_73]
+WAR ファイナルアサルト (Apr 7 1999) [CoolFox]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+atom_flop.xml: Egghead in Space, F14 Tomcat [Nigel Barnes]
+bbcb_cass.xml: The Music System [Nigel Barnes]
+bbcb_flop.xml: various games, applications, utilities [Nigel Barnes]
+bbcb_flop_orig.xml: redumped Farm Management Suite double sided [Nigel Barnes]
+bbcmc_flop.xml: ALPS, Astro Blaster, Carnival [Nigel Barnes]
+megadriv.xml: Cool Spot (Euro, Prototype) [FakeShemp, Team Europe]
+pet_rom.xml: SUPER*TOOL [Francesco Messineo]
+pro128s_flop.xml: Disco Welcome [Nigel Barnes]
+snes.xml: Syvalion (Euro, Prototype) [FakeShemp, Team Europe]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+archimedes.xml: RISC OS 3 Applications, many coverdisks and commercial applications [Nigel Barnes]
+bbc_flop_6502.xml: Hi-InterSheet, Hi-View, Hi-Wordwise+ [Nigel Barnes]
+electron_flop.xml: all known 5.25" DFS releases [Nigel Barnes]
+pico.xml:
+ Cooking Pico (Jpn), Cooking Pico (Kor), Toy Story 2 (Kor), The Cloud is Wizard (Kor), Tago Galka (Kor), Dreamland Tour (Kor)
+ [Team Europe]
+sawatte.xml: Doraemon Nobita no Dou Butsu Land, Soreike! Anpanman Onamae Na~ni, Ultra Hero Touch [Team Europe]
+
+
+追加・更新された翻訳
+--------------------
+German [rootfather]
+
+
+ソースの変更点
+--------------
+- imgtool: リファクタリングいろいろ: [Nathan Woods]
+ * imgtool::image::list_partitions()のデフォルト実装用ロジックを統一
+ * imgtool::stream::open*()がimgtool::stream::ptrを返すように変更
+ * 最近起きたバグでパーティションを正しくサポートしない画像タイプになっていたのを修正
+
+- core: 逆アセンブラのモダン化: [Nathan Woods]
+ * M6809、HD6309、Konami逆アセンブラの統合
+ * arcompactとPDP8の逆アセンブラをunidasmに追加
+ * upd7725用のunidasm宣言を修正
+ * RSP、PowerPC、MISC DRCの静的逆アセンブリバッファを削除
+ * 全ての逆アセンブラでキャラクタバッファの代わりに出力ストリームを使うよう変更
+ * 逆アセンブラのオーバーライドが内部的に'std::ostream &'を使うように変更
+ * 逆アセンブラの基本部分で内部的にキャラクタバッファを使わないように変更
+
+- apollo: omti8621とsc499で存在しない画像名が与えられたときに生成。[Hans Ostermeyer]
+
+- sc499: 書き込みができなくなっていたバグを修正。[Hans Ostermeyer]
+
+- various: 綴り間違い修正いろいろ。[Jordi Mallach, Tafoid]
+
+- arm, arm7: エミュレーションの改良いろいろ: [Sandro Ronco]
+ * LDM/STMのUser BankへTransferを実装。ブランチオペコードのフラグ破損修正
+ * value >= 32でのレジスタベースシフトを修正。RISC OSのグラフィック問題が解消
+ * LDR R15,*** のRORキャリーとIRQ_MASKの保存
+
+- mmodular, risc2500: Saitek RISC 2500を別ドライバに分割し、内部レイアウトと入力を追加。[Sandro Ronco]
+
+- a310: HLEキーボードの作り直しとマウス入力の追加。[Sandro Ronco]
+
+- aristmk5: 改良いろいろ: [Sandro Ronco]
+ * EEPROM、UART、そのた入力の実装
+ * vidstart != 0のときのビデオDMAを修正
+ * コイン入力、ロジックドア入力、RTCを追加
+ * SRAMのバンキング修正
+
+- archimds: VIDCの水平表示位置とカーソル位置を修正。[Sandro Ronco]
+
+- atarigx2:「Space Lords」のセキュリティFPGAをリバースエンジニアリングし、復号化コードを実装。
+  [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen]
+
+- atarigx2:「Space Lords」の入力修正。[MASH]
+
+- ti99: セーブステート修正とMACHINE_SUPPORTS_SAVEの宣言。[Michael Zapf]
+
+- midvunit: wargodsのCHDを実機ディスクのバージョンを反映するように改名。[Ryan Holtz]
+
+- hazeltin: Various initial changes: [Ryan Holtz]
+ * キーボード実装。ただし8048の吸い出しかブラックボックス化が必要
+ * ビデオの仮実装。ただしタイミングの問題で動作せず
+ * ステートマシンバイポーラPROMを追加
+
+- core: ロジックIC用の非ネットリストデバイスを追加: [Ryan Holtz]
+ * 54/74160,161,162,163
+ * 54/7416x Hex/Quad D Flip-Flops with Clear
+ * 9334/DM9334 8-Bit Addressable Latch
+ * 7400 Quad 2-Input NAND Gate, 7404 Hex Inverter, 82S126/82S129 256x4-bit PROM
+
+- sun4: DMA実装をシンプル化。[Ryan Holtz]
+
+- naomi: 名称の変更いろいろ: [MetalliC]
+ * リージョン情報追加
+ * 全ゲームを"Export name / Japan name"テンプレに変更
+ * タイトルをもとに一部ゲーム名を修正
+
+- namcos12: Namco Cyber Lead筐体のJVS IOとLEDコントローラ基板の吸い出し追加。[PascalP, Team Europe]
+
+- aristmk6: IRQレジスタ実装。[MetalliC]
+
+- naomi:「ドラゴントレジャー2」のメイン、「ドラゴントレジャー2/3」のサテライト、「WCCF 2001-2002」用の不足PICを追加。
+  [Android, Darksoft, f205v, rtw, MetalliC]
+
+- luaengine: sol2にコンバート。[Carl]
+
+- plugins/console: Luaコンソールをプラグインとして追加。[Carl]
+
+- core: device_memory_interfaceをdriver_deviceからdummy_space_deviceに移動。[smf]
+ * dummy_space_deviceを、既存コーラー用のdriver_deviceでのトランポリンをもつmachine().dummy_space()としてエクスポーズ
+ * デバッガで、ダミーのアドレス空間の表示を避けるために、root_device()だけの特別な処理が不要
+
+- taitogn: 変更いろいろ: [smf]
+ * G-NET BIOSの消去を実装
+   * v2 BIOSが必須のゲームではインストール時にBIOSの更新とJP1のOFF設定が必要となる
+   * v1 BIOSの消去は実装されたが、強制的に使用はできない
+ * G-NETのプロテクトをATAFLASHから各カードタイプ用の独自デバイスに移動
+ * G-NETのゲーム名にビルド日時追加
+
+- zn: 変更いろいろ: [smf]
+ *「RCでGO！」用にZN1/ZN2の十分なアナログ操作読み込みを実装
+ * ZN1/ZN2のDIPスイッチ表記を修正
+
+- S1985バックアップRAMを実装 [smf]
+ * 左CTRL+左SHIFTを押しながら2回目に起動したときのTPC310アクセサリカーソルの動きを修正
+ * MatsushitaバックアップRAMのセーブを修正
+ * S1985とMatsushitaのステート保存を実装
+ * アドレスマップを使わずにMSXの切り替えインタフェースを実装
+
+- 新しいCHDの読み込みに失敗したときのヒープ破損を修正。[smf]
+
+- 旧バージョンのCHDをオープンしたり書き込もうとしたとき、CHDERR_UNSUPPORTED_VERSIONではなくCHDERR_FILE_NOT_WRITEABLEを発生。[smf]
+
+- darkmist: ビデオ修正: [Angelo Salese]
+ * PROMから本物の透過ペンミキシングを追加。「ダークミスト」のランキング画面とプレイエリアが修正
+ * スプライト間プライオリティ修正。スプライトチップはトップからボトムへフェッチを行う
+
+- saturn: 変更いろいろ: [Angelo Salese]
+ * Sega SaturnのVDP1のタイミング対策。「Batman Forever」のゲーム速度で起きていた不具合修正
+ * Rotation Parameterのリードコントロールレジスタ追加。「Batman Forever」のRoddler面でROZ位置が修正。
+
+- mirage: 93C46 EEPROMを実装。[Angelo Salese]
+
+- seta: kiwameのバックアップRAM実装。初回起動時の"BACKUP RAM ERROR"が修正。[Angelo Salese]
+
+- ncr5390: セレクションディセーブル実装。[O. Galibert]
+
+- addrmapのリファクタリング: [O. Galibert]
+ * デバイスパラメータ削除
+ * address_map_entryの非手製テンプレート化。不要エントリパラメータの削除
+ * コンストラクタのシンプル化。Mickoさん協力
+ * セッターをパススルーに変更
+ * ストリーム化
+ * 結合に「->」記法ではなくドット記法を使うように変更
+
+- addrmem: 改名とヘルパーの追加。[O. Galibert]
+
+- general: driver_deviceにメモリマップが付属していたのを廃止。[O. Galibert]
+
+- emucore: generic_ptr削除。[O. Galibert]
+
+- scn2674: 変更いろいろ: [Barry Rodewald]
+ * 分割が起きている列を訂正。Octopusディスプレイでステータスラインの前の最終列が分割するのを修正
+ * 0xA6コマンド追加。Concurrent DOSのOctopusステータスラインが修正。BIOSキャラクタブロックの書き込み機能修正
+
+- octopus: 変更いろいろ: [Barry Rodewald]
+ * カーソル表示追加
+ * カラーアトリビュート追加
+ * 点滅とアンダーラインアトリビュート追加
+ * シリアルライン実装。外部ターミナルとして最初のシリアルポートをConcurrent DOSで使用可能
+ * Z80 RAMバンキングが256kBを超していたのを修正
+
+- fmtowns: ICメモリカードイメージ追加。[Barry Rodewald]
+ * サイズは16MBに制限。もっと大きいものをサポートするソフトがあれば増加
+
+- x68k: キーボードLEDをレイアウトディスプレイに追加。[Barry Rodewald]
+ * Cottonのダンシングキーボード動作が修正
+
+- mac: 128/512/Plusを別の新しいモダンドライバに分割。[R. Belmont]
+
+- mac: IIvx/IIviモデルが壊れていたのを修正。[R. Belmont]
+
+- apple2gs: z80sccを使うように切り替え。プリンタとモデムのポートも追加。[R. Belmont]
+
+- sdgndmps: DIPスイッチ名と配置追加(マニュアルで確認)。[AJR]
+
+- pg685: pg675の追加とMM58167 RTCの実装。[R. Belmont, rfka01]
+
+- pg685: 変更いろいろ: [R. Belmont]
+ * oua11ビデオの準備作業
+ * oua12のROMとROMシャドウマッピングを修正し、実際に起動可能
+ * あまりうまく動作しないテスト版のoua12ビデオ(chargenデコードは不明)
+
+- pg675, pg685: ハードウェア情報追加。[rfka01]
+
+- micro20: デバイスをさらに実装。POSTまでさらに動作。[R. Belmont]
+
+- concept: オプションのMacsBug ROMを追加。[Al Kossow, R. Belmont]
+
+- core: ソフトウェア名オプションの解析で、内部UIから選択さたソフトのデフォルトスロットをロード出来ない問題を修正。[AJR]
+
+- sh2dasm, sh4dasm: 逆アセンブラで'std::ostream &'を内部的に使うよう変更。[AJR]
+
+- pit8253: MSBのみのカウンタ書き込みをmode 0の低出力に設定。[AJR]
+
+- amusco: 変更いろいろ: [AJR]
+ * LPTとRTC用の8155インタフェースチップの割り出しと実装
+ * PIT　IRQ修正; ゲーム速度が大幅改善
+ * コイン入力をIRQ4経由で正しく読み込み
+ * draw88pkrを動作可能に昇格(起動時のCOIN ERROR解消。メモリテストはまだパスしない)
+ * 偽のコインカウンタを削除
+ * プリンタについてのノートを更新
+
+- seibu: SEI80BU暗号化処理をSEIBU_SOUNDデバイスから分離し、独自デバイス化。[AJR]
+
+- amusco: ボタンランプとコインカウンタをサポート。[Roberto Fresca]
+
+- z80scc: 変更いろいろ: [Joakim Larsson Edstrom]
+ * RTxCをBRGクロックソースとしてサポート。SGI Indyのコンソールが実現可能
+ * rr15のバグ修正。macplusなどがブート可能
+ * 割り込み処理の改良。macplusがSystem 6.0.8でマウスポインタ移動可能
+ * ラッチされたrr0値の初期ステート修正。macplusなどでのマウスのXY両軸動作成功比率が改善
+ * macplusでSystem 7が起動できるよう、最低限のsync/huntをサポート
+
+- z80dart: 新型のテンプレートべースFIFOクラスを使ってFIFOをリファクタリング。[Joakim Larsson Edstrom]
+
+- didact: Candelaの変更いろいろ: [Joakim Larsson Edstrom]
+ * Candelaメインコンピュータの動作不可ドライバ can09 追加。FDCと6850 CRTC付き6809ベース
+ * Candelaターミナルのいくらか動くドライバ can09t 追加。FDC無しのターミナルインタフェースを持つスリム版
+
+- fccpu30: いろいろな変更: [Joakim Larsson Edstrom]
+ * 新しいWIP版の派生ボード: cpu30x, cpu30xa, cpu30za, cpu30zbe, cpu30be8, cpu30be16, cpu30lite4, cpu30lite8, cpu30senr,
+   cpu30senr501, cpu33
+ * 各派生版ボードに準ずる -ramsize をサポート
+ * コンテントとバージョンを反映させてROMを改名
+ * Epson 72423 RTCデバイスをmsm6242_deviceドライバにコンパチブルとしてマッピング
+ * 作成が必要なデバイスについて、LOG情報つきのモックハンドラを追加
+ * FPUが設定されていない場合、FPUをオフにできるよう変更
+ * fccpu: cpu2xとcpu4xなどのボードをサポートするベースfccpuクラスに分離する準備
+ * PIT68230、FGA022、DUSCCの小修正いろいろ
+
+- prodigy: ACI Destiny Prodigyチェスコンピュータのスケルトンドライバ追加。[Joakim Larsson Edstrom]
+
+- z80sio, mzr8105: UPD7201デバイスタイプを追加し、ドライバで使用するように変更。[Joakim Larsson Edstrom]
+
+- rax: Acclaim RAXサウンドボードをエミュレート。「Batman Forever」「NBA Jam Extreme」のサウンド修正。[Phil Bennett]
+
+- zn:「NBA Jam Exreme」で拡張NVRAM実装。[Phil Bennett]
+
+- bbc: ACP 1770 DFSをacorn1770 FDCに追加。[Nigel Barnes]
+
+- electron: Plus 3拡張にPRES ADFS版追加。[Nigel Barnes]
+
+- a310: 新規動作不可マシン追加: Archimedes 305, Archimedes 440, Archimedes 3000, Archimedes 410/1, Archimedes 420/1,
+ Archimedes 440/1, Archimedes 540, Acorn A5000, Acorn A4, Acorn A4000, Acorn A5000 Alpha [Nigel Barnes]
+ * Amigaマシンとの名前の衝突を避けるためa310をaa310に名称変更
+ * 残りのOSリリースを全部追加: Arthur 0.30, RISC OS 2.01, RISC OS 3.00, RISC OS 3.10, RISC OS 3.19 (German)
+ * 全部のマシンのデフォルトOS(Arthur, RISC OS 2, RISC OS 3)を出荷時のものに設定
+ * ROMラベルと配置の修正
+ * デフォルトCMOS追加でデスクトップまで起動
+ * Acorn A4 Power Management拡張をマッピング
+
+- hp9845: 98034モジュールをナノプロセッサドライバで最実装。[F.Ulivi]
+ * Mr. KueckersからのファームウェアROM吸い出しにより、98035 RTCモジュールを低レベルでエミュレート可能
+ * "nanoprocessor"マイクロコントローラCPUコアと逆アセンブラを実装
+
+- hp9845: HP98034モジュール(HPIBインタフェース)を実装。[F.Ulivi]
+
+- quizpun2: MCUを実装。グラフィックとサウンドが改善。[Luca Elia]
+
+- crystal: VRender0タイマの修正。[Luca Elia]
+
+- cedar_magnet: マグネットシステムのサウンド仮実装といろいろなフラグの修正。[David Haywood]
+
+- smskr: seo-jin 11-ii-1 マルチゲーム海賊版カートリッジをサポート。[David Haywood]
+
+-aristmk6: 変更いろいろ: [David Haywood]
+ * ROMロードの整理
+ * デバッグビューアのかわりにフレームバッファ?を表示 - 最低限起動テキストだけは表示
+ * サイズの大きなゲームが正しくマッピングされチェックサムをパスできるようにROM領域の拡大
+ * flamolceのROMロード修正
+ * rumbreelのROMロード修正。1xと2x ICの位置を入れ替え。これによりテストをパスし他のものと一致
+
+- sh4: aristmk6で必要なSH4 MMUの改良を開始。LDTLB命令でテーブルアップロードが可能。ドライバ単位で試験用のMMUテストコードのオンオフ
+  が可能。[David Haywood]
+
+- core: lambdaとstd::関数のデリゲートをサポート。定数メンバもサポート。[Miodrag Milanovic]
+
+- aristmk5: incasunuとgeishaのROMウインドウサイズを増加。グラフィックCRCチェックの修正とincasunuの起動が可能。[David Haywood]
+
+- core: 適用範囲の広いCatchテストフレームワークを追加し、ガイドラインに沿って全てのテストがされるよう変更。[Miodrag Milanovic]
+ * テストを有効にしてビルドする場合はTESTS=1がまだ必要
+
+- osd: UWPアセットファイルを正しい場所に移動。[Miodrag Milanovic]
+
+- util: シンプルなFIFOテンプレートを追加。[Vas Crabb]
+
+- xmlfile: 定数データノードオブジェクトを使えるようにAPIをC++風に変更。[Vas Crabb]
+
+- 3rdparty: LZMAを16.04に更新(セキュリティとポータビリティの修正)。[Vas Crabb]
+
+- core: エイリアス型 u8/u16/u32/u64/s8/s16/s32/s64 を追加: [Vas Crabb]
+ * osdとutil名前空間と、#include "emu.h"をしているグローバルな名前空間に新しい短縮型を追加
+ * emuの全てからcstdint型を削除
+ * U64/S64マクロを削除
+ * マクロの使い方が間違っていてdps16で起きていたバグを修正
+ * debugconが "do "プリフィックスの大文字小文字をチェックしてないのを修正
+ * タビュレーションのおかしいものを大量修正
+ * マクロと定数を多数constexprに変更
+ * __namesを修正
+
+- complay.py: レイアウトXMLのパース/最小化 - 内部レイアウト内の無効なXMLはビルドが失敗するように変更。[Vas Crabb]
+
+- uismall.bdf: タイポグラフィー用文字追加。内部UIで使用する最細スペースを含む。[Vas Crabb]
+
+- frontend: レイアウト変更が可能なタイミングを制御するメニューベースクラスをさらにカプセル化。マウストランスレーションもカプセル化。
+  [Vas Crabb]
+
+- osd: -keyboardprovider win32のキー名を修正。[Vas Crabb]
+
+- core: 設定解析時の無効な入力トークンをドロップ。これにより設定書き込み時にキャッチできない例外が起こるのを修正。[Vas Crabb]
+
+- hlsl: オフスクリーンのバックドロップアートワークのあるゲームを修正(atarifb、bowlerなど)。[Jezze]
+
+- sms: いろいろな変更: [Enik Land]
+ * リセット時にオーディオミキシングの初期状態を設定
+ * Spoerts Pad Soccer (Jpn)で使うSports Padモードのドキュメント化とデフォルト変更
+
+- n64: いろいろな変更: [Happy]
+ * 転送方向にかかわらず、SP DMAのみがDRAMアドレスをスキップする
+ * AI長レジスタ読み込み中は現在の転送を優先する
+ * AIに遅延キャリー信号追加
+
+- build: make VERBOSE=1で静的ライブラリ用のアーカイブコマンドを出さないように修正。[Happy]
+
+- osd: 新しいUWPアイコン/イメージ追加。[JacKc]
+
+- bionicc: いろいろな変更: [Asayuki]
+ * クロック周波数とビデオ信号タイミングについてのノート追加
+ * RAW画面パラメータにコンバートし、フレームレートとVBLANKタイミング修正
+
+- jangou:「雀豪レディ」のDIPスイッチ修正。[system11]
+
+- nbmj8891:「麻雀Gメン'89」「ま～じゃん バニラシンドローム」「スキャンダル麻雀」のDIPスイッチ修正。[system11]
+
+- nbmj9195:「プリティセーラー18禁」のDIPスイッチを修正。[system11]
+
+- tmnt: MT04790の議論を元に320x224に巻き戻し。[system11]
+
+- vigilant: 実機との比較を元に画面表示領域を修正。[system11]
+
+- twincobr: twincobrとtwincobruのROM名を修正。[system11]
+
+- tumbleb:「Choky Choki」のOKIクリスタルを修正。またどのゲームもステレオ基板ではないのでモノラルに修正。[system11]
+
+- kaneko16: 実機/マニュアルに合わせてボタン割り当てを入れ替えないように設定。[system11]
+
+- psikyosh: この基板ファミリはモノラル音声なので、ゲームも全てモノラルに変更。[system11]
+
+- marvland: サウンド不完全のタグ付け。サウンドROMの吸い出し直しが必要。[system11]
+ * このバージョンのサウンドは日本版や移植版と一致しない。またプレイ中もバグっぽい
+
+- aleck64: vividollsのDIPスイッチ追加。デジタルジョイスティックサポートが必要。ゲームは切り替え可能。[system11]
+
+- rainbow: Rainbow 100の変更: [Bavarese]
+ * ハイレゾモードの色とビデオレベルの修正
+ * シリアルRxの修正
+ * 17セクタ/トラックまでのハードディスクをサポート。MFMコントローラで使用可能
+ * ポート50を読み込み可能に設定(ドキュメントにはないが使用されている)
+
+- upd7220: update_graphicsでの0除算修正。[Bavarese]
+
+- build: ppc64leとs390xでのビルドを修正。[Julian Sikorski]
+
+- firebatl: BGMテンポ修正。[ShouTime]
+
+- fidel6502: Par Excellenceを再吸い出し。[Berger]
+
+- quizpun2: "Quiz Punch"用の68705 MCUを吸い出し。エポキシブロックでプロテクト。[Guru]
+
+- sms_bootleg: smssgameセットの不足ROM追加。[Astroblaster]
+
+- naomigd: 未使用・不明なセキュリティPIC吸い出し追加:
+ * 253-5508-0352E 麻雀ゲーム? [mohamad "The Hedgehog" issawi, colour.thief]
+ * 253-5508-0456J WCCF 2005-2006 Japan [any]
+ * 253-5508-0506J 不明なChihiroゲーム [Android]
+
+- lua: カスタムメニュー表示機能追加。[headkaze]
+
+- fds: 他のカセットリストを分離。[Reagan Roush]
+
+- zorba: ドライバファイルにドキュメントとフロッピー用ソフトリスト追加。[Reagan Roush]
+
+- isbc: isbc 286 ROM バージョン1.0追加。[Al Kossow]
+
+- isbc_208: デバイス追加。[Carl]

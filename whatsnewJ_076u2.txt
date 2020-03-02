@@ -1,0 +1,167 @@
+0.76u2
+
+ソース全般の変更：
+------------------
+
+■RF5C68サウンドコアの書き直し。[Olivier Galibert]
+	src/sound/rf5c68.c
+	src/sound/rf5c68.h
+
+■変更いろいろ。[Nathan Woods]
+	src/fileio.c:
+	- MESS用のファイルI/O（#ifdef MESS内）を統合
+
+	src/sndintrf.c:
+	- MESS用サウンドコア内のアップデートプロシージャを削除
+
+■Hyperstoneの修正と改善。[Mooglyguy, Pierpaolo Prazzoli]
+	src/cpu/e132xs/32xsdasm.c
+	src/cpu/e132xs/e132xs.c
+	src/cpu/e132xs/e132xs.h
+	src/drivers/vamphalf.c
+
+■-nosound時にSCSPがクラッシュするのを修正。[R.Belmont]
+	src/sound/scsp.c
+
+■「ソウルエッジ」のクローン版でのハングを修正。[smf]
+	src/machine/psx.c
+
+■新規関数：activecpu_eat_cycles(cycles)
+  特定の場合にアイドルをスキップするのに必要。[Aaron Giles]
+	src/cpuexec.c
+	src/cpuexec.h
+
+■Midway V-Unitの更新。[Aaron Giles]
+	*「WarGods」のサウンドを100%正確に
+	*「WarGods」NVRAMの初期化前処理追加
+	* 全ゲームにスピードアップハンドラ追加
+	* DCS2がステレオ出力になるように改造
+	* DCS2ハンドリングの同期問題がかなりあったのを修正
+	* Midway I/O ASICで欠けていた機能を実装
+	src/sound/dcs.c
+	src/sound/dcs.h
+	src/drivers/midvunit.c
+	src/machine/midwayic.c
+	src/machine/midwayic.h
+
+■CPUの修正・改良。[Aaron Giles]
+	ADSP2100:
+	* 0カウンターのロードが無限にループに入らないように修正
+	* SSTATレジスタの初期ステートを修正
+
+	MIPS3 (R4000/R5000):
+	* タイマー設定が早すぎたのを修正
+	* デフォルトのCompare値がタイマーをスタートさせない問題を修正
+	* activecpu_eat_cyclesで割り込み範囲を絶対に超えないように修正
+	* MULT/DIV命令の正確なサイクルタイムを追加
+	* デバッガでのカウントレジスタ表示を修正
+
+	MIPS3DRC:
+	上の修正プラス
+	* 浮動小数点の丸め込みの不具合修正
+	* グローバルな浮動小数点の丸めモードを実際に考慮するようにしました
+
+	R3000:
+	* MULT/DIVの命令タイミング修正
+
+	X86DRC:
+	* 浮動小数点の丸めモードの改良
+
+	src/cpu/adsp2100/2100ops.c
+	src/cpu/adsp2100/adsp2100.c
+	src/cpu/mips/mips3.c
+	src/cpu/mips/mips3drc.c
+	src/cpu/mips/r3000.c
+	src/x86drc.c
+	src/x86drc.h
+
+■「マグマックス」のサウンド改善（より正確になるようにオペアンプとRCフィルタ回路をエ
+   ミュレート）[Jarek Burczynski]
+	src/drivers/magmax.c
+
+■ymdeltatモジュールの修正。さらにフラッグが増えても正しく動作するようになりました。
+  この変更はMSXサウンドエミュレーション(Y8950)で必要です。Frits Hilderink氏にnlmsxエ
+  ミュでテストして頂きました。[Jarek Burczynski]
+  詳しい変更内容についてはそれぞれの*.cファイルの最初に記載してあります
+	src/sound/fm.c
+	src/sound/fm.h
+	src/sound/fmopl.c
+	src/sound/fmopl.h
+	src/sound/ymdeltat.c
+	src/sound/ymdeltat.h
+
+■「カベール」「リードアングル / Dead Angle」にADPCM追加で音向上。
+   [R.Belmont, Jarek Burczynski]
+	src/drivers/cabal.c
+	src/drivers/deadang.c
+	src/sndhrdw/seibu.c
+	src/sndhrdw/seibu.h
+
+■「グランドクロス」にOKI6295サウンド追加。[R.Belmont]
+	src/drivers/gcpinbal.c
+
+■「Asterock」のDIP修正。[Pierpaolo Prazzoli]
+	src/drivers/asteroid.c
+
+■一部の画面回転ゲームでアスペクト比計算を修正(galspnblなど)。[Sébastien Volpe]
+	src/common.c
+	src/windows/wind3d.c
+	src/windows/winddraw.c
+	src/windows/window.c
+
+■「アーモアアタック」「サンダンス」でサンプルサポート。[Tim Cottrill]
+	src/drivers/cinemat.c
+	src/sndhrdw/sinemat.c
+	src/includes/cinemat.h
+
+■「3DサンダーセプターII」の背景グラフィックをデコード。但しまだ未実装。
+  既存のグラフィックが少し改善。[David Haywood, BUT]
+	src/drivers/tceptor.c
+	src/vidhrdw/tceptor.c
+
+■「キャッスルオブドラゴン / Dragon Unit」のDIP修正。[Iñigo Luja]
+	src/drivers/seta.c
+
+■twin16.c / tmnt.cのクリーンアップ。手前のレイヤーをタイルマップに変換。[Curt Coder]
+
+■入力関係の修正。[HowardC]
+	atetris.c
+	neogeo.c
+	+others
+
+■「ザインドスリーナ」のハング修正。[David Haywood]
+	src/drivers/xain.c
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ST-Vゲームが何個かプレイできるようになってますが、動作はすごく遅いので注意して下さい。
+これはバグではありません。またサウンドは、鳴ってもまだ変か、全然鳴らないかです。
+ゲーム自体については長時間テストしていないので、進むに従ってトラブルが起きるかもしれ
+ません。前回の更新で動作不可が取れたゲーム（「紫炎龍」など）も改善してます。
+	[David Haywood, Angelo Salese, Olivier Galibert]
+
+	ぷよぷよSUN - プライオリティ不具合あり
+	まうすけのオジャマざわーるど - ほぼOK
+	エジホン探偵事務所 - レンズのアルファエフェクトがまだ無し
+	バーチャファイターキッズ - スプライト色不良、地面無し
+	コラムス'97 - スプライト色不良、背景のスケールが不正確
+	コットン2 - あちこちの地面が未表示
+	コットンブーメラン - あちこちの地面が未表示
+	Die Hard Arcade / ダイナマイト刑事 - 床・天井が未表示
+
+	不具合はもっとあるはずです。ドライバ自体まだ作業が必要ですが、ハードが超複雑なの
+	で、すぐには完成できないと思います。
+
+■Sega Dual スペースアタック・ヘッドオン デュアルボード [Stefan Jokisch]
+	src/drivers/vicdual.c
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+クイズ ぱにくるふぁんたじ～ [David Haywood]
+	半年ほど時間がなくて作業してませんでしたが、一応追加しました。
+	完成させてくれる人歓迎。
+	src/drivers/quizpani.c

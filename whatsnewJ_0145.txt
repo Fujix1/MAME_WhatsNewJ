@@ -1,0 +1,1102 @@
+0.145
+-------
+MAMEが15周年を迎えました！最初のMAME 0.01はMS-DOS版で、サポート数はわずか5本でした。
+15年間でサポート数は18650本、そして多くのOSプラットフォームで動作するようになりました。
+この飛躍的な発展を誰が想像したでしょうか。当初のターゲットは、画面表示ベースのアー
+ケードゲームでしたが、現在はギャンブル機（ビデオ・スロット）、コイン落とし、ピンボー
+ルなど、事実上全てのコインOPアミューズメントデバイスがプロジェクトのスコープに含まれ
+ています。
+
+開発者、プレーヤー、その他支援やフィードバック送ってくれた文字通り数千人の方々に、この
+プロジェクトがここまで来れたことを感謝しています。
+
+
+MAMETestersの修正バグ
+---------------------
+- 04455: [クラッシュ/フリーズ] All sets in cliffhgr.c: Fキーを押すとクラッシュしたり、
+         グラフィックがずれたりする。(Aaron Giles)
+- 04644: [システムコア] タイルマップビューアが壊れている。(Aaron Giles)
+- 04607: [グラフィック] All sets in cliffhgr.c: レーザーディスクの再生映像がちらつく。
+         (Aaron Giles)
+- 04656: [その他] Various Sets: ゲーム開始前に"Timer Error"が出る。(Angelo Salese)
+- 04661: [クラッシュ/フリーズ] calchase: 初期メモリテスト時にアサート。
+- 04622: [クラッシュ/フリーズ] anmlbskt: OK画面の前にクラッシュする。(R. Belmont)
+- 04636: [クラッシュ/フリーズ] mquake: [デバッグ限定] OK後に例外。(R. Belmont)
+- 04654: [タイミング] All sets in stv.c: stv.c全般で不具合多数。(R. Belmont)
+- 04650: [ドキュメント] m1coro11n, m1coro11np, m1coro12n, m1coro12np, m1coro21n, 
+         m1coro21np, m1coro22n, m1coro31p, m1coro32n, m1coro32np: ゲーム名にタブ文字
+         が含まれている。
+- 04648: [グラフィック] All sets in btime.c: カクテルモードのプレイヤー2のグラフィッ
+         クがずれる。(hap)
+- 04635: [グラフィック] terrafb, terrafjb: [デバッグ限定] 画面両側にグラフィックゴミ
+         表示される。(David Haywood)
+- 04632: [クラッシュ/フリーズ] oldsplus: [デバッグ限定] OK前にアサート。
+         (David Haywood)
+- 04626: [DIP/入力] ddragon2 and clones: DIP設定の間違いとデフォルト設定の違いあり。
+- 04647: [DIP/入力] cabal and all clones: "Bonus Lives"の設定が間違っている。(stephh)
+- 04628: [クラッシュ/フリーズ] agress, agressb: 画面が真っ黒。(R. Belmont)
+- 03444: [デバッガ] デバッガで、セーブステートに登録されたRAMブロックを参照できなくな
+         った。(R. Belmont)
+
+
+ソースの変更点
+--------------
+- u'nSPコアのfar jump命令の逆アセンブリ修正。[trap15]
+
+- dragngunのビデオデータ読み込みを修正。通常のDVIデータと判明。[David Haywood]
+
+- captavenのラスタ処理方法を少し修正。[David Haywood]
+
+-「スーパーチェイス」のワイドスクリーン用レイアウト追加。[David Haywood]
+
+- Tourvisionドライバの入力改良。[Stephh]
+
+-「ドンキーコング」ハードウェアにスプライトのラップラウンド追加、DK3の1面クリア時に見
+  られる。[hap]
+
+- chd: FLACがサンプルに対しバイト数が4倍多くデータをエンコードしている場合のエラーを
+  修正。[David Haywood]
+
+-「Boogie Wings / ザ・グレイトラグタイムショー」を、汎用スプライトデバイス＋マニュア
+  ルミックスに変更。また、このチップのいろいろな海賊版用機能も共通コードに変更
+  (tumbleb.c, esd16.c, crospang.c, nmg5.c)。[David Haywood]
+
+- Trident SVGAカードの予備サポート。「California Chase」のロード画面グラフィックが修
+  正。[Grull Osgo, Angelo Salese]
+
+-「California Chase」の入力とサウンドを実装。ステアリング入力はまだなくて、起動時に
+  MS-DOSプロンプトからboot.exeを手動で起動する必要があるものの、なんとか動作。
+  [Grull Osgo, Angelo Salese]
+
+- wav/flacサンプルのための変更: [David Haywood]
+ * ドライバより、ハードコードされていたサンプルの".wav"拡張子を削除
+ * samples.cで、サンプルのロード時に.flacと.wavの両拡張子を調べるように変更
+ * サンプル読み込み失敗判定を少し詳細化
+ * 8-bit flacサンプルのメモリ割り当てを修正
+ 
+-「アクトファンサー」: 背景タイルマップサイズ修正で、ボス背景が修復(MT #4585も部分的
+  に修正)。[David Haywood]
+
+- N64ドライバで、RDPの最適化とメモリシステムの分路; 相対的に1.4xから1.5xにスピード
+  アップ。[MooglyGuy]
+
+-「Truco Tron」のリバースエンジニアリング: [Roberto Fresca]
+ * I/O用のチップがEF6821P PIAと確認。同チップ追加
+ * CRTCがHD/UM6845と確認。同チップ追加
+ * Maxim MAX691を確認して、PIAラインベースでウォッチドッグとリセット機能を実装。その
+   ほかの細かな関係も実装
+ * Darington Array ULN2003を確認
+ * #defineを使って、メインクリスタル、CPU、CRTC用の正確なクロック追加
+ * 基板回路のトレースにより、入力とジャンパを改良
+ * テクニカルノート追加
+
+- Model 1: Z80バージョンのMPEGサウンドボードのスケルトンデバイス追加。Z80が動いている
+  だけで、再生はされない。[R. Belmont]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Street Games II [Angelo Salese, Mariusz Wojcieszek]
+Boong-Ga Boong-Ga (Spank'em!)
+  [R. Mucciarelli, pongplaya, ranger_lennier, Kevin Eshbach, gamerfan,
+   M. Ponweiser, emuLOAD, R. Gatzke, Smitdogg, The Dumping Union,
+   Pierpaolo Prazzoli]
+
+
+新しく追加されたクローンセット
+------------------------------
+天地を喰らうII -赤壁の戦い- / Warriors of Fate ('sgyxz' 海賊版) (not working) 
+  [angelosa]
+プリントクラブ2 フェリックス・ザ・キャット (Rev. A)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+プリント倶楽部2 '98 春バージョン
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+Hyperspace (アステロイド海賊版) [Byte Surfer]
+鉄拳タッグトーナメント (Asia, TEG2/VER.C1, set 1)
+  [Brian Troha, Smitdogg, The Dumping Union]
+X-Men (4 Players ver ADA) [Bonky0013]
+プリント倶楽部 豪華絢爛 (J 991104 V1.000)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+プリント倶楽部 オリーブ (J 980717 V1.000)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+プリント倶楽部2 '98 秋バージョン (J 980827 V1.000)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+プリント倶楽部 米米CLUB (J 970203 V1.000)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+Ultimate Arctic Thunder [gamerfan, Smitdogg, The Dumping Union]
+Photo Play 2000 v2.01用HDD吸い出し [Team Europe]
+
+
+追加された未動作ゲーム
+----------------------
+ダンジョンエクスプローラー (Tourvision PCE 海賊版)
+  [Charles McDonald, Clawgrip, AUMAP]
+Unknown BMC Poker Game
+Gone Fishing 2
+Chess Challenge 2 [SoftwareThis]
+EZ Touch [XingXing]
+セガシューティングゾーン
+Bounty Hunter [Gatinho]
+
+
+
+0.144u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04610: [クラッシュ/フリーズ] Multiple sets in cave.c: 各所でSegfaultsが起き、スプラ
+         イトが画面中央で欠けて表示される。(Aaron Giles)
+- 04268: [クラッシュ/フリーズ] All sets using OKI6295 audio: セーブステートを何回も使
+         うとMAMEがクラッシュするようになる。(R. Belmont)
+- 04629: [クラッシュ/フリーズ] topgunnr: [デバッグ限定] OK後にアサート。(Aaron Giles)
+- 04630: [クラッシュ/フリーズ] skyraid: [デバッグ限定] OK後にアサート。(Aaron Giles)
+- 03761: [グラフィック] edrandy and clones: 背景の雲が表示されない。(hap)
+- 04508: [グラフィック] charlien: 画面の左上にゼロが表示される。(David Haywood)
+- 04623: [タイミング] drivers that use SCREEN_VBLANK: SCREEN_EOFからSCREEN_VBLANKへの
+         変更に伴い、タイミングの問題が起きている。(hap)
+- 04637: [グラフィック] chukatai: 画面左端のスプライトに表示不具合が出る。
+         (David Haywood)
+- 04633: [グラフィック] rollerg and clones: 画面右側にグラフィック表示不具合あり。
+         (Aaron Giles)
+- 04638: [グラフィック] All sets in hng64.c: 3Dグラフィックが表示されない。
+         (Aaron Giles)
+- 04639: [グラフィック] wheelfir: 手前のレイヤーが表示されない。(Aaron Giles)
+- 04643: [クラッシュ/フリーズ] All sets in chsuper.c: [デバッグ限定] デバッグビルドで
+         OK画面後に例外が出る。(Aaron Giles)
+- 04620: [ドキュメント] j6cpalb: リリース年度は1998
+- 04606: [グラフィック] mach3, cobram3: グラフィック不具合あり。(Aaron Giles)
+- 04624: [グラフィック] blswhstl, detawin: グラフィックが表示されない。(hap)
+- 03600: [ゲームプレイ] gberet: 画面は30fpsではなく60fpsではないか?(hap)
+- 04618: [ドキュメント] All sets in taito.c: このドライバのゲームは全て製造元が
+         "Taito do Brasil"。
+- 04617: [ドキュメント] rally: リリース年度は1980年。
+- 04616: [ドキュメント] radcl_l1 and clones: 正しいゲーム名は"Radical!..."
+- 04615: [ドキュメント] rackempp: 正しいゲーム名は"Rack 'em Up! (Pinball)"
+- 04613: [グラフィック] pballoon: 画面のスクロールがおかしい。(hap)
+- 04612: [クラッシュ/フリーズ] All sets in aleck64.c: OK画面直後にクラッシュ。
+         (MooglyGuy)
+- 04611: [クラッシュ/フリーズ] galpanis galpanisj: リージョン情報画面でフリーズする。
+         (hap)
+- 04595: [クラッシュ/フリーズ] cryptklr: [64bit限定] 64ビット環境のみで起動直後にMAME
+         がクラッシュする。(Curt Coder)
+
+
+ソースの変更点
+--------------
+- tilemap.cをC++クラスとして書き直し。現在は、グローバル関数を保持して、クラスにイン
+  ラインでマッピングしていますが、間もなく実際にC++のメソッドを直接使う方法にドライバ
+  を更新予定です。また、タイルマップコールバックはデリゲート化し、モダンデバイスやこ
+  れからのドライバにより、クリーンな統合ができるようにしました。[Aaron Giles]
+
+- libjpegを追加;「Sliver」のピクチャをオンザフライで解凍するように変更。
+  [David Haywood, R. Belmont]
+
+- 4bpp packedグラフィックを削除。これは、4bppシステムでGFX_RAWを使うドライバだけのも
+  ので、大量の追加コードが必要でした。これらのドライバから4bpp packedグラフィックが無
+  くても動作するようにして、追加コードも削除しました。[Aaron Giles]
+
+- tagmapをC++テンプレート化。イテレータも追加。使用箇所の更新。[Aaron Giles]
+
+- VGA: Double Scan / Maximum Scan Line条件を修正。一時的な対策が多くあったのを削除。
+  [Angelo Salese]
+
+- CGA: ディスプレイディセーブルリードフラグ修正。[Angelo Salese]
+
+- i386: BTRとページフォールトの修正。[Carl]
+
+- i386: FPR命令のFISTとFBLDを基本実装。[Barry Rodewald]
+
+- i386: テストi386出力を元に、BSR/BSF、CMPSを修正。[Barry Rodewald]
+
+- VGA: 正しいリフレッシュレートの追加試み。[Angelo Salese]
+
+- i386: STR、SLDT命令の修正。[Barry Rodewald]
+
+- Intersil IM6402 UARTエミュレーション追加。[Curt Coder]
+
+- popobearの基板写真、マニュアルを元にドキュメント(ピンアウト、DIP、チップID)を作成。
+  [Tafoid]
+
+- i386: JCXZオペコードのバグを修正。[Carl]
+
+- GCC 4.7の互換性のための変更。[Belegdol]
+
+- FLAC(ロスレスオーディオ)コーデックを追加し、サンプルとchdmanに試験実装。zlib、flac
+  の圧縮率を上げるため、CHD-CDのハンクサイズを増加。[David Haywood, R. Belmont]
+
+- i386: IRETとRETFでの、16ビットと32ビット間の処理違いを改良するため、スタックリミッ
+  トチェックを追加。[Barry Rodewald]
+
+- i386: CPLがゼロのとき、IRETによりIOPLが変更されるのを停止。[Barry Rodewald]
+
+- ppu2c0x: NES PPUをモダンデバイス化。[Fabio Priuli]
+
+- Stepperをさらにクリーンアップ。[J. Wallace]
+
+- floppy: 専用のUI処理。[O. Galibert]
+
+-「Pluto 5」のクロック、EPROM設定、16ビットモードでの各EPORMタイプのアドレス・データ
+  スクランブル処理についてテクニカルノート追加。[Roberto Fresca]
+
+- デバイスの階層とハンドル名の移動。また、デバイス、I/Oポート、メモリ領域、メモリバン
+  ク、メモリシェアに沿ったパス配置。[Aaron Giles]
+
+- pcapネットワークデバイスの検索を修正。[Carl]
+
+-「Lemmings」「ダークシールII / Wizard Fire」「サンダーゾーン / Desert Assault」
+ 「ウルフファング -空牙2001- / Rohga Armor Force」「シュマイザーロボ」でdeco汎用スプ
+  ライトデバイスを使うように変更。[David Haywood]
+
+- VGAメモリハンドラの大規模な総点検。ついでにCGA、モノクロームエミュレーション追加と
+  テキストバンキングも修正。[Angelo Salese]
+
+- i386 x87エミュレーションを書き直し: [Phil Bennett]
+ * SoftFloat演算関数を使用
+ * タグワードの更新を実装
+ * ステータスワード/例外フラグの更新を実装
+ * Implemented stack underflow/overflow behaviour
+
+- i386: いろいろなプロテクモードの修正。[Carl]
+
+- KonamiとNamoc製ゲームの多くで、デフォルトのDIP設定修正と、DIP配置追加。[kanikani]
+
+- i386: SMSWの32ビットオペランドサイズ版を追加。[Barry Rodewald]
+
+- GX(以前)のビデオミキサーでの処理前提が間違っていたのを修正。[R. Belmont]
+
+- ksys573: ディスクリージョンの修正で、ゲームが再びブート可能。[R. Belmont]
+
+- taitogn: カードリージョンの修正で、ゲームが再びブート可能。[R. Belmont]
+
+-「ターボアウトラン」の2セットのうち1本について、Sega Security CPUナンバー(317-xxxx)
+  を確認、及び訂正。[Brian Troha]
+
+- oki6295: ゲームがセットするバンクがDIEする前にゲームがバンクをセットする後にからバ
+  ンクを強制的に作成するように変更(意味不明)。[R. Belmont]
+
+- SDL: .BDF UIフォントで誤解を与えるメッセージを出さないように修正。
+  [R. Belmont, The Flying Ape]
+
+- i386: セグメント制限とプロテクションチェックの大幅更新。[Carl]
+
+- VGAのメモリマップ書き込みを修正。[Grull Osgo]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Steal See (& Get Land) [N. A. Jimenez, M. Krug, ShiggsUnderground, C. Stefano,
+   Ted Bailey, R. Mucciarelli, Smitdogg, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Carrier Air Wing / U.S.ネイビー (海賊版) [Bonky0013] (not working)
+Flying Shark / 飛翔鮫 (海賊版, set 2) [Bonky0013]
+アルカナハート [Dumping Union]
+Rapid Fire v1.1 (Build 238) [Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+壱番雀 [Guru]
+甲虫王者ムシキング 2K3 2nd [f205v, The Dumping Union]
+バーチャNBA (プロトタイプ) [Arzeno Fabrice]
+Popo Bear [R. Mucciarelli, N. Francfort, Smitdogg, The Dumping Union]
+
+
+
+0.144u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03685: [サウンド] reaktor: 音でない。(hap)
+- 03568: [クラッシュ/フリーズ] lockload, gunhard: OK入力後にAccess Violationエラーが
+         起こる。(hap)
+- 04189: [ゲームプレイ] fireshrk: 敵にやられて復帰するときに繰り返し円を描くように操
+         作すると、自機の操作が効かなくなることがある。(hap)
+- 04601: [速度] vimana: ゲームの動作速度が大幅に低下した。(hap)
+- 04602: [ドキュメント] pb_l5 and clones: 正しいゲーム名は"PIN-BOT..."で、製造年は
+         1986年。
+- 04600: [ドキュメント] pfevr_l2, pfevr_p3: 正しいゲーム名は"Pennant Fever"
+- 04599: [ドキュメント] pz_f4 and clones: 正しいゲーム名は"The Party Zone..."
+- 02234: [DIP/入力] chboxing: テストモードのメニューをナビゲートできない。(hap)
+
+
+ソースの変更点
+--------------
+- softlist: エントリーカウントトラッキングの問題を修正。[O. Galibert]
+
+- vamphalf.c:「Toy Land Adventure」の正確なスピードアップ。「Mr. Kicker」を動作不可に
+  再格下げ。nvram処理に深刻なバグがある(おそらくコアのバグのせい)ため、ゲームでハイス
+  コアを出してnvramの書き換えが起きるとゲームが完全におかしくなる。[Dave Haywood]
+
+- i386: 仮想8086モードの作業開始。まだ完全には動作せず。アドレス2個か、オペランドサイ
+  ズプリフィクスがそれぞれキャンセルしてしまう不具合を修正。[Barry Rodewald]
+
+- PGM描画が一部で激重なのに対応するため最適化。[David Haywood]
+
+- ARMが未ダンプなのを考慮して、古いKOVプロテクトシミュレーションを復活。
+  [David Haywood]
+
+- arm7: スピードアップのためジャンプテーブルを使用してコードの再構成。[David Haywood]
+
+- i386: 特権レベルに応じて、eflagsレジスタの上位ビットがPOPF、VMとIFによって変わって
+  しまうのを修正。プロテクトモードでの例外エラーコードを修正。仮想8086をさらに作業。
+  EMM386のロードが可能になったが、まだ数秒で停止してしまう。[Barry Rodewald]
+
+- 全てのデバイスで、マルチパートソフトリストの読み込みを追加。[Fabio Priuli]
+
+- ARM7: ARMモードを独自ファイル化＆フォーマットやインデントの整理。[David Haywood]
+:
+- i386: 386拡張モードのWindowsを走らせるために少し前進。[Carl]
+
+- beaminv.c: カラーオーバーレイを追加。[MASH]
+
+- Added support for 2 drives on IDE controller [Miodrag Milanovic]
+
+- システム全般におけるビットマップ関連の大幅な変更: [Aaron Giles]
+  おそらくはこれによって不具合が起きてると思われますが、もし何か見つけたら教えてくだ
+  さい。
+  ビットマップは、フォーマットをベースとして強力に型分けしました。bitmap_tが、抽象基
+  底クラスとしてまだ存在しますが、ほとんど使われていません。その代わりとして、フォー
+  マット固有となったbitmapクラスを使用します:
+
+   bitmap_ind8 == 8bpp 
+   indexed bitmap_ind16 == 16bpp
+   indexed bitmap_ind32== 32bpp 
+   indexed bitmap_ind64 == 64bpp
+   indexed bitmap_rgb32 == 32bpp RGB
+   bitmap_argb32 == 32bpp ARGB
+   bitmap_yuy16 == 16bpp YUY
+
+  各フォーマットについて、共通メソッドpix()で型のピクセルを参照します。旧型の
+  pix8/pix16/pix32/ pix64メソッドも短期的に残していますが、ビットマップのピクセルサイ
+  ズが一致するひとつだけしか使えません。また、古いRGB15フォーマットは完全に廃止しまし
+  た。
+  model1、megadriv、stvドライバで、RGB15フォーマットビットマップを使わないように更新
+  しました。
+  適当な型のビットマップを割り当てるauto_bitmap_<type>_alloc()マクロを追加。
+  画面更新関数は、入力引数として正しいビットマップ型を指定する必要があります。静的
+  更新関数については、SCREEN_UPDATEはSCREEN_UPDATE_RGB32とSCREEN_UPDATE_IND16になりま
+  す。既存ドライバは全て正しいマクロに変更済みです。
+  画面更新関数は全画面について必要になりました; デフォルトのビットマップをスクリーン
+  にコピーするというデフォルト動作は廃止しました(デフォルトビットマップ自体が廃止予定
+  だった)。screen_updateコールバックには以下のどれかを指定します:
+
+   MCFG_SCREEN_UPDATE_STATIC(name) - 静的関数
+   MCFG_SCREEN_UPDATE_DRIVER(class, func) - ドライバのメンバ
+   MCFG_SCREEN_UPDATE_DEVICE(tag, class, func) - デバイスのメンバ
+
+  ターゲットのビットマップフォーマットは、画面更新関数から割り出せるようになったため、
+  不要になったMCFG_SCREEN_FORMATマクロを削除しました。bitmap_ind16をとる画面更新コー
+  ルバックを指定すれば、16bppインデックスビットマップを使うようにスクリーンが設定され
+  ます。同様にbitmap_rgb32のコールバックならば、32bpp RGBビットマップが設定されます。
+  
+  bitmapクラスを、他のビットマップのサブリージョンをラッピングできるように拡張しまし
+  た。さらに、割り当て・リセットをクリーン化。ビットマップの推奨される使用法は、
+  auto_bitmap_*_alloc()を使わずに、ドライバ/デバイスで直接定義して、allocate()または
+  wrap()で設定するやり方です。
+
+  上記の変更にともない、共有デバイスのオーバーホール、または変更を行いました:
+ 
+  * レーザーディスクベースドライバと全レーザーディスクドライバをモダンC++デバイス化と
+    コードの大幅整理。モダンデバイスのフレキシブルさを生かして、ldsoundデバイスをレー
+    ザーディスクデバイスに統合
+ * v9938デバイスをモダンC++デバイス化。v9938.cのテンプレート関数移行のため、
+   v9938mod.cを削除
+ * TMS340x0デバイス用に独立したind16とrgb32コールバックを追加
+ * 全てのビデオデバイスをint16とrgb32ビットマップ用にハードコード化。もっともわかりや
+   すいのがrgb32のmc6845
+ * ほとんどのビデオデバイスを、大量の関数を作ることなく、MCFG_SCREEN_UPDATE_DEVICE経
+   由で直接呼び出せるようにscreen_updateメソッドを追加
+
+  新テンプレートdevice_delegateを追加。これは、標準デリゲートで、後々簡単に参照できる
+  ように、デバイスタグへの文字列ポインタを保持します。screen_updateデリゲートでこれを
+  使うように変更しました。画面フォーマットの自動導出でメカニズムを変更。SCREEN_EOFで
+  もデリゲートを使うようにしたため、MCFG_SCREEN_UPDATEと同様、
+  MCFG_SCREEN_EOF_STATIC/ DRIVER/DEVICEが存在します。
+
+- SCREEN_EOFを廃止。この呼び出し方は、VIDEO_UPDATE_AFTER_VBLANKビデオフラグに左右され、
+  VBLANKの終わりだったり、初めだったりとはっきりしませんでした。これを、SCREEN_VBLANK
+  コールバックに置き換え、VBLANKの開始と終了の両方で呼び出します。これにより、処理を
+  厳格にすることが可能です。全ての呼び出し元を置き換え、screen_deviceでデバイスタイマ
+  を使うように更新、その他細かなクリーンアップ。
+
+- ページフォールトの実装開始。[Carl]
+
+- testcpuドライバを追加。これは、CPUをarbitrary命令でシングルステップ動作させるのにコ
+  アを使用して、前後のステート取得とメモリトラックを行うための空テストドライバの作り
+  方を示すものです。現在、このドライバは常時コンパイルされますが、mame.lstからは参照
+  されません。[Aaron Giles]
+
+- 型により厳密にフォーマットとbppが定まるようにbitmapクラスを整理。また、ビットマップ
+  ベースとrowbyteをより積極的に揃えるコードを追加。また、既割り当てメモリを再利用し、
+  再割り当てを行わないリサイズメソッドを追加。[Aaron Giles]
+
+- i386: I/Oパーミッションの追加。[Carl]
+
+- 新メソッドscreen_device::register_screen_bitmapを追加。これは、画面サイズに合わせて
+  ビットマップを割り当て、画面サイズの変更に合わせてリサイズします。このコードが利用
+  できそうな箇所を全て更新。[Aaron Giles]
+
+-　bitmapクラスのallocate/resizeメソッドが、bitmapフォーマットや型に依存しなくなった
+  ため、bitmap_tへ移動。
+  リサイズコール前後でもbitmapのパレットが確実に残るように改良。
+
+- [N64] 変更いろいろ: [MooglyGuy, Happy]
+ * AI / VI / MI / RI / SI / PIをモダンデバイスにコンバート
+ * PI DMAを、転送時間をシミュレートするように適切な遅延を置いて発生するよう改良
+- SP DMAが0バイト転送を拒否しないように変更(8バイトワードを一つ転送する)
+
+- x87: 単精度命令系の修正。[Peter Farrie]
+
+- Capcom ZN-1の更新: [Team CPS-1]
+ * ts2、ts2jのMASK ROMを再吸い出し、及び実機に合わせて修正
+    (Smitdogg, The Dumping Union)
+ * マイナーな修正
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Toy Land Adventure [f205v, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+ギャルズパニックS - エキストラエディション (Europe) [Hartenberger, arcadiabay.de]
+Western Gun Part II [Andrew Welburn]
+
+
+追加された未動作ゲーム
+----------------------
+新日本プロレス闘魂列伝4 アーケードエディション [f205v, The Dumping Union]
+タッチdeウノー! 2 [f205v, The Dumping Union]
+
+
+
+0.144u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04594: [サウンド] All sets in wiz.c: BGMや効果音が出ない。
+- 04590: [サウンド] firebarr: BGMが固まる。ゲームはプレイ可能。(Alex Jackson)
+- 04589: [クラッシュ/フリーズ] mstworld: OK画面後Access Violationでクラッシュする。
+         (hap)
+- 04573: [ゲームプレイ] spangbl: デモプレイ中に早く死にすぎる。(hap)
+- 04584: [クラッシュ/フリーズ] Various sets in namcob1.c: 起動処理をパスしない、フ
+         リーズするなどの不具合あり。(hap)
+- 04582: [ゲームプレイ] bkrtmaq quiztou numanath swcourt swcourtj exvania exvaniaj:
+         セルフテストをパスできなかったり、フリーズする。(hap)
+- 04301: [サウンド] cobram3: Mach3の効果音が使われている。実際にはアップグレード時に
+         効果音のROMも交換する。(mariuszw)
+- 04581: [ゲームプレイ] brapboys: セルフテストのCRCチェックでループする。(hap)
+
+
+ソースの変更点
+--------------
+- kiwamesのロンとリーチのボタンが入れ替わっていたのを修正。[Angelo Salese, Fujix]
+
+- PC CGAデバイスエミュレーションをMESSからインポート。「Filetto」「Tetris(KR)」で使う
+  ように更新。[Angelo Salese]
+
+-「Tetris KR」の背景を実装。[Angelo Salese]
+
+- CGAのスーパーインポーズフラグをテストサポートして「Tetris KR」に実装。外部の背景画
+  像とCGAグラフィックの合成出力が動作。[Angelo Salese]
+
+-「Filetto」「Tetris KR」にブザーサウンド追加。[Angelo Salese]
+
+- CPS-1の更新: [Team CPS-1]
+ * slammastとクローンセットのMB63B.1A PAL吸い出しと追加 (Kold666)
+ * mbomberj、mbombrd、mbombrdjのQ-Sound ROMのラベルと配置を修正。Q-Sound PALも追加
+
+- 0x3d8 VGA読み込みの対策。「California Chase」のVGAカードを正しいモノに修正。
+  [Angelo Salese]
+
+-「サイキックフォース2012」の正しいVGAカードを実装(使用カードの情報をさらに募集中)。
+  [Angelo Salese]
+
+- Tourvision BIOS ver. 52を追加。[f205v, Corrado Tomaselli]
+
+-「Area 51:Site 4」のAtariロゴ色を修正。[Angelo Salese]
+
+- SCREEN_UPDATEとSCREEN_EOFコールバックのscreen引数を参照渡しに変更。SCREEN_EOFで不要
+  になったmachine引数を削除。driver_device video_eofオーバーライドが使われなくなった
+  のに伴い、その名残を削除。全てのマルチ画面ゲームで、各画面について別々の関数を使う
+  ように更新。[Aaron Giles]
+
+- i8251: データ送受信のコールバックを実装。[Barry Rodewald]
+
+- arm7: MMUパーミッションフォールトを実装。[Tim Schuerewegen]
+
+- arm7: ARM950T/ARM7500の正しいMMU IDコードレジスタ値を返すように修正。
+  [Tim Schuerewegen]
+
+- s3c24xx: Happy Fish 302-in-1とPalm Z22(mess)ドライバの大幅な変更。
+  [Tim Schuerewegen]
+
+- chdman: postgapのあるイメージの-extractcdを修正。CHDは再変換不要。[R. Belmont]
+
+- 386+ CPUコアでドキュメント化されているx87コプロセッサオペコードを全て実装。
+  [Angelo Salese]
+
+- bitmap_tとrectangleをクラス化。BITMAP_ADDR*マクロをbitmap->pix*関数に置き換え。
+  bitmap_fill()をbitmap->fill()に移動など、同様の変更。ビットマップフィールドはアクセ
+  サ経由でのみ利用可能。rectangleクラスについて、sect_rectを&=、union_rectを|=オペ
+  レータに置き換え。これらの変更に伴うクリーンアップ。[Aaron Giles]
+
+- Pentium CPUコアのRDMSRとWRMSRオペコード汎用関数を実装(MSRは未実装)。[Angelo Salese]
+
+-「Savage Quest」のデバイス実装。フロッピーエラーで停止。[Angelo Salese]
+
+- X-Tom 3dのデバイス実装。ソフトリセットでBOOTエラー発生。[Angelo Salese]
+
+- segae.c: src/emu/video/315_5124.cを使用するドライバ更新、及びモダン化。
+  [Enik Land, Wilbert Pol]
+
+- システム全体で、cliprect *をcliprect &に一括置き換え。これにより、cliprectがどの場
+  所でも強制化。全般的にcliprectは、ほとんどのドライバで既にビデオ側へ正しく渡されて
+  いたため、この変更は形式的なものです。私が行った以前の変更で、ビットマップは
+  cliprectを持つようになったので、ビットマップの境界でクリップしたい場合は、NULL(現在
+  は不許可)ではなくbitmap->cliprect()を渡します。[Aaron Giles]
+
+- 68HC05: CLR命令はキャリーフラグに影響しないよう更新。Freescaleのプログラマーズマ
+  ニュアルで確認。[R. Belmont]
+
+- QueenとMidway Quicksilverハードウェアの基本デバイスを実装。[Angelo Salese]
+
+- mcr.c: twotigerのステレオ8トラックテープのサンプル再生機能を追加。
+  [italie, Mr. Do, hap]
+
+- bitmap_t *をbitmap_t &に一括変換。この変更で、グローバルのSCREEN_UPDATEコールバック
+  とdriver_deviceの引数が一致。また、ドライバとモダンデバイスのビットマップをクリーニ
+  ングするためのallocate()とdeallocate()メソッドをbitmap_tに追加。[Aaron Giles]
+
+- m680x0: MMUメモリの廃棄処理を修正。[R. Belmont]
+
+- machine.generic.tmpbitmap、VIDEO_START(generic_bitmapped)、
+  SCREEN_UPDATE(generic_bitmapped)を削除。その場所にそれぞれscreen_deviceを配置。これ
+  は、SCREEN_UPDATE関数と、driver_device::video_updateオーバーライドが無い場合に、デ
+  フォルトビットマップを管理して、画面の更新に合わせて自動的にコピーを行う。このビッ
+  トマップは、追加したdefault_bitmap()メソッドで参照できる。[Aaron Giles]
+
+-「Funky Ball」のデバイスとフラッシュロードを実装。ゲームは今のところVoodooのカラー
+  DACレジスタチェックで停止。[Angelo Salese]
+
+- astringから古いC言語ベースのインタフェースを削除。現在、astringはクラスとしてのみ使
+  用。残っていた使用箇所(ほとんどがツール)でこのクラスを使うように更新。[Aaron Giles]
+
+- [MCS48] I8021/I8022クロック分周器を修正。[Curt Coder]
+
+- CPS-3の更新: [Team CPS-1]
+ *「ストリートファイターIII 3rdストライク」Euro版BIOSの吸い出しと追加で、2セットをア
+   ンロック
+ * リリース日に合わせて全セットを並べ直し
+ * マイナーな修正
+
+- ARM7:「39-in-1」海賊版の修正。[Tim Schuerewegen]
+
+- aquarium.c: リージョンハックを削除。BGMの音程修正。テストモード修正。[hap]
+
+- chdman: 入力型拡張を非ケースセンシティブ化。[R. Belmont]
+
+- OS/2の更新。[KO Myung-Hun]
+
+- 逆アセンブリ間違いのあったspc700のオペコードを4つ追加。[kevtris]
+
+- i386: RETFとIRETのスタックチェンジをプロテクトチェック後に移動。ARPLをプロテクト
+  モードのみに設定。セグメントレジスタへMOVするときのプロテクトチェックを追加。
+  [Barry Rodewald]
+
+- 古いBIOSを起動できるようにindectrlに遅延割り込みを追加。[Carl]
+
+- scsihd.c: セクター辺り256バイトの古いSASIドライバをサポートするため、セクタサイズを
+  CHDのメタデータから取得。これによりハードディスクイメージをサブデバイス化。
+  [Curt Coder]
+
+- ステッパーで、決め打ちのコードを使う方式から、実際の動作をシミュレートするように切
+  り替え作業を開始。[J. Wallace]
+
+- PGMドライバのクリーンアップ。[David Haywood]
+
+-「レインボーアイランド」ドライバのクリーンアップと、MESSとの名前の衝突を避けるためリ
+  ネーム。[David Haywood]
+
+- puzzli2のプロテクトシミュレーションを改良。[iq132]
+
+- uiimage/diimage: メニューのアホアホ化とコントロールレイヤーの追加。[O. Galibert]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Quizard 1.8 [Klaus Sommer, Team Europe, The Dumping Union]
+Quizard 2.3 [Klaus Sommer, Team Europe, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Rival Schools: United By Fate / 私立ジャスティス学園 (Euro 971117)
+  [Corrado Tomaselli, The Dumping Union]
+ストリートファイターIII 3rdストライク - ファイト・フォー・ザ・フューチャー- 
+  (Euro 990608) [Layne, Smitdogg, The Dumping Union]
+ストリートファイターIII 3rdストライク - ファイト・フォー・ザ・フューチャー- 
+  (Euro 990512) [Layne, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+USAプロバスケットボール (Tourvision PCE bootleg) [Clawgrip]
+サンダーブレード (Tourvision PCE bootleg) [Clawgrip]
+パワーリーグ4 (Tourvision PCE bootleg) [Clawgrip]
+ラスタンサーガ2 (Tourvision PCE bootleg) [Clawgrip, AUMAP]
+Quizard 3.4 [Klaus Sommer, Team Europe, The Dumping Union]
+Virtuality SU2000 [Phil Bennett, SailorSat]
+7 Smash [Yohji, Smitdogg, Charles MacDonald, The Dumping Union]
+
+
+
+
+0.144u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04556: [インターフェイス] INCとDEC系入力を変更すると.cfgファイルが正しく保存されな
+         い。(hap)
+- 04569: [インターフェイス] UIメニューでINCを変更しようとするとDECの方が変わる。
+         (Olivier Galibert)
+- 04575: [インターフェイス] DIPスイッチの状態表示の周りにボックスが描画されない。
+         (Olivier Galibert)
+- 04574: [速度] Many sets in snowbros.c: 大幅な速度低下が起きている。(Angelo Salese)
+- 04578: [グラフィック] mwalk: ゲーム開始後すぐにグラフィックが乱れる。(Alex Jackson)
+- 04572: [クラッシュ/フリーズ] Many sets in dynax.c, royalmah.c: 起動時に固まったりエ
+         ラーが起こる。(Angelo Salese)
+- 04536: [サウンド] flicky, flickys2: Z80 PIOの問題によりBGMがならない。(hap)
+- 03457: [グラフィック] choplift: プロテクト版のスクロールが滑らかにいかない。(hap)
+- 04558: [ゲームプレイ] wboy and clones: ゲームの動作がスムーズでない。0.131から。
+         (hap)
+- 04576: [クラッシュ/フリーズ] geebee, geebeeb, geebeeg: ゲーム開始時にフリーズする。
+         (hap)
+- 04570: [クラッシュ/フリーズ] wof: 起動時、黒画面のまま進まない。
+- 04562: [クラッシュ/フリーズ] All sets in namconb1.c: 起動処理をパスできない。
+         (Angelo Salese)
+- 04564: [クラッシュ/フリーズ] dwex, drgw3 and clones: OK画面後Access Violationエラー
+         で落ちる。(Angelo Salese)
+- 04566: [サウンド] rockragej, rockrage, rockragea: 音楽がステレオ出力されていない。
+         一部のパートが鳴っていない。(Angelo Salese)
+- 04565: [サウンド] salamand, lifefrce: YM2151のステレオ出力が逆。(Angelo Salese)
+- 04563: [クラッシュ/フリーズ] thedeep: Access Violationエラーが出る。(Angelo Salese)
+- 03538: [サウンド] salamand, lifefrce, lifefrcej, salamandj: BGMの音量が効果音に対し
+         て低い。(Fujix)
+- 04559: [ドキュメント] m5draclb: 正しいゲーム名は"Ooh Aah Dracula Club (Barcrest) 
+         (MPU5)"。
+- 04557: [ドキュメント] m5bankrl: 正しいゲーム名は"The Bank Roll (Barcrest) (MPU5)"。
+
+
+ソースの変更点
+--------------
+-「Forte Card」の改良: [Roberto Fresca]
+ * 入力系の作業
+ * DIP配置追加
+ * ランプのドキュメント追加とサポート
+ * ランプのレイアウト追加
+ * 入力系の修正とシンプル化。Owner、Rental、Creditsを正しいトグルサービスキーに設定
+ * ギャンブルステージのBET用に、HALFとDOUBLEのボタンランプレイアウトを改良
+ * シリアルEEPROMデータのリバースエンジニアリングと部分的なドキュメント追加
+ * クリーンなデフォルトNVRAMとシリアルEEPROMを追加
+ * 製造元と製造年を追加
+ * テクニカルノートを追加
+
+- nemesis.cの「沙羅曼蛇/ライフフォース」の音量レベルを基板に合わせて調整。VLM5030は
+  ローパスフィルタが未実装なので仮の値。MTバグ3538も一部修正。[Fujix]
+
+-「California Chase」の修正いろいろ。POST画面を通過可能。[Grull Osgo]
+
+- CD-Iのビデオコードを修正。[fgs]
+
+- Naomi / AW / DCドライバのセーブステートを仮サポート。[Angelo Salese]
+
+- SN76477インタフェースを改良。[Curt Coder]
+
+- vigilant.c: kikcubicのデモサウンドDIPスイッチを反転。[Alex Jackson]
+
+- MSM6242 RTCデバイスをモダン化。[Angelo Salese]
+
+- MSM6242デバイスにタイムのインクリメントを追加。[Angelo Salese]
+
+- MSM6242のIRQ生成機能をテスト実装。これを使用するドライバの更新。[Angelo Salese]
+
+- Capcom ZN-1とZN-2の更新: [Team CPS-1]
+ * 各セットのボード番号の確認とドキュメント化
+ * 実基板に合わせてROMラベルと配置を修正
+ * ts2、ts2jのMASK ROMを吸い出し不良に指定。現在のROMは実基板と一致しない
+ * strider2とクローンセットのHR2-01M.3Aを、実基板に合わせて32MBitで吸い出したものに置
+   き換え。後半は切り捨て
+ * タイトル名をより正確なものに置き換え
+ * いろいろなセットのドキュメントを追加
+ * 全セットをリリース日順に並べ直し
+ * 細かなクリーンアップと修正
+
+- Super Kaneko Nova SystemにMSM6242を実装。[Angelo Salese]
+
+- avt.cの進捗。グラフィックが表示可能。[Angelo Salese]
+
+- MiraxからPCベースのサウンドハックを削除。[Angelo Salese]
+
+- 8042kbc.cのIRQ生成を修正。「California Chase」でキーボード入力が動作。[Grull Osgo]
+
+- ソフトリスト機能のクリーンアップと互換性フィルタを追加。[Miodrag Milanovic]
+
+-「ザ・ディープ」のMCUポートをドキュメント化。MCS51コアのバグがあるため未動作。
+  [Angelo Salese]
+
+- atamanotの改良。タイトル画面が化けていることで、ゲームが強力にプロテクトされている
+  ことが判明。[Angelo Salese]
+
+- U8106サウンドチップを追加して「ミスターDo!」で使用。これはSN76489のAがつかないもの
+  と100%同じものと見られるが、さらにテストが必要。[Lord Nightmare, plgDavid]
+
+-「雷電II」サウンドZ80でHIGHに固定されているピンについて記述を追加。[Lord Nightmare,
+  balrog]
+
+- gamtor.cでRAMDACデバイスを使用するように変更。[Angelo Salese]
+
+- Photo PlayにVGAデバイスを実装。[Angelo Salese]
+
+- eeprom.c: 'erase'機能で、指定したアドレスの全データを強制的に1にするように変更。
+  [Wilbert Pol]
+
+-「California Chase」をさらに改良して、Windows 98のロゴが表示。[Grull Osgo]
+
+- Windows 98のロゴが正しくなるよう、VGAライン比較レジスタマスクを修正。
+  [Angelo Salese]
+
+-「悪戯天使」のIRQ ACKを修正。[Angelo Salese]
+
+- dacholer.cとitaten.cドライバを統合。「ダチョラー」「キックボーイ」のプライオリティ、
+  スプライトのY位置を修正。[Angelo Salese]
+
+-「タクシードライバー」のROM名を追加。[f205v]
+
+- Neo-Geoドライバの変更: [Johnboy]
+ * quizkofをMVSとAES版にマーク
+ * プロトタイプセットのほとんどは正しいラベル名がわからないため、proto_ID-XX.XXに設定
+ * viewpoint、savager、blazstarのプロダクトコードを確認
+ * kotm2p m1/s1の親子セット修正
+ * ドキュメントの更新
+ * 内部DBの変更をXMLに反映(/* Plane x */はのぞく)
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Forte Card (Spanish) [Angelo Salese, Roberto Fresca, Rob Ragon]
+悪戯天使 [Team Japump!!!, Hau, Yohji]
+
+
+追加された未動作ゲーム
+----------------------
+SCI (Tourvision PCE 海賊版)
+  [Mariusz Wojcieszek, Clawgrip, Charles MacDonald, AUMAP]
+
+
+
+0.144u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04550: [ステート保存/再生] 20pacgal and clones.: -autosaveを有効にしてロードすると
+         リセットがかかる。(Tafoid)
+- 00287: [グラフィック] ikki: ゲーム内でのスプライトのちらつきは0.120u1で修正されたが、
+         デモシーンなどで別なちらつきが発生している。(Angelo Salese)
+- 04554: [DIP/入力] gghost: プレイヤー1が勝手に右へ動く。(hap)
+- 04552: [グラフィック] ssf2t and clones: イントロシーンで、画面の切り替わりのとき化
+         けたグラフィックが表示される。(hap)
+- 04358: [クラッシュ/フリーズ] roughrac, sgmast: スタートしようとするとフリーズする。
+         (Angelo Salese)
+- 04553: [クラッシュ/フリーズ] All games in toypop.c: 画面にゼロが表示されてフリーズ
+         する。(Angelo Salese)
+- 04551: [ゲームプレイ] mastkin: irq_mask_wは0x10B7でONにする。(Angelo Salese)
+- 04548: [ステート保存/再生] Many games in mappy.c: -autosaveを使うと正しくロードされ
+         ない。(Angelo Salese)
+- 04549: [クラッシュ/フリーズ] All games in toypop.c: 初期化時に固まる。
+         (Angelo Salese)
+- 04547: [ゲームプレイ] digdug, galaga: ゲーム内容やサウンドに問題がある。
+         (Angelo Salese)
+
+
+
+ソースの変更点
+--------------
+- CES Classicドライバに、表示系、サウンド、基本I/Oを追加。ゲームはある程度プレイ可能。
+  [Angelo Salese]
+
+- コアからdeprecat.hとフレームIRQハックを完全に削除。ドライバの変更点については以下を
+  参照: http://mamedev.emulab.it/kale/fast/files/deprecat_removal.zip
+  [Angelo Salese]
+
+- SliverをRAMDACデバイスにコンバート。[Angelo Salese]
+
+- ay8910_reset_w()関数を追加。「ジョイフルロード / Munch Mobile」でAYをオンザフライで
+  リセットするのに使用。[Lord Nightmare, Angelo Salese]
+
+- ファイル名が長すぎるときのエラー処理を追加。[Chad]
+
+-「ジョイフルロード」ドライバで、実機を元にIRQとNMI生成を修正。[Tomasz Slanina]
+
+- CPS-1の更新: [Team CPS-1]
+ * 以下のPALを追加: LWCHR.3A, ST22B.1A, STF29.1A, TK22B.1A, VA24B.1A, YI24B.1A
+ * wofchで、これまで吸い出し不良だったEPROM TK2(CH)_07.9Aを正しいものに置き換え
+ * wof、wofa、wofj、wofchのROMラベルと配置を修正。Q-Sound PALと基板の情報を追加
+   (Kold666)
+ * captcommとクローンセット: CCPRG.11DをNO_DUMPに設定。吸い出されていたのは
+   CCPRG1.11D (Kold666)
+ * dinoj、punisherjのROMラベルと配置を修正。Q-Sound PALを追加
+ * sfzch、sfzbchのグラフィックとサウンドROM、ラベル、配置を修正
+ * 細かい整理
+
+-「Paint & Puzzle」で正しいVGAコアを使うように変換。[Angelo Salese]
+
+-「バーディ」のPROM追加。[f205v, Corrado Tomaselli]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Keith Courage In Alpha Zones [Mariusz Wojcieszek]
+Alien Crush [Mariusz Wojcieszek]
+パックランド (United Amusements PC Engine) [Mariusz Wojcieszek]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+イグジーザス (TAD License) [f205v, Robotype]
+ガズラー (Swimmer Conversion) [Kevin Eshbach]
+天地を喰らうII -赤壁の戦い- / Warriors of Fate (921031 ETC) [boredstu]
+
+
+
+0.144u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04546: [グラフィック] pinbo, pinboa, pinbos: 背景の色が間違っている。(hap)
+- 04542: [クラッシュ/フリーズ] quiztvqq: ゲーム開始後、マップ画面でクラッシュする。
+         (Fabio Priuli)
+- 04541: [DIP/入力] qdrmfgp : スタートキーを押してもゲームが始まらない。
+         (Angelo Salese)
+- 04538: [クラッシュ/フリーズ] Many sets: -video d3d使用時、32ビットのWindows XPで、
+         終了時にクラッシュする。
+
+
+ソースの変更点
+--------------
+- segas32.c:「F1スーパーラップ」のROMラベル訂正と、基板部品の配置図を追加。
+  [The Dumping Union]
+
+- 不出来な関数interrupt_enable_w()とcpu_interrupt_enable()をコアから削除。また、これ
+  らを使用していたドライバ全てを合わせて更新。ドライバの変更点は以下を参照:
+    http://mamedev.emulab.it/kale/fast/files/cpu_irq_enable.zip
+  [Angelo Salese]
+
+-「バーディ」の音不具合を修正。他のパックマン基板ゲームのIRQと異なり、マスクが$5000で
+  はなく$5001。この修正により、音も改善。[Angelo Salese]
+
+-「イーアルカンフー」の不正確なマスクビットを修正(以前は、IRQマスクビットが両方のラ
+  インをマスクしていた)。[Angelo Salese]
+
+-「出世大相撲」のサウンドCPU用のIRQマスクを修正。[Angelo Salese]
+
+- SNK6502ハードウェアゲームのIRQマスクビットを修正(以前は、IRQマスクビットが両方のラ
+  インをマスクしていた)。[Angelo Salese]
+
+- 以下のドライバでdeprecat.hを使わないように更新: [Angelo Salese]
+ * alpha68k.c
+ * astrocorp.c
+ * bartop52.c
+ * beezer.c
+ * cps2.c
+ * maxaflex.c
+ * namcos22.c
+
+- yieartfセットにサウンド追加。[Angelo Salese]
+
+- 汎用RAMDACデバイスを作成し、sfbonus.c、blitz68k.c、ritennis.c、chsuper.cドライバで
+  実装。[Angelo Salese]
+
+- i386プロセッサにオペコード3つ追加(sfence, fstp, fild)。[Samuele Zannoli]
+
+- MSVCでコンパイルできるようにap2_dsk.cとgaelco3d.c/.hを少し変更。[Samuele Zannoli]
+
+- Chihiroと関連のあるハックで、無限ループを防ぐためohci USBコントローラのプレースホル
+  ダを追加。これによりChihiroでDIrect3Dの初期化と、nvidia 3Dアクセラレータの初期化を
+  試みるまで動作。[Samuele Zannoli]
+
+- chsuper.cをADDRESS_MAP_MODERNにコンバート。[Angelo Salese]
+
+-「ギャルズパニック3」のクロックとxtalを実機測定により検証。[Corrado Tomaselli]
+
+- Alpha68k II / VハードウェアゲームにサウンドNMIマスクを追加。[Angelo Salese]
+
+-「Beezer」の正しい縦画面表示にコンバート。[Angelo Salese]
+
+-「スーパースピードレースJr.」の表示を縦方向にコンバート。[Angelo Salese]
+
+- CPS-1の更新: [Team CPS-1]
+ * pang3nが海賊版と判明。記述を追加
+ * pang3、pang3jで、pang3n用にリサイズされたものに代えて、正しい128KB EPROM 
+   PA3_11.11Fを使用
+ * dino、dinouのCD63B.1A PALを吸い出してい追加 (Kold666)
+ * dino、dinou、punisher、punisheru、slammast、slammastu、wofu(4つ中3つ)のQ-Sound PAL
+   を吸い出して追加 (Kold666)
+ * pang3(3つ中2つ）、pang3r1、pang3j、pang3nのPALを吸い出して追加 (Kold666)
+ * pang3n → pang3bに改名
+ * 細かな整理と修正
+
+
+新しく追加されたクローンセット
+------------------------------
+スペースガン (Japan) [ShouTime]
+スペースガン (US) [ShouTime]
+
+
+
+0.144u1
+-------
+
+
+- 04456: [グラフィック] bs94, re900: グラフィック不具合、または黒画面のまま。(hap)
+- 04535: [サウンド] 6532 RIOTデバイスの変更により、サウンドが出なくなっている。(hap)
+- 04391: [クラッシュ/フリーズ] boscomd, bosco: プレイ開始から一定時間経過するとリセッ
+         トがかかる。(hap)
+- 03271: [グラフィック] galaga and clones: 起動中の画面右下側に不要と思われるグラフィ
+         ックが現れる。(hap)
+- 02887: [グラフィック] digdug and clones: カクテルモードのプレイヤー2のとき、画面の
+         右端でキャラクタが表示されない。(hap)
+- 03266: [グラフィック] bosco, galaga, xevious, digdug and clones: DIPスイッチをカク
+         テルモードにすると、間違ったタイミングで画面が反転する。(hap)
+- 04382: [グラフィック] All sets in mappy.c: カクテルモードでのプレイヤー2の表示が画
+         面半分ずれる。(hap)
+- 04531: [サウンド] f1en: エンジン音がループしたりリセットしたりする。(Tafoid)
+
+
+ソースの変更点
+--------------
+-「Forte Card」の改良: [Roberto Fresca, Rob Ragon]
+ * #defineにクリスタル追加
+ * CPU、CRTC、AY8910のクロックを訂正
+ * スペイン版セット追加
+ * 正しいバイポーラ吸い出しを追加
+ * パレットルーチン、表示resnetを修正
+ * ウォッチドッグ
+ * 93SC56シリアルEEPROMをテストサポート
+ * 正しく吸い出したEEPROMを追加
+ * テクニカルノートをどっさり追加
+
+- Forte Card: 93SC56シリアルEEPROMインタフェースを改善。新しくわかったことやテクニカ
+  ルノートを追加。[Roberto Fresca, Rob Ragon]
+
+- エミュレータ別の定数を別々なクラスに移動。[Miodrag Milanovic]
+
+- HLSLのメモリリークと32-bitターゲットで終了時にクラッシュするのを修正。
+  [Ryan Holtz, Bat Country Entertainment]
+
+- zerozone.cとzodiack.cドライバのモダン化。[Fabio Priuli]
+
+- スケルトンドライバの大部分でアドレスマップのモダン化。[Fabio Priuli]
+
+- pcat_nit.cのROMマッピング修正とNVRAM追加。streetg(2)のミニゲームが一部プレイ可能。
+  [Mariusz Wojcieszek]
+
+- SDLの更新: [R. Belmont, Carl, cgwg]
+ * OS XとWindows SDLターゲット向けにpcapネットワークをサポート
+ * "CRT"シェーダを改善するためGLSLの調整
+
+-「ホットチェイス」起動時のデフォルトパレットRAMを白に設定し、MAMEのPOST画面におかし
+  な色が表示されるのを修正。[Angelo Salese]
+
+-「Forte Card」の色修正。[Angelo Salese]
+
+-「Forte Card」にRTCを実装。[Angelo Salese]
+
+- ハードディスクソフトリストをサポート。[Miodrag Milanovic]
+
+- MAMEとMESSを連続してコンパイルできるようにするためmakefileを変更。また、サブター
+  ゲットのリソース依存度を低減。[Miodrag Milanovic]
+
+- V3021 RTCエミュレーションをデバイス化して、タイムのインクリメントをするように変更。
+  pgm.cとfortecar.cドライバに実装。[Angelo Salese]
+
+-「Disco Boy」のMSM5205サウンドを実装。[Angelo Salese]
+
+- cps3.c: sfiii、sfiii2、sfiii3の現存するリビジョンをドキュメント化。[Team CPS-1]
+
+- CPS-1の更新: [Team CPS-1]
+ * 3wondersu、ffightu1、ffightj1、sf2uc、sf2ud、sf2ufのROMラベルと位置修正。
+   video\cps1.cに基板情報追加
+ * sf2ceucを実機と一致するように再吸い出しと修正 [Dumping Union]
+ * forgottnのEPROM4つをきちんと吸い出し。また、forgottnuのLW-13.10Dをおそらく吸い出し
+   不良に設定
+ * megamanのUSA 91635B-2 B-ボードを元に、EPROMの場所が逆だったのを修正
+   [Dumping Union]
+ * wonder3のRT_23.13B ROMについて解説を追加 [Kold666]
+ * 各セットにドキュメント追加
+ * 細かなクリーンアップと修正
+
+-「ボンジャック」の基板を元にクロック速度の確認、及び調整。[Corrado Tomaselli]
+
+- device_delete()の明らかな解放後に使用しているミスを修正。[Aaron Giles]
+
+- HLSLのshadow_textureの明示的な開放を削除。これを割り当てるtexture_create()が独自の
+  トラッキングと開放処理を行うため。[Aaron Giles]
+
+- Bally Senteドライバの変更:  [Kevin Eshbach]
+*「Trivia Pursuit」(Baby Boomer edition)のROM配置を訂正
+*「Street Football」のROM配置を訂正
+*「Mini Golf」(Set 2)、「Trivial Pursuit」(Baby Boomer Edition)、「Ninja Stocker」
+  (set 1, set 2)、「Street Football」の日付コード追加
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Fruit Bonus Deluxe [Sara S.]
+バーディ [Alberto Grego, Corrado Tomaselli, Angelo Salese, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+プロサッカー (cassette, Japan) [Team Japump!!!, Hau, Yohji, Charles MacDonald]
+Crock-Man  [Team Europe, Nico and Thorsten K.]
+ニンジャウォーリアーズ (US) [Stefan Lindberg, The Dumping Union]
+ガンハード (Japan) [ShouTime]
+ギャルズパニック3 (Euro)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+Battle Balls / 戦球 (Asia, earlier)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+Pepper II - Version 7 [tafoid]
+J.J.スコーカーズ (海賊版, Blandia Conversion) [Corrado Tomaselli]
+World Beach Volleyball (set 3) [Corrado Tomaselli]
+パン! 3 (Euro 950511)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+ビィラップボーイズスペシャル (US) [vintagevideogames.com, Lord Nightmare]
+Forte Card (Spanish) [Roberto Fresca, Rob Ragon]
+Spiker (2 sets) [Kevin Eshbach]
+
+
+追加された未動作ゲーム
+----------------------
+Pucky [Foul, Smitdogg, The Dumping Union]

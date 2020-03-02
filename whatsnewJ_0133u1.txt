@@ -1,0 +1,353 @@
+0.133u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03352: [DIP/入力] cobram3: DIPスイッチ設定に関わらず、アトラクトモードの音が出ない。(Xander)
+- 03354: [DIP/入力] cobram3: 残ライフ無限のDIPスイッチは、実はサービスモードの切り替え。(Xander)
+- 02377: [グラフィック] fourtrax: グラフィック不具合がいろいろある(POSIRQ関係?)。(hap)
+- 02645: [ゲームプレイ] sbrkout: 画面左端までパドルが届かない。(hap)
+- 03317: [グラフィック] starblad: 大型の物体（トンネルやマザーシップなど）が表示されない。(hap)
+- 02378: [グラフィック] fourtrax: スプライトバンキング(バックミラー用)が動作していない。(hap)
+- 01119: [色/パレット] finehour: [バグかもね] 大型の敵の色がおかしい。一部を除いて完全に黒く
+         なっていたり、撃っても色が変わらない物がある。例えば1面のボスは完全に真っ黒だが、
+         同じ4面のボスは青いシェードがかかっている。(hap)
+- 03242: [グラフィック] fantzone, fantzon1: 背景スクロールが完全に壊れている。(hap)
+- 03314: [ドキュメント] mrdrillr, mrdrilr2: タイトル名は"Mr Driller"ではなく"Mr. Driller"。(Fabio Priuli)
+- 03349: [サウンド] mpatrol, mpatrolw: 爆発音が軽い音になっている。以前は正常だった。(couriersud)
+- 03366: [コンパイル] mametinyビルドのコンパイルが通らない。(Fabio Priuli)
+- 02715: [クラッシュ/フリーズ] sokyugrt, shienryu: 起動画面後にフリーズ、またはコイン入力後に固まる。(Angelo Salese)
+- 03359: [グラフィック] sonson: マイナスのスプライト位置(-1〜-7)がサポートされていない。(Angelo Salese)
+- 03358: [その他] sonson: コインカウンターが未実装。(Angelo Salese)
+- 03348: [グラフィック] jjsquawb: 背景グラフィックが大幅にずれている。(robiza)
+- 03320: [サウンド] cliffhgr: デモサウンドのDIPスイッチ設定が逆。(Tafoid)
+- 03316: [サウンド] burglarx: キャラクタ選択後にOKI6295のエラーメッセージが出て、BGMにノイズが乗る。(Osso)
+- 03313: [その他] cliffhgr, cliffhga: 同じCHDを共有しているのに親子セット関係が設定されていない。(smf)
+
+
+
+ソースの変更点
+--------------
+- cliffhgaをcliffhgrのクローンセットに設定。[smf]
+
+- ARM7の更新: [R. Belmont]
+ - PXA255の予備サポート。Intel用のCP14を含む
+ - TLBを実装
+
+- photon.cのプレイヤー2入力を修正。CRC/SHA1を修正。[Mariusz Wojcieszek]
+
+- Naomi/AWの更新: [Deunan Knute, CaH4e3, R. Belmont]
+ - qmegamisのDMAプロテクトエミュレーション追加で、ゲーム内グラフィック修正
+ -「エクストリームハンティング」の復号キーを訂正
+ -「コズミックスマッシュ」のプロテクトエミュレーション追加
+ -「カプコンVS.SNK」(カートリッジ版)のプロテクトエミュレーション追加
+
+- DIPSWの修正: [kanikani]
+ - argus: サービススイッチ(以前は存在しないポートを定義)と、DIPLOCATION順序を修正
+ - valtric: テストモードへの入り方の記述追加。コイン1とコイン2が入れ替わっていたのを
+   修正。DIPLOCATIONの順序修正
+ - butasan: コイン1とコイン2を入れ替え。DIPLOCATIONの順序修正
+
+- 6532 RIOTタイマで、タイムアウト後もカウントを続けるよう修正(0.126u2で起きたバグ)。
+  [Wilbert Pol]
+
+- tankbatt.cドライバの変更: [Angelo Salese]:
+ * IRQ / NMI発行のクリーンアップと、IRQ ACKを修正
+ * メモリマップのクリーンアップ
+ * コインカウンタ、コインロックアウト、2つ目のコインシュート追加
+ * 未クリアのI/Oをドキュメント化
+ * ディスクリートサウンドが未エミュレートでサンプルを使用しているため、
+   GAME_IMPERFECT_SOUNDフラグを追加
+
+- cliffhgrのDEMO_SOUNDのDIPスイッチがONの時に動作するように割り当て修正。[Tafoid]
+
+-「Merit Poker」の色修正。[Angelo Salese]
+
+-「Mortal Kombat 4」のサウンドROM2つのバージョン番号修正と、U2のサイズを1MBに訂正。
+  実際のROMタイプが27C800なのを2つ基板で確認。残りのROMは27C160でドライバ通り。
+  [Brian Troha]
+
+-「Red Hawk / ステッガーI」の2セットのライセンス情報を追加。[Brian Troha]
+
+- ST-VドライバにScreen Raw Paramを追加。一部の問題が修正。[Angelo Salese]
+
+-「Glass」「Alligator Hunt」「Touch & Go」「World Rally 2: Twin Racing」
+ 「Maniac Square」にDIPポート配置追加。[Brian Troha]
+
+-「ビッグカルナック」「Biomechanical Toy」「Maniac Square (prototype)」「Squash」
+ 「Thunder Hoop」にDIP配置追加。[Brian Troha]
+
+- クローン名を9文字以上に更新。[Yasuhiro Ogawa, Brian Troha, Tafoid, Fabio Priuli]
+
+-「スカイソルジャー」「タイムソルジャー」「パドルマニア」にDIP配置追加。[Brian Troha]
+
+-「39 in 1」の改良: [MooglyGuy, R. Belmont]
+ - Intel PXA255機器の具体的な実装
+ - PXA255 DMAコントローラエミュレーションを改良
+ - FBARxレジスタアクセスで、他の割り込みが発生する前に現在のDMA転送が終わるの待つよう
+   に修正
+ - 93C66 EEPROMを実装
+ - LCD DMAの動作を修正
+ - EEPROMのバイトオーダーを修正
+ - 表示、入力、フラッシュデータROMを実装
+ - PXA255 LCDC、DMA、I2Sエミュレーション改良
+ - 動作するもののCPLDプロテクトシミュレーションは未実装
+ 
+- ST-V: 基板で計測したFPS値に合わせてピクセルクロックを調整。
+  [Angelo Salese, Corrado Tomaselli]
+
+- hblankの継続動作を改良。[Angelo Salese]
+
+-「ヘッドパニック」クローンセットのROM4つについて基板上の配置追加。[Brian Troha]
+
+-「フォートラックス」のROM名訂正。Guru氏のReadMe追加。実際のOSCタイミングより、全ての
+  CPUクロックを生成。[Guru, Brian Troha]
+
+- 基板の高解像度画像で判明した基板配置と"U"配置を追加。[Brian Troha]
+
+-「ソンソン」のDIO配置追加と、マニュアルに合わせてデフォルト値を変更。[Tafoid]
+
+- DIPポート配置を以下に追加: [Brian Troha]
+ * ギャプラス / ギャラガ3 とクローンセット
+ * Funny Bubble とクローンセット
+ * クレイジーコップ / Gang Busters とクローンセット
+ * グリーンベレー とクローンセット/ ミスター五右衛門 (クリーンアップも)
+ * GIジョー とクローンセット
+ * Gladiator / 黄金の城 とクローンセット (ファクトリー設定に合わせて更新も)
+ * Ghosts'n Goblins / 魔界村 とクローンセット (ボーナス表示記述の改良も)
+ * Goindol とクローンセット
+ * グランドチャンピオン
+ * MX5000 / フラックアタック
+ * フードファイト とクローンセット
+ * Got-cha Mini Game Festival とクローンセット
+ * アクアリウム、Gun Dealer とクローンセット / Wise Guy とクローンセット
+ * Haunted Castles / 悪魔城ドラキュラ とクローンセット
+ * The Main Event / リングの王者、Devastators / 餓流禍 とクローンセット
+ * マジカルキャットアドベンチャー、ノストラダムス とクローンセット
+ * Multi Champ とクローンセット (コインエイジモード1と2も追加)
+ * Dragon Master
+ * Bウイング とクローンセット
+ * DECO カセットシステムドライバ (必要に応じて、特定ゲームの設定を分割も)
+ * バンダイク、ブラックハート、Many Block、タスクフォースハリアー、US AFF ムスタング、
+   ハチャメチャファイター、鋼鉄要塞シュトラール、Bio-Ship Paldin / 宇宙戦艦ゴモラ、
+   アクロバットミッション、超時空要塞マクロス、超時空要塞マクロスII、サンダードラゴン、
+   サンダードラゴン2、ガンネイル、サボテンボンバーズ、ボンジャックツイン、
+   脳力向上委員会、戦神
+ * ステッガーI とクローンセット、Bubble 2000、Fire Hawk、Spectrum 2000
+ * 空襲 -Air Attack-、SS Mission、 Twin Action
+ * スーパーパックマン、パック&パル、グロブダー、フォゾン、マッピー、ドルアーガの塔、
+   ディグダグII、モトス とクローンセット
+
+-「夢札」/ Alba ZGドライバの改良いろいろ:  [Angelo Salese]
+ * mc6845 crtcの基本実装。解像度とリフレッシュレートの修正
+ * ppi8255の実装
+ * これまで未エミュレートだったシステム入力の実装
+ * コインカウンタ・コインロックアウト、正しい画面反転ビット追加
+ * システムクロック訂正
+
+-「ボスコニアン」「ギャラガ」「ゼビウス」「ディグダグ」とクローンセットにDIPポート配
+  置追加。また、「ボスコニアン」と「ギャラガ」に正しい条件分岐ボーナス追加(スタート時
+  の残プレーヤ数によるもの)。[Brian Troha]
+
+-「ポリゴネットコマンダーズ」(ver UAA)のプログラムROM名をより正確に修正。
+  [Brian Troha]
+
+- galaga.c、gng.c、gberet.c、gbusters.cドライバのボーナス表記を実際のマニュアルに近い
+  形に改良。[Brian Troha]
+
+-「スピードアタック」ドライバの改良: [Angelo Salese]
+ * mc6845 crtcの基本実装。解像度とリフレッシュレートの修正
+ * ウォッチドッグ追加
+ * システムクロック訂正
+ * 表示系の変な箇所を削除(タイルマップのh/w値がVRAMより大きい)とクリーンアップ少々
+
+- bingor2のグラフィックROMを再吸い出し。[Team Europe]
+
+- Atomiswaveの復号ルーチンとキーをシンプル化。[Andreas Naive]
+
+-「ガーディアンストーム」基板のレイアウトを追加。[Brian Troha]
+
+- funworld.cの改良: [Roberto Fresca]
+ - 汎用のfunworld DRIVER_INITを削除
+ - 部分的にPIA接続図を追加
+ - テクニカルノートを更新
+
+- NES PPUを書き直し: [Robert Bohms]
+ - ppu2c0xでデバイスメモリマップを使うように変更
+ - すべてのレンダリングで、メモリマップ経由でPPUアドレス空間にアクセスするよう変更
+ - 必要に応じて、PPUメモリマップにリードハンドラ、またはメモリバンクを設定するように
+   ドライバを更新
+ - PPUから全てのミラーリングとバンキングコードを削除。バッキングメモリは外部とドキュ
+   メントにあるため
+ - 全てのNES系MAMEドライバ用のバンキング置き換え処理を追加
+   (vsnes.c, playch10.c, cham24.c, multigam.c)
+
+- taito_x,cドライバのサウンドマップクリーンアップ。[Tafoid]
+
+- Iremサウンドを改良: [couriersud]
+ -「ムーンパトロール」のサウンド改良
+ - 回路図を再チェック
+ -「10ヤードファイト」の回路図を発見
+ - バグ、ディスクリート値の修正と、回路図を元にRCノードを2つ追加
+
+- NMK16ドライバのクリーンアップ。nmk16.cの重複コードを統合と、「サンダードラゴン2」
+ 「ラピッドヒーロー」「マクロスII 」で使っているより大型のタイルマップ処理をより正し
+  い方法で追加。これにより、「ラピッドヒーロー」のイントロ不具合を、ゲーム内のグラ
+  フィックに影響無く修正。[David Haywood]
+
+- ギャンブル・ポーカー・スロットゲーム用のデフォルト入力マッピングを追加。多くのドラ
+  イバこのマッピングを使用。[Fabio Priuli]
+
+- meadowsドライバの改良: [robiza]
+ - deadeyeのautocenter値を0に設定
+ - bowl3dの正しい入力系追加で、動作不可フラグを削除
+
+- 製造元が不明なものは、<unknown>に統一。[Fabio Priuli]
+
+- progolfaを復号化。[robiza]
+
+-「ラピッドヒーロー」の"language"DIPスイッチについて実際の動作をドキュメント化。
+  [Brian Troha]
+
+  クリア画面。英語に設定した時は"Stage X Clear"とのみ表示。
+
+-「Trojan / 闘いの挽歌」のクロックを基板で確認した値に変更。[Corrado Tomaselli]
+
+- quakeのCPUの速度を233MHzに変更。基本PC IOマップ追加。8259実装。年代を1998年に修正。
+  TODOを追加。[Luigi30]
+
+- priority_bitmapをグローバルからrunning_machine構造体に移動。全てのドライバを合わせ
+  て更新。[Atari Ace]
+
+-「スカッドハンマー」のアナログ操作をパドルから加速度計に変更。これまでは何もしなくて
+  も、パドル操作のせいで自動で殴っていたため。[hap]
+
+- 以下の基板について、VSyncの検証と更新: [Corrado Tomaselli]
+ - system18基板
+ - 忍者龍剣伝
+ - Tricky Doc
+ - 雷電
+ - 忍者くん 阿修羅の章 / Ninja Kid II
+ - アトミックロボキッド
+ - Tiger Road / 虎への道
+ - ST-V基板
+ - Toki / JuJu伝説
+ - 雷電2 / 雷電DX (同一基板)
+ - カベール
+ - ブラッドブラザーズ
+ - Tengai / 戦国ブレード -戦国エース エピソードII-
+ - gng / 魔界村
+ - Rally Bike / ダッシュ野郎
+ - ヴィマナ
+
+- 海賊版の製造元名の表記ゆれを修正。BootlegのBの大文字化や、ROMが海賊版のときはオリジ
+  ナルの製造元を使うなど。[hap]
+
+-「Ghost and Goblins / 魔界村」のサウンド用Z80の周波数を3MHzから、基板で確認した
+  1.5MHzに変更。[Corrado Tomaselli]
+
+-「ナイトストライカー」のランプとモーターの使用方法についてドキュメント化。
+  [Angelo Salese]
+
+-「シティコネクション」のIRQをより正確に修正。[Angelo Salese]
+
+-「コブラコマンド」のサウンドROMを実装。[Jim Hernandez, Aaron Giles]
+
+- cobram3のDIPスイッチを修正。[Xander]
+
+- 68k cpuのリセット時に、サイクルを消費することに関係したバグを修正。以前は、リセット
+  後にinitial_cyclesの初期値が間違っており、サイクルが0未満でも常に0を返していました。
+  この変更で、「ファンタジーゾーン」のスクロールバグを偶然に修正されています。[hap]
+
+- Calc 3の更新: [David Haywood]
+ - 新しい発見を元にいくつかの項目を入れ替え
+ -「ビーラップボーイズ」のスタートアップコードに使う追加の復号化テーブルを追加
+    (ただし、まだ特に面白い動作はなし)
+ - MCU Initコマンドの不明なパラメータはEEPROMのデータ読み出し・書き込み位置
+ - MCUコマンドの追加パラメータは、「ビーラップボーイズ」がどうやらこれに依存している
+   ところから、ライトバックアドレスを更に置換しているかもしれない(更にテストが必要)。
+   今のところは、初期テーブルで実行可能なようにライトバックアドレスを配置するようにハッ
+   クを追加
+
+-「Led Storm Rally 2011」(US)のグラフィックROMを不良に設定。このセット用ではない可能
+  性があるため。[David Haywood]
+
+- namcos2のマルチposirqをサポート。以下の項目を修正: [hap]
+ - starbladのポリゴン
+ - fourtraxのコースとミラー
+ - dirtfoxjのスタート時スポットライトエフェクト。ただしゲームはまだ固まる
+ - burnforcで、左右にスクロールしたときのつっかかり
+ - luckywldでのトンネルの不具合(ただし不完全)
+ - finehourのスプライト色間違い
+ 
+- 以下ののゲームのVSYNCを変更: [Corrado Tomaselli]
+  Truxton / 達人、 Demon's Wolrd / ホラーストーリー、パン、スーパーパン、
+  ホラーストーリー、イーアルカンフー、奇々怪々
+
+-「イーアルカンフー」のsn76459クロック訂正と、その他のクロックを確認。
+  [Corrado Tomaselli]
+
+-「パン」「スーパーパン」「ブロックブロック」のメインクロックを変更。
+  [Corrado Tomaselli]
+
+-「ギャラクシアン」のLFOサウンドを、ずっと無効になっていたNEW_LFOを使うよう切り替え。
+  まだ完全には修正されていないものの、近い感じにはなっています。[hap]
+
+- MCRのドキュメントを少し変更: [Kevin Eshbach]
+ *「トロン」の全セットについて、ROMロケーションと基板の所属先を更新
+ * Super Sound I/O基板のPROM名を更新
+ * 吸い出しが必要なPALについての記述追加(同じPALのパート番号は「ゼノフォーブ」や、恐
+   らく他のMCR IIとIIIゲームでも使われてる模様)
+
+- chdman -updateで、未圧縮CHDを更新するとき書き込みプロテクト状態をそのままにするよう
+  修正。[Michael Zapf]
+
+- 麻雀ゲームのプレイヤー1 BETのデフォルトを3キーに変更。2が2人プレーの麻雀ゲームのス
+  タートと紛らわしいため。[Fabio Priuli]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Tetris (Photon System) [Miodrag Milanovic, Mariusz Wojcieszek]
+Touchmaster 2000 [Mike Green, Dumping Union]
+3-D Bowling [robiza]
+パンサー [Angelo Salese, robiza, Mr. Do]
+39 in 1 [R. Belmont, MooglyGuy]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Royal Card Professional v2.0 [Team Europe / Dumping Project]
+  (not working)
+Guardian Storm [Christian Raftopol, David Haywood, Dumping Union]
+アウトラン (original revision) [Guru]
+Touchmaster 5000 (v7.01 Standard) [Brian Troha, Dumping Union]
+Cruis'n Exotica v2.0 [Smitdogg, Guru, Dumping Union] (not working)
+ピンボールアクション (set 4, encrypted)  [Team Europe / Dumping Project]
+Kamakazi III (Galaxian Clone) [Darran]
+Enchanted Forest (2 sets) [Heihachi_73, AGEMAME] (not working)
+サッカースーパースターズ (ver JAC) [f205v] (not working)
+Dream Land / Super Dream Land (バブルボブル海賊版) [unknown]
+
+
+
+追加された未動作ゲーム
+----------------------
+Extreme Hunting [Guru]
+Photo Play [Klaus Sommers, Angelo Salese]
+カプコンVS. SNK -ミレニアムファイト2000- (000904) [Deunan Knute]
+Videotronics Poker [Angelo Salese, Siftware]
+Bingo Roll (4 sets) [Team Europe, Dumping Project]
+Space Walk [Siftware, David Haywood]
+'98ネオプリ ベスト44 (Neo Print) [JohnBoy]
+Top Gear [Heihachi_73, AGEMAME]
+K.G. Bird (2 sets) [Heihachi_73, AGEMAME]
+Black Rhino [Heihachi_73, AGEMAME]
+3 Bags Full [Heihachi_73, AGEMAME]
+Phantom Pays [Heihachi_73, AGEMAME]
+Sweet Hearts II [Heihachi_73, AGEMAME]
+Golden Canaries [Heihachi_73, AGEMAME]
+Coral Riches II [Heihachi_73, AGEMAME]

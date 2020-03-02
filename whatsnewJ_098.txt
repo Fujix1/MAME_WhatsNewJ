@@ -1,0 +1,476 @@
+0.98
+----
+
+
+ソースの変更点
+--------------
+これといって特になし
+
+
+
+0.97u5
+------
+
+
+MAMETestersの修正バグ
+---------------------
+srmp7077red [Luca Elia]
+skybump097u3yel [MASH]
+hachoo37b2gre [Mamesick]
+slipstrm097u4ora [Aaron Giles]
+outzone097u4ora [Aaron Giles]
+centiped097gre [Aaron Giles]
+goldnaxe097gra [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「X-MEN」の6人プレイ版を大幅改良。[David Haywood]
+
+- 68000コアにかなり基本的な68040のサポートを追加。[Ville Linde]
+
+-「サンダーフォックス」の列スクロール修正。[Nicola Salmoria]
+
+- PowerPCコアに将来的にMMUをサポートできるように更新。[Nathan Woods]
+
+-「Boogie Wings / ザ・グレートラグタイムショー」のDIPスイッチ修正。[Brian Troha]
+
+- Windowsの不完全なマルチモニタ機能を使うときに起こるコンパイルの問題を修正する
+  クラックをさらに追加。[Krick]
+
+- phoenix3, condor, griffon, falconaにコイン2追加とDIPスイッチの修正。
+ [Pierpaolo Prazzoli]
+
+- Speed Ballドライバを大幅にクリーンアップ: [Pierpaolo Prazzoli]
+- クリーンアップ / タイルマップにコンバート
+- コインカウンタ追加
+- カクテルモード追加
+- プライオリティ修正 (まだ100%正確ではない模様。タイトル画面で、2ピクセルの
+    プライオリティがまだおかしい)
+
+-「Mug Smashers」のタイルマップスクロールと表示エリア修正。[Pierpaolo Prazzoli]
+
+- zlibのバッファオーバーランバグ用パッチ追加。[Santeri Saarimaa]
+
+- メモリインターフェースの要約と53C810 SCSIエミュレーションの改良。
+ [Nathan Woods]
+
+-「マリオブラザーズ」のスクロール修正。[David Haywood]
+
+- Sega Multi-PCMサウンドコアのバンク処理をクリーンアップ。[Aaron Giles]
+
+- 新しいSystem32コードを使ってSega Multi 32ゲームを接続。[Aaron Giles]
+
+- MCR Chip Squeak DeluxeとSounds Goodボードのメモリマップ更新。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+イーグルショットゴルフ [Luca Elia]
+スーパーリアル麻雀P7 [Luca Elia]
+機動戦士ガンダム ファイナルシューティング [Luca Elia]
+ガンマスター [David Haywood]
+
+
+
+新規クローンセット
+------------------
+X-MEN (Euro 6 Players) [David Haywood]
+Pinball Champ '95 (new parent) [David Haywood]
+
+
+
+
+0.97u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+getstarb093u3gra [Mamesick]
+wintbob079u1gre [Mamesick]
+htchctch096u1gre [Mamesick]
+blswhstl36b16gre [Mamesick]
+offtwall097u3red [David Haywood]
+ppc096u1red [Ville Linde]
+akiss077u3 [Aaron Giles]
+gfxviewer097u1ora [Aaron Giles]
+gtmr097u3yel [Aaron Giles]
+mkla1097u1ora [Aaron Giles]
+okscreen097u2yel [Aaron Giles]
+topspeed097gre [Aaron Giles]
+yamato097u1gra [ShimaPong]
+
+
+
+ソースの変更点
+--------------
+- V60 SBR処理で下位12bitを無視するように修正。これによりtp2m32のハックを削除。
+  [Aaron Giles]
+
+- ddragon3、ctribe、mugsmashの音量バランス調整。[Mamesick]
+
+-「World Class Bowling Tournament」「同 Deluxe」に正しいサウンドROM追加。
+  [Brian Troha]
+
+-「アウトラン」海賊版で、ROMテストをパスする新しいダンプ採用。ROM名も正確。
+  [David Haywood]
+
+- PowerPCを更に改良: [Nathan Woods]
+- 例外処理の修正; 以前はMSRレジスタはEDXにストアされず、EDXはppc_set_msr()の呼び
+  出し時に保持されませんでした
+- recompile_fcmpo()を実装
+- rules.makのルールを一部修正（drc_ops.cの代わりにdrc_ops.h）
+- MSR_*の値をコメント
+- BATレジスタを自身のストラクチャに移動
+- DSIとISI例外を追加（とりあえず非DRCコアのみ）
+- READ*/WRITE*をppc_mem.cに移動
+- メモリハンドリングの変更。リード・ライトをラインタイムで変更可能な関数ポインタ
+  で行うように変更（将来的にMMUが実装されたときとかに便利 :-))
+
+- PSX/Namco System 12の改良: [smf]
+-「てんこもりシューティング」追加
+- Guru氏より基板情報更新
+- namco system 12ドライバよりROMパッチを削除
+- サウンドプログラムROM名変更
+- 不完全MDECブロックのDMA化サポート
+- スプライトのX軸とY軸反転追加
+- デコード済みtpageフィールドのキャッシュ化
+- セッティング＆DMA設定のステータスフィールドの更新を正確に
+- リバースフラグがオリジナルGPUのみで効果があるように修正
+
+- PowerPCカウンタを更に修正。まっさらからもう一度再実装。[Ville Linde]
+
+- Model 2ドライバの改良:: [Ville Linde]
+- 2つ目のSHARC追加
+- 前回の更新で起きていた問題を全部修正
+
+- sauro.cの表示システムのテスト不良を修正。[Pierpaolo Prazzoli]
+
+-「リーサルエンフォーサーズ」のスプライトを改良。スプライトチップを2つ生成。
+  [David Haywood]
+
+- System 32のミキサーについて、アルファブレンディングモードを正確にサポートする
+  ように書き直し。スプライトの影とその他エフェクト関係はまだ未実装。また、以前よ
+  りかなり重くなっています。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Slipstream [Aaron Giles]
+てんこもりシューティング [smf]
+
+
+
+新規クローンセット
+------------------
+ガイアポリス 黄金鷹の剣 (Europe ver EAF) [Brian Troha]
+雷電 DX (Metrotainment license) [Corrado Tomaselli]
+メカナイズドアタック (US) [Highwayman]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+<名称不明> Meyco game [Pierpaolo Prazzoli]
+
+
+
+
+0.97u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+irobot058gre [MASH]
+
+
+
+ソースの変更点
+--------------
+- サニティチェック追加。また、intelfsh.cのprintf()をlogerror()に変更。
+  [Nathan Woods]
+
+- HAS_PPC403が0の時でもDRC PowerPCコアをコンパイルできるように変更。
+  [Nathan Woods]
+
+- Sega Model 3の改良。[Ville Linde]
+ * MPC106エミュレーションのバグ修正 ->「スターウォーズトリロジー」「セガラリー2」
+   が動作
+
+- PowerPCコアの改良。[Ville Linde]
+ * インタプリタコアの割り込みハンドリングをDRCコアのマッチするように書き直し
+ * MCRXR命令修正
+ * タイムベースの問題修正。「ルマン24」が動作
+
+- MACSドライバの改良。[Angelo Salese]
+ * MACSドライバに入力追加で「遊雀」動作。同ゲームの表示エリアも修正
+ *「遊華」が動作するようにパッチ（デフォルトではOFF）
+
+- OKIチップの周波数を「Final Tetris」の基板に合わせて修正。[Corrado Tomaselli]
+
+- 長すぎる命令のデコード時にデバッガがクラッシュしていたのを修正。[Aaron Giles]
+
+-「Eagle Shot Golf」の問題を修正。ついでにSSVドライバのハックも削除。[Luca Elia]
+
+-「ダークミスト」のタイルマップ復号化とPROM追加。[Tomasz Slanina]
+
+- TIAエミュレーションのマイナーな修正。MESSのコードより。[Wilbert Pol]
+
+-「Hollywood Action」を「Action Hollywood」にリネーム。[David Haywood]
+
+- Taito F3ドライバの表示系を大幅に更新。ハードの処理に従って、ズームとコラムスク
+  ロールを正しく実装。これにより、いろんなゲームの不具合が修正されると同時に、
+  ハックも大幅に削除。スプライトとタイルマップのクリッピングも同じく実装。VRAMと
+  ピクセルレイヤーのプライオリティミキシングとアルファブレンディング追加。
+  [Bryan McPhail]
+
+- V60コアの例外処理とタスクスイッチを修正。[Aaron Giles]
+
+-「Action Hollywood」に初期版なサウンド追加。[Quench]
+
+- PSX CPUコアの改良。[smf]
+ * ディレイスロットのブランチについて動作を正確に
+ * BIOSと既知の関数とその引数のsyscallログ取り追加
+   (ファイル出力か、putcharでコンソールに出力)
+ * gte命令の逆アセンブリ修正
+ * dismips.mak修正
+
+- PPC603のカウンタをさらにオーバーホール（コアクロック4毎にタイムベースを1つ増や
+  し、デクリメンタはバスサイクル4毎に減少させる）[Ville Linde]
+
+- Namco System 2のアップデート。[Brian Troha]
+ *「ファイナルラップ」の道路カラールックアップテーブル(clut)promを全セットに追加
+ *「ファイナルラップ3」Worldを親セットに設定、finalp3jが新クローン
+ *「ファイナルラップ」の道路clutを「フォートラックス」に追加（bad_dumpにマーク）
+ * SWSのサウンドROMを他のセットに合うように変更（sws92 & sws93）
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Animalandia Jr. / わいわいアニマルランド Jr. [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+パズニック (Japan set 2) [Aaron Giles]
+パズル＆アクション タントアール (Korea) [laugh, David Haywood]
+ライデンファイターズ (Dream Island co. license) [Corrado Tomaselli]
+ライデンファイターズ (US, Fabtek License) [Chris Hardy]
+
+
+
+0.97u2
+------
+
+
+MAMETestersの修正バグ
+---------------------
+intrepi237b13gre [Pierpaolo Prazzoli]
+robokid37b15gre [Pierpaolo Prazzoli]
+azurian060gre [MASH]
+gradius3094u5gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+
+- System 32はただいま完全に作業中です。バグ報告はしないで下さい。マルチ32のゲー
+  ムはさらに動作しなくなってます。[Aaron Giles]
+
+- WindowsビルドがWindows95で動くように修正。[Krick]
+
+-「ザ・コンバットライブス」のプライオリティ修正で3面修正。[Pierpaolo Prazzoli]
+
+-「首領蜂」「マジンガーZ」「隠忍」「豪血寺2」のサウンドバランス修正。[Sonikos]
+
+- ninjawの表示問題修正。新しく追加したコラムスクロールで変になってたもの。
+ [Pierpaolo Prazzoli]
+
+- midresのOKI音量を実基板に合うように変更。[Corrado Tomaselli]
+
+-「World Class Bowling v1.40 Tournament」のプロテクト修正。[Brian Troha]
+
+- NES PPUビデオタイミング修正。[Andrew Church]
+
+- PowerPCコアでのchange_pc()の使用法を修正。[Nathan Woods]
+
+- SHARC CPUコアの改良。[Ville Linde]
+  * IRQ処理の訂正
+  * 命令コード追加。浮動小数点込み
+
+- Konami PPCゲームの改良。 [Ville Linde]
+  *「グラディウス4」のデータROMマッピング
+  * PPC/SHARC間の通信修正
+  * 一部のNVRAMプロテクト修正
+  * LANインターフェースもみ消し
+
+-「スペースレイダー」のグラフィックを100%修正。[Frank Palazzolo]
+
+-「Pac-Man & Chomp Chomp」の色を訂正。[Nicola Salmoria, Guru]
+
+-「スペースレイダー」「ゼロアワー」「レッドクラッシュ」の星空面をクリーンアップ。
+  [Frank Palazzolo]
+
+-「ダイナギア」の影部分の不具合修正を再適用。[Mamesick]
+
+- VIA 6522シフトレジスタについて以前のハックなやり方を削除するように修正。
+  [Mathis Rosenhauer]
+
+-「チャンピオンシップボウリング」の残りの表示系の問題を修正。
+  [Pierpaolo Prazzoli]
+
+- デバッガエンター時にerror.logを毎回空にするコード追加。[Nathan Woods]
+
+- PowerPCコアにMCRXR命令実装。[Nathan Woods]
+
+- V60逆アセンブラにステップイン・ステップアウト追加。[Aaron Giles]
+
+- エクスプレッションエンジンにchar定数サポート追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Final Tetris [David Haywood]
+
+
+
+新規クローンセット
+------------------
+タートルシップ (Japan) [Brian Troha]
+レディーバグ (bootleg set 2) [Sonikos]
+ミスタークーガー (bootleg Set 2) [Sonikos]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+ル・マン24 [R. Belmont]
+
+
+
+0.97u1
+------
+
+
+MAMETestersの修正バグ
+---------------------
+wwfwfsta37b16gre1 [Pierpaolo Prazzoli]
+ddragon336rc2gre [Pierpaolo Prazzoli]
+cookrace093u2red [ShimaPong]
+ddragn2u077gre [Pierpaolo Prazzoli]
+starforc097gre [Aaron Giles]
+wotw094u3gra [Aaron Giles]
+
+
+ソースの変更点
+--------------
+- V60のCPUクロックについて、それぞれのドライバでクロックを分周する必要があったも
+  のを、命令毎のクロックの倍周期に変更しました。全部のドライバを正しいクロックス
+  ピードにアップデートしてあります。[Aaron Giles]
+
+- デバッガの表現エンジンを他のツールでもサポートするように少し標準的に変更。
+  [Aaron Giles]
+
+- Sega System 32ドライバのクリーンアップを始めました。ただし、以前同様にまだうま
+  くは動作しません。いずれ直っていくでしょう。これについてのバグは報告しないでく
+  ださい。[Aaron Giles]
+
+-「Pest Place」のリダンプ実装。dkong3bの色修正、「Street Heat」の"Control Type"
+  DIPスイッチ追加。[Pierpaolo Prazzoli]
+
+- wwfsstarのvblankハンドリングと変なスプライトを修正。[Pierpaolo Prazzoli]
+
+-「ハイパークラッシュ」のスピーチが無かったのを追加。[MASH]
+
+-「Dream World」のプロテクトについて新解釈。まだ動作はせず。[David Haywood]
+
+- poleposのギア表示をデバッグオンリービルドに移動。[Mamesick]
+
+-「ホラーストーリー」のシンクロレート修正。[SUZ., Mamesick]
+
+-「Toki」海賊版のZ80周波数修正。[Mamesick]
+
+-「ダイナギア」スプライトの影部分が変だったので対策。[Mamesick]
+
+-「Malzak」のSAA5050エミュレーション改良。[Barry Rodewald]
+
+-「オペレーションウルフ」の正しいカスタムチップエミュレーション追加。
+  [Bryan McPhail]
+
+- Namco System 21ドライバのメジャーアップデート。[Phil Stroffolino]
+
+  *「スターブレード」はマスタ/スレーブDSPのエミュレート有りで動作します。
+    グラフィックの更新は少しなめらかでないところがあります;個人的には実機には
+    スレーブが4つでマスタが1つあり、スレーブに動作を割り当てていると思われます。
+    背景のオブジェクトはまだ一部表示されてません。1面の背景のスターシップなどで
+    す（炎の表示でスーパーインポーズされるはずのスプライトは存在しています）。
+    "ダイレクトドローイング"機能はハイスコア表示で使っています;色違いや、一部
+    表示されない部分があります（ヘキサゴン）
+
+  *「ソルバルウ」は動作しますが、3Dグラフィックの更新がときどき止まります;
+    Aキーを押してパイプラインのブロックを解除すると描画を再開します
+
+  * その他のSystem21ゲームはいろいろな事情で動きません。「ソルバルウ」はcuskeyの
+    サポートが必要（マスタDSPで使用）。「サイバースレッド」はDSPコードのアップ
+    ロードメカニズムが違う模様です
+
+-「スズカ」系ゲームの道路色修正。[Phil Stroffolino]
+
+- ヒストリー表示でhome/endキーサポート。[Samuele Zannoli]
+
+- PowerPCコアのデクリメントレジスタをデバッガでサポート。[Nathan Woods]
+
+- TC0100SCNチップのコラムスクロール実装;「ニンジャキッズ」「ガンフロンティア」
+  「ルナーク」「ガルメデス」で（最低でも）使用。[Bryan McPhail]
+
+- ADSP-21062コア追加と、Model 2Bゲームで部分的に実装。[Ville Linde]
+
+- PowerPC DRC (高速版)の更新。例外サポート追加、PPC内部シリアルポートのサポート
+  改良。[Ville Linde]
+
+- Konami PowerPCドライバの進展。[Ville Linde]
+  * クリーンアップと共通ハードの整理統合
+  * ADSP-21062と3dfxチップの実装
+  *「GTIクラブ」のKS001005カスタム3Dチップセットのリバースエンジニアリング開始
+  * 初期NVRAM値追加
+    (これらはGV SystemのEEPROMと似たプロテクトに使用）
+  * プレイ可能なゲームはありません。表示もほとんどされないです。ただし、ほぼ全部
+    がPOSTをパスするようになりました
+
+- SCSPタイマー処理のマイナーなバグ修正。[Ville Linde]
+
+- CPUサブシステムのメモリリーク修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Nサブ (upright) [Pierpaolo Prazzoli]
+花札 花かんざし / 花札 華簪 (Japan) [Luca Elia]
+花札 華陽炎 [BET] (Japan) [Luca Elia]
+麻雀 立直一発 (Japan) [Luca Elia, bnathan]
+
+
+
+新規クローンセット
+------------------
+Falcon (bootleg set 2) [Pierpaolo Prazzoli]
+Malzak II [Barry Rodewald]
+バトルフィールド (bootleg) [Pierpaolo Prazzoli]
+ザ・グレートラグタイムショー (Japan v1.5, 92.12.07) [David Haywood, NAmag]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+ドライバーズアイ [Phil Stroffolino]
+ウイニングラン [Phil Stroffolino]

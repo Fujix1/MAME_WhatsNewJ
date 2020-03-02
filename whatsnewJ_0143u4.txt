@@ -1,0 +1,153 @@
+0.143u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02084: [DIP/入力] sokyugrt: 起動時に既に1クレジット入っている。(Angelo Salese)
+- 04366: [DIP/入力] shanhigw: クレジットが2つ入った状態でゲームが始まる。
+         (Angelo Salese)
+- 04470: [DIP/入力] roundup5, sci, chasehq, contcirc, dblaxle: PORT_TOGGLEがない。
+         (M.A.S.H.)
+- 04396: [インターフェイス] all games and drivers: -refreshspeed指定時、画面のリフ
+         レッシュレートよりも低いゲームでも速度制限がかかる。(hap)
+- 04453: [グラフィック] shackled: 0.142からスプライトが化けて表示される。
+         (David Haywood)
+
+
+ソースの変更点
+--------------
+- driver.h: MESS用の互換性システムの処理を修正。[Fabio Priuli]
+
+- tbowl.c: DIPスイッチの設定を修正。「テクモボウル」にDIP配置追加。[Brian Troha]
+
+-「麻將 天將神兵」に正確なスプライトROM追加。[Guru]
+
+-「麻將 天將神兵」のスプライトとパレットを復号化。入力系とサイドステッププロテクトの
+  追加。[Luca Elia]
+
+- z80dma: 別なレジスタリードバック方法を追加。これは、初期リードシーケンスコマンドか
+  らパスせずにリードマスクを直接変更します。また、DMAカウンタの増加についても作業。
+  [Angelo Salese]
+
+- tecmo.c:「ジェミニウィング」「シルクワーム」に正しいリージョンを追加。また「アルゴ
+  スの戦士 / Rygar」「ジェミニウィング」「シルクワーム」「Back Fire」のDIP配置追加。
+  [Brian Troha]
+
+- コアからPORT_CATEGORYのサポート部を削除。MESSでPORT_CONDITIONにより十分取り外し可能
+  なコントローラに対応できるため。[Fabio Priuli]
+
+- ioport.c: エミュレーション中に、キーボードが有効な場合のみ検出するように変更。
+  [Fabio Priuli]
+
+- Neo-Geoの変更いろいろ: [Jackc, Johnboy]
+ * カートリッジと使用基板についてドキュメント追加
+ * チップラベルとソケットラベル名の変更に伴い、拡張子.binの削除
+ * fightfevのクリーンアップ: 重複したp2削除、p1を吸い出し不良マーク
+ * fatfury2のクリーンアップ
+
+- OKIM6376サウンドチップの独立したチャンネル音量を修正。MPU4のRoad Hog時代のゲームで
+  使用。[J. Wallace]
+
+- ST-Vの個別ゲーム用設定をsaturn.c/stvinit.cからstv.cに移動。-listsource使用時に、
+  ソースを正しくstv.cと返すようにするため。[Angelo Salese]
+
+- タイマ内のチェンジクロック移動と、SMPC用のNMI生成について作業。ST-Vのゲームが起動時
+  にクレジット2個入った状態で起動する問題がほぼ解消。[Angelo Salese]
+
+- ポータビリティの全般的な修正。[Robert Muth, R. Belmont]
+
+- ST-V IOGAシステムを一から書き直し。[Angelo Salese]
+
+- ymz280b.c: tecmosys.cのtkdenshoとderoonで効果音に不具合を起こしていた問題を修正。
+  [hap]
+
+-「バーチャル麻雀」「バーチャル麻雀II」での麻雀パネルの不具合修正。[Angelo Salese]
+
+-「マジカル頭脳パワー」を起動させるため、うさんくさいハックを追加。[Angelo Salese]
+
+- VDP2レジスタを、正しい並列16ビットにコンバート。[Angelo Salese]
+
+- chdman - CD ROMイメージ作成時に、フルパスと相対パスをサポート。また、空白文字を含む
+  ファイル名をGDIでサポート。[Miodrag Milanovic]
+
+- chdmanのコードを使い、他のCDROMデバイスタイプの読み込みをサポート。
+  [Miodrag Milanovic]
+
+- floppy: 汎用のトラックデータ記述を追加。[O. Galibert]
+
+- SCSPコアにMVOL追加。サウンドのフェードインとフェードアウトで使用。[Angelo Salese]
+
+- Taito JCシステムの修正いろいろ: [Angelo Salese]
+ * オブジェクトRAMバンク切り替えの仮実装。「電車でGo！」のアトラクトモードで、コイン
+   を入れたときのグラフィック化けを修正
+ *「電車でGo！」の入力を改良。ゲームを動作可能ステータスに昇格
+ *「ランディングギア」のアナログ入力を修正
+ *「デンジャラスカーブス」のDSPリセットラインに対策。タイトル画面まで動作(他の問題に
+   より3Dは未表示)
+ * オブジェクトRAMの4bppモードを実装。「電車でGo！2」のクレジット表示で使用
+ * IRQ6のトリガを修正(ジョブ完了を伝えるため、DSPからMainへ送られる信号)
+ * アナログポートを使ってマスコンを作成。これにより、「電車でGo！」「同2」で未実装な
+   入力が多くあったのを解決
+ *「電車でGo！2 高速編」のROMロードを修正で起動可能
+ *「電車でGo！2」でゲームに入ったときのクラッシュを修正。プレイ可能
+ * トライアングルのグローシェーディングを実装。ランディングギアの3D表示を修正
+ *「電車でGo！」のクレジット表示を修正
+ * オブジェクトRAMの画面マスクを仮実装。画面の左右を隠すために使用
+ * DSPのアイドルスキップ追加。POST画面で特に顕著
+
+-「電車でGo！」の距離計追加とブレークテーブルへの変換。[O. Galibert]
+
+- naomi: ROMボードをデバイスのコレクションに分割。[O. Galibert]
+
+- williams.c: blaster/blaster30に第2サウンドボードを追加。[hap]
+
+- TMS32051デバッグメモリビューアを修正。[Angelo Salese]
+
+- williams.cの更新、パート2: [hap]
+ * フレームスキップ有効時の表示不具合修正
+ * blasterの背景色修正(例、ヒット時の画面フラッシュなど)
+
+- Taito JCシステムのソフトリセット時にTMS32051クラッシュする問題への対策。
+  [Angelo Salese]
+
+- TMS32051でデータメモリを表示しようとするとデバッガがクラッシュするのを修正。
+  [Angelo Salese]
+
+- ビッグエンディアンなSH-3/SH-4 CPUを予備サポート。[R. Belmont]
+
+- m68k: CINVとCPUSHの逆アセンブリを改良。[R. Belmont]
+
+- Taito Air Systemドライバの3D描画機能を画面更新機能の外に移動。これにより、3Dグラ
+  フィックの修正に道筋がついたはず。[Angelo Salese]
+
+- さらに800以上のギャンブル・スロットマシンの追加とドキュメント作成、整理。
+  [David Haywood]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+麻將 天將神兵 (V137C) [Guru, bnathan, Dyq, Luca Elia]
+電車でGO! [Angelo Salese, R. Belmont]
+電車でGO! 2 [Angelo Salese, R. Belmont]
+ランディングギア [Angelo Salese, R. Belmont]
+Penky [Kevin Eshbach, ranger_lennier, B. Munger, bodger319, Brian Troha, 
+       The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+フェニックス (Irecsa / G.G.I Corp - set 2) [f205v, robotype]
+Rescue (海賊版) (not working) [f205v, robotype]
+The End (海賊版) (not working) [f205v, robotype]
+Missile Combat (Sidam 海賊版) (not working) [f205v, robotype]
+Biomechanical Toy (Ver. 1.0.1884) [Tirino73]
+Shocking (Korea) [Mark F., Smitdogg, The Dumping Union]
+Puzz Loop (Europe, v0.94) [Joerg Hartenberger]
+
+
+追加された未動作ゲーム
+----------------------
+アニマルバスケット [Yohji, Cah4e3, The Dumping Union]
+Alien Front [Mark F., The Dumping Union, R. Belmont]
+S-Plus (SS4240) Coral Reef [agemame]

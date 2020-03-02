@@ -1,0 +1,120 @@
+0.146u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04821: [ゲームプレイ] (cd32.c) All sets in cd32.c:: ゲームが起動できず、Amiga CD32
+          の起動画面しか表示されない。(R. Belmont)
+- 04892: [その他] (zaxxon.c) zaxxon, congo, congoa: INPが正しく再生されない。(micko)
+- 04923: [クラッシュ/フリーズ] Many sets in bfm_sc2.c and bfm_sc4.c: OK画面後にクラッ
+          シュする。(Tafoid)
+- 04759: [クラッシュ/フリーズ] (pinkiri8.c) All sets in pinkiri8.c: OK画面後にクラッ
+          シュする。(David Haywood)
+
+
+ソースの変更点
+--------------
+- QS1000サウンドエミュレーションの初期バージョン追加。[Phil Bennett]
+
+- vamphalf.cドライバで、実機の動作を元に表示領域を再調整。[David Haywood, Smitdogg]
+
+- vdpマップを実際にvdpに付属するように変更。pikiri8.cのパレットを手動で調整して、
+  MT#04759を修正。[David Haywood]
+
+- サイクル単位で正確なtms9980aの追加; tms9900とtms9980aを共通の親からサブクラス化でき
+  るようにtms9900.cを変更。[Michael Zapf]
+
+- limenko.c - QS1000の実装。[Phil Bennett]
+
+- SDL: GCC 4.7を使用して新しいLinuxディストロをサポート。[R. Belmont]
+
+- TMS32031の修正を2つ: [Daniel Filner]
+  * 浮動小数点除算の結果が0になる場合、アンダフローを設定しないよう変更
+  * FIX命令実行中に指数を上書きしないよう変更
+
+- CHDの修正: [jmak]
+  * 未初期化の変数が密かに出力されていたのを修正
+  * qsort()コールバックが絶対に"equal"を返さないよう変更。不安定なシステムlibcの対策
+
+- Jaguarのクイックロード前に2秒間のエミュレーション起動時間を確保。[Robbbert]
+
+- qix.c: Set 1がRev 2だと判明。ROM名の修正。[Smitdogg, The Dumping Union]
+
+- cd32: CD-ROMが見つからないのを修正。[R. Belmont]
+
+- seta.c: 基板番号の追加、基板シルクスクリーンを元に番号の修正、「JJスコーカーズ」の
+  ROM名修正。[Brian Troha]
+
+- taito_en.c: 68000のクロックを訂正。[Stefan Lindberg]
+
+- tx1.c:「TX-1」の基板ドキュメント追加。「TX-1」「バギーボーイ」のDIPスイッチ配置追加。
+  [Brian Troha]
+
+- seta.c:「ウルトラマン倶楽部」のDIP配置追加。[Brian Troha]
+
+-「スペースファイアーバード」とクローンセットのDIPスイッチを検証(spacefb.c)。
+  [Tafoid]
+
+- vegaeo.c -「Crazy War」にサウンド実装。[Phil Bennett]
+
+- PGM2マザーボードのスペックと説明を追加。[xingxing]
+
+- midvunit.c:「クルージンUSA」「クルージンワールド」「Off Road Challenge」「War Gods」
+  のDIP配置追加。[Brian Troha]
+
+- eolith.c: サウンド同期の問題を直すためにインタリーブを増加。[David Haywood]
+
+-「Mortal Kombat Turbo 3.0」(mkyturboe)で、デモ中にハングを起こしていたビット抜けROM
+  を置き換え。[bulldawg]
+
+- upd7810.c: Fixed setting of flags in the ACI_[VABCDEHL]_xx functions.
+  Fixed handling of Carry flag in the DAA instruction.  [Wilbert Pol]
+
+- 最近吸い出した基板の情報を元に「クレイジーコングPT2」全セットのラベルと配置を更新。
+  [Smitdogg, Tafoid]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+雀神PLUS (Japan) [Guru, Dyq, bnathan, Luca Elia]
+麻雀 大東洋圏 (Japan) [Guru, Dyq, bnathan, Luca Elia]
+リターンオブSEL雀II (Japan, NM557) [Guru, Dyq, bnathan, Luca Elia]
+Linky Pipe [David Haywood]
+オフロードチャレンジ [Aaron Giles, Daniel Filner]
+通信対戦麻雀 闘龍門 [Tim Schuerewegen]
+Space Invaders Multigame (several versions)
+  [hap, Dave France, Scott Brasington]
+Super ABC (Pac-Man multigame kit) [hap, Guru, MiSFiTMAME]
+ファンタジーゾーンII (System 16C version) [David Haywood]
+フィッシング (DECO Cassette). [SRI, Charles MacDonald, Team Japump!]
+
+
+新しく追加されたクローンセット
+------------------------------
+麻雀 念力手SP (Japan, V250J) [Guru, Dyq, bnathan, Luca Elia]
+TX-1 (Japan rev. B) [hap, Mr. CAST, R. Hawkins, Tormod, Woodada, Kevin Eshbach,
+   Phil Bennett, Smitdogg, The Dumping Union]
+War Of The Bugs (US)  [B. Stahl, Smitdogg, The Dumping Union]
+雷電 (Unknown) [Mr. CAST, Smitdogg, The Dumping Union]
+War Gods (HD 10/09/1996 - Dual Resolution)
+  [B. Stahl, N. Francfort, ranger_lennier, Smitdogg, The Dumping Union]
+War Gods (HD 08/15/1996) [alca]
+ダイナマイトリーグ (US) [Mr. CAST, Smitdogg, The Dumping Union]
+アルカノイド (bootleg with MCU, set 2) [Smitdogg, The Dumping Union]
+V'BALL (bootleg of Japan set)
+  [Smitdogg, The Dumping Union]
+Touchmaster 4000 (v6.02 California)
+  [Mr. CAST, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Wild Poker (ver. D 1.01) [Roberto Fresca, Team Europe]
+ビートマニアIIDX 2nd style (GC985 JA) [phillw]
+Triple Play (Ver. 1.10)
+  [Kevin Eshbach, Smitdogg, Luca Elia, The Dumping Union]
+Multipede [hap, JunoMan, Scott Brasington]
+Skins Game (1.08)
+  [Mr. CAST, M. Ponweiser, Mojo2000, Smitdogg, The Dumping Union, R. Belmont]
+Skins Game (unknown alt. version) [Guru, R. Belmont]

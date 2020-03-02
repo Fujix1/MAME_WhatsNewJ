@@ -1,0 +1,57 @@
+0.100u3
+-------
+
+
+ソースの変更点
+--------------
+* C2/Genesisベースのゲームをさらにクリーンアップ: [Aaron Giles]
+ * 前のバージョンで起きてたクラッシュを修正
+ * Genesisベースの全ゲームの割り込み発生を集中
+ *「ぷよぷよ2」のプロテクト正しく実装
+
+* 速度改善のためバリディティチェックでハッシュを使うようにしました。また、非デ
+  バッグビルドでは、全ゲームではなく実行するゲームのドライバのソースファイルだけ
+  に行うようにしました。さらにコインエイジのソートチェックで、ストリングの並び
+  順を特定の方法にするため、リンカに頼らないように修正しました。[Paul Priest]
+
+* -skip_validitychecksオプションを削除。チェックの実行時間が前ほど悪くないため。
+ [Aaron Giles]
+
+* ベクタープロセッサのマイクロコードのプレデコーディングで「Top Gunner」の速度改
+  善。またスコアとその他の数字表示をLCDっぽくするためにシフトレジスタ追加。  
+ [Mathis Rosenhauer]
+
+* Nintendo Super Systemのサウンドアップデート: [R. Belmont]
+ * SPC700 ADC, SBC, ADDW, SUBW, MUL, DIV, CLRV命令のバグ修正
+ * APUハードウェア/タイマーの問題を修正
+ * 最新のOpenSPCより正確なDSPエミュレーション追加
+ *「アクトレイザー」の同期ができなくなっていたタイミングの問題修正
+ 結果:NSSゲームのサウンドはほとんど正確、MESSでのSNESゲームも同様
+
+*「ギャッツビー」の縦の動きを追加。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Laser Battle [Pierpaolo Prazzoli]
+Water Balls [David Haywood]
+Pop's Pop's [David Haywood]
+Egg Hunt [David Haywood]
+Zip & Zip [David Haywood]
+Power Balls [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+エスケープキッズ (Asia, 4 Players) [David Haywood]
+ギガンデス (Japan) [Chack'n]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+NFL Football [Aaron Giles]
+Cat'N Mouse [Pierpaolo Prazzoli]
+Metal Saver [David Haywood]

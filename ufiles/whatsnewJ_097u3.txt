@@ -1,0 +1,83 @@
+0.97u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+irobot058gre [MASH]
+
+
+
+ソースの変更点
+--------------
+* サニティチェック追加。また、intelfsh.cのprintf()をlogerror()に変更。
+  [Nathan Woods]
+
+* HAS_PPC403が0の時でもDRC PowerPCコアをコンパイルできるように変更。
+  [Nathan Woods]
+
+* Sega Model 3の改良。[Ville Linde]
+ - MPC106エミュレーションのバグ修正 ->「スターウォーズトリロジー」「セガラリー2」
+   が動作
+
+* PowerPCコアの改良。[Ville Linde]
+ - インタプリタコアの割り込みハンドリングをDRCコアのマッチするように書き直し
+ - MCRXR命令修正
+ - タイムベースの問題修正。「ルマン24」が動作
+
+* MACSドライバの改良。[Angelo Salese]
+ - MACSドライバに入力追加で「遊雀」動作。同ゲームの表示エリアも修正
+ -「遊華」が動作するようにパッチ（デフォルトではOFF）
+
+* OKIチップの周波数を「Final Tetris」の基板に合わせて修正。[Corrado Tomaselli]
+
+* 長すぎる命令のデコード時にデバッガがクラッシュしていたのを修正。[Aaron Giles]
+
+*「Eagle Shot Golf」の問題を修正。ついでにSSVドライバのハックも削除。[Luca Elia]
+
+*「ダークミスト」のタイルマップ復号化とPROM追加。[Tomasz Slanina]
+
+* TIAエミュレーションのマイナーな修正。MESSのコードより。[Wilbert Pol]
+
+*「Hollywood Action」を「Action Hollywood」にリネーム。[David Haywood]
+
+* Taito F3ドライバの表示系を大幅に更新。ハードの処理に従って、ズームとコラムスク
+  ロールを正しく実装。これにより、いろんなゲームの不具合が修正されると同時に、
+  ハックも大幅に削除。スプライトとタイルマップのクリッピングも同じく実装。VRAMと
+  ピクセルレイヤーのプライオリティミキシングとアルファブレンディング追加。
+  [Bryan McPhail]
+
+* V60コアの例外処理とタスクスイッチを修正。[Aaron Giles]
+
+*「Action Hollywood」に初期版なサウンド追加。[Quench]
+
+* PSX CPUコアの改良。[smf]
+ - ディレイスロットのブランチについて動作を正確に
+ - BIOSと既知の関数とその引数のsyscallログ取り追加
+   (ファイル出力か、putcharでコンソールに出力)
+ - gte命令の逆アセンブリ修正
+ - dismips.mak修正
+
+* PPC603のカウンタをさらにオーバーホール（コアクロック4毎にタイムベースを1つ増や
+  し、デクリメンタはバスサイクル4毎に減少させる）[Ville Linde]
+
+* Namco System 2のアップデート。[Brian Troha]
+ -「ファイナルラップ」の道路カラールックアップテーブル(clut)promを全セットに追加
+ -「ファイナルラップ3」Worldを親セットに設定、finalp3jが新クローン
+ -「ファイナルラップ」の道路clutを「フォートラックス」に追加（bad_dumpにマーク）
+ - SWSのサウンドROMを他のセットに合うように変更（sws92 & sws93）
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Animalandia Jr. / わいわいアニマルランド Jr. [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+パズニック (Japan set 2) [Aaron Giles]
+パズル＆アクション タントアール (Korea) [laugh, David Haywood]
+ライデンファイターズ (Dream Island co. license) [Corrado Tomaselli]
+ライデンファイターズ (US, Fabtek License) [Chris Hardy]

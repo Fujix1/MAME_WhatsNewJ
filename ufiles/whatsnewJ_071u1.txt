@@ -1,0 +1,82 @@
+﻿0.71u1
+
+ソース全般の変更：
+------------------
+
+■Namco System 11ドライバのクリーンアップとファイル名の修正。[smf]
+	src/drivers/namcos11.c
+
+■「モールアタック」にカクテルモード追加。[Pierpaolo Prazzoli]
+	src/drivers/mole.c
+
+■ハードディスクイメージについて親ディレクトリを参照しない問題を修正。[Stefan Jokisch]
+	src/mame.c
+	src/audit.c
+
+■以下のドライバをタイルマップへコンバート。[Curt Coder]
+	src/drivers/rocnrope.c
+	src/vidhrdw/rocnrope.c
+	src/drivers/nova2001.c
+	src/vidhrdw/nova2001.c
+	src/drivers/hanaawas.c
+	src/vidhrdw/hanaawas.c
+
+■MegaTech / MegaPlayシステムの準備として、Genesisエミュレーションを少し改善。
+  サウンドコードはMESSベース。[David Haywood]
+	src/drivers/segac2.c
+	src/vidhrdw/segac2.c
+
+■「G.Iジョー」を改善。[Acho A. Tang]
+	tilemap.h,tilemap.c
+	 - 透過キャッシュ操作用にtilemap_get_transparency_data()追加
+
+	vidhrdw\konamiic.c
+	 - タイルラインコードにK056832のタイルマップ/ラインマップ切替え追加
+
+	drivers\gijoe.c
+	 - ビデオセッティング、メモリマップ、IRQハンドラを更新
+	 - オブジェクトBletter追加
+
+	vidhrdw\gijoe.c
+	 - K054157からK056832への移転完了
+	 - 地面スクロールエミュレーション追加
+	 - スプライトと背景のプライオリティ修正
+	 - 影とレイヤー位置の改善
+
+■「Run and Gun /　スラムダンク」の改善でプレイ可(シングル画面のみ)。[Acho A. Tang]
+	drivers\rungun.c (this file)
+	 - メモリマップ、デバイスセッティング、コンポーネントコミュニケーション、I/O、
+	  サウンドなどなど
+
+	vidhrdw\rungun.c
+	 - 全体的なクリーンアップ、クリッピング、アライメント
+
+	vidhrdw\konamiic.c
+	 - 表示されていなかったスプライトとプライオリティ修正
+
+■toaplan2ドライバに列セレクトエフェクト追加(「バクレイド」「バトライダー」) [David Haywood]
+	src/vidhrdw/toaplan2.c
+
+■コンパイラ系の修正。[Bryan McPhail]
+	src/vidhrdw/raiga.c
+
+■コンパイラ系の修正。[Brad Oliver]
+	src/drivers/system24.c
+	src/vidhrdw/system24.c
+
+
+新規サポートゲーム：
+--------------------
+
+ソニック・ザ・ヘッジホッグ (MegaTech, MegaPlay) [David Haywood]
+	現在の状況を示すために追加。Megatexhはメニューシステムが未エミュレート、MegaPlayは起動せず。
+	これ以外は全てテストドライバ。
+	src/drivers/segac2.c
+	src/vidhrdw/segac2.c
+
+
+新規サポートクローン：
+----------------------
+
+ランドメーカー (World prototype) [Bryan Mcphail]
+	src/drivers/taito_f3.c

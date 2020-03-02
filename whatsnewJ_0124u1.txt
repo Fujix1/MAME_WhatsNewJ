@@ -1,0 +1,253 @@
+0.124u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+01650: [Gameplay] ridgerac: フリーズやクラッシュ (Aaron Giles)
+01542: [Graphics] 3wonders, 3wonderu, wonder3: ゲーム選択とスタート画面の背景色
+  が違う (Nicola Salmoria)
+00403: [Graphics] 3wonders: プレイヤー1とINSERT COINの文字の間にドットが表示され
+  る (Nicola Salmoria)
+00410: [Graphics] xmcota: デモモードを2周するとQSound画面の背景色が緑色になる
+   (Nicola Salmoria)
+01519: [Graphics] msh: エンディングの背景色が変わる (Nicola Salmoria)
+01468: [Graphics] ldrun2: タイトル画面でのプライオリティ不具合 (Nicola Salmoria)
+01469: [Graphics] ldrun2: 基板と比べると、画面下部分の表示領域が狭い
+   (Nicola Salmoria)
+01661: [Graphics] rougien: スプライトが消える (Robiza)
+01613: [Graphics] swcourt, swcourtj: 画面の端でスプライトが欠ける
+   (Pierpaolo Prazzoli)
+01622: [Core] -refreshspeedが動作しない (Aaron Giles)
+01629: [Graphics] raiga, stratof: スプライト色がおかしい (Aaron Giles) 
+01630: [Graphics] fstarfrc, ginkun, riot: スプライト色がおかしい (Aaron Giles)
+01627: [Misc.] spbactn, spbactnj: Access Violationでクラッシュする (Aaron Giles)
+01598: [Graphics] 4in1, gmgalax, pacmanbl: 画面上端でスプライトが欠ける
+   (Aaron Giles)
+01563: [DIP/Input] gmgalax: 入力定義がダブっている (Aaron Giles)
+00300: [Graphics] zigzag: カクテルモードのプレイヤー2画面が右にずれている 
+   (Aaron Giles)
+01623: [DIP/Input] ssprint: コインがマシンの設定順に合っていない (RansAckeR)
+01454: [Graphics] mshuttle, mshuttlj, mshutlj2: 画面表示がずれている
+   (Aaron Giles)
+01473: [Graphics] orbitron: グラフィックの不具合 (Aaron Giles)
+01600: [Graphics] pacmanbl, batman2: 背景が右にずれている (Aaron Giles)
+01602: [Misc.] luctoday: グラフィック化けあり (Aaron Giles)
+01599: [Graphics] omega: 画面が縦方向にずれている (Aaron Giles)
+01605: [Graphics] gteikokb, gteikob2: 画面ずれ (Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+
+- galaxian.cをgalaxold.cに改名。全ドライバを更新。[Aaron Giles]
+
+- Cidelsaドライバの更新: [Curt Coder]
+ - タイマーコールバックを再廃止
+ - PCB RAMをヒープに移動。インデックスオーバーフローを修正
+ - CDP1869を新デバイスシステムにコンバート
+ - 実際のハードウェアの動作を示すために再構成
+ - OUT5用のPMA追加
+ - Cidelsaのビデオ部分を独自ファイルに分離
+
+- COP CPUの更新: [Curt Coder]
+ - 割り込みの実装
+ - シリアル入力・出力の実装
+ - 命令XAD/LDD、XIS1、RMB3の修正
+ - クロック分周を修正
+ - 内部メモリマップサイズを修正
+ - CPUの派生版を追加
+ - シリアルタイマを修正
+ - クロックの修正
+ - COP410 RMB3、XAD命令を修正
+ - 全体的なクリーンアップ
+
+- ジョイスティックが接続されていないときのcfgファイルの不具合を修正。itemが接続
+  されていない場合は、はitemclassをトークンの一部とします。カスタムアイテムを使
+  用するジョイスティックの設定は失われます。これらは入力アイテムの名前からトーク
+  ン名を生成しているので、何らかの代替策が必要です。[couriersud]
+
+- メモリシステムの変更: [smf]
+ * デバッグ用フックの読み込みと書き込みのためmem_maskを渡します。これにより、
+   mem_maskをとるメモリコールを使用するとき、メモリアクセスのアドレスとサイズを
+   正確に計算できます
+ * mem_maskをチェックする新マクロ、ACCESSING_BITS_m_nを追加。これは、ビットmから
+   ビットn (bit 0を最小の有効ビットとカウントする)の領域内の全てのアクセスをチェッ
+   クします。現在は、wordの両方のバイトが書き込まれたかをチェックするパターンが、
+   2バイトチェックとなっています
+ * 次の発生箇所を全て新マクロに置き換え:
+    ACCESSING_LSB, ACCESSING_MSB, ACCESSING_LSB16, ACCESSING_MSB16, 
+    ACCESSING_LSB32, ACCESSING_MSB32, ACCESSING_LSW32, ACCESSING_MSW32,
+    単純なmem_maskのチェック
+
+- AM_READ_PORT()が存在しないポートを参照したときの致命的エラーを追加。
+  [Aaron Giles]
+
+- 特殊なDIPスイッチ (サービス、不明、未使用) について、他のトークンを拡張するの
+  ではなく、独自のトークンタイプにコンバート。これにより余分な文字列とデータを減
+  らすことができました。[Aaron Giles]
+
+-「ギャラクシアン」の書き直し。最終的には既存のgalaxian、scramble、frogger、
+  scobra、amidar、dambustrドライバを統合する予定です。現時点では新システム内でゲー
+  ムのサブセットのみが実装されています。残りのゲームは古いコードで動作しています。
+  主な新機能は正確なビデオタイミング、正しい背景の星表示、構成の改良、入力ポート
+  の単純化、その他細かい修正など。[Aaron Giles, stephh]
+
+- ビデオとパレットコードのマイナーなクリーンアップとシンプル化。palette_config()を
+  削除。[Aaron Giles]
+
+- 6840ptm.cの割り込み処理と、16-bitメモリアクセスの修正。また、信頼性向上のため
+  にコードをクリーンアップ。[Philip Bennett]
+
+-「フラックアタック」に分周を追加 (weclemanと同様)。VU801qCf氏による情報。
+  [Yasuhiro Ogawa]
+
+- Namco NA1の改良: [Pierpaolo Prazzoli]
+ * namcona1ドライバのスプライトシャドウ修正と、「エメラルディア」のハック削除
+ * タイルマップとスプライトの4bppモードを追加
+ * ROZレイヤーの初期版追加 (動作切り替えのレジスタが見つかるまでは無効化)
+ * emeraldaのデモ修正のため、背景ペンを変更
+
+- ディスクリートサウンドシステムの改良: [couriersud]
+ * ディスクリートサウンドにDISCRETE_RCFILTER_SWを追加。これはコンデンサの接続・
+   切断を切り替えるCD4066によるマルチRCネットワークを実装します。
+ * DISCRETE_RCFILTER_SW及び、ディスクリートロジックへの76416出力ルーティングを使っ
+   てディスクリートミキシング回路を実装
+ * konami_soundを使いgalaxian.cにディスクリートフィルタリングとミキシングを追加
+ * discrete_sound_wでのstream_updateのタイミングを修正。全てのサウンドコアが変更
+   されたデータを処理する前にアップデートします
+ * discrete_sound_rにstreeam_updateを追加
+ * 各モジュールで複数の出力ノードをサポート
+    この場合、NODE_XXXがデフォルト出力です。他の出力はNODE_XXX_YY(00<Y<08)でアク
+    セスできます。
+
+    また、以下のマクロでもノードにアクセスできます:
+
+      NODE_XXX = NODE_SUB(XXX, 0)
+      NODE_XXX = NODE(XXX)
+      NODE_XXX_YY = NODE_SUB(XXX, YY) (YY != 00)
+
+    これにより、フリップフロップ(Q & QQ)やバイナリカウンタなどでのディスクリート
+    サウンドエミュレーションが容易になるはずです。
+ * この変更による一貫性問題を調べるためのサニティチェック追加
+ * outputs ==> 特別なモジュールの数を指定するモジュール。(WAVELOG)は入力ノードと
+   しては今後使用しません
+ * ドライバ2本から、explicit (NODE_XX + expr)を削除
+
+- AICA/SCSP DSPについて、ネガティブ非正規化浮動小数点のエンコード・デコードを修
+  正。ゲーム自体には影響無し。[kingshriek, Deunan Knute]
+
+- SeibuサウンドCPUで、input_port_0_rに代わって、AM_READ_PORT("COIN")を使うように
+  変更。[stephh]
+
+- bloodbor.cドライバにDIP配置とコインモード追加。bloodbraについての記述追加。
+  [RansAckeR, stephh]
+
+- 追加の軸とスイッチ用に入力のITEM_IDを追加。また、最大4つのHAT/POV用のITEM_IDも
+  追加。[couriersud]
+
+- Wドライバの半分についてメモリマップをマージ。また、X、Y、Zドライバもランダムに
+  作業。[Andrew Gardner]
+
+- AtomiswaveのBIOSをより冗長にするちょっとした魔法を追加。ただし、現在のビデオエ
+  ミュレーションではうまく動かない模様。[R. Belmont, ElSemi]
+
+- badlandsの海賊版追加。大きく改造されたもの。動作せず。[David Haywood]
+
+- DS2401ステートロードについて、デジタルI/Oボードのシリアルナンバーをセーブせず
+  constに変更できるよう修正。シリアルナンバーはランタイムで変更できないので、こ
+  れは意味がありませんでした。[smf]
+
+- BFCobraの改良: [Anonymous]
+ * blitterに面のプライオリティ追加で「Treble Top」のサインを修正
+ * ビデオ出力で次の全モードをサポート: lores、hires、mixedres、
+    8/7/4/3 bits/pixel。「Every Second Counts」の問題を修正
+ * 線の描画を追加。「Question of Sport」の不完全な箇所が修正
+ * blitterのループタイプ制御を変更。4種類あり
+ * ビデオフレームレートを50Hzに訂正
+ * Z80の速度を5.91MHzに訂正
+ * blit処理中にZ80のサイクルが失われる不具合に対応。グラフィックとサウンドの同期
+   の改良と、「Every Second Counts」で最終面に固まる問題を修正
+
+- ディスクIDによるいろいろなSCSIデバイスレジスタステート。デバイスタイプ間で共通
+  のもの。ハードディスクのレジスト内容と衝突しないようにCD-ROM用のデバイスタイプ
+  オフセットを追加。[R. Belmont]
+
+- カテゴリ使用時はタイルマップ全体をビューアに描画するように修正。これを効率的に
+  行うための新オプション、TILEMAP_DRAW_ALL_CATEGORIESを追加。一部のドライバで、
+  必要に応じて各カテゴリを独立して表示せず、この機能を使うように更新。
+  [Nicola Salmoria]
+
+- blueprnt.cにDIP配置追加。[RansAckeR]
+
+- MSVCでクリーンコンパイルをするためにledutil.cを修正。[Mike Haaland]
+
+- Astrocadeの更新: [Dirk Best]
+ - XTALの値を使うため、src/mame/includes/astrocde.hを更新
+ - 無効になった割り込みを削除
+ - ノブ入力追加
+
+- makefileの新フラグ、VERBOSEを追加。コンパイル中にGCCのverbose出力を有効にする
+  もの。[Marc Sandusky]
+
+-「アルゴスの戦士 / Rygar」のクロックを訂正。[Corrado Tomaselli]
+
+- 既にmachineパラメータが使われている箇所を"Machine"を"machine"に変更。一部につ
+  いては、これによりdeprecat.hも削除。[Oliver Stoenberg]
+
+- pcshare.cのオーバーホールとクリーンアップ。[Wilbert Pol]
+
+-「アーモアアタック」で、四角を使ってビルトインオーバーレイを作成。[Mr. Do!]
+
+- 6850 ACIAエミュレーションにRXとTXピンの動的操作を追加。これはMPU4ビデオエミュ
+  レーションを正しく実行するのに必要で、MESSシステムで役立つと思われます。これを
+  使用するには、aciaインタフェースでrxとtxクロックを0に設定してから、
+  acia_tx_clock_in()とacia_rx_clock_in()をそれぞれ利用します。[James Wallace]
+
+- mermaidのハードウェア当たり判定を正しく実装。これにより、mermaid(サメにやられ
+  るところ)とrougienが修正。また、mermaidとrougienのプライオリティとスプライトラッ
+  ピングのバグも修正。[Robiza]
+
+- CPS1の背景色修正。「ワンダー3」(ゲームスタート)とmtwins(アトラクトモードの爆発
+  表示)が修正。ただし、これにより、「バース」が不調、avsp、sfa3や他のCPS2ゲーム
+  の起動画面に怪しいエフェクトが発生。[Nicola Salmoria]
+
+- ironhorsにディスクリートフィルタとミキシングを追加。[couriersud]
+
+- aerfboot(aerofgtの海賊版)の修正: [Robiza]
+ - spriteram3を修正 (以前の値は高すぎで、"City"の面でビルが消えた)
+ - スプライトグラフィックバンク (以前は一部のスプライト表示が間違っていた)
+ - スプライトズームを完全に修正
+ - マルチスプライトを削除。海賊版にはありません
+
+- pit8253の実装法をデバイスに変換。また、簡単に使えるようにsrc/emu/memconv.hと同
+  じスタイルで、src/emu/devconv.hを作成。[Wilbert Pol]
+
+- tx1で、ステートセーブを実際に近づけるため、アノニマスから割り当てられたタイマ
+  にものに置き換え。[Hugh Allen]
+
+- winwork.cで、ハンドビルトなスケーラブルロックからWindowsのクリティカルセクショ
+  ンを使うように変更。
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Multi Game III [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+Off Road Challenge (2 sets) [Guru]
+Deer Hunting USA V2 [Brian Troha]
+スーパービシバシチャンプ (Korea) [Guru]
+
+
+
+追加された未動作ゲーム
+----------------------
+Give us a Break [Philip Bennett]
+Ten Up [Philip Bennett]
+Beeline [Philip Bennett]
+Chase Bombers [Bryan McPhail]

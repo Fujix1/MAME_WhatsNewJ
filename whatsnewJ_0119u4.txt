@@ -1,0 +1,133 @@
+0.119u4
+-------
+
+OSD移植者向け注意事項: ワークインタフェイスを再変更しました。以下に詳しく説明し
+ています。新しいインタフェイスからは機能が削除されているので、移植はシンプル(!)
+になったはずです。
+
+
+
+MAMETestersの修正バグ
+---------------------
+parodius0111u3gra [Mike Green]
+ghostb0105u4gra [Mike Green]
+seibuspisingle099u9yel [couriersud]
+futspy0114gra [Mike Green]
+finalizr0102u5gra [Mike Green]
+gijoe0114gra [Mike Green]
+playch10_0109gre [Mike Green]
+
+
+
+ソースの変更点
+--------------
+-「早押しクイズ クイズ王座決定戦」を独自ドライバに移動。[David Haywood]
+
+- cabal海賊版にコインカウンタ追加と、サンプル再生CPUを2つ追加。コイン投入音がゲー
+  ム中に再生されるので、まだ問題があるようです。[Pierpaolo Prazzoli]
+
+-「VS雀士 ブランニュースターズ」ドライバをさらに改良。[David Haywood]
+
+- SCSPを更に改良: [El Semi]
+ - 8ビットサンプルのエンディアン問題の修正と、補間処理の追加
+ - モジュレーションの試行を不可に設定（クラッシュする問題を修正）
+ - ピッチ計算を改良
+
+- MB86223コアに、リピートカウントレジスタ（reg 0x34）アクセスと、イミディエイト
+  値のロードを追加（「パイロットキッズ」で使用）。[El Semi]
+
+- dynax.cの入力のクリーンアップと、画面反転修正。 [Luca Elia]
+
+- seibuspi.cの問題修正: [couriersud]
+ - rdft2usにサウンド追加
+ - 単体基板ゲームにコイン処理追加
+ - 割り込み処理の修正
+ - rfjetusで、nvramが無い場合に、テストモードに入れるようにテストスイッチを有効
+   にするハック追加
+
+- i386コアの問題を修正: [couriersud]
+ - i386のINTRラインを"レベル"ラインに; 割り込み処理をアサートラインでの発生に
+   変更
+ - 32ビットモードで、ゲートヘッダからのトラップ・割り込みの割り出し
+ - 2バスサイクル内での割り込みライン読み込み。合わせてCYCLESの調整
+
+- crushsにコインと、"テレポートホール"のDIPスイッチ追加。[sonikos]
+
+- z80gb CPUコアのバグ修正: [Wilbert Pol]
+ - 割り込み取得のためのサイクルカウント修正
+ - BIT X,(HL)命令のサイクルカウント修正
+ - RRCA命令のフラグ修正
+ - DAA命令修正
+ - ADD SP,n8命令のフラグ修正
+ - LD HL,SP+n8命令のフラグ修正
+
+- MSVC_BUILD=1とDEBUG=1を指定したときのリンク問題修正。[Oliver Stoneberg]
+
+- charが符号無しのアーキテクチャ（特に一部のPowerPC環境など）でコンパイルエラー
+  が起こるのを修正。[Bill Blake]
+
+- headonのクラッシュ音にフィルタを2つ追加。これで、クラッシュ音については、エン
+  ベロープのフィルタだけが無い状態です。[couriersud]
+
+-「Loverboy」の入力修正: [wolf676]
+ - 全DIPスイッチの確認と追加
+ - 両プレイヤーにボタン1を追加。
+
+-「キャノンボール」のカラーPROM追加。[Rob Walmsley]
+
+- コード内のアウトオブバウンズな配列アクセスを修正。[Andi]
+
+- prmrsocrのマスクROMテストを修正。[Pierpaolo Prazzoli]
+
+- 前回リリースで、64ビットDRCがkinstをおかしくしていたバグを修正。[Aaron Giles]
+
+- 64ビットDRCで、ホットスポットになりそうなものを検出するコードを追加。seattle.c
+  全ゲームと、vegas.cの一部のゲームにホットスポッとを追加。[Aaron Giles]
+
+- osd_workの実装を簡素化。共有のワークアイテムという概念を無くしました。新関数、
+  osd_work_item_queue_multiple()を追加。これは、大量のワークアイテムを効率的に
+  キューできるようにします。以前のosd_work_item_queue()関数は、新関数を呼び出す
+  インライン関数に変更しました。[Aaron Giles]
+
+- Voodooコードを新しいワーク関数を使うように更新。共有項目を使わずに、小さなスキャ
+  ンラインの集まりを独立項目としてキューします。また、より多くのエミュレーション
+  とレンダリングの重複を考慮して、いくつかのパラメータをコピーするようにコードを
+  更新。[Aaron Giles]
+
+- Windowsのワーク関数について、2CPU以上にスケーリングする場合、よりよいパフォー
+  マンスを持てるように、新しいスケーラブルなロックを実装。[Aaron Giles]
+
+- Windowsのワーク関数について、統計値の収集コードを追加。このバージョンで起こる
+  かもしれない問題の割り出しのため、今のところデフォルトでオンにしています。
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+雀狂 [David Haywood, Nicola Salmoria]
+早押しクイズ グランドチャンピオン大会 [David Haywood]
+早押しクイズ 熱闘生放送 [David Haywood]
+スーパーリアル麻雀 PI (Japan) [David Haywood]
+華をやらねば! (Japan) [Luca Elia]
+華天国 (Japan) [Luca Elia]
+Player's Edge Plus (PP0516) Double Bonus Poker [Jim Stolis]
+
+
+
+新規クローンセット
+------------------
+牌砦II 仇討外伝 (Japan) [David Haywood]
+パン (海賊版, set 3) [David Haywood]
+スーパーボブルボブル (set 1) [David Haywood]
+エアーウルフ (US) [David Haywood]
+Golden Tee '97 Tournament (v2.43) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+GTI Poker [David Haywood]
+Poker? (IGS) [David Haywood]
+華仁義 [Luca Elia]
+GP World [Andrew Gardner]

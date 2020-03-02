@@ -1,0 +1,354 @@
+0.83
+----
+
+全般的なソースの変更：
+----------------------
+
+- 変更いろいろ。[Nathan Woods]
+    src/inptport.c:
+    src/inptport.h:
+    src/mame.c:
+        - input_port_allocate()でauto_malloc()を使うように変更
+          これによりinput_port_free()を呼ぶ必要がありません
+    
+    src/windows/fronthlp.c:
+        - dirが無いときのためにS_ISDIRマクロにオプション定義を追加
+
+
+- STVの更新。[Mariusz Wojcieszek]
+    - VRAMサイクルパターンレジスタベースでVDP2レイヤーを無効にする機能を追加。
+      これにより、shanhigwのタイトル画面修正
+    - VDP1の半透明追加。shanhigwのゲーム中のスプライトアルファブレンディング
+          改善
+    - VDP1のグローシェーディング追加（普通のスプライトのみ）。shanhigwで牌選
+          択したときのハイライト用
+
+- segac2.cとplaych10.cの名称と年代変更。[Curt Coder]
+
+-「スパイダー」の NVRAM。[Justin Szczap]
+
+- tecmosys.cのアップデート。[Tomasz Slanina]
+    vidhrdwの一部をエミュレート。ゲームはプロテクトで？動作不可。
+
+- チートエンジンのバグ修正。アクティベーションキーにコントローラーボタンを割り当
+  てられないバグ。[Ian Patterson]
+
+- Sega System 16/18のアップデート。[Charles MacDonald]
+    - tturfblにMSM5205のサンプル再生追加
+    - shdanblにMSM5205のサンプル再生追加
+    
+- PSXのアップデート。[smf]
+    「ヘブンズゲート」のグラフィックの問題とロード/バンキング
+    「スーパーフットボールチャンプ」が正常にロード（テストモードで引っかかる）
+        と、海外版追加
+    taito fx1のウォッチドッグ（アドレスは未確認、多分すぐ解決）
+    taito fx1aのreadmeをペースト
+    MESS用にPALをサポート
+    横のスタート/エンド
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Cannonball (Atari, prototype) [Stefan Jokisch]
+    唯一の基板でROMが一つ足りないためグラフィック不具合あり
+    
+VS. Gumshoe [Pierpaolo Prazzoli]
+    バンキングを修正して動作可能
+
+Miss Puzzle [David Haywood]
+    ROM不良で表示不具合あり
+
+Greyhound Trivia (various sets) [Pierpaolo Prazzoli, Chris Hardy]
+
+ヘブンズゲート
+
+
+新規未動作/クローンゲーム：
+---------------------------
+GP500 [R.Belmont]
+    '見込み無しハード'の予備ドライバ。全く動作せず
+
+
+
+0.82u3
+------
+
+全般的なソースの変更：
+----------------------
+
+-「まじかるでーと-卒業告白大作戦」のレンダリング修正。[smf]
+
+-「ソニックウイングスリミテッド」が固まるのを修正。[smf]
+
+- 変更いろいろ。[Nathan Woods]
+    src/cpu/i386/i386.c:
+    src/cpu/i386/i386.h:
+    src/cpu/i386/i386ops.c:
+        - 割り込みハンドリングを刷新;“bonafide line”とIRQコールバック実装
+    
+    src/cpu/i386op16.c:
+        - 16bitモードでのCALL絶対命令を修正
+    
+    src/drivers/seibuspi.c:
+        - i386の割り込みでASSERT_LINEではなくPULSE_LINEを使うように修正
+    
+    src/inptport.h:
+        - MESS用の追加項目を#ifdef MESS内に
+    
+    src/memory.c:
+        - 前に提出済みだと思ってたmemory_install_*_handler_mirror()を追加
+    
+    src/vidhrdw/tia.c:
+        - MESS用のマイナーな修正
+    
+    src/windows/input.c:
+    src/windows/input.h:
+        - use_mouseをwin_use_mouseにして非staticに変更
+
+- μPD7810の改良でMetroドライバに音追加 :-) [Hau]
+    * 7810
+    gta, gti, dgt fixed
+    working reg opcodes fixed
+    sio input fixed
+
+    * metro.c
+    サウンドサポート
+
+- dariusgを修正 (68008の変更で動作しなくなっていたもの)。[Curt Coder]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+アーガス (Gottlieb, Prototype)
+Video Vince and the Game Factory (Mylstar, Prototype)
+Wiz Warz (Mylstar, Prototype)
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+sfex2p (アジア版, 元USA版) [smf]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Pinball Champ '95
+    ベースはギャンブルゲームの模様だがまだ動作せず
+
+
+
+0.82u2
+------
+
+全般的なソースの変更：
+----------------------
+
+- onetwo: タイトル画面の不具合修正。[Pierpaolo Prazzoli]
+    - この設定で色チェックしてもらえると助かります
+
+- goal92: 周波数、表示エリア修正と、ADPCMのエミュレーションがされてなかったのを
+  発見。追加しようと頑張ったんだけど、うまくいかなかったので誰かお願い ;-) 
+  [Pierpaolo Prazzoli]
+
+- I386とMAMEデバッガの改良。[Nathan Woods]
+    src/mamedbg.c:
+    src/mamedbg.h:
+        - 存在しないレジスタをトレースしようとするとMAMEデバッガで警告を出す
+          ようにしました
+        - mame_debug_trace_write()を実装。MAMEデバッガのトレースファイルに
+          テキストを出力するAPI
+    
+    src/cpu/i386/i386ops.c:
+    src/cpu/i386/i386op16.c:
+        - CALL16命令で16bitモード時にEIPではなくIPのみを制御するように修正
+        - RETF命令のマイナーなバグ修正
+        - REPとREPNE命令で同じコードを使って実装するように変更
+        - IFがゼロのときでもINTOで割り込みするように修正
+
+- 改良いろいろ。[Curt Coder]
+    *「アルカノイド」系
+    drivers/arkanoid.c
+    machine/arkanoid.c
+
+    - メモリマップのマージ
+    - Moved paddle2 trickery to machine/
+
+- Nintendo 8080ハードウェアの更新。[Stefan Jokisch]
+
+　ドライバを3つに分割しました。前回の更新で「ヘリファイア」が一部変になっていた
+  のは修正しています（ショット時に色がちらつくのや、音量の減衰エフェクト（ゲーム
+  開始時のメロディーやボーナス面のBGMなど）。背景の星空部分のスクロール速度はこ
+  れで正しいはずです。以前は75%の速度でした。それから、「スペースランチャー」に
+  ある「スペースフィーバー」のカラーPROMを使うことにしました。正しいものだと思い
+  ます。
+
+- eeprom_interface_93C46の変更。[Tomasz Slanina]
+    これを使うゲームをチェックしてきちんと動作するか調べる必要有り
+
+- デバッガ: TRACE CONSOLEとタイプしてコンソール（またはGREPなど）にトレースの出
+  力可能。[smf]
+
+- ST-Vのアップデート。[Mariusz Wojcieszek]
+    - 前回の更新で起たバグを修正：RGBスプライトの色不具合とスプライトクリッ
+          プの間違い
+    - RGBスプライトのカラーオフセット追加
+    - ビットマップの横方向スクロール修正（mausukeのゲーム中の背景が修正）
+
+- EEPROM_interface eeprom_interface_93C46の変更。[Tomasz Slanina]
+    これを使うゲームをチェックしてきちんと動作するか調べる必要有り
+
+- Seattleハードのアップデート。[Aaron Giles]
+    x86drc.c:
+    * SSEサポートの詰めの作業
+    * レジスタのPC/ICountを保持するかリコンパイラで選択可能に変更
+    * append_verify_codeについてsizes > 4に設定
+
+    cpu/mips/mips3.c:
+    * Configレジスタサポート
+    * 系列チップ追加: R4700, QED5271, RM7000
+    * LWXC1/LDXC1/SWXC1/SDXC1命令のバグ修正
+
+    cpu/mips/mips3drc.c
+    * Configレジスタサポート
+    * 系列チップ追加: R4700, QED5271, RM7000
+    * コアのcodegen部を新しい#includeファイル、mdrcold.cにまとめ
+
+    drivers/seattle.c:
+    * いろんなボードセットの情報をさらに追加
+    * GT64010と全部の割り込み用の定数追加
+    * イーサネットデバイスの割り込みサポート
+    * PCIバスでIDEコントローラが認識できるように変更
+    * vaportrxとcalspeed用の“特別な”基板を形式化
+    * CMOSプロテクトビットを実装
+    * sfrushrkのオーディオCRCの訂正と、ハードディスクの実装
+    * sfrushとvaportrxを動作可能にマーク
+
+    machine/midwayic.c:
+    * sfrushrkのPICサポート
+    * sfrushrkの速度アップ用にPIC読み込みのタイムアウト追加
+    * 起動時のサウンドリセットラッチが無かったのを修正
+    
+    machine/smc91c9x.c:
+    * SMC91C94イーサネットコントローラを実装
+    * ループバックのみサポート
+
+    vidhrdw/voodoo.c:
+    * ログ取り動作のクリーンアップ
+    * バックスラッシュキーで全部の統計情報にアクセス可
+    * 赤/青入れ替えのハックを削除
+    * 頂点座標の切り捨てを修正（vaportrxのグラフィック用）
+    * 別なLFBライトモードをサポート
+
+- horshoes: DIP修正。[Brian Troha]
+
+- GX以前のハードのクリーンアップ。[R.Belmont]
+
+- 6532RIOTパッチ (MESSの修正用) [Judge]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+クイズ ドレミファグランプリ [Hau]
+クイズ ドレミファグランプリ2 [Hau]
+
+ZNベースのゲームいっぱい [special thanks to Tourniquet,
+  Olivier Galibert, smf, R.Belmont, [red], Malice, Renegade, 
+  Twisty, Dox, But & many other mame.net board users]
+
+ビクトリアスナイン [BUT]
+
+Golden Par Golf [Brian Troha]
+
+サンフランシスコラッシュ [Aaron Giles]
+ヴェイパーTRX [Aaron Giles]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Anteater (German) [Pierpaolo Prazzoli, MASH]
+
+Monster Maulers / 究極戦隊ダダンダーン [R.Belmont]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+ヘブンズゲート [R.Belmont]
+    バンキングが不完全かPSXのバグ?
+
+ギャルズパニックII - クイズバージョン [Pierpaolo Prazzoli]
+
+ディンゴ (encrypted set) [MASH] -- ROM不良
+
+
+0.82u1
+------
+
+全般的なソースの変更：
+----------------------
+
+-「エリア51」のR3000版を親セットに変更。[smf]
+
+- memory.c用パッチ。[Nathan Woods]
+    src/memory.c:
+    src/memory.h:
+        - memory_install_[read|write][8|16|32|64]_handler_mirror()を追加。
+          AM_MIRRORマクロと同じようにミラーリング可能なメモリハンドラを設定
+              するもの
+
+- STV VDP-1のアップデート。[Mariusz Wojcieszek]
+    - VDP1の描画（スプライト）にフレームバッファを使うように変更
+    - スプライトプライオリティ追加（shanhigwのプレイ時やcolumn97のタイトル画
+          面修正）
+    - スプライトのカラーオフセット追加
+    - スプライトのアルファブレンディング改良（ejihonとshienryuのイントロの改
+          良）
+    - フレームバッファインタフェース追加（elandoreのキャラ選択画面修正）
+    - ビットマップのカラーオフセット追加
+    - ビットマップのの縦スクロール追加（shanhigwのゲームプレイ修正）
+
+    以上の変更（ユーザから見える部分）により、shanghigwが問題なくプレイ出来
+        るようになりました（タイトル画面の不具合は除く）
+
+- STV VDP-2のアップデート。[Angelo Salese]
+    ウィンドウモード時のバグを修正。
+
+- PSX sioのバグ修正。[smf]
+
+- Z80 RETN / RETIのサイクルカウントを修正。[Juergen Buchmueller]
+
+-「1945kIII」のサウンドとDIP修正。[Pierpaolo Prazzoli]
+
+- hyprduel.cのスプライトプライオリティ修正。[Hau]
+
+- tecmo16.cの画面反転修正。[Hau]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+ブラッディロア2 [smf]
+    ROMが一つ不良
+
+FireHawk [Pierpaolo Prazzoli]
+    アトラクトモードのAfega特有のハードプロテクトの問題があるので
+    実はまだ動作不可印付き
+
+上海 - 万里の長城 [Mariusz Wojcieszek]
+    タイトル画面にまだ不具合あり
+
+ヘッドオン (Irem M15基板) [David Haywood]
+    音無し
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Target Ball (脱衣無しセット) [David Haywood]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Open Golf Championship / ゴルフィンググレイツ2 (ver EAE) [R.Belmont]
+    動作せず
+
+パチンコ銀玉勝負DX [Brian Troha]
+パチンコ銀玉勝負 [Brian Troha]
+    realbreakに似たハードでもまだ動作せず

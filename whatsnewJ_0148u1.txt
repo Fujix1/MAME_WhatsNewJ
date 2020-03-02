@@ -1,0 +1,282 @@
+0.148u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05137: [ゲームプレイ] (nbmj8991.c) galkaika, galkoku, mcontest, tokimbsj, 
+         tokyogal, uchuuai: 音が出なかったり、アトラクトモードやゲーム中にフリーズす
+         る。(Phil Bennett)
+- 04028: [クラッシュ/フリーズ] (pinkiri8.c) ronjan: OK画面のあとクラッシュする。
+         (Firewave)
+- 04844: [クラッシュ/フリーズ] (jaguar.c) fishfren: EEPROM初期化後、画面が黒いまま。
+- 05134: [グラフィック] (m92.c) ppan: スプライトが表示されない。(Phil Bennett)
+- 04487: [グラフィック] all games with PlayStation GPU: 一部のグラフィックオブジェク
+         トが横に1ピクセルずれている。(smf)
+- 05104: [クラッシュ/フリーズ] (qix.c) slither, slithera: [デバッグ限定] エラーメッセ
+         ージ「Error: bad downcast<> or device<>.」が表示される。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+- srccleanによりXMLとCのコメントを同じく処理するので、インデント可能だがコメント自体
+  のスペースを使用。[smf]
+
+- cファイルの空行に続く行継続キャラクタと、左括弧に続く空行を削除。[smf]
+
+- i8244.c: i8244/i8245のデバイス実装。[Wilbert Pol]
+
+- diimage: イメージデバイスがイメージのファイル名に対するコア側のfopen()を無視して、
+  call_load()側で処理できるように変更。[R. Belmont]
+
+- uimain.c: スロットメニューの現在値表示にスロットインタフェース名を使用。
+  [Fabio Priuli]
+
+- subsino.c: stisub、smotoとクローンセットにホッパーエミュレーション追加。[Luca Elia]
+
+- DSP16: 追加のオペーコードど逆アセンブリの修正。[Andrew Gardner]
+
+- n68681: ACRを更新したときにシリアルパラメータが破棄されるのを修正。[R. Belmont]
+
+- MIDIコアの更新: [R. Belmont]
+  * imageデバイス型にMIDIの入出力ポートを追加
+  * MIDIの入力チェックのためOSDコールを追加
+  * imageデバイスで入力をシリアルビットストリームにコンバートするものにMIDIを追加
+
+- d3dhlsl.c: CTRL+ALT+F12でHLSLをランタイムで切り替え可能。[MooglyGuy]
+
+- MIDI: 実際のデバイスに接続しなくても入力ポートが動作するように改良。[R. Belmont]
+
+- MIDI出力サポートの最初の一歩。[R. Belmont]
+
+- DSP16 : オペーコード追加。[Andrew Gardner]
+
+-「バーチャレーシング」のランプを実装。[SailorSat]
+
+- MC6845のインタフェースストラクチャに"show border area"フラグ追加。
+  trueのときは、ボーダーとブランクエリアを含む全画面出力を表示。[Angelo Salese]
+
+- DSP16: 使用される可能性のある全てのオペーコードに対してPCを処理。[Andrew Gardner]
+
+- MIDI: バグの修正と入力バッファサイズの拡大。[R. Belmont]
+
+- Lucky'74 (set 2): 実際の払い出しレートテーブルを反映するように入力の修正。
+  [Roberto Fresca]
+
+- QTデバッガの改良: [Andrew Gardner]
+  * 逆アセンブリウィンドウがPCを正しくフォローしない問題を修正
+  * フォントをCourier Newに変更
+  * テキストキャラクタの描画に隙間があったのを修正
+  * デバッガコアでのマウスクリック選択を修正
+  * Enterキーの動作を旧SDLデバッガと同じように変更
+
+- wwfsstar.c: 純正基板用セットのROM読み込みと、ROMラベルをいくか修正。海賊版セット追
+  加とその解説を追加。[Brian Troha]
+
+- wwfsstarj - プログラム / txタイルROMを修正。[Stevebm1, Porchy]
+
+- qix.c - 初期化時のデバイス参照を解決。[Phil Bennett]
+
+- sharcdsm.c:  [Pavel Semerad]
+  * PM()とDM()の両方を使用する命令で省略していたディレクションフラグを追加
+  * 6ビットイミディエートデータを取る命令で、このデータは符号付きです。例えば、0x3Fが
+    実際には-1を示すため、混乱を避けるためこの方がよいと思われます
+
+- Bonne Chance!: 完全な入力系を作成。動作可能に昇格。ノートも追加。[Roberto Fresca]
+
+- Bonne Chance!: 表示色が正しく見えるようなパレットを追加。サービスモードについての解
+  説も追加。[Roberto Fresca]
+
+- balsente.cゲームに多くのPAL10L8を追加。[Kevin Eshbach]
+
+- R3000コアのモダン化: [Phil Bennett]
+  * 以下の派生版をサポート: R3041, R3051, R3052, R3071, R3081
+  * エンディアンをMCFG_R3000_ENDIANNESS()で指定 (デフォルトはビッグエンディアン)
+  * 設定用の構造体を削除。キャッシュサイズとFPUの有無はCPUタイプで設定
+  * ステートセーブ機能追加
+  * BrCond入力コールバック追加
+
+- CPS-2の更新: [Team CPS-1]
+  * sfa2uのラベルを3つ修正
+  * sfz2aljセットの整理
+
+- psx: 新型レンダリング機能の表示不具合を減らすため、レンダリングをquadsに巻き戻し。。
+  [smf]
+
+- segas16a.c: 「スケバン雀士竜子」の317-5021 FD1089Bを正しく再吸い出し。
+  [hotgraphics, Song Gao, Bad A Billy, ranger_lennier, Yohji, Smitdogg, 
+   Charles MacDonald, The Dumping Union]
+
+- psx: CPUからCDコントローラへの通信にdevcb2を使用。アドレスデコーディングCPUに対して
+  内部配置で、CDコントローラは自身の8ビットバス上。[smf]
+
+- m740: BBC/BBSのbit+zp+rel. offset逆アセンブリを修正。[R. Belmont]
+
+- psx: CPUのSPUに対する実装を、それ自体の16ビットバス上としてdevcb2を使用するように変
+  更。taitognで0x1fa51c00のSPU実装は無意味なので削除。さらに解析する前にバグレポート
+  希望。[smf]
+
+- d3dhlsl.c: ベクターのポストプロセス処理追加。[MooglyGuy]
+
+- sanremo.cドライバの改良: [Roberto Fresca]
+  * グラフィックのデコード
+  * ROMロード処理修正
+  * 正確なメモリマップ
+  * CPUと割り込みの実装
+  * CRTCのサポート
+  * AY-3-8910サウンドとポートのサポート
+  * 入力ポート追加
+  * output-lampsポート追加
+  * button-lampsレイアウト追加
+  * NVRAMのサポート
+
+- New York Joker: 入力、出力、ボタンランプ、サウンド、コイン、札カウンタ、デフォルト
+  NVRAM追加により、動作可能。
+  注意: pins/cardsの切り替えには、クレジット投入後(ゲーム内でベット前)に、HOLD3を押し
+  てグラフィックオプションを表示し、HOLD2とHOLD4で希望セットを選択する。
+  [Roberto Fresca]
+
+- psx: フレームバッファの読み込みをフレームバッファ座標に設定。これが正確かどうかは不
+  明だが、マイナス座標を指定したときのクラッシュは解消。[smf]
+
+- ZNの更新: [Team CPS-1]
+  * sfexuのラベルを一つ確認
+  * sfexaセットの記述を追加
+
+- QTデバッガの改良 [Andrew Gardner]
+  * ウィンドウ位置のセーブとロード
+  * "run and hide"と"hard reset"の処理追加(うちのコンパイラではクラッシュしませんが、
+    別なものではクラッシュします。要改良)
+  * デバッガビューのカーソル色がPCと同じ場合の色修正
+  * メインウィンドウを閉じるとマシンも終了(quitと同じ)するように改良
+  * ヘルプをログウィンドウサイズと同じに設定
+
+- SDL: sdl.makのsrcclean部分がおかしかったのを修正。[Wallyweek]
+
+- SDL: mameとmessのmanpageを更新。[Wallyweek]
+
+- alienchaのプロテクトルーチン追加。[iq_132]
+
+- lordgunのプロテクルーチンに不足していた機能を実装。[iq_132]
+
+- SDL: Mac OS XのQtデバッガを修正。[Balrog]
+
+- TLC34076デバイスの完全モダン化。[Phil Bennett]
+
+- xtheball.c: タグルックアップの縮小。[Phil Bennett]
+
+- CPS-1の更新 [Team CPS-1]:
+  * nemojのNM_23.13Bを正しいものに置き換え
+  * sf2ueの実機を元に、ラベルのうちひとつを確認
+
+- MIDI: 正しい動作ステータスによるMIDI出力処理。[R. Belmont]
+
+- SH-2 CPUのイリーガルなオペコード処理を追加。[Angelo Salese]
+
+- taitolのhorshoes、plottingu、pazzunicjの基板からPALを追加。必要に応じてラベルも追加。
+  [Kevin Eshback]
+
+- VolumeとRCフィルタサウンドデバイスのモダン化。[Andrew Gardner]
+
+- i386: tlb追加。[Carl] 
+
+- digitalker、tiaintf、n63701xサウンドデバイスのモダン化。[Andrew Gardner]
+
+- Konami PPCの更新:
+  * PCBのドキュメントに合わせてサウンドクロックを修正 [RetroRepair]
+  *「GTIクラブ」の入力ラベル追加 [RetroRepair]
+  * RF5c400のエンベロープタイミングを、MAMEの出力レートからチップの出力レートに変更
+    [R. Belmont]
+
+- SDL: -listromsで-lrエイリアスが反映されるようにmanpagesを更新。[Wallyweek]
+
+- aviio.c - 2GB RIFF分割でフレーム不良が起こるのを修正。[Phil Bennett]
+
+- video/gticlub.c: gticlubとthunderhでスティッキーな表示の3Dを修正。[Ville Linde]
+
+- namcops2: JVSとSteering I/OボードROM追加。[Guru]
+
+- uimain.c: 内部オプションのみが有効(なので、エンドユーザーが設定できない)スロットオ
+  プションの処理を修正。[Fabio Priuli]
+
+- MIDI: SysEXメッセージの送信可能。[R. Belmont]
+
+- MIDI: SysExの受信機能サポート。[R. Belmont]
+
+- Ensoniq ES5510 DSPの実装開始。[Christian Brunschen]
+
+- segas18.c:「エイリアンストーム」の日本版セットに正しいサウンドROM(rev b)を追加(ダン
+  パー2人により検証)。[Zozo, system11]
+
+- iremga20とk005289サウンドデバイスのモダン化。[Andrew Gardner]
+
+- arm.c: lvl2ルックアップ用のページテーブル塚。ldrinkの致命的なエラーが解消。
+  [MooglyGuy]
+
+- k001604: ROZレンダリングを書き直し。[Ville Linde]
+
+- clifront.c:  [Peter Ferrie]
+  * -verifyroms中のenum処理を高速化
+
+- idectrl.c:  [Peter Ferrie]
+  *「Fishin' Frenzy」で起きた不具合を「Area 51 Site 4」に影響しないよう修正。
+
+- arm7ops.c: SMLAxyオペコードの動作修正。[MooglyGuy]
+
+- arm7ops.c: SMLAL、SMULW、SMLAWオペコードの修正。[MooglyGuy]
+
+- justクライアントからサーバーソケットのサポートに切り替え。[SailorSat, R. Belmont]
+
+- Sega Saturn VDP1と2のステート化。[Angelo Salese]
+
+- VDP2ビットマップレイヤー用のラインスクロール修正。[Angelo Salese]
+
+-「スーパーピンボールアクション」のプロトタイプ、「Fruit Fresh」を含む新規追加未動作
+  セットについての作業。[David Haywood]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Bonne Chance! (French/English)
+  [Roberto Fresca, Any, The Dumping Union]
+Brixian [David Haywood, Zabanitu]
+Number One [Roberto Fresca, David Haywood, Any, The Dumping Union]
+New York Joker [Roberto Fresca, David Haywood, Any, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Tesorone Dell'Isola (Italy, two sets) [any, The Dumping Union]
+Jolly Card (Italian, encrypted bootleg, set 2)
+  [Any, The Dumping Union, Roberto Fresca]
+Lucky 74 (bootleg, set 2) [Any, The Dumping Union, Roberto Fresca]
+Vastar (set 3) [Zab]
+Wonder Boy in Monster Land (English bootleg set 3) [RanaElia]
+WWF Superstars (bootleg) [Brian Troha]
+Jackler (Jungler Bootleg)  [Zab]
+T.T.Fitter (Roundup海賊版) [Zab]
+Super Pool 99 (Version 0.33) [Any, The Dumping Union, Roberto Fresca]
+Super Pool 99 (Version 0.26) [Any, The Dumping Union, Roberto Fresca]
+ストリートファイターII’-チャンピオンエディション-
+ (Dongfang Bubai protection, bootleg)  [iq_132]
+コンチネンタルサーカス (Japan) [ShouTime, The Dumping Union]
+X-Men (4 Players ver AEA) [RevisionX]
+デーモンフロント (68k label V103, ROM M103XX 07/05/02)
+  (ARM label V103, ROM 07/05/02 S103XX) 
+  [R. Mucciarelli, Layne, Smitdogg, The Dumping Union]
+Knights of Valour: Yi Tong Zhong Yuan [XingXing]
+Lucky Boom (Hard Times / Hot Mind hardware) [ANY] (not working)
+
+
+追加された未動作ゲーム
+----------------------
+タンブルポップ (Playmark bootleg) [ANY] (not working)
+プリント倶楽部2 '97ウインターバージョン (J 971017 V1.100)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+Rugby? (four roses hardware) [Any, The Dumping Union, Roberto Fresca]
+スーパーピンボールアクション (プロトタイプ)
+ [TrevEB, f205v, Tormod, Smitdogg, The Dumping Union]
+Fruit Fresh [ANY]
+Several IGS036 based sets [XingXing]
+
+

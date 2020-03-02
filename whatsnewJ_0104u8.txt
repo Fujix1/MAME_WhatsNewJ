@@ -1,0 +1,80 @@
+0.104u8
+-------
+
+OSD開発者向けの重要な変更: osd_logerrorを廃止しました。その代わりに、エラーロ
+グを取るときはoptions.logfileフィールドのmame_fileへのハンドルを提供します。
+これをNULLのままにすると、ログは取得されません。
+
+
+
+MAMETestersの修正バグ
+---------------------
+tmnt099u1gre1 [Pierpaolo Prazzoli]
+block056yel [David Haywood, Corrado Tomaselli]
+block085u2gre [David Haywood]
+ddenlovr0104u7ora [Aaron Giles]
+toutrun0104u7red [Aaron Giles]
+bounty0104u7red [Aaron Giles]
+maxaflex0104u7red [Aaron Giles]
+cclimber.c0104u7red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- 前回の変更でhyhooが壊れていたのを修正。[Takahiro Nogi]
+
+- Alpha 8201/8301 MCUエミュレーション追加。これを以下のものに接続:
+  champbbj, champbb2, talbot, shougi, shougi2, exctsccr [Tatsuyuki Satoh]
+
+- cpunum_set_clock_period()追加。cpunum_set_clock()のバリエーションで、
+  subseconds_tをとり、精度がさらに高くなります。[Nathan Woods]
+
+-「Wink」に残っていた問題をほとんど修正。ただし、まだ未エミュレートのプロテクト
+  あり。[HIGHWAYMAN, Nicola Salmoria, Pierpaolo Prazzoli]
+
+- galaga.cとsegaybd.cベースのゲームにステートセーブ追加。また"out of context"エ
+  ラーメッセージでソースの問題を部分を指摘するように改良。[Andre Hufschmidt]
+
+- ログエラー処理をコアに移動。OSDポートはmame_fileハンドラに出力ファイル用の
+  options.logfileをセットする必要があります。[Aaron Giles]
+
+-「Congo Bongo / ティップタップ」で2つめのSN76496の周波数を修正。
+  [Aaron Giles, Chris Law]
+
+-「Pig Newton」にSega Univeresal Sound Boardを実装。[Aaron Giles]
+
+- -validateコマンドを追加。システム全体の検証および、適切なエラーコードで終了。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+チャンピオンベースボール (Japan set 1/2) [Tatsuyuki Satoh]
+チャンピオンベースボールII [Tatsuyuki Satoh]
+エキサイティングサッカーII [Tatsuyuki Satoh]
+将棋 [Tatsuyuki Satoh]
+将棋パート2 [Tatsuyuki Satoh]
+タルボット [Tatsuyuki Satoh]
+Paradise Deluxe [David Haywood]
+Sea Hunter Pengiun [David Haywood]
+
+
+
+新規クローンセット
+------------------
+Star Fighter [Pierpaolo Prazzoli]
+News (set 2) [Ryan Ahn]
+レイブレーサー (Rev. RV1, Japan) [Arzeno Fabrice]
+ファイナルラップR (Rev B) [Arzeno Fabrice]
+アウトランナーズ (World) [Arzeno Fabrice]
+Wild West C.O.W.-Boys of Moo Mesa (ver AA) [Arzeno Fabrice]
+スラップファイト (bootleg) [David Haywood]
+Do! Run Run / スーパーピエロ (Do's Castle hardware, set 2) [David Haywood]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Tappy & Rappy [David Haywood]

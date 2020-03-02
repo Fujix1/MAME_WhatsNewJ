@@ -1,0 +1,165 @@
+0.122u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+scorpion0111u5gra [couriersud]
+qbert37b14gre1 [Zsolt Vasvari]
+blktiger060gre [robiza]
+kinstc081u7gre [Aaron Giles]
+kinst2083gre [Aaron Giles]
+umk3059gre [Aaron Giles]
+umk3137b5gre [Aaron Giles]
+lasso056gre_1 [Zsolt Vasvari]
+lasso056gre_2 [Zsolt Vasvari]
+term20103u4gre [Aaron Giles]
+term20104u2gre [Aaron Giles]
+m72_0115u3yel [Mamesick, Aaron Giles]
+deadang0119u2red [David Haywood]
+tmnt095gre [Zsolt Vasvari]
+memleak0122u2ora [Atari Ace]
+junglek055gre [Zsolt Vasvari]
+
+
+
+ソースの変更点
+--------------
+-「スクランブル」とクローン版で、反転したタイルマップのオフセットを修正(カクテル
+  モードでプレイ可能)。[couriersud]
+
+- Exidyドライバで、グラフィックを毎回デコードするのを省くため、メモリから直接背
+  景を描画するように変更。[Zsolt Vasvari]
+
+- INTERRUPT_GENコールバックにmachineとcpunum引数を追加。また、INTERRUPT_GENか
+  OPBASE_HANDLERを使用していない箇所を修正。[Atari Ace]
+
+- u4のクリーンアップで起きていたgfxlayoutのマイナーなバグを修正。[Atari Ace]
+
+- 64-bitビルドについて、64-bitエラーを見つけるために4GB以下のアドレス空間を全て
+  割り当てるコードを追加。設定時に明示的にdebug mallocをオーバーライドする環境変
+  数、OSDDEBUGMALLOCを追加（残念ながら一部のD3Dドライバが64-bit uncleanなせいで
+  これが必要）。[Aaron Giles]
+
+- getenvで正しいtchar関数を使うよう、winworkを修正。[Aaron Giles]
+
+- 64-bit DRCでrbpをセーブしないバグを修正。[Aaron Giles]
+
+- lassoドライバをクリーンアップ。[Zsolt Vasvari]
+
+- Y-unit DMAレンダリングをシンプル化。バグの修正と、voodooマクロを削除。
+  [Aaron Giles]
+
+- othunder.cに死蔵されたコードを削除。[Zsolt Vasvari]
+
+- m72ドライバに正確なビデオタイミングとスキャンライン割り込みの実装。
+  [Mamesick, Aaron Giles]
+
+- mario.cの改良: [couriersud]
+ * ディスクリートサウンド
+ * z80dmaを実装
+ * メモリマップの結合
+ * mario_state構造体のstatics
+ * セーブステートの問題を修正
+ * sh_*書き込みを一つのルーチンに統合
+
+- audio/dkong.c: [couriersud] 
+ * LS123定数をTIのダイオード定数回路のデータシートに合わせて修正
+
+- TX-1の改良。[Philip Bennett, Guru]:
+ * 残りの演算ユニットの問題を修正
+ * 正しいオブジェクトカラーピクセルLUT PROMをtx1aに追加
+ * 横方向の反転を修正
+ * エンジンサウンドを追加
+
+-「ビッグファイト」に正しいDIPスイッチ設定を追加。また「サイクルウォリアーズ」の
+  DIPスイッチの訂正。[Philip Bennett]
+
+-「怒」「T.A.N.K」「ハイパースポーツ」「特殊部隊ジャッカル」「S.A.R.」のハード
+  ウェア上の周波数確認と変更。[Corrado Tomaselli]
+
+- 基板上の周波数とOKI6295ピン7のチェック、及び訂正:
+
+  ダブルドリブル、チェッカーフラグ、ダイエットGOGO、バルダーダッシュ、シークレッ
+  トエージェント、サイコニクスオスカー、キャプテンシルバー、マジカルキャットアド
+  ベンチャー、雷電、スーパーマン、ツインホーク、ヴィマナ、ゴークス、ドギューン、
+  達人王、フーピー!!、フィグゼイト、Money Money[Corrado Tomaselli]
+
+- brkthru/darwinのメモリマップをクリーンアップ。また、darwinの計測結果を元に、両
+  者で同じビデオタイミングパラメータを使うように変更。マスタクロックについての可
+  能な情報とそれから導き出したゲームクロック全てから推測。[Aaron Giles]
+
+- CVSドライバの再構成とクリーンアップの開始。スピーチCPUのエミュレーション追加。
+  CVS BIOSエントリの削除。不要なパッチの削除。[Zsolt Vasvari]
+
+- sauro.c: [couriersud]
+ * sp0256サウンドを実装
+ * ポートの分析とコメント
+ * real successなしでpalette_bankをサポート
+
+-「雷電II」ドライバを再構成。V33系セットのドキュメントを少し追加。
+  [David Haywood]
+
+- kickgoalの背景でスキャン機能を修正。入れ替わっていました。[David Haywood]
+
+- senseとフラグbitについて2650の逆アセンブラを修正。OUT命令の引数順を修正。スペー
+  シングの修正。[Zsolt Vasvari]
+
+- 空のコンフィグファイルでハング・クラッシュするのを修正。[Wilbert Pol]
+
+- tceptorのメモリマップをクリーンアップ。[Zsolt Vasvari]
+
+- Atari System 2ドライバのクリーンアップ: [Aaron Giles]
+ * ビデオタイミング修正
+ * 完全なメモリマップ
+ * セーブステートサポート
+ * 720のサウンドCPUについて、他のゲームように"prepopulated"なEEPROMに合わせるた
+   め、ハックを削除
+
+- i386dasmで64-bitターゲットアドレスの出力をサポート。[Aaron Giles]
+
+- MESSのPC-Engineエミュレーションシステムを追加。VC2003でのMAMEのデバッグビルドを
+  修正。[David Haywood]
+
+- tmnt.cとtwin16.cのメモリマップを統合。「キューブリック」海外版と日本版のROMセッ
+  ト名を入れ替え。いくつかの関数の名前について、親セットに合わせて変更。
+  [Zsolt Vasvari]
+
+- Konamiドライバを同じレイアウトを使ってグラフィックの割り当てとデコードをするよ
+  うに変更。decodechar()からレイアウトパラメータを削除。[Atari Ace]
+
+- C++のコンパイルエラーを修正。[Dave Dribin]
+
+- 64-bitと32-bitのMAMEでINPファイルをコンパチブル化。[Chad]
+
+- Nicola氏の古い記録からtaitosjのメモリマップを完成。その他コードのクリーンアッ
+  プ。[Zsolt Vasvari]
+
+- src2htmlの改良: [Aaron Giles]
+ - 行数を追加
+ - srcとdstディレクトリが同じときはrawファイルへのリンクを追加
+
+- フルスクリーン切り替え時の"修正"。意味自体はないものですが、とりあえず動作する
+  という経験的な証拠から追加。[Emuman]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Name Club Ver.3 (J 970723 V1.000) [David Haywood]
+Blazing Lazers [David Haywood, Charles MacDonald, Mr. Do]
+
+
+
+新規クローンセット
+------------------
+リードアングル(Japan) [Guru]
+A Question of Sport (39-960-107) [Highwayman]
+ジービー (F.lli Bertolino license) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Road Runner (Midway) [Zsolt Vasvari, Guru]
+Paranoia [David Haywood]

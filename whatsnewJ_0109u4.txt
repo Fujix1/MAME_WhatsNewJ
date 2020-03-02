@@ -1,0 +1,60 @@
+0.109u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+hvysmsh0103u3gre [robiza]
+
+
+
+ソースの変更点
+--------------
+- COP4xxコレクションにCOP410コア追加。[Nathan Woods]
+
+- alpha68kゲームのバンキング改良。[robiza]
+
+- MNGファイル書き出し時のメモリリーク修正。[Buddabing]
+
+- 書き直しでAuditのバグが起きていたのを修正。[Mamesick]
+
+- funworld / cardlineドライバのランプ修正。[wolf676]
+
+- ドライバどうしのリアルタイムクロックアクセスを標準化。INPファイル保存時に確
+  実にリアルタイムクロックがリセットされます。[Nathan Woods]
+
+- pacmanドライバで実際の同期チェーンを反映してドキュメントを更新。2650系のサ
+  ウンド周波数修正。[Aaron Giles]
+
+- データバスサイズよりも最小命令サイズが大きいCPUの逆アセンブリ表示バグを修正。
+  [Aaron Giles]
+
+- デバッガコマンド"history"を追加。直近の実行命令を出力します。[Aaron Giles]
+
+-「Looping」ドライバを改良: [Aaron Giles]
+ * クロック周波数修正
+ * ビデオタイミング修正
+ * プロテクト修正（もともと"動作可能"の設定にするべきではなかったと思います）
+ * ドライバのクリーンアップをいろいろ
+
+- tms99xxコアのデバッギングクリーンアップと、新しい逆アセンブラシンタックスに
+  変換。ステップオーバー・アウトのサポート。[Aaron Giles]
+
+- 使わなくなったCPUINFO_PTR_REGISTER_LAYOUTとCPUINFO_PTR_WINDOW_LAYOUTのデー
+  タアイテムを削除。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+コナミ 80'sアーケードギャラリー [R. Belmont, smf]
+ダークホースレジェンド [R. Belmont, smf]
+実況パワフルプロ野球EX [R. Belmont, smf]
+Bowling 3D [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Trivia (Version 1.03a) (alt 4) [Brian Troha]
+Arian Mission [Brian Troha]

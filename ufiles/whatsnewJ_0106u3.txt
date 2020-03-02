@@ -1,0 +1,120 @@
+0.106u3
+-------
+
+注意: このビルドよりデフォルトで新レンダリングシステムを使用します。今の時点で主に重
+要視しているのは動作速度ではなく互換性です。速度制限をしないときの速度は、以前の
+-ddrawシステムと比べて落ちてます。これは、以前のようにグラフィックハードがビジー状態
+になっても、描画をスキップする良い仕組みがまだないためです。もし、表示に不具合があっ
+たり、MAME起動時に警告メッセージが表示される場合は http://mametesters.org に報告して
+ください。
+
+注意その2: コマンドラインとINIファイルの読み込みコードを書き換えました。パラメータ処
+理の問題を見つけた場合は http://mametesters.org に報告してください。
+
+
+MAMETestersの修正バグ
+---------------------
+colmns970105gra [Mariusz Wojcieszek]
+
+
+
+ソースの変更点
+--------------
+- osd_free_executable()にサイズ引数追加。 [Olivier Galibert]
+
+- dgpixゲームでのフラッシュROMの書き込みを修正。[Pierpaolo Prazzoli]
+
+- jalmah.cのDIPスイッチをさらに修正・改良: [Roberto Fresca]
+ Kakumei:
+  - 画面反転のDIPスイッチ追加
+ Daireika, urashima & mjzoomin:
+  - 画面反転のDIPスイッチ追加
+  - テスト・サービスモードのDIPスイッチ追加
+  - コインエイジを修正
+ 
+- 1942、1943、1945kiiiドライバにステートセーブサポート追加。[Lee Mitchell]
+
+- 15bitダイレクトRGMモードが動作するようにblitterを修正。[Nathan Woods]
+
+- リソーストラッキングコード、auto_malloc()、auto_strdup()などを別モジュール
+  restrack.cに再構成。[Nathan Woods]
+
+- スタックが少ないシステムでもうまく動作するように、サイズの大きいスタックバッファを
+  ヒープバッファに移動。[Lawrence Gold]
+
+- 親セットとクローンセットの両方でNO_DUMPのROMがあるときのROMチェックを修正。
+  [Hobbes@Play]
+
+- MSVCコンパイラサポートの改良: [AtariAce]
+ - nec.cから_MSC_VER用のプラグマを削除
+ - winprefix.hから_MSC_VER用の#include <malloc.h>を削除
+ - makefileでgccの代わりにclでvconv.exeをブートするように変更
+ - libへのコールを/libのリンクを使うように変更(?)
+ - vconvでVC71以降の/arch:SSE2のみを使うように更新
+ - winmain.cのプロファイラコードをクリーンアップ
+ - MAMEがshell32に直接依存しないように修正
+ - MSVC 5.0でもコンパイルできるようにプリプロセッサ定義をいくつか改良
+
+- 以下のドライバでDIPスイッチを大量に更新: actfancr, aliens, angelkds, argus, asuka, 
+  bwing, compgolf, cop01, dblewing, dec8, dogfgt, dooyong, fuukifg2, homedata, 
+  jcross, kaneko16, m92, mainevt, megasys1, metro, ms32, nmk16, paradise, seta, 
+  seta2, shisen, snk, ssv, system1, taito_b, taito_f2, taito_l, tecmo, thedeep, 
+  thepit, ultraman
+  [Brian Troha, Guru, Yasuhiro Ogawa]
+
+- デバッグビルドで、割り当てたデータにランダムなデータを配置するコードを追加。
+  [Aaron Giles]
+
+- x86アセンブラコードがかなり残っていたのを削除。同様にmakefileのNASMへの参照も削除。
+  [Aaron Giles]
+
+- オプションの構文解析コードをより柔軟性と汎用性があるように書き直し。新コアソース
+  ファイルoptions.cにより、キーと値の組み合わせからなるデータベースの追加と管理が可能
+  になり、ランタイムでクエリーができます。既存のフロントエンドオプション全てをこのコー
+  ド経由にしました。旧レンダラ用のバウンドチェックはかなりいいかげんで、複雑なオプショ
+  ンは結果的に未接続になっていました。まだ旧レンダラを使っている場合は、注意してくだ
+  さい。[Aaron Giles]
+
+- fronthlp.cを再構成して、さらに汎用的になりました。抽象化がもう一段階進めば、コアへ
+  昇格するかもしれません。[Aaron Giles]
+
+- 新レンダラでマルチスクリーンを制御する新オプション: [Aaron Giles]
+ -numscreens  ウィンドウをいくつ作るかを指定する
+ -screen0/screen1/...  各ウィンドウのスクリーン名を指定する
+ -resolution0/resolution1/...  各ウィンドウの解像度を指定する
+ -aspect0/aspect1/...  各スクリーンのアスペクト比を指定する
+ -view0/view1/...  各スクリーンの起動時のビューを指定する
+
+- 新レンダラによりosd_skip_this_frame()を廃止します。直後のフレームをスキップする必要
+  があるときはosd_update()がTRUEを返します。[Aaron Giles]
+
+- 新レンダラシステムの修正: [Aaron Giles]
+ - 新レンダラをデフォルトで有効に設定
+ - 起動時に未初期化のメモリによりクラッシュしたのを修正
+ - 処理の順番が間違っていたため終了時にクラッシュしたのを修正
+ - 15bitダイレクトRGBゲームのレンダリングを修正
+ - フレームスキップ時に変になる問題を修正
+ - 表示領域が1つずれるエラーを修正
+ - クワッドプリミティブの正確なクリッピングを追加
+ - 余分な描画を避けるためにクリアステップを最適化
+ - ソフトウェアレンダリングでメジャーなブレンド形式を全てサポートするように改良
+ - -filterオプションのサポート
+ - スナップショット機能の再接続。ただし、screen 0のみで回転は無し
+ - 新ビデオオプションメニューでUIの問題があったのを修正
+ - 正確なエフェクトを生成するため、ブレンディングモードをさらに強力に定義
+ - スクリーンビットマップのテクスチャを示すフラグを追加
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Mario Lemieux Hockey (Mega-Tech) [David Haywood, Guru]
+ハイウェイチェイス (デコカセ) [David Widel, Juergen Buchmueller]
+Critter Crusher / タタコット [Mariusz Wojcieszek, gbluma]
+大怪獣の逆襲 [Tomasz Slanina, Guru]
+
+
+
+新規クローンセット
+------------------
+Turtle Ship (North America) [Brian Troha]

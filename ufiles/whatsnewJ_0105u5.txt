@@ -1,0 +1,83 @@
+0.105u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+memory0105u4red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- freekick.cドライバをクリーンアップ [Sonikos]:
+ - gigas/gigas2m/oigasに2つめのボタン追加
+ - Z80の周波数をgigasで確認した値に調整
+
+- gfxlayout構造体でxとyのオフセットである"拡張"配列をサポートするようにしました。これ
+  らは32x32よりも大きなレイアウトを行うのに使います。これにより、巨大なグラフィックの
+  デコードが不要なほとんどのゲームで通常の構造体を小型化できます。最終的にはMAME.exe
+  が約3MB小さくなりました。[Atari Ace, Aaron Giles]
+
+- MESSのAmigaとCDTVドライバで必要な改良。[Dirk Best]
+
+- deadconxから不要なプレイヤー3と4の操作を削除。[Don Maeby]
+
+- MACSドライバの改良: [Tomasz Slanina]
+ - st0016ビデオエミュレーションのバグを修正
+ - MACSゲームが起動するようにハック追加
+ - srmp5とspeaglshtからREGION_DISPOSEフラグを削除（もうクラッシュしないため）
+
+- powerbal.c, konamigx.c, gsword.cドライバのDIPスイッチ修正と改良。[Twisty]
+
+- BFMドライバと6840タイマーエミュレーションをさらに改良。[El Condor]
+
+- x86 DRCエンジンとWindows blitterの改良:
+ - BlitterのCPUIDにはdrc_x86_get_features()を使ってアクセスするようにしました
+ - blitter初期化用のwin_blit_init()追加
+ - CPUコア以外のものを使用するためにDRCを変更
+ - drc_dasm()が再び動作するように修正
+ - MMX/SSE命令用のマクロを大量に追加
+ - i386逆アセンブラにMMX/SSE命令をたくさん追加
+
+- 前のリリースで言っていた「マリンデート」の修正を実際に適用。[Aaron Giles]
+
+- Visual C++ 2003/2005でのビルドサポートを実験的に追加。これを実行するためには（皮肉
+  なことに）mingwの環境が必要です。MSVCのコンパイラを呼び出すためにmingwのmakeシステ
+  ムに頼っているためです。コマンドラインか、windows.makでMSVC_BUILD=1と指定すると、
+  Microsoftのコンパイラを使ってビルドします。この動作はgccのオプションをMSVCのオプショ
+  ンに変換を行うための書きかけソフトvconv.exeを通じて行われます。
+   vconv.exeはクリーンビルドの開始時にmingwがコンパイルします。通常のビルドオプション
+  (SYMBOLS, MAP, DBUG, etc)はほとんど動作します。使っているコンピュータがのろい場合は、
+  MAXOPT=1をセットしてリンクタイムコードジェネレーションを使えば最強の最適化ができま
+  す :) 
+  [Aaron Giles]
+
+- 64bitターゲットの予備的なサポートを追加。64bitターゲットでコンパイルするときは
+  makefileのPTR64をセットしてください。これによりCファイルにもPTR64の定義が適用されま
+  す。makefileについては64bitのdrcコアを自動で無効にできるよう、十分に手を加えてあり
+  ます。また、64bitビルドの妨げになるものについては、アセンブリblitter以外はほとんど
+  削除しました。これはまだ書き直し作業中です。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Hidden Catch 2 [Pierpaolo Prazzoli, Guru]
+Fishing Maniac 3 [Pierpaolo Prazzoli, Guru]
+遊華 [Tomasz Slanina]
+遊雀 [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Greyhound Selection (Version 40.02TMB) set 2 [Brian Troha]
+Greyhound Poker (3 new sets) [Brian Troha]
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Master Boy [David Haywood]
+Intersecti [David Haywood]
+

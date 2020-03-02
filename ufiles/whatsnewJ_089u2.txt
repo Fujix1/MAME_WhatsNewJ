@@ -1,0 +1,43 @@
+﻿0.89u2
+------
+
+全般的な改良点：
+----------------
+
+■Sega系の改善。[Aaron Giles]
+    s18、s16aのプライオリティ修正をたくさん
+    s16aのend-of-spritelistマーカを修正
+    8751シミュレーションの改善
+    バックアップRAMの実装
+    DIPスイッチの修正
+    クリーンアップ
+    その他
+
+■デバッガでのサウンドの問題修正。[Aaron Giles]
+
+■ドライバのいろいろなクリーンアップ。[Curt Coder]
+
+■「フロッグス」の舌出し音でサンプル音を使うように更新。[Derrick Renaud]
+
+■Renegadeドライバを実際のMCUのデータを元に改良。[BUT]
+
+■VCコンパイラ用の修正。[René Single]
+
+■古くなったMESSのコードを削除。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Poker Dice [Aaron Giles]
+
+
+クローン：
+----------
+ラッキー＆ワイルド (Japan) [BUT]
+スティールガンナー (Japan) [BUT]
+メタルホーク (Japan) [BUT]
+オーダイン (Japan, English) [Chris Hardy]
+Scorpion (Zaccaraia Original) [Pierpaolo Prazzoli]
+Hunchback Olympics (Scramble hardware) [Pierpaolo Prazzoli]
+アラビアンファイト (Japan) [Brian Troha]

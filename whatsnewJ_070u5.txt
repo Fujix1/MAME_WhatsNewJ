@@ -1,0 +1,112 @@
+0.70u5
+
+DIPスイッチについての変更を提出する場合は、必ずデバッグビルドでテストするようにして下
+さい。
+一旦修正されたものを再修正するのは時間が無駄になってしまいます。デバッグビルドで動作
+させる場合、追加の警告メッセージがあります。
+
+
+ソース全般の変更：
+------------------
+
+■DIPスイッチの修正。[Iñigo Luja]
+	src/drivers/gameplan.c
+	src/drivers/cps1.c (kodj064gra)
+	src/drivers/ms32.c
+	src/drivers/freekick.c
+	src/drivers/wwfwfest.c (wwfwfest055gra partial?)
+	src/drivers/exidy.c (venture37b8gra)
+	src/drivers/suprnova.c
+	src/drivers/seta.c
+	src/drivers/system16.c
+
+■「雷牙 / Strato FIghter」の改善と修正。[David Haywood, TheGuru, Leon van Rooij]
+	まだいくつか表示系の問題あり(プライオリティ、アルファブレンディング、タイル系など)
+	src/drivers/gaiden.c
+	src/vidhrdw/gaiden.c
+
+■「Tricky Doc」でのスプライト表示位置修正。[Pierpaolo Prazzoli]
+	src/vidhrdw/sauro.c
+
+■乱数が必要なドライバでmame_randを使うように変更。[Barry Rodewald]
+	src/drivers/artmagic.c
+	src/drivers/centiped.c
+	src/drivers/namcona1.c
+	src/drivers/namconb1.c
+	src/machine/namcos1.c
+
+■u4でおかしくなっていたNamco系の修正をいくつか。[Phil Stroffolino]
+	src/vidhrdw/namcos2.c
+	src/machine/namcos2.c
+
+■「スティールガンナー」のROMを正確な物に変更。[Bryan McPhail]
+	src/drivers/namcos2.c
+
+■ncv1のファイル名を改善。[TheGuru]
+	src/drivers/namcond1.c
+
+■「ザ・シンプソンズ」のスプライト修正。[Acho A Tang]
+	src/drivers/simpsons.c
+	src/machine/simpsons.c
+	src/vidhrdw/simpsons.c
+	src/vidhrdw/konamiic.c
+	src/vidhrdw/konamiic.h
+
+■その他いろいろな変更。[Nathan Woods]
+	src/fileio.c:
+	- “デバッグクッキー”導入。デバッグモードでクッキーを使ってmame_fileストラク
+	チャの値を保存。
+
+	src/windows/window.c:
+	- 非ストレッチ時のウィンドウモードにあった表示エリアのバグを修正。
+	以前は、単純にコードで表示エリアの変更をして、その結果のウィンドウサイズを調べ
+	win_adjust_windows()で適宜調整していた。この方法では、表示エリアがそれまで
+	よりも大きくなった後、小さくすると元のウィンドウサイズに戻らないという問題が
+	あったため、win_adjust_window()を呼ぶ代わりに、スケールファクタとエミュレー
+	ション表示エリアとウィンドウのクライアントエリアの間隔を保持するコードを追加
+	しました。
+
+	src/windows/winddraw.h:
+	src/windows/winddraw.c:
+	src/windows/wind3d.c:
+	- win_ddraw_fullscreen_margins()の呼出しを追加。これはDirectDrawサーフェスに
+	ついて、マージンのRECTに相当する引数dwWidthとdwHeightを与えるものです。
+	MAMEでの動作はとてもシンプルですが、MESSではメニューバーがあるので動作が異なる
+	ため、winddraw.cとwind3d.cでもこれを呼び出すように変更してあります。
+
+	src/timer.c:
+	src/timer.h:
+	- タイマーを“void *”から“mame_timer *”に変更。mame_timerはOpaque Structureで、
+	fileio.hのmame_fileと似たものです。タイマーを使ったコードについては一切更新してま
+	せん。個人的には以前まではvoid *で全てうまくコンパイルが通っていたので、急ぐ必要
+	は無いと思います。
+
+	src/vidhrdw/jaguar.c:
+	- jaguar_tom_regs_w()がクラッシュする可能性があったのを修正。(普通のcojag
+	ゲームの動作ではクラッシュすることはないが、修正されたROMを使った場合に起
+	こる恐れあり)
+
+	src/sound/fmopl.c:
+	#if/#endifを追加
+
+■EXEをダウブルクリックしたときのメッセージを少し変更。[Leon van Rooij]
+	src/windows/winmain.c
+
+
+新規サポートゲーム：
+--------------------
+
+スタジアムクロス [Jason Lo]
+	サウンドに問題がある模様
+	src/drivers/multi32.c
+	src/drivers/system32.c
+	src/vidhrdw/system32.c
+
+R2D Tank [Pierpaolo Prazzoli]
+	src/drivers/r2dtank.c
+
+
+新規TESTDRIVER：
+----------------
+
+前回追加し忘れてたnamcoゲーム

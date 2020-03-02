@@ -1,0 +1,101 @@
+0.102u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+taotaida088u4gra [RansAckeR]
+tempest095u5gre [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+*「アクアリウム」のアップデート: [Pierpaolo Prazzoli]
+ - タイルマップとスプライト間のプライオリティ修正
+ - スプライトのY方向ラップアラウンド追加
+ - タイルのXとY方向反転追加
+
+* SPC700コアのバグ修正: [R. Belmont]
+ - ADC/SBCのキャリー修正
+ - ADDW/SUBWのオーバーフローフラグ修正(したと思う)
+ - BRKのステータスレジスタの動作修正
+ - DAA/DASのエッジケース修正
+
+* driver.cの整理と情報更新。[Brian Troha]
+
+* 最新のMESSよりNES/SNESのアップデート: [R. Belmont]
+ - メモリマッピング改良
+ - ラスタタイミング改良
+ - HIRQサポート追加とVIRQの改良
+ - ジョイパッドサポートの改良
+ - DSP-1のサポート (サブタイプを全て含む)
+ - カウンタラッチングサポート
+ - OAMのリード・ライト修正
+ - ステレオサウンドの修正
+
+* MESS用のROMエントリタイプ追加。認識できないROMエントリタイプは無視するように、
+  ROMエントリ処理コードを変更。[Nathan Woods]
+
+* MESSからのPC共有コードを統合。[Nathan Woods]
+
+* 古くて未使用になったファイルを削除: machine\s16math.h, vidhrdw\medlanes.h,
+  windows\dirty.h, windows\snprintf.c. [Giuseppe Gorgoglione]
+
+* VC2005でわかったマイナーな互換性問題を2つ修正。[Giuseppe Gorgoglione]
+
+* G65816のADCとSBC命令を修正(BDC演算用)。[Rob Bohms]
+
+* NES PPUの$4014スプライトDMAを修正。[Rob Bohms]
+
+* H8/3002エミュレーションの更新: [R. Belmont]
+ - bXXX.b #imm, (@)Rn命令をさらに追加
+ - キャリー命令の減算追加
+
+* N2A03のドキュメント化されてない命令追加。[Rob Bohms]
+
+* Namco System 22の大幅更新: [Phil Stroffolino]
+ - デプスキューのサポート(フォグ用); some open issues remain
+ - デプスバイアスの改良
+ - Zバッファをバックトゥフロントレンダリングと置き換え
+ - スプライトとテキストの透過処理
+ - レンダリングデバイスへのダイレクトアクセス(表示テストで使用)
+ - スポットライト機能の予備サポート
+ - スプライトの下位置整列サポート
+ - テキストよりプライオリティの高いスプライトとポリゴンサポート
+
+* Voodooをさらにアップデート: [Aaron Giles]
+ - CLUT/ガンマ増減サポート: フェードイン・アウト効果追加
+ - ストールのコールバックについて、開始時と終了時の両方を知らせるように変更
+ - Voodoo 1用にバイリニアの解像度を4 bitに減少
+ - 統計情報の修正と新規項目の追加
+ - 初期のチップセットで未サポートのビットを正しくマスクするように修正
+ - NOPコマンドで、統計情報を常にリセットしないように修正
+ - リフレッシュレートが更新されないバグを修正
+ - フレームバッファへの16bit書き込みを修正
+ - チップのリセット後にクラッシュするバグを修正
+ - Voodoo 2の新機能であるフォグ、カラーパス、クロマレンジモードをサポート
+ - ARGB、W、Z値の正確なラッピング追加
+ - バイアス無しでZバッファに深度が書き込まれるときのバグ修正
+ - コンテキストスイッチの数を減らすため、短いコマンドをまとめるように変更
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Magic Stick [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Progressive Music Trivia (Question set 3) [Pierpaolo Prazzoli]
+スーパーパズルファイターII ターボ (Asia 960529) [Razoola]
+ファンキージェット (Japan) [Guru]
+Kid Niki - Radical Ninja / 快傑ヤンチャ丸 (World) [Stefan Lindberg]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Fortress 2 Blue Arcade [Guru]

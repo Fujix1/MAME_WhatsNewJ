@@ -1,0 +1,30 @@
+0.99u6
+------
+
+
+ソースの変更点
+--------------
+* 前回のステートセーブのアップデートとクラッシュしていたのを修正。[Aaron Giles]
+
+* リネーム完了。今回のメジャーな変更: [Aaron Giles]
+  struct mame_bitmap -> mame_bitmap
+  struct rectangle   -> rectangle
+  data8_t            -> UINT8
+  data16_t           -> UINT16
+  data32_t           -> UINT32
+  data64_t           -> UINT64
+
+* pbchmp95.cドライバをwitch.cにリネーム。[David Haywood]
+
+* spelunkrの背景色を修正。[Pierpaolo Prazzoli]
+
+* hharryの背景位置修正。[Pierpaolo Prazzoli]
+
+*「スパイダー」にディスクリートのSE追加。[Hans Andersson, Don Maeby]
+
+
+
+新規クローンセット
+------------------
+Sharpshooter v1.1 [Brian Troha]
+Shuffleshot (v1.40) [Brian Troha]

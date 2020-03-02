@@ -1,0 +1,117 @@
+0.97u1
+------
+
+
+MAMETestersの修正バグ
+---------------------
+wwfwfsta37b16gre1 [Pierpaolo Prazzoli]
+ddragon336rc2gre [Pierpaolo Prazzoli]
+cookrace093u2red [ShimaPong]
+ddragn2u077gre [Pierpaolo Prazzoli]
+starforc097gre [Aaron Giles]
+wotw094u3gra [Aaron Giles]
+
+
+ソースの変更点
+--------------
+* V60のCPUクロックについて、それぞれのドライバでクロックを分周する必要があったも
+のを、命令毎のクロックの倍周期に変更しました。全部のドライバを正しいクロックス
+ピードにアップデートしてあります。[Aaron Giles]
+
+* デバッガの表現エンジンを他のツールでもサポートするように少し標準的に変更。
+[Aaron Giles]
+
+* Sega System 32ドライバのクリーンアップを始めました。ただし、以前同様にまだうま
+くは動作しません。いずれ直っていくでしょう。これについてのバグは報告しないでくだ
+さい。[Aaron Giles]
+
+*「Pest Place」のリダンプ実装。dkong3bの色修正、「Street Heat」の"Control Type"
+DIPスイッチ追加。[Pierpaolo Prazzoli]
+
+* wwfsstarのvblankハンドリングと変なスプライトを修正。[Pierpaolo Prazzoli]
+
+*「ハイパークラッシュ」のスピーチが無かったのを追加。[MASH]
+
+*「Dream World」のプロテクトについて新解釈。まだ動作はせず。[David Haywood]
+
+* poleposのギア表示をデバッグオンリービルドに移動。[Mamesick]
+
+*「ホラーストーリー」のシンクロレート修正。[SUZ., Mamesick]
+
+*「Toki」海賊版のZ80周波数修正。[Mamesick]
+
+*「ダイナギア」スプライトの影部分が変だったので対策。[Mamesick]
+
+*「Malzak」のSAA5050エミュレーション改良。[Barry Rodewald]
+
+*「オペレーションウルフ」の正しいカスタムチップエミュレーション追加。
+ [Bryan McPhail]
+
+* Namco System 21ドライバのメジャーアップデート。[Phil Stroffolino]
+
+  -「スターブレード」はマスタ/スレーブDSPのエミュレート有りで動作します。
+   グラフィックの更新は少しなめらかでないところがあります;個人的には実機には
+   スレーブが4つでマスタが1つあり、スレーブに動作を割り当てていると思われます。
+   背景のオブジェクトはまだ一部表示されてません。1面の背景のスターシップなどで
+   す（炎の表示でスーパーインポーズされるはずのスプライトは存在しています）。
+   "ダイレクトドローイング"機能はハイスコア表示で使っています;色違いや、一部
+   表示されない部分があります（ヘキサゴン）
+
+  -「ソルバルウ」は動作しますが、3Dグラフィックの更新がときどき止まります;
+    Aキーを押してパイプラインのブロックを解除すると描画を再開します
+
+  - その他のSystem21ゲームはいろいろな事情で動きません。「ソルバルウ」はcuskeyの
+    サポートが必要（マスタDSPで使用）。「サイバースレッド」はDSPコードのアップ
+    ロードメカニズムが違う模様です
+
+*「スズカ」系ゲームの道路色修正。[Phil Stroffolino]
+
+* ヒストリー表示でhome/endキーサポート。[Samuele Zannoli]
+
+* PowerPCコアのデクリメントレジスタをデバッガでサポート。[Nathan Woods]
+
+* TC0100SCNチップのコラムスクロール実装;「ニンジャキッズ」「ガンフロンティア」
+  「ルナーク」「ガルメデス」で（最低でも）使用。[Bryan McPhail]
+
+* ADSP-21062コア追加と、Model 2Bゲームで部分的に実装。[Ville Linde]
+
+* PowerPC DRC (高速版)の更新。例外サポート追加、PPC内部シリアルポートのサポート
+  改良。[Ville Linde]
+
+* Konami PowerPCドライバの進展。[Ville Linde]
+  - クリーンアップと共通ハードの整理統合
+  - ADSP-21062と3dfxチップの実装
+  -「GTIクラブ」のKS001005カスタム3Dチップセットのリバースエンジニアリング開始
+  - 初期NVRAM値追加
+   (これらはGV SystemのEEPROMと似たプロテクトに使用）
+  - プレイ可能なゲームはありません。表示もほとんどされないです。ただし、ほぼ全部
+    がPOSTをパスするようになりました
+
+* SCSPタイマー処理のマイナーなバグ修正。[Ville Linde]
+
+* CPUサブシステムのメモリリーク修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Nサブ (upright) [Pierpaolo Prazzoli]
+花札 花かんざし / 花札 華簪 (Japan) [Luca Elia]
+花札 華陽炎 [BET] (Japan) [Luca Elia]
+麻雀 立直一発 (Japan) [Luca Elia, bnathan]
+
+
+
+新規クローンセット
+------------------
+Falcon (bootleg set 2) [Pierpaolo Prazzoli]
+Malzak II [Barry Rodewald]
+バトルフィールド (bootleg) [Pierpaolo Prazzoli]
+ザ・グレートラグタイムショー (Japan v1.5, 92.12.07) [David Haywood, NAmag]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+ドライバーズアイ [Phil Stroffolino]
+ウイニングラン [Phil Stroffolino]

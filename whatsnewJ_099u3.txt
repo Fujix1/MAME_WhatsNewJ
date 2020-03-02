@@ -1,0 +1,129 @@
+0.99u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+hanagumi082red [Mariusz Wojcieszek]
+rtypeleo062gre [Pierpaolo Prazzoli]
+labyrunr080u1gre [Pierpaolo Prazzoli]
+tricktrp061gre [Pierpaolo Prazzoli]
+gng37b4gre [Pierpaolo Prazzoli]
+battlane076u2gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* ST-Vドライバのアップデート: [Mariusz Wojcieszek]
+ - vdp2: RBG0レイヤーの回転追加 (diehard, vfkids, vfremix, thunt, sassisu背景)
+ - vdp2: 15bit RGBタイルマップ追加 (thuntで使用)
+ - vdp2: 半透明アルファブレンドビットマップ追加 (「紫炎龍」のイントログラフィッ
+         ク表示)
+ - vdp2: RGBスプライトのイネーブルビット追加 (vfremixのスプライト修正)
+ - vdp2: RGBスプライトのアルファブレンディング追加
+ - vdp1: ポリゴン描画修正
+ - vdp1: 線の描画を追加
+ - sh2:  除算ユニットのバグ修正
+ - sh2:  CPUのFTCSRレジスタ読み込み時コールバック追加 (stvのスレイブSH2のアイド
+         ルループのスキップ用)
+ - stv:  アイドルループのスキップ追加
+ - dsp:  DMA修正 (thuntのグラフィック修正)
+
+* dsp56k CPUコア追加とPolygonet Commandersドライバに実装。[Andrew Gardner]
+
+* SCSIハードディスクの更新: [R. Belmont]
+ - FORMAT UNIT, READ (6 byte), WRITE (6 byte), READ (12 byte), MODE SENSE,
+   READ CAPACITYの各コマンド追加
+ - 実物のSeagateモデル同様INQUIRYをIDに変更。製造者コードが"MAME"なのより
+   MacOSで好都合
+ - 初期化部分にMESS用の改良
+
+* YMF271コアの全てのボリュームテーブルの演算を修正。[Ville Linde]
+
+* SPIの改良: [Ville Linde, Pierpaolo Prazzoli]
+ - 実際のコイン入力追加。いままではサービスコインを使用
+ - rdft2us, rfjetus, rdft22kcにeeprom実装
+
+* LSI53C810の更新でModel 3ゲームがクラッシュしていたのを修正。[Ville Linde]
+
+* PowerPCリコンパイラの修正で「スカッドレース」が再動作。[Ville Linde]
+
+* ユーザーインターフェース基本部分の大規模な整理: [Aaron Giles]
+ - ユーザーインターフェースのレンダリングは描画されるまでキャッシュされ、ワンパ
+   スで描画されるように変更
+ - 不要だったり重複した関数をかなり削除して、フレキシブルな小型のAPIセットに置き
+  換えました
+ - UIフォントとカラーテーブルのグローバルアクセスを削除しました。UIコードのプラ
+   イベートに変更しています
+ - グローバルユーザーインターフェース関数名を全てそろえました。一番大事なのは
+   usrintf_showmessageがui_popupになってます
+ - ポーズの動作を作り直し; タイトループ状態ではなく普通にコードが進行します。
+   ただしCPU実行システムは進みません
+ - メニューコードを再作業; 一時的に一部のメニューは使えません (チート、メモリ
+   カード)
+
+* ゲーム内部でのhistory.dat表示を削除。この類のデータをMAMEの限られたUIに詰め込
+  むのは実用的ではありません。history.dat情報表示は大抵のフロントエンドやウェブ
+  サイトでサポートされています。[Aaron Giles]
+
+* Windowsビルドから以下の使われていない余分なコマンドラインオプションを削除しま
+  した: [Aaron Giles]
+ -wrongorientation
+ -wrongfps
+ -gamelist
+ -list
+ -listgames
+ -listdetails
+ -listwrongmerge
+ -listcpu
+ -listcpuclass
+ -listgamespersourcefile
+ -listnosound
+ -listnvram
+ -listpalettesize
+ -listromdistribution
+ -listromnumber
+ -listsound
+ -listdupcrc
+ -listsamdir
+ -listmd5
+ -listsha1
+ -verifysets
+ -vset
+ -vsam
+ -sortname
+ -sortdriver
+ -[no]clones
+ -crconly
+ -maxlogsize
+ -resamplefilter
+ -debug_resolution
+ -history_file
+ -mameinfo_file
+
+* ROM警告表示の"Press any key"のプロンプトを削除しました。代わりに不良・不明
+  ROMを表示します。不良・不明ROMの詳細はこれまで通りコンソールにも表示されます。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+対戦タントアール さしっす!! (J 980216 V1.000) [Mariusz Wojcieszek]
+テトリス (Japan, System E) [David Haywood]
+
+
+
+新規クローンセット
+------------------
+GTIクラブ (ver JAA) [Arzeno Fabrice]
+マスターオブウエポン (US) [Arzeno Fabrice]
+サンセットライダーズ (4 Players ver EAA) [Johan Samuelsson]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Forte Card [David Haywood]
+Jackpot Pool (Italy, bootleg) [David Haywood]

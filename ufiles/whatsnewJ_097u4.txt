@@ -1,0 +1,93 @@
+0.97u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+getstarb093u3gra [Mamesick]
+wintbob079u1gre [Mamesick]
+htchctch096u1gre [Mamesick]
+blswhstl36b16gre [Mamesick]
+offtwall097u3red [David Haywood]
+ppc096u1red [Ville Linde]
+akiss077u3 [Aaron Giles]
+gfxviewer097u1ora [Aaron Giles]
+gtmr097u3yel [Aaron Giles]
+mkla1097u1ora [Aaron Giles]
+okscreen097u2yel [Aaron Giles]
+topspeed097gre [Aaron Giles]
+yamato097u1gra [ShimaPong]
+
+
+
+ソースの変更点
+--------------
+* V60 SBR処理で下位12bitを無視するように修正。これによりtp2m32のハックを削除。
+  [Aaron Giles]
+
+* ddragon3、ctribe、mugsmashの音量バランス調整。[Mamesick]
+
+*「World Class Bowling Tournament」「同 Deluxe」に正しいサウンドROM追加。
+  [Brian Troha]
+
+*「アウトラン」海賊版で、ROMテストをパスする新しいダンプ採用。ROM名も正確。
+  [David Haywood]
+
+* PowerPCを更に改良: [Nathan Woods]
+- 例外処理の修正; 以前はMSRレジスタはEDXにストアされず、EDXはppc_set_msr()の呼び
+  出し時に保持されませんでした
+- recompile_fcmpo()を実装
+- rules.makのルールを一部修正（drc_ops.cの代わりにdrc_ops.h）
+- MSR_*の値をコメント
+- BATレジスタを自身のストラクチャに移動
+- DSIとISI例外を追加（とりあえず非DRCコアのみ）
+- READ*/WRITE*をppc_mem.cに移動
+- メモリハンドリングの変更。リード・ライトをラインタイムで変更可能な関数ポインタ
+  で行うように変更（将来的にMMUが実装されたときとかに便利 :-))
+
+* PSX/Namco System 12の改良: [smf]
+-「てんこもりシューティング」追加
+- Guru氏より基板情報更新
+- namco system 12ドライバよりROMパッチを削除
+- サウンドプログラムROM名変更
+- 不完全MDECブロックのDMA化サポート
+- スプライトのX軸とY軸反転追加
+- デコード済みtpageフィールドのキャッシュ化
+- セッティング＆DMA設定のステータスフィールドの更新を正確に
+- リバースフラグがオリジナルGPUのみで効果があるように修正
+
+* PowerPCカウンタを更に修正。まっさらからもう一度再実装。[Ville Linde]
+
+* Model 2ドライバの改良:: [Ville Linde]
+- 2つ目のSHARC追加
+- 前回の更新で起きていた問題を全部修正
+
+* sauro.cの表示システムのテスト不良を修正。[Pierpaolo Prazzoli]
+
+*「リーサルエンフォーサーズ」のスプライトを改良。スプライトチップを2つ生成。
+  [David Haywood]
+
+* System 32のミキサーについて、アルファブレンディングモードを正確にサポートする
+  ように書き直し。スプライトの影とその他エフェクト関係はまだ未実装。また、以前よ
+  りかなり重くなっています。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Slipstream [Aaron Giles]
+てんこもりシューティング [smf]
+
+
+
+新規クローンセット
+------------------
+ガイアポリス 黄金鷹の剣 (Europe ver EAF) [Brian Troha]
+雷電 DX (Metrotainment license) [Corrado Tomaselli]
+メカナイズドアタック (US) [Highwayman]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+<名称不明> Meyco game [Pierpaolo Prazzoli]

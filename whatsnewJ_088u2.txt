@@ -1,0 +1,99 @@
+0.88u2
+
+全般的な改良点：
+----------------
+
+■FD1094の解読をさらに改良しました。動作はほぼ判明しましたが、残りの詳細について
+はFD1094 CPUがさらに必要です。FD1094CPU内にキーデータがある本来の状態をできるだけ
+再現するため、データをROMセットに保存するようにしました。[Nicola Salmoria]
+
+■Namco用の更新で、u1に入れそびれたものを修正。[Phil Stroffolino]
+
+■「クラウンズゴルフ」のROM名を訂正。[ShinobiZ]
+
+■「ペンゴ」のROM名を訂正。[Gerald]
+
+■Mighty Warriorsドライバの改良。[Pierpaolo Prazzoli]
+    スプライトバッファ追加で不可視のスプライトを修正
+    タイルマップスクロールのオフセット修正
+    Haze氏がパレットの明るさ設定追加
+
+■「Twin Brats」を改良。[Pierpaolo Prazzoli]
+    サウンドバンキング修正
+    サービススイッチボタン変更
+    表示エリア変更
+    メモリマップのマージ
+
+■pc10、nss、megatechのゲーム名の分類部分を後ろに移動。[Aaron Giles]
+
+■ジョイスティックの軸の不具合を修正。[Aaron Giles]
+
+■ディスクリートサウンドの改良。[Derrick Renaud]
+
+    ディスクリートサウンドの変更
+    ============================
+    * DISCRETE_555_ASTABLE - クイックチャージダイオードを使うオプション追加
+      (「フロッグス」で必要）。また、R1が回路外のときに振幅を止めるオプショ
+      ン追加（「インベーダー」で必要）
+    * DISCRETE_555_CC - 充電電流が無いときにコンデンサが自己放電するように改
+      良(「フロッグス」で必要）
+    * 全ドライバで新コードを使うように変更
+
+    新規ディスクリートモジュール
+    ============================
+    * DISCRETE_555_MSTABLE - 555単安定回路のシミュレーション
+
+    ドライバの変更点
+    ================
+    * frogs - サウンド実装。Added discrete "tongue" sound effect.
+
+■ディスクリートコードのバグ修正。[Brad Oliver]
+
+■Astrocadeドライバの改良。[Frank Palazzolo]
+    - Professor Pacman Driver - 動作するものの、セルフテスト2つがパスせず
+    - 全ゲームの当り判定を修正
+    - robby（とprofpac）にNVRAM処理追加 - 動作は不完全。ただしテストはパス
+    - astrocadeサウンドコードのバグ修正
+    - astrocadeサウンドをストリームシステムに切り替え
+    - wor、robby、gorf、profpacのステレオ出力サポート
+    - LEDとコインカウンタを追加
+    - astrocadeゲームから呼び出していた全てのactivecpu_get_reg()について、
+      メモリシステム経由のZ80の16bitポートをきちんとサポートして置き換え
+    - sndhrdw/astrocde.cをsndhrdw/wow.cに名称変更。ゲーム特有のため
+
+■NEC CPUコアのNMI処理修正。[Bryan McPhail]
+
+■TwinsドライバのクリーンアップとV20を使うように変更。[Pierpaolo Prazzoli]
+
+■hyperstoneデバッガのクリーンアップ。[Pierpaolo Prazzoli]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Bonks Adventure / 究極!!PC原人 [Sebastien Volpe]
+    グラフィック/サウンドの問題あり
+
+Professor Pacman [Frank Palazzolo]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+スーパーマン (Japan) [Fabrice Arzeno]
+
+Gun Ball [Bryan McPhail] 【更新】driver.cに入れ忘れたのでu3で追加
+
+Hot Bubble [David Haywood]
+
+Force Break / 強行突破 [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Super Lup Lup Puzzle
+    hyperstone CPUコアのバグ
+
+ライデンファイターズJET
+    グラフィック暗号化
+
+Born to Fight
+    グラフィックエミュレーションの問題

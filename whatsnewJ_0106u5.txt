@@ -1,0 +1,65 @@
+0.106u5
+-------
+
+注意: このバージョンより、Windows版MAMEは別々のスレッド上で動作します。これに関係して、
+特に速度制限しない場合などで問題が起こるかもしれません。普通に使用しているときのクラッ
+シュや謎の動作などを見つけた場合は、http://mametesters.orgに報告してください。
+
+
+
+MAMETestersの修正バグ
+---------------------
+cheat_menu0106u3ora [Aaron Giles]
+cheat_file_option0106u3ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- decocassドライバのクリーンアップ: [Juergen Buchmueller]
+ - ハードコードテーブルを全て削除
+ - cexplore.pro 32バイトPROMをリバースエンジニア
+
+- windows.makの64ビットビルドサポートを修正。[Malice]
+
+- 新configシステムにより、gamenameが勝手に再割り当てされるバグを修正。[Nathan Woods]
+
+- 設定したオプションがパースされたときのコールバックを指定する機能を追加。これはMESS
+  でシステム固有のコマンドラインオプションを追加するのに使用します。[Nathan Woods]
+
+- さらに一般的な6840の改良。[El Condor]
+
+- Pasha Pahsa 2ドライバの改良。[Pierpaolo Prazzoli]
+
+- テスト用のOSDのロックを追加:  [Aaron Giles]
+ - osd_lock_alloc() - ロックの割り当て
+ - osd_lock_acquire() - ロックを捕捉して、成功するまでブロックする
+ - osd_lock_try() - ロックの捕捉を試みて、成功したかどうかを返す
+ - osd_lock_release() - ロックを解放する
+ - osd_lock_free() - ロックが使用したメモリを解放する
+
+  OSDレイヤーがマルチスレッドを使っていない場合、これらは無効にされます
+  （osd_lock_acquireはTRUEを返し、残りは偽の値）
+
+- 起動時のUI画面をESCキーでキャンセルして終了できなかったのを修正。[Aaron Giles]
+
+- レンダリングの変更と修正: [Aaron Giles]
+ - 新関数 render_view_item_get_state() 追加。指定したアイテムの状態を返す
+ - render_target_get_primitives が新しい構造体 render_primitive_list を返すように変更。
+   この構造体は osd_lock と共にプリミティブのリストを保持します。osd_lockはリストの処
+   理中に保持する必要があります
+ - ゲーム動作中の画面回転"Rotate View"オプションをvideoメニューに追加。
+ - ウィンドウ生成と管理を別スレッドに移動しました: これにより、ソフトウェアレンダリン
+   グとDirect3Dコールは全てメインゲームとは別スレッドによって処理します。マルチCPUや
+   デュアルコアを有効に使えます
+ - 速度制限の動作を、未処理がすでにあるときにレンダリングをスキップするように変更; 
+   これにより"早送り"エフェクトが改善されます
+ - -prescaleオプションを追加。画面描画の前にゲーム画面のビットマップを予め拡大します;   これにより-filterを有効にしたときの"ぼやけた"表示をなくすことができますが、いくら
+   か速度を犠牲にします。設定は今のところ整数値のみをサポートしています（"auto"はまだ
+   ありません)
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Hard Times [Pierpaolo Prazzoli]

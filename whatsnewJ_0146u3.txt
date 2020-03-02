@@ -1,0 +1,135 @@
+0.146u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04338: [クラッシュ/フリーズ] (sigmab98.c) animalc: 黒画面でフリーズ。(hap)
+- 04094: [インターフェイス] [デバッグ限定] デバッグ中に-profileを使うとメモリリークが
+         発生する。(micko)
+- 04945: [サウンド] (zn.c) strider2 and clones: Qsoundの音が出ない。(hap)
+- 04932: [サウンド] (taito_f3.c) gunlock: サウンドが出ない。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+- dec8.c:「ブレイウッド」のROM名訂正と、基板配置図追加。「Shackled / ブレイウッド」に
+  プライオリティPROM追加。[Porchy, The Dumping Union]
+
+- dec8.c:「Shackled / Breywood」のスプライトROM配置追加。[Porchy]
+
+-「脱子ちゃん雀荘」で見つかった不良スプライトチップを置き換え。全てのモデル番号、ラベ
+  ル、基板配置図追加。PLD追加。[Yohji, Mr. CAST, Cornishdavey, Charles MacDonald,
+  Smitdogg, The Dumping Union, Tafoid]
+
+- model1.c: LEDを実装。[Ariane Fugmann]
+
+- seta.c:「Down Town / 目撃」「アルバレスタ」のROM名訂正。「Down Town / 目撃」のROM
+  セットの基板上配置追加。[Brian Troha]
+
+- i386 CPUコアとChihiroエミュレーションの変更多数で、基本ロゴとテキストの表示が可能。
+  [Samuele Zannoli]
+
+-「Exciting Black Jack」のエポキシブロックを吸い出し。
+  [Mr. CAST, Smitdogg, The Dumping Union, Charles MacDonald]
+
+- z80dma: サーチと転送モードをサポート。[Angelo Salese]
+
+- zn.c:「サイキックフォース」のROM名訂正。[Brian Troha]
+
+- tms9928a/v9938: 追加ビデオメモリ用の独自アドレス空間を使用。デバッガのメモリ選択リ
+  スト内にあり。v9938のクリーンアップも。[Michael Zapf]
+
+- dbz.c:「ドラゴンボールZ」「同2」のDIP配置追加。[Brian Troha]
+
+- stv.c: STV BIOS ROMのうちひとつの名称をEPR-17740Aに訂正。
+  [Brian Troha, The Dumping Union]
+
+- seta.c:「アルバレスタ」のサウンドCPUを正しいサイズで再吸い出して、ROM名を訂正。
+  [The Dumping Union]
+
+- i386: Pentium MMX、Pentium Pro、Pentium II、Pentium III、Pentium 4のCPU型を追加。
+  [Ville Linde]
+
+- naomi.c: EPR-21576C (Japan)とEPR-21577A (USA)のBIOSをNaomiドライバに追加。
+  [Brian Troha, The Dumping Union]
+
+- hornet.c:「サイレントスコープ2」のROMバンキング修正。[Ville Linde]
+
+- deco_mlc.c:「Hoops / ダンクドリーム'95」の正しいROM追加。[Arzeno Fabrice]
+
+- voodoo.c: Voodoo 2のビデオディメンションレジスタを修正。[Ville Linde]
+
+- snk.c:「タッチダウンフィーバー」(US)セットの検証とROMラベルの訂正。
+  [Smitdogg, The Dumping Union]
+
+- namcops2:「スーパードラゴンボールZ」のドングル追加。バージョンをマッチドングルに調
+  整。[Guru]
+
+- hornet.c:「サイレントスコープ」の銃を実装。[Ville Linde]
+
+- namcops2:「カプコンファイティングジャム」のDVD追加。[Smitdogg, The Dumping Union]
+
+- tms99xx: 割り込みライン用のシンボリックな定数追加。エミュレーションコアでなく、CPU
+  が使用する特別なRESETライン追加。
+  tms9928a/v9938: 専用のRESETライン追加。[Michael Zapf]
+
+- legionna.c: ROM名訂正と基板配置追加。COP-D1 ROM追加と未吸い出しPROMについて記述追加。
+  [Smitdogg, Brian Troha, The Dumping Union]
+
+- SDL: GTK+デバッガウインドウの描画を大幅に高速化。[Fabrice Bellet]
+
+- exprraid.c:「エクスプレスライダー」(US set 1)のROM名訂正と、各セットのプログラムROM
+  について、基板上の配置を修正。[Smitdogg, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+ランディングギア (Ver 3.1 O) [Brian Troha, The Dumping Union]
+タンクバタリオン (海賊版)  [Mr. CAST, Smitdogg, The Dumping Union]
+大王 (alternate) [Roman Grantovskiy]
+フリーキック (NS6201-A 1987.9) [Andrew Welburn, The Dumping Union, Charles MacDonald]
+Skins Game (1.04) [R. Belmont]
+ランディングギア Ver 4.2 J [Brian Troha, The Dumping Union]
+ランディングギア Ver 3.0 J [Brian Troha, The Dumping Union]
+クルージンワールド v2.5 [Brian Troha, The Dumping Union]
+クルージンワールド v1.9 [Brian Troha, The Dumping Union]
+ドラゴンボールZ (rev B) [Brian Troha, The Dumping Union]
+Deer Hunting USA V1 [Brian Troha, The Dumping Union]
+スカッドレースPlus [Brian Troha, The Dumping Union]
+レイストーム (Ver 2.05O) [Brian Troha, The Dumping Union]
+レイストーム (Ver 2.05A) [Brian Troha, The Dumping Union]
+ファイターズインパクト (Ver 2.02A) [Brian Troha, The Dumping Union]
+スーパーフットボールチャンプ (Ver 2.4A) [Brian Troha, The Dumping Union]
+タイムクライシス3 (TST2 Ver. A) [Tormod, Smitdogg, The Dumping Union]
+Pit Boss Megatouch II (9255-10-02 ROG, Minnesota version)
+  [Brian Troha, The Dumping Union]
+Super Megatouch IV (9255-41-02 ROC, Minnesota version)
+  [Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Multi Game III (S.Ita) [Roberto Fresca]
+マリオカート アーケードGP [Guru]
+スーパードラゴンボールZ [Guru, R. Belmont]
+湾岸ミッドナイト (WMN1 Ver. A) [Guru, Yasuhiro Ogawa]
+ブラッディロア3 (海賊版) [incog, Smitdogg, The Dumping Union]
+Fate: Unlimited Codes (海賊版) [incog, Smitdogg, The Dumping Union]
+機動戦士ガンダム ガンダムvs.ガンダム [Smitdogg, The Dumping Union]
+ソウルキャリバーII (SC2? world version)
+  [J. Wilke, Smitdogg, The Dumping Union, R. Belmont]
+THE BATTLE OF 幽遊白書 〜死闘！暗黒武術会〜
+  [Smitdogg, The Dumping Union]
+Beach Head 2000 Install - 05/27/03  [Smitdogg, The Dumping Union]
+Beach Head 2000 Install - 09/16/01  [Smitdogg, The Dumping Union]
+Beach Head 2002 Install - 05/27/03  [Smitdogg, The Dumping Union]
+Beach Head 2003 Desert War Install - 05/27/03 
+  [Smitdogg, The Dumping Union]
+Global VR XP OS Install - 09/30/01  [Smitdogg, The Dumping Union]
+Global VR XP OS Update/Install - 06/11/02 
+  [Smitdogg, The Dumping Union]
+Hyper V2 (Global VR) Install - 09/30/0l  [Smitdogg, The Dumping Union]
+Hyper V2 (Global VR) Install - 06/12/02  [Smitdogg, The Dumping Union]
+Need For Speed: Underground Install (2 Discs) (v1.1) 
+  [Smitdogg, The Dumping Union]

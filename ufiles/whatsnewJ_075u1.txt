@@ -1,0 +1,42 @@
+﻿0.75u1
+
+このリリースでテストをお願いします。0.75でタイマー関係のバグは全部つぶしたと思ってい
+ましたがどうやらちがったようでした。u1をテストして問題ない場合は、すぐに0.76をリリー
+スすると思います。サウンドが出ないゲームがあったり、0.75で動いていたゲームが動かない
+場合はできるだけ早めに知らせて下さい。
+
+
+ソース全般の変更：
+------------------
+
+■残りのタイマー関係のバグ修正。[Aaron Giles]
+	src/timer.c
+
+■SH-2コアを少しクリーアップで、「ソルディバイド」の音楽の多分バグだったのが修正。
+[Olivier Galibert]
+	src/cpu/sh2/sh2.c
+
+■「モグラデッセ」のサウンド追加。[Jarek Burczynski]
+	src/drivers/mogura.c
+
+■default.cfgが保存されなかったのを修正。[BUT]
+
+■dbzとlethaljドライバののDIP修正。[El Condor]
+
+■R3000版「エリア51 / Max. Force Duo」の速度修正。[Aaron Giles]
+	src/drivers/cojag.c
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Gorkans [Tomasz Slanina]
+	正しいグラフィックROMをロードするようにしました
+	src/drivers/pacman.c
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+プロ野球入団テスト トライアウト [Pierpaolo Prazzoli]
+	src/drivers/tryout.c

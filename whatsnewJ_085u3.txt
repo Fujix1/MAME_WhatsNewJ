@@ -1,0 +1,38 @@
+0.85u3
+------
+
+ドライバの改良点：
+------------------
+
+- suprnovaゲームの表示パフォーマンス改良。[Carlos Santillan]
+
+- nyanpani、citybomb、topspeedのサウンドバランス改良。
+
+- hanaawasの表示エリアと操作修正。[Pierpaolo Prazzoli]
+
+- 入力ポートを更にクリーンアップ。[El Condor]
+
+-「タッパー」のサウンドボードエラー修正。[B.S.Ruggeri]
+
+-「Return of Lady Frog」の問題がかなりあったのを修正。[Pierpaolo Prazzoli]
+
+-「Return of Lady Frog」でサウンドの予備サポート。[R. Belmont]
+
+- usclssicの色修正。[David Haywood]
+
+- athenaのBGMテンポ修正。[unzu]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- zlibのオフィシャルディストリビューションに新しく含まれているコードを追加。
+  [smf]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+フィールドゴール [Stefan Jokisch]
+ロボレス2001 [Tomasz Slanina]
+Jumping Pop [David Haywood, Guru, R. Belmont]
+

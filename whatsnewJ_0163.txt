@@ -1,0 +1,333 @@
+0.163
+-------
+
+MAMETestersの修正バグ
+---------------------
+- 05967: [サウンド] (darkmist.c) darkmist: 効果音と一部のBGMがならない。(Osso)
+- 02863: [サウンド] (seta.c) jjsquawk: サウンドテストモードで、BGM番号Fを再生するとゲ
+         ームがフリーズする。(Osso)
+- 05283: [サウンド] (suna8.c) sparkman, sparkmana: YM3812の周波数が間違ってる。
+         (system11)
+- 05954: [DIP/入力] (nmk16.c) airattck: DIPスイッチの情報。(system11)
+- 00269: [サウンド] (seta.c) gundhara, madshark: BGMが左からしか出ない。SEは両方から
+         鳴っている。(system11)
+- 01443: [サウンド] (seta.c) msgundam: 効果音が左チャンネルからしか出ない。(system11)
+- 05953: [クラッシュ/フリーズ] All n64.c and aleck64.c sets: LinuxでDRC動作時、クラッ
+         シュやエラー発生。(Wilbert Pol)
+- 05749: [DIP/入力] (c64.c) c64, c64p - Friday the 13th - All versions: ジョイスティ
+         ック入力が正しく動作しない。
+- 05750: [DIP/入力] (c64.c) c64 - G. I. Joe - All Versions: ジョイスティックの方向入
+         力が効かない。
+- 05751: [DIP/入力] (c64.c) c64, c64p - Grog's Revenge - All game versions: ジョイス
+         ティックの方向入力が効かない。
+- 05752: [DIP/入力] (c64.c) c64 c64p Bubble Bobble - All versions: 2Pゲームでプレイヤ
+         ー1の入力が効かない。
+- 05952: [インターフェイス] iniのハッシュパス設定がソフトロード時に反映される。
+         (Wilbert Pol)
+- 05943: [ドキュメント] (pengo.c) penta: 製造元はグリンビー商事
+- 05614: [ゲームプレイ] (zn.c) primrag2: うまく動作せず、アトラクトモードまでも進まな
+         い。(peterferrie)
+- 05834: [サウンド] (galaxian.c) jumpbug, zigzag: BGMなどの音程が違う。(Tafoid)
+
+
+ソースの変更点
+--------------
+- c64: Tesa Etikettendrucker 6240というSX-64の改良版追加。[Retroport]
+
+- ケラレ表示のシミュレーション変更: [ImJezze]
+ * 画面比率の影響を排除
+ * 半径、ぼけ、強度を変更
+ * 丸い角の丸さを修正; デフォルトのアスペクト比は4:3で、ソースの比率が違っていてもス
+   トレッチしてはいけない
+ * 角丸のぼかしを無効化
+ * クリーンアップ
+ * 前回のコミット時に変になった部分の修正
+
+- mips3: キャッシュにより高速RAM処理をさらに高速化。[MooglyGuy]
+
+- ユーザ定義可能な真理値表を導入:
+ これによりネットリストのソースコードを変更せずにデバイスの追加とライブラリの追加が可
+ 能になる。今のところ、pong.cに使用例あり。[Couriersud]
+
+- chsuper.c driver: 全ての入力系のやりなおしと、出力系の完全な実装。DIPスイッチ、DIP
+ 配置、テストモード用の追加入力追加、コインカウンタとホッパーアウト、チケットアウトシ
+ グナルの実装。ランプ系の完全実装とHold3ランプラインの回路対策。またナイスなコントロ
+ ールパネルレイアウト追加。ゲームがプレイ可能なようにCPUクロックを3Mhzに設定。実機で
+ の確認が必要。[Roberto Fresca]
+
+- Champion Super 2 & 3 games: 内部レイアウトを実物のコンパネに元に改良。クリッカブル
+ ボタンランプとコインイン追加。また、不足していたBET MAX機能をHOLD 1入力ボタンに追加。
+ [Roberto Fresca]
+
+- Namco C532に設定変更可能なクロック分周器追加。[superctr]
+
+- gradius3js追加 - 日本版SセットのROM分割版。madmotorのROM名を吸いだした基板を参考に
+ 修正。「Turtle Ship」の新バージョン2つ追加。[system11b]
+
+- idehd.c: 割り込みのとりこぼしがないようIDEをフルタイム化。[Peter Ferrie]
+
+- 共有ライブラリとのコンパイルが可能: [O. Galibert]
+ メインのmakefileかコマンドラインにSHLIB=1と指定する
+
+- mac: NuBus"イメージ"カードホストアクセスのクラッシュ修正。[R. Belmont]
+
+- delegate.hがINTERNAL設定によりmingw 32ビットビルドをサポート。メンバ関数はこの場合
+  __thiscall ABIを使って呼ばれる。[Couriersud]
+
+- mac: イメージカードが$HOMEに対して $文字で始まるパスを使用可能。また、パスが不正の
+  場合にクラッシュするのを修正。[R. Belmont]
+
+- Game Blasterエミュレーション修正。動作OK。[balrog]
+
+- sb1.0でのGame Blasterの互換性を修正。[balrog]
+
+- gameboy.c: MBC2ゲームのエミュレーション精度改善。[Tauwasser]
+
+- ui: ソフトリストのあるシステムに内部ファイルマネージャでアクセスするとき、ナビゲー
+  ションが早くできるようにソフトリストの項目をデフォルトで選択。[Fabio Priuli]
+
+- チート: ソフトリストのゲームに対するチートサポートを改良。ホームシステム用XMLチート
+  はサブフォルダ(または圧縮アーカイブ)内に配置する。名称はソフトウェアリストのものを
+  使い、cheatpath内に置く。これにより、アーケードゲーム名とホームコンピュータ・コン
+  ソール用のゲーム名が同じでも衝突することなくチートを読み込める。
+  例えば、NESのGalagaを読み込むとき、アーケード用のcheat.7z内にgalaga.xmlがあったとし
+  てもNES用チートを問題なく読み込める(以前はアーケード用のチートが読まれ、CPUが違うと
+  いう理由でエラーになっていた)。[Pugsy, Fabio Priuli]
+
+- n64.xml: 親子関係の修正。[Andrea Petrucci]
+
+- audit.c: 内部UIからCHDをマウントしようとするとクラッシュするのを修正。
+  [Fabio Priuli]
+
+- あのシャーウッドの森の謎を解明。DOS 3.3はセクターデータブロックにヘッダとデータバイ
+  トの書き込みの間に短いディレイがある(3〜4サイクルで、ほぼ1ビットに相当)。
+  [Peter Ferrie, Olivier Galibert, Richter Belmont]
+
+- superbugの爆発オーバーレイを修正。[SoltanGris42, Couriersud]
+
+- NETLIST_START(NAME)の配置と呼び出し方法を、単純にnetlist_sources_tクラスを使うよう
+  に変更。ネットリストユーザはmemregions、ハードコード文字列、コンパイル済ネットリス
+  トようにソースを登録する。この方法を進めればマクロモデルライブラリをROMに置くことが
+  出来るだろう。改良には代償が伴い、コンパイル済ネットリストはLOCAL_SOURCEを使ってイ
+  ンクルードするようになった。[Couriersud]
+
+- .lstファイルのホワイトスペース問題修正。[LnmVolbo]
+
+- galaxian.c:「ジ・エンド」のStern Electronicsライセンス版のROMラベル修正。[caius]
+
+- mos6526: ポートA/Bリード修正。[geecab]
+
+- Ensoniq 5503DOCスワップモード改良。[NJRoadfan]
+
+- GamesharkはAction Replayのクローン。[Andrea Petrucci]
+
+- バグいっぱい修正
+ * プロキシのセーブステート
+ * ソルバのセーブステート
+ * 両方の7490がfiringを同時にカウントするバグ修正。また、指定時間動作のリストをリサイ
+   ズ可能に変更。[Couriersud]
+
+- フロッピー: get_next_transitionが常に次のトランジションを渡すように改良。
+  [O. Galibert]
+
+- xeviousのビデオ基板用PAL追加。[caius]
+
+- OPT_FLAGSを復活。[Belegdol]
+
+- naomi.c:「サンバ・デ・アミーゴ」プロトタイプの完全ダンプ。
+  [Arzeno Fabrice, MetalliC, rtw]
+
+- nl_examplesにkidnikiのサウンドボードを追加。現状ではネットリストは87x87のマトリクス
+  に集約される。これは全てサブモジュールのオペアンプ6つがあり、自身の内部ネットにそれ
+  ぞれ追加されるため。ガウスザイデル反復による解法は限界に達している。nltoolはうちの
+  マシンで50%の速度で動作しているが、複雑度を考えるとこれはかなりよい。しかし、このま
+  まではm62ゲームのプレイには厳しい。新しいCPUが必要か? :-)
+  [Andrew Gardner, Couriersud]
+
+- m20: キーボード改良。[Carl]
+
+- wallyweekさんの作業を元に、flac、jpeg、lua、sqlite3、portmidi、zlibをシステム機能に
+  追加。これにより、ビルドシステムの書き換え前のシステムライブラリ機能が復活。
+  [Julian Sikorski]
+
+- SDL_INI_PATHフラグ追加。[Cesare Falco]
+
+- Model1コミュニケーションボード: [Ariane Fugmann]
+ * commボード用のエミュレータオプション追加
+ * Model 1コミュニケーションボードをデバイスとして追加
+ * Model 1コミュニケーション用のシミュレーション追加
+ *「バーチャレーシング」「バーチャフォーミュラ」「ウィングウォー」をリンクモードでプ
+   レイ可能
+
+- victor9k: キーボード修正。[Curt Coder]
+
+- gamegear: マスタギアアダプタからlightphaserオフセットを見れるように改良。
+  [Enik Land]
+
+- rohga.c: MAS10サウンドサンプルROMを正しいサイズで吸い出し直し。「ダークシールII」の
+  サウンド不足修正。[Porchy, The Dumping Union]
+
+- エリミネーションによりほぼ解析完了した89x89オーディオマトリックスで45%〜60%から99%
+  に改善。コードの整理も。[Couriersud]
+
+- seta, x1-010: downtownの音程修正。[superctr]
+
+- GMRESソルバをネットリストに追加。汎用化した最小限の残りメソッドはガウス消去法やガウ
+  スザイデル法よりも明らかにモダン化されている。 However, more the current maximum 
+  matrix (KidNiki,89x89) a combination of Gauss-Seidel to solve for maximum one step 
+  to catch quasi-stable conditions and fall-back to optimized Gaussian elimination 
+  (for sparse matrix) outperforms GMRES by up to 100%. [Couriersud]
+
+- tms5110r.c: CD2802、CD2801用LPCテーブルデータ追加;
+ TMS5110A/TMC0281D; 各チップ用の新情報追加。LPCテーブルで#defineを使うように再構成。
+ [PlgDavid, Lord_Nightmare, NullMoogleCable]
+
+- ネットリストコードで"namespace netlist"を使用。同時に、全てのデバイスを
+  netlist::devicesネームスペースに移動。[Couriersud]
+
+- GLSL: シェーダファイルサイズ制限の撤廃。[R. Belmont]
+
+- tms5110.c and tms5220.c: chirp/excitation値のキャストが無かったを修正。tms5110.cで
+  off-by-oneの可能性があったのも修正。[Lord Nightmare]
+
+- info.c: -lx出力でサブデバイスが出力されていなかったので対策。[Fabio Priuli]
+
+- model3: 改良いろいろ。[Ville Linde] 
+  * 投影変換演算で投影変換マトリックスを使うよう書き換え
+  * ポリゴンのクリッピング処理を4D Wスペースクリッピングに書き直し
+  * 8ビットテクスチャアップロードを実装
+  * 全てのスキャンラインレンダラがrgbutilを使うように変更
+
+- naomi.c:「シャカットタンバリン」 (GDS-0002B)のDESキーをブルートフォース。
+  [CaH4e3, MetalliC, emuDrache (trurip), rtw]
+
+- 不足しているgamecubeエディションROMを追加。[andrea-petrucci]
+
+- uzebox: サウンドエミュレーション追加。[Felipe Sanches]
+
+- chihiro.c:「セガネットワーク対戦麻雀MJ2」「同3」のキーをブルートフォース。
+  [f205v, MetalliC]
+
+- GMRESソルバをネットリストソルバテンプレートに完全統合し、コードをゼロから書き直し。
+  GMRESは以前の60%から122%の速度(kidniki)で動作するように大きな改善となった。同時にコ
+  ードもGMRESアルゴリズムに近くなり読みやすくなった。[Couriersud]
+
+- 使用ドライバをリストで指定してカスタムビルドする機能を追加。ゲームリストはパースさ
+  れるので、マクロが使われるのはゲームリストが無い場合のみ。
+  例: make SUBTARGET=cops -j9 DRIVERS=src/mame/drivers/cops.c
+  [Miodrag Milanovic]
+
+-「快傑ヤンチャ丸 / Kid Niki」などにアナログドラムとフィルタリング追加。
+  [Andrew Gardner, Couriersud]
+
+- System32ゲームで、共有RAMブリッジボード(「エアレスキュー」「F1エキゾーストノート」)
+  を使って2枚ボードのスタックを正しくエミュレート。
+  以前はハックで2つめのスタックがあるように見せかけていたが問題を起こしていた。これに
+  よりデュアル画面ゲームもハックなしで正しくエミュレートされている。[David Haywood]
+
+- Windowsで-uimodekeyスイッチをサポート。[Vas Crabb]
+
+- apricot: 正しいwd fdcタイプを使い、フロッピーモーターONを修正。グラフィックモード実
+  装、SIO IRQ M1アクセスシミュレートによりディスクから起動可能。[Dirk Best]
+
+- apricot: 拡張スロットインタフェースと、RAM拡張カード2枚追加。apricot fシリーズとポ
+  ータブルでも使用可能。[Dirk Best]
+  
+- apricot: キーボードサポート。[Dirk Best]
+
+- 全てのドライバで新しいwdフロッピーコントローラを使い、古いものを削除。[Dirk Best]
+
+- i8089: drqのサポートのためウェイト追加。[Dirk Best]
+
+- wd_fdc: ZX-SpectrumとBeta128ディスクインタフェース用。[MetalliC]
+
+- pentagon: cycle exactな画面・ボーダーラスタエフェクトエミュレーション。[MetalliC]
+
+- liberate:c: DIPスイッチの検証と整理、DIP配置の追加。[Tafoid]
+
+- suna8: sparkmanのプレイヤー2の色と2つめのROMから再生されるサンプルを修正。リセット
+  時にならしていた偽のサンプルを削除。[Luca Elia]
+
+- 以下のドライバでセーブステートの追加、完成、有効化: [Osso]
+  battlera.c, cclimber.c, gaplus.c, grchamp.c, namcos1.c, nbmj8991.c, shisen.c,
+  snk68.c, spacefb.c, sprcros2.c, srmp5.c, vastar.c, warpwarp.c 
+
+- rgbutil: クラス化と関数の追加。[MooglyGuy]
+
+- n64: SSE2を使うようにRDPレンダリングをコンバート。[MooglyGuy]
+
+- 実機で確認して'The Battle Road'のテキストレイヤー色を修正。フラグの削除とこのことに
+  ついて言及しているコメントを削除。[David Haywood, caius]
+
+- xt_hdc: PIOの改善。[Barry Rodewald]
+
+- amstrad: Dobbertin HD20ハードディスクをサポート。[Barry Rodewald]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Entex Electronic Basketball 2 [hap, Sean Riddle] 
+Entex Color Football 4 [hap, Sean Riddle] 
+Tomy Break Up [hap, Sean Riddle]
+Player's Edge Plus (PP0021) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0048) Joker Poker [BrianT, Jim]
+Player's Edge Plus (PP0085) Joker Poker (Two Pair or Better)  [BrianT, Jim]
+Player's Edge Plus (PP0089) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0130) Aces and Faces [BrianT, Jim]
+Player's Edge Plus (PP0132) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0150) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0181) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0223) Deuces Joker Wild Poker [BrianT, Jim]
+Player's Edge Plus (PP0401) 4 of a Kind Bonus Poker [BrianT, Jim]
+Player's Edge Plus (PP0467) 4 of a Kind Bonus Poker [BrianT, Jim]
+Player's Edge Plus (PP0550) Joker Poker (Two Pair or Better) [BrianT, Jim]
+Player's Edge Plus (PP0750) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0757) Double Down Stud Joker Poker [BrianT, Jim]
+Player's Edge Plus (PP0764) 4 of a Kind Bonus Poker [BrianT, Jim]
+Player's Edge Plus (PP0812) Deuces Joker Wild Poker [BrianT, Jim]
+Player's Edge Plus (X000489P+XP000038) Double Down Stud Deuces Wild Poker
+  [BrianT, Jim]
+Player's Edge Plus (X000557P+XP000038) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (X000578P+XP000038) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (X002312P+XP000112) Triple Bonus Poker Plus [BrianT, Jim]
+Player's Edge Plus (X002412P+XP000096) Standard Draw Poker (5 Decks) [BrianT, Jim]
+Z80 TV Game System [Robbbert]
+Player's Edge Plus (X000057P+XP000038) Deuces Wild Poker [BrianT, Jim]
+Player's Edge Plus (X002024P+XP000038) Double Bonus Poker [BrianT, Jim]
+Coleco Frogger [hap, Kevin Horton]
+
+
+新しく追加されたクローンセット
+------------------------------
+G-LOC Air Battle (World) [Arzeno Fabrice, The Dumping Union]
+Mr. Kicker (F-E1-16-010 PCB) [system11, David Haywood]
+Space Attack (2k roms)(bootleg of Space Invaders) [MikeMcBike]
+Player's Edge Plus (PP0291) Deuces Wild Poker (set 2) [BrianT, Jim]
+Player's Edge Plus (PP0040) Standard Draw Poker (set 2) [BrianT, Jim]
+Player's Edge Plus (PP0410) 4 of a Kind Bonus Poker (set 2)  [BrianT, Jim]
+Player's Edge Plus (PP0423) Standard Draw Poker (set 2) [BrianT, Jim]
+Bells & Whistles (Asia, Version M) [rtw, The Dumping Union]
+Gundhara (Chinese, bootleg?)  [system11]
+Bionic Commandos (bootleg) [TeamEurope, MikeMcBike]
+Space Attack (bproms)(bootleg of Space Invaders)  [Mike McBike]
+Beast Busters (US, Version 3)
+  [Jets (www.emu-france.com) & Layer (www.neo-arcadia.com)]
+Dream Soccer '94 (Korea, M107 hardware) [Bill D. / The Dumping Union]
+Dunk Shot (Rev A, FD1089A 317-0022) [CoolMod]
+Mahjong Dial Q2 (Japan, alt.) [AeroCityMajor, The Dumping Union]
+Hana Jingi (Japan, Bet, alt.) [AeroCityMajor, The Dumping Union]
+Megatech Ver 0 Rev A (alt?)  [Arzeno Fabrice, The Dumping Union]
+Player's Edge Plus (PP0250) Double Down Stud Poker (set 2)
+  [BrianT, Jim]
+Tahjong Yakitori (ver. 2-1) [AeroCityMajor, The Dumping Union]
+New Cherry '96 Special Edition (v3.61, C1 PCB) [Bad A Billy, Smitdogg, The Dumping Union] 
+New Cherry '96 Special Edition (v3.53, D PCB) [Bad A Billy, Smitdogg, The Dumping Union]
+New Cherry '96 Special Edition (v3.40, D PCB) [Bad A Billy, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Bingo Party Multicart (Rev B) (M1 Satellite board) [Arzeno Fabrice, The Dumping Union]
+HP 64000 development system [F.Ulivi]
+Itautec I7000 [Felipe Sanches]
+Regnecentralen RC759 [Dirk Best]

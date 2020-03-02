@@ -1,0 +1,72 @@
+0.77u1(private)
+
+前リリースでのZ80DAAエミュレーションの改善については“Ramsoft”
+( http://www.ramsoft.bbk.org/ )氏のクレジットとします。
+
+
+ソース全般の変更：
+------------------
+
+■CHD新フォーマットと管理ツール追加。[Aaron Giles]
+	hdcompの名称をchdmanに変更
+	古いCHDファイルとの互換性はありません。
+    “chdman -update 古い方.chd 新しい方.chd”で変換する必要があります
+    フォーマットが汎用的になったため、CHDは“Compressed Hard Drive”から
+    “Comressed Hunks of Data”の略にします
+
+■変更をいろいろ。[Nathan Woods]
+	src/drivers/sengokmj.c:
+	src/drivers/stv.c:
+	- マイナーなクリーンアップ(特に変数を定数に変更)
+	src/machine/6522via.c:
+	src/vidhrdw/tms9928a.c:
+	- MESSから修正とアップデートを取り込み
+
+■Hard Drive SHA1の変更にあわせてドライバを更新。[Roman Scherzer]
+	src/drivers/cojag.c
+	src/drivers/djmain.c
+	src/drivers/seattle.c
+
+■tpgolfのサウンド修正。[Leon van Rooij]
+	src/drivers/neogeo.c
+
+■その他いろいろな修正(DIPスイッチ、タイルマップへの変更など)
+  [いろんな方]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Angel Kiss [David Haywood]
+	サウンドなし
+	src/drivers/ms32.c
+
+グランドストライカー2 [David Haywood]
+	ラウンド間にプライオリティ不具合あり
+	src/drivers/metro.c
+	src/vidhrdw/metro.c
+
+Hatch Catch [David Haywood]
+	src/drivers/tumblep.c
+	src/vidhrdw/tumblep.c
+
+Cookie & Bibi 2 [David Haywood]
+	src/drivers/snowbros.c
+	src/vidhrdw/snowbros.c
+
+クイズ ぱにくるふぁんたじ～ [Pierpaolo Prazzoli]
+	サンプルバンキングが不良
+	src/drivers/quizpani.c
+	src/vidhrdw/quizpani.c
+
+ビデオピンボール [Stefan Jokisch]
+	ドライバの書き換えにより動作
+	src/drivers/videopin.c
+	src/vidhrdw/videopin.c
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+BC Story (SemiCom)
+	プロテクト (プログラムの0x200バイト分不明)

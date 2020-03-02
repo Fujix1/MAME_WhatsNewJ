@@ -1,0 +1,298 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.133u2</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.133u2.txt</div>
+	<div class="main">
+<div class="wn">
+0.133u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00191: [グラフィック] miaj: 0.76u2から起動時の画面に表示されるテキストが左右反転している。このバージョンで
+         タイルマップへの変更が行われた。(hap)
+- 02267: [グラフィック] devilw, darkadv, majuu: 余計なスプライトが表示される。(hap)
+- 03370: [サウンド] gng and clones: ショット中にBGMのFM音源が遅くなる。(Corrado Tomaselli)
+- 03373: [その他] looping: 未マップなI/Oリードとライトにより、15MBのerror.logファイルが1秒毎に
+         出力されて大変なことになる。(robiza)
+- 03381: [クラッシュ/フリーズ] pc_moglf, pc_mtoid: 起動直後にaccess violationエラーでクラッシュする。(hap)
+- 03376: [クラッシュ/フリーズ] All Sets with Rev 1 Sound Board in gottlieb.c: Access Violationエラーで
+         クラッシュする。(hap)
+- 03175: [クラッシュ/フリーズ] cham24: 灰色画面のままでスタートしない。
+- 03354: [DIP/入力] cobram3: 残ライフ無限のDIPスイッチは、実はサービスモードの切り替え。
+- 03352: [DIP/入力] cobram3: DIPスイッチ設定に関わらず、アトラクトモードの音が出ない。(Xander)
+
+
+
+ソースの変更点
+--------------
+-「Dream Land」(「バブルボブル」の海賊版)のROM名に基板配置を追加。[Briah Troha]
+
+- 39in1にサウンド追加。まだバグがち。[MooglyGuy]
+
+-「プロ野球入団テスト トライアウト」の実機比較資料を元に、BGMのテンポを調整。
+  [Angelo Salese]
+
+- SNESの修正(ほとんどはMESS向け): [Angelo Salese]
+ -「Super Kick Boxing」の起動とサウンドを修正
+ -「Shien's Revenge / Shien the Blade Chaser」が起動するよう、オープンバスの仮エミュ
+   レート
+ - mode 5/6の背景が半分欠けるバグを修正
+ - nss_stenのグラフィックを(多分)修正
+ - ラストのスクロールレジスタについてより正確な動作
+ - タイルサイズが16x16の時の、mode 5/6のグラフィックを改良
+ - 多くのゲームでの、列ラインスクロールのバグを修正
+ - 未サポートのI/Oオープンバス読み込みを作成。「Super Kick Boxing」のレイヤーイネーブ
+   ルが修正
+ - ハイレゾモードでのVRAMサイズを修正
+ - インタレースモードの実装
+ - インタレースモードで、Y軸方向にスプライトがダブるのを修正
+ - H-512モード時のウィンドウエフェクトを改良
+ - カラーウィンドウのパッチを削除
+ - H-512モード時のレイヤー消去を修正
+ - hscroll == 0のときのX軸方向のスクロールラッピングを修正
+ - タイルのスクロール時に横列方向に乱れるバグを修正
+ - IRQ ACKとTIMEUPレジスタについてのオープンバスの動作を修正
+ - オープンバスをさらに修正
+ - インタレースモード画面時に起こる部分的な更新のバグを修正
+ - 8bppレイヤーの色修正
+
+- progolfaのROMをprogolf同様にパッチ。progolfの不良吸い出しフラグを削除。progolfaでは、
+  テストモードで同じROMエラーが発生する。progolfaは暗号化が異なる。[robiza]
+
+- スロットのデフォルト入力にstop4を追加と、Amcoe製ゲームにより合うようにスロットのデ
+  フォルトキーを再割り当て。[Fabio Priuli]
+
+- sfbonus.cで新しいギャンブルゲーム用入力を使うように更新。年代とゲーム名を多く修正。
+  親子関係の再構成。また、ROMセット名を設定する共通ルールを作成。[Fabio Priuli]
+
+- 花札ゲーム用のデフォルト入力マッピングを追加。ほぼ全ての花札ゲームで使用。麻雀ゲー
+  ム同様にAキーからHキーを使用。YesはMキー、NoはNキーです。[Fabio Priuli]
+
+- pantherに正しいカラーPROMを追加。[Mr. Do, Angelo Salese]
+
+- Nichibutsu麻雀ゲームからフェイクのP3スタートボタンを削除して、その入力に本来の
+  "Credit Clear"を割り当て。また、nb1413m3.cにBetボタンを再追加してomotesndを修正。
+  [Fabio Priuli]
+
+- nmk16.cドライバのドキュメント更新と整理: [Briah Troha]
+ -「宇宙戦艦ゴモラ(Bio-Ship Paladin)」の基板レイアウトをゲームのromdefの下に移動
+ -「Spectrum 2000」の基板レイアウト追加と、YONA Techの会社名を訂正
+ -「Red Hawk / ステッガーI」の基板レイアウト追加
+ - (必要な箇所については)復号化ルーチンを、情報・基板レイアウトとゲームのromdefの間に
+   移動
+
+-「最後の忍道」(nspiritj)に8751 MCUコードを追加。[Guru, David Haywood]
+
+-「18ホール プロゴルフ」の背景マップバンキングの仮実装。[Angelo Salese, Robiza]
+
+-「舞妓花 [BET]」(mmaiko)のマッピングエラーでNVRAMが正しく保存されなかったのを修正。
+  [Tafoid]
+
+- Aristocrat MK-4 HW: mc6845の実装、goldencのROM CRC修正とY反転実装。[Angelo Salese]
+
+- gberete、mainevt、ninjakd2、taito_zのDIPスイッチクリーンアップ。。[kanikani]
+
+- 外部サンプルファイルを使う全てのセットにGAME_IMPERFECT_SOUNDフラグを追加。
+  「Speed Freak」(speedfrk)について、ドライバの他のセット同様、GAME_SUPPORTED_SAVEフ
+  ラグを設定。[Tafoid]
+
+- SNESの表示系更新: [Fabio Priuli]
+ * デバッグビルドでのビデオデバッグ機能を再有効化(背景レイヤーの切り替え用)
+ * いろいろな背景・オブジェクト用の正しいプライオリティテーブルを追加
+ * タイルと線の描画のルーチンを大幅にシンプル化。また細かな問題をあちこち修正
+ * タイル描画ルーチンをさらにシンプル化
+ * 8bppタイルにパレットインデックス追加(ただし、color_shiftの正確さはまだ不完全)
+ * いろいろなグラフィックモードでの描画をシンプル化と、プライオリティ順(特に、bg3プラ
+   オリティビットとmode 7のプライオリティ順)の正しい実装ができるように、ビデオ描画ルー
+   チンの作り直し
+ * Mode 7 extbgを改良(モザイクは未実装)
+ * デバッグオプションをいくつか追加
+ * Mode 7 演算精度を改良(ただしまだ一部問題あり)と、PPU構造体に要素を追加
+ * Mode 7のモザイク実装
+ * OAM関数を統合
+ * PPU構造体に要素を追加(SNES PPUをデバイスにコンバートする際に便利なはず)
+ * Mode 7 共有スクロール/マトリクスレジスタを修正
+ * Mode 7 mathを少し最適化(Anomy氏の再帰式使用)
+ * レジスタの内容をさらにいくつかPPU構造体に移動
+ * PPU1/PPU2 Open Busをサポート、STAT77/STAT78レジスタがさらに正確になったはず(ただし
+   それでも不完全)
+ * ウィンドウマスキングコードのシンプル化とPPU構造体にレジスタをさらに移動
+
+- NES系の作業: [Robert Bohms]
+ * $4015読み込みのエラーを起こしていたnes_apuのバグ修正
+ * $4015に長さカウンタステータスビットを追加
+ * 4画面ミラーリングを修正(PPUのバグ)
+ * cham24を修正
+ * NES PPUのスプライトオーバーフローエミュレーションを改良(blarggのスプライトオーバー
+   フローテストが修正)
+
+-「Gストリーム G2020」の基板U配置をROMに追加。[Brian Troha]
+
+- Atomiswaveの更新: [R. Belmont, Cah4e3]
+ - フラッシュROM 0を実装
+ - AW用のメモリマップを使用
+ - AW用ROMボードのエミュレート(Naomi用とは異なる)
+
+- g65816 CPUコアのバグがちなブレイクポイントを修正。[Angelo Salese]
+
+- AtomiswaveのCOIN ERRORを修正。[Wind]
+
+- n8080のアップデート: [Team Japump!!!]
+ -「スペースフィーバー」の「SFハイスプリッター」のROM名訂正
+ - spacefevaをspacefevo2に改名
+ - spacefevoを追加
+ - highspltbを追加
+
+- Sega Hikaruのreadmeを更新。[Guru]
+
+- ディスクリートサウンドの更新: [couriersud]
+ - DISCRETE_TRANSFORMにabs機能追加
+ - DISCRETE＿RCDISC5のバグ修正
+
+- safarir.cのサンプルが1つ足りないのを追加。[Team Japump!!!]
+
+- galaxian用のディスクリートサウンドエミュレーション作成: [couriersud]
+ - 音声関係のAM_WRITEを全てAM_DEV_WRITEに変更
+ - 初期化など、ディスクリートサウンド関係の箇所をaudio/galaxian.hに移動
+ - メモリマップをサウンドに関係するものとそうでないものに分割
+ - discrete.hで、コンパイル時にハードウェア(ギャラクシアン/ムーンクレスタ)の選択が出
+   来るように変更。これにより音量が若干変更。ヒット音(爆発)は音量上げハック追加。今の
+   ところ、スイッチとオペアンプフィルタの正確な回路モデリングはしてません
+ - ピッチタイマーが実際に聞こえる結果を出すときのみ使われるようにタイマーコードを書き
+   直し
+
+- Cojag/jaguarのビデオ更新 (主にMESS用): [Robbbert]
+ * 可変のピクセル幅追加
+ * 画面幅が360ピクセルより広いときの表示を修正
+ * RGB16を使用
+
+- looping: cop420 ROM領域を改良、クローンセットのMCU ROM領域修正、MCUをサポート。
+  [robiza]
+
+- bingor2のプログラムROMを再吸い出し。[Klaus Sommers]
+
+-「Kamakazi III」のDIPスイッチ設定を訂正(superggと同じもの)。supergハック版のDIP名称
+  変更。Taitoライセンス版のDIP設定もsupergと同じだったので、一つに統合。[Brian Troha]
+
+- エイリアスフィルタを使ってスピーカー切り替えエミュレーションを改良。
+  [Anders Hallstrom]
+
+- NES: miltigm3(オリジナルのRob Bohm氏コードを追加するときに間違って壊れていたもの)の
+  バンクスイッチを修正。ただしそれでもゲームは動作しません。[Fabio Priuli]
+
+- vsnesの更新: [Team Japump!!!]
+ - ROM名修正
+ - vsoccerjを追加
+
+- sicv、sisv、sisv2のROM名修正。[Team Japump!!!]
+
+- TNZSのVSyncを基板で測定した59.15に訂正。[Corrado Tomaselli]
+
+- goldnpkr.cの海賊版について記述を統一。[hap]
+
+- sonsonのスプライトラッピングを修正。[hap]
+
+- Intel 4004 CPUコア追加。[Miodrag Milanovic]
+
+- タイルマップリストをグローバル変数から、running_machineで保持するプライベート情報に
+  変換。ALL_TILEMAPSなケースを処理する新APIコードをタイルマップに追加。古い
+  ALL_TILEMAPS定義を削除。[Atari Ace]
+
+-「Shogun Warrior / 富士山バスター」の再吸い出ししたグラフィックROM追加。[Guru]
+
+- romload.cとvalidity.cで、グローバル変数を使わないように更新。[Atari Ace]
+
+-「クリフハンガー」のディスクリートサウンドについて、実機の値を元にレジスタの値を修正。
+  [Ruben Panossian]
+
+- 8085とZ180で、直接値を演算するためにDAAテーブルを削除。またマクロの使いすぎで、8085
+  のマルチリードが間違って起きないように8085のコードを修正。[hap]
+
+-「Space Walk」にゲームタイムとコインエイジDIPスイッチ、サービスモード、テストスイッ
+  チ追加。P2コントローラとコインカウンタもサポート。正常動作するためGAME_NOT_WORKINGを
+  削除。写真を元にカラーオーバーレイを追加。[hap]
+
+- フライヤーを元に「デプスチャージ」のカラーオーバーレイを追加。[hap]
+
+- Konami twin16ドライバの更新。変更点は以下の通り: [hap]
+ - スプライトステータスレジスタを改良。これによりdevilwの不良スプライト修正
+ - froundにコインカウンタ追加
+ - k007232の音量低下
+ - セーブステートをサポート
+ - 影表示追加
+ - devilwとgradius2のスプライトラグ修正
+ - テキストレイヤーの水平・垂直反転追加
+ - gradius2のスプライトと背景のプライオリティハックを巻き戻し。これにより、devilwのプ
+   ライオリティ不具合が修正。ただし、gradius2の7面とエンディングのバグが再発
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+18ホール プロゴルフ [robiza, Angelo Salese]
+Python (Photon System) [Mick, Mariusz Wojcieszek]
+ポップンミュージック2 [Guru]
+ビートマニア クラブMIX [Team Japump!!!, The Guru]
+リッジレーサー (3 screen? Rev. RR2, World) [Guru, Smitdogg]
+（カラー）スカイラブ [bbmmamoh, David Haywood]
+Triple Draw Poker [Team Europe, David Haywood] (Wrong Colours)
+
+
+
+新しく追加されたクローンセット
+------------------------------
+ガンバレット (World, GN3 Rev B) [Brian Troha, Dumping Union]
+Megatouch 5 (9255-60-01 ROI, Standard version) 
+   [Brian Troha, Dumping Union]
+Dragon World / 中国龍 (V021O) [f205v, Olivier Galibert, David Haywood]
+ワインディングヒート (JAA, JPN v2.11) [Guru]
+クイックス (set 2, smaller roms) [Team Europe]
+9-Ball Shootout Championship [SiftWare]</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+0.139u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04030: [その他] All sets in taito_f3.c, taito_z.c, kaneko16.c, konamigq.c, 
+         overdriv.c: いろいろな場面で"16-bit EEPROM set with 8-bit data"というメッ
+         セージが出る。(Aaron Giles)
+- 04034: [クラッシュ/フリーズ] All sets in viper.c: [デバッグ限定] アサート発生。
+         (Aaron Giles)
+- 01993: [グラフィック] stmblade: 3面の最初で、画面左側にグラフィック不具合が現
+         れる。(robiza)
+- 04050: [グラフィック] twineag2: 画面切替時のエフェクトがかかっていない。
+         (robiza)
+- 04044: [グラフィック] batsugun and clones: [バグかもね] 単体VDPでの描画にまだ
+         不具合がある。面クリア時の集計画面などで。(David Haywood)
+- 00945: [グラフィック] bkraidu: DIP設定で画面反転を有効にすると、テキストレイヤー
+         が3つに分割されて表示される。(robiza)
+- 00944: [グラフィック] ghox: エンディングシーンでグラフィック不具合あり。
+         (robiza)
+- 03952: [グラフィック] gaiden, wildfang, raiga: 画面反転を有効にすると、下側に
+         32ピクセルずれる。(robiza)
+- 04036: [グラフィック] astrowar: [デバッグ限定] グラフィックが化けている。
+         (Fabio Priuli)
+- 04035: [クラッシュ/フリーズ] All sets in chihiro.c: OK画面の前にアサート発生。
+         (Fabio Priuli)
+
+
+ソースの変更点
+--------------
+- mc6845.c: カウンタレジスタでミッドフレームでの変更ができるよう書き直し。これに
+  より、ドライバが標準のmc6845を使って高度な画面分割やスクロールエフェクトを行え
+  ます。[Wilbert Pol]
+
+- MACHINE_DRIVER_*マクロを以下のように変更: [Aaron Giles]
+
+  1. MACHINE_DRIVER_*をオブジェクトの実際の記述名に合わせMACHINE_CONFIG_*に改名。
+     接頭辞MDRV_*はいずれ一括更新するかもしれませんが、今のところはまだです
+
+  2. MACHINE_CONFIG_START()が、driver_data_tの派生クラスを第2引数としてとるよう
+     になりました。つまり、MDRV_DRIVER_DATA()が不要になったということです。また、
+     各"root"マシン設定は、ドライバデータクラス(または、ドライバがまだドライバデー
+     タを使うほどまで更新されていないときはdriver_data_t自体)を*確実に*設定しな
+     ければいけません
+ 
+  3. 新MACHINE_CONFIG_DERIVED()マクロ追加。これは、他のmachine_configを継承する
+     machine_configを定義します。MACHINE_DRIVER_START()/MDRV_IMPORT_FROM()の典型
+     的な組み合わせを置き換えます
+
+  4. 新MACHINE_CONFIG_FRAGMENT()マクロ追加。これは他の"root"なmachine_configで
+     インクルードすることだけができる部分的なmachine_configを定義します。また、
+     デバイスの一部として指定可能なmachine_configsとしても使えます
+
+  5. MDRV_IMPORT_FROM()を、実際の動作を正しく表すMDRV_FRAGMENT_ADD()に改名
+
+  6. 上記3マクロが正しく使われいるかを確実にするためアサートを追加
+
+- 全てのマシンドライバで新マクロを使うように更新。一部の手修正により、99%は検索
+  ＆置換で処理。[Aaron Giles]
+
+- timer.c: イネーブルステートが変更されたときだけタイマを再スケジュール。
+  [Christophe Jaillet]
+
+- bfm_dm01の改良: ドットマトリックスディスプレイ用の表示ハックを、より正確なアー
+  トワークベースのものに置き換え。BFM_DM01のクロックデータは1度に1バイトずつであ
+  り、新型のドットマトリックスレンダオブジェクトは、各バイトによる8ドットを表現
+  します。[AGEMAME]
+
+- aristmk4.c:
+ * topgear用にCashcadeの対策 [Frasher]
+ * メモリハンドラを一部改良 [Palindrome]
+
+- driver_dataオブジェクトをデバイスに変更。driver_data_tクラスを新しく
+  driver_deviceクラスに置き換え。これは、全driver_dataオブジェクトの基底オブジェ
+  クトとなります。新しいドライバデバイスは、デバイスリストの最初に追加され、
+  "root"タグが付けられます;その他のデバイスは、ドライバデバイスの所有となります。
+  [Aaron Giles]
+
+- コアコールバック(machine_start/_reset, sound_start/_reset,　
+  video_start/_reset/_eof/_update, and palette_init)をこれら新デバイスのデバイス
+  設定パラメータに移動。driver_deviceベースクラスがdevice_start()を以下の順でオー
+  バーライドし、その他全てのデバイスが開始を確定してから呼び出しを行います:
+
+  1. DRIVER_INIT 関数 - ゲームドライバから
+  2. palette_init() - デフォルトでMDRV_PALETTE_INIT関数を呼び出し
+  3. driver_start() - 新規
+  4. machine_start() - デフォルトで、MDRV_MACHINE_START関数を呼び出し
+  5. sound_start() - デフォルトで、MDRV_SOUND_START関数を呼び出し
+  6. video_start() - デフォルトで、MDRV_VIDEO_START関数を呼び出し
+
+  同様に、driver_deviceクラスはdevice_reset()をオーバーライドし、その後以下の順
+  でメソッドを呼び出します:
+
+   driver_reset() - 新規
+   machine_reset() - デフォルトで、MDRV_MACHINE_RESET関数を呼び出し
+   sound_reset() - デフォルトで、MDRV_SOUND_RESET関数を呼び出し
+   video_reset() - デフォルトで、MDRV_VIDEO_RESET関数を呼び出し
+
+  この変更に伴い、初期化順序を少し変更しています。タイルマップ、ビデオ、サウンド、
+  デバッグシステムは、デバイススタートの前に初期化されるようになりました。また、
+  DRIVER_INIT、PALETTE_INIT、MACHINE_START、SOUND_START、VIDEO_STARTへのユーザコー
+  ルバックは全てバックトゥバックで呼び出されます。ただし、最終的な影響は同じよう
+  なものとなるはずです。[Aaron Giles]
+
+- device_t::subtagについて、デバイスが'root'デバイスでない場合接頭辞を付けるだけ
+  に変更。これは、既存のタグ検索との互換性を確保するためです。[Aaron Giles]
+
+- デバイスの依存関係が無い場合、スタートアップ側でデバイスの順序付けをするよう変
+  更。これにより、スタート関数とリセット関数の呼び出し順序が同じになります。
+  [Aaron Giles]
+
+- サウンドデバイス名から、SOUND_の接頭辞を削除。[Atari Ace]
+
+- 以下をdriver_dataにコンバート: [Atari Ace]
+  sauro, scotrsht, segald, seicross, senjyo, shangha3, shaolins, shisen, 
+  skyraid, solomon, spcforce, speekatk, splash, sprcros2, ssozumo, suna16, suna8
+
+- 複数ソースドライバの残りついて、全てにインクルードファイルを追加。[Atari Ace]
+
+- 頭文字Aまでのドライバの入力重複のチェックと修正。[Tafoid]
+
+- driver_deviceについて、デバイスインタフェース経由でgame_driverのROMを参照でき
+  るように変更。これにより、全てのROMがデバイス経由で暴露されているので、ROMの列
+  挙処理がシンプルになります。[Aaron Giles]
+
+- machine_configオブジェクトを一時的に割り当てている全てのインスタンスについて、
+  単純にスタックとするよう変更。これによりデストラクタがクリーンアップを自動で行
+  うことができます。[Aaron Giles]
+
+- machine_configコンストラクタがgame_driverを取るように変更。ここから
+  machine_configコンストラクタが取得されます。つまり、machine_configが、
+  game_driverを保持するようになりました。[Aaron Giles]
+
+- running_machineコンストラクタがgame_driverを取らないよう変更。game_driverが
+  machine_configから取得できるようになったため。[Aaron Giles]
+
+- 新しいテンプレートクラス、optional_device<>とrequired_device<>を追加。クラス内
+  でデバイスポインタを宣言するのに使用します。2つの唯一の違いは、デバイスが不明
+  の場合に致命的エラーが必要かどうかです。これら新クラスは"パススルー"なので、
+  標準的なデバイスポインタが動作するところならどこでも基底ポインタを渡すことが
+  できます。[Aaron Giles]
+
+- 旧版のGCC(OS X PowerPCを含む)でのコンパイルを修正。[Aaron Giles]
+
+- 共有メモリ領域でそのサイズをトラックするよう変更。memory_get_shared()関数で
+  共有領域へのポインタ、オプションでそのサイズを取得できます。[Aaron Giles]
+
+- pipeline (pipeline.c) [stephh] :
+ * DIPスイッチと入力の修正(Z80コード検証による)
+
+- テンプレートrequired_shared_ptr<>とoptional_shared_ptr<>を追加。これらは、
+  AM_SHARE("tag")となるアドレス空間からtagによりポインタを取得する場合の、
+  required_device<>とoptional_device<>のような動作をします。また、AM_SHARE領域の
+  サイズを取得するテンプレート、required_shared_size<>とoptional_shared_size<>も
+  追加。[Aaron Giles]
+
+- 新しい汎用NVRAMデバイスを作成。デフォルトで0フィル、1フィル、ランダムフィル、
+  カスタムフィルに設定可能。どの場合でも同名のメモリ領域がデフォルトフィルをオー
+  バーライドできます。NVRAMがあるアドレス領域は、NVRAMデバイスと同じタグを持つ
+  AM_SHARE()領域として判別できます。また、ドライバはnvram_device::set_base()を
+  使用し、NVRAM領域の独立した割り当てを明示的に設定できます。[Aaron Giles]
+
+- MDRV_NVRAM_HANDLER(generic_*)の全インスタンスをMDRV_NVRAM_ADD_*("nvram")に置き
+  換え。また、AM_BASE_GENERIC/AM_SIZE_GENERIC(nvram)をAM_SHARE("nvram")に置き換
+  え。generic.nvramを直接参照している残りのドライバは全て、代わりとしてドライバ
+  ステート内にNVRAMに対するrequired_shared_ptr<UINTx>を保持し、それを使用します。
+  generic_ptrsよりnvramとnvram_sizeを削除しました。[Aaron Giles]
+
+- デバッガ側ではなく、各デバイスがそれぞれのdevice_debugを生成するように変更。こ
+  れにより、デバッガ側の処理をは把握する前でもデバイスを開始できます。私が初期化
+  順を入れ替えてから、シンボルテーブルにレジスタ名が正しく登録されていなかった問
+  題が修正されます。[Aaron Giles]
+
+- multfish.c: 新しい情報、新セット、新しい海賊版の追加。[MetalliC]
+
+-「Jubilee's Double-Up Poker」用新ドライバ追加。グラフィックと色のデコードは正確。
+  正しいTMS9980 CPUを実装、予備的なメモリマップとテクニカルノート追加。
+  [Roberto Fresca]
+
+- debugcpu.cにコメントを集約し、debugcmt.cを削除。コードのモダン化と、モダンデバッ
+  グクラスで動作するように更新。[Aaron Giles]
+
+- 非モダンアドレスマップ用にAM_DEVREAD_MODERN/AM_DEVWRITE_MODERNなどのマクロを追
+  加。メンバ関数移行を進めるため、旧スタイルのリードライトハンドラを使わないよう
+  に更新するものです。[Aaron Giles]
+
+- アドレスマップのokim6295_r/okim6295_w参照をモダンメンバの呼び出しに変更。
+  [Aaron Giles]
+
+- quizpani (quizpani.c) [stephh] :
+ * DIPスイッチと入力の修正(M68000コード検証による)
+
+- namcops2のDVDをラベルに合わせて改名。[Guru]
+
+- okim6295_deviceにread_status()とwrite_command()メソッドを追加。リードハンドラ
+  やライトハンドラ外の場合に対応(こういうときにフェイクのアドレス空間を渡すのは
+  どうもよいやり方ではなかったので)。[Aaron Giles]
+
+- DEVCB_DEVICE_MEMBER()マクロ追加。デバイスコールバックでREAD8_MEMBERか
+  WRITE8_MEMBERの指定ができます(動的生成トランポリン経由)。[Aaron Giles]
+
+- okim6295_r/okim6295_wの残り部分もすべて新メソッドへの呼び出しに置き換えて、
+  static関数を削除。[Aaron Giles]
+
+- namcops2:「ガンダム連合vs.Z.A.F.T」のドングルダンプ追加。[Guru]
+
+- 頭文字Cまでのドライバの入力重複のチェックと修正。[Tafoid]
+
+- PC Engine VDCエミュレーションのスプライトOVフラグの動作を修正。
+  [Angelo Salese, Charles MacDonald]
+
+- 頭文字Gまでのドライバの入力重複のチェックと修正。[Tafoid]
+
+- ASAP CPUコアをレガシーCPUコアからモダンデバイスにコンバート。[Aaron Giles]
+
+- m_icountのデバイス値名とかぶらないよう、device_execute_interface::m_icountを、
+  m_icountptrに改名。[Aaron Giles]
+
+- Hu6280 CPUのタイマラッチ分割値読み込みによる偽のバグを修正。[Angelo Salese]
+
+- [SSV] 表示領域のレジスタを実装; 全ゲームの解像度は最大の表示領域(ブートプロセ
+  ス後のレジスタ値)になっています。[Robert Zandona']
+
+- PC EngineエミュレーションでVRAM→VRAM DMAフラグクリアがされていなかったのを
+  修正。[Angelo Salese]
+
+- strnskil.c: bandamのMCUダンプ追加。[Pete Ogoun, Andrew Gardner]
+
+- 非スピーカーデバイス用のサウンドルーチンをインタフェースのスタートメソッド後に
+  移動。sound_init()がデバイススタートアップの前に移動されたときは、一つのサウン
+  ドデバイスから他のサウンドデバイスへのルーティングが壊れていました。
+  [Aaron Giles]
+
+- starwarsよりNVRAMの痕跡を削除。現在はx2212デバイスでカバーされています。
+  [Aaron Giles]
+
+- CHDMAN: スペックよりbin/cueのサポートを書き直し。より多くのイメージが動作可能。
+  [R. Belmont]
+
+- generic.videoramとgeneric.videoram_sizeを削除。これらのgenericはコアではもう使
+  用されておらず、ドライバ用の利便のために残ってました。現在はドライバでデバイスを
+  持つ必要があるので、データはそこで持つことになります。[Atari Ace]
+
+- Aristocrat MK-5で正しいSRAM処理をするよう更新。[Palindrome]
+
+- Aristocrat MK-5でI2Cを使っていたのを削除。[Angelo Salese]
+
+- 共通基準のベンチマーク用に-bench <emulated-seconds>オプションを追加。
+  [Aaron Giles]
+
+- 親デバイスから派生するデバイスの定義をシンプルするためのマクロ、
+  DECLARE/DEFINE_TRIVIAL_DERIVED_DEVICEを追加。ただし、違いは名前と引数が一つ。
+  [Aaron Giles]
+
+- ADSP21xxコアをモダンCPUデバイスにコンバート。[Aaron Giles]
+
+- Windowsで、デバッガがアタッチされていないとosd_break_into_debugger()はスタック
+  クロールをはき出します。つまり、デバッグが容易になるよう、アサートがフルのクロー
+  ルになるということです。[Aaron Giles]
+
+- lelandのNVRAM_HANDLERをNVRAMデバイスに置き換え。[Aaron Giles]
+
+- ssv:
+ * Yタイルマップオフセットレジスタを実装; (Roberto Zandona')
+ * X、Y表示領域レジスタを実装; (Roberto Zandona')
+ * mode=0のときタイルマップ描画を停止; (Roberto Zandona')
+ *「ツインイーグルII」基板で表示領域レジスタを検証; 
+   (Corrado Tomaselli)
+
+- namcos2とNichibutsu麻雀ゲームでの冗長なNVRAMハンドラをNVRAMデバイスに置き換え。
+  Atariゲームにも同様の変更をし、ハードコーディングしていたEEPROMデータをついに
+  外部ファイルに移動。[Aaron Giles]
+
+- ssgbl.cをmegadrvb.cに統合し、海賊版の入力定義をmegadriv.cから別ファイルに移動。
+  [Sonikos]
+
+- mc146818のデバイス化とモダン化。またドライバがマニュアルでセーブ要求しなくても
+  いいようにNVRAMインタフェース追加。[Aaron Giles]
+
+- [DECLARE_]READ_LINE_MEMBERと[DECLARE_]WRITE_LINE_MEMBERの定義追加。これにより、
+  リード・ライトラインコールバックがメンバ関数として定義可能。[Aaron Giles]
+
+- これらがデバイスコールバックから参照できるよう、スタブと
+  DEVCB_DEVICE_LINE_MEMBERを追加。[Aaron Giles]
+
+- 6522 VIAデバイスのモダン化: [Aaron Giles]
+ * 新型デバイスタイマメカニズム使用
+ * モダンメソッドへの移行のため、旧トランポリン関数をすべて削除
+
+- ssv: スプライトのXオフセット用対策の削除と、7a-7bレジスタの1ビットを実装。
+  [Roberto Zandona']
+
+- ssv: [Roberto Zandona']
+ * Yスプライト逆CRTレジスタを改良;
+ * dynagear用の対策を追加
+ * スプライトのXオフセットを得るためのCRTレジスタを使用 
+
+- ssv: initよりオフセット値を削除; オフセットはCRTレジスタ側で処理。
+  [Roberto Zandona']
+
+- ssv: 7a-7b CRTレジスタのビット #aを修正。[Roberto Zandona']
+
+- intelfshをデバイスに変換。使用元をすべて更新。[Aaron Giles]
+
+- ssv: 背景無効化条件を修正。[Roberto Zandona']
+
+- 新ビルドツールmakedep.c。src2html.cを元に作成(マジで!)。基本的な依存関係チェッ
+  クとエクスクルードパスをサポート。[Aaron Giles]
+
+- MAKEFILEでdepend targetをサポート。src/$(TARGET)でmekedepを走らせ、依存関係を
+  形成します。これは、わざとsrc/emuのルートとosdディレクトリを外し、依存ファイルを
+  適切なサイズに保ちます。そのため、コアヘッダファイルを変更したときは、クリーン
+  アップと全部のビルドが必要です。[Aaron Giles]
+
+- CHDMAN: -extracted bin/cue出力とエラー処理を改良。[R. Belmont]
+
+- intelfshデバイスに、デバッガとスタンダードメモリインタフェースでデータのアクセ
+  スと閲覧ができるようなメモリインタフェースを追加。データの直接読み込みと書き込
+  みを行う新関数、read_raw()/write_raw()へ移行するため、以前のmemory()メソッドは
+  削除。[Aaron Giles]
+
+- CPS3のCDなしセットで、初期化時にintelfshデバイスにより自動でロードされるフラッ
+  シュの各部分に分割。また、MACHINE_CONFIGを各ゲームに実際に存在しているSIMMの数
+  だけに分割。ドキュメントはファイルの先頭にあり。また、NVRAM_HANDLERをNVRAMデバ
+  イスに置き換え。[Aaron Giles]
+
+- CHDMAN: bin/cueイメージで.WAVトラックをサポート。[R. Belmont]
+
+- neogeo.c: 更新いろいろ: [Johnboy]
+ * viewpoint - vのROM名を正しいチップラベルに改名
+ * ghostlop - ROM名をプロトタイプの命名規則に合うよう改名
+ * savagere, kizuna - 正しいc1を追加
+ * crsword -  MVS AND AES VERSIONのタグ付け。m1を訂正
+ * legendos - 正しいm1追加
+
+-「トリプルパンチ / Knock Out !!」のAY-3-8910クロックが間違っていたので、実機で
+  確認して修正。[plgDavid]
+
+-「クイズ チャンネルクエスチョン」のクロックとOKI PINを実機で検証。[plgDavid]
+
+- デバイスタイマにインテグラルなdevice_timer_idを追加。これにより、ポインタより
+  も複数タイマの区別が簡潔になります。この値はタイマにも保持されています。一部の
+  ドライバでこの機能を使うように更新しました。[Aaron Giles]
+
+- 新関数device_timer_call_after_resynch()追加。これは、ゼロ長のタイマを一時的
+  に作成し、指定したdevice_timer_idでデバイスのdevice_timer()からコールバックを
+  行います。[Aaron Giles]
+
+- MSM5205の周波数を動的に変更する機能追加。[Angelo Salese]
+
+- CD-DAの音量設定追加。[Angelo Salese]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Shinobi / FZ-2006 (Korean System 16 bootleg) 
+  (ISG Selection Master Type 2006) [Angelo Salese]
+Poker Master (Tony-Poker V3.A, hack?)
+  [David Haywood, William Ostronic]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Vigilante (World, set 2) [porchy]
+セガラリーチャンピオンシップ (Revision B) [Alex's Blog]
+Touchmaster 2000 Plus (v4.63 Standard)
+  [Brian Troha, The Dumping Union]
+Touchmaster 4000 (v6.01 Standard) [Brian Troha, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Jubilee Double-Up Poker [Roberto Fresca]
+Piccolo Poker [Roberto Fresca, Team Europe & Housi]
+クライシスゾーン (CSZO2 Ver. A) [Guru]
+ソウルキャリバー2 (SC22 Ver. A) [Guru]
+White Tiger [Palindrome]
+Swiss Poker ('50 SG-.10', V2.5)
+  [Roberto Fresca, Tomasz Slanina, Team Europe & Housi]
+Movie Card [Roberto Fresca, Team Europe & Housi]
+Maximum Speed [Guru]
+

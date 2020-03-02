@@ -1,0 +1,202 @@
+0.140u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04027: [クラッシュ/フリーズ] All sets in 20pacgal.c: 起動中に固まる。(Aaron Giles)
+- 04111: [DIP/入力] timesold, timesold1, btlfield: コインの動作が調子悪い(MCUの問題)。
+         (stephh)
+- 03879: [クラッシュ/フリーズ] pbst30, pbst30b, pitbossm, pitbossma: エラーが表示され
+         ゲームが起動しない。(Mariusz Wojcieszek)
+
+
+ソースの変更点
+--------------
+- i2cmemの問題を修正。Cubo CD32ゲームでステートのセーブとロードが正常動作。
+  [Mariusz Wojcieszek]
+
+- 多くのドライバでの重複した入力定義やその他の修正。[Tafoid]
+
+- SDL: Linux/BSDビルドで任意のTrueTypeフォントを使用する-uifontをサポート。パラメータ
+  にはフォントへのフルパス・ファイル名を指定します。文字スタイルはWindowsと同じく[b]
+  でボールド、[i]でイタリック、[s]で取消線、[u]でアンダーラインになります。文字は120
+  ポイントで描画され、コア側で縮小するので、高解像度でもきれいな表示がされます(最近の
+  ディストリビューションではLiberation Sansが一番きれいに見えます)。[R. Belmont]
+
+   注意: Linux/BSDビルドでSDL_ttf 2.xが必要になりました。Fedraで必要なパッケージ名は
+         "SDL_ttf"と"SDL_ttf_devel"です。
+
+- tms7000: 2つの命令コードを訂正: inv_bのタイポ、JPZがオフィシャルのTI社ドキュメント
+  で間違っているもの。[Gilles Fetis]
+
+- SDL: -uifontでWindows同様、システムフォントファミリーをルックアップ。[R. Belmont]
+
+- 複数のドライバをカバーするdriver_deviceクラスについて、それぞれが独自の
+  driver_deviceクラスを持つように分割。複数ドライバ間でオーディオとMCUコードが共有さ
+  れていたため、ドライバの構成が絡み合うケースが多発していました: [Atari Ace]
+
+ * espial/marineb/zodiak
+       - 共有コードの複製
+ * m52/m57/m58/m62/travrusa
+       - audio/irem.cに共有コード
+ * junofrst/pooyan/rallyx/rocnrope/timeplt/tutankm
+       - audio/timeplt.cに共有コード
+ * hyperspt/sbasketb/trackfld/yiear
+       - audio/trackfldとaudio/hyprolyb.cに共有コード
+ * 40love/bking/buggychl/msisaac
+       - machine/buggychl.cに共有コード
+
+- SDL: OS Xで-uifontをサポート。[Tim Lindner]
+
+- SDL: Ubuntu向けのビルド修正。-uifont、非ASCIIレンダリング修正。
+  [R. Belmont, Barry Rodewald]
+
+- SDL: Mac用のコンパイル警告を修正。[Wilbert Pol]
+
+- V810 CPUでIRQを最小限度サポート。[Miodrag Milanovic]
+
+- NaomiのM2/M3復号化を更新。「バーチャストライカーIII」のオンザフライ復号化が可能。
+  [Andreas Naive]
+
+- V810コアの割り込み処理を修正。PCWでのフラグ位置。[Miodrag Milanovic]
+
+- SDL: ptty(*IX/OS X)とsockets(全SDLビルド)機能をサポート。[Tim Lindner, R. Belmont]
+
+- オリジナルの「イーアルカンフー」基板にボタン3を追加。マニュアルには無いものの、この
+  ボタン向けの機能があるため。デフォルトでは未マップ。[Tafoid]
+
+- CPS-1の更新: [Team CPS-1]
+ *「ザ・キング・オブ・ドラゴンズ」(World 910805)を追加し親セットに指定
+ * マイナーなクリーンアップと修正
+ *「ロックマン/Mega Man: The Power Battle」(CPS1, USA 951006)を追加して親セットに指定
+ * slammast、slammastuのラベルを修正。DボードのPALと基板情報追加
+ * mercs -> mercsr1, mercsua -> mercs
+ *「ストリートファイターII -ザ・ワールドウォーリアー」(World 910228)追加
+ * megamanのROMソケットについて記述を追加
+ * forgottnua、willowje、cawinguのBボード番号を確認。間違っていたラベル修正と
+   video\cps1.cに基板情報追加
+ * ffightj、ffightj1、ffightj2、cawingjの間違った親子関係を修正
+ * マイナーなクリーンアップと修正
+
+- smgolfbを正しい吸い出しに置き換え。
+  [D. Beneke, M. David, Smitdogg, The Dumping Union]
+
+- MESS用の修正: [Miodrag Milanovic]
+ * イメージエンプティスロットの問題を修正
+ * MESS用にwriteconfigのデフォルトを0に変更
+ * ハードリセット時のマウント済みデバイス処理を修正
+ * emuoptsコードを統合しifdefを削除
+
+- Sega System32ドライバのROM名を一部修正。主に「スパイダーマン」
+  「ゴールデンアックスII」USセット。[The Dumping Union]
+
+-「ルージュアン」のMSM5205サンプル再生ルーチンを実装。サンプルスタート書き込みハンド
+  ラがまだ不明のため、デフォルトでは無効化。[Angelo Salese]
+
+- Naomi/Naomi2 M2/M3暗号処理を更新。[Andreas Naive]
+
+- F4ショートカットで、アドレスを明示的に"0x"で始まる番号とするように修正。これにより
+  F4が正しく動作します。たとえば、68000でアドレスa6までのステップ動作が、レジスタ名で
+  も起こるようになります。[Aaron Giles]
+
+- Naomi/Naomi2 M2/M3復号化処理をさらに更新。[Andreas Naive]
+
+-「ルージュアン」のサンプル再生を修正。[Andrew Welburn, Angelo Salese]
+
+- スクリーンデバイスを別モジュールに分割。グローバルビデオルーチンをvideo_managerに
+  コンバート。ビデオマネージャの初期化をスタートアップの始めの方に移動。[Aaron Giles]
+
+- ソフトウェアリストの<dataarea>サイズ、<rom>サイズ、<rom>オフセットで、10進数と16進
+  数の両方を使えるように更新。[Curt Coder]
+
+- GCC 4.5.xで見つかった配列の領域問題を修正。[qmc2, R. Belmont]
+
+- BSDのコンパイル修正。[ElBarto]
+
+- m680x0: FPUとPMMUの修正と改良。[Hans Ostermeyer]
+
+- 修正と改良をいろいろ: [Hans Ostermeyer]
+ * mc146818: UTCモード追加、その他改良と修正
+ * 68681: ループバックモードを修正
+ * 6840ptm: ステータスレジスタの更新を修正
+ * pic8259: IRQのセマンティック修正
+ * 8237dma: メモリ間転送を追加
+
+- CPS-3の更新: [Team CPS-1]
+ *「ジョジョの奇妙な冒険 / JoJo's Ventrue」USA版BIOS ROM CD版追加
+ * mamedriv.cのリリース日を元に一部CPSセットを並べ直し
+ * マイナーなクリーンアップと修正
+
+-「スペースストレンジャー」のオーバーレイレイアウトにアップライト版を追加。カクテル版
+  とは違うもの。[M.A.S.H.]
+
+- Karatecoの「Super Double」をgoldnpkrドライバに追加。[Gerrit Volkenborn]
+
+- PGMのビデオRAMミラーリングを改良。[David Haywood]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pac-Slot [Bicycle Repair Man, Luca Elia]
+Super Double (French) [Gerrit Volkenborn]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+ザ・キング・オブ・ドラゴンズ (World 910805) [cacis, Smitdogg, The Dumping Union]
+ロックマン・ザ・パワーバトル / Mega Man - The Power Battle (CPS1, USA 951006) 
+  [john666, gamerfan, Smitdogg, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォリアー- (World 910228) 
+  [Layne, Smitdogg, The Dumping Union]
+MJ-12 / Super Space Invaders '91 [Irongiant]
+Megatouch III (9255-20-06 ROD, California version)
+  [f205v, Smitdogg, The Dumping Union]
+Megatouch IV (9255-40-01 ROB, Standard version)
+  [Kevin Eshbach, Smitdogg, The Dumping Union]
+Super Megatouch IV (9255-41-01 ROG, Standard version)
+  [N. Francfort, Smitdogg, The Dumping Union]
+モータルコンバット (プロトタイプ, rev 4.0 07/14/92) [xDisciplex]
+モータルコンバットII (rev L1.1) [TerryMasters]
+Buccaneer [Gerald (COY), Smitdogg, The Dumping Union]
+Jungle Boy [Andrew Welburn]
+怒首領蜂II / Bee Storm - DoDonpachi II (ver 101) [JackC] (not working)
+Sunset Riders 2 (海賊版) [f205v, Smitdogg, The Dumping Union]
+ズーム909 / Buck Rogers: Planet of Zoom (not encrypted, set 2)
+  [Smitdogg, The Dumping Union]
+Time Killers (v1.21) [Gnoppi, Smitdogg, The Dumping Union]
+ドギューン (ロケテスト版) [Andrew Welburn]
+Pit Boss Megatouch II 9255-10-01 R0E [Smitdogg, The Dumping Union]
+ジョジョの奇妙な冒険 / JoJo's Ventrue (USA 990108)
+  [Layne, Smitdogg, The Dumping Union]
+ジョジョの奇妙な冒険 / JoJo's Ventrue (USA 981202)
+  [Layne, Smitdogg, The Dumping Union]
+ムーンシャトル (US? set 2) [robcfg]
+
+
+
+追加された未動作ゲーム
+----------------------
+電脳戦機バーチャロン -オラトリオ・タングラム- M.S.B.S. Ver5.66 2000エディション
+  [Anonymous] 
+リングアウト 4×4 [Anonymous] 
+犬のおさんぽ [Anonymous] 
+ザ・キング・オブ・ルート66 [Anonymous]
+Barroom Baseball (プロトタイプ) [Mariusz Wojcieszek]
+サンバDEアミーゴ 2000 [Anonymous]
+ダービーオーナーズクラブ 2000 [Anonymous, f205v]
+シュートアウトプール [Anonymous]
+Dream Crown [Charles MacDonald, Smitdogg, The Dumping Union]
+X Tom 3D [Guru]
+ネオプリントV1 [ANY]
+ワールドキックス [The Dumping Union]
+シャカっとタンバリン！超PowerUpチュッ！[The Dumping Union]
+Dirty Pigskin Football [Cah4e3]
+Outrun 2 Special Tours [Heywood Floyd, The Dumping Union]
+クレイジータクシー3 ハイローラー [The Dumping Union]
+リッジレーサーV -アーケードバトル- [Guru]
+スマッシュコート プロトーナメント [Guru]
+Funny Fruit (Version 1.13) [Luca Elia, Smitdogg, The Dumping Union]
+中国龍II / Dragon World II (ver. 100X, Export) [Arzeno Fabrice, zozo]

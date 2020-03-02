@@ -1,0 +1,263 @@
+0.135u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03565: [色/パレット] astrof, astrof2, astrof3: MAMEの背景は青いが実際は黒くなる。
+         (David Haywood)
+- 03557: [サウンド] All sets in namcos12.c: BGM速度が大幅に遅い。(Phil Bennett)
+- 03561: [クラッシュ/フリーズ] robokid, robokidj, robokidj2: 起動直後に Segmentation 
+         Faultでクラッシュする。(Fabio Priuli)
+- 03562: [クラッシュ/フリーズ] fcombat: 起動直後に Segmentation Faultでクラッシュする。
+         (Fabio Priuli)
+- 03560: [クラッシュ/フリーズ] missb2, saiyugoub1, saiyugoub2: ドライバデータ構造体の
+         問題。(Fabio Priuli)
+- 03559: [クラッシュ/フリーズ] All sets in viper.c, subsino.c and coolridr.c: 起動直
+         後にSegmentation Faultでクラッシュする。(Fabio Priuli)
+
+
+
+ソースの変更点
+--------------
+-「エキサイティング草野球」の改良: [Angelo Salese]
+ - カラーPROMの実装、タイルマップカラーオフセット、タイルマップ反転を修正
+ - サウンド修正と周波数の調整
+
+-「トロン」: カクテルモード(P2)のショットボタンを追加。ゲーム内とテストモードで使用。
+  [Tafoid]
+
+- 以下のものにドライバデータ構造体とセーブステート追加: [Fabio Priuli]
+ - gberet.c, ddrible.c, gaelco.c, trackfld.c, hyperspt.c, yiear.c, 
+ - hnayayoi.c, hanaawas.c, higemaru.c, himesiki.c, sonson.c
+ - galspnbl.c, gcpinbal.c, ginganin.c, go2000.c, goal92.c, goindol.c, good.c, 
+   gotcha.c, gotya.c, gstream.c, gumbo.c, gundealr.c, hitme.c, holeland.c & homerun.c
+ - glass.c & homedata.c
+ - fromance.c, fromanc2.c, ikki.c, imolagp.c, inufuku.c
+ - jack.c
+ - jangou.c, jantotsu.c, jollyjgr.c, jongkyo.c
+ - kangaroo.c, karnov.c, kchamp.c, kickgoal.c, kingobox.c, kncljoe.c, koikoi.c, 
+   kopunch.c, ksayakyu.c, kyugo.c
+ - ladybug.c, ladyfrog.c, lastduel.c, lwings.c, redclash.c, yunsung8.c
+ - laserbas.c, laserbat.c, lastfght.c, lazercmd.c, lemmings.c
+
+- ドライバデータ構造体を以下に追加: [Fabio Priuli]
+ - galivan.c, jailbrek.c, sbasketb.c
+ - alpha68k.c, amspdwy.c, gng.c, gunsmoke.c, hotblock.c
+ - aerofgt.c, gyruss.c
+ - hyprduel.c
+ - pipedrm.c
+ - ironhors.c
+ - jackal.c
+ - lasso.c
+
+- CDP1869 PAL/NTSCシグナルでdevcbを使うように変更。[Curt Coder]
+
+- cabel, mappy, toypop, zaxxonでdriver_data構造体を使うようにコンバート。[Atari Ace]
+
+- CP1610の逆アセンブラを修正。[Robbbert]
+
+-「クールライダーズ」の改良: [Angelo Salese, David Haywood]
+ - 発生していたバグの修正
+ - ROMからVRAMへの転送と見られるものを実装
+ - 起動処理を少し改良
+ - FBIロゴが表示されるような改良
+ - DMAの基本処理を実装
+ - サービスモードの項目に従って、プログラムROMメモリマップのロードを修正
+ - RAMベースのキャラクタ描画を実装。正しいグラフィックが表示され始める
+ - パレットRAM修正と入力系の基本実装
+ - DMA VRAM転送を実装
+ - Guru氏のreadmeを追加
+ - 描画関数にビデオRAMの読み込みを実装
+ - テキスト描画用の処理実装
+
+- Wink: 色修正。[Angelo Salese]
+
+- tms32025逆アセンブラでインテル式とモトローラ式の表記が混ざっていたのをほぼ解消。
+  [Lord Nightmare]
+
+- Cosmic: cosmica2のROMセット分離と名称をmameinfoに書かれているセットに合うよう変更
+  (mameinfoが間違っていると思われる1つは除く)。romsetは他のcosmicaとは違うドーターボー
+  ド、また異なるサイズのROMを使用。[Lord Nightmare]
+
+- 40love.c、bking.c、buggychl.c、msiassc.cに共有ドライバデータ構造体を追加。
+  [Fabio Priuli]
+
+- HNG64の加法タイルマップブレンディングの初期実装。[David Haywood]
+
+- 文字列中の埋め込みコメントについて、srccleanの処理を修正。[Atari Ace]
+
+- PCBドキュメントの更新: [Kevin Eshbach]
+ *「バトランティス」「魂斗羅」「パンドラズパレス」のボードクリスタル追加
+ *「パンドラズパレス」のMCUダンプ訂正
+ *「魂斗羅 / Gryzor」の未吸い出しPALについて記載
+ *「Cruis'n USA - rev L4.1」のPALダンプを追加
+ *「ティップタップ / Congo Bongo」の2バージョンからのPROM情報追加
+
+-「Noraut Poker」ドライバの改良: [Roberto Fresca]
+ * 新しいテクニカルノートの追加
+ * Kimble Z80ハードウェハをサポート
+ * Prologic-Norautハードウェアをサポート
+ * Kimbleゲームと「Prologic-Noraut Poker」に正しいディスクリートサウンドを追加
+ * 表示領域を少し調整。間違いの可能性があるので再チェック必要
+ * ハードウェアノートとレイアウトをROM_LOAD部に移動
+ * デフォルトのランプステートを修正
+
+- ドライバをいくつかクリーンアップ; 不明プロトタイプ、削除したデッドセット追加、エク
+  スポートしていない関数のstatic化、#include "deprecat.h"の削除。[Atari Ace]
+
+- Aleck 64: プレイヤー2の入力改良。[Angelo Salese]
+
+-「M.Kramer's Black Jack Poker」の高解像度基板写真を元に基板レイアウトを追加。また、
+  未吸い出しデバイスをNO_DUMPとして追加。[Roberto Fresca]
+
+- 次のドライバに共有データ構造体を追加: timeplt.c, tutankhm.c, junofrst.c, pooyan.c, 
+  rallyx.c, rocnrope.c (これらのドライバは全てaudio/timept.cを使用)。この結果、
+  junofrst.cとrallyx.cのセーブステートも使用可能。[Fabio Priuli]
+
+- atariドライバのほとんどでdriver_dataを使うようにコンバート。一部の共有システムはま
+  だグローバルのままですが、これでatarigenモジュールと変数を各ドライバローカルが進み
+  ます。[Aaron Giles]
+
+- AM_BASE_MEMBERとAM_SIZE_MEMBERアイテムポイントがdriver_data構造体内にあるかのバリ
+  ディティチェック追加。[Aaron Giles]
+
+- DMADACのラッピング動作を修正。[Tim Schuerewegen]
+
+- 背景を黒くするためのコモンワイヤハックをエミュレートするため、astrof.cにDriver 
+  Configurationを追加。[David Haywood]
+
+- Aleck 64: 起動時にハードごと固まるのを対策。[Angelo Salese]
+
+- Semicom製「Dream World」のハードウェアがPsikyo 68020ハードウェアのコピーと判明
+  (Semicomの以前のプラットフォームも、「スノーブラザーズ」や「タンブルポップ」のコピー
+  であるのが知られている)。[David Haywood]
+
+- i386コアの改良: [Barry Rodewald]
+ * 80387が無い場合にFPU命令を実行しようとしたときのEIP置換を修正
+ * SLDTとSTRの32-bit実装を追加
+
+- Kanoko PandoraのスプライトチップをMAMEデバイスにコンバートと、ドライバの更新。
+  [Fabio Priuli]
+
+- tilemap_create_device()関数追加。デバイスからタイルマップを作成可能で、コールバック
+  内でデバイスをパス可能。[Aaron Giles]
+
+- Signetics 2636ビデオチップをMAMEデバイスにコンバート。使用するドライバの更新。
+  [Fabio Priuli]
+
+- メモリシステムの変更: [Aaron Giles]
+ - メモリバンクの参照をインデックスからタグに変更。全てのmemory_bank_*関数でタグを指
+   定するように変更。既存のバンクは整合性を保つため"bank##"として一括でタグ化。将来的
+   には、もっと分かりやすいものに変更して下さい
+
+ - バンクタグの指定用にAM_BANK_READ/AM_BANK_WRITEマクロ追加。AM_ROMBANKとAM_RAMBANKマ
+   クロもタグを受け付けるように変更
+
+ - 入力ポート同様にタグ名でバンクを設定する新関数、memory_install_read_bank_handlerと
+   memory_install_write_bank_handlerを追加
+
+ - メモリシステムのinternalが動的に全てのバンクを割り当てるように変更。最初は名称未設
+   定のタグが設定され、新しいバンクオブジェクトを生成し、内部的にトラッキングします
+
+ - SMH_*マクロを完全に削除。拡張したマクロと、新しいメモリ設定ヘルパに置き換え。対応
+   は以下の通り(新規は一部):
+
+     AM_READ(SMH_RAM)                            -> AM_READONLY
+     AM_WRITE(SMH_RAM)                           -> AM_WRITEONLY
+     AM_READWRITE(SMH_RAM, SMH_RAM)              -> AM_RAM
+     AM_READ(rhandler) AM_WRITE(SMH_RAM)         -> AM_RAM_READ(rhandler)
+     AM_READ(SMH_RAM) AM_WRITE(whandler)         -> AM_RAM_WRITE(whandler)
+     AM_DEVREAD(tag, rhandler) AM_WRITE(SMH_RAM) -> AM_RAM_DEVREAD(tag, rhandler)
+     AM_READ(SMH_RAM) AM_DEVWRITE(tag, whandler) -> AM_RAM_DEVWRITE(tag, whandler)
+     AM_READ(SMH_ROM)                            -> AM_ROM
+     AM_WRITE(SMH_ROM)                           -> (was a no-op)
+
+     AM_READ(SMH_NOP)                            -> AM_READNOP
+     AM_WRITE(SMH_NOP)                           -> AM_WRITENOP
+     AM_READWRITE(SMH_NOP, SMH_NOP)              -> AM_NOP
+
+   各型のメモリハンドラを動的に設定するには以下の新関数を使用して下さい:
+
+     memory_unmap_read()
+     memory_unmap_write()
+     memory_unmap_readwrite() -- アドレス空間セクションを解放する
+
+     memory_nop_read()
+     memory_nop_write()
+     memory_nop_readwrite() -- アドレス空間セクションをNOP
+
+ - address_map_entry構造体のinternalメンバをクリーンアップ。また、アドレスマップマク
+   ロの動作方法を統一して無駄を削除
+
+ - 関数の改名: memory_install_read/write_port_handler を
+   memory_install_read/write_port に
+
+ - 共有メモリをインデックスからタグによる指定に変更。AM_SHARE()で引数tagを取るように
+   変更。既存共有部は"share##"に一括変更しましたが、将来的にはより分かりやすいタグ名を
+   使用して下さい
+
+ - bankとshareタグのバリデーション追加
+
+ - tagmap_add関数に、既存オブジェクトが見つかればそれを置き換える設定のフラグ追加
+
+ - 内部コードの入れ替え。内部的に初期化されたアドレスマップは、ドライバが動的な設定を
+   行うのと同じ設定ハンドラを呼び出します。また、引数順とエラー検知のクリーンアップ
+
+ - 新関数追加:
+
+     memory_install_ram() は名称が設定されていないバンクを領域に割り当て、RAMが生きて
+     いる場所のポインタを指定します。これが、DRIVER_INIT関数内、または
+     ACHINE/SOUND/VIDEO_START関数内で呼び出される場合は、NULLを指定できます。このケー
+     スでは、メモリシステムにより割り当てられたメモリはセーブステート用に登録されます
+
+     memory_install_rom() はリードハンドラだけを設定する以外は上記のものと同じです
+
+     memory_install_writeonly() はライトハンドラだけを設定する以外は上記のものと同じ
+     です
+
+ - この類の静的RAM領域にバンクを割り当てているコードのインスタンス部を更新して、コー
+   ドをシンプル化
+
+ - アドレスマップのトークン化時にミラーとグローバルマスクを適用するよう変更
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+トップシューター [Mariusz Wojcieszek]
+LA Girl [Tomasz Slanina, Guru]
+Noraut Joker Poker (Prologic HW) [Roberto Fresca, Alan Griffin]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Domino Block ver.2 [Guru]
+ドルアーガの塔 (Manufactured by Sidam) [Corrado Tomaselli]
+Invasion (4 海賊版 sets) [f205v, ANY]
+ヘッドオン (Sidam 海賊版, set 2) [f205v, ANY]
+ヘッドオン 2 (Sidam 海賊版) [f205v, ANY]
+アルカノイド (海賊版 on Block hardware, set 2) [f205v, ANY]
+ギャルズパニック (Korea, EXPRO-02 PCB) [Guru]
+ストライカーズ1945 (Hong Kong, 海賊版) 
+   [David Haywood, Brian Troha, Dumping Union]
+ファイティングファンタジー (海賊版 with 68705) [f205v] (not working)
+Phantom (Spectar 海賊版) [Team Europe & rades]
+Panzar (Spectar 海賊版) [f205v]
+Fatsy Gambler (ビデオハスラー海賊版) [f205v]
+Fitter (海賊版) [f205v]
+VS. スーパーマリオブラザース (海賊版 with Z80) (2 sets) [f205v, Dante Profeta] (not working)
+
+
+
+追加された未動作ゲーム
+----------------------
+White Tiger - 3VXFC5342 (New Zealand) [Heihachi_73]
+Magic Mask (A - 09/05/2000, Export) [Heihachi_73]
+Geisha (A - 05/03/01, New Zealand) [Heihachi_73]
+Kimble Double HI-LO (z80 version) [Roberto Fresca, Alan Griffin]
+Fast Draw (poker conversion kit)? [Roberto Fresca]
+Draw Poker HI-LO (unknown, rev 1) [Roberto Fresca, Dumping Union]
+Draw Poker HI-LO (unknown, rev 2) [Roberto Fresca, Dumping Union]
+Video Stars [Andrew Welburn]

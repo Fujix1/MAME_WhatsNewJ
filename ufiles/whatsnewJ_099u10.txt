@@ -1,0 +1,36 @@
+0.99u10
+-------
+
+
+ソースの変更点
+--------------
+* INP記録をするとMAMEがクラッシュするバグを修正。[Aaron Giles]
+
+* Namco System 22 3Dレンダラーを少し最適化。[Aaron Giles]
+
+* 最近のNamco更新で問題を起こしていたM37710コアの割り込み問題を修正。
+  [Aaron Giles]
+
+* Namcoサウンドアップデートの修正: [R. Belmont]
+ * System 11/12のボイス修正
+ * System 11/12のステレオの左右入れ替え
+ *「ナムコクラシック」のサウンド復活
+
+* 10 Yard FightドライバにコンディショナルDIP追加。[Curt Coder]
+
+*「Truco Clemente」にカラーPROMを実装。ただしトランスフォームが未実装。
+  [Roberto Fresca]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Monsters World [David Haywood]
+
+
+
+新規クローンセット
+------------------
+サプライズアタック (World Ver. K) [Corrado Tomaselli]
+豪血寺一族2 (Japan) [EGCG]
+中国龍II (ver. 100J, Japan) [EGCG]

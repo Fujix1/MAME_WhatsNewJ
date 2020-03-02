@@ -1,0 +1,628 @@
+0.209 2019-04-24
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 05291: [サウンド] (coco3.cpp) All drivers in coco.c: ORC90のサウンドが鳴らない。(Pernod)
+- 07281: [DIP/入力] (pocketc.cpp) pc1401, pc1402: 入力系の重複や間違いがある。(Robbbert)
+- 07282: [クラッシュ/フリーズ] (alphatro.cpp) alphatro: width 80と入力するとMAMEがフリーズする。(AJR)
+- 07275: [システムコア] Windowsで動作速度が安定しない。(hap)
+- 07279: [クラッシュ/フリーズ] (amstrad.cpp) cpc6128: ディスクイメージを読み込むと致命的なエラーが起こる。(Edstrom)
+- 07255: [クラッシュ/フリーズ] (sms.cpp) gamegear [ecco]: ecco - ROMを読み込むとピンク画面になる。(enik2)
+- 07075: [サウンド] (m72.cpp) hharry: 面クリア時の声が小さくなっている。(jkm900)
+- 07242: [クラッシュ/フリーズ] (vegas.cpp) sf2049: アトラクトモードで謎のフリーズ。
+- 03130: [グラフィック] (ccastles.cpp) ccastles: 表示領域の解像度が間違っている。(Duke)
+- 07272: [ドキュメント] (spg110.cpp) jak_spdmo: ゲーム名の綴り間違い。(Tafoid)
+- 07270: [クラッシュ/フリーズ] (cps1.cpp) sf2ceea: 特定条件のメモリアクセスでデバッガがクラッシュする。(hap)
+- 07265: [DIP/入力] (tsamurai.cpp) tsamuraih: 海賊版のDIPライフ設定は異なる。(chaneman)
+- 07266: [サウンド] (snk6502.cpp) sasuke: スタートボタンを押したあとのBGMが途切れたり鳴らなかったりする。(Osso)
+- 03122: [DIP/入力] (ltcasino.cpp) mv4in1, ltcasino, ltcasinn: サービスモードのDIPスイッチが動作しない。(Duke)
+
+
+新規動作可能マシン
+------------------
+Akka Arrh (prototype) [(Aaron Giles) Giles, The Dumping Union]
+Applied Concepts Great Game Machine [hap, bataais]
+Bonus Poker [Roberto Fresca, TeamEurope]
+Computer Chess (Conic) [hap, Sean Riddle]
+Fidelity Electronics Chess Challenger 3 [hap, Berger, Sean Riddle]
+Fun World Quiz (German, 12-11-1990) [Roberto Fresca, TeamEurope]
+Fun World Quiz (German, 27-04-1990) [Roberto Fresca, TeamEurope]
+ゲーム&ウォッチ: ポパイ (wide screen) [Henrik Algestam]
+ゲーム&ウォッチ: ゼルダの伝説 [Henrik Algestam]
+Invader (Gakken, cyan version) [hap, Sean Riddle, hydef]
+Kuzmich-Egorych [shattered]
+Name That Tune (Castle Toy) [hap, Sean Riddle]
+Nevada (French, encrypted) [Roberto Fresca, Grull Osgo]
+
+
+新規動作可能クローン
+--------------------
+Applied Concepts Boris (rev. 01) [Sean Riddle]
+ARB V2 Sargon 4.0 [anon]
+Casino Poker (Ver PM86-35-1, German) [Roberto Fresca, TeamEurope]
+Dock Man (set 2) [Andrew Welburn, The Dumping Union]
+Dock Man (set 3) [Andrew Welburn, The Dumping Union]
+Empire City: 1931 (France) [Fabrice Arzeno, The Dumping Union]
+Euro League (Gaelco bootleg, Modular System) [ClawGrip, David Haywood]
+Fidelity Electronics Chess Challenger 7 (model CC7) [Sean Riddle]
+Little Casino II v18.1 [Andrew Welburn, The Dumped Union]
+Novag Super Expert (version B, model 886) [Berger]
+Novag Super Forte (version A, set 3) [Berger]
+Street Heat (set 2, older?) [chaneman]
+スーパーボブルボブル (bootleg, set 5) [Lorenzo Mancini]
+
+
+動作可能に昇格したマシン
+------------------------
+Joker Card (Inter Games) [Roberto Fresca, Grull Osgo]
+Joker Card 300 (Ver.A267BC, encrypted) [Roberto Fresca, Grull Osgo, Andreas Naive, Gaby]
+Mega Card (Ver.0210, encrypted) [Roberto Fresca, Grull Osgo, Andreas Naive]
+Multi Win (Ver.0167, encrypted) [Roberto Fresca, Grull Osgo, Andreas Naive]
+Power Card (Ver 0263, encrypted) [Roberto Fresca, Grull Osgo, Andreas Naive]
+Saloon (French, encrypted) [Roberto Fresca, Grull Osgo]
+Tripple Draw (V3.1 s) [Ivan Vangelista]
+
+
+動作可能に昇格したクローン
+--------------------------
+中国龍 (Korea, V040K) [Ivan Vangelista]
+Jolly Card (German, Fun World, bootleg) [Roberto Fresca, Grull Osgo]
+Jolly Card (Italian, bootleg, set 2) [Roberto Fresca, Grull Osgo]
+Royal Card (Evona, Polish, encrypted) [Roberto Fresca, Grull Osgo]
+ワンダーボーイ (system 2, set 2, 315-5176) [Ivan Vangelista]
+
+
+
+新規追加された未動作マシン
+--------------------------
+ビックリプロレス (Japan 881221, Ver 1.05)
+  [ShouTime, Dane Biegert, Evan Korzon, Russell Howard, Jeroen Bijl, Jeffrey Gray, Smitdogg, The Dumping Union]
+Centipede / Millipede / Missile Command (rev 1.03) [chaneman, R. Belmont]
+Ericsson 9161 Display Processor Unit [MCbx Old Computer Collection]
+Husky Computers Ltd Hunter 16 [Barry Rodewald, rfka01, TeamEurope]
+Multi-Action 6710-13 [Brian Troha, The Dumping Union]
+Multi-Action 7551 [Brian Troha, The Dumping Union]
+Multi-Action 7556 [Brian Troha, The Dumping Union]
+Panther Darts [jordigahan, ClawGrip, The Dumping Union]
+Toyquest TV Go Go [ClawGrip, TeamEurope]
+Trivial Pursuit (Volumen V, Spanish, Maibesa hardware) [Retro Sevilla, Diego Bartolome, Recreativas.org, ClawGrip]
+Yamaha MU50 [R. Belmont, O. Galibert]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Amstrad plc PCW9512 [Edstrom]
+CompuAdd 810 [rfka01]
+Dr. Dude (LU-1) Europe [PinMAME]
+Elvira and the Party Monsters (LF-1) French [PinMAME]
+Gilligan's Island (L-8) [PinMAME]
+Husky Computers Ltd Hunter 16/80 [Barry Rodewald, rfka01, TeamEurope]
+Hyosung Topstar 88T [rfka01]
+イメージファイト (Japan, bootleg) [hammy, The Dumping Union]
+JUKO NEST 8086 and V30 [rfka01]
+Kaypro Corporation PC [rfka01]
+Kyocera XT [rfka01]
+Last Action Hero (1.06 Canada) [Matt Morin]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_flop_clcracked:
+  Adjectives (cleanly cracked), Adjectives (version 06.29.84) (cleanly cracked), Agenda Files (cleanly cracked),
+  Air Nav Workshop (cleanly cracked), Air Raid Pearl Harbor (cleanly cracked), Air Traffic Controller (cleanly cracked),
+  Alaska (cleanly cracked), Alfred's Basic Band Computer Tutor (cleanly cracked), Alge-Blaster (cleanly cracked),
+  Algebra Volume 1 (Edu-Ware) (cleanly cracked), Algebra Volume 1 v1.3 (Edu-Ware) (cleanly cracked),
+  Algebra Volume 2 v1.1 (Edu-Ware) (cleanly cracked), Algebra Volume 3 v1.2 (Edu-Ware) (cleanly cracked),
+  Algebra Volume 4 v1.0 (Edu-Ware) (cleanly cracked), Algebra Volume 5 v1.2 (Peachtree) (cleanly cracked),
+  Algebra Volume 6 v1.2 (Peachtree) (cleanly cracked), Ali Baba and the Forty Thieves (cleanly cracked),
+  Alice in LogoLand (cleanly cracked), Alice in Wonderland rev. 2 (cleanly cracked), Alien Addition 1982.0 (cleanly cracked),
+  Alien Addition 1985 (cleanly cracked), Alien Addition revision 2 (cleanly cracked), All About America (cleanly cracked),
+  All About Purim (cleanly cracked), Alligator Alley (cleanly cracked), Alligator Mix (cleanly cracked),
+  Alligator Mix 1982.0 (cleanly cracked), Alligators and Crocodiles (cleanly cracked),
+  Alphabet Beasts and Company (cleanly cracked), Alphabetic Keyboarding Volume 1 (cleanly cracked),
+  Alphabetic Keyboarding Volume 2 (cleanly cracked), Alphabetical Order (cleanly cracked),
+  Alphabetization Sequence (cleanly cracked), Alphabetizing - Blue Level (cleanly cracked), Alpine Tram Ride (cleanly cracked),
+  Alter Ego (female version) (cleanly cracked), Alter Ego (male version) (cleanly cracked),
+  America Coast to Coast (cleanly cracked), American Government (Intellectual Software) (cleanly cracked),
+  American Government (Micro Learningware) (cleanly cracked),
+  American History Achievement IV: World War II - Present (cleanly cracked), Analogies Tutorial (cleanly cracked),
+  Ancient Legends (cleanly cracked), Animal Homes and Stories (cleanly cracked), Animal Hotel (cleanly cracked),
+  Animal Survival for Echo Voice System (cleanly cracked), Animal Survival for Ufonic Voice System (cleanly cracked),
+  Animate (cleanly cracked), Ankh (cleanly cracked), Antonym Antics (cleanly cracked), Antonyms/Synonyms 1 (cleanly cracked),
+  Antonyms/Synonyms 2 v05.25.87 (cleanly cracked), Aphasia I (cleanly cracked),
+  Aphasia II - Opposites and Similarities (cleanly cracked), Aphasia III (cleanly cracked), Aphasia IV (cleanly cracked),
+  Apple Cider Spider (cleanly cracked), Apple II Test Disk (cleanly cracked), AppleWriter ][ (cleanly cracked),
+  Apventure to Atlantis (cleanly cracked), Aquatron (cleanly cracked), Arcade Boot Camp (cleanly cracked), Archon (cleanly cracked),
+  Archon II - Adept (cleanly cracked), ARCO Computer Preparation for the SAT (cleanly cracked), Arcticfox (cleanly cracked),
+  Ardy the Aardvark (cleanly cracked), Arena (cleanly cracked), Argos (cleanly cracked), Association Pictures (cleanly cracked),
+  Audio Visual Inventory (cleanly cracked), Audubon Grizzly Bears - Wildlife Adventures (cleanly cracked),
+  Autoduel (cleanly cracked), Axis Assassin (cleanly cracked), Back in Time (cleanly cracked), Bad Dudes (cleanly cracked),
+  Bake & Taste (cleanly cracked), Bank Street StoryBook (cleanly cracked), Bank Street StoryBook 1.1 (cleanly cracked),
+  Bank Street Writer II (cleanly cracked), Banner Books - All Along The Alphabet (cleanly cracked),
+  Banner Books - Your School Day (cleanly cracked), Bannercatch (cleanly cracked), Baron (version 2.1) (cleanly cracked),
+  Basic Biology (version 1.02) (cleanly cracked), Basic Division Facts (cleanly cracked),
+  Basic Division Facts: Dividends to 25 - Factors to 5 (cleanly cracked),
+  Basic Division Facts: Dividends to 81 - Factors to 9 (cleanly cracked),
+  Basic Drafting: Review and Testmaker (version 3.0) (cleanly cracked), Basic Electricity (cleanly cracked),
+  Basic Electronics: Atomic Theory (cleanly cracked), Basic Electronics: Electronic Fundamentals (cleanly cracked),
+  Basic Electronics: Electronic Math (cleanly cracked),
+  Basic Electronics: Electronic Prefixes, Symbols, and Components (cleanly cracked),
+  Basic Electronics: Fundamentals of DC Circuitry (cleanly cracked),
+  Basic Math Competency Skill Building: Decimals (cleanly cracked), Basic Math Facts and Games (1981 release) (cleanly cracked),
+  Basic Math Facts and Games (1983 re-release) (cleanly cracked), Basic Math Flash Facts (cleanly cracked),
+  Basic Multiplication Facts (cleanly cracked), Basic Vocabulary Builder - Spanish (cleanly cracked),
+  Battalion Commander (cleanly cracked), Battle Cruiser (cleanly cracked), Battle For Normandy (cleanly cracked),
+  Battle Group (cleanly cracked), Battle of Antietam (version 1.5) (cleanly cracked),
+  Battling Bugs and Concentraction (cleanly cracked), BC's Quest For Tires (cleanly cracked),
+  Behind the Wheel, Blue Level (cleanly cracked), Bellhop (cleanly cracked), Below the Root (cleanly cracked),
+  Berserker Raids (cleanly cracked), Bible Baseball (cleanly cracked), Bible Discovery (cleanly cracked),
+  Big Book Maker: Favorite Fairy Tales and Nursery Rhymes (cleanly cracked),
+  Big Book Maker: Tall Tales and American Folk Heroes (cleanly cracked), Big Red Mania (cleanly cracked),
+  Bike Hike (cleanly cracked), Bingo Bugglebee Presents Famous People (cleanly cracked),
+  Bingo Bugglebee Presents Home Alone (cleanly cracked), Bingo Bugglebee Presents Outdoor Safety (cleanly cracked),
+  Biology Achievement II: Reproduction and Development (cleanly cracked), Biomes (cleanly cracked), Birds (cleanly cracked),
+  Blockers and Finders (cleanly cracked), Blue Powder Grey Smoke (cleanly cracked), Bolo (cleanly cracked),
+  Bomb Alley (cleanly cracked), Borrowed Time (cleanly cracked), Boulder Dash (cleanly cracked),
+  Boulderdash Construction Kit (cleanly cracked), Bouncing Kamungas (cleanly cracked), Box Introduces Addition (cleanly cracked),
+  Bridge Baron II (cleanly cracked), Building Compounds (cleanly cracked),
+  Building Reading Skills (version 85-02) (cleanly cracked), Building With Vowels (cleanly cracked),
+  Bulletin Board Maker: City and Country (cleanly cracked), Bulletin Board Maker: Your Neighborhood (cleanly cracked),
+  Bumble Plot (1982) (cleanly cracked), Bumble Plot (version 1.2) (cleanly cracked), C'est La Vie (cleanly cracked),
+  Calendar Skills v08.31.86 (cleanly cracked), Cannonball Blitz (cleanly cracked), Capitalization (cleanly cracked),
+  Capitalization (version 1.5) (cleanly cracked), Capitalization Practice (cleanly cracked),
+  Capitalization Test (version 01.29.87) (cleanly cracked), Car Builder (cleanly cracked),
+  Car Builder (revision 2) (cleanly cracked), Car Builder (revision 3) (cleanly cracked), Carrier Force (cleanly cracked),
+  Cartels and Cutthroats (cleanly cracked), Case of the Great Train Robbery: Fact and Opinion (cleanly cracked),
+  Case of the Missing Chick: Finding The Main Idea (cleanly cracked), Castle Wolfenstein (cleanly cracked),
+  Cat 'n Mouse (revision 2) (cleanly cracked), Cat 'n Mouse (revision 3) (cleanly cracked),
+  Catch a Falling Star: Dolphin Math Games (cleanly cracked), Categorizing: Detective Games (cleanly cracked),
+  Catlab (version 2.0) (cleanly cracked), Cats and Kittens (cleanly cracked), Cause and Effect (version 12.14.87) (cleanly cracked),
+  Cause and Effect: What Makes It Happen (cleanly cracked), Centauri Alliance (cleanly cracked),
+  Challenge Sentence Combining (cleanly cracked), Championship Baseball (cleanly cracked), Championship Golf (cleanly cracked),
+  Changing Improper Fractions to Mixed Numbers (cleanly cracked), Changing Mixed Numbers to Improper Fractions (cleanly cracked),
+  Chariots, Cougars, and Kings (cleanly cracked), Chemistry Achievement I - Mathematics of Chemistry (cleanly cracked),
+  Chivalry (cleanly cracked), Circus Subtraction (cleanly cracked), City and Country Opposites (cleanly cracked),
+  Clock (v03.20.90) (cleanly cracked), Clock 07.06.83 (cleanly cracked), Clock: Time Teaching (cleanly cracked),
+  Clowning Around (cleanly cracked), Cloze Thinking (cleanly cracked), Cloze-Plus Level C (cleanly cracked),
+  Cloze-Plus Level D (cleanly cracked), Cloze-Plus Level E (cleanly cracked), Clozed Reading Comprehension (cleanly cracked),
+  College Board 81-82 demo (cleanly cracked), College Explorer 2.0 (cleanly cracked), Colonial Conquest (cleanly cracked),
+  Color Me (Softsmith) (cleanly cracked), Comic Strip Maker (cleanly cracked), Commas (Queue) (cleanly cracked),
+  Communicate and Win (cleanly cracked), Comparing Numbers (cleanly cracked),
+  Compilation - Bolo, Pest Patrol, Bug Battle (cleanly cracked), Compilation - Congo, Thief, Draw Poker (cleanly cracked),
+  Composition Strategy (cleanly cracked), Comprehension (Prescription Learning) (cleanly cracked),
+  Compu-Math Arithmetic Skills (cleanly cracked), Compu-Math v1.3.1 (cleanly cracked),
+  Compu-Spell (version 1.3.1) (cleanly cracked), Computer Air Combat v1.1 (cleanly cracked), Computer Ambush (cleanly cracked),
+  Computer Assisted Blackboard demo (cleanly cracked), Computer Assisted Problem Solving for Beginning Algebra (cleanly cracked),
+  Computer Assisted Problem Solving for Intermediate Algebra (cleanly cracked),
+  Computer Assisted Problem Solving for Pre-Algebra (cleanly cracked), Computer Baseball (cleanly cracked),
+  Computer Discovery (cleanly cracked), Computer Drill and Instruction - Decimals C-2 (cleanly cracked),
+  Computer Drill and Instruction - Decimals C-3 (cleanly cracked), Computer Drill and Instruction - Fractions C-2 (cleanly cracked),
+  Computer Drill and Instruction - Fractions C-3 (cleanly cracked),
+  Computer Drill and Instruction - Measurement D-1 (cleanly cracked),
+  Computer Drill and Instruction - Multiplication B (cleanly cracked), Computer Graphing Experiments (cleanly cracked),
+  Computer Quarterback Second Edition (cleanly cracked), Computerized Reading for Aphasics (cleanly cracked),
+  A Treasure Hunt of Facts (cleanly cracked) [4am, Firehawke]
+apple2_flop_misc:
+  Anti-M (version 1.0), Anti-M (version 1.1), Anti-M (version 1.3) [4am, Firehawke]
+  Advanced Demuffin (version 1.5) [Firehawke]
+apple2_flop_orig:
+  Apple-oids and Chipout, Arcade Album #1, Arkanoid, The Blade of Blackpoole, BurgerTime, Dig Dug, Escape From Rungistan,
+  Fantavision, The Flockland Island Crisis, Kabul Spy, Lazer Silk, Maze Craze Construction Set, Peeping Tom, The Print Shop Color,
+  Robots of Dawn, Rocky's Boots (version 4.0), Spider Raid, Star Blazer, Star Warrior, Super Bunny, Type Attack, Warp Destroyer,
+  Wizardry III: Legacy of Llylgamyn (version 4, 20-Aug-1983 update), Zaxxon, Zork I: The Great Underground Empire (revision 5)
+  [4am, Firehawke]
+arb: Grand Master Series 4.0 [anon]
+ekara_pal: e-kara Spain 10-Songs Volume 1, e-kara Spain 10-Songs Volume 2 [ClawGrip, TeamEurope]
+fmtowns_cd:
+  Enkaiou, Joker Towns, Joshikou Seifuku Monogatari, Yuka Watanabe & Tomo Kawai - Pleasure [redump.org, r09]
+  J. R. R. Tolkien's The Lord of the Rings, Vol. II - The Two Towers [Tokugawa Corporate Forums, DamienD]
+fmtowns_flop:
+  Viewpoint Demonstration No. 1 [David Swanson]
+  Dragon Slayer - The Legend of Heroes II, Towns Karaoke V1.1L10 [r09]
+ggm: Boris 2.5 / Sargon 2.5 [hap, bataais]
+ibm5170: Krusty's Fun House, Michael Jordan in Flight, Sid Meier's Colonization [ArcadeShadow]
+icanpian:
+  American Idol Take the Stage (K4655), Barbie Princess Enchanted Sounds (J7526), Dora the Explorer Musical Adventure (J7523),
+  Holiday Wonderland (J7528), Pop Hits (K0653) [Sean Riddle, David Haywood]
+  The Wizard of Oz - We're Off to Play the Piano (K4654) [Sean Riddle, Peter Wilhelmsen]
+intellect02: Chess (4 levels) [hap, Berger]
+nes: SimCity (USA, Prototype) [archive.org, AJR]
+
+
+動作可能に昇格したソフトウェアリスト
+------------------------------------
+pcw:
+  LocoScript Installation Program v3.00a (English), LocoScript Installation Program v3.06b (English), LocoScript v3.06 (UK),
+  LocoScript v4.06 (UK), LocoScript v4.10 (UK), Tomahawk [Edstrom]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+3do_m2: Oldsmobile (USA) [redump.org, FakeShemp]
+apple2_flop_misc: Anti-M (version 1.2) [4am, Firehawke]
+ibm5170: Gilis presentask (Swe) [FakeShemp]
+pce_tourvision: F1 Triple Battle (TourVision PCE bootleg) [ClawGrip]
+tvgogo: 4-in-1 (Flashcard Fishing, Break a Brick, Balloon Juggling, Penguin Maze), Tennis, Whac-A-Mole [ClawGrip, TeamEurope]
+vsmile_cart: Disney/Pixar Up (Spa, Rev. 022), Gimnasio Interactivo V.Smile (Spa) [TeamEurope, Diego Bartolome, ClawGrip]
+
+
+追加・更新された翻訳
+--------------------
+Chinese (Simplified) [YuiFAN]
+Chinese (Traditional) [YuiFAN]
+Greek [BraiNKilleRGR]
+Portuguese (Brazil) [Wellington Uemura]
+
+
+ソースの変更点
+--------------
+- statriv2.cpp: 問題データ無しセットのデバッガメモリビューでセグメンテーション違反が起こるのを修正。[AJR]
+
+- amerihok: 入力、コインカウンタ、7セグLEDスコアボードの基本的なレイアウトを暫定追加。[AJR]
+
+- UltraStor Ultra 12F ISA ESDIコントローラ用のROM吸出しとスケルトンデバイスを追加。[AJR]
+
+- OS Xデバッガ: 逆アセンブリとメモリビューアの設定をリストアしたとき、ウィンドウタイトルを更新。[AJR]
+
+- tumbleb: PIC経由でADPCMサウンドを駆動(サウンドコミュニケーションは未実装)。[AJR]
+
+- ron2: ゲームタイトルをフライヤーを元に訂正。[AJR]
+
+- pencil2: VDP割り込みを訂正。[AJR]
+
+- z8: デバッガステートにレジスタペアを追加。[AJR]
+
+- m37710: I/O空間をコールバックに置き換え。[AJR]
+
+- nes: MMC5拡張アトリビュートを改良。パレットバンクを選択するため、nametable領域からのMMC5 ExRAMバイトを使用。[AJR]
+
+- ppu2c0x: nametableとアトリビュートリードの順序を修正。[AJR]
+
+- wy75: 起動時のフリーズ防止のため、デフォルトのEAROMコンテンツを追加。[AJR]
+
+- er1400: リージョンからデフォルトデータをロードする機能を追加。削除の値を全てゼロに変更。[AJR]
+
+- upd765: ドライブ選択ロジックを改良: [AJR]
+ * リセット時にドライブを選択解除。または多重選択ラインのある古いコントローラではドライブ0を選択
+ * set_floppy使用時、他のフロッピーを選択解除
+
+- specpls3: フロッピードライブ選択ラインをミラー(Batman: The Movieを修正)。[AJR]
+
+- rd100: LCDコントローラ追加で表示系が動作。[AJR]
+
+- cmi2x: キーボードをサブデバイスに分割。[AJR]
+
+- scc68070: CPUデバイスとオンチップ装置のエミュレーションを統合。内部クロック分周器追加。[AJR]
+ * 未エミュレートなUARTとI2C機器のステータスビットを強制するハック追加
+
+- hd63450: IRQ処理の精度改善。インタフェースの整理。[AJR]
+
+- funworld.cpp: カスタムCPUのオペコード復号化をサポート。[Andreas Naive]
+
+- 不要なリードライトハンドラ変数を削除。メンバ名の改良。多くのドライバとデバイスでコメントの更新。[cam900]
+
+- ymf278b.cpp: DO1とDO2の出力を追加。クロック変更時のタイマーとバッファを修正。[cam900]
+
+- cps3.cppの更新: [cam900]
+ * 拡大したスプライトの隙間を解消。描画をクリッピング領域に制限
+ * 重複の解消。メンバ名の改良。コードの整理
+
+- tc0480scp.cpp: リードライトハンドラを整理とシンプル化。[cam900]
+
+- devices/sound/gaelco.cpp: データアクセスをdevice_rom_interfaceに変換。音程をクロック周波数の関数に変更。[cam900]
+
+- gaelco2.cpp: クリスタル値の訂正。ノートの追加。[cam900]
+
+- tecmo_spr.cpp: gfx_elementをgfxdecode_deviceに置き換え。付与なコードを削除。[cam900]
+ * 変数をより最適な型に変更
+
+- kaneko_tmap.cppの更新: [cam900]
+ * ビデオRAM処理のアドレスマップ追加
+ * expro02.cppのバンク切り替えコードをドライバに移動
+ * コードの重複を解消
+
+- expro02.cpp: ランタイムのタグマップ参照削減。[cam900]
+
+- kaneko16.cpp: berwallをモノラルサウンドに変換。ランタイムのタグマップ参照削減。コードのシンプル化と整理。[cam900]
+
+- actfancr.cpp: グラフィックデコーディングのシンプル化とコードの整理。[cam900]
+
+- deco16ic.cpp: cninjaの透過マスク関数をドライバに移動。[cam900]
+
+- crospang.cpp: 別なグラフィックレイアウトをグラフィックデコーディングに移動。ほとんどのステートクラスメンバをプライベート化。
+  [cam900]
+
+- oneshot.cpp: グラフィックデコーディングをシンプル化。ランタイムでのタグマップ参照を削減。コードの整理。[cam900]
+
+- emupal.cpp : MCFG_マクロを削除。[cam900]
+
+- vrc6.cpp: マスタ周波数レジスタ実装。デューティサイクル修正。コードの整理。[cam900]
+
+- devices/bus/nes/konami.cpp: vrc6の音量を修正。[cam900]
+
+- Namco 163サウンドエミュレーション追加。一部のファミコンカセットで使用。[cam900]
+
+- c6280.cpp: LFOの周波数動作を修正。LFOイネーブルビット修正。LFOリセットビット実装。[cam900]
+
+- devices/bus/nes/mmc5.cpp: サウンド動作と音量の修正。[cam900]
+
+- itech32.cpp: ランタイムのタグマップ参照削減。コードのシンプル化と整理。[cam900]
+
+- skimaxx.cpp: タグマップ参照削減。セーブステートサポート。コードのシンプル化と整理。[cam900]
+
+- k054321.cpp: メインCPUとサウンドCPU間の通信用に同期ハンドラを追加(tmnt.cppのprmrsocrで使用)。[cam900]
+
+- devices/machine/watchdog.cpp: ハンドラの単純化。ウォッチドッグハンドラのトランポリンを削減。[cam900]
+
+- simpl156.cpp: グラフィックデコーディングのシンプル化。コードの重複を削減。サウンドクロックの訂正。[cam900]
+
+- snk68.cpp: powとsearcherを派生ステートクラスに移動。ランタイムでのタグマップ参照削減。コードを整理。[cam900]
+
+- snk68_spr.cpp: 画面反転ステートメンバをbool型に変更。[cam900]
+
+- psikyosh.cppの更新: [cam900]
+ * タイルマップの描画をクリップ領域に限定。ライン単位のエフェクトが有効なときのタイルマップサイズを修正
+ * 麻雀コントローラ入力のあるゲーム用の別なアドレスマップを追加
+ * ランタイムでのタグマップ参照を削減。コードの整理
+
+- m72.cpp: M72基板のオーディオサンプルレートを修正。DAC音量修正。ノート追加。[cam900]
+
+- decbac06.cpp: グラフィックエレメント由来のハードコードパラメータを削除。描画をクリッピング領域に限定。[cam900]
+
+- raiden2.cppの更新: [cam900]
+ * xsedaeの設定修正(改造「ゼロチーム」ハードで動作)
+ * ビデオ機能をvideo/raiden2.cppに移動
+ * ランタイムでのタグマップ参照削減。ステートクラスメンバをプロテクト、またはプライベート化。コードの整理
+
+- r2dx_v33.cpp: ランタイムでのタグマップ参照を削減。raiden2.cppとの冗長性を削減。[cam900]
+
+- vgmplay.cpp: 音量調整サポート。ファイルで使用されるサウンドチップによる音量スケール追加。[cam900]
+
+- leland.cpp: ランタイムでのタグマップ参照削減。コードのシンプル化と整理。[cam900]
+
+- audio/leland.cpp: ROMリージョンとホストCPU用のハードコードされたタグを削除。[cam900]
+
+- psikyo4.cpp: FM使用時の出力を修正。[cam900]
+
+- n2a03.cpp: オーディオをハードコードしたスピーカーにルーティングするのではなく、device_mixer_interfaceを追加。[cam900]
+
+- tc0100scn.cppの更新: [cam900]
+ * テキストグラフィックの内部化
+ * 描画をクリップ領域に限定
+ * taito_f2.cppのバンキングコードをドライバに移動
+ * マスクのあるプライオリティの動作を許可
+ * 冗長性の解消とコードの整理
+
+- tc0480scp.cpp: テキストグラフィックの内蔵化。コードの重複削減。不要なポインタと関数の削除。[cam900]
+
+- emupal.cpp: xBGRBBBBGGGGRRRRフォーマットを追加。[cam900]
+
+- deniam.cpp: スクリーンが固まる動作を修正。ランタイムでのタグマップ参照削減。コードの整理。ノートの追加。[cam900]
+
+- audio/m72.cpp: ハードコードしたタグを削除。サンプルROMアクセスをdevice_rom_interfaceに変換。コードを整理。[cam900]
+
+- aica.cpp, aicadsp.cpp: PCM/DSPメモリアクセスをdevice_rom_interfaceに変換。セーブステートサポート。コードの整理。[cam900]
+
+- hotblock.cpp: ビデオバンキングをaddress_bank_map_deviceにコンバート。MCFG_マクロを削除。[cam900]
+
+- z80pio.cpp: コードの重複削減。[cam900]
+
+- ginganin.cpp: グラフィックレイアウトのシンプル化。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- snes_snd.cpp: 入力クロック追加。device_clock_changed実装。コードの整理。ノートの追加。[cam900]
+
+- ms32.cpp: ノート追加。[cam900]
+
+- k053260.cpp: コードの整理。[cam900]
+
+- deco146.cpp: デバッガでの影響を抑制。冗長性の削減。コードの整理。[cam900]
+
+- pgm.cpp: 一部入力の実装。名前の改良。[cam900]
+
+- pgmprot_igs027a_type1.cpp: CAVE PCBの入力追加。[cam900]
+
+- qs1000.cpp: 不完全サウンドフラグをドライバからデバイスに移動。[cam900]
+
+- ネットリストライブラリの更新: [Couriersud]
+ * MOSFETモデルの追加。Meyerキャパシタンスを含む
+ * 定数コンデンサモデルに対して、電荷保存的コンデンサモデルを追加
+ * 定数を中心部分に配置開始
+ * ptimeコードの丸め問題を修正
+ * 半導体の電荷容量モデリングを無効化するグローバルなパラメータ追加
+ * 出力電圧制限を無視するオペアンプモデルを追加
+ * MB3614オペアンプをデータシートに合わせて変更
+ * VARCLOCK追加。関数を使用してステップサイズの算出が可能
+ * pfunctionにtrunc追加
+ * opamp_amplification_curveの例を追加。オペアンプのゲインを周波数の関数として演算
+ * 電圧クランプモデルLM3900の改良。その他のオペアンプとピン名の統一
+ * 高精度LM3900モデル追加。ハイパフォーマンスLM3900モデルの改良
+ * コンバージョンコードにSPICEエレメントを追加
+ * SPICEネットをコンバートするときの現在のソース処理を修正
+ * ネットリストデバイス用バリデーション追加
+ * エラーメッセージのスケーラビリティ改良
+
+- m62.cpp: kungfumの回路にある修正と明らかな省略を元にkidnikiのネットリストを修正。[Couriersud]
+
+- zaccaria.cppのサウンドを改良: [Couriersud]
+ * スピートとDACをネットリストフィルタリング経由に変更。AY8910のインタフェース修正
+ * 調整可能な半固定抵抗を実装
+ * パフォーマンス改善のため、ネットリストにフロンティア追加
+
+- mario: 改良版LM3900モデルでわかった回路のエラーを修正。[Couriersud, Tafoid]
+
+- spg110の更新: [David Haywood]
+ * 機能をさらに個別デバイスに分離
+ * レンダリングとスプライトを改良。マニュアルビデオRAMアップロードを実装
+ * 基本的なオーディオ機能の追加
+
+- wc90b.cpp: 少し整理。[David Haywood]
+
+- pengo.cpp: schickの暫定的で部分的な復号処理追加。[David Haywood]
+
+- SunPlus GC394システムをvii.cppから移動(これはより機能が高くて新しいSOC)。[David Haywood]
+
+- 32x.xml: pinochioのROMのロードを修正。[David Haywood]
+
+- mgames.cpp: パレットとグラフィックでコーディングレイアウトを整理。タイルマップを使った描画に切り替え。[Dirk Best]
+
+- ltcasino.cppの更新: [Dirk Best]
+ * 6821 PIAを2つとCRT5037を実装。RAMサイズ訂正。18MHzクリスタルを単位としてクロック定義
+ * 入力の整理。DIPスイッチ名と配置追加。サービスモードについてドキュメント化
+ * 出力ポート追加。コインカウンタとランプの実装
+ * フライヤーを元のクリック可能なボタンとカラーオーバーレイのあるシンプルな内蔵アートワーク追加
+ * NVRAM追加。ROMラベルとノートの更新
+
+- tms9927.cpp: 表示領域を設定時にハードコードできるよう変更。[Dirk Best]
+
+- akkaarrh.cpp: コインカウンタ、ランプ出力、ランプを表示するテストビュー追加。[Dirk Best]
+
+- Amstrad PCWドライバの更新: [Edstrom]
+ * 各マシンのフロッピードライブタイプを訂正
+ * クリスタルチからクロックを導出。ビデオハードがRAMにアクセスするエフェクトに近づけるためCPUをスローダウン
+ * ログ取得改良とlogmacro.hユーティリティを使うように変換
+ * プリンタとモニタパレットの修正。デフォルトのレイアウトをシンプル化
+
+- dsk_dsk.cpp, hxchfe_dsk.cpp: 少数の超過トラックのあるイメージに対し、非致命的な警告をレポート。[Edstrom]
+
+- pcw.xml: メタデータ修正と、超過トラックの吸出しについて説明追加。[Edstrom]
+
+- sms, nes: 光線銃のピクセル明度を、VDP/PPUビットマップにアクセスするのから画面デバイスから取得するように変更。[Enik Land]
+
+- sms.cpp: Game Gear用の初期スタックポインタを設定。Eccoで使用(MT07255)。[Enik Land]
+
+- m68kmmu: Domain/OSをクラッシュさせていたATCエントリ演算エラーを修正。[Hans Ostermeyer]
+
+- apollo: 古いデバッグ参照を削除。[Hans Ostermeyer]
+
+- z80ctc.cpp: 設定した入力クロック周波数による残り時間の演算時、整数オーバーフローを防止。[Justin Kerk]
+
+- X11 XInputによる複数光線銃サポートを修正。[Kiall Mac Innes]
+
+- YM2608/YM2610 ADPCM-Aのオーバフロー動作を修正(飽和ではなくラップ)。[Lord Nightmare, madbr]
+
+- ymz774: 音量テーブルを演算ループに置き換え。[MetalliC]
+
+- tms99xxの更新: [Michael Zapf]
+ * LDCR/STCRのレジスタインダイレクト自動インクリメントモード(*Rx+)処理修正とログのモダン化
+ * 命令ごとの最小・最大クロックサイクルを修正
+ * メモリマップとの動作改善のため、セットアドレスメソッドシグネチャ変更
+
+- ti99の更新: [Michael Zapf]
+ * ドライブを選択していないとき、GeneveのTI FDCがSIDSELシグナルを失うバグを修正。冗長な変数を削除
+ * peribox/evpcにアクセスしたとき間違ったCPUアドレスが使われるという99/4pで起きた不具合を修正
+
+- coco: Orchestra-90、RS-232 Program Pak、Modem Pakをソフトリストからロードするのを修正(MT05291)。[Nigel Barnes]
+
+- m68000: CPU空間をアドレス空間化しベクトル割り込みで使用するよう変更。[O. Galibert]
+ * また、CPUコアの割り込みプライオリティエンコーダの動作を無効にできるよう変更
+
+- emumem: 使用しなくなったアライメントリミットを削除。[O. Galibert]
+
+- emumem_mud: ビッグエンディアン空間でのstart/endを訂正。[O. Galibert]
+
+- pic8259.cpp: デバッガのリードによる影響を抑制。[O. Galibert]
+
+- Yamaha DSPVとSWP20デバイスのスケルトン追加。[O. Galibert]
+
+- ymmu100.cpp: LCDを独立したデバイスとして分離。[O. Galibert]
+
+- CPUタイプ付きset_input_line_vectorの前使用箇所を注釈づけ。[O. Galibert]
+
+- pcat101: キーマトリックスとポートを接続。[Patrick Mackinlay]
+
+- 3c505: 低レベルエミュレーション追加。[Patrick Mackinlay, Neko May]
+
+- m68705: Added more HMOS variants. [Patrick Mackinlay]
+
+- nscsi_cd: モードページ0x01のサポート。Apple II SCSI CardからCD-ROMがアクセス可能。[R. Belmont]
+
+- apple2: Apple II SCSI CardにデフォルトでSCSI CD-ROMを接続。[R. Belmont]
+
+- apple2: FocusDrive/ZIPDriveのパーティション情報フォーマットをドキュメント化。またこれが動作するよう修正。[R. Belmont]
+
+- mac: VIA6522エミュレータが動作するまで、全てのMacをNOT_WORKINGに降格。[R. Belmont]
+
+- k2000: RAM/ROMの切り替え実装 - 起動可能に。[R. Belmont]
+
+- aim65: コードのモダン化。カセットの修正。TTY追加。プリンタディスプレイ追加。[Robbbert]
+
+- funworld.cppの更新: [Roberto Fresca, Grull Osgo]
+ * ゲーム名改良。ノートの拡張
+ * メモリマップ改善。不揮発RAMのデフォルトコンテンツを追加。ROMロード修正。入力の作り直し
+ * タイルマップ改善。グラフィックプレーンの修正。パレット改良
+ * I2CシリアルEEPROM追加。Saloon/Nevada用PIA削除
+ * pool10eのPLD吸出し追加。jokercrdのグラフィックROM IC10を吸出し不良に指定
+ * アトリビュート/カラーRAMの分割とミラーリング。AY8910実装の修正。ビデオRAMオフセット修正。intrgmesのAY8910実装を修正
+ * CPUを65SC02に変更。周期的な割り込み追加。intrgmesのハードウェアチェックにパッチ
+ * CPUをR650C02に変更。PIAミラーリング追加。royalcrdfのBRK後に強制的にNOPするROMパッチ追加
+
+- funworld.cppをもっと更新: [Roberto Fresca]
+ * royalcrdfのパレットバンキング、グラフィックROMロード、メモリマップ、ビデオRAMオフセットを修正
+ * rcdino4とjolycdigにデフォルトのNVRAMコンテンツ追加
+ * royalcrdcのグラフィックROM IC26を吸出し不良に指定
+ * jolycdigとjolycdabにボタンランプ追加
+ * ゲーム名の"Austrian"を全て"German"に変更。ノートの拡張
+ * royalcrdcbの吸出し不良グラフィックROMを親セットの対応ROMに置き換え。表示不完全フラグ削除
+
+- funworld.cpp: jokercrdの不良なグラフィックROMを吸い直すためにカスタムデバイスを使用。これにより完全動作に昇格。
+  [Roberto Fresca, Grull Osgo, Gaby]
+
+- unsp: リコンパイラの符号付き乗算を修正(jak_poohの操作修正)。[Ryan Holtz]
+
+- sgi_mc: ピクセルVDMA割り込み修正(IRIX 5.3のピクセルDMA警告を修正)。[Ryan Holtz]
+
+- newport: ディザリングと4bpp RGBフレームバッファディスプレイをサポート。シェードレンダリングモード修正。[Ryan Holtz]
+
+- IDEハードディスクのDMA転送速度を制限する機能追加(MT07242)。[Ted Green]
+
+- midzeus.cpp: thegridのフレームレートが低いせいで起きていた割り込みの問題を修正。[Ted Green]
+
+- zx8301.cpp: 実際のQLに色が合うようにフラッシュの動作を改良。[vilcans]
+
+- crystal.cpp: Crystal System BIOSの別なバージョンを吸出し。[ack]
+
+- galaxian.cpp: monnwaraのROM名訂正。カラーBPROMの修正。[Andrew Welburn, The Dumping Union]
+
+- oneshot.cpp:「Mad Donna」の基板レイアウトを追加。「One Shot One Kill」のノート追加。[Brian Troha]
+
+- toaplan1.cpp:「鮫!鮫!鮫!」の中華セットのコインエイジDIP設定を訂正。[Brian Troha]
+
+- tumbleb.cpp: funkyjetbのPICマイコンを吸出し。[Caps0ff, ClawGrip, The Dumping Union]
+
+- seibucpbl.cpp: cupsocsb2のROM配置更新。「セイブカップサッカー」海賊版セットで計測したクロックを使用。[f205v]
+
+- gba.xml: No-Introよりカセット情報を追加。[FakeShemp]
+
+- aha1542b: 3.1b BIOSを追加。[Funet Archive]
+
+- namcos2.cpp: データROMの基板配置を更新。[Guru]
+
+- m72.cpp: imgfightbのI80C32外部ROMを再吸出し。[hammy]
+
+- aristmk5.cpp: ボタンラベルの写真を元に内蔵レイアウトを更新。[Heihachi_73]
+
+- isa_hercules: Mazoviaのポーランド語用文字セットを吸出し。[MCbx Old Computer Collection]
+
+- UltraStor Ultra-14F SCSIコントローラ用スケルトンデバイス追加。[Metropoli BBS Archive]
+
+- UltraStor Ultra-24F EISA SCSIコントローラ用スケルトンデバイス追加。[Metropoli BBS Archive]
+
+- Takram EISA SCSIコントローラ用スケルトンデバイス追加。[Metropoli BBS Archive, I-Shou University File Server]
+
+- galaxold.cpp: scramb3のPROM吸出しとチップタイプの確認。[Porchy, The Dumping Union]
+
+- europc.cpp: euroxtにBIOS v1.02追加。[rfka01]
+
+- genpc.cpp: BIOSオプション追加。[rfka01]
+
+- compc.cpp: compc10にBIOS v2.01を追加。[rfka01]
+
+- SunPlusの終了と、それらを使用するシステムについてノートを追加。[Sean Riddle]
+
+- icanpian.xml: カセットとリリースコードについての情報追加。[Sean Riddle, ClawGrip]
+
+- sms.xml: worldgpのROMラベル訂正。[TeamEurope, ICEknight, ClawGrip]

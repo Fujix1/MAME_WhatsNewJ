@@ -1,0 +1,125 @@
+0.144u1
+-------
+
+
+- 04456: [グラフィック] bs94, re900: グラフィック不具合、または黒画面のまま。(hap)
+- 04535: [サウンド] 6532 RIOTデバイスの変更により、サウンドが出なくなっている。(hap)
+- 04391: [クラッシュ/フリーズ] boscomd, bosco: プレイ開始から一定時間経過するとリセッ
+         トがかかる。(hap)
+- 03271: [グラフィック] galaga and clones: 起動中の画面右下側に不要と思われるグラフィ
+         ックが現れる。(hap)
+- 02887: [グラフィック] digdug and clones: カクテルモードのプレイヤー2のとき、画面の
+         右端でキャラクタが表示されない。(hap)
+- 03266: [グラフィック] bosco, galaga, xevious, digdug and clones: DIPスイッチをカク
+         テルモードにすると、間違ったタイミングで画面が反転する。(hap)
+- 04382: [グラフィック] All sets in mappy.c: カクテルモードでのプレイヤー2の表示が画
+         面半分ずれる。(hap)
+- 04531: [サウンド] f1en: エンジン音がループしたりリセットしたりする。(Tafoid)
+
+
+ソースの変更点
+--------------
+-「Forte Card」の改良: [Roberto Fresca, Rob Ragon]
+ * #defineにクリスタル追加
+ * CPU、CRTC、AY8910のクロックを訂正
+ * スペイン版セット追加
+ * 正しいバイポーラ吸い出しを追加
+ * パレットルーチン、表示resnetを修正
+ * ウォッチドッグ
+ * 93SC56シリアルEEPROMをテストサポート
+ * 正しく吸い出したEEPROMを追加
+ * テクニカルノートをどっさり追加
+
+- Forte Card: 93SC56シリアルEEPROMインタフェースを改善。新しくわかったことやテクニカ
+  ルノートを追加。[Roberto Fresca, Rob Ragon]
+
+- エミュレータ別の定数を別々なクラスに移動。[Miodrag Milanovic]
+
+- HLSLのメモリリークと32-bitターゲットで終了時にクラッシュするのを修正。
+  [Ryan Holtz, Bat Country Entertainment]
+
+- zerozone.cとzodiack.cドライバのモダン化。[Fabio Priuli]
+
+- スケルトンドライバの大部分でアドレスマップのモダン化。[Fabio Priuli]
+
+- pcat_nit.cのROMマッピング修正とNVRAM追加。streetg(2)のミニゲームが一部プレイ可能。
+  [Mariusz Wojcieszek]
+
+- SDLの更新: [R. Belmont, Carl, cgwg]
+ * OS XとWindows SDLターゲット向けにpcapネットワークをサポート
+ * "CRT"シェーダを改善するためGLSLの調整
+
+-「ホットチェイス」起動時のデフォルトパレットRAMを白に設定し、MAMEのPOST画面におかし
+  な色が表示されるのを修正。[Angelo Salese]
+
+-「Forte Card」の色修正。[Angelo Salese]
+
+-「Forte Card」にRTCを実装。[Angelo Salese]
+
+- ハードディスクソフトリストをサポート。[Miodrag Milanovic]
+
+- MAMEとMESSを連続してコンパイルできるようにするためmakefileを変更。また、サブター
+  ゲットのリソース依存度を低減。[Miodrag Milanovic]
+
+- V3021 RTCエミュレーションをデバイス化して、タイムのインクリメントをするように変更。
+  pgm.cとfortecar.cドライバに実装。[Angelo Salese]
+
+-「Disco Boy」のMSM5205サウンドを実装。[Angelo Salese]
+
+- cps3.c: sfiii、sfiii2、sfiii3の現存するリビジョンをドキュメント化。[Team CPS-1]
+
+- CPS-1の更新: [Team CPS-1]
+ * 3wondersu、ffightu1、ffightj1、sf2uc、sf2ud、sf2ufのROMラベルと位置修正。
+   video\cps1.cに基板情報追加
+ * sf2ceucを実機と一致するように再吸い出しと修正 [Dumping Union]
+ * forgottnのEPROM4つをきちんと吸い出し。また、forgottnuのLW-13.10Dをおそらく吸い出し
+   不良に設定
+ * megamanのUSA 91635B-2 B-ボードを元に、EPROMの場所が逆だったのを修正
+   [Dumping Union]
+ * wonder3のRT_23.13B ROMについて解説を追加 [Kold666]
+ * 各セットにドキュメント追加
+ * 細かなクリーンアップと修正
+
+-「ボンジャック」の基板を元にクロック速度の確認、及び調整。[Corrado Tomaselli]
+
+- device_delete()の明らかな解放後に使用しているミスを修正。[Aaron Giles]
+
+- HLSLのshadow_textureの明示的な開放を削除。これを割り当てるtexture_create()が独自の
+  トラッキングと開放処理を行うため。[Aaron Giles]
+
+- Bally Senteドライバの変更:  [Kevin Eshbach]
+*「Trivia Pursuit」(Baby Boomer edition)のROM配置を訂正
+*「Street Football」のROM配置を訂正
+*「Mini Golf」(Set 2)、「Trivial Pursuit」(Baby Boomer Edition)、「Ninja Stocker」
+  (set 1, set 2)、「Street Football」の日付コード追加
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Fruit Bonus Deluxe [Sara S.]
+バーディ [Alberto Grego, Corrado Tomaselli, Angelo Salese, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+プロサッカー (cassette, Japan) [Team Japump!!!, Hau, Yohji, Charles MacDonald]
+Crock-Man  [Team Europe, Nico and Thorsten K.]
+ニンジャウォーリアーズ (US) [Stefan Lindberg, The Dumping Union]
+ガンハード (Japan) [ShouTime]
+ギャルズパニック3 (Euro)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+Battle Balls / 戦球 (Asia, earlier)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+Pepper II - Version 7 [tafoid]
+J.J.スコーカーズ (海賊版, Blandia Conversion) [Corrado Tomaselli]
+World Beach Volleyball (set 3) [Corrado Tomaselli]
+パン! 3 (Euro 950511)
+  [Corrado Tomaselli, Alberto Grego, The Dumping Union]
+ビィラップボーイズスペシャル (US) [vintagevideogames.com, Lord Nightmare]
+Forte Card (Spanish) [Roberto Fresca, Rob Ragon]
+Spiker (2 sets) [Kevin Eshbach]
+
+
+追加された未動作ゲーム
+----------------------
+Pucky [Foul, Smitdogg, The Dumping Union]

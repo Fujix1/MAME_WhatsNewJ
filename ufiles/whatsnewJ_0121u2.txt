@@ -1,0 +1,105 @@
+0.121u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+
+
+ソースの変更点
+--------------
+- mosaicf2ドライバにスピードアップハック追加。[David Haywood]
+
+- i8051コアのBCD演算エラー修正。[stephh]
+
+- m6800 CPUコアについて、ファミリーCPUがもう一度独立してコンパイルされるよう修正。
+  [Atari Ace]
+
+- RSPコアをN64ドライバから、より正式な形で分離。[Atari Ace]
+
+- panicrの無効なDIPスイッチ修正と、DIP配置の追加。[Sonikos]
+
+- コアの#definesの一部をenumへ変更。また、GAMEマクロの結果がconstデータになるよ
+  う調整と、より汎用的なGAMELマクロとして定義。[Atari Ace]
+
+- 不要にグローバルだった変数をさらにstaticに変換。[Atari Ace]
+
+- M68008データバスを正しく8ビットアクセスを使うよう修正。[Curt Coder]
+
+- peplus.cドライバのクリーンアップ。MACHINE_RESETを追加して、autoholdオプションを
+  修正。何種類かのレイアウト追加。[stephh]
+
+- get_num_dipsの配列オーバーランを修正。[Nathan Woods, Michael Zapf]
+
+- インラインコードから不要になったバンクスイッチのチェックを削除。これにより、
+  midwunitドライバが少しスピードアップ。[Christophe Jaillet]
+
+- Konamiカスタムチップの多くでセーブステートをサポート。[Lei Wu]
+
+- GCCのmakefileに-pipeフラグ追加 (GCCはコンパイル速度を上げるために、テンポラリ
+  ファイルを使わず、cpp、cc間でパイプを行います)。[Vas Crabb]
+
+- インライン関数のクリーンアップ: [Vas Crabb]
+ * eigccppc.hとeigccx86.hに、GCCが常にインライン化して、適切な場所では算術オペレー
+   タとして取り扱うようにアトリビュートを追加 (そのため、GCCはこれらの関数にかか
+   わるループ不変条件か、共通部分式かを判別できます)
+ * eigccppc.hとeigccx86.hのローカルをレジスタにマーク。これにより、GCCはO0の最適
+   化レベルでも常にスタックスペースを確保しません
+ * eigccppc.hの関数にアトミックアクセスするようにダミーの+mオペランドを追加。こ
+   れにより、GCCは値が不揮発でもコール間でキャッシュしません。つまり、GCCはO0の
+   最適化レベルでは追加のレジスタを割り当てさせますが、最適化するときは割り当て
+   ません
+ * __APPLE_ALTIVEC__が定義されている場合、コンパイル警告が起こらないように、
+   rgbvmx.hで、<altivec.h>をインクルードしない
+
+- System 24ドライバの入力系をクリーンアップ: [Sonikos]
+ - qrouka, sgmastc, sgmastcj, roughrac, qswwのDIPスイッチ修正
+ - dcclub, sgmastc, sgmastj, qroukaの入力修正（最後のものだけP3とP4が未実装）
+ - 各ゲームの解説を追加: リージョン, システム (ROM、フロッピーベース)、
+   バージョン
+
+- midtunitドライバから不要なpen_arrayを削除。これにより、メモリ節約と少し速度向
+  上。[Christophe Jaillet]
+
+- tceptorドライバで3Dグラスサポート。[BUT]
+
+- タイマーコールバックを統合。タイマーコールバックは全て、ポインタと引数を渡しま
+  す。ポインタはタイマーの割り当て時間のみセットします; パラメータはタイマーを調
+  整したときに変更できます。より汎用的なルーチンへシフトするため、timer_*_ptr関
+  数を使っている部分はほとんど削除しました。[Aaron Giles]
+
+- cpu_yield()以外のcpu_yield*関数を廃止して、現在のタイムスライスのみに従うよう
+  にしました。他のyield系関数に依存しているドライバも、cpu_boost_interleave() に
+  置き換え、タイム管理において同様の悪影響を出さないようにする必要があります。
+  [Aaron Giles]
+
+- video_frame_update()について、強制的に更新するデバッグパラメータを内部的に受け
+  取り、同期・タイム処理に影響しないように変更。[Aaron Giles]
+
+- midzeusドライバにさらに内部的な改良。[Aaron Giles]
+
+- 増えすぎな感じのアーキテクチャ最適化オプションリストを削除。特定のアーキテクチャ
+  向けに最適化したビルドを行うには、代わりとして、新しいARCHOPTS変数を明示的に指
+  定します。既存のPREFIXとSUFFIX変数を通じて、最終的な実行ファイル名をコントロー
+  ルします。[Aaron Giles]
+
+- MSVCベースのビルドで、指定しない場合に自動的にvを先頭に付加するように変更。
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Maze Invaders (プロトタイプ) [Aaron Giles]
+Guts 'n Glory (プロトタイプ) [Aaron Giles]
+ジャンボ尾崎のスーパーマスターズゴルフ [Sonikos]
+
+
+
+新規クローンセット
+------------------
+スカイキッド (Manufactured by Sipem) [Corrado Tomaselli]
+Next Fase (bootleg of Phoenix) [David Haywood]
+ハングオン (Rev A) [Tony Beason]
+シューティングマスター (set 2, 8751 315-5159a) [Kevin Eshbach]
+スーパーバーガータイム (World, set 2) [Patrik Styrnell]

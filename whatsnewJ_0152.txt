@@ -1,0 +1,479 @@
+0.152
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00037: [DIP/入力] (changela.c) changela: DIP設定でジョイスティック操作に設定しても、
+         ジョイスティック入力用の割り当てが無い。(Osso)
+- 04424: [グラフィック] (seta.c) thunderlbl: [デバッグ限定] グラフィックの不具合多数。
+         (Osso)
+- 05357: [クラッシュ/フリーズ] (taitogn.c) nightrai: ゲームが起動出来ない。(smf)
+- 05236: [グラフィック] D3D指定時にマルチモニタが動作しない。
+- 05391: [その他] (cave.c) ppsatan: 製造元はカトウ製作所。
+- 05383: [グラフィック] (twin16.c) hpuncher: 表示ずれあり。(Alex Jackson)
+- 00785: [サウンド] (omegrace.c) omegrace: 最初の何面かをクリアして"First Droid Wave 
+         Complete"のメッセージが出ててプレイヤーが増えるとBGMがその後変になる。(hap)
+- 05214: [色/パレット] vector games: 画面が白黒になっている。hlslを有効にするとカラー
+         表示になる。(hap)
+- 05384: [DIP/入力] (lethal.c) lethaleneab, lethaleneae: 言語設定のDIPスイッチが効か
+         ない。(Tafoid)
+- 05355: [DIP/入力] (cps1.c) sf2m3 ; sf2m8: キック入力が動作していない。(Osso)
+- 05375: [ドキュメント] (sderby.c) sderby, sderby2: セット名やゲーム名の変更が必要。
+- 05373: [クラッシュ/フリーズ] (capbowl.c) capbowl3, capbowl4: 黒画面しか表示されない。
+         (Phil Bennett)
+- 05366: [システムコア] (harddriv.c) harddriv and clones, racedriv and clones: RTCの
+         DayとMonthにエラーがありスタートできない。
+- 05365: [ドキュメント] (namcos21.c) driveyes: ゲームは日本版なのにUS版という説明がつ
+         いている。
+- 05364: [コンパイル] NO_USE_QTDEBUGを指定するとコンパイル時にエラーが出る。
+- 05356: [色/パレット] (midvunit.c) offroadc: 一部のテクスチャの色がおかしい
+         (Phil Bennett)
+- 05207: [グラフィック] All vector games: ベクター表示ゲームを終了させてもメニュー内
+         に画像が残る。(hap)
+- 04947: [グラフィック] (midvunit.c) offroadc: サービスモードで、項目を選択するインジ
+         ケータが表示されない。(Phil Bennett)
+
+
+
+ソースの変更点
+--------------
+- vsnes.c:「VSベースボール」USA版e-1セットの後半のROMを検証。ラベル違いを一つ修正。
+  [Dead_Body]
+
+- midvunit.c - ポリゴンピクセルカラーの選択を修正。[Phil Bennett]
+
+- peplus.c: カラーCAPサイズを二つ修正。「Ace$ Bonus Poker」のCGグラフィックROM追加。
+  [BrianT]
+
+- scsi: 256バイトセクタのハードディスクイメージを修正。[Curt Coder]
+
+- スピーカー切り替えデバイスにシンプルなDCブロッカーフィルタ追加。[R. Belmont]
+
+- konendev.c: CPUタイプの訂正(PPC403)とハードウェアについての記述を追加。
+  [Phil Bennett]
+
+- sf.c:「ストリートファイター」(World, アナログボタン)セットのPROM名を更新。[Porchy]
+
+- exidy440.c: 3Kドライバの全ゲームのPROMを入れ替え。その他のPROMは全て固有で、サイズ
+  が異なる。[Joe Magiera, Tafoid]
+
+- nss.c: smwのBIOS ROM位置とinst ROMの更新。nss v3 BIOSがハック版である可能性があるこ
+  とをマーク。[Kiddcade, Porchy]
+
+- CPS-1の更新: [Artemio Urbina]
+ * dinouのCDU_22A.7Fが実機とマッチするように再吸い出し。異なる2つのソースで検証済み
+
+- idehdのタイミングを改良。ただしまだ完全に想像ベース。[smf]
+
+- マクロMCFG_DEVICE_CARD_DEFAULT_BIOSを追加。スロットカードデバイスのマシン設定でデ
+  フォルトのBIOS指定に使用する。[Curt Coder]
+
+- SDL: 非Qt、非Windowsビルドの修正(MT #5364)。[R. Belmont]
+
+- SCSIステータスコードを追加し、全コマンドハンドラに設定。これはステータスフェーズに
+  バス経由で送られる。エラー時には、m_sense_key/m_sense_asc/m_sense_ascq & 
+  m_sense_informationに詳細情報が設定されており、request senseコマンドで返すことがで
+  きる。[smf]
+
+- コマンドがチェック条件のときは、IDEステータスレジスタにエラービットを設定。[smf]
+
+- vsnes.c: 「VSスーパーマリオ」のROMラベルを物理チップに完全に合わせて更新。
+  [Dead_Body]
+
+- z80dma: Auto Restartの実装。[Curt Coder]
+
+- TMS57002の修正と改良: [Phil Bennett]
+ * CD/IDポストインクリメントを実行外に移動。二つの命令がインクリメントをポストする
+   ケースの修正。また、生成命令の数も減少
+ * 外部メモリアクセスのデータ順を修正
+ * 未定義の丸めモードのための無駄な命令を生成しないよう変更。デコード時に再マップ
+ * リセット時にXOAを0に設定
+ * I/Oラインに[READ|WRITE]LINE_MEMBERを使用
+ * PC0ライン追加
+ * デバッガステートにレジスタ追加
+
+- wd_fdc: ready割り込みのポラリティを修正。フロッピーイメージデバイスではなく、FDCの
+  みをリセットするsoft_reset()関数を追加。これにより正しいreadyステートが保持される。
+  [Curt Coder]
+
+- Konami 056800 (MIRAC)の書き直し: [Phil Bennett]
+ * 8ビットデバイスとして実装
+ * アドレスマッピングの修正
+ * インチキなタイマ割り込みを削除
+ * 割り込み処理の修正
+
+- 054539.c: 実機計測を元に、入力クロックレートの修正とプログラマブルタイマの実装。
+  [Phil Bennett, Stefan Lindberg]
+
+- lethal.c, mystwarr,c, tmnt.c: 054539のタイマ割り込みを実装。BGMテンポが一部ゲームで
+  修正。[Phil Bennett]
+
+- qdrmfgp.c: qdrmfgpに054539タイマ割り込みを実装。IRQのACK処理が修正。[Phil Bennett]
+
+- plygonet.c: 054539タイマ割り込み実装。存在しない2つめの054539を削除しEEPROMの不具合
+  を修正。[Phil Bennett]
+
+- hornet.c, gticlub.c: サウンド割り込みタイマを実装。[Phil Bennett]
+
+- konamigx.cの改善: [Phil Bennett]
+ * 056800デバイスの実装
+ * 054539タイマ割り込みを実装
+ * サウンドハックを削除
+ * DSP RAMテストを全てパス可能。winspikeの音が動作
+
+- konamigq.cの改善: [Phil Bennett]
+ * 056800デバイスの実装
+ * 054539タイマ割り込みを実装
+ * TMS57002 DASPを追加
+
+- ultrsprt.cの改善: [Phil Bennett]
+ * 054539タイマ割り込みを実装
+ * VRAMダブルバッファリングを実装
+ * トラックボール入力の改善
+ * サウンドを修正
+
+- zr107.cの改善: [Phil Bennett]
+ * 054539タイマ割り込み実装
+ * 全てのゲームのサウンド修正
+
+- rungun.cの改善: [Phil Bennett]
+ * 054539タイマ割り込みを実装。BGMテンポ修正
+ * サウンドCPU NMIコントロールを実装
+ * 054539 #2の不具合修正
+
+- レースドライビングDSK zramを保存。[smf]
+
+- 現在ある「ビートマニアIIDX」のハードドライブとビデオCD/DVDを追加。オンラインでハー
+  ドドライブのラベルを調べて更新。[smf]
+
+- mcs96: 修正いろいろ。[O. Galibert]
+
+- diserial: defineの削除。クロックとタイマの整理、syncサポート。[O. Galibert]
+
+-「闘幻狂 / The Gladiator」の内部ROM検証。[Artemio Urbina]
+
+- wd_fdc: Read Addressコマンド中にCRCエラーが見つかった場合、CRCエラービットを設定。
+  Tiki 100氏がこのコマンドを使ってディスクがFMかMFMフォーマットかを判定。[Curt Coder]
+
+- CPS-1の更新:
+ * IOB2.11Dを吸い出してsf2eeとsf2ueに追加。[Porchy]
+ * S9263B.1Aをsf2ceとsf2hf、クローンに追加。[Porchy]
+ * CP1B9KA.9Kをpang3に追加。[Zabanitu]
+
+- snk6502.c:「ニブラー」のボードクロックレートを実際にわかっているマスタクロックと論
+  理分周に調整。[Tafoid]
+
+- jedutil.c:  [Kevin Eshbach]
+ * プロダクトの関連sumのXORを表示するため、PAL20X4、PAL20X8、PAL20X10の出力を修正
+ * デバイス表示中、JEDファイルのサイズがデバイスのサイズとマッチするかチェック
+ * ハードコードなシンボル文字列を定数に置き換え
+ * RICHO製PALの動作テスト開始(今のところifdef付き)
+ * 以下のデバイスと対応する退行テストデータの表示サポート:
+    PALCE16V8, PAL10P8, PAL12P6, PAL14P4, PAL16P2, PAL16P8, PAL16RP4, PAL16RP6, 
+    PAL16RP8, PAL6L16, PAL8L14, PAL12H10, PAL12L10, PAL14H8, PAL14L8, PAL16H6, 
+    PAL16L6, PAL18H4, PAL18L4, PAL20C1, PAL20L2
+
+-「ロイヤルマージャン」とその類に画面反転追加。[Angelo Salese]
+
+- V9958: 画面モード10/11/12の初期版追加。「Puzzle Star / Sexy Boom」で使用。
+  [Angelo Salese, Wilbert Pol]
+
+- vsnes.c: vspibalセットのROMラベル訂正とセット記述を修正。[Dead_Body]
+
+- cinemat.c: Vectorbeam製の「Warrior」の正しいDIPスイッチ。[Timothy Shiels]
+
+- vsnes.c: 「VSトップガン」「VSグラディウス」についてROMラベルをさらに更新。
+  [Dead_Body]
+
+- i386: P6 CMOVcc命令を修正。CMOVフィーチャーフラグをPentium Pro、Pentium II CPUに追
+  加。Pentium MMXにMMXフィーチャーフラグ追加。[Barry Rodewald]
+
+- V9958 YJKテーブルのバグ修正で「Puzzle Star」「Sexy Boom」その他MSX2+ゲームの色修正。
+  [Angelo Salese]
+
+-「Puzzle Star」 (Sang Ho Soft) がタイトル画面でハングするのを修正。[Angelo Salese]
+
+- System 573 700B01に既存吸い出しのSHA1を追加。現状、起動時のレスポンスは他のBIOSバー
+  ジョンとは異なるので、H8の内部ROMを吸い出してHLEが改善するまでは、データをフェイク
+  のROMに保存している。[smf, innocent2k, anthonyoftga]
+
+- ketuiのROMについて、未使用エリアのフィルが異なるものが存在することについてドキュメ
+  ント追加。[Artemio Urbina]
+
+- upd765: ドライブステータスのセンスコマンドを修正。ドライブ無しのフロッピーコネクタ
+  を使用できるよう変更。[Curt Coder]
+
+- scudspとssp1601のエントリーを修正。[Vito]
+
+- HLSLプレスケールのスメアを軽減。[MooglyGuy]
+
+- ヘッドファイルの7486の記述を訂正。[MASH]
+
+- PGMのプロテクトについて整理や修正(orlegend、olds、svgpcb)。[iq_132]
+
+- i2cmemのモダン化完了。[smf]
+
+- x76f041/x76f100、zs01について、ログ出力が簡単になるよう再モダン化。また、ピンを直接
+  接続できるようにREAD_LINE_MEMBER/WRITE_LINE_MEMBER を使用。初期の「ビートマニアIIDX」
+  ゲームにx76f041を実装。セキュリティチェックはパスできるが、最初のバイトを繰り返し読
+  み込むため長い時間がかかる。チェック用に返されるデータが正しくないのにセキュリティ
+  OKとゲームが判断しており、コンテンツが正しくない可能性がある。[smf]
+
+- CR589ファームウェアのアップデートがまた動作するように対策。ゲームのインストール時に
+  別CDからのインストールなどに使用(DDR MAXとか)。[smf]
+
+- playch10: Playchoice-10 BIOS ROM名を実際のチップラベルやタイプに合わせて修正。
+  [Dead_Body]
+
+- naomi/dc: スクリーンフォーマットの整理でMT5349を修正。[O. Galibert]
+
+- System 573のCDを一部再吸い出し。[Guru]
+
+- CPS-1の更新: ffightjとクローンセットにS222B.1A PALを追加。
+  [Charles MacDonald, Porchy, Smitdogg, The Dumping Union]
+
+- DS1204デバイスを作成し、megatouchで独自のローカル版からこれを使用するように切り替え。
+  デフォルトデータはドライバ内のコードからではなくリージョンからのもので、コマンドと
+  セキュリティーマッチ比較がされるようになり、データは正しいエッジでクロックされ、
+  キーの書き出し、nvramへのセーブもされる。[smf]
+
+-「ザ・ファーストファンキーファイター」の不良ROMを再吸い出し。
+  [Yohji, Smitdogg, The Dumping Union]
+
+- othldrby.cをtoaplan2.cドライバに統合。[Angelo Salese]
+
+- Toaplan 2でSCREEN_RAW_PARAMSを使うように変更。[Angelo Salese]
+
+- uPD4992 RTCのコアを追加。「オセロダービー」「パワーキック」で使用。[Angelo Salese]
+
+- ds1204を実装。ただし、これが何をチェックためのものかは不明。tmaster.cの
+  PATCH_PROTECTIONを0に、ds1204.cのVERBOSE_LEVELを2に変更し、error.log内の
+  "-&gt; command"の箇所を探すと、識別とセキュアメモリ読み込みのための、dqピンからの次の
+  読み込みを見つけられる。tm4kについては、nvramの最初の2バイトは0x00、0xa0でなければ
+  ならない。プロテクトエラーが出る前に、ゼロの状態からゲームをプレイする必要があるが、
+  その後は毎回起動時にエラーが起こる。起動時にゲームは比較レジスタに5種類の異なるコン
+  テンツを試みる。これはキーが間違っていると実際のチップがランダムな結果を返すことを
+  隠すためのものかもしれない。もしキーが利用出来れば、それを吸い出して実際には何が必
+  要かが判明する。[smf]
+
+- svgpcb: igs027a ROMを追加。イントロが動作。ゲームに入ると止まる。なぜかは不明。
+  [rtw, David Haywood]
+
+- Konami 573マルチセッションユニットのスケルトン作成。デジタルIOボードのソースファイ
+  ル名を合わせて改名。また基板レイアウト図をドライバから移動。[smf]
+
+- Konami 573メモリカードリーダーとネットワーク基板ユニットデバイスのスケルトン追加。
+  [smf]
+
+-「キーボードマニア3」の吸い直し。[Guru]
+
+-「ギターフリークス7th MIX」などが読み込みできるように、konam80s ATAPI DMAの修復。
+  [smf] 
+
+-「マンボアゴーゴー」のCDをRAWモード＋RAWサブコードで吸い出し直し。[any]
+
+- Sega版「ブロクシード」のDIPスイッチ改善。[Zaphod]
+
+- Hyper Neo Geo 64の基本的な3D FIFOの追加と、処理したFIFO IRQを実装。これにより、全ゲ
+  ームで3Dがかなり改善。[Angelo Salese]
+
+- mc2661: 上記のものを実現のため、様々なトランスミッションロジックとレセプションロジ
+  ックを追加。[Barry Rodewald]
+
+- twin16.c: [Alex Jackson]
+ * vulcan/gradius2全セットで正しいグラフィックROMを使用
+ * グラフィックROMをカスタム処理ではなくスタンダードなマクロを使って読み込み
+ * AM_REGION、AM_SHARE付きのカスタムリードライトハンドラ、またはバンクを正しい方法に
+   修正
+ * vulcana、vulcanabのエクステンドライフ設定DIP修正
+ * cuebrickのNVRAMサイズ修正
+ * オーディオCPUのRAMサイズ修正
+ * クロック用にXTAL使用
+
+- Windows: D3Dマルチモニタサポートを修正。[GroovyMAME]
+
+- スロットオプションを配列を使わずにインラインで設定可能。旧設定用のレガシーサポート
+  はMCFG_FRAGMENT_ADDを使う。[smf]
+
+- cassette、pccard1、pccard2スロットで新型MCFGマクロを使うように変更。[smf]
+
+- デフォルトオプションが変更されるとこのみMCFG_DEVICE_SLOT_INTERFACEに代えて、
+  MCFG_SLOT_DEFAULT_OPTIONを使用。[smf]
+
+- m68k: 外部出しバスエラーの詳細を取れるように改良。[R. Belmont]
+
+- ATAスロットの追加にdevice_mconfig_additions()を使用。これは、
+  MCFG_ATA_INTERFACE_ADD #defineを使わずに、デバイスを追加して設定を行う。[smf]
+
+- MSVCへのインストール時にWindowsでICLでのビルドが可能。: [Dean London]
+  WindowsでのICLコンパイラはMSVC経由でインストールされ、Microsoft提供のコンパイルツー
+  ルに抱き合わされている。(ICLを有効にしたコマンドプロンプトから)MSVC_BUILD=1を指定し
+  てコンパイルするときに、USE_ICL=1とすると有効になる。これで、MSVCコンパイラよりも安
+  定したビルドができ、MSVCコンパイラよりICLの方が詳細なコンパイルエラー情報が得られる。
+  さらに、GCCより優れたMSVCデバッグツールもそのまま使え、追加のintelツールも利用でき
+  る。ICLビルドはGCCよりもまだ動作速度で劣る。
+
+- aristmk4.c:  [Lord-Data]
+ * 物理メータ用出力を増やすオプション追加
+ * エミュレートしたメーター用のサウンドエフェクトを無効にするオプション追加
+ * ホッパー・コインリリースシステムの仮想エミュレーションを無効にするオプション追加
+
+- k005289.c: 無駄なステート変数、不要な浮動小数点演算を削除、セーブステートサポート。
+  [Alex Jackson]
+
+- スロットゲームから定数設定機能を削除し、2つのデバイスをマシン設定フラグメントにコン
+  バート。[smf]
+
+-「ポン」の更新: [couriersud]
+ * IRCでいただいたフィードバックを元にジャンプする問題を修正
+ * VR1、VR2を50%に調整
+ * printf出力を全て無効化
+
+- シリアルとRS232デバイスをdevcb2にコンバート。[smf]
+
+- diimage: ソフトウェアリストリージョンをshared_ptrにロードするload_software_region()
+  関数追加。[Curt Coder]
+
+- ghosteo.cにvegaeo.cからサウンドコードをお借りして初歩的なサウンド追加。[Osso]
+
+- z8.c: CPUコアのモダン化。[Wilbert Pol]
+
+- midyunit.c  [Andy Welsh] 
+  hiimpactのDIPスイッチと入力を修正
+  shimpactとクローンセットで、TROGからとりこんでいたものはほとんど間違い
+
+- Signetics 8X300マイクロコントローラコア追加。「Wicat」ドライバで使うように更新。
+  [Barry Rodewald]
+
+- ACIA6850ライトハンドラのread rx/cts/dcdコールバックを、接続メソッド無しで複数チップ
+  を接続できるものに置き換え。[smf]
+
+-「ギターフリークス7」を32MB PCMCIAカードに変更。[smf]
+
+-「ビートマニアIIDX」のCDを吸い直し。[Guru]
+
+- いろいろなKonami GV CDの吸い直し。[Guru]
+
+- いろいろなKonami M2 CDの吸い直し。[Guru]
+
+- いろいろなSystem 573 CDの吸い直し。[Guru]
+
+- i8089: 残りの命令を実装と"io"空間からの実行をサポート。[Carl] 
+
+- I8251/Z80DART(とクローン)/MC2661/MC68901/IM6402/MOS6551/Z80STI/MC6852/MC6854/ZX8302
+  のリードコールバックをハンドラに置き換え。これにより、専用接続メソッド無しで複数チ
+  ップの接続が可能。[smf]
+
+- MC68901で使われていないコードを大幅削除。恐らく非シリアル化したときに残ったもの。
+  [smf]
+
+- c64の拡張ポート、c128ドライバ、ecbbus、econetでグチャグチャだった依存状態を解消。
+  [smf]
+ 
+- nemesis.c:「コナミGT」にPORT_TOGGLEとPORT_NAMEを追加。[baritonomarchetto]
+
+-「バトルス」(ゼビウス海賊版)、「GIジョー」「魔界村 / Ghosts'n Goblins」(US版)、
+ 「怒号層圏 / Victory Road」「ゲバラ / Guerrilla War」(Version 1)のROM配置訂正。
+ 「シンプソンズ」のNVRAL配置追加。[Kevin Eshbach]
+
+- gijoe、moo、xexex、lethal、mystwarrのreadme追加。またsimpsonsのものを更新。[Guru]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Long Beach [any, hap]
+The Gladiator / Road of the Sword / Shen Jian [David Haywood, rtw]
+Blastaball (Arcadia, V 2.1) [Unigame]
+Pharaohs Match (Arcadia) [Unigame]
+Delta Command (Arcadia) [Unigame]
+Wave shark/ジェットウエーブ [Phil Bennett]
+Puzzle Star (Sang Ho Soft) [Angelo Salese, Wilbert Pol]
+Dancing Stage - Internet Ranking Ver (GC845 VER. EBA) [smf, skype]
+Player's Edge Plus (XM00007P+XMP00006) Multi-Poker [BrianT, Ken]
+Player's Edge Plus (X000838S+XS000002) Five Times Pay Slots [BrianT, Kevin]
+Player's Edge Plus (X000841S+XS000002) Five Times Pay Slots [BrianT, Kevin]
+Player's Edge Plus (X001087S+XS000006) Double Double Diamond Slots [BrianT, Kevin]
+Player's Edge Plus (IP0079) Standard Draw Poker - French [BrianT, Ken]
+Player's Edge Plus (X002420P+XP000064) Deuces Wild Bonus Poker - French [BrianT, Ken]
+Power Kick  [bodger319, Yohji, Smitdogg, The Dumping Union, Angelo Salese]
+スペクトラルVSジェネレーション (M68k label V100JP) 
+  (ARM label V100JP ROM 05/12/05  S.V.G V100) (Japan, JAMMA PCB) [rtw, David Haywood]
+
+
+新しく追加されたクローンセット
+------------------------------
+スクランブル (Recreativos Franco, Spanish bootleg) [Basilio Garcia]
+The Gladiator / Road of the Sword / Shen Jian (M68k label V100)
+   (ARM label V101, ROM 03/13/03 SHEN JIAN) [Artemio Urbina]
+スーパーチェイス -クリミナルターミネーション-
+   (1992/10/26 20:24:29 CHASE 3 VER 1.1, prototype) [Unigame]
+Brick Zone (v1.1) [Unigame]
+カダッシュ (World, prototype) [Unigame]
+1942 (prototype?) [Unigame]
+4 En Raya (set 2) [Unigame]
+ギャロップレーサー (English Ver 10.17.K) [Arzeno Fabrice, The Dumping Union]
+チェイスボンバーズ (prototype) [Unigame]
+The First Funky Fighter (set 2) [Unigame]
+コブラコマンド (Data East LD, set 2) [Unigame] (not working)
+Spy Hunter (prototype) [Unigame] (not working, needs more work)
+アースジョーカー (Japan, prototype?) [Unigame]
+サイバリオン (World, prototype) [Unigame]
+ドンキーコングJr. (P kit) [Chris Psaros]
+Who Dunit (version 9.0)  [Joe Magiera]
+Commando / 戦場の狼 (US set 2) [Kevin Eshbach]
+Bucky O'Hare (ver EA) [caius]
+Player's Edge Plus (PP0055) Deuces Wild Poker (set 2) [BrianT]
+Player's Edge Plus (PP0171) Joker Poker [BrianT]
+Player's Edge Plus (X000054P+XP000038) Deuces Wild Poker [BrianT]
+Player's Edge Plus (PP0002) Standard Draw Poker [BrianT, Ken]
+Player's Edge Plus (PP0045) 10's or Better [BrianT, Ken]
+Player's Edge Plus (PP0455) Joker Poker [BrianT, Ken]
+Player's Edge Plus (PP0458) Joker Poker [BrianT, Ken]
+Player's Edge Plus (PP0536) Joker Poker [BrianT, Ken]
+Player's Edge Plus (PP0726) Double Bonus Poker [BrianT, Ken]
+Player's Edge Plus (IP0074) Joker Poker - French [BrianT, Ken]
+Player's Edge Plus (X000045P+XP000038) 10's or Better [BrianT, Ken]
+Player's Edge Plus (XMP00017) 5-in-1 Wingboard (CG2426) [BrianT, Ken]
+Player's Edge Plus (PP0417) Deuces Wild Poker (set 2) [BrianT, Kevin]
+Player's Edge Plus (PP0002) Standard Draw Poker (set 2) [BrianT, Ken]
+Player's Edge Plus (XMP00017) 5-in-1 Wingboard (CG2352) [BrianT, Ken]
+Player's Edge Plus (PP0046) 10's or Better [BrianT, Ken]
+Player's Edge Plus (X000002P+XP000038) Standard Draw Poker [BrianT, Ken]
+Player's Edge Plus (X000060P+XP000038) Standard Draw Poker [BrianT, Ken]
+Player's Edge Plus (X000171P+XP000038) Joker Poker [BrianT, Ken]
+Player's Edge Plus (X000417P+XP000053) Deuces Wild Poker [BrianT, Ken]
+Player's Edge Plus (X000459P+XP000038) Joker Poker [BrianT, Ken]
+Player's Edge Plus (X002043P+XP000038) Triple Bonus Poker [BrianT, Ken]
+Player's Edge Plus (X002066P+XP000038) Double Double Bonus Poker [BrianT, Ken]
+Player's Edge Plus (X002121P+XP000037) Standard Draw Poker [BrianT, Ken]
+Player's Edge Plus (X002150P+XP000038) 4 of a Kind Bonus Poker [BrianT, Ken]
+Player's Edge Plus (X002180P+XP000038) Double Bonus Poker [BrianT, Ken]
+Touchmaster 4000 (v6.03 New Jersey) [Brian Troha, The Dumping Union]
+Touchmaster 4000 (v6.01 Minnesota) [Brian Troha, The Dumping Union]
+Touchmaster 5000 (v7.10 Minnesota) [Brian Troha, The Dumping Union]
+Touchmaster 7000 (v8.05 New Jersey) [Brian Troha, The Dumping Union]
+Touchmaster 7000 (v8.04 Minnesota) [Brian Troha, The Dumping Union]
+Touchmaster 7000 (v8.00 Minnesota) [Brian Troha, The Dumping Union]
+World Kicks (WK3 Ver. A) [Guru]
+Wivern Wings [Brian Troha, Tormod, Smitdogg, The Dumping Union]
+Invasion - The Abductors (version 3.0) [Brian Troha, Smitdogg, The Dumping Union]
+ストリートファイターIII -ニュージェネレーション- (Euro 970204) 
+  [Layne, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+ビートマニア IIDX サブストリーム (983 JAA) [smf]
+ビートマニア IIDX 5thスタイル (GCA17 JA) [smf]
+ビートマニア IIDX (863 JAB) [Guru]
+ビートマニア IIDX 3rdスタイル (GC992 JAC) [smf]
+ビートマニア IIDX 6thスタイル (GCB4U JAB) [smf]
+ときめきメモリアル -おしえてユアハート- (GQ673 JAA) [Guru]
+トータルバイス (ver AAB) [Guru]
+Super Six Plus II English Mark Darts  [Jim Stolis]
+ときめきメモリアル -おしえてユアハート- シールバージョンPLUS (GE756 JAA) [Guru]
+Submarine (Midway) [John Robertson, hap]
+マンボアゴーゴー (GQA40 VER. JRB) [smf]
+右脳能力チェックマシーン タッチ・デ・ウノー！
+  [R. Belmont, bodger319, gamerfan, f205v, Yohji, Smitdogg, rtw, The Dumping Union]

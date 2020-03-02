@@ -1,0 +1,75 @@
+0.116u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+shanghai0116red [Aaron Giles]
+bldwolf061gre [Robiza]
+superx0116gre [Robiza]
+matchit2_0116ora [Robiza]
+qix0116yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- qixドライバのスキャンラインアドレスレポートを修正。[Zsolt Vasvari]
+
+- Charles MacDonald氏の情報を元に、Neo-Geoドライバを再び書き直し。この更新により、
+  前回修正出来なかった問題の多くが解消されています。[Zsolt Vasvari]
+
+- マルチキーボードのサポート: [Andrew Kuruhin]
+ - RAWINPUTメカニズムを使ってマルチキーボードの入力をサポート
+    (同時に最大8つまでのキーボードをサポート)
+ - RAWINPUTデバイスレジストリの列挙バグを修正
+
+- CDP1802のリセットモード修正。[Curt Coder]
+
+- ptm6840コードのエラー修正と、コードの大幅簡略化。[Atari Ace]
+
+- fcrashドライバのスプライトとレイヤーオフセット修正。[Robiza]
+
+- SH4 CPUコアの改良: [Samuele Zannoli]
+ - 命令コードのデコーディングで、SH4の全命令コードをデコードするように修正
+ - SH2には無くてSH4だけにある全ての命令のサポートと、逆アセンブラの修正
+ - 全fpu命令の逆アセンブル
+ - CPUをリトルエンディアンに変更(SH4はビッグとリトルのどちらにもなれます)
+ - どのデータがメモリから読み出され、書き込まれたかを訂正
+ - fpulとdbrレジスタを追加
+ - SH2には無い、SH4にはある(FPU関係じゃない)命令を追加
+ - FPU命令を4つ追加
+ - メモリマップされた内部レジスタの管理を、全ての内部レジスタが実際に使えるよう
+   に改良
+ - sh4regs.hファイル追加。sh7750の全内部レジスタを定義
+ - メモリリフレッシュ用の内部レジスタを実装
+ - SH4には無く、SH2にはある内部レジスタを削除
+ - 内部キャッシュをRAMとして使用するのを予備的にサポート
+
+- CPS2の復号ビット順が、オリジナルと思われる順序に合うように更新。
+  [Nicola Salmoria]
+
+- -Wextraで表示される警告を修正。[Atari Ace, Zsolt Vasvari]
+
+- toaplan2.cについて、コインメカニズムポートのスペアデータライン経由での、
+  OKI6295サンプルROMのバンク切り替えが、shippumdだけしか実装されていなかったのを
+  修正。[AWJ]
+
+- scramblesのプロテクトの実装部で、fpgaarcade.comでの方法をを元にした平均化を使
+  うように更新。[Mark McDougall]
+
+- rendlay.cコードのGCD演算処理を改良。[Christophe Jaillet]
+
+- 0.116リリースで起きた多数の問題を修正。[Zsolt Vasvari, Aaron Giles]
+
+- ドライバコードで、rand()に代わって、mame_rand()のみを使うように変更
+  しました。結果の整合性向上用。[Aaron Giles]
+
+- qixドライバのMCUタイミングと通信を改良。まだ2、3問題が残っています。
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Match It II / 四川省II [Robiza]

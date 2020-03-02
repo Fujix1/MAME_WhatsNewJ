@@ -1,0 +1,88 @@
+0.104u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+thunderx0104u1yel [Pierpaolo Prazzoli]
+baraduke.c_0104u5red [Aaron Giles]
+m62.c_0104u5yel [Aaron Giles]
+model1.c_0104u5yel [Aaron Giles]
+rthunder0104u5red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- 前回の変更で起きた問題をいろいろ修正。[Aaron Giles, Nathan Woods, Ville Linde]
+
+-「アクションファイター」のDIP修正。[Chaneman]
+
+-「Congo Bongo / ティップタップ」のサンプルサポート改善。[Chris Law]
+
+- MAME Plus!から改良点を導入。
+ * NeoGeo用のpd4990aデバイスのステートセーブ追加
+ *「Nitro Ball / ガンボール」のクラッシュ修正（4面、右ルート）[xvi]
+
+-「ポリゴネットウォリーアーズ」で以前通りPOSTまで進めるように修正。
+  [Andrew Gardner]
+
+- 特にCPUコアで、明示的なグローバル関数が使われているため、全体的なネームスペー
+  スの汚染が起きていたのを低減。[Atari Ace, Aaron Giles]
+
+-「マジカルエラーをさがせ」で一部改善。タイトルとアトラクトモードが動作。サウン
+  ドは無しでゲーム中にハング。共有メモリとメイン・サブCPU間の通信の問題。
+  [Tomasz Slanina]
+
+- CPUコアの完全性用のバリディティチェック追加。[Nathan Woods]
+
+-「アグレス」にDIPスイッチ追加。[Roberto Fresca]
+
+- Fujitsu MBM29F016Aフラッシュメモリハンドラに正しいメーカー・デバイスIDとコマン
+  ド追加。KonamiのFireBeat基板で使用。[Ville Linde]
+
+- Jalecoの「サイキック5」「アーガス」「バルトリック」で見つかった、カラーブレン
+  ドハード用の初期サポート。(一部の機能はまだ不明) [Andrew Gardner]
+
+- Aleck64ドライバの大幅更新。ただしまだ動作は不完全。[Ville Linde]
+
+- ADDRBUS_SHIFTで使われているプロセッサ用のコメント表示を修正。[Andrew Gardner]
+
+- 6821 PIAの出力値を返すためのアクセサ追加。[Nathan Woods]
+
+- 内部プロファイラにムービー記録時間追加。[Nathan Woods]
+
+- ExidyカスタムサウンドとDACサウンドシステムにオーバーサンプリングサポート追加。
+  [Aaron Giles]
+
+- Segaベクターゲームのアップデート: [Aaron Giles]
+ * ベクタージェネレータを回路図を元に書き直し。ズーム時のベクターのずれも再現さ
+   れるはずです。
+ * CPU速度の訂正と、メモリマップのクリーンアップ
+ -「ゼクター」の効果音用にAY-8912を接続
+ * Universal Sound Boardエミュレータ追加 -- まだ不完全なものの、「スタートレック」
+   と「タックスキャン」でサンプル不要になりました。「タックスキャン」の方は今の
+   ところひどい音ですが、「スタートレック」はいい感じです
+ * スピーチボードのCPUクロック修正。ただし、これだと少し低すぎる模様
+ * これはまだ作業中なので、バグは報告しないで下さい
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+キャンバスクロッキー [David Haywood]
+パラレルターン [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+SDI - Strategic Defense Initiative (System 16B) [Arzeno Fabrice]
+Trivial Pursuit (Spanish Edition) [Manuel Abadia]
+Multi Champ (World) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Solar Assault [Ville Linde]

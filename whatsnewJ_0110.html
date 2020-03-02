@@ -1,0 +1,470 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.110</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.110.txt</div>
+	<div class="main">
+<div class="wn">
+0.110
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+irobot0106u1gra [Luigi30]
+astrofc057ora [Luigi30]
+
+
+
+ソースの変更点
+--------------
+- 親セットと子セットのROMが全く同じセットのチェックを修正。[smf]
+
+- u5でチェックを厳しくしたために起きていた6809と6502の逆アセンブラのアサーション
+  修正。[Aaron Giles]
+
+- PSゲームのリセット時のクラッシュ修正。[smf, Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+Trivia (Version 1.01C Alt questions 1) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+M075 Poker (Version 16.03B) [Brian Troha]
+Super Bowl (Version 16.03B) [Brian Troha]
+Trivia (sms) [Pierpaolo Prazzoli]
+
+
+
+0.109u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+uicrash0108u5red [Nicola Salmoria]
+
+
+
+ソースの変更点
+--------------
+- mingw系でコンパイルしたときだけに現れるUIメニューのバグを修正。
+  [Nicola Salmoria]
+
+- CHDの名前が違ってもハッシュが合っていれば親セットのCHDを受け付けるように動作を
+  変更。[smf]
+
+- フラッシュのエミュレーション改良とFujitsuのフラッシュチップをサポート。Konami
+  ゲームを新しいフラッシュチップへ変更。[smf]
+
+- SCSI CDでの音楽再生とTOC読み込みコマンドの動作を改良。[R. Belmont]
+
+- fcrashのプライオリティとレイヤー3のオフセット修正。[robiza]
+
+- COP4xxコアにステートセーブ追加。[Aaron Giles]
+
+- 新型の逆アセンブラでコールバックプロトタイプをオーバーライドして、定数パラメー
+  タをとるようにし、あまり使われていないbyteパラメータを削除。逆アセンブラについ
+  ては、CPUコアのget_infoコールバックで得られる最長の命令を保持できるバッファが
+  確保されるようになりました。[Aaron Giles]
+
+- 以下の逆アセンブラを新フォーマットに変換。またステップイン・アウトを追加：
+  adsp21xx, alph8201, arm, arm7, asap, ccpu, cdp1802, cop4x0, dsp32c, e132xs, 
+  g65816, h6280, h83002, i8x41, i960, i8051, i8085, jaguar, m680x, m6805, 
+  m37710, mc68hc11, pic16c5x, rsp, s2650, se3208, sh2, sharc, t11, tms32010,
+  tms32025, tms32031, tms34010, upd7810, v60, v810, z180,
+  z8000 [Aaron Giles]
+
+- 新しい逆アセンブラの導入により、古いインタフェースは廃止しました。
+  [Aaron Giles]
+
+- Eolith製ゲームについて、デバッガによりメモリシステムのサブテーブル配置のバグが
+  起きていたのを修正。[Aaron Giles]
+
+- 逆アセンブリビューで、もし現在の命令の逆アセンブリが変更したかを検出して、その
+  場合は全体の表示を再計算するように改良。これにより特定のCPUでシステムステート
+  が変更されると今までよりも動的にアップデートが行われます。[Aaron Giles]
+
+- 新しいシンボル"curpc"を全部のCPUに追加。これは現在の命令ポインタの値で、pcレジ
+  スタとの名称がかぶらないようにするものです。Windows版のデバッガで、逆アセンブ
+  ラウィンドウのデフォルトをこれに変更しました（OSDのポートでも同じようにする必
+  要があります）。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+Trivia (Version 1.01C) [Brian Troha]
+Space Battle (bootleg set 2) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Tetris (製造元不明) [David Haywood]
+Out Run (Mega-Tech) [Charles MacDonald, Brian Troha]
+Forgotten Worlds (Mega-Tech) [Charles MacDonald, Brian Troha]
+Super Real Basketball (Mega-Tech) [Charles MacDonald, Brian Troha]
+
+
+
+
+0.109u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+hvysmsh0103u3gre [robiza]
+
+
+
+ソースの変更点
+--------------
+- COP4xxコレクションにCOP410コア追加。[Nathan Woods]
+
+- alpha68kゲームのバンキング改良。[robiza]
+
+- MNGファイル書き出し時のメモリリーク修正。[Buddabing]
+
+- 書き直しでAuditのバグが起きていたのを修正。[Mamesick]
+
+- funworld / cardlineドライバのランプ修正。[wolf676]
+
+- ドライバどうしのリアルタイムクロックアクセスを標準化。INPファイル保存時に確
+  実にリアルタイムクロックがリセットされます。[Nathan Woods]
+
+- pacmanドライバで実際の同期チェーンを反映してドキュメントを更新。2650系のサ
+  ウンド周波数修正。[Aaron Giles]
+
+- データバスサイズよりも最小命令サイズが大きいCPUの逆アセンブリ表示バグを修正。
+  [Aaron Giles]
+
+- デバッガコマンド"history"を追加。直近の実行命令を出力します。[Aaron Giles]
+
+-「Looping」ドライバを改良: [Aaron Giles]
+ * クロック周波数修正
+ * ビデオタイミング修正
+ * プロテクト修正（もともと"動作可能"の設定にするべきではなかったと思います）
+ * ドライバのクリーンアップをいろいろ
+
+- tms99xxコアのデバッギングクリーンアップと、新しい逆アセンブラシンタックスに
+  変換。ステップオーバー・アウトのサポート。[Aaron Giles]
+
+- 使わなくなったCPUINFO_PTR_REGISTER_LAYOUTとCPUINFO_PTR_WINDOW_LAYOUTのデー
+  タアイテムを削除。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+コナミ 80'sアーケードギャラリー [R. Belmont, smf]
+ダークホースレジェンド [R. Belmont, smf]
+実況パワフルプロ野球EX [R. Belmont, smf]
+Bowling 3D [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Trivia (Version 1.03a) (alt 4) [Brian Troha]
+Arian Mission [Brian Troha]
+
+
+
+
+0.109u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+ftroption0109u2ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- InitCommonControls()を追加。最近の更新でデバッガのUIが不調だった原因のもの。
+  [Nathan Woods]
+
+- beaminvドライバのDIPスイッチ修正と、2Pのコントロール追加。[stephh]
+
+- SHARCコアを大幅書き直し: [Ville Linde]
+ - 完全に正確な逆数演算
+ - より正確なパイプラインエミュレーション
+ - オペレーションレイテンシの問題を修正
+ - 浮動小数点命令が完全に正確になるか逆行テスト
+ - DMAエミュレーション改善
+ この更新で、「グラディウス4」「NBAプレイバイプレイ」のクリッピングの問題がほと
+ んど修正されました。
+
+- cardlineドライバのランプとレイアウトの更新: [wolf676]
+ - ハードコードされたニセランプを新しいアートワークシステムにコンバート
+ - "Card1-5"、"Collect", "Bet", "Start"のボタンランプを追加
+ - シンプルなボタンランプアートワーク"cardline.lay"を追加
+ - ボタンの再配列と"Collect"ボタン追加
+
+- funworldドライバのランプとレイアウトの更新: [wolf676]
+ - カウンタに外部クレジット追加（コイン1カウンタとしてマッピング）
+ - 外部クレジットアウトカウンタ追加（コイン8カウンタとしてマッピング）
+ - "Hold1-5"、"Cancel"、"Start"のボタンランプ追加
+ - シンプルなボタンランプアートワーク"funworld.lay"追加
+
+- AltairゲームにCOP420コア追加。[Curt Coder]
+
+-「ゼビウス」の同期問題を修正するため、インターリーブを増加。[robiza]
+
+- 新しい出力制御システム追加。このシステムは複数の出力ストリームをサポートするよ
+  うにデザインされており、コード内の全printfインスタンスを置き換わります。データ
+  出力には以下の関数が利用できます:
+
+   mame_printf_error
+   mame_printf_warning
+   mame_printf_info
+   mame_printf_debug
+
+  デフォルトでは、これらはコンソールに出力されますが、必要に応じてOSDレイヤーで
+  オーバーライドもできます。[Aaron Giles]
+
+-「グランドチャンピオン」をさらにクリーンアップ。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Cuore Uno (Italia) [Roberto Frecsa]
+Elephant Family (Italia) [Roberto Fresca]
+
+
+
+
+0.109u2
+-------
+
+OSD開発者向け重要情報: このリリースよりコアオプションの指定にoption.cを使う必要
+があります。最低限でも、run_game()の前にoptions_init(NULL)を呼び出して下さい。
+
+
+
+MAMETestersの修正バグ
+---------------------
+capbowl0109u1yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- yunsun16ドライバのDIPスイッチ改良とドキュメントの追加。[stephh]
+
+- タイマーの精度改善と、6526 CIAモジュールにセーブステート追加。[Nathan Woods]
+
+- メモリマップのダンプコードで間違ったアドレスがダンプされるバグを修正。
+  [Wilbert Pol]
+
+-「メイジャーハヴォック: Return to Vax mod」にTMS5220スピーチサポート追加。
+  [Jess Askey]
+
+- 逆アセンブラウィンドウで、Ctrl+Cのコピーでクラッシュするのを避けるため、コメン
+  トショートカットを変更。[Nathan Woods]
+
+- レジスタシンボル名が数字でないのをチェックする機能を追加（数字の場合、表記パー
+  サからの参照に問題が起きます）。M4510 CPUのシンボルを、このチェックに引っかか
+  らないように変更。[Nathan Woods]
+
+- Win32デバッガのウィンドウサイズを小さくするとクラッシュする問題を修正。
+  [Samuele Zannoli]
+
+- サンプル、またはROMが無いときのROMチェックシステムの判定を修正。[Nathan Woods]
+
+- pmpokerドライバの改良: [Roberto Fresca]
+ - pmpokerにサービス・セッティングモード追加
+ - 全てのゲームで、ほとんどの入力タイミングを正確にするため、PORT_IMPULSEを追加
+
+- アドレスバスシフトのあるCPU用に"run to cursor"機能を修正。[Andrew Gardner]
+
+- ZIPファイル名の一致判定が間違っていたのを修正。[Aaron Giles]
+
+- パスのセパレータがスラッシュではないプラットフォーム用にPATH_SEPARATORを追加。
+  [Aaron Giles]
+
+- オプションマネージャの改良: [Aaron Giles]
+ * 起動用のoptions_initを追加
+ * 内部オプションのサポート
+ * 複数の被修飾オプションサポート
+ * コアオプション定義をコアoptions.cに移動
+    (クロスプラットフォームではないので、デフォルトのINIパスには$HOME/.mameを含
+     みません; *nixプラットフォームではOSDコードでデフォルトのオーバーライドが
+     必要です)
+ * 指定したオプションのデフォルト値を設定するアクセサを追加
+ * エラートラッキングを内部で行い、一回だけ報告するように変更
+
+- osdepend.hのドキュメントについて、関数の説明の改善と動作概要を追加。使用してな
+  いosd_readkey_unicode関数を削除。[Aaron Giles]
+
+- ソフトウェアのバイリニア拡大処理で範囲外のビットマップを読み込んでしまうバグを
+  修正。[Aaron Giles]
+
+- Max-a-FlexドライバにスーパーバイザDACサポート追加。[Aaron Giles]
+
+-「ターボ」「ズーム909 / Buck Rogers」のクロック速度修正。[Aaron Giles]
+
+- ZIPファイルでの-romidentを修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Rock Duck [Roberto Fresca, Tomasz Slanina, David Haywood]
+
+
+
+新規クローンセット
+------------------
+首領蜂 (Hong Kong) [Arenzo Fabrice]
+Las Vegas, Nevada [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Destroyer (Cidelsa) [Curt Coder]
+Altair [Curt Coder]
+Draco [Curt Coder]
+
+
+
+
+0.109u1
+-------
+
+OSD開発者向けの重要情報: ファイルI/Oインターフェースが大幅に変更され、かなりシン
+プルになりました。新しいOSD関数の動作についての詳細はosdepend.hを参照してくださ
+い。また、今回より検索パスの指定にはoptions.cを使用する必要があります。通常のコ
+マンドラインオプションとINIファイルを解析する場合、動作は比較的単純です。そうで
+ないときは、使用しているオプション対してoptions_set_string()をマニュアルで呼び出
+し、検索パスをそれぞれ設定できます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+silentd0108u5yel [Mamesick]
+gradius30104u3gre [Mamesick]
+spelunk2099u6gre [robzia]
+twinactn0105u2gre [robzia]
+czeroize0108u2yel [David Haywood]
+listrom0109red [Aaron Giles]
+chdbaddump0109ora [Aaron Giles]
+ddrawcoloroverlay0109yel [Aaron Giles]
+new_debugger0109ora [Aaron Giles]
+ronnamelength0109ora [krick]
+shtngmst0108u4ora [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- findout.c/getrivia.cをさらに改良: [wolf676]
+ -「Trivia/Sexual Trivia」にチケットディスペンサ追加
+ -「Selection/Poker」の最後の不明DIPスイッチが判明
+ - "ペイアウト"ボタンが無かったので追加; ハード構成は不明
+ - "プレイ / レイズ"ボタンとこれのランプ9を追加
+ - 選択用の"Button 12 ?"を追加。機能は不明
+ - 2つ以上のボタンが押されたときのためにPORT_IMPULSE(2)をポーカーゲームに再追加
+   trivia系ゲームはこれがなくても良く反応します
+ - 2コインスロット用にcoin_lockout_globalをcoin_lockout_w(0)とcoin_lockout_w(1)
+   に変更
+ - ランプ11（コインスロット2）、12と13（不明）を選択用に追加
+
+- MPU4ドライバのクラッシュ修正。[El Condor]
+
+- kovshのARM ROMを実装したもののまだ動作せず。[ElSemi]
+
+- 8080bwドライバの修正: [Robert]
+ - 正しいサンプルを使うように修正: lrescue, lrescuem, grescue, desterth
+ - DIPスイッチの修正: superinv, invadrmr, sinvemag, spceking, spacewr3
+ - indianbtでの余計なビープノイズ音を削除
+
+- toaplan2.cについて、外部ステレオコネクタの無いJAMMA基板なので、全てのゲームを
+  モノラルにコンバート。[Corrado Tomaselli]
+
+- qsoundドライバにバウンドチェック追加。[David Haywood]
+
+- OSDファイルI/Oインターフェースをよりシンプルでわかりやすいように再デザイン。ま
+  た、コアのファイルI/Oルーチンの単純化と、これまでOSDにレイヤーに残っていた機能を
+  追加。[Aaron Giles]
+
+- unzip.cで、以前よりも詳細なエラーを返すように書き直し。[Aaron Giles]
+
+- audit.cのコード簡略化と旧ファイルI/Oシステムの関数に依存しないように書き直し。
+  [Aaron Giles]
+
+- 68000コア生成ロジックで、ファイルを一つしか作成しないように簡略化。これにより、
+  コアのビルド関係の問題が直るかも。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Five a Side Soccer [Ville Linde]
+スーパーストリートファイターII - ザ・ニューチャレンジャー [David Haywood, stephh]
+ダイナミックシュート競争 [Tomasz Slanina, Guru]
+ドキドキペンギンランド [Tomasz Slanina, Guru]
+Shooting Gallery [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+エドワードランディ (World) [Patrik Styrnell]
+ダブルドラゴン3 (Japan) [Corrado Tomaselli]
+Twin Brats (set 2) [Patrik Styrnell]
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

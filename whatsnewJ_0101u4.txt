@@ -1,0 +1,69 @@
+0.101u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+flstory0101u3red [Aaron Giles]
+gottlieb0101u2yel [HobbesAtPlay]
+lelandsound0101u3yel [Aaron Giles]
+kamikcab101u2yel [Aaron Giles]
+segac0101u3red [Mathis Rosenhauer]
+spiders0101u3yel [Aaron Giles]
+drgnmst067gre1 [Pierpaolo Prazzoli]
+memoryupdate0101u1red  [Aaron Giles & others]
+missile0101u3red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+* u1の変更で壊れたゲームをさらに修正。問題がまだあるのは残りわずか。
+  [Aaron Giles with contributions from Mathis Rosenhauer]
+
+*「フェアリーランドストーリー」の描画改良と最終面のグラフィック不具合修正。
+  [Nicola Salmoria]
+
+* h6280CPUで新アドレス変換システムを使うように更新。[Aaron Giles]
+
+* listxmlの出力にMAMEのビルド情報を追加。xml2infoをセーブステートタグを扱うよう
+  に更新。[cutebutwrong]
+
+* PSXコアを新しいセーブステートと逆アセンブラインターフェースに更新。また、
+  dismipsも新アセンブラを扱うように更新。[smf]
+
+* mk48t08タイムキーパーチップのリード/ライト時にタイマーをリセットするコードを
+  削除。ステートセーブインターフェースも更新。新しいマクロ
+  state_save_register_item_pointer()を動的割り当て配列を追加。[smf]
+
+* R3000コアを新逆アセンブラインターフェースにアップデート。[Aaron Giles]
+
+* drgnmstドライバにコインカウンタ/ロックアウトと列スクロール追加。
+  [Pierpaolo Prazzoli]
+
+* MIPS3インタプリタにSC/LL命令追加。[R. Belmont]
+
+* KonamiとR3000逆アセンブラを新フォーマットに更新。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ザ・Jリーグ [Anonymous]
+
+
+
+新規クローンセット
+------------------
+Kosmo Killer [David Haywood]
+Splash 1.0 [Corrado Tomaselli]
+Glass 1.1 [Corrado Tomaselli]
+Match It II [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Dwarfs Den [David Haywood]
+Trivia Quest [Pierpaolo Prazzoli]
+Wheels & Fire [David Haywood]

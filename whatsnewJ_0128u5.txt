@@ -1,0 +1,276 @@
+0.128u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02638: [Compiling] いろいろなCPUコアのコンパイルが通らない。(Aaron Giles)
+- 02709: [Documentation] nstockr2: nstockr2がnstockerのクローンに設定されていない。(Luigi30, Edward Swiftwood)
+- 02713: [Crash/Freeze] demndrgn, profpac: 黒画面のみ、またはコインを受け付けない。(Aaron Giles)
+- 01442: [Sound] wwfsstar: OKI6295の音程が高すぎる。(Phil Bennett)
+- 00894: [Crash/Freeze] elecyoyo: コイン投入後、スタートボタンを何度か押すとテストメニューに戻る。(Mamesick)
+- 02658: [Interface] ゲームステータスに応じて黄色画面の表示。(Edward Swiftwood)
+- 02689: [Multisession] jumpbug: マルチセッション時に起動しない。(Atari Ace)
+- 02673: [Crash/Freeze] オーディオデバイスにHuC6280を使うもの(PCE-Based titles): OK後にFatal Errorが起こる。(Aaron Giles)
+- 02676: [Color/Palette] レーザーディスクゲーム: ATIカードでDirect3Dを使うと色がおかしくなる。(Aaron Giles)
+- 02680: [Misc.] carnevil: -verifyromで、CHDをBAD_DUMPと認識する。(Aaron Giles)
+- 02705: [Crash/Freeze] connect4: nvramがあるとクラッシュする。(Aaron Giles)
+- 02702: [Sound] tturf: 音が出ない。(Aaron Giles)
+- 02691: [Sound] Some drivers with z80/ay8910 Audio: BGMのテンポがおかしい。(Aaron Giles)
+- 02669: [Sound] pandoras: BGMのテンポが速過ぎる。(Aaron Giles)
+- 02683: [Crash/Freeze] デバッガ動作中にF5キーを押すとAccess Violationが起こる。(Aaron Giles)
+- 02687: [Core] emuopts.c: CORE INPUT AUTOMATIC ENABLE OPTIONS (Aaron Giles)
+- 02688: [DIP/Input] DIPスイッチの設定がINPファイルに記録されない。(Aaron Giles)
+- 02693: [Crash/Freeze] dacholer, kickboy: タイトル画面か、クレジット投入時にフリーズする。(Mamesick)
+- 02653: [Sound] all games on artmagic.c: OKIサウンド出力が音割れする。(Nicola Salmoria)
+- 02690: [Graphics] jantouki: 上の画面の表示が化けている。(Mamesick)
+- 02672: [Crash/Freeze] Most Sets using MCS48/51.C (intel 80xx family): -cheatを使うとFatal Errorが起こる。(Aaron Giles)
+- 02670: [Core] Many sets using SH2: SH2のタイマーが正しい速度、タイミングで動作しない。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- SH-2タイマーに影響していたタイミングの計算問題を修正。[Aaron Giles]
+
+- viostormのROM名で、コピペなエラーがあったのを修正。[David Haywood]
+
+- 致命的でないUIの警告が目立つように黄色表示するように変更。[BarnacleEd]
+
+- Burger Timeハードウェハに「トレジャーアイランド」を追加。恐らく未処理の暗号化システ
+  ムのせいで動作せず。[Angelo Salese]
+
+- CCPUとT-11コアをポインタ化。[Aaron Giles]
+
+- cpuexecからグローバル変数を削除。また、ATTOTIME_TO_CYCLES()とATTOTIME_IN_CYCLES()も
+  削除。これらはcpuexec内関数、cpu_clocks_to_attotime()とcpu_attotime_to_clocks()で置
+  き換え。これらはCPUインデックスのかわりに、CPUデバイスをとります。呼び出し元を全て
+  更新。多く箇所でこれらの関数の使い方はあいまいだったようです。[Aaron Giles]
+
+- Z80DMAの割り込みコールバックとZ80デイジーチェーン関数用プレースホルダ追加。
+  [Curt Coder]
+
+- Pool項目をグローバルに管理して、割り当て順とは逆に解放するように変更。これにより正
+  しいネストを組めます。[Aaron Giles]
+
+- timer_alloc、timer_set、timer_pulse、timer_call_after_resynch、timer_get_timeで、
+  machine引数を渡すように変更。タイマーグローバル変数をrunning_machineへ移動。
+  [Aaron Giles]
+
+- hyperstoneコアのポインタ化と、activecpuへの参照を全て削除。[Aaron Giles]
+
+- cpunum_get_active()の削除と、全てのCPUコアからactivecpuへの参照を削除。
+  [Aaron Giles]
+
+- 一部のローカルなCPUステート変数名を、アンダースコア付きの名前から、一般的な
+  'cpustate'に統一。[Aaron Giles]
+
+- ROMとMACHINE_DRIVERに名前でアクセスするマクロを追加。[Curt Coder]
+
+- CDP1802のステート変数を'cpustate'に統一。[Curt Coder]
+
+- cpunum_get_active()への参照を全て削除。また、関数自体も完全に削除。
+  [Aaron Giles, Andrew Gardner]
+
+- t5182のメモリマッピングについて、ミラー領域を正しく処理するように更新。
+  共有RAMの動作についてコメント追加。[Lord Nightmare]
+
+- ST-VのVBLANK-IN/OUTイベントが逆だったのを修正。hangumi/groovefのスタート時に2クレジッ
+  トが入っている問題を修正。[Angelo Salese]
+
+- いろいろな宣言部にATTR_NONNULLを追加。[Nathan Woods]
+
+- 65816をポインタ化。[R. Belmont]
+
+- ST-VドライバのIRQ処理を大幅に改良: [Angelo Salese, Charles MacDonald]
+ * IRQタイミングのバグ修正
+ * ODDビットエミュレーション追加
+ * vblank終了タイミングを修正
+ * 割り込みルーチン全体を最適化。4倍高速化
+ * IRQマスク処理のバグ修正
+   これにより、「アストラスーパースターズ」と「ペブルビーチ」が起動だけしますが、
+   タイマー1IRQルーチンでエラーが出ます。原因を調べる必要あり
+
+- SPC700をポインタ化。[R. Belmont]
+
+- デバッガのステップ動作修正。[R. Belmont]
+
+- ARM7の更新: [R. Belmont]
+ - ARM7コアのポインタ化
+ - ARMv5 LDRD/STRD命令の逆アセンブラと実行処理追加。39in1でMMUが必要な箇所の手前まで
+   動作
+
+- jchan系ゲームは同じROMを共有しているもののクローンセットでなく、かなり異なる。
+  [David Haywood]
+
+- Pmpoker.cの大幅な書き直し(第2弾): [Roberto Fresca]
+ - ドライバ名をgoldnpkr.cに変更 (「Golden Poker」がこのハードの代表的なタイトルなので)
+ - PIAインタフェースを、witchcrd/pottenpkrの接続をカバーするように分離
+ - witchcrd/pottnpkr/sloco93のダブルアップモードを修正
+ - pottenpkrのレイアウトをgoldnpkrのものに置き換え
+ -「Witch Card」と「Super Loco 93」セットのゲーム情報を更新
+ - 上記のゲームでダブルアップモードが動くように入力とランプを修正
+ -「Witch Card (Video Klein)」を追加。まだ動作せず
+ -「Buena Suerte!」系数本追加
+ - 新ゲーム追加:「Maverik」「Brasil 89」「Poker'91」
+ - セットの親子関係を再構成(作業中)
+
+-「戦国麻雀」のグラフィックデコードをクリーンアップ。[Angelo Salese]
+
+- funworld.cドライバを改良。[Roberto Fresca, Andreas Naive]
+ - saloonのプログラム、グラフィック、カラーPROMを復号化
+ - saloon用に新しいメモリマップと、machineドライバを作成
+ - jolycdaeを削除(これは実機から得られたものではありませんでした)
+ - magiccrd、magiccda、magiccdbをそれぞれ、magicrd2、magicd2a、magicd2bに改名
+ - テクニカルノートを更新
+
+- Ghost EolithドライバのRGB565バグを修正。[Angelo Salese]
+
+- OKI6295で、マニュアルを元にきちんとしたボリュームテーブルを使うように変更。無効なコ
+  マンドをゲームが使おうとしたときはポップアップメッセージが出ます。また、今のところ
+  音割れが起きた時も知らせます。これは、サウンドミキシングを32ビットにアップグレード
+  した当時に起きたもので、ビット精度を確保するため、このレベルで出力するようにされま
+  した。そのため、音割れを防ぐためにはドライバのミキシングレベルを調整する必要があり
+  ます。[Nicola Salmoria]
+
+-「クールライダーズ」: SH-2用のハック追加。IRQ、メモリマップ・RAM共有の修正。SH-2が
+  DMAスタイルなテーブルをロードする箇所である0x03e00000のエリアまで動作(ドキュメント
+  がないとこれ以上は無理)。[Angelo Salese]
+
+-「戦国麻雀」ドライバにレイヤーイネーブルレジスタ、コインカウンタ、コインロックアウト
+  追加、またドライバのクリーンアップ。[Angelo Salese]
+
+- デバッガの大幅なクリーンアップ: [Aaron Giles]
+
+  OSD移植向けの重要なお知らせ: debug_views用のget/setプロパティ関数を削除しました。そ
+  の代わりとして、各get/set操作を行うため個別の関数があります。さらに、更新コールバッ
+  クで、osdのプライベートデータを渡すようにフォーマットが変更されています。ビュー割り
+  当て時に更新コールバックとOSDプライベートデータを渡す必要もあります。
+  osd_wait_for_debugger()はmachineではなくCPUオブジェクトを取るようになりました。
+
+  アドレス空間のデバッガトラッキングを削除し、address_space構造体に便利なデータを追加。
+  全てのデバッガコマンドを更新して、必要に応じてCPUとアドレス空間を使うように更新。
+
+  バイトとアドレスをコンバートし、与えられたアドレス空間に対して変換を行うメモリ関数を
+  追加。この関数を使用するため、同じようなことをしていた古いデバッガマクロを削除。
+
+  メモリビュー処理をほぼ書き直し。Disasmとレジスタビューは、まだ改良が必要。
+
+  デバッガビューに'サブビュー'のコンセプトを導入。コア側で使用するサブビューのリストを
+  作成して、OSD側で選択できるようにします。これにより、以前は全てのメモリと逆アセンブ
+  ラビューをOSDから見つけ出す必要がなくなりました。
+
+  デバッガコンソール用出力関数に引数machineを追加。
+
+  グローバル変数をmachine構造体へ移動。
+
+  ブレイク直後にvisiblecpuが更新されないバグを修正。
+
+- 6850 ACIAをデバイス化。[Nathan Woods]
+
+- マスタ音量操作用のOSDキーを再有効化。その他のスライダコントロールはメニューよりアク
+  セス。[Aaron Giles]
+
+- 定数名の変更: [Aaron Giles]
+   CPU_IS_LE -> ENDIANNESS_LITTLE
+   CPU_IS_BE -> ENDIANNESS_BIG
+
+- 02688(INPファイルにDIP設定が保存されない問題)を修正するため、これまでのINPファイル
+  と互換性を無くす必要がありました。しかしそれ以前にINP自体が壊れていたので、コアファ
+  イルモジュールがストリーミング圧縮をサポートするように拡張しました。新しい、INPファ
+  イルは圧縮された形で出力されます。[Aaron Giles]
+
+- cpuexec.hにcputag_*マクロを新しく多数追加。[Aaron Giles]
+
+- fillbitmap()マクロを削除してbitmap_fill()の直接呼び出しに移行。後者は引数順が異なる
+  ので注意(bitmap, clip, color)。[Atari Ace]
+
+- 最近のCPUコアの変更に合わせて、サウンドコアのアップデートが更に進行中。CPUコアで使っ
+  ているのと同じようなフェイクデバイスをサポート。0.128u4に合わせてインターフェイスの
+  調整 (snd_class_headerの追加、ゲッタ関数にget_の追加など)。23のサウンドコアから、
+  "deprecat.h"を削除することが、この変更による主な利点です。また、ui.cから
+  sndnum_clockを呼び出すのを止め、CPUクロックデータと同じようにクロックデータにアクセ
+  スするように変更。
+  (Aaronからのお願い: CPU関係が一段落つくまで、これ以上のサウンドインタフェースの変更
+   は最小限にして下さい)
+  [Atari Ace]
+
+- 8080の割り込み処理修正: [Miodrag Milanovic]
+ 1. 以前は割り込み発生時に、イネーブルビットをクリアしていましたが、これは間違いでそ
+    のままイネーブルにしておく必要があります
+ 2. 割り込み後、サービス番号がクリアされなかったので、同じ割り込みが発生しても取得さ
+    れませんでした
+
+- 6826/8520 CIAをデバイス化。6526のr1とr2の違いを追加。特に影響はなし。[Nathan Woods]
+
+- セーブステートシステムの改良: [Aaron Giles]
+  セーブステートシステムで、machine構造体に属する全てのグローバル変数を保持するため、
+  必要に応じてmachine引数を受けるように変更。これにより、全てのステート登録呼び出し部を
+  更新する必要があります:
+
+    - state_save_register_global* は、引数machineを取るようになりました
+    - state_save_register_item* も、引数machineを取るようになりました
+    - 新しくstate_save_register_device_item*を追加。これは、ベース名を生成するために、
+      デバイス名とタグ名を使用します
+
+- フェイクのサウンドデバイスがより多くのフィールドを持つように拡張。サウンドコアがデ
+  バイスからのタグを使うように改良して、start関数を簡略化。[Aaron Giles]
+
+- デバイス定数に合わせて、CPUとサウンドのget、set info定数のナンバリングを変更。また、
+  完全に合う箇所は同じ値を共有。[Aaron Giles]
+
+- CPUとサウンド用のget_info関数で呼び出すため、スタブ用としてフェイクのdevice_config
+  にget_infoの型フィールドを設定。これにより、device_get_info()関数がフェイクなものも
+  含め、CPUとサウンドコアの両方で動作することになります。[Aaron Giles]
+
+- CPUとサウンドマクロに合わせるため、デバイス情報を取得する関数を、device_info()から
+  device_get_info()に変更。[Aaron Giles]
+
+- cpunum_get_active()を削除。バスマスタリング(DMA)使うIDEコントローラは、IDEデバイス
+  設定でターゲットのアドレス空間を指定する必要があるようになったのが重要な変更点です。
+  [Aaron Giles]
+
+- mame_find_cpu_index()を削除。代わりにcputag_get_cpu()を使用して下さい。この関数を呼
+  び出している全てのドライバを新関数に置き換え、その結果全体的にコードがシンプルにな
+  りました。[Aaron Giles]
+
+-「戦国麻雀」にNVRAMエミュレーション追加。[Angelo Salese]
+
+- CouplesドライバとMeritドライバを統合。グラフィックと色のバグも修正。[Angelo Salese]
+
+- CPUコアでactivecpuを意味なく使っている箇所をほとんど削除。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Tennis (プロテニス海賊版) [Angelo Salese]
+Maverik [Roberto Fresca]
+Brasil 89 [Roberto Fresca]
+Poker'91 [Roberto Fresca]
+New Magic Card [David Haywood, Angelo Salese]
+Millenium Nuovo 4000 [David Haywood, Angelo Salese]
+
+
+
+新規クローンセット
+------------------
+Buena Suerte (21 new sets) [Roberto Fresca]
+Royalea [Roberto Fresca]
+Black Tiger (海賊版 alt) [mameitalia]
+Surf Planet (Version 4.0) [Smittdogg]
+テクモワールドカップ'90 (海賊版) [robiza]
+J.J.スコーカーズ (海賊版) [robiza]
+Loco-Motion / ガッタンゴットン (海賊版) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+トレジャーアイランド [Angelo Salese]
+Destiny Horoscope [Angelo Salese]
+シアター6 ギャラクシアン3 プロジェクトドラグーン [Andy Welburn]
+Witch Card (Video Klein) [Roberto Fresca, Guru]
+Bra$il [David Haywood, Angelo Salese]
+Fashion (Version 2.14) [David Haywood, Angelo Salese]
+Il Pagliaccio [David Haywood, Angelo Salese]

@@ -1,0 +1,205 @@
+0.128u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02268: [Graphics] devilw, darkadv, majuu : スプライトと背景間のプライオリティが間違っている。(Mamesick)
+- 02042: [Color/Palette] jjparad2: 背景色がおかしい。(Mamesick)
+- 01679: [Crash/Freeze] kuniokub, kuniokun, renegade: タイトル画面の表示後にフリーズする。(Mamesick)
+- 00224: [Sound] macross2: ステージ1クリア後にサウンドが消えたり鳴ったりを繰り返す。(Nicola Salmoria)
+- 02605: [Color/Palette] funnymou, suprmous: 色間違いあり。(David Haywood)
+- 02587: [Gameplay] lohtb2: プロテクトエミュレーションが不完全。(couriersud)
+- 02456: [Core] CD_TRACK_MODE2の変換ルーチンで、セクタサイズが間違っている。(R. Belmont)
+- 02011: [Sound] superchs: ES5505のクロックスピードが低すぎる。(Phil Bennett)
+- 02199: [DIP/Input] banbam, pettanp: 4番目のUnusedのDIPスイッチはフリーズの設定。(Angelo Salese)
+- 00893: [Sound] All games in playch10.c, punchout.c, vsnes.c: 一部のサウンドチャンネルが鳴っていない。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- mirage.cドライバにサウンドバンキング追加。[Angelo Salese]
+
+-「ストリートファイターゼロ/アルファ2」と「ストリートファイターゼロ2アルファ」との親
+  子セット関係を削除。[David Haywood]
+
+- missb2とbublboblの親子セット関係を削除。韓国製のハックは通常クローン版とはしません。
+  これらはCPUコードがパクられている以外にオリジナルとはほとんど繋がりがありません。
+  グラフィックス・サウンド・ゲーム内容は完全にリデザインされています。[David Haywood]
+
+- peplusドライバで、VBLANKをirq0_line_assertに変更と、CLEAR_LINEの追加。これにより、
+  全ビデオスロットの速度が劇的に改善。[Jim Stolis]
+
+- mirage.cのサンプルROMローディングをクリーンアップ。[Angelo Salese]
+
+- MCS-51の改良: [couriersud, Jim Stolis]
+ * スプリットタイマーモードを修正
+ * タイマー1がモード3のときに、タイマー0のモード0、1、2の割り込み無し
+ * mcs51コアで、CPUタイプに応じて4つの割り込みレベルをサポート
+ * Philipsによれば、80C31は80C52ファミリで、128Kの内部RAMを持ちROMを持たないものと判
+   明
+ * CMOS機能を実装: パワーダウンとアイドル
+ * Philips 80C52の特殊機能レジスタについてコメント追加
+ * リセットルーチンをクリーンアップ
+ * INT0とINT1の割り込みライン処理を修正
+ * cpu/i8051をcpu/mcs51に移動。ファイルと定数の改名
+ * ドキュメントからの引用をソースにも追加
+ * DS5002FPの統合を開始
+
+- NES PCM DMAについて、CPUアドレスマップからデータを読むように更新。[Wilbert Pol]
+
+- ambushとクローンセットのDIPスイッチ修正。[stephh]
+
+- magicflyドライバの改良: [Roberto Fresca]
+ - magicflyと7mezzoにサウンド追加
+ - magicflyと7mezzoにコインカウンタ実装
+ - ハードウェアのアクセス順に合うようにグラフィックバンクを反転
+ - メモリマップについての解説と、テクニカルノートを更新
+ - ゲームについてのノート事項と、テスト、設定、ブックキーピングモードについてのドキュ
+   メント化
+
+- arabianとクローンセットのDIPスイッチ修正。[stephh]
+
+- spaceintとクローンセットのDIPスイッチ修正。[stephh]
+
+- MSM5205 ADPCMと「あしたのジョー / Success Joe」のサウンド通信を修正。
+  [Philip Bennett]
+
+- superchsのES5505クロックレートを15238050Hzに変更。[Philip Bennett]
+
+- astrof.cドライバ全ゲームのDIPスイッチを修正。[stephh]
+
+- jalmah.cドライバの改良: [Angelo Salese]
+ * タイルマップページング、タイルマップ配置を修正
+ *「麻雀大霊界」のプロテクト問題を修正。ガールの色修正
+ *「麻雀大霊界」のROMロード問題修正
+ * ZAサウンドバンキング動作を修正。少なくともkakumei2のサウンドが修正
+ * VIDEO_EOFを削除して、TIMER_DEVICE_CALLBACK関数をMCUシミュレーション用に追加
+ * プライオリティシステム用のWIPコード追加
+ * 全セットのMCUにNO_DUMPを追加
+
+- Motorola DSP56k CPUコアの書き直し: [Andrew Gardner]
+ * inc24、asl4、bcc、brkcc、doForever命令を部分的に実装
+ * アドレスレジスタの並列アップデートについてのコードを追加
+ * tfr命令の部分的な実装
+ * polygonetで、テストモードが数秒間動作可能。IOはほぼ把握、coin2のみ不明
+ * move、asr4、mpy命令を部分的に実装
+
+- YM2608/2612: 最新の修正と新発見を適用。[Eke-Eke, Nemesis]
+
+- macrossp.cドライバにパレットフェーディングを追加。[Angelo Salese]
+
+- MC6845のスキューイングと表示エリア修正。[Curt Coder]
+
+- dreamwldのDIPスイッチと入力の修正。[stephh]
+
+- NEC CPUコアの改良: [couriersud]
+ * NECコアのスピードハックを削除
+ * FETCHをFETCH()に改名 (macrosで関数として使っていたので関数に見えるように変更)
+ * 命令コードプリフェッチタイミング向けの準備
+ * プリフェッチタイミングの算出を改良
+ * V20とV33でもプリフェッチタイミングを使用
+ * 静的変数をCPUコンテキストに移動
+ * nec_resetが明示的にコンテキスト変数をクリアするように変更
+ * 全CPUでnec_executeを共用
+
+- ディスクリートモジュールを更に最適化。「ドンキーコング」に最適化したカスタムミキサー
+  を追加。[Derrick Renaud]
+
+- lohtb2: MCUエミュレーションを改良。[couriersud]
+ * スタートアップサイクルは全て動作可能。タイムアウトや不安定な動作は修正
+ * ただし、lohtb2ではプライオリティの問題があるためWarningの画面が表示されません。ビ
+   デオRAMの0xd0000と0xd8000の色表示属性0x80で、ビデオRAMの0xd80000の内容が表示される
+   はずです。タイルマップについて詳しい人によるチェックが必要
+
+- disc_flt.cについて、GCC 4.3で"array bounds exceeded"エラーが出るのを修正。
+  [R. Belmont]
+
+- plygonetの改良: [R. Belmont]
+ - ネットワークIRQをオフに設定。ネットワークエラーが出ずにゲームが起動します
+ - パレットRAMを実装
+ - テキストレイヤーエミュレーションを改良(反転bitはまだ)
+ - テキストレイヤーエミュレーションと表示領域を修正。FBIロゴとカラーテストが正しく表
+   示可能
+
+-「エイリアンコマンド」(未動作)のサウンド修正、汎用入力実装、ノート追加。
+  [Angelo Salese]
+
+- m72タイルマップグループ2のプライオリティを修正。[couriersud]
+
+-「Joker's Wild」のグラフィックを2bppに修正。[Roberto Fresca]
+
+- NeoGeoのアップデート。[JohnBoy}
+ * NeoGeoゲーム基板情報を更新
+ * kof200nのp系ROMを正しいチップラベル名に修正
+ * mahretsuのv系ROMを正しいチップラベルに改名。128k m1をMAME 0.34b6から、s1を以前のダ
+   ンプより再追加
+ * breakrev: c系ROMをチップラベルに合わせて改名。正確なc5/c6を追加
+ * mslug3hをMVS AND AES VERSIONに設定
+ * mslug4を2ndリビジョンに設定。mslug4の1stリビジョンの不足についてコメント追加
+ * trallyをMVS AND AES VERSIONに設定
+ * ncombathをMVS AND AES VERSIONに設定
+ * sengokuをMVS VERSIONに設定
+ * superspyをMVS AND AES VERSIONに設定
+ * mutnatをMVS AND AES VERSIONに設定
+
+- src2htmlでMAMEサイト側のハードコードに代えて、テンプレートソースファイルを使うよう
+  に改良。明示的なスタイルから、クラスを使うように変更。[Aaron Giles]
+
+- magictgで、(多分正しい)ROMを使うように変更。[David Haywood]
+
+- Naomi / DCの改良。[Samuele Zannoli]
+ * cvs2gdが永久ループしないように修正。ただし3Dエミュレーションが無いので、画面には何
+   も表示されません
+ * Naomi RTCの実装で、未実装な転送についての解析メッセージがいくつか表示されます
+
+-「ウェスタンエクスプレス / Express Raider」のDIPスイッチ修正。[stephh]
+
+- re900.cドライバの改良: [Roberto Fresca, Grull Osgo]
+ - セレクタ経由で6プレーヤーの入力が動作
+ - ランプを全て実装 (ボールシミュレータアレーも含む)
+ - 内部レイアウト追加と外部アートワークをサポート
+ -「Buena Suerte '94」をサポート
+ - ドライバをクリーンアップ
+
+-「ジャイラス」とクローンセットのDIPスイッチ修正。[stephh]
+
+- NES APUが高いサンプルレートでも動作するように修正(バグナンバーは不明)。
+  [Aaron Giles]
+
+- 6502逆アセンブリとCPUコアをシンクロ。[Pugsy]
+
+- const、staticの付け忘れ修正、ヘッダファイルエントリの追加と削除、明示的な初期化処理
+  の追加でマルチセッションでの潜在的な問題発生原因を修正。asic65.cで、変数16個に代え
+  て構造体に適合できるように変更。[Atari Ace]
+
+- expro02ドライバの改良: [Sonikos]
+ - galsnewセット全てとfantasiaのDIP修正
+ - DIP配置追加
+ - ドライバを少しクリーンアップ
+
+- toaplan2ドライバにステートセーブ追加。[Atari Ace]
+
+- コインエイジ設定の変更と、コインAとコインBメカを「チェルノブ」基板に合わせて入れ替
+  え。[Corrado Tomaselli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Ruleta RE-900 [Grull Osgo]
+Buena Suerte '94 [Grull Osgo, Roberto Fresca]
+バーチャルマージャンII -マイフェアーレディ
+
+
+
+新規クローンセット
+------------------
+Power Instinct / 豪血寺一族 (USA) [Jim Hernandez]
+
+
+
+追加された未動作ゲーム
+----------------------
+Joker's Wild (encrypted) [Roberto Fresca]

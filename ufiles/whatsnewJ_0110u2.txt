@@ -1,0 +1,108 @@
+0.110u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+vulcan137b1gre [robiza, Mamesick]
+mario0110u1gre [Derrick Renaud]
+
+
+
+ソースの変更点
+--------------
+- i286コアのフラグアクセス修正。[Barry Rodewald]
+
+- MC146818モジュールでコアの日付・時刻の新ルーチンを使うように更新。
+  [Nathan Woods]
+
+- 逆アセンブラのスタブをクリーンアップと、デバッグビルド以外では逆アセンブラが必
+  ず参照なれないように更新。[Nathan Woods]
+
+- CHDを使ったCPS2ゲームの復号化をサポート。今のところこのコードは無効にしていま
+  すが、いずれは有効になるでしょう。完全なテーブルがあるゲームはまだ一握りです。
+  このテーブルは巨大（～4GB）で、暗号化アルゴリズムが判明するまでは圧縮できま
+  せん。[David Haywood]
+
+- デバッガで、次のコンテキストへのスイッチがあるまでウォッチポイントがアクティブ
+  にならないバグを修正。[smf]
+
+- N方向ジョイスティックについて以前よりもはっきりした定義にクリーンアップ。また、
+  "16方向"ジョイスティックのコンセプトを追加。このジョイスティックは、反対向きの
+  入力が同時に押されてもその報告を妨げないものです。[smf]
+
+- System 573のメジャーアップデート: [smf]
+ * PSX SIO制御レジスタの動作を修正
+ * SCSI CDコマンドをいくつか実装: START/STOP UNIT, PAUSE/
+    RESUME, READ SUB-CHANNEL, READ TOC
+ * μPD4701エミュレーション追加
+ * ATAPIリセット、PIO、IDENTIFY PACKET DEICEコマンド修正
+ * 魚釣り、DDR、ギターフリークス系ゲームの操作実装
+ * CDDAオーディオを実装
+ * 「コナミ 80'sアーケードギャラリー」のセキュリティーチップから未使用のバイトを
+   削除
+
+- commando.cドライバのサービスモードが逆さまなのを修正。[Canim]
+
+-「Triple Hunt」の8トラオーディオをサポート。[Derrick Renaud]
+
+- Galaxian/Scrambleドライバの再構成: [Atari Ace]
+ * machine/scramble.cをmachine/galaxian.cとmachine/scramble.cに分割
+ * drivers/amidar.c、drivers/frogger.c、drivers/scobra.cで、他のドライバから共有
+   していたデータ構造をコピー
+ * galaxian_baseを静的に作成して、メインドライバ外での使用を書き直し
+ * cclimber_decodeコードをmshuttleで直接共有できるようにdrivers/cclimber.cから
+   machine/cclimber.cファイルに分割
+
+-「メイジャーハボック」のX軸反転追加。[Mathis Rosenhauer]
+
+- trivia madnessドライバを改良。クイズ問題のROMバンキングにまだ問題あり。
+  [Pierpaolo Prazzoli]
+
+- ST-Vドライバをさらに更新: [Mariusz Wojcieszek]
+ * vdp1: スプライトのシェーディング追加 (znpwfv、cotton、その他で使用)
+ * vdp1: スプライトクリッピング修正 (znpwfvのスプライト修正)
+ * vdp1: カラールックアップテーブルスプライトの透過を修正 
+         (znpwfvのスプライト修正)
+ * vdp2: RGBレイヤーのキャッシュ化修正 (rsgunのボス背景修正)
+ * vdp2: タイルマップとスプライトの追加ブレンディング (rsgun)
+ * vdp2: 縦方向のラインスクロールとラインズーム追加 (diehardのロゴ修正)
+ * stv:  diehardのスピードアップ
+ * stv:  znpwfvのスピードアップ修正
+ * stv:  セーブステートの予備サポート
+
+- chd.cを大幅にクリーンアップ: [Aaron Giles]
+ * last_errorのコンセプトを削除; 全ルーチンでエラーを直接返すようにしました
+ * メタデータの管理に関わる問題を修正
+ * 圧縮と検証のルーチンをモノリシックからクライアントドリブンに変更
+ * 内部CODECの使用を以前よりもフレキシブルに変更
+ * chdmanとMAMEで新インタフェースを使うように更新
+ * RawデータCHD作成用に-createrawコマンド追加
+
+- romcmpでZIPファイル比較時にクラッシュするバグを修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+バスアングラー / Fisherman's Bait * A Bass Challenge [smf]
+バスアングラー2 / Fisherman's Bait 2 * A Bass Challenge [smf]
+Fisherman's Bait * Marlin Challenge [smf]
+ダンスダンスレボリューション / Dancing Stage [smf]
+ギターフリークス [smf]
+ダンスダンスレボリューション 2nd Mix [smf]
+ダンスダンスレボリューション 2nd Mix Link [smf]
+
+
+
+新規クローンセット
+------------------
+ヘルファイヤー (2P Ver., first edition) [Tirino73]
+コナミ 80'sアーケードギャラリー (3 versions) [smf]
+Stratovox (bootleg) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀國志 覇王の采牌 (Japan) [David Haywood]

@@ -1,0 +1,51 @@
+0.104u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+esb0104gre [Mathis Rosenhauer]
+
+
+
+ソースの変更点
+--------------
+- 古いデバッガで、チルダが先頭についたレジスタを認識するように更新。
+  [Juergen Buchmueller]
+
+- 非x86ビルドでもわかりやすいようにmakefileを修正。[Lawrence Gold]
+
+-「スターウォーズ」のサウンド同期を改善。[Mathis Rosenhauer]
+
+- bfm_adr2ドライバで16セグメントライトを実装。[El Condor]
+
+- darkmistドライバを更に改良。[Tomasz Slanina]
+
+- 大量の光線銃ゲームで、デフォルトの銃の位置を修正。[SilverFox]
+
+- MESSがコア設置システムとやりとりする方法を入れ替え。[Nathan Woods]
+
+- T-11, Hu6280, ADSP-21xx CPUコアにセーブステートサポート追加。[Buddabing]
+
+- 「GTIクラブ」のアップデート: [Ville Linde]
+ * K001604タイルマップエミュレーション改善
+ * K001005及び、K001006 3Dグラフィックエミュレーションの超初期型追加
+ * SHARCの命令コードをいくつか追加
+
+- Z80のペリフェラル（CTC, PIO）を単独モジュールに分離。またSIOモジュールを追加し
+  て、「NFLフットボール」で実装。見える部分での進展はまだなし。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+怒III (Normal Joystick) [Tormod Tjaberg]
+サンダークロス (Set 3) [Stefan Lindberg]
+スペースハリアー (8751 317-0063?) [Zozo]
+Fortress 2 Blue Arcade (ver 1.01) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Hang Pilot [Ville Linde]

@@ -1,0 +1,166 @@
+0.125u9
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01962: [DIP/Input] tailg: -debug指定でエラーが出る: "Fatal error: Input ports cannot be read at init time!"  (Aaron Giles)
+- 01948: [Misc.] All alg.c and cliffhgr.c sets: スクリーンショットを撮るとAccess Violationエラーで落ちる。(Aaron Giles)
+- 01940: [Misc.] All cps3.c sets: Access Violationエラー。(Aaron Giles)
+- 01946: [DIP/Input] Various: Fatal error: Input ports cannot be read at init time! (part 2) (Aaron Giles)
+- 01957: [Core] -debug指定でハードリセットするとAccess Violationエラーが起こる。(Aaron Giles)
+- 01955: [DIP/Input] gauntleg: Unable to locate input port 'IN1'エラーで起動できない。(Aaron Giles)
+- 00654: [DIP/Input] usclssic: 2Pゲームをスタートできない。スタートキーが反応しない。(stephh)
+- 01945: [Misc.] All asteriod.c sets: アサート。(couriersud)
+- 01939: [Misc.] All sega80v.c sets: アサート。(couriersud)
+- 01947: [DIP/Input] All omegrace.c sets: アサート。(couriersud)
+- 01941: [Misc.] pleiads, pleiadbl, pleiadce: 致命的エラー: activecpu_get_info_int() called with no active cpu! 
+         (src/emu/cpuintrf.c:1160) (couriersud)
+- 01944: [DIP/Input] hachamf: エラー：Unable to locate input port 'DSW' (robiza)
+- 01936: [DIP/Input] All namcos21.c sets: エラー：Unable to locate input port 'AN7' (robiza)
+- 01938: [Gameplay] vaportrx: ゲームがフリーズする。(Aaron Giles)
+- 01937: [Interface] All Sets: メニュー表示でFatal Exceptionが起こる。(couriersud)
+
+
+
+ソースの変更点
+--------------
+- SH2コア: [R. Belmont]
+ * インタプリタ部ではない物を分離
+ * context structをポインタ経由にコンバート
+
+- nile pitch演算を修正。[h0pdmiYX0]
+
+- MIPS3リコンパイラ: [Aaron Giles]
+ * 比較レジスタが書き込まれない限り、比較割り込みの生成をしないよう変更; blitz、
+   calspeedなどのハングが修正されます
+ * ディレイスロット実行前はジャンプターゲットアドレスを隠蔽; 同様に、ディレイス
+  ロットの実行が終わるまで、リンクレジスタをアップデートしません; これでgauntleg
+  のハングが修正
+ * IDT命令をR4650のみにマーク
+ * ブランチスロットなどでタイムが使い捨てされるのを導入
+ * jalrが正しいリンクレジスタをとるように修正
+ * c.eq、c.lt、c.leが未オーダのとき機能しないのを修正
+ * swxc1、sdxcが正しいソースレジスタを取るよう修正 (「ガントレット」の問題が修正)
+ * デバッガでのCCR31表示を修正
+ * LWXC1/LDXC1を修正; gauntlegのカメラ修正
+
+- flower.cにステートセーブ追加。[couriersud]
+
+-「Risky Challenge / ぐっすんおよよ」のDIP設定を訂正。[Brian Troha]
+
+- ウォッチポイントの動作について、いくつかが実際に生きている場合を除き、オーバー
+  ヘッドが0になるよう変更。[Aaron Giles]
+
+- cpuintrf_push_context()への移行に合わせて、memory_set_context()を削除。
+  [Aaron Giles]
+
+- wilytowr.cをm63.cに変更。Irem M63 PCBレイアウトを追加
+  (「Atomic Boy / ワイリータワー」を参考)。[Tomasz Slanina, Stefan Lindberg]
+
+- 32031について、デバッガ無効なときに呼び出さないように修正。[Aaron Giles]
+
+- MSVCでastring.cをコンパイルする場合、また文字列がUTF-8のときのアサートを修正。
+  [Nathan Woods]
+
+-「ナイトストライカー」の更新: [kanikani]
+ - World版を親セットに設定 (nightstr)
+ - これまでのUS版をnghtstruに改名
+ - 日本版追加 (nghtstrj)
+ - 不要なアナログ入力のマッピングを削除
+ - アナログスティック調整ポートを追加
+
+- taito_z.cの全ゲームにDIP配置追加。[kanikani]
+
+-「World Rally 2」でポットホイールサポート。[Mirko Mattioli]
+
+- ADSP2100の実行ループをデバッグと非デバッグで分割。[Aaron Giles]
+
+- PGMのビッグエンディアンでの動作を改良。ARM7が起動可能。ただし、68kとはまだ同期
+  不可。[R. Belmont]
+
+- S14001Aコアを更新: 実際のチップについてより正確になるようフィルタリングを改良。
+  実チップと同様に内部のオーディオレンダラが4bitのサウンドを生成するよう変更。
+  フィルタリングをメインレンダリングループから外し、グルーコードへ移動。
+  注: この更新で、以前は出ていなかったノイズが聞こえるようになりました。これは実
+  チップ同様に正確です。本物では、アナログフィルタを出力部に使って、この音を常時
+  抑えていたと思われます。[Lord Nightmare]
+
+- DCSドライバのステートセーブの問題を修正。ただし、まだロード時の不具合あり。
+  memory.cで4096バンクをサポートするよう拡張。[Aaron Giles]
+
+- Cal Omegaドライバを改良: [Roberto Fresca]
+ - システム903/904/905のMACHINE_RESETを統合
+ - システム905のPIA1 portBを入力多重セレクタとして管理するための新ハンドラ作成
+   (ただし905はまだ動作せず)
+ - テクニカルノートを更新
+
+- HASHJMPのx86/x64での実装で、間違った前提があったので修正。固定モードを最初に使
+  うと、モードのベーステーブルが常に割り当てられるというものです。[Aaron Giles]
+
+- UML Cバックエンドの64-bit書き込みを修正。[Aaron Giles]
+
+-「Strip Teaser」のビデオハード(単純なblitter)エミュレーション初期版追加。
+  [Tomasz Slanina]
+
+- I80286: プロテクトモードでのPOP ESを修正。[Wilbert Pol]
+
+- tumbleb.cの更新: [stephh]
+ - wlstarとwondl96のDIPスイッチ更新
+ - これら2ゲームのノート追加と、その他の更新
+ - ポートタグ追加、メモリ定義、リードハンドラを更新
+
+- チートシステムの更新: [ShimaPong]
+ - 以前のチートシステムを再導入
+   スタンダード/旧フォーマットはこのシステムで動作します
+   つまり、旧システムに存在せず、最近追加された命令は無効にになりました
+ - load_cheat_code()を3つの独立した関数に分割
+   新チートオプション"Load New/Standard/Old Format Code"を追加。
+   (デフォルトは全てのフォーマットコードをロード)
+     注: スタート前に、データベースの全てのチートオプションを削除するか、メニュー
+         からデフォルトオプションをリロードしてください(Shift + リロードキー)
+ - 大きなサイズの文字列をデータベースに読み込むとき、他の文字列に影響しないよう
+   にフォーマット文字列の構造体を追加
+ - リンクを新フォーマットに変更
+   リンクコードは"Link-Label"、サブラベルは"Label-Sub-Link"になりました。
+   "Standard-Link"はラベルとして認識しません
+ - ラベル選択を管理するchoose_label_index()を追加
+ - build_label_index_table()がクラッシュを起こさないように修正
+   スタンダード/旧コードでは、ラベルインデックステーブルのビルドを無効化
+ - スタンダード/旧コードで、メモリ解放の問題があったのを修正
+ - 報告されたり、発見したバグを修正
+
+- seta.cとbigevglf.cの入力処理をクリーンアップ。[stephh]
+
+- PIC付きの「キャデラックス」と「パニッシャー」のROM読み込みを追加。正確なPICは
+  未吸い出し。この主な目的はグラフィックROMのロードを忘れないようにするためのも
+  のです。これらは動作しません。異なる基板でも基本的には同じセットなので、いずれ
+  削除するかもしれません。[David Haywood]
+
+- ledutil.cのメモリリーク修正。[HeadKaze]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Touchmaster 8000 (v9.04 Standard) [Brian Troha]
+ギャラクティックストーム [Hau, Team Japump!]
+
+
+
+新規クローンセット
+------------------
+ナイトストライカー (Japan) [kanikani]
+ナイトストライカー (US) [kanikani]
+ウィズ (Taito, set 2) [David Haywood]
+Moon Lander [David Haywood]
+スターフォース (encrypted, set 2) [highwayman]
+Spy Hunter (Playtronic license) [stefanocsw]
+キャプテンコマンドー (bootleg) [highwayman] (NOT WORKING)
+
+
+
+追加された未動作ゲーム
+----------------------
+King of Football [Tomasz Slanina]
+Hell Night (ver EAA) [Guru]

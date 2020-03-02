@@ -1,0 +1,321 @@
+0.135u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03553: [クラッシュ/フリーズ] extdwnhl: ゲームの起動に失敗し、リセットを繰り返す。
+         (Phil Bennett)
+- 03544: [DIP/入力] mgdh, sdmg2: ジョイスティック入力がMAME側でサポートされていない。
+         (Luca Elia)
+- 03547: [グラフィック] mgdh,sdmg2: 1キーを押すとドンデンが使えるが、そのアニメーショ
+         ン動作のとき手元に牌がのこったままになる。(Luca Elia)
+- 03546: [ドキュメント] nkishusp: ゲームスタート後に黒画面しか表示されない。
+         (Luca Elia)
+- 03540: [サウンド] glpracr3, hvnsgate, raystorm: 音が出ない。(Phil Bennett)
+- 03545: [グラフィック] tekken3, tektagt: 初期画面からアトラクトモードへ進まない。
+         (Phil Bennett)
+- 03542: [サウンド] Sets/Drivers using YM2610: サウンドがでない。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+- 以下のドライバにデータ構造体を追加: [Fabio Priuli]
+ - beaminv.c
+ - cball.c and capbowl.c
+ - changela.c, circus.c and circusc.c
+ - crgolf.c, clayshoo.c
+ - decocass.c
+ - docastle.c, dotrikun.c, cloud9.c, destroyr.c
+ - cheekyms.c
+ - embargo.c
+ - ddragon.c, ddragon3.c, fgoal.c
+ - bwing.c
+ - dday.c
+ - dcheese.c
+ - flyball.c
+ - freekick.c
+
+- 以下にドライバデータ追加とセーブステート追加:  [Fabio Priuli]
+ - blmbycar.c
+ - zerozone.c, yunsun16.c, dominob.c, dogfgt.c, bogeyman.c
+ - blockout.c, bigevglf.c
+ - chaknpop.c
+ - albazg.c
+ - chinagat.c, esd16.c, f-32.c, fcombat.c, finalizr.c
+ - fantland.c, firetrap.c
+ - btime.c, scregg.c
+ - fitfight.c, flstory.c, funkybee.c
+ - fuukifg2.c, fuukifg3.c
+
+- 以下のドライバにセーブステート追加: [Fabio Priuli]
+ - 2mindril.c, ashnojoe.c, bigfghtr.c, bublbobl.c, cchance.c, champbwl.c, missb2.c
+ - compgolf.c, champbas.c, copsnrob.c, cop01.c, cosmic.c, cntsteer.c, dacholer.c,
+   dec8.c
+ - armedf.c, calorie.c, canyon.c, chanbara.c, citycon.c, commando.c, crospang.c,
+   cultures.c
+ - astrocorp.c
+ - ddayjlc.c, ddealer.c, deniam.c, discoboy.c, diverboy.c, dorachan.c, dragrace.c, 
+   dreamwld.c, dribling.c, drmicro.c, drtomy.c
+ - dynadice.c, dwarfd.c, dunhuang.c, enigma2.c, epos.c, drgnmst.c, egghunt.c
+ - equites.c, exedexes.c, exerion.c, exprraid.c
+ - funybubl.c, galaxi.c, gaiden.c, rocnrope.c
+
+- デバイスタグの大幅変更により、'x1snd'のタグが不必要に発生していたのを削除。
+  [Phil Bennett]
+
+- drw80pkr.cの更新: [Jim Stolis]
+ - セーブステートサポート
+ - DIP設定の初期版追加
+ - CPUクロック訂正
+ - サウンド修正(動作可能)
+ - IO R/W領域の煮詰め
+
+- tms7000: PCRELアドレッシングモードでの逆アセンブリを修正。[Wilbert Pol]
+
+- 入力システでのデバイスサポート。内部的には、PORT_CUSTOM/PORT_CHANGEDを置き換えるこ
+  とになり、内部のダミーデバイスにより後方互換性を保ちます。また、出力ライン
+  (IPT_OUTPUT)の追加で、新しいnput_port_write*関数を使ったり、IOラインを使うために
+  adc83xにコンバートしたAM_WRITE_PORTを使用するメモリマップからダイレクトに書き込みで
+  きます。[smf]
+
+- ADCデバイスの更新: [smf]
+ - 入出力ポートを使って、adc08xチップを全て実装
+ -「レーシングフォース」のステアリングとアクセル入力を反転。ゲーム起動が可能
+ -「ワインディングヒート」のステアリング入力を反転。ただしUSA筐体はまた別な方法で実装
+ - adc0831_interfaceをadc083x_interfaceに改名
+ - adc083xのgnd入力を修正
+ - adc083x.cからはぐれたlogerrorコールを削除
+ - adc083xのデフォルトsars値を修正
+ - adc083xのリセットが出力のみに影響するよう修正
+
+- -romidentにセット名を追加。[smf]
+
+- ddr 3rd mix plusのプロテクトで、表示不具合が起きないように更新。[smf]
+
+- RDPの更新: TMEMのサイズを修正。個別のtlutを削除。tlutのアップロード修正。
+  [angrylion]
+
+- hng64の更新: 
+ -「武力ONE」「侍魂」「サムライスピリッツ2」のスプライト用マルチバイトチェーンモード
+   初期版追加 [David Haywood, Angelo Salese]
+ - 背景面色修正。これによりPOST画面の特徴的な青背景が再現 [Angelo Salese]
+ - デュアルポートエミュレーションを改善。これによりPOSTでのエラーを修正
+   [Angelo Salese]
+ - "シンプル"スクロールレジスタレイアウトを実装 [David Haywood]
+ - "コンプレックス"スクロールレジスタレイアウトを実装 [David Haywood]
+ - スプライト終端を修正。「武力ONE」のクレジットメッセージが修正 [Angelo Salese]
+ -「武力ONE」のアトラクトモードでスクロールするテキストを修正 [Angelo Salese]
+ - スプライトのグローバルbpp切り替えを実装。ハードウェアはスプライト単位のbpp切り替え
+   には対応していない模様。これよにり「武力ONE」のコインクレジットテキストが修正
+   [Angelo Salese]
+ - V-Blankレジスタを実装。「侍魂」「サムライスピリッツ2」のパレット更新を修正
+   [Angelo Salese]
+ - スプライトのラッピング修正 [David Haywood]
+ - irq 11の実装。レースゲームのネットワークチェックに使用。現状は3dパケットの不正パラ
+   メータによりクラッシュ [Angelo Salese]
+ - 16x16 / 8x8のタイルマップモード選択を追加。「オフビートレーサー！」のワンシーンと
+  「餓狼伝説 -ワイルドアンビジョン-」の遷移レイヤーが修正(タイトル画面のボックス)
+   [David Haywood]
+ - rox用のレイアウト追加。「ラウンドトリップRV」のタイトル画面前のグラフィック修正
+   [David Haywood]
+ - スプライトクリア機能実装。「侍魂」「サムライスピリッツ2」のグラフィック化け修正
+   [Angelo Salese]
+ - x/yスプライトグローバルオフセット実装。「侍魂」のランキング画面で使用
+   [David Haywood]
+ - バックアップRAM実装 [Angelo Salese]
+ - スプライトについて発見したことをドキュメントに追加 [Angelo Salese]
+ -「餓狼伝説 -ワイルドアンビジョン- / Fatal Fury: Wild Ambition」のズーミングを再実装。
+   他のゲームで使用しているズームモードも追加。ただし、精度の問題あり [Angelo Salese]
+ - 加法ブレンディングの初期版実装 [David Haywood]
+ - タイル更新マーキングを少し最適化 [David Haywood]
+ - モザイクとフロアモードのドキュメントを改良 [David Haywood]
+ - スプライトディスエーブルビットを実装 [David Haywood]
+ - 動的な表示エリアを実装 [Angelo Salese]
+ - 3d / フレームバッファビデオレジスタのドキュメント化開始。取りあえずの実装で
+  「武力ONE」の3Dモデル色修正 [Angelo Salese]
+ - 表示領域レジスタが0のときに画面無効化をするのと、背景レイヤーの修正
+   [Angelo Salese]
+
+- albazgドライバで、花札用共通入力、EEPROMデバイス、memory_set_bankptrの箇所で
+  memory_set_bankを使うように更新。[Fabio Priuli]
+
+- System 23の更新: [Naibo Zhang]
+ - パレットRAMのメモリマッピングとパレットデータの処理を修正。起動時のセルフテストの
+   色が正確に
+ -「パニックパーク」をS23からSS23のゲームに変更
+
+-「ギャラクシアン^3」のアップデート: [Naibo Zhang]
+ - スケルトンドライバの肉付け作業。各CPUボードが多くのセルフテストを通過
+ - マスタとスレーブCPUのコミュニケーションを実装
+
+-「Puzzle Bang Bang」(vamphalf.c)が韓国版と判明。このセットについては、タイトルと表示
+  言語は変更不可。 [Brian Troha]
+
+- 新モジュールtagmap追加。これはハッシュを取った文字列のマップです。デバイスと入力ポー
+  トでタグの検索用にこのtagmapを使うように更新。またtagmapへの移行に伴い、バリディ
+  ティチェッカから"quark"なモノを全て削除。[Aaron Giles]
+
+- Intel 8008とNational Semiconductor SC/MP CPUコアを実装。[Miodrag Milanovic]
+
+- INS 8060 SC/MP IIをサポート(クロック分周2を使用)。メインモデルをINS 8050 SC/MPに改
+  名。 [Miodrag Milanovic]
+
+- astrocorp.cとgroundfx.cドライバでEEPROMデバイスを使うように更新。[Fabio Priuli]
+
+- SCSIコマンド0x2a(32-bit LBAでの書き込み)をサポート。WD33C93コントローラの入力バッ
+  ファサイズを拡大。[Harmony]
+
+- groundfx.cで、PORT_READ_LINE_DEVICE/PORT_WRITE_LINE_DEVICEを使用してeepromdev.cを実
+  装。出力ポートに影響するのはIP_ACTIVE_HIGH/IP_ACTIVE_LOW(eepromdev.cはアクティブロー
+  CS)。inptport.cのコールバック用に以前使っていた値は、フィールド毎のトラッキングに変
+  更。これにより、PORT_CHANGEDとコンディショナルフィールドの再計算時間を短縮。
+  eepromdev.cのインタフェースを整理。[smf]
+
+- igs017.cにスプライトリストストップを追加。mgdhとsdmg2にジョイスティックモードを実装。
+  [Luca Elia]
+
+- aviio.cのオーディオ出力長を修正。[CDiFan]
+
+- インストールするハンドラと合わせて、memory_install_write_port_handlerと
+  memory_install_readwrite_port_handlerを追加。[smf]
+
+- CDP1869の変更: [Curt Coder]
+ - ページRAM関数でdevcbを使うようにコンバート
+ - predisplay用にプルインタフェースを追加
+
+- 周波数の低いサウンドストリームからのアップコンバートを、線形補完からアンチエイリア
+  スしたポイントサンプリングに切り替え。これにより、低周波数ストリームの音こもりを防
+  ぎ、サンプルの境界部分でシャープなエッジを保持します。[Aaron Giles]
+
+- 以下のドライバをEEPROMデバイスにコンバート: deco156.c, eolith.c, eolith16.c, 
+  limenko.c, taito_f3.c, taito_z.c, taito_b.c, taitojc.c, toaplan2.c and kaneko16.c 
+  [Fabio Priuli]
+
+-「Portraits」のタイル別カラールックアップROMを実装。ただし色はまだ不正確。
+  [David Haywood]
+
+- Intel 8008 CPUコアのバイナリ命令後にCFをクリア。[Miodrag Milanovic]
+
+-「Noraut Poker」の改良: [Roberto Fresca]
+ * メモリマップとマシンドライバの大幅更新
+ * 一部ゲームでの入力とDIPスイッチを改良
+ * 新しく動作するになったゲームにランプサポートとレイアウトの追加
+ * Kimbleハードウェアの初期版をサポート
+ * CGI製の「Credit Poker 30x」をサポート
+ * テクニカルノートの更新と修正
+ * norautpnのゲーム名を「Noraut Deluxe Poker (bootleg)」に変更
+ * tpoke2の未吸い出しMCU用にプレースホルダを追加
+ * ドライバの再構成とクリーンアップ
+ * kimblejpをkimbldhlに変更。ゲーム名を「Kimble Double Hi-Lo」に変更
+ *「Kimble Double Hi-Lo」に専用のメモリマップとマシンドライバを追加
+ *「Kimble Double Hi-Lo」のCPU型を修正
+ * PPIの処理とオフセットについて不明な点があることをノートに追加
+
+- Impera Magic Cardドライバに「Magic Card Jackpot」と「Magic Lotto Export」を追加。
+  また、基板レイアウト、ハードウェアの説明、テクニカルノートも追加。バイポーラPROMを
+  I2CバスEEPROMに変更。[Roberto Fresca]
+
+- DEVCB_INPUT_PORT(tag)が書き込みコールバック用に動作するよう変更。[smf]
+
+- magicard.cドライバに起きていた不具合を修正。[Angelo Salese]
+
+- マシン内にgeneric_pointers構造体を追加。これは、汎用ポインタを保持します。
+  generic_nvram、videoram、colorram、spriteram*、paletteram*ポインタをここに移動。
+  メモリマップの汎用ポインタを初期化するためにAM_BASE_GENERICマクロとAM_SIZE_GENERIC
+  マクロを追加。また、ベースとサイズを一度に設定するAM_BASE_SIZE_GENERICも追加。
+  [Aaron Giles]
+
+- グローバル変数をmachine/genericからrunning_machine配下のプライベートデータ構造体に
+  移動。新しく必要になったmachine引数をcoin_counter_w、coin_lockout_w、
+  coin_lockout_global_wに追加。set_led_stateにも引数machineを追加。[Aaron Giles]
+
+- 発行済みチケット数取得とカウントを増やすためのインタフェース関数を追加。これにより、
+  これらのグローバル変数へアクセスする必要が無くなります。また、特定のコインカウンタ
+  のカウント数とロックアウト状態を取得する関数も追加。[Aaron Giles]
+
+- Intel 8255A: 入力ラッチの読み込み後にクリア。[Curt Coder]
+
+- 使用可能な場合は、スピーカーインタフェースを実際に使用。[Curt Coder]
+
+- video/generic.cとaudio/generic.cに残っていたグローバル変数を削除。[Aaron Giles]
+
+- i386 REPのプリフィクスにセグメントを使うよう修正: アドレスサイズが16-bitのときのSI
+  (例: OUTSBまたはOUTSW使用時など)。[Barry Rodewald]
+
+- グローバル変数spriteram_3の使用制限を撤廃。[Atari Ace]
+
+- ベースの指定と構造体メンバを一度に設定するAM_BASE_SIZE_MEMBER()マクロを追加。これを
+  使用可能な箇所を全て更新。[Aaron Giles]
+
+- 多くのドライバでデータ構造体をクリーンアップ: [Fabio Priuli]
+ * 構造体メンバでの汎用サイズの使用をほぼ廃止
+ * エミュレーション中のcputagへのアクセスを出来るだけ低減
+   (MACHINE_STARTとDRIVER_INITへ集中化)
+
+- Joker's Wild: rngテストをバイパス。[Angelo Salese]
+
+- Joker's Wild: ゲーム動作に必要なベアミニマム実装と、タイルマップグラフィックの修正。
+  [Angelo Salese]
+
+- メモリ領域のルックアップにタグマップを使用。[Aaron Giles]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+サブマリン [Volker Hann, Team Europe, David Haywood, Angelo Salese]
+Noraut Deluxe Poker (console) [Roberto Fresca, ByteMaster]
+Noraut Joker Poker (original) [Roberto Fresca, ByteMaster]
+Noraut Red Hot Joker Poker (alt HW) [Roberto Fresca, ByteMaster]
+Mainline Double Joker Poker [Roberto Fresca, ByteMaster]
+Double Joker Poker (45%-75% payout) [Roberto Fresca, ByteMaster]
+Royal on Ten (Noraut Deluxe hack) [Roberto Fresca, ByteMaster]
+Credit Poker (ver.30c, standard) [Roberto Fresca, ByteMaster]
+Iron (SNES bootleg) [Tomasz Slanina, Volker Hann & Team Europe]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Cannon Ball (クレイジーコング基板海賊版) (set 3, no bonus game) 
+   [Volker Hann, Team Europe]
+X-MEN (4 Players ver EBA) [Irongiant]
+Wizard of Wor (with German Language ROM) [Volker Hann]
+Gorf (program 1, with German Language ROM) [Volker Hann]
+スーパーパズルファイターII Trubo (Hispanic 960531) 
+   [Artemio Urbina, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+ザ・キング・オブ・ファイターズ ネオウェーブ (Japan) [Cah4e3]
+ファイナルハロン (FF2 Ver. A) [Guru]
+ドラゴンクロニクル (DC001 Ver. A) [Guru]
+熱チュー！プロ野球2002 (NPY1 Ver. A) [Guru]
+ソウルキャリバーII (SC23 Ver. A) [Guru]
+ソウルキャリバーII (SC21 Ver. A) [Guru]
+鉄拳4 (TEF3 Ver. C) [Guru]
+鉄拳4 (TEF2 Ver. A) [Guru]
+鉄拳4 (TEF1 Ver. A) [Guru]
+機動戦士Zガンダム エゥーゴvs.ティターンズ (ZGA1 Ver. A) [Guru]
+カプコンファイティングジャム (JAM1 Ver. A) [Guru]
+クイズ＆バラエティ すくすく犬福2 (IN2 Ver. A) [Guru]
+機動戦士Zガンダム エゥーゴvs.ティターンズ DX (ZDX1 Ver. A) [Guru]
+ソウルキャリバーIII (SC31001-NA-A) [Guru]
+キン肉マン マッスルグランプリ (KN1 Ver. A) [Guru]
+太鼓の達人9 (TK91001-NA-A) [Guru]
+鉄拳5.1 (TE51 Ver. B) [Guru]
+エアラインパイロッツ (Rev. A) [f205v]
+セガテトリス [Guru]
+Noraut製不明セット1 (console) [Roberto Fresca, ByteMaster]
+Noraut製不明セット2 (console) [Roberto Fresca, ByteMaster]
+Noraut Joker Poker (V3.011a) [Roberto Fresca, Alan Griffin]
+Poker / Black Jack (Model 7521) [Roberto Fresca]
+Kimble Double Hi-Lo [Roberto Fresca, Alan Griffin]
+DRHL Poker (v.2.89) [Roberto Fresca, Siftware]
+Magic Card Jackpot (4.01) 
+   [Roberto Fresca, Team Europe, krick & The Dumping Union]
+Magic Lotto Export (5.03) 
+   [Roberto Fresca, Team Europe, krick & The Dumping Union]

@@ -1,0 +1,284 @@
+0.141u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04225: [サウンド] gangwars: サンプル音が途切れたり、間違ったところで再生される。
+         (Tafoid)
+- 04221: [その他] chryangl: ROMサイズが間違っている。
+- 04215: [グラフィック] quizf1: 起動画面のグラフィックが表示されない。(robiza)
+- 04214: [DIP/入力] grobda, motos, phozon: プレイヤー2の方向入力が動作しない。
+         (Tafoid)
+- 04107: [ステート保存/再生] All sets in aristmk4.c: セーブステートが保存されない。
+         (Fabio Priuli)
+- 04202: [サウンド] asteroid, llander and clones (+ others): ディスクリートサウンドの
+         不具合。(Derrick Renaud)
+
+
+
+ソースの変更点
+--------------
+- arm7: "MOV LR, Rx" (Rx bit 0 = 1) + "F800"のケースについて修正。これによりGBAの
+  「Golden Sun: The Lost Age」のフリーズが修正。[Tim Schuerewegen]
+
+- SSV: uPD96050 (ST-010) 演算・プロテクトDSPを実装。[R. Belmont]
+
+- [mysticrib] オペコードを1つ追加と音の修正。[Roberto Zandona']
+
+- DISCRETE_WAVLOGとDISCRETE_RCFILTERの修正でdkongjrと恐らくその他もサウンドが修復。
+  [Derrick Renaud]
+
+- intelfsh: バンク切り替えコマンドを持つフラッシュROMをサポート。[Tim Schuerewegen]
+
+- daytona2で、0xc3000000のCROMに2つめのアパーチャを追加してバンキングの問題を修正。
+  CROM2つのチェックサムが不良になる以外は良好。[Aaron Giles]
+
+- WE DSP16A cpuの逆アセンブラ追加。[Andrew Gardner]
+
+- Sega Megatechのソフトリストをテストサポート。これによりマルチカートリッジが動作。動
+  作コマンドはMESSと同様に"mame megatech -cart1 mt_beast -cart2 mt_soni2 ... -cart8 
+  mt_shar2"のように指定する。SMSはゲームの切り替え時に問題があるので、今のところ一本
+  だけに固定しないとZ80がクラッシュします。[David Haywood]
+
+- beezerの鳴らなかったサウンドチャンネルを修正; サウンド系はほぼ完全になったはず。た
+  だし、ノイズソースはまだ不完全。[Lord Nightmare]
+
+- beezerのボリュームDAC処理を実機に合わせて改良。[Lord Nightmare]
+
+- quizf1: オペコード追加。[Roberto Zandona']
+
+- サウンドとストリームインタフェースをC++化。sound.cとstreams.cを一つのファイルに統合
+  し、スピーカーデバイスを独自ファイルに分離。ダイナミックな入力割り当てを横展開して、
+  スピーカーの接続方法をこれに合わせて変更したため、その他のサウンドデバイスと同様に
+  扱われるようになりました。出力ゲイン操作と、デバイス入出力をストリーム入出力に割り
+  当てるためのdevice_sound_interfaceメソッドを追加。モダンサウンドデバイスはストリー
+  ム更新にすべてこの新方式を使うようにしてください。[Aaron Giles]
+
+- megatech.xmlをクリーンアップ。[Fabio Priuli, David Haywood]
+
+- ナチュラルキーボードのサポートをクリーンアップ。[Atari Ace]
+
+- driver_deviceに移動することで、Atariドライバからstaticとglobal変数を削除。
+  [Atari Ace]
+
+-「Metal Slug 6」のROMミラーを修正して、ゲームが完全にプレイ可能。[Cah4e3]
+
+- palette_normalize_rangeで色がおかしくなるバグを修正。輝度の正規化処理で、RGBをYUVに
+  一旦コンバートし、RGBへ再コンバートする前にYを正規化するようにしました。これは、
+  radarscp、dkong、marioドライバなどに影響があります。[Couriersud]
+
+- DSP32コアをモダン化。[Aaron Giles]
+
+-「ドッ取り君」ドライバのビデオルーチン書き直しと部分アップデートを修正。
+  [Angelo Salese]
+
+- emuフォルダ内のすべてのCPUとサウンドデバイスをMAMEビルドに追加。[Curt Coder]
+
+- arm7: [Tim Schuerewegen]
+ - THUMBモードでのLDM/STM不整列wordアクセスを改良
+ - THUMBモードでのLDM不整列リードを修正
+
+- MC68901デバイスをmicro3d.cで共有できるようにMESSからインポート。[Curt Coder]
+
+- ksys573: mas3507dとi2cのコミュニケーションを部分実装。[O. Galibert]
+
+- bishjan.cをsubsino2.cに改名: [Luca Elia]
+ * リールのレイヤーを改良
+ * xplanの不良タイルを修正
+ * bishjanのホッパーをエミュレート
+
+- m90: ラインスクロールを修正。[Roberto Zandona]
+
+- ARM7: LDBベースレジスタのライトバックバグを修正。[Tim Schuerewegen]
+
+-「Pigskin 621AD」のROMセットにLAリビジョンレベル追加。また「Arch Rivals」と
+ 「Pigskin 621AD」のタイトルに日付を追加。[The Dumping Union]
+
+- F8 CPUコアの割り込みベクタを修正。[Sandro Ronco]
+
+- namcops2:「リッジレーサーV」RRV3 Ver. Aのキーを追加。[Guru]
+
+- TMS3203Xをモダンデバイス化。[Aaron Giles]
+
+- ステートと実行インタフェースから継承したデバイス内でm_machineを使う場合の曖昧さを解
+  消するため、これらから不要なm_machineを削除。[Aaron Giles]
+
+- beezerで正しいノイズソースのmm5837を使用(クロックは少し違うかも)。ただし、ノイズの
+  更新が断続的になる現象があれば修正が必要。[Lord Nightmare]
+
+-「Magic's 10」ドライバの改良: [Roberto Fresca]
+ *「Music Sort」用にゼロから入力を作成
+ *「Music Sort」用のDIPスイッチとDIP配置追加
+ *「Music Sort」用のボタンランプレイアウト追加
+ *「Music Sort」が正しく動作するようにデフォルトNVRAMを作成
+
+- NetBSDのサポート。[Thomas Klausner]
+
+- pollux: スプライトフリップXとYの修正と、古くなったコメントを削除。
+  [Roberto Zandona']
+
+- アト秒機能にオペレータを追加してクラスにコンバート。クラスのオペレータとメソッドに
+  移行するため、これまでのグローバル関数を削除。[Aaron Giles]
+
+- Taito/Irem系ドライバにdriver_deviceクラスを追加することで、グローバル変数・静的変数
+  を完全に削除。[Atari Ace]
+
+- CDiの共有実装を整理: [David Haywood]
+ * MESSのCDiドライバファイルとMAMEのCDiドライバファイルを統合(「Quizard」で使用)
+ * cdimono1システムを「Quizard」の親セット、およびBIOSに設定。「Quizard」系ゲームはプ
+   ロテクト用のJAMMAアダプタ・ドングルが出来るまで、リテールのCDiで動作します
+
+- video/segaic16c、drivers/segaorun.c、drivers/segaxbd.cの匿名タイマを割り当てタイマ
+  と置き換えにより、セーブステート機能が追加可能。[Alex Jackson]
+
+- cave.cとtoaplan2.cの更新: [Alex Jackson]
+ * cave.cの全ゲームでセーブステートをサポート。作業自体は他の人でほとんど完成済みだっ
+   たものの、唯一匿名タイマが常時動作していたためこれがブロックになっていました。今回
+   これを割り当てタイマに変換しました
+ * nmk112ベースのゲームを除くすべてのcave.cゲームで、OKIサンプルバンキングにmemcpy()
+   の代わりにデバイスアドレスマップを使用。もしnmk112.cをデバイスアドレスとバンクポイ
+   ンタを使うようにコンバートする場合には、ご自由にどうぞ。OKIチップ毎に可変サイズの8
+   バンクが必要です...
+ *「アクウギャレット」の日本語ゲーム名を修正
+ * machine/nmk112.cのステート復帰が正しく行われるよう修正。またコードを少し整理
+ * bgareggaのnmk112インターフェースが上のコード整理後でも動作するように修正
+ *「バツグン」の過剰なCPUインターリーブを削除。これは最初にV25を実装したときに残って
+   いたもの
+ * 不要なprintfと古くなったコメント、V25実装のときに残していたものをさらに削除
+
+- twincobr.cとwardner.cにMCFG_SCREEN_RAW_PARAMSを追加でリフレッシュレートを修正。
+  [Alex Jackson]
+
+- 既存のSAVE関数を補足するため基本的なLOAD関数をデバッガに追加。これにより、書き込み
+  可能なメモリに直接バイナリをロードできます。フォーマットは<length>の扱いが異なる以
+  外はSAVE関数と同じです。[Pugsy]
+
+- MESSでdectalkの起動テストを修正するため、68681のパッチ。[Hans Ostermeyer]
+
+- drcuml: Cバックエンドを使うシステムでのコンパイルを修正。[R. Belmont]
+
+- タイマーにスロットマシーンのメカニカルメーターを再実装。[AGEMAME]
+
+- MPU4の変更いろいろ: [AGEMAME]
+ * ちらつきを止めるため、タイミングと入力システムの調整
+ * ちらつきをなくすため、LED描画コードの整理
+ * MPU4ハード使われる既知のエクステンダとリール多重化ボードをすべてサポート
+ * OKIサンプルサウンドカードを部分サポート。一部のタイトルで必要
+ * 旧タイマキャラクタライザを修正
+ * BwBタイトルの調査がしやすいようにいろいろな整理
+
+- Windows版デバッガで、正しいマウスホールイベントハンドラを実装。[Curt Coder]
+
+- emu_timersをオブジェクトにコンバート。タイマの実装と管理部分をスケジューラに移動。
+  TIMERデバイスはtimer.c/.hでの独立したラッパーを保持しています。コールバック関数の文
+  字列化した名称生成を隠すマクロを使うに比べ、新メソッドでは両関数にポインタのみでな
+  く、名称の文字列を渡す必要があります。新マクロのFUNC()で、ポインタと文字列の出力が
+  できます。また、MSTUB()マクロでスタブなラップクラスメンバをコールバックとして出力で
+  きます。[Aaron Giles]
+
+- machine->time()で現在のエミュレートタイムを取得できるよう、machineにtime()メソッド
+  追加。[Aaron Giles]
+
+- デバイスタイマの生成と管理を大幅に簡単にするため、device_tクラスにメソッドを追加。
+  モダンデバイスでこれを使用するように更新。[Aaron Giles]
+
+- デバッガの逆アセでPCカーソルが起動時に必ず表示されるよう改良。[Curt Coder]
+
+- 実機に合わせてMSM5232クロックのPORT_ADJUSTER値を変更。[Fujix, Tafoid]
+
+- スケジューラへのコールへ移行するため、cpuexec_describe_context、
+  cpuexec_boost_interleave、cpuexec_trigger、cpuexec_triggertimeを削除。[Aaron Giles]
+
+- tms57002: ローエンドなハードウェアでのビルド速度をかなり改善。[R. Belmont]
+
+- G65816: charがunsinedなPowerPC Linuxでの動作修正。[R. Belmont, billb]
+
+- emucore.hの汎用テンプレートをemutempl.hに移動。tagged_listテンプレートで、通常の
+  standard_listをラップし、同じ動作をするよう標準化。直接呼び出しの個所をこれに合わせ
+  て変更。[Aaron Giles]
+
+- sigmab98: ズーム修正、プライオリティと反転の追加。[Luca Elia]
+
+- ステートセーブシステムをC++に移動。今のところ、登録用マクロはまだそのまま残っていま
+  す。新クラスのstate_managerは、様々な型を保存するためのテンプレートメソッドを備えて
+  います。テンプレートのカスタマイズによりより複雑なシステム型もクリーンに保存ができ
+  ます(ビットマップやアト秒などと同様)。FUNC()マクロの汎用版であるNAME()マクロを追加
+  し、新メソッドを直接使用するときに登録された変数のラップに使用できます。
+  [Aaron Giles]
+
+- 適切なセーブステートタイプを検出するメカニズムを追加。これは大変厳しい判断をするの
+  で、一部のゲームやデバイスでは対応しない限り致命的エラーが出る可能性があります。
+  [Aaron Giles]
+
+- インタフェースをクリーンするため、暗黙的に現在のデバイスに対するステートを登録する
+  メソッドをdevice_tクラスに追加。既存のデバイスとドライバでdriver_deviceを使うものを、
+  このメソッドをつかうように一括変更。[Aaron Giles]
+
+-　cps1.c: CPS-1の更新: [Team CPS-1]
+ *「天地を喰らう」(Japan Resale Ver.)追加
+ * chikijのBボード番号確認。ROM配置、PAL、基板情報をvideo\cps1.cに追加
+ * sf2ukのラベル修正と基板情報追加
+ * willowjeが純正の米国向け初期版であるのが判明。ノートの追加とwillowjeからwillowoへ
+   の改名
+ * Japan Resale VersionsのXTALが12MHzなのを確認。すべてDASH Aボードを使用
+ * 細かなクリーンアップと修正
+
+- 一部のドライバの割り当てバッファをdriver_dataの配列に移動。[Aaron Giles]
+
+- "run to next CPU"の動作信頼性を向上。[Aaron Giles]
+
+- 64-bitのアドレス空間で32-bitのハンドラを呼び出すときのメモリマネージャーのバグ修正。
+  [Aaron Giles]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Express Card / Top Card [Smitdogg, The Dumping Union, Luca Elia]
+Magic Train [Grull Osgo, Roberto Fresca, David Haywood, Luca Elia]
+X-Train [Smitdogg, The Dumping Union, Luca Elia]
+Music Sort (ver 2.02, English) [Roberto Fresca, Team Europe]
+18 Wheeler [hap, Siftware]
+アニマルキャッチ
+  [Luca Elia, Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+いたずらモンキー 
+  [Luca Elia, Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+California Games (Mega-Tech) [f205v, incog, Smitdogg, The Dumping Union]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+スペースボンバー [hap, N. Francfort, Smitdogg, The Dumping Union]
+トップスケーター (Japan) [Pat Daderko]
+ゼロアワー (set 2) [Andrew Welburn, The Dumping Union]
+Prehistoric Isle in 1930 (Korea) / 原始島 [Artemio Urbina]
+Hidden Catch 2 (pcb ver 1.00) / まちがいさがしゲーム2 (Kor/Eng/Jpn/Chi)
+  [Yohji, Smitdogg, The Dumping Union]
+天地を喰らう (Japan Resale Ver.)
+  [J. Finney, italie, john666, Yohji, Smitdogg, The Dumping Union]
+Red Earth / ウォーザード (961023) [Smitdogg, The Dumping Union]
+ダブルドリブル (プロトタイプ?) [Smitdogg, The Dumping Union]
+テトリスプラス2 (Japan, V2.1) [Yohji, Smitdogg, The Dumping Union]
+バイオレントストーム (ver AAB) [Denis Lechevalier]
+Black Tiger / ブラックドラゴン (older) [David Raingeard]
+
+
+
+追加された未動作ゲーム
+----------------------
+Metal Slug 6 [Guru]
+エヴィルナイト (ver UBA) [Guru]
+お祈り大明神 祭 [Yohji, Kevin Eshbach, R. Mucciarelli, Cah4e3, The Dumping Union]
+Funky Ball [krick, incog, Smitdogg, Guru, The Dumping Union]
+Reno Reels (20p/10GBP Cash, release A) [AGEMAME]
+BwB Tetris v 2.2 [AGEMAME]
+Red Hot Poker (20p/10GBP Cash, release 3) [AGEMAME]
+サムライスピリッツ 天下一剣客伝 [Guru]
+パイ投げ大会 [Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+ハエハエカカカ [Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+大砲でドボーン [Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+Dream Fruit [Yohji, Smitdogg, The Dumping Union]
+ネオプリSP レトロコレクション [Yohji, Smitdogg, The Dumping Union]
+Last Bank [Yohji, Smitdogg, The Dumping Union]

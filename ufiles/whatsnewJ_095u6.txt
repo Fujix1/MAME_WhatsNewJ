@@ -1,0 +1,49 @@
+0.95u6
+------
+
+
+その他の変更
+------------
+内部でのオーディットエラーレポートを改良。[Brad Oliver]
+
+System 18/24ゲームの入力修正と、スタンダード文字列の追加。[B.S.Ruggeri]
+
+Exterminatorドライバ更新。フルメモリマップ実装、スピードハック削除、サウンドの問
+題修正。[Aaron Giles]
+
+ES8712サウンドコア追加で「ヴァリアメタル」のサウンド実装。[Quench]
+
+hachamfとtdragonのDIPスイッチ修正。[Sonikos]
+
+デバッガ終了時に全トレースファイルをクローズするように修正。[Nathan Woods]
+
+「DJボーイ」のOKI周波数修正。[Sonikos]
+
+flytigerのDIPスイッチ修正。[Sonikos]
+
+「Shocking」の3面以降の背景修正。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Choky! Choky! [David Haywood]
+Hollywood Action [David Haywood]
+ダイエットゴーゴー[Bryan McPhail, David Haywood]
+パチンコセクシーリアクション2 [David Haywood, Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Space Fortress (Zaccaria) [Pierpaolo Prazzoli]
+Ambush (Volt Elec co-ltd) [Corrado Tomaselli]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Hoops '96 [David Haywood]
+ダンクドリーム'95 [David Haywood]
+N-サブ [David Haywood]
+ラフレーサー [David Haywood]

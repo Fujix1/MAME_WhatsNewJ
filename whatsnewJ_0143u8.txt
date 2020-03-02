@@ -1,0 +1,251 @@
+0.143u8
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04505: [グラフィック] airbustr and clones: 背景スクロールがカクカクする。(hap)
+- 04497: [クラッシュ/フリーズ] spss4240: 初期化ルーチンで固まる。(Stolistic)
+- 04496: [クラッシュ/フリーズ] m1cluecb, m1przclu: OKを押した後ハングする。
+         (R. Belmont)
+- 04441: [クラッシュ/フリーズ] Most sets in triforce.c: OK画面後にクラッシュする。
+         (R. Belmont)
+- 04502: [クラッシュ/フリーズ] crtaxihr, mj2, mj3, outr2st: 初期化が完了する前にMAME
+         がクラッシュする。(R. Belmont)
+- 04503: [クラッシュ/フリーズ] azumanga, initdv2jo, initdv3jb: 初期化中にAccess 
+         Violationバグが起こる。(R. Belmont)
+
+
+ソースの変更点
+--------------
+- magicfly.cの改良: [Roberto Fresca]
+ * magicflyと7mezzoのCPUクロック確認、及び修正
+ * グラフィックROMのアドレッシングを再構成。両方のグラフィックバンクを分割
+ * 両方のグラフィックバンク用のカラーパレット作成、及び最小化
+ * magicflyと7mezzoの色修正
+
+-「純愛」のDVD吸い出し追加。[alien_mame, The Dumping Union]
+
+- lethalen: 日本版のオフセットスクリーンと光線銃を改良; EEPROMのデフォルト値を削除。
+  [Roberto Zandona']
+
+- taito_z.c:「アクアジャック」に基板レイアウト追加。[ShouTime]
+
+- taitopjc: I/O CPUの実装とテキストレイヤーの試験実装。[Ville Linde]
+
+- taitotz: テキストレイヤーのテスト実装。[Ville Linde]
+
+- viper: タイマとMPC8240のI2Cインタフェース実装。[Ville Linde]
+
+- voodoo: Voodoo 3のテストサポート。[Ville Linde]
+
+- Epson RTC-9701デバイスチップの基本コア作成。[David Haywood, Angelo Salese]
+
+- csplayh5.cのゲーム名を修正。[Fujix]
+
+-「ジュノファースト」のリフレッシュレートと割り込み発生を修正。
+  [Angelo Salese, Chris Hardy]
+
+- higemaru.cよりdeprechat.hを削除。[Angelo Salese]
+
+- srmp6.cよりdeprecat.hを削除。[Angelo Salese]
+
+- naomi: GD-ROMセットで起きていたクラッシュを修正。[R. Belmont]
+
+- ogoun氏のVLM5030デキャップにより確認したテーブルを追加。VLM5030をTMS5XXXの共有テー
+  ブルファイルを使う形に適合。まだ一部の細かい箇所は分析が必要(k=2アドレス以降の
+  k2+ROMについての反射係数について)。[ogoun, Lord Nightmare, The Dumping Union]
+
+- VLM5030のK3からK10の係数は、K2 ROMはリードではなく、インデックス自体<<6 or 7をベー
+  スとするように調整。これにより、音質の改善と、K1とK2以外での係数用RAMサイズが小さい
+  理由が解明。完全に解明するには、さらに調査が必要。[Lord Nightmare]
+
+- gottlieb.cの修正: [Tafoid]
+ * テストプレイ、マニュアル、サービスモードで全てのDIPスイッチを検証。可能な情報を全
+   て使ってDIP配置を確定
+ *「Q*バート」「Q*Bert's Qubes」のジョイスティックレイアウトについて、斜め入力の割り
+  当てを実際通りにできるようにするため8方向に変更
+
+- SH4コアで、ネストしたswitch構文ではなく、単一のオペコードジャンプを使うことで最適化。
+  [David Haywood]
+
+- namcos22.c: フラットシェーディングの深度キュー処理を改良。[hap]
+
+- Golden Pokerドライバの改良: [Roberto Fresca]
+ *「Video Klein」セットでDallas DS1210を使用するものについてはマッピング
+ * 非Dallas Video Kleinセットに、2800-2fffをRAMとしてマッピング
+ * マイナーな修正
+
+-「Witch Card」(Video Klein CPU box, set 2)の色修正。[Roberto Fresca]
+
+-「Novo Play Multi Card / Club Card」の改良: [Roberto Fresca]
+ * 正しいボタンとランプ、レイアウトのサポート
+ * デフォルトNVRAM追加。要起動
+ * テクニカルノート追加
+
+- JPM IMPACTで表示だけ最低限動作するように変更。また、M1セットの分割。[James Wallace]
+
+- YMZ770サウンドチップのテストエミュレート。[R. Belmont, O. Galibert, MetalliC]
+
+- Funworldドライバ: ホッパーモーターラインのドキュメント化(一時的に追加のランプとして
+  追加)。出力ポートのドキュメント改良
+  Novo Play Multi Card: PIAの接続レイアウト追加。'Allow Autohold'のDIPスイッチ追加。
+  [Roberto Fresca, Rob Ragon]
+
+-「Magic the Gathering: Armageddon」のいろいろな改良。[Phil Bennett]
+
+- 入力システムの修正と追加: [kanikani]
+ * デジタルジョイスティック入力で、同時に逆方向の入力ができるように改良
+ * コインインパルスで任意の値を取れるように改良
+ * ループレバールーチンのバグを修正
+ * アナログジョイスティックルーチンのバグを修正
+
+- tnzs.cドライバの修正: [kanikani]
+ * プランプポップ
+ - DIPSWの項目を更新(各プレイヤーの子が衝突していた)
+ - DIPLOCATION追加
+ * エクスターミネーション
+ * リベンジオブDOH
+ * Dr.トッペル探検隊
+ * 火激
+ * 中華大仙
+ * ザ・ニュージーランド・ストーリー
+ - DIPLOCATION追加
+ * 歌舞伎Z
+ - 難易度のDIPSW修正(EASYとMEDIUMが逆)
+ - DIPLOCATION追加
+ * インセクターX
+ - 難易度のDIPSW修正(マニュアルを参照)
+ - DIPLOCATION追加
+
+- tmnt.cドライバの修正: [kanikani]
+ * T.M.N.T.
+ - 表示領域の修正(実機で確認したところ画面左右のゴミグラフィックは正常)
+ - DIPSW修正
+ - DIPLOCATION追加
+ * ゴルフィンググレイツ
+ - 入力修正
+ - DIPSW修正
+ - DIPLOCATION追加
+ * トライゴン
+ * キューブリック
+ * M.I.A.
+ * パンクショット
+ - DIPSW修正
+ - DIPLOCATION追加
+ * プレミアサッカー
+ - DIPLOCATION追加
+
+- ninjaw.cドライバの修正: [kanikani]
+ * 忍者ウォーリアーズ
+ - DIPSWの記述追加
+ * ダライアスII
+ - DIPSW修正
+ - ゲーム名修正
+
+- twin16.cドライバの修正: [kanikani]
+ * 魔獣の王国
+ - 入力修正
+ - DIPSW修正
+ - DIPLOCATION追加
+ * グラディウスII
+ * ハードパンチャー
+ * M.I.A.
+ * キューブリック
+ - DIPSW修正
+ - DIPLOCATION追加
+
+- DIPSW修正 in Darius II [kanikani]
+
+-「忍者龍剣伝 / Ninja Gaiden」のDIPSW修正。[kanikani]
+
+- galaga.cドライバの修正: [kanikani]
+ * ボスコニアン
+ - DIPSW修正
+ - DIPLOCATION修正
+ * ギャラガ
+ * ゼビウス
+ * ディグダグ
+ - DIPLOCATION修正
+
+- segas24.cドライバのDIPSWとDIPLOCATIONを修正。[kanikani]
+
+- segas18.cドライバのDIPSWとDIPLOCATIONを修正。[kanikani]
+
+- segag80r.cドライバのDIPSW修正。[kanikani]
+
+- segag80v.cドライバのDIPSW修正。[kanikani]
+
+- segald.cドライバのDIPSW修正。[kanikani]
+
+-「忍者くん」「ペンギンくんウォーズ」のDIPSW修正。[kanikani]
+
+- dec0.cドライバの修正: [kanikani]
+ * ヘビーバレル
+ - DIPSW修正
+ - DIPLOCATION修正
+ * バーディトライ
+ * ドラゴン忍者
+ * ファイティングファンタジー
+ * ミッドナイトレジスタンス
+ - DIPスイッチ修正
+ * ロボコップ
+ - DIPLOCATION修正
+
+- segaybd.c、segaorun.c、segaxbd.c、segahang.c、segae.c、segac2.c、segas16a.c、
+  segas16b.cドライバの、コインエイジ用共通DIP設定を修正。[kanikani]
+
+- chqflag.c、pooyan.c、rockrage.cドライバでの、コインエイジDIPスイッチ用共通設定を修
+  正。[kanikani]
+
+- sega16b.cドライバの修正いろいろ: [kanikani]
+ * エースアタッカー
+ - I/Oボード読み込みルーチン追加
+ * ダンクショット
+ - DIPLOCATION修正
+ * スケバン雀士竜子
+ - DIPスイッチ追加
+ * タイムスキャナー
+ - DIPスイッチ修正
+
+- sega16a.cドライバの修正いろいろ: [kanikani]
+ * エースアタッカー
+ - アナログデバイスに変更
+ * スケバン雀士竜子
+ - DIPスイッチ追加
+ * タイムスキャナー
+ - DIPスイッチ修正
+
+- ninjakd2.cドライバのコメントを修正、及び追加。[kanikani]
+
+- toypop.cドライバの表示系を最適化。[kanikani]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ワクワクどうぶつランド とんとん [Angelo Salese, Yasuhiro Ogawa, Roberto Fresca]
+Kasino '89 [Roberto Fresca, Rob Ragon, Tomasz Slanina]
+Novo Play Multi Card / Club Card [Roberto Fresca, Rob Ragon]
+
+
+新しく追加されたクローンセット
+------------------------------
+Crash (ヘッドオン海賊版) [f205v]
+ガンバスター (US) [ShouTime]
+Mustafa and 40 Thieves (海賊版)  [f205v]
+Flyball (rev 2) [Siftware]
+バッドランズ (海賊版, alternate) [Tomasz Slanina]
+Witch Card (Video Klein CPU box, set 2) [Roberto Fresca, Team Europe]
+ASO II -ラストガーディアン- / Alpha Mission II (プロトタイプ) [Brian Hargrove]
+バーニングファイト (プロトタイプ) [Brian Hargrove]
+
+
+追加された未動作ゲーム
+----------------------
+詳細不明のTMS9980 Poker Game [Roberto Fresca, Team Europe]
+ハイレートDVDシリーズ5 純愛2 ホワイトラブストーリー [alien_mame, The Dumping Union]
+ナムコスターズ [Yasuhiro Ogawa]
+Sega's Golden Poker Series "Joker's Wild" [Yasuhiro Ogawa]
+リアルパンチャー [Phil Bennett, Chris Hardy]
+Speed Driver [XingXing]
+レーシングジャムDX [Tomas Dahlgren]

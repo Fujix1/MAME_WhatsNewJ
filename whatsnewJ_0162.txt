@@ -1,0 +1,355 @@
+0.162
+-------
+0.162よりMAMEとMESSプロジェクトは一つのエミュレータとして統合しました。以下の変更点は
+両方のものです。
+
+MAMEは現在、フリーかつオープンソースプロジェクトへ変更するための作業を進めています。
+今回のライセンスの変更にあたり、あなたがこれまでに貢献したコードについてMAMEチームか
+ら連絡を受けていない場合、またはソースコード内でのあなたのクレジットが間違っていると
+思われる場合はご連絡ください。
+
+
+MAMETestersの修正バグ
+---------------------
+- 05940: [ドキュメント] (harddriv.c) harddriv: 親セットのリリース年が間違っている。
+- 05936: [クラッシュ/フリーズ] (sigmab98.c) sammymdl: クラッシュする。(Robbbert)
+- 05935: [クラッシュ/フリーズ] (iteagle.c) iteagle: IDE検出失敗時にクラッシュする。
+         (Robbbert)
+- 05910: [クラッシュ/フリーズ] (harddriv.c) racedriv: リセットするとsegmentation
+          faultが起こる。(Alex Jackson)
+- 05911: [システムコア] (harddriv.c) harddriv, racedriv, steeltal, strtdriv,
+          racedrivpan: GSP TIME OUT ERRORが起こる。(Osso)
+- 04911: [画面反転/カクテルモード] (darkseal.c) All games in darkseal.c: 画面反転が全
+         く動作しない。(Osso)
+- 05924: [クラッシュ/フリーズ] (spectrum.c) spectrum: 無限割り込みサービスルーチンル
+         ープバグ。(MetalliC)
+
+
+ソースの変更点
+--------------
+- m24: z8000 APBをサポート。[Carl, Andreas Senk, rfka01]
+
+- gambl186: EEPROMとの通信を更新。[Peter Ferrie]
+
+- VT100のテクニカルマニュアルを参考にVT100ドライバにさらに未吸い出し・必要なROMを追加。
+  GP0基板の未吸い出しROMの名前を修正。[Lord Nightmare]
+
+- 新しいVT320ファームウェア追加。[Matt Burke]
+
+- netlistデバイスを最適化。[Couriersud]
+
+- breakoutにカラーオーバーレイ追加。[Couriersud]
+
+- VT220 V2.1 ROMとVT220キャラクタ生成ROM追加。[Matt Burke]
+
+- VT220のXTAL修正。回路図にNO_DUMPとしてリストされていたROMセット追加。
+  [Lord Nightmare]
+
+- vt240.c: DEV VT240 ROMセット2つ追加とドライバの有効化。
+  [Matt Burke, Balrog, Lord Nightmare]
+
+- N64/N64DDでコントローラ4つとラフなマウスサポート。[LuigiBlood]
+
+- miniboy7: ビデオエミュレーション修正と入力追加。[Sandro Ronco]
+
+- pet_rom.xml: BASIC 2.0用のBASICプログラマーズツールキット追加。[Mike Naberezny]
+
+- DEC Rainbowの更新: [Karl-Ludwig Deisenhofer]
+ * ハードディスク読み書きとリアルタイムクロックサポート、ClikClokカードエミュレート
+ * wd2010: IRQ / (B)DRQシグナル供給でDRIVE_READYとWRITE FAULT (DRDY / WF)を受取可能。
+   シグナルが受けられないときは、WFをGNDに、DRDYをVCCに設定のこと
+ * ds1315 : チップイネーブル / チップリセット / RTCへのファントムライト処理
+
+- TMS99x8モードでの315_5124.cパレットを更新。[nitrofurano]
+
+- OSXでのNO_SDL_GLEXT定義を削除。[mbcoguno]
+
+- VT240: T11 ROMをCPUスペースに正しい順/インタリーブでマッピング。[Lord Nightmare]
+
+- ibm5170.xml: 様々なソースよりディスクを追加: [Justin Kerk]
+ * AcerハードドライブリカバリCDからオリジナルディスクイメージを作成
+ * sashcloudからarchive.orgへのアップロード分
+ * Own Kryofluxの読み込み
+
+- WMSドライバに新しく見つけた項目やドキュメントを大量追加。WMS 360 / 550だと判明した
+  ビデオスロットがある。また、正しいクリスタル、CPU周波数修正、メモリマップ初期版、2
+  つの新セット、技術情報も追加。[Roberto Fresca]
+
+- ブレイクアウト: アンテナ実装とフリープレイDIPを追加。[Couriersud]
+
+- Seiko Epson E0C6200 CPUエミュレーション追加。[hap]
+
+- Mitsubish MELPS 4 CPUエミュレーションの作業開始。[hap]
+
+- WMSドライバ... アナログデバイス ADSP-2105 CPU実装(メモリマップはまだ)。テクニカルノ
+  ート追加。[Roberto Fresca]
+
+- gambl186: 入力＋DIPスイッチの完成、CPU周波数修正、解析結果やテクニカルノート追加。4
+  つのゲームが選択可能で、ルーレット、ビンゴ、ブラックジャックがプレイ可能「Casino 10」
+  (ポーカー)の正常動作にはウォッチドッグの実装が必要。また、ゲーム名を「Multi Game 
+  (Vxxx)」に変更。[Roberto Fresca]
+
+- VT240とVT320: ファームウェアの違いやバージョンナンバーについてDEC-O-LOGサービスノー
+  トへのリンク追加。[Lord Nightmare]
+
+- Netlist: [Couriersud]
+ * 9312デバイス改善 → 速度20%向上
+ * netlist_state_t削除 → 追加値なし
+ * ソルバ内の不要コード削除
+ * 細かな改良いろいろ
+ * パフォーマンスモニタでサブデバイスのものも表示
+ * セーブステートの問題修正
+ * 9312のセーブステート修正
+ * 任意のタイミングパターンを生成できるEXTCLOCKを追加
+ *「ブレイクアウト」でタイミング回路(9316)のタイミング置き換えのため2つのEXTCLOCKを使
+   用。これにより速度が60〜75%改善
+
+- Mini.Boy 7: 筐体写真を元にランプと内部ボタンランプ追加。ランプは現在他の謎の書き込
+  みが同じポートで発生しているので無効化。さらに検証が必要。またコインカウンタも必要。
+  [Roberto Fresca]
+
+- Multi Game (EGD): サウンドはNEC D7759GC駆動の4ビットADPCM。サウンドルーチンの仮実装。
+  まだ作業が必要。[Roberto Fresca]
+
+- gambl186: ペイアウト有効化、ポーカーがなんとかプレイ出来るようにEEPROM動作改良。
+  [Peter Ferrie]
+
+- gtforeセットの訂正。[Brian Troha]
+
+- n64の最適化: [MooglyGuy]
+ * ブレンダのパフォーマンス改善
+ * 不要コードの削除でRDPの速度改善
+ * RDP - スレッド化待ちを削除してパフォーマンス改善
+
+- MAMEはフルビルドを意味するようになりました。MESSドライバのみのビルドは
+  SUBTARGET=mess、アーケードのみのビルドはSUBTARGET=arcadeとして下さい。
+  [Miodrag Milanovic]
+
+- breakoutのレイアウトを画面境界にフィットするよう調整。ライトを丸模様に変更。
+  [Couriersud]
+
+- ダウンサイズ中... netlist_ttl_input_tとnetlist_ttl_output_tを削除。ロジックファミリ
+  はチップによって制御され、デフォルトはTTL。ただし、個別のデバイスが入力や出力のロジ
+  ックファミリを変更する可能性あり。特別な入出力特性、"S"、"LS"、"HC"...などなどを実
+  装して、デバイスの簡略化。理論上は、例えば"LS_HighPrecision"プロキシはトランジスタ
+  レベルへの出力モデルで使用可能。[Couriersud]
+
+- zaxxon.c:「ティップタップ / Congo Bongo」の回路図にあるようにSN76489Aをサウンドに使
+  用。[Lord Nightmare]
+
+- sigmab98.c: スプライト回転を実装。[Luca Elia]
+
+- HLSLシェーダの改良: [Jezze]
+ * シャドウマスクの実装を変更。シャドウカウントXYは画面に反映されるシャドウUVサイズタ
+   イルの数を表す
+ * デフォルトのランドスケープやポートレイトに基づき、シャドウマスクテクスチャの回転を
+   実装
+ * シャドウマスクテクスチャのプレスケールとピクセルボーダーを削除
+ * シャドウUVオフセットを変更するオプション追加。シャドウマスクの色漏れを軽減
+ * マスク処理の変更に伴い、プリセットの調整
+ * デフォーカスオフセット削減
+ * ブラー品質向上のためダウンサンプリングを改良
+ * ブルームレイヤーの整列を実装(ラスタ・ベクタ)
+ * スクリーンショットやAVI録画の出力にブルームエフェクトを適用
+ * 湾曲エフェクトを画面サイズにフィットするよう変更
+ * スキャンラインがブルームレイヤーに入り込まないように変更
+ * シャドウマスクがブルームレイヤーに入り込まないように変更
+ * カラーフロアがブルームレイヤーに影響しないよう変更
+ * シャドウマスクがカラーフロアに影響しないよう変更
+ * イメージのケラレシミュレーションとオプションを追加
+ * 画面四隅の丸めシミュレーションとオプション追加
+ * 画面ライトの反射シミュレーションとオプションを追加
+ * 未使用だった明るさのオフセットを使用
+ * 未使用だったピンクッションオプションを削除
+ * シャドウカウントYオプションが重複していたのを削除
+ * artwork/adapture.pngを削除
+ * artwork/adapture-grill.pngを追加
+ * artwork/shadow-mask.pngを追加
+ * artwork/slot-mask.pngを追加
+ * hlsl/simple.fxを追加
+ * 未使用だったshaders::blit()関数を削除
+ * shaders::screen_pass()関数を追加。画面の(ラスタ)描画を処理をスクリーンショットや
+    AVI録画に反映させる
+ * effect:set_bool()関数追加
+ * OrientationSwapXYシェーダ—パラメータの修正
+ * RotationSwapXYシェーダーパラメータがユーザ定義の画面回転を反映するようにして追加
+ * RotationSwapXYシェーダの不足パラメータを追加
+ * どのような画面比率でも湾曲ズームがフィットするように修正
+ * 画面右下の黒い枠線を修正。前に角丸を追加したときに起きていたもの
+
+- gameking.xml: multigame cartの吸い出し追加。[TeamEurope]
+
+- leapster.xml: 新しい吸い出しをいくつか追加。[TeamEurope]
+
+- msx: msx1_flop.xmlとmsx2_flop.xmlにディスクイメージ追加開始。Riley110氏の部分的な作
+  業を引き継ぎ。[Fabio Priuli]
+
+- 315_5124.cのパレット更新。[nitrofurano]
+
+- Netlist:
+ * ワイルドなBJT_SWオシレーションによるソフトリセットを修正
+ * nld_signal.hを単一のテンプレートにコンパクト化
+ * ノッチによりパフォーマンスを改善する変更
+ * bit rotを防ぐため、常にnl_assertsをコンパイル
+ * breakoutのモニタゲインを調整 [Couriersud]
+
+- breakoutでついにUSE_DEACTIVE_DEVICEが動作。10〜20%のパフォーマンス改善。おまけに停
+  止したデバイスのタイミング正確度を向上。ただし、いまだ一部回路で問題を起こすような
+  不正確なタイミングが残っているのでいまのところ無効化。[Couriersud]
+
+- clifront.c: -romidentで、各ソフトリストが帰属するドライバの数だけ何度もパースされて
+  いたのを一度だけ行うように最適化。さらに、(size != power of 2)となるファイルがスキ
+  ップされる可能性があったのを修正。これは、ROMバイナリのみでなくテープやフロッピーの
+  識別も行いたいため。[Fabio Priuli]
+
+- netlist-levelパラメータ、NETLIST.USE_DEACTIVATEを追加。デバイス無効の最適化は、それ
+  らに対応する回路が提供するnetlist内で有効にできる。[Couriersud]
+
+- 多くのデバイスにtruthtableの実装。デバイスアクティベーション、GCC PMF拡張の使用、さ
+  らにtruthtableによりbreakoutのスピードアップが75%から95%まで向上。NE555の初期ステー
+  トも修正。[Couriersud]
+
+- abc802, abc806, abc1600: 最初のキー押下で無効なデータが送信されるのを修正。
+  [Curt Coder]
+
+- netlistのバグ修正: [Couriersud]
+ * セーブステート動作可
+ * Truthtableデバイスの検出を修正
+ * Truthtable無視マスクの決定を改良
+
+- savquest: WIP [Peter Ferrie]
+ * Voodoo2デバイス実装
+ * 正しいCMOSサイズのためにDS12885デバイスへ切り替え
+ * Voodooレジスタベースを正しい場所に移動
+ * Voodoo専用のPCIレジスタがGlideバリデーションをパスするように改良
+ * 640x480解像度が使える用にフレームバッファサイズを増加
+ * ISAバスとSoundBlaster 16デバイスを実装
+ * HASPエミュレーションが製品情報を返すように拡張
+ * HASPの動作をドキュメント化
+
+- gambl186: EEPROMの動作を改良。[Peter Ferrie]
+
+- peplus.c: Multi-PokerのXM0000Pセットに正しいCG2228グラフィックROMを追加。
+  [BrianT, PowderMaker]
+
+- wyvernf0.c: ゲーム記事をもとにテキスト色とスプライトの横反転を修正。[Luca Elia]
+
+- setjmp.hの使用箇所をMAMEから全て削除。唯一参照される箇所はcpu/powerpc/ppc.cのみ。
+  現在のビルドシステムでこのファイルが実際にコンパイルされるケースを見つけることはで
+  きなかったが、PPC_H_INCLUDED_FROM_PPC_C使用定義がドキュメントされている。
+  [Couriersud]
+
+- TLCS-90 CPU: TURNビットマスキング修正(timers start/stop)。[Rainer Keuchel]
+
+- SPICEのnetlist化進捗。LTSpiceからnetlistフォーマットのように、nltoolでSPICE netlist
+  のコンバートが可能。[Couriersud]
+
+- abc806: RAD PROMの実装でフラッシング、縦2倍角、下線文字をサポート。[Curt Coder]
+
+- gameboy: カセットエミュレーション更新。[Tauwasser]
+ * MBC1、MBC2の詳細修正
+ * MMM01のノートとレジスタ追加
+ * Sachenロゴが正しくでるようSachen MMC1の実装を修正
+ * Sachen MMC2マッパのエミュレーション作成開始
+
+- MOS6532 RIOT書き直し。[Curt Coder]
+
+- AVR8 CPU: I/Oレジスタマッピング修正とログ改良。[Felipe Sanches]
+
+- *nixのmanページのバージョン追加。[Cesare Falco]
+
+- cgenie: ドライバを書き直し、雑な処理を削除 [Dirk Best]
+ * カスタム版6845エミュレーションではなくスタンダードコアを使用
+ * 並列インタフェースにスロットシステム使用。ジョイスティックをスロットデバイスとして
+   実装し、プリンタスロットデバイスを作成
+ * RS-232ポートサポート
+ * Breakキー(NMI発生)をサポート
+
+- abc80: デフォルトを高速コントローラ付きABC 830ディスクドライブに変更。[Curt Coder]
+
+- Cocoaデバッガ: カスタムフォントサイズ選択時の操作系のサイズ自動調整。[Vas Crabb]
+
+- nascom: 整理、NASBUSエミュレーション追加、フロッピーディスクのNASBUSカード化、新型
+  WDCエミュレーションにコンバート、汎用ソケットエミュレーション追加、ソフトウェアリス
+  ト追加
+ * Advanced Video Card(AVC)サポート
+ * 選択可能リスタートアドレスサポート
+ * CP/M版のNascom 2をサポート
+ * フロッピーソフトリスト追加 [Dirk Best]
+
+- voodooの修正 [Ted Green]
+ * PCI memBase1 (non-3d) からのダイレクトLFB読み込みを修正
+ * ピクセルパイプライン書き込み用の深度選択を修正
+ * ラスタライザ用の深度選択を修正
+ * フォグ選択用の深度バイアス処理を修正
+ * ラスタライザの色拡張を修正
+ * アドレスマスクが正しくなるように初期化を変更
+ * voodoo_pci型選択を修正
+ * voodoo_1 pci初期化を修正
+
+- 以下のドライバでセーブステートの追加や完成、有効化:
+ alinvade.c, berzerk.c, bwing.c, cball.c, cchasm.c, darkseal.c, dynduke.c,
+ hvyunit.c, igs009.c, nbmj8688.c, nbmj8891.c, nbmj8900.c, ninjaw.c,
+ popobear.c, renegade.c, snk6502.c, usgames.c, videopin.c, wiping.c.
+
+- sms.c: ドライバの修正。[Enik Land]
+ * Light Phaserの1箇所でデフォルトのオフセット定義
+ * smsjにHCounterをラッチするTH入力処理追加。/HLラインがVDPに接続されているため
+ * コードとコメントのメンテ
+
+- pet_flop.xml: SFD-1001テスト・デモディスク追加。[SPACETAXI]
+
+- abc80: ABCDemoディスクのVSYNC修正と非インタリーブ化。ABCDemoがカセットとディスクの
+  両方で動作。[Curt Coder]
+
+- camplynx: ペースト用の小文字追加
+            カセットのロードとセーブ追加
+            TAPカセットサポート
+            ほぼ全てのプログラムが動作 [Robbbert]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Milton Bradley Lightfight [hap, Sean Riddle]
+Entex Turtles [hap, Kevin Horton]
+Entex Stargate [hap, Kevin Horton]
+ブレイクアウト [Couriersud]
+たまごっち [hap, Digshadow, Natalie, segher]
+Mini-Boy 7 [Sandro Ronco]
+Race Drivin' Panorama (prototype, rev 2.1) [David Haywood]
+Player's Edge Plus (X002297P+XP000053) Jackpot Poker [BrianT, Kevin]
+Golden Tee Fore! [Ted Green]
+Golden Tee Fore! 2002 [Ted Green]
+Golden Tee Fore! 2003 [Ted Green]
+Golden Tee Fore! 2004 [Ted Green]
+Golden Tee Fore! 2005 [Ted Green]
+Golden Tee Fore! Complete [Ted Green]
+
+
+新しく追加されたクローンセット
+------------------------------
+魂斗羅 (US / Asia, set 3) [system11]
+セイブカップサッカー / Olympic Soccer '92 (set 3) [zozo] (not working)
+Player's Edge Plus (XMP00030) 5-in-1 Wingboard (CG2451) [BrianT]
+Entex Space Invader (COP400) [hap, Sean Riddle] (not working)
+
+
+追加された未動作ゲーム
+----------------------
+Monty Plays Scrabble [Andrew Gardner, Rik]
+Master Monty [Andrew Gardner, Rik]
+Castle Toy Einstein [hap, Sean Riddle]
+Coleco Frogger [hap, Kevin Horton]
+Entex Color Football 4 [hap, Sean Riddle]
+Entex Basketball 2 [hap, Sean Riddle]
+Mattel Funtronics Jacks [hap, Sean Riddle]
+Mattel Funtronics Red Light Green Light [hap, Sean Riddle]
+Milton Bradley Plus One [hap, Sean Riddle]
+Tomy Break Up / ブロックアタック [hap, Sean Riddle]
+Hot Toppings (English) [Roberto Fresca]
+Leprechaun's Gold (Spanish) [Roberto Fresca]
+Royal Poker 2 [system11]
+Virtual Pool [The Dumping Union]
+Big Buck Hunter - Shooter's Challenge [The Dumping Union]
+Big Buck Hunter - Call of the Wild [The Dumping Union]
+Crazy Dou Di Zhu [Guru, bnathan]

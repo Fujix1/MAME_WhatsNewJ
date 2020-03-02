@@ -1,0 +1,174 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.127u4</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.127u4.txt</div>
+	<div class="main">
+<div class="wn">
+0.127u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02210: [Misc.] fieldday, undoukai: ゲームが始まらない。u2でのソースタイポ。(MASH)
+- 02240: [Crash/Freeze] All Sets in namcos12.c: ゲームがフリーズする。(Aaron Giles)
+- 02241: [Sound] kncljoe, kncljoea: AY-3-8910Aの効果音が鳴らない。(Aaron Giles)
+- 02248: [Sound] All sets in m58.c: 音が出ない。(Aaron Giles)
+- 02239: [Sound] stunrun: OKI6295の音が出ない。(Aaron Giles)
+- 02249: [Crash/Freeze] All Sets in zn.c: ゲームがフリーズする。(Aaron Giles)
+- 02233: [Speed] chboxing, chwrestl, dokidoki: ゲーム速度の問題。(Curt Coder)
+- 01897: [Original Reference] birdtry: DIPスイッチ設定。(Tafoid)
+- 02242: [Gameplay] ikarijp, ikarijpb: ゲームに移るには、テスト画面が切り替わって行く必要がある。(Nicola Salmoria)
+
+
+
+ソースの変更点
+--------------
+- indytemcの吸い出し直し。スプライトと背景のプライオリティの問題があるので、
+  GAME_IMPERFECT_GRAPHICSを付加。[Dazzer]
+
+- Funworldドライバの改良: [Roberto Fresca]
+ - 新クローン版:「Pool 10」 (italian, set 4)
+ - 全てのゲームのランプレイアウトを改良
+ -「Pool 10」のピンアウトとDIPスイッチの情報を追加
+ - テクニカルノートを更新
+
+- 引き続きI/Oマップ統合作業。[Andrew Gardner]
+
+- Namco NB-xで本物のC75 BIOSを使って、操作系を実ハードと同様に行うよう変更。
+  [R. Belmont]
+
+- magjoker、galaxiでランプとレイアウトをサポート。「Magjoker」のデモシーンが
+  なかなかよいランプ動作をします。[Roberto Fresca]
+
+- staticなハンドラにウォッチポイントがヒットするときのクラッシュを修正。[Aaron Giles]
+
+- Namco NA-2で本物のC70 BIOSを使うよう変更。サウンドと入力のシミュレーションコードを
+  削除。NA-1/2 MCUタイプをM37702に変更。[Phil Bennett]
+
+- arkatourに正しいカラーPROMS追加。[Dazzer]
+
+- 次の情報を元に「メインエベント」の入力を修正:
+  http://otoya.sheep-cloud.net/dipsw/ma-mo/mainevent.html. [9IEM1smI0]
+
+- Jaleco「Bomb's Away」の改良。[aDG4W+qp0]
+
+- sg1000aドライバのリフレッシュレートと割り込みの修正。8255PPIとコインカウンタ追加。
+  [Curt Coder]
+
+- レーザーディスクCHDについて、新しくデコード済みのフレーム情報のメタデータチャンクが
+  必要です。chdmanを改良して、CHDについて適切なパラメータを自動で生成するように変更。
+  既存のCHDについては、chdman -fixavdataで修正できます。[Aaron Giles]
+
+- レーザーディスクコアで、デコード済みフレームメタデータを使うように変更。これは必須
+  です。これによりサーチ操作でのシークタイム改善と、VBIデータへのプレイヤー用エミュレー
+  ションアクセスが即利用できます。コールバックのタイミングを、VBIデータの最初のライン
+  が読み込まれる直前に変更しました。この時点で、選択フレームは確定済みとなります。
+  [Aaron Giles]
+
+- PR-8210エミュレーションを、レーザーディスクプレーヤの実際のMCUを使うように改良。こ
+  のMCUはスライダ位置やレーザーのON・OFF、判定に使用するデコード済みの垂直ブランクデー
+  タの受信など低レベルな操作を行います。以前のHLE処理は削除しました。
+  オーバーレイテキストはUI経由で表示されるので注意して下さい。これは一時的なもので、
+  すぐに修正します。[Aaron Giles]
+
+- Simutrekのハック版レーザーディスクエミュレーションをゲームの実際のMCUを使うように改
+  良。これはPR-8210のMCUに順番にコマンドを送信します。まだ動作は100%ではないですが、
+  ほぼ完成していて、大体のケースで正しく動作します。[Aaron Giles]
+
+-「Cube Quest」のオーバーレイ領域を画面全体に拡大。[Aaron Giles]
+
+- レーザーディスクで、画面領域の位置決めを画面上から画面下に変更。この方が、標準のラ
+  イン番号付けに近くなります。[Aaron Giles]
+
+- vbiparseコードでpack/unpackをサポート。また、VBI全コードの意味をドキュメント化。
+  [Aaron Giles]
+
+- ldplayerで、コマ送りと早送りの操作、フレームとチャプターの表示をサポートと、スキャ
+  ニングとステッピングの操作を分割。[Aaron Giles]
+
+- デバッガにビルトイン変数"frame"を追加。[Aaron Giles]
+
+- ZIPからのROMロードについてもサポートするように、デバイスベースのROMローディングを修
+  正。[Aaron Giles]
+
+- CPU内部領域にプライオリティを復活。SOUND_START関数にハンドラを設定してmarioを修正。
+  [Aaron Giles]
+
+- epos.cのDIPスイッチ処理と改良と、DIP配置追加。[Tafoid]
+
+- dec0ドライバのDIP配置追加。[Tafoid]
+
+- 技術的にクローン版ではないので、「NBA Jam TE」を「NBA Jam」から分離。[Atari Ace]
+
+-「シャドーフォース」について、CPUクロック及びOKI M6295周波数とピンの訂正と確認。
+  [Corrado Tomaselli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+ファイヤーフォックス (レーザーディスクサポートはまだ) [smf]
+
+
+
+新規クローンセット
+------------------
+Tengai / 戦国ブレード (World) [Jet Black / Tormod]
+Pool 10 (italian, set 4) [Roberto Fresca]
+Hot Mind (adjustable prize) [David Haywood, Roberto Fresca]
+マーヴルVSカプコン -クラッシュ・オブ・スーパーヒーローズ- (Euro 980123) [bonky_0013]
+Three Wonders / ワンダースリー (hack?) [EMMA team]
+
+
+
+追加された未動作ゲーム
+----------------------
+Funny Land de Luxe [Tomasz Slanina]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

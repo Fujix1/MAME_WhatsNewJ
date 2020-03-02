@@ -1,0 +1,66 @@
+0.104u9
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+cerberus0104u7yel [Aaron Giles]
+carnevil0104u7gre [Aaron Giles]
+raveracw0104u7red [Aaron Giles]
+f1en097u1gre1 [Anonymous]
+
+
+
+ソースの変更点
+--------------
+- kof2003のp3ROM復号化を追加。[iq_132]
+
+- デバッガのコメント行指定を'#'から'//'に変更。[Nathan Woods]
+
+- makefileでコマンドラインによるMAMEOSとTARGETのオーバーライドを可能に修正。
+  [smf, Aaron Giles]
+
+- gswordsが以前の更新で壊れていたのを修正。[Tatsuyuki Satoh]
+
+- コールバック動作するようにエラーログ取りをクリーンアップ。複数の出力ソースが可
+  能。またWindowsビルドの-oslogオプションも修正。[Nathan Woods]
+
+- デバッガの"do"コマンド修正。[Aaron Giles]
+
+- ステートのセーブとリストアを発生させるためにタイマーの使用法を元にもどす必要が
+  ありました。これによりシステムのタイマーがひとつ少なくなり、過去のバージョンの
+  セーブステートが動作しなくなったと思われます。残念ながら、現在のセーブステート
+  システムはこのような変更に対して非常に敏感になってます。将来的に対応する予定で
+  す。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+女子バレーボール [Tatsuyuki Satoh]
+Toppy & Rappy [David Haywood]
+
+
+
+新規クローンセット
+------------------
+牌砦II 仇討外伝 (German) [Corrado Tomaselli]
+リバーパトロール (Orca) [David Haywood]
+ゲットスター (bootleg, set 2) [David Haywood]
+スラップファイト (set 2) [David Haywood]
+魚ぽこ / Puzzle Uo Poko (International) [Corrado Tomaseli]
+ファイナルファイト (US 900613) [Murray Melvin]
+Ninja Kazan / 伊賀忍術伝 (World) [Stefan Lindberg]
+Eyes (Zaccaria) [David Haywood]
+パワードリフト (World Set 2) [Uncle Tom]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ステッピングステージ [David Haywood]
+とべ！ポリスターズ [Ville Linde]
+バトルトライスト [Ville Linde]
+Heat of Eleven '98 / ザ・ワールドサッカーチャンピオンシップ [Ville Linde]
+エヴィルナイト [Ville Linde]
+セガラリー2 DX [Uncle Tom]

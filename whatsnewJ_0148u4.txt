@@ -1,0 +1,139 @@
+0.148u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+
+
+ソースの変更点
+--------------
+- tms5110r.c: TMS5200 LPC ROMが腑分けにより正確だと確認。[digshadow, Lord Nightmare]
+
+- tms5110r.c: TMS5100 LPCテーブルを腑分けを元に検証と修正。
+  [digshadow, Lord Nightmare]
+
+- tms5220.c: 'circuit 412'の特許情報に合わせてコメントの更新、変数名変更、マイナーな
+  修正。[Lord Nightmare]
+
+- m6502: 未ドキュメント化命令0x80は1バイトNOPではなく2バイト。[O. Galibert]
+
+- SDL: 内部ファイルマネージャによるsymlink処理を修正。[qmc2]
+
+- naomi: cvs2gd、senkoo、ss2005のGD-ROMを再吸い出し。[f205v]
+
+- braveff: マスクROMを吸い出し。[Guru, R. Belmont]
+
+- netlist.h: GCC 4.3以前用の修正。[Federico Schwindt]
+
+- naomi: confmiss、sprtjam、vstrik3、dygolfのGD-ROMを再吸い出し。[f205v]
+
+- simple_setデータ構造体を追加して、デバッガのコメントシステムに実装。
+  [Andrew Gardner]
+
+- naomi: mok、shaktamb、vtennis2、ngdup23a、vf4evo、initdexp、initdv3j、senkosp、
+  initdv3eの再吸い出し。[f205v]
+
+- hikaru: braveffとsgnascarのテストモードでのチェックサムを元に、不良ROMの吸い出し直
+  し。[Guru]
+
+- suna16.c: 基板のドキュメント、「バックストリートサッカー」「ウルトラバルーン」両基
+  板レイアウト追加。「バックストリートサッカー」「ウルトラバルーン」「Best of Best」
+  のDIP配置追加。CPUクロックを実機のOSDベースに変更。[Brian Troha]
+
+- tms5220.c: 腑分け解析を元に、TMS5220とTMS5220Cで同一のLPCテーブルを使用。不要な追加
+  テーブルを削除。[Lord Nightmare, digshadow]
+
+- PSX GTE: NCDS、CDP、NCDT、NCCS、CC、NCS、NCT、NCCTの加算後のオーバーフローをチェッ
+  クすることでFLAGの演算を改善。[smf]
+
+-「ファイティングゴルフ」(US)で、DIPSWITCHの変更を含む"SNKプログラム更新"などから親
+  セットとの違いについて詳しく追加。[Tafoid, Shane Chaneman]
+
+- primrag2: PCBのReadMeによると8MB RAMがあるのでそのように変更。[R. Belmont]
+
+- mxが3、またはcvが2に設定されたときの、MVMVAフラグ演算修正とバグの再現。[smf]
+
+- esripsys.c - サイクル単位で正確な6809コアによって起こっていた不具合を修正。
+  [Phil Bennett]
+
+- PSX GTE: RTPSフラグと演算の修正。[smf]
+
+- QTデバッガ: dasmウィンドウでプログラムカウンタの移動場所を示すtrackpcコマンドを追加。
+  オプションを表示するにはデバッガ内で"help trackpc"とタイプ。[Andrew Gardner]
+
+- PSX GTE: RTPTフラグ演算修正と、使用テーブルが大幅に小さい新型divideを追加。[smf]
+
+- RAMサイズ設定用の1f801060を部分的にサポート。実メモリよりも大きなサイズが設定される
+  とRAMをリピートする。RAMがドライバのメモリマップに含まれなくなったため、machine側で
+  サイズを指定する必要がある。[smf]
+
+- Fruit: VGA BIOSミラー、RAM容量、HDD書き込み可不可を修正。[Carl, R. Belmont]
+
+- superchs.c: メインCPUクロック、ROMラベルを修正。「スーパーチェイス」にPLD追加。
+  [Porchy, Brian Troha, The Dumping Union]
+
+- 6850acia.c: DCDシグナル処理を改良。[Wilbert Pol]
+
+- arcadia.c:「Magic Johnson's Fast Break」と「Leader Board」で使用しているSEC-SCPA 
+  PALを追加。[Kevin Eshbach]
+
+- PSX CPUによって生成されるRAMデバイスにより、デバイスの削除時にハッシュマップから子
+  デバイスを削除していない問題が判明。今のところ、device.cをハッシュマップがリセット
+  された場合、全てのデバイスを削除するように変更。[smf]
+
+- segas18.c: ddcrewjの317-0185復号化キーを追加。[Porchy, Charles MacDonald]
+
+- QTデバッガ: メインデバッグウィンドウ内のドックを含む開いている全ウインドウの設定を
+  保存するように更新。また、×ボタンを押してメインウィンドウを閉じたときに設定が正し
+  くセーブされないバグを修正。[Andrew Gardner]
+
+- taitotz.c: pwrshovlの追加I/OボードROMを再吸い出し。[Tormod]
+
+- iteagle: ドキュメントの更新。[Guru, Brian Troha]
+
+- OS X: OS XネイティブとUNIXスタイルのマルチユーザインストールを両方サポート。
+  [R. Belmont, Nick Boos]
+
+- iteagle: 1.02ブートROM、FPGAコンフィグROM、PALを追加。[Brian Troha]
+
+- SDL: デバッガ有効時に*IX系でフォントキャッシュを二重にシャットダウンするのを修正。
+  [R. Belmont]
+
+- pacman.c: オリジナルの「パックマン」ROMを確認して親セットに設定。[Andy Welburn]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Spooky Night 2nd Edition (Version 2.0.4) [Sara S.]
+Spooky Night (Version 1.0.1) [Sara S.]
+Good Luck II [Roberto Fresca, f205v]
+
+
+新しく追加されたクローンセット
+------------------------------
+Wing Shooting Championship V1.00 [Brian Troha, The Dumping Union]
+D.D.クルー (Japan, 4 Players, FD1094 317-0185) [Porchy, The Dumping Union]
+Se Gye Hweng Dan Ultra Champion (Hong Kong)
+  [Brian Troha, Smitdogg, The Dumping Union]
+Back Street Soccer (larger ROMs) [Brian Troha, Smitdogg, The Dumping Union]
+ナックルヘッズ (Japan, Prototype?) [Arzeno Fabrice, The Dumping Union]
+Oriental Legend Special / Xi You Shi E Zhuan Super (ver. 103, China, Tencent) 
+ (unprotected) [XingXing]
+怒首領蜂II (various sets) [Mr. CAST, Smitdogg, Tormod, The Dumping Union]
+スーパーチェイス -クリミナルターミネーション- (World) [Porchy, The Dumping Union]
+アルカノイドリターンズ (Ver 2.02O 1997/02/10) [Sonic, Smitdogg, The Dumping Union]
+Ball Boy [The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+GTI Poker? (SMS hardware) [Kevin Eshbach, Roberto Fresca]
+シャカっとタンバリン！ 2K1 SPR (GDR-0013)
+  [gamerfan, CaH4e3, Smitdogg, The Dumping Union, R. Belmont]
+Fruit [Any, R. Belmont]
+Pinball 2000: Star Wars Episode 1 [R. Belmont, José Renato Castro Milanez]
+Pinball 2000: Revenge From Mars (rev. 1) [R. Belmont, José Renato Castro Milanez]
+Pinball 2000: Revenge From Mars (rev. 2) [José Renato Castro Milanez]
+Golden Tee Fore! 2004 [R. Belmont, Brian Troha, uncletom]
+Golden Tee Fore! 2005 [R. Belmont, Brian Troha, uncletom]

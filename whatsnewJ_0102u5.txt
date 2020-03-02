@@ -1,0 +1,134 @@
+0.102u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+dspirit099u2yel [BUT]
+mjkjidai097u2gre [Mamesick]
+suprnova0102u4red [Aaron Giles]
+nbmj8991c095u2yel [Mamesick]
+grchamp055yel [Hans Andersson]
+grchamp137b12gre [Hans Andersson]
+grchamp237b12gre [Hans Andersson]
+vulcan137b1gre (part 2, and maybe parts 4 and 5) [Pierpaolo Prazzoli]
+gunlock097u2yel [Nicola Salmoria]
+gekirido096u3gre [Nicola Salmora]
+ssi061gre [Nicola Salmoria]
+ssi137b2gre [Nicola Salmoria]
+ctribe088u4gra [Mamesick]
+groundfx068gra [Mamesick]
+tengai062gre [AWJ]
+
+
+
+ソースの変更点
+--------------
+* ディスクリートフィルタコードのバグ修正。[Frank Palazzolo]
+
+* znpwfvが起動するようにスピードアップを修正。[Mariusz Wojcieszek]
+
+* cuoreunoとelephfamの改良: [Roberto Fresca]
+ - ビデオRAMとカラーRAMを訂正 (nvramの初期化がされます)
+ - CPU周波数を2MHzに訂正
+  ただしまだ動作せず...
+
+* Playchoice/VSNESドライバの修正。[Rob Bohms]
+
+* MESSとMAMEでNES APUの実装を共通化。またPlaychoice10ドライバのAPUメモリマッピン
+  グを訂正。[R. Belmont]
+
+* Psikyo 4 PCMバンキングの実装。[Anonymous]
+
+* Grand Championドライバを大幅に更新: [Hans Andersson]
+ - トンネルのヘッドライト
+ - 雨のエフェクト修正
+ - 色修正
+ - ボイス追加
+ - 当り判定改良 (雷時の不良当り判定削除)
+ - フォグエフェクト改良
+ - モーターノイズ音のスケルトンコード追加
+ - 画面一番下列の表示不具合修正
+ - CPUボード、ゲームボード用のCPU速度修正
+
+* Aleck64ドライバにN64 PIF起動ROMのシミュレーション版追加。これによりカートリッ
+  ジが正しく起動しますが、どちらのゲームデモカートリッジのCRCチェックはパスしま
+  せん。[Ville Linde]
+
+* 旧デバッガの命令のアライメントを修正。また、64bit qwordの表示サポート。[AWJ]
+
+* chaknpopのCPUとMCU間のタイミング修正。以前のドライバでは水の面とコーヒーブレー
+  クで問題があった。新ドライバではこれらが修正されているもののタイミングは不完全。
+  [BUT]
+
+*「Honey Dolls」にサウンド追加。[David Haywood]
+
+* activecpu_dasm()とactivecpu_dasm_new()について、getinfoハンドラが
+  CPUINFO_PTR_DISASSEMBLEやCPUINFO_PTR_DISASSEMBLE_NEWを指定しなくても動作するよ
+  うに変更。[Nathan Woods]
+
+*「Xマルチプライ」のDIPスイッチを完全に。[Roberto Fresca]
+
+* m6809、hd6309、Z80の逆アセンブラを新インターフェースに移行。クリーンアップも少
+  し。[Nathan Woods]
+
+* SPC700コアのSUBW Hフラグ修正。[Rob Bohms]
+
+* rsgunの動作に必要な機能を追加。[Olivier Galibert]
+
+* SP0250の更新: [Nicola Salmoria]
+ -「スリーストゥージーズ」にSP0250スピーチチップ追加
+ -「スリーストゥージーズ」が動作しない原因だったタイミングの問題が起きないように
+   改良
+ - スピーチフレームがロードされたときフィルタステージをリセットしなかったために
+   不具合が起きていたのを修正
+ - SP0250で外部クロックレートをサポートするように改良
+ - クロック分周を正しい数にして再生レートを実機にマッチするように変更
+
+* 新デバッガコマンド“map”追加。これはどのリードライトハンドラがアドレスに結び
+  ついているかについて、論理->物理マッピング情報を取得します。また、“mapd”と
+  “mapi”も追加。データとI/Oスペースについて同様の操作をします。[Aaron Giles]
+
+* Voodooを更にアップデート: [Aaron Giles]
+ - 1/Wの演算がオーバーフローしてテクスチャが乱れるを修正
+ -「ガントレットダークレガシー」で使っている色合成処理を追加
+
+*「Tenth Degree」が動作しない原因だったMIPS3のリコンパイラバグ修正。
+  [Aaron Giles]
+
+*「ロードバーナーズ」で必要なADSP-2181の機能を追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+モザイク (F2 System) [Pierpaolo Prazzoli]
+VS.ホットスマッシュ [Nicola Salmoria]
+Noah's Ark [David Widel]
+トップローラー [Tomasz Slanina]
+スカッシュ (Ver. 1.0) [David Haywood, Mike Coates]
+
+
+
+新規クローンセット
+------------------
+カリフォルニアスピード (Version 2.1a) [Reznor007]
+ガントレット ダークレガシー (version DL 2.52) [Reznor007]
+てんこもりシューティング (Japan) [Guru]
+ソウルキャリバー (SOC11/VER.B) [smf]
+鉄拳 タッグトーナメント (TEG3/VER.C1) [smf]
+Quiz [Pierpaolo Prazzoli]
+King of Gladiator (ザ・キングオブファイターズ'97 海賊版)
+Crouching Tiger Hidden Dragon 2003 (ザ・キングオブファイターズ2001 海賊版)
+King Of Fighters 10th Anniversary (ザ・キングオブファイターズ2002 海賊版)
+The King of Fighters Special Edition 2004 (ザ・キングオブファイターズ2002 海賊版)
+Lansquenet 2004 (ショックトルーパーズ セカンドスカッド 海賊版)
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+実戦麻将王 [Tomasz Slanina, David Haywood]
+Little Robin [David Haywood, Pierpaolo Prazzoli]
+Ghoul Panic (OB2/VER.A) / オーバキューン [Guru]
+三国戦紀 2 - ナイツオブヴァラー

@@ -1,0 +1,84 @@
+0.144u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04546: [グラフィック] pinbo, pinboa, pinbos: 背景の色が間違っている。(hap)
+- 04542: [クラッシュ/フリーズ] quiztvqq: ゲーム開始後、マップ画面でクラッシュする。
+         (Fabio Priuli)
+- 04541: [DIP/入力] qdrmfgp : スタートキーを押してもゲームが始まらない。
+         (Angelo Salese)
+- 04538: [クラッシュ/フリーズ] Many sets: -video d3d使用時、32ビットのWindows XPで、
+         終了時にクラッシュする。
+
+
+ソースの変更点
+--------------
+- segas32.c:「F1スーパーラップ」のROMラベル訂正と、基板部品の配置図を追加。
+  [The Dumping Union]
+
+- 不出来な関数interrupt_enable_w()とcpu_interrupt_enable()をコアから削除。また、これ
+  らを使用していたドライバ全てを合わせて更新。ドライバの変更点は以下を参照:
+    http://mamedev.emulab.it/kale/fast/files/cpu_irq_enable.zip
+  [Angelo Salese]
+
+-「バーディ」の音不具合を修正。他のパックマン基板ゲームのIRQと異なり、マスクが$5000で
+  はなく$5001。この修正により、音も改善。[Angelo Salese]
+
+-「イーアルカンフー」の不正確なマスクビットを修正(以前は、IRQマスクビットが両方のラ
+  インをマスクしていた)。[Angelo Salese]
+
+-「出世大相撲」のサウンドCPU用のIRQマスクを修正。[Angelo Salese]
+
+- SNK6502ハードウェアゲームのIRQマスクビットを修正(以前は、IRQマスクビットが両方のラ
+  インをマスクしていた)。[Angelo Salese]
+
+- 以下のドライバでdeprecat.hを使わないように更新: [Angelo Salese]
+ * alpha68k.c
+ * astrocorp.c
+ * bartop52.c
+ * beezer.c
+ * cps2.c
+ * maxaflex.c
+ * namcos22.c
+
+- yieartfセットにサウンド追加。[Angelo Salese]
+
+- 汎用RAMDACデバイスを作成し、sfbonus.c、blitz68k.c、ritennis.c、chsuper.cドライバで
+  実装。[Angelo Salese]
+
+- i386プロセッサにオペコード3つ追加(sfence, fstp, fild)。[Samuele Zannoli]
+
+- MSVCでコンパイルできるようにap2_dsk.cとgaelco3d.c/.hを少し変更。[Samuele Zannoli]
+
+- Chihiroと関連のあるハックで、無限ループを防ぐためohci USBコントローラのプレースホル
+  ダを追加。これによりChihiroでDIrect3Dの初期化と、nvidia 3Dアクセラレータの初期化を
+  試みるまで動作。[Samuele Zannoli]
+
+- chsuper.cをADDRESS_MAP_MODERNにコンバート。[Angelo Salese]
+
+-「ギャルズパニック3」のクロックとxtalを実機測定により検証。[Corrado Tomaselli]
+
+- Alpha68k II / VハードウェアゲームにサウンドNMIマスクを追加。[Angelo Salese]
+
+-「Beezer」の正しい縦画面表示にコンバート。[Angelo Salese]
+
+-「スーパースピードレースJr.」の表示を縦方向にコンバート。[Angelo Salese]
+
+- CPS-1の更新: [Team CPS-1]
+ * pang3nが海賊版と判明。記述を追加
+ * pang3、pang3jで、pang3n用にリサイズされたものに代えて、正しい128KB EPROM 
+   PA3_11.11Fを使用
+ * dino、dinouのCD63B.1A PALを吸い出してい追加 (Kold666)
+ * dino、dinou、punisher、punisheru、slammast、slammastu、wofu(4つ中3つ)のQ-Sound PAL
+   を吸い出して追加 (Kold666)
+ * pang3(3つ中2つ）、pang3r1、pang3j、pang3nのPALを吸い出して追加 (Kold666)
+ * pang3n → pang3bに改名
+ * 細かな整理と修正
+
+
+新しく追加されたクローンセット
+------------------------------
+スペースガン (Japan) [ShouTime]
+スペースガン (US) [ShouTime]

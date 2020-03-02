@@ -1,0 +1,1399 @@
+0.124a
+------
+
+- 0.124でサウンドルートの割り当てが間違っていたのを修正。[Aaron Giles]
+
+- gngaのステータスを以前の状態に巻き戻し。[David Haywood]
+
+
+
+新規クローンセット
+------------------
+魔界村 (bootleg with Cross) [David Haywood]
+
+
+
+0.124
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+01586: [Multisession] bluehawk: グラフィック化け (Reip)
+01433: [Graphics] marvins: プレイヤー2のとき迷路がそのまま残っている (Reip)
+01601: [Misc.] orbit: ゲームが始まらない。ウォッチドッグの問題? (Aaron Giles)
+01584: [Misc.] exerion, exerionb, exeriont: アサート (Aaron Giles)
+01560: [DIP/Input] turpin: コインが入らない (RansAckeR)
+01525: [Misc.] wilytowr, atomboy: ウォッチドッグリセット (RansAckeR)
+01524: [Misc.] btoads: アサート (Zsolt Vasvari)
+01557: [Misc.] dealem: アサート (Zsolt Vasvari)
+00059: [Graphics] commsega, locomotn, tactcian: 画面領域の問題 (Nicola Salmoria)
+00406: [Graphics] qadj: 忍者が歩いているときのアニメーションが化ける
+       (Nicola Salmoria)
+
+
+
+ソースの変更点
+--------------
+- bbusters: スプライトのラッピングを修正。少なくともこれはガンのキャリブレート画
+  面で使われています。まだゲームはサービスモードをOFFにしたときに黒画面で固まり
+  ます。MAMEを終了させて再スタートしてもダメなので、多分EEPROMの問題です。
+  [Zsolt Vasvari]
+
+- MSM5232エミュレーションにノイズ出力追加。[Nicola Salmoria]
+
+- equites.cにシンバルとハイハット用のプレースホルダ的なエフェクトを追加。これら
+  については、ディスクリート回路を正しくエミュレートするために作業が必要です。
+  [Nicola Salmoria]
+
+- cidelsaドライバを最新の状態にクリーンアップ。[Curt Coder]
+
+-「激走」にNVRAM追加。入力の修正。動作可能に格上げ。[Nicola Salmoria]
+
+- 未マップのハンドラマスクが全部のアドレスを0と報告しないように明示的な修正。
+  [Aaron Giles]
+
+- _WIN32_WINNTの定義を一箇所に集中。リンク時のオーバーライドである
+  malloc/calloc/realloc/freeを削除: コンパイル時のオーバーライドのみになります。
+  mingw-w64が動作するようにいくつか改良。ただし、リンカの問題が残っています。
+  [Aaron Giles]
+
+- skullxboとexerionのアサートを修正。[Aaron Giles]
+
+- ui.cのdeprecationを削除。[Aaron Giles]
+
+- xmlfile.cについて、メモリオーバーライドを正しく管理するために、expatへのメモリ
+  ハンドラを渡すように変更。[Aaron Giles]
+
+- wbbc97が壊れていたのを修正。[Zsolt Vasvari]
+
+- crospang.cの不具合を修正。これにRGB15が必要な理由は不明。INDEXED16なら正常に動
+  作。[Zsolt Vasvari]
+
+- [GTICLUB] クラッシュを修正。[R. Belmont]
+
+- [SCSI] デバイスが無いケース (sys573 BIOSを直接動作させるときなど) を修正。
+  [R. Belmont]
+
+- Konami PPCゲームのほとんどがまた動作するように修正。[R. Belmont]
+
+- kviper BIOSのクラッシュ修正。[R. Belmont]
+
+- crystal.cをRGB15からRGB32へ変更。RGB15では5-6-5カラースペースを保持するには不
+  十分です。[Zsolt Vasvari]
+
+- astrof.cでタイマデバイスを使うように更新。[Zsolt Vasvari]
+
+- dgpixとeolith: INDEXD16にコンバート。一時用ビットマップを削除。見苦しかった再
+  帰的なビデオRAMコードを変更。[Zsolt Vasvari]
+
+- ddz: RGB15を削除。スケルトンドライバなのでいらないのでは? [Zsolt Vasvari]
+
+- video\generic.c: 共通の16-bit RGBパターン用関数にPALETTE_INITを追加。
+  [Zsolt Vasvari]
+
+- f-32、kinst、lethalj、ultrsprt、gamecstl、taitowolfでINDEXED16を使うようにコン
+  バート。[Zsolt Vasvari]
+
+- MC6845でプログラム的にクロックピンを指定するオプションを追加。MESSドライバで必
+  要。Herculesグラフィックアダプタ用にmc6845_set_hpixels_per_column()を追加。
+  [Zsolt Vasvari]
+
+- xtheballのビデオタイミングを修正。最近これが変更された理由は不明。ただ、新パラ
+  メータで古い値を再現しています。[Aaron Giles]
+
+- video.cで不要なアサートが画面の無いゲームをおかしくしていたので削除。
+  [Dirk Best]
+
+- zombraidのガン入力ポートをキャリブレートした設定で動作するように変更。
+  [Derrick Renaud]
+
+- malzak2のクラッシュを修正。[Zsolt Vasvari]
+
+- gngaのグラフィックROM修正。[Cesare Falco]
+
+- 入力ポートタグの重複についてバリディティチェック。重複が見つかったドライバを修
+  正。[Aaron Giles]
+
+-「カベール」海賊版のクロック訂正。[Corrado Tomaselli]
+
+- blockhl.c, blockout.c: DIP配置追加。UnknownのDIPスイッチ修正。[RansAckeR]
+
+- mpu4でPERIODIC_INTが間違って使われいるのを削除して、新しいタイマデバイスに置き
+  換え。MPU4ビデオを使うゲームの50Hzタイマを訂正。[James Wallace]
+
+- tx1.cのバグ修正。gcc 4.3.0の新コンパイラによる警告。[Atari Ace]
+
+- static/const/includeの修正。[Atari Ace]
+
+- orbitのビデオタイミングをrawパラメータを使って再修正。完全なメモリマップの追加
+  とクリーンアップをいくか。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+激走 [Nicola Salmoria]
+マーメイド [robiza]
+
+
+
+新規クローンセット
+------------------
+リッジレーサー (Rev. RR3, World) [Andrea Turci]
+
+
+
+0.123u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01520: [DIP/Input] wilytowr, atomboy: DIPスイッチ情報
+- 01236: [DIP/Input] psurge: コイン入力ができない
+- 01521: [Gameplay] ar_sdwr: タイトル画面でハング
+- 01477: [Gameplay] metamrph, metamrpj, metamrpu: ゲームが始まらない
+- 01452: [Misc.] boobhack: クラッシュ
+- 01474: [Sound] ninjakd2, ninjak2a, ninjak2b, rdaction: サウンド関係の問題
+- 01461: [Misc.] mazinger: ウォッチドッグメッセージが出てリセットする
+- 01440: [Speed] mazingar, agallet: 特定の場面でスローダウンする
+- 01087: [Misc.] spbactn, spbactnj: デバッグビルドでクラッシュ、ノーマルビルドで
+         表示化け
+- 00223: [Graphics] splndrbt: 最初の面で、小惑星を過ぎた背景は黒ではなく青
+- 00220: [Graphics] splndrbt: 実機の背景は歪んでいる
+- 00217: [Graphics] splndrbt: 実機の起動画面の背景は青色
+- 01531: [Misc.] ポリゴン系 drivers: winwork.c メモリリーク
+- 00150: [Misc.] alpinr2b, alpinesa : -debugでアサート
+- 01462: [Save/Restore] atarimo_render-based drivers: オートセーブ読み込み時にク
+         ラッシュ
+- 01538: [Core] -verifysamples: 不明サンプルの動作が不安定
+- 01491: [Interface] switchresでエラーが起こる
+- 01529: [Misc.] AICAのメモリリーク
+- 01511: [Save/Restore] batman: オートセーブの読み込みができない
+- 01536: [Misc.] uballoon: -debugでAccess Violationエラー
+- 01535: [Misc.] usclssic: -debugでAccess Violationエラー
+- 01465: [Misc.] topgunnr: クラッシュ
+- 01534: [Misc.] ajax, ajaxj, typhoon: -debugでAccess Violationエラー
+- 01019: [Sound] Various Drivers: サウンドクリッピング
+- 01499: [Multisession] Various Drivers: 内蔵UIからゲームを数回起動するとエラー
+- 01453: [Misc.] troangel, newtangl: クラッシュ
+- 01463: [Misc.] connect4, mpu4met0, mpu4tst2, mpu4utst, bctvidbs: アサート
+- 01475: [Misc.] vblankコールバックにより画面の無いシステムが壊れている
+- 01486: [Gameplay] meritm.c: Access Violationエラー
+- 01530: [Misc.] Various Drivers: ビットマップのメモリリーク
+- 01508: [Misc.] most vector-based drivers: アサート
+- 01527: [Misc.] all meritm.c drivers: アサート
+- 01528: [Misc.] pzlestar, sexyboom: アサート
+- 01522: [Misc.] all ddragon.c drivers: アサート
+- 01523: [Misc.] nkdodge, nkdodgeb, spdodgeb: アサート
+- 01524: [Misc.] btoads: アサート
+- 01526: [Misc.] futflash, laserbas, laserbsa: アサート
+- 01507: [Misc.] all naomi.c drivers: アサート
+- 01503: [Misc.] sidearjp, sidearmr, sidearms: アサート
+- 01509: [Misc.] backfire, backfira: アサート
+- 01501: [Misc.] all m107.c drivers: アサート
+- 01504: [Misc.] all leland.c drivers: アサート
+- 01506: [Misc.] all ataxx.c drivers: アサート
+- 01500: [Misc.] all astrocde.c drivers: アサート
+- 01514: [Misc.] all cyberbal.c drivers: アサート
+- 01515: [Misc.] all atarig42.c drivers: アサート
+- 01516: [Misc.] all atarigx2.c drivers: アサート
+- 01517: [Misc.] all atarigt.c drivers: アサート
+- 01505: [Misc.] all vicdual.c drivers: アサート
+- 01512: [Misc.] beathead: アサート
+- 01496: [Misc.] all segae.c drivers: Access Violationエラー
+- 01498: [Gameplay] otwalls: ゲーム直前に固まる
+
+
+
+ソースの変更点
+--------------
+- タイマー用の新しいデバイス型を追加。また、適用可能な箇所には、emu_timerの代わ
+  りにdevice_configを取る並列なのタイマ関数セットを追加。マシンドライバ内でタイ
+  マを定義するMDRV_TIMER_*マクロを追加。周期型とスキャンラインベースの両タイマを
+  実装。「スペースエンカウンター」と「センチピード」でこの機能を使用しています。
+  これを周期的なタイマを生成する場合の最適な方法とします。[Zsolt Vasvari]
+
+- *_vbl_cbを*_vblank_callbackに改名。[Aaron Giles]
+
+-「Magicfly」の更新: [Roberto Fresca]
+ - コンポーネントリストと基板レイアウト完成
+ - レジスタ$63(拡大)の技術的な資料を追加
+ - クリスタルを新しいフォーマットに切り替え
+
+- Funworld製ゲームの更新: [Roberto Fresca]
+ - jolyc980に正しい入力追加
+ - jolyc980の"コード"画面をバイパスできるように一時的なパッチ追加
+ - テクニカルノートを更新
+
+- exidy440_sound_commandを"UNIT8"に差し戻し。が8bitと16bitのシステム両方で使われ
+  るため、UINT16 **へのキャストが必要な場合は自動割り当ては意味がありません。
+  exidyファイルの一部からdeprecat.hを削除。[Zsolt Vasvari]
+
+-「エアバスター」の海賊版がウォッチドックのせいでリセットするのを修正。
+  [Zsolt Vasvari]
+
+- オンスクリーンメッセージの"Reset by watchdog"をデバッグビルドだけで表示するよ
+  に変更。[Zsolt Vasvari]
+
+- megatechゲームの上画面を修正。[Zsolt Vasvari]
+
+-「Gorf」に内部アートワークを追加。[Mr. Do!]
+
+- clifront.cのメモリリークを修正。[Zsolt Vasvari]
+
+- ドライバからどのスクリーンにどの照準を表示するかを指定するための関数
+  crosshair_set_screen()を追加。[Nathan Woods]
+
+- ドライバがセーブステートをサポートしているとき、セーブステートコールバックの登
+  録が間違ったタイミングで行われた場合、致命的なエラーが起こるように変更。
+  [Aaron Giles]
+
+- device_startコールバックで、前後関係があいまいな問題があったのを修正。
+  [Aaron Giles]
+ 
+ - DEVINFO_INT_TOKEN_BYTESを追加。これは、デバイスのスタートアップ前に必要です。
+   0ではなく、device->tokenから割り当てられる構造体のサイズを返す必要があります
+
+ - コアデバイスインターフェイスについて、device_startを呼び出す前に、
+   DEVINFO_INT_TOKEN_BYTESのサイズのメモリブロックの確保と内容のゼロ化。このメモ
+  リへのポインタは、device_startを呼び出した時点で既に、device->tokenにアタッチ
+  されています
+
+ - これを導入した主な理由は、オブジェクトが完全に構成されているかのように、
+   device_startが内部コールを行い、device_config *を渡すことできるようにするため
+   です。デバイスが生きているかを示すのにトークンを使っているため、これにより、
+   device_startが呼び出された時点では、デバイスが生きていると設定します。
+
+- 画面毎の初期化をコアビデオ部のDEVICE_STARTに、画面毎の後処理をDEVICE_STOPに移
+  動。[Aaron Giles]
+
+- スクリーンが見つからない場合、render_target_get_minimum_size()が最小の値を返す
+  ように修正。[Aaron Giles]
+
+- Alpha Denshiの大幅アップデート: [Nicola Salmoria]
+ - Alpha 8201/830x MCUシミュレーションを修正
+   - equitesドライバから全てのハックを削除
+   - equitesで、地下面に行ってからのリスタート位置を修正
+   - hvolumeとsplndrbtのプレイヤー2を修正
+   - exctsccr2からハックを削除
+   - shougiのCPU動作を修正
+ - Alpha 8201 MCUを使用するゲームに追加 (ROMは未使用。HMCS44 CPUコアが必要)
+ - equites.cのクリーンアップ:
+   - 貴重なハードウェア情報について、Corrado Tomaselli氏に感謝
+   - PROMを使った背景スクロールを実装
+   - スプライトのフリップと無効化を修正
+   - 背景色修正
+   - 背景をタイルマップにコンバート
+   - 前景のバンキングを修正
+   - 画面反転を修正
+   - 意味も無くプレイヤー入力をバンクしていたのを削除
+   - MSM5232周波数のUIによる調整を追加
+   - MSM5232の音量調整
+ - MSM5232ノイズLFSR処理法を修正 (サンプル提供はCorrado Tomaselli氏; 作業は
+   Jarek Burczynski氏)
+ - MSM5232エミュレータがチャンネルを分けて出力するように変更
+ - MSM5232エミュレータのソロチャンネル出力を追加
+ - champbasの入力を修正
+ - champbasとtalbotを統合。ドライバのクリーンアップ
+ - shougiの入力を修正
+ - exctsccbが正しいグラフィックROMを使うように変更 (バグID 01058にあるスクリーン
+   ショットに合うように)
+ - exctscrrのスプライト色数を修正。色の修正と透過表示に使われていたとんでもない
+   ハックを削除
+ - exctsccrのサウンドクリッピングを修正
+ - equites.cのゲームにサンプルを使用したパーカッションを追加; サウンドボードのエ
+   ミュレーションはまだ不完全です。シンバルヒット音とハイハットが無く、ベースラ
+   インも不正確、またDAC出力はフィルタリングする必要があります
+
+- spbactnのクラッシュ修正。[Zsolt Vasvari]
+
+- drawgfxで、不要なペンの検索を削除。コードフォーマットのクリーンアップ。
+  [Zsolt Vasvari]
+
+- ninjakd2のPCMサンプルレートを基板の値に合うように修正。[Nicola Salmoria]
+
+- Windowsでのchdman -extractを物理ドライブに修正。[Aaron Giles]
+
+- video_screen_update_partial()で、VIDEO_UPDATEが結果として呼び出されたかを示す
+  値を返り値として追加。[Aaron Giles]
+
+- pitnrunの周波数の間違い修正。[Corrado Tomaselli]
+
+- DIPスイッチの改良: [RansAckeR]
+ 1945kiii.c, 88games.c and 40love.c: PORT_DIPUNKNOWN_DIPLOCを使用
+ 40love.c: PORT_INCLUDEを使用
+ 8080bw.c: DIP配置をさらに追加。PORT_INCLUDEを使用
+ wilytowr.c: atomboy/wilytowrのDIP配置追加。コインモード修正
+ battlane.c, battlera.c, battlnts.c, bbusters.c: DIP配置追加
+ battlnts.c: PORT_INCLUDEを使用。不明なDIPを修正
+ bbusters.c: ガンのキャリブレーションについて記載
+ bionicc.c: DIP配置追加
+ bladestl.c: DIP配置追加。PORT_INCLUDEを使用
+ blockade.c: PORT_INCLUDEを使用
+ beezer.c: DIP配置追加
+ bfm_sc2.c: PORT_INCLUDEを使用
+
+- 基板上にHD6845があり、さらにVBLANKの生成に使用されているので、値をハードコード
+  する代わりにMPU4ドライバでHD6845を使うようにコンバート。ネットワークにプルダウ
+  ンレジスタを追加。後期の筐体(Ready Steady Go-1以降)では、10pスロットがロックア
+  ウト(これ用のtrueレジスタの位置は不明)されていますが、入力設定は正確です。お金
+  の投入にはコイン2以上を使います。[James Wallace]
+
+- SH-4 CPUをデバッグ中にデバッガウィンドウに"ゴミ"が出るのを修正。
+  [Oliver Stoenberg]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+激走 [Nicola Salmoria]
+Pot Game (italian) [Roberto Fresca]
+
+
+新規クローンセット
+------------------
+ピットフォールII (315-5093, Flicky Conversion) [Corrado Tomaselli]
+サンダードラゴン (4th Jun. 1991) [Corrado Tomaselli]
+
+
+
+0.123u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+01216 [Tomasz Slanina]
+00898 [couriersud]
+01436 [Aaron Giles]
+01480 [robiza]
+01482 [Zsolt Vasvari]
+01429 [RansAckeR]
+00593 [RansAckeR]
+01478 [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+-「Electric Yo-Yo」のちらつき修正。qixドライバで、MC6845のVSYNC通知を割り込みと
+  してして使うように変更。[Zsolt Vasvari]
+
+- device_get_infoとdevice_set_infoの一部からmachine引数を削除。デバイスで情報を
+  保持するようになったため。[Aaron Giles]
+
+- デバイスインターフェイスについて、トークンとデバイスコールバックへの各ビットで
+  はなく、device_config *を渡すように変更。これに合わせて、既存のデバイスを全て
+  更新。[Aaron Giles]
+
+- インデックスによる画面参照を削除するためと、ビデオシステムがスクリーンデバイスを
+  確実にベースとするように多くの変更: [Zsolt Vasvari]
+ * vblank_state_changed_funcで、device_configをとるように変更
+ * VBLANKコールバックの第一引数としてのrunnning_machineを削除
+ * running_machineからvideo_dataを削除
+ * private state screen informationがpublicのものに従属
+ * video_globalとvideo_privateを一つの構造体に統合
+ * screen_stateのポピュレートをmame.cからvideo.cに移動
+ * defstateを削除; デフォルトのスクリーンパラメータはscreen_configが直接持ちます
+ * refreshをパブリックから内部ビデオステートに移動して、frame_periodに改名
+ * これまでrefreshにアクセスしていた全てのドライバについて、
+   video_screen_get_frame_period()を使うように変更
+ * VIDEO_UPDATE定数がスクリーンデバイスを渡すように変更
+ * running_machineにconst device_config *primary_screenを追加
+ * video_screen_*関数の第一引数にdevice_configを取るように変更; スクリーン番号に
+   0を使っていた呼び出し元全てを、machine->primary_screenに変更
+ * ゲーム情報画面とオーバーレイUIで、スクリーン番号の代えてスクリーンタグを表示
+   するように変更
+ * video_screen_get_visible_area()を追加
+ * render.cでスクリーンデバイスを使うように変更
+ * ドライバによるmachine->screen[]配列への直接参照を削除
+ * video_screen_auto_bitmap_alloc(screen)を追加
+ * Dynax/「ドンデンラバー」系の更新をVIDEO_EOFからVIDEO_UPDATEに変更。これにより
+   パレットの問題が修正された模様
+ *「カルノフ」のスワップしたビデオRAMを正しく実装 -- 「バーガータイム」同じアイ
+   ディア
+ * public screen_stateオブジェクトを削除 -- 全て関数経由でアクセスします
+ * running_machineから、screen[]オブジェクトを削除
+ * 定数MAX_SCREENSを削除 -- ハードコードした上限は廃止しました
+
+- MC6845で、device_configのみを扱うように変更。これによる以下の結果は他のデバイ
+  スについても当てはまります: [Zsolt Vasvari]
+ - running_machineを使わない
+ - mc6845_tをprivateに変更
+ - device_configを渡すのはデバイスの型安全ではないので、渡されたデバイスが有効な
+   型かどうかをチェックする関数、get_safe_token()をmc6845.cに追加
+
+-「ギャラガ」でビデオタイミングがわずかにずれたことでクラッシュしていたのを修正。
+  [Zsolt Vasvari]
+
+- アドレスマップをトークンにコンバート。address_map構造体について、グローバルな
+  マップ幅の情報を保持し、各アドレス範囲に対応するエントリリストに依存するよう変
+  更。これらの構造体の生成と破棄のため、新関数address_map_alloc()と
+  address_map_free()を導入。必要な箇所についてコードを全て更新。[Aaron Giles]
+
+- アドレスマップ内の、porttagtohandler*()のインスタンスを修正。ドライバでは代わ
+  りとしてAM_READ_PORT()を使って下さい。[Aaron Giles]
+
+- ADDRESS_MAP_STARTと同様に、ADDRESS_MAP_EXTERN()でもデータビット数を指定するた
+  めにADDRESS_MAP_EXTERN()が必要です。[Aaron Giles]
+
+- ADDRESS_MAP_FLAGS()を削除。これまでの処理を置き換えるため、新マクロを3つ追加。
+  ADDRESS_MAP_GLOBAL_MASK(mask)は、全てのアドレスについて、アドレス空間幅のグロー
+  バルなマスクを指定します。ADDRESS_MAP_UNMAP_LOW/HIGHは未マップの読み込み動作を
+  指定します(これらは0か~0で復帰)。[Aaron Giles]
+
+- 内部メモリマッピングの動作について、2つのマップを管理する方法から、単一のアド
+  レスマップにバイト位置をずらした値も合わせて保持する方法に変更。[Aaron Giles]
+
+- MC6845がスクリーン番号からスクリーンタグを取るように変更。
+  [Zsolt Vasvari]
+
+- Voodooで、スクリーン用にdevice_configを取るように変更。[Zsolt Vasvari]
+
+- TMS34010がスクリーン番号からスクリーンタグを取るように変更。[Zsolt Vasvari]
+
+- 以下のマクロを置き換え (SMH == スタティックメモリハンドラ)
+
+   MRA*_BANK*/MRA*_BANK* -> SMH_BANK*
+   MRA*_RAM/MRA*_ROM     -> SMH_RAM
+   MRA*_ROM/MWA*_ROM     -> SMH_ROM
+   MRA*_NOP/MWA*_NOP     -> SMH_NOP
+   MRA*_UNMAP/MWA*_UNMAP -> SMH_UNMAP
+
+  これにより、フェイクの型定義による余計な定数が必要なくなります。[Aaron Giles]
+
+- メモリシステム用の定数をmemory.cに移動。[Aaron Giles]
+
+- atarigenとtms34061をハンドルベースにコンバート。[Zsolt Vasvari]
+
+- MAMEの不要な関数を増やさないために、コンパイル時にPowerPC MMUを有効にする方法を
+  変更。[Nathan Woods]
+
+- メモリシステムをさらにクリーンアップ: [Aaron Giles]
+ * バイトオフセットに対するアドレスを全体で明示的に変更
+ * 未使用のパラメータを削除
+ * 初期化プロセスを統合化
+ * メモリブロックの最大数を削除
+ * バンク処理を集約
+ * マスクしたハンドラとchange_pcをアクセサに追加
+ * 指定したアドレス空間/データバス幅/エンディアン設定について、これらのアクセサ
+   へのポインタを返すmemory_get_accessors()を追加
+
+- 6845の派生版追加: MC6845-1, H46505, HD6845 and SY6545-1 [Zsolt Vasvari]
+
+- 照準の処理コードをvideo.cから独自モジュールに移動。照準のロジックをシンプルに
+  して、スクリーンデバイスベースに変更。[Zsolt Vasvari]
+
+- MultiPCMのクリッピングについてサチュレート演算処理とエンベロープが途切れるのを
+  修正。[ElSemi]
+
+- ドライバのデフォルト値が演算されている場合のミキサ設定の読み込みを修正。
+  [Nicola Salmoria]
+
+- cpu_scalebyfcount()を削除。入力ポートがフレームコールバックを登録するように変
+  更。これは、スロットル時と更新時の直後に呼び出されます。これは、実時間とエミュ
+  レートされた時間との厳密な"同期点"となります。アナログポートとデジタルポートの
+  処理は全てここに集約しました。直前のフレーム更新からの時間のトラッキングを追加
+  して、それを現在のフレームの時間を見積もるために使用しています。これは、
+  cpu_scalebyfcount()を使わずにアナログポートのスケーリングをするために使われま
+  す。ただし、フレームレートが変化する場合(ベクターゲーム)については完全ではあり
+  ませんが、他の場合ではうまく動作します。[Aaron Giles]
+
+- VBLANKの終了時間の計算とvideo_screen_get_vblank()を修正 -- これらは、
+  MDRV_SCREEN_VBLANK_TIMEを使うゲームを想定していませんでした。[Zsolt Vasvari]
+
+- 68000のプリフェッチ命令を修正。これまでの動作は正しくありませんでした。
+  [Aaron Giles]
+
+- slapstic処理について、常にopbaseのハンドラを設定して、slapstic領域でのコードの
+  実行をより積極的にキャッチするように変更。全てのドライバで、固定ROMから
+  slapsticのROM領域を異なるROMセクションに分けるように更新。[Aaron Giles]
+
+- superqix.cの変更: [Mike Haaland]
+ - 画面描画の問題を修正するため、vblankの割り込みを3に変更
+ - メモリ設定にmemory_configure_bank()を使用
+ - セーブステート追加
+
+- u4でwhat'snewにはあったものの、ミスで追加されていなかったクロック周波数の変更を
+  追加。[Corrado Tomaselli]
+
+-「Electric Yo-Yo」の角部分を隠すためにレイアウト追加。[Mr. Do!]
+
+- Genesis/MegaDrive版の「バーチャレーシング」を動作させるため、Sega Virtua 
+  Processorをサポート。MESSで使用。これはSSP1601のCPUコアで構成されています。
+  またmegadriv.cを更新: [notaz]
+ * SVPが実際にはSSP1601を含むことから、SSP1610をSSP1601と置き換え。ただ、現在の
+   SSP1610はただのプレースホルダ(ほとんど実装されていない状態)です。
+ * megadriv.cを変更して、Genesis/MegaDrive+SVPの組み合わせように新ドライバ追加。
+   また、SVPのメモリコントローラと、メモリマップを追加。
+
+-「Deal 'Em」の入力変更第二弾(デフォルトの筐体ではうまく動作しますが、完全に修正
+  するには条件付き入力が必要です)。また、resnetコードへの変換。残念ながら、これ
+  ではまだ透過処理が直っていません。[James Wallace]
+
+- punchout.c、bankp.c、baraduke.cで入力のシンプル化、DIPスイッチの改良、DIP配置
+  の追加。[RansAckeR]
+
+- asuka.cで、memory_configure_bank()によりcpu2のバンクを設定するための
+  MACHINE_START( asuka )を作成。「カダッシュ」とクローンでは背景が正しくロードさ
+  れないのを除いて、それ以外の全てのゲームでセーブステートをサポート。
+  [Mike Haaland]
+
+- M68000のビルドロジックについて、有効にした場合だけインクルードするように修正。
+  [Fabio Priuli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Amuse (Version 50.08 IBA) [Pierpaolo Prazzoli]
+Joker Poker (Version 16.03B) [Pierpaolo Prazzoli]
+Super Bowl (Version 16.03B) [Pierpaolo Prazzoli]
+Pit Boss II [Mariusz Wojcieszek]
+Super Pit Boss [Mariusz Wojcieszek]
+Pit Boss Megastar [Mariusz Wojcieszek]
+Megatouch IV [Mariusz Wojcieszek]
+Megatouch IV Tournament Edition [Mariusz Wojcieszek]
+Megatouch 6 [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+ライデンファイターズ (Austria) [Corrado Tomaselli]
+
+
+
+0.123u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+00817 [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+- MC6845のアップデート: [Zsolt Vasvari]
+ * 同期ピンの0→1と1→0のどちらの遷移もシグナル化
+ * mc6845_assert_light_pen_inputを追加; ライトペンアドレスのラッチング用タイマ
+ * デバイスのリセット機能追加
+ * VSYNCの高さの演算結果が、MotorolaとRockwellのデバイスで異なるのを実装
+ * Commodore 40xxコンピュータではHSYNC幅をスキャンラインの終端を超えてプログラム
+   するため、I am clamping it in lack of anything better to do
+ * Commodore 6545-1デバイスタイプをサポート
+ * ステータスレジスタをサポート
+ * 変数名の改良
+ * アサート追加
+
+- "Input (This Game)"メニューで条件付きの入力をサポート。[stephh]
+
+- Amigaベースのゲームを、partialアップデートとスキャンラインベースの正しいタイマー
+  にコンバート。[Zsolt Vasvari]
+
+-「Space Guerilla」のクリーンアップ開始。画面回転などを修正。[Zsolt Vasvari]
+
+- tmpbitmapを一部ドライバから削除。[Zsolt Vasvari]
+
+- mame_bitmapをbitmap_tを直接使用するものと置き換え。mame_bitmap typedefを削除。
+  [Zsolt Vasvari]
+
+- 一部のゲームでクラッシュを起こしていたtaitoicのバグを修正。[Zsolt Vasvari]
+
+- VBLANK_INTの処理方法を変更:
+ - 新マクロMDRV_CPU_VBLANK_INT_HACK()をdeprecat.hに定義。これは現在の
+  MDRV_CPU_VBLANK_INT()のコピーです
+ - 各フレームで2回以上の割り込みとVBLANK_INTが使われている箇所を全て見つけ、
+   新マクロと置き換え
+ - MDRV_SCREEN_VBLANK_INT()から"# per frame"パラメータを削除。その場所にスクリー
+   ンタグを追加; 全ての呼び出し元を更新
+ - validate.cに、割り込み設定についてのバリデーションを追加
+
+- SH4のリフレッシュチック値を修正。awbiosがタイマーシステムを壊すのを修正。
+  [R. Belmont]
+
+- dkongドライバで、これまで使っていなかった2つのディスクリート構造体を使用: 
+  [couriersud]
+ * dkongの歩く音でjump構造体を使用
+ * radarscpで、dkong 555構造体を使用
+
+- MACHINE_DRIVER_EXTERNでセミコロンが一つ必要になるよう変更。余分なセミコロンを
+  削除。[couriersud]
+
+- memory.c: 実行されたことがないコードを削除: [couriersud]
+ * READ*マクロから"return 0"を削除
+ * type FPTR < 0とFPTR >= 0の比較を削除
+
+- 未使用のコードを見つけて、"#ifdef UNUSED_FUNCTION"を追加。[couriersud]
+
+- Naomi: IRQソースについてマジックナンバーからdefineを使うよう変更。VBL-outを追
+  加。[R. Belmont]
+
+- AICAスロットモニタリングを改良(まだ不完全)。[kingshriek]
+
+-「Jackpot Joker Poker」から「SSI Poker」のセットを分けるため、親子関係を変更。
+  [Roberto Fresca]
+
+- cpuexec_data構造体から未使用の項目を2つ削除。画面表示が無いドライバがVBLANK割
+  り込みをしないことを確認するバリディティチェックを追加。[Zsolt Vasvari]
+
+- デバイス関数を定義するマクロを追加。既存のデバイスでこのマクロを使うように更新。
+  [Aaron Giles]
+
+- デバイスクラスのコンセプトを導入。デバイスはクラスをget_info関数で定義します。
+  クラスにより、タイプに比べより全般的なレベルでのデバイス参照が可能です。タイプ
+  同様にクラスによってデバイス全体について反復処理を行うための関数を追加しました。
+  [Aaron Giles]
+
+- device_configから未使用なフィールドを削除。[Aaron Giles]
+
+- ビデオタイミングロジックを全てcpuexec.cからvideo.cに移動。VBLANKのコールバック
+  登録用にvideo_screen_register_vbl_cb()関数を追加。inptport.cとdebugcpu.cで、
+  VBLANKコールバックを使うように変更。video_screen_get_time_until_vblank_start()を
+  追加。かなり広範囲なテストは行いましたが、これはとても大きな変更のため、不具合
+  が起こるかもしれません。[Zsolt Vasvari]
+
+- CVSドライバからcpu_scalebyfcount()を使っている部分を削除。[Zsolt Vasvari]
+
+- globalな関数の多くをstatic化。[couriersud]
+
+- コンパイラに依存する可能性があったコードを書き直し: [couriersud]
+ * osdcomm.hにATTR_FORCE_INLINEを追加
+ * ATTR_NONNULLを追加
+ * U64 S64 fram mamecore.hをosdcomm.hに移動
+ * osdcomm.hに、ppc602とppc603向けのSETJMP_GNUC_PROTECT()を定義
+
+- cpu_getcurrentframe()を削除して、video_screen_get_frame_number(int scrnum)と置
+  き換え。呼び出し元を全て更新。[Zsolt Vasvari]
+
+- ウォッチドッグ処理ロジックを独自のモジュールへ移動。[Zsolt Vasvari]
+
+- tp84.cでのスプライト多重化ハックを、スプライトRAM書き込み時の
+  video_screen_update_now()と置き換え。またドライバ全体のクリーンアップ。
+  [Zsolt Vasvari]
+
+-「ジャイラス」: タイルマップへ変換。スプライトの多重化を修正。ドライバのクリー
+  ンアップ。[Zsolt Vasvari]
+
+- z80dmaで新デバイスインターフェイスを使うように変更。mario.cとdkong.cも新インター
+  フェイスを使うように更新。既存のメモリリード・ライトハンドラをキープする方法を
+  解説。これはデバイスインターフェイスをキャッシュするよりも遅い方法ですが、この
+  場合のように低周波数でのデバイスアクセスによる影響がありません。[couriersud]
+
+- video_screen_get_time_until_vblank_end()とvideo_screen_get_time_until_update()を
+  追加。[Aaron Giles]
+
+- CCPUとQB3がcpu_scalebyfcount()に依存しないよう修正。CCPUコアでのタイミングがお
+  かしくなっていたのを修正。外部のウォッチドッグを使わず、内部的なウォッチドッグ
+  でカウントするように変更。CCPUがドライバからの割り込みシグナルを受け付けるよう
+  に変更。cinematドライバのクロックをクリスタルから割り出すように更新。
+  [Aaron Giles]
+
+- 関数ポインタのtypedefを規格化: 全て_funcという添え字がつきます。コア全体と個人
+  的に慣れているドライバについて行いました。[Aaron Giles]
+
+- PORT_CHANGEDマクロを追加。指定したポートが変更された場合コールバックを呼び出し
+  ます。使い方はPORT_CUSTOMととても似ています。使用例は「アストロインベーダー」
+  ドライバを参照。[Zsolt Vasvari]
+
+- input_port_set_changed_callbackを削除して、全てPORT_CHANGEDにコンバート。以前
+  のコールバックとの唯一の違いは、PORT_CHANGEDが返す値がPORT_CUSTOMのようにbit 0を
+  基準にしたものに統一されていることです。[Zsolt Vasvari]
+
+- CUSTOM_INPUTコールバックにrunning_machine*を追加。使用するドライバを更新。
+  [Zsolt Vasvari]
+
+- brkthru.c、btime.c、exerion.c、fcombat.c、astrof.c、cheekyms.c、cinemat.cで、
+  PORT_CHANGEDを使うように更新。必要な箇所についてメモリマップの統合。cheekyms.cを
+  タイルマップに変換。[Zsolt Vasvari]
+
+- XからZで始まるドライバのメモリマップを統合。[Andrew Gardner]
+
+- Exidy440: CUSTOM_INPUTとINPUT_CHANGEDを使って、入力ポートを近代化。例外処理の
+  クリーンアップ。ドライバとビデオコードの分割を改良。[Zsolt Vasvari]
+
+-「ピーカブー！」のクロックとOKI Pin7を検証。[Mike Ellery]
+
+-「ファイアートラック」ドライバを整理。ギアシフトロジックなどでPORT_CUSTOMと
+  PORT_CHANGEDを多く使用。[Zsolt Vasvari]
+
+- ladybug.c、lasso.c、m10.c、madalien.c、maxaflex.cでコインエイジにPORT_CHANGEDを
+  使うよう更新。[Zsolt Vasvari]
+
+- リード・ライトハンドラ全てに引数running_machine *を追加。全てのcall-throughな
+  ハンドラも必要に応じて更新。read8_handlerをread8_machine_funcに改名。その他全
+  てについても同じパターンで処理。[Aaron Giles]
+
+- 新メモリ処理関数を定義。これまでと似たものですが、running_machine *の部分に
+  device_config *を渡します。これらはread8_device_funcなどと呼びます。
+  このタイプを指定するためのマクロ、READ8_DEVICE_HANDLER()を追加しました。
+  [Aaron Giles]
+
+- device_configにrunning_machine *追加。トークンと同様に、デバイスが生きている間
+  有効で、その他の場合はNULLです。[Aaron Giles]
+
+- Meadowsドライバの更新: [Zsolt Vasvari]
+ - メモリマップをマージ
+ - コイン用にPORT_CHANGEDを使用
+ -「Inferno (S2650)」を「Inferno (Meadows)」に改名
+ -「Bowling 3D」「3-D Bowling」に改名
+ -「ジプシージャグラー」のボールのグラフィックについてNO_DUMPエントリ追加。また
+   GAME_IMPERFECT_GRAPHICSフラグも追加
+
+-「エクセリオン」のスプライト色修正。[Zsolt Vasvari]
+
+- 新マクロ、AM_DEVREAD、AM_DEVWRITE、AM_DEVREADWRITEを追加。これは、アドレスマッ
+  プ内について、参照するデバイスのタイプ・タグと共に、デバイスのリード・ライトハ
+  ンドラを指定します。[Aaron Giles]
+
+- MC6845のリード・ライトハンドラをREAD/WRITE8_DEVICE_HANDLERにコンバート。MC6845を
+  使う全てのドライバで新マクロに、またアップデートした関数を呼び出すように更新。
+  この目的のために使われていた多くのヘルパー関数を削除。[Aaron Giles]
+
+- 実際に存在するデバイスを参照しているかを確認するバリディティチェック追加。
+  [Aaron Giles]
+
+- 画面情報について、オリジナルの設定値ではなく、現時点の情報を表示するよう修正。
+  [SailorSat]
+
+- 以下のドライバについて、DIPスイッチ定義の改良、DIP配置の追加、入力ポートのシン
+  プル化: atarisy2.c, atetris.c, avalnche.c, bagman.c, balsente.c, lasso.c, 
+  seta.c. [RasnAckeR]
+
+- onetwo.cにDIPとDIP配置追加。[Sonikos]
+
+-「Deal'Em」の不具合とバンク読み込み修正。[James Wallace]
+
+- 以下の基板についてクロックの変更または確認: [Corrado Tomaselli]
+  1943、アルカノイド、Action Hollywood、ギャルズパニック、べんべろべえ、
+  グレート1000マイルズラリー、ピット&ラン、原始島、ラスタンサーガ、HotMind、
+  Hard Timtes、ステッガーI、虎への道
+
+- 以下の基板について、Oki pin 7の変更または確認: [Corrado Tomaselli]
+  グレート1000マイルズラリー、ギャルズパニック、Action Hollywood、HotMind、
+  Hard Times、World Rally、ステッガーI
+
+- listxmlのDTDに新しいディスプレイタイプを追加。[Oliver Stoneberg]
+
+- 内部のアドレスマップコンストラクタを変更: [couriersud]
+ * construct_map_##_nameにはrunning_machineパラメータを渡す
+ * AM_BASE_MEMBERとAM_SIZE_MEMBERの"Machine->"を"machine->"に変更
+ * construct_address_mapで、Machineを渡す
+
+-「ミステリアスストーンズ」を"完全治療"。[Zsolt Vasvari]
+
+- 8085 RST75がPULSE_LINEで動作しないのを修正。データシートによれば、他のマスク可
+  能な割り込みがサンプルされている間、RST7.5は立ち上がり時にラッチされます。
+  [Nicola Salmoria]
+
+- AM_SPACEとマッチマスクのサポートを削除。関連ドライバについては、同じ動作をする
+  ためにAM_MIRROR()とAM_MASK()を使うように更新。[Aaron Giles]
+
+
+
+0.123u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+connect4_0123u2red [Aaron Giles]
+multiscreeninfo0123u2gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- megasys1.c基板のクロック速度訂正。実際のゲームもこれくらい遅いのです。
+  [Brian Troha]
+
+- Makefileとビルドシステムの更新: [couriersud]
+ * verinfo: 新構文採用。次のようになります:
+     verinfo.exe -b windows|winui|mess
+   コンパイル時の定義には依存しなくなりました
+ * makefileは、src/osd/$(CROSS_BUILD_OSD)/build.makがある場合はインクルードしま
+   す。これはwinui用のクロスビルドに必要です
+
+-「クローク&ダガー」のビデオコードをクリーンアップ: [Zsolt Vasvari]
+ - resnetへコンバート。1K pull-upのため、表示色の彩度が落ちています。主人公のコー
+   トや空の色などでよくわかります
+ - 128Hラインベースのビットマップパレット選択追加。実際のゲームでどこで使われて
+   いるかは不明
+
+- 多くのドライバで使われていた、不要なmachine->pens[]のルックアップを削除。
+  [Zsolt Vasvari]
+
+-「スペースタクティクス」にビルトインレイアウト追加。ドライバのクリーンアップ及
+  び再構成。[Mr. Do!, Zsolt Vasvari]
+
+- funworldのカラーデコードルーチンで、resnetコードを使うよう変更。
+  [Roberto Fresca]
+
+- MACHINE_RESETでのnvram割り当てによって起きた、namcos2とnamcos21のクラッシュを
+  修正。MACHINE_STARTを作成してそこに割り当て処理を移動。[couriersud]
+
+- -listxmlで、info.cがビデオパラメータの生情報を出力するよう更新 (pixclock、
+  htotal、hbend、hbstart、vtotal、vbend、vbstart)。[couriersud]
+
+- osdレイヤーから、deprecat.hのインクルードを一部削除: [couriersud]
+ * osd_updateとosd_update_audio_streamにmachineを引数として追加
+ * Machineをmachineに変更。deprecat.hのincludeを削除
+
+- VS2008でのコンパイルをシームレスにするため、vconv.cにルールを追加。
+  [Aaron Giles]
+
+- bionicc.c: [couriersud]
+ * 回路図を元にCPUクロックを追加
+ * z80 NMI生成についてコメント追加
+
+-「X The Ball」のDACサウンド修正。[Zsolt Vasvari, Mamesick]
+
+-「バーチャストライカーII 2000」で、吸い出し不良を確認したものを削除。
+  [Brian Troha]
+
+-「雷牙」のクラッシュ修正。[Zsolt Vasvari, David Haywood]
+
+- drawgfx.cの改良: [Zsolt Vasvari]
+ - drawgfxとdrawgfxzoomにアサート追加
+ - 変数が実際に使用されるときにだけ見えるように定義を移動
+
+- drawgfxより8bppビットマップのサポートを削除。[Zsolt Vasvari]
+
+- ベクターゲームからMDRV_PALETTE_LENGTHを削除。これはemupal.cでアサートを発生さ
+  せるものでした(デバッグビルド)。[couriersud]
+
+- 新モジュール、tokenize.hを追加。これは、データ構造のトークン化動作をまとめるも
+  ので、現在の入力ポートで使われているものと同様です。入力ポートについても、コン
+  パクト化を進めて、さらに新しいマクロを使用するためトークン化を再度行っています。
+  C99とGCCビルドで型安全を確保するため、イニシャライザの指定をサポート。
+  [Aaron Giles]
+
+- NSSドライバの偽DIPを削除。[R. Belmont]
+
+- グローバルな"flip_screen"マクロと変数を改良: [couriersud]
+ * flip_screenの定義に関係した問題を修正
+ * int flip_screen_get(void)を追加
+ * コリジョンの起きていたドライバをクリーンアップ
+ * flip_screenマクロを削除
+ * flip_screen_xとflip_screen_yをstaticに変更
+ * flip_screen_x_get()とflip_screen_y_get()を追加
+ * flip_screen_set_no_update()によるflip_screen_xへの書き込みを変更
+ * flip_screen_xとflip_screen_yにセーブステート用コールを追加
+
+- MACHINE_DRIVERの定義を関数のコンストラクタからトークン化したリストへコンバート。
+  MDRV_WATCHDOG_TIME_INITを使うドライバ以外にとっては、特に大きな変化ではありま
+  せん。アトタイムのトークン化を行えるように、新マクロUINT64_ATTOTIME_IN_x()を
+  定義。これはATTOTIME_IN_x()と同じパターンを取りますが、トークン化を簡単に行え
+  るように、アトタイムを64ビットの単一値としてパック化します。マシンコンフィグの
+  トークン化コードの追加チェックのときに見つかったマシンドライバのエラーを修正し
+  ました。[Aaron Giles]
+
+- MDRV_DEVICE_CONFIG_DATAを32ビット版と64ビット版に分離。また、解像度の指定が可
+  能な浮動小数点版も追加。[Aaron Giles]
+
+- スピーカーをデバイスにコンバート。Machine->configでスピーカーは保持しません。
+  代わりとして、sound.hで定義される新マクロ、speaker_output_first()と
+  speaker_output_next()の反復を使用します。関係する全てのコードを更新しました。
+  [Aaron Giles]
+
+- driver.hの先頭部分に、全てのマシン設定コールバック関数のtypedefを追加。
+  [Aaron Giles]
+
+- Cal Omegaドライバの大幅変更: [Roberto Fresca]
+ - ドライバ名をcalomega.cに変更
+ - 他のCal Omegaシステムを全てサポートするようにドライバを拡張
+ - XTAL定義を使うように変更
+ - 公式の配線図を元に、CPUとサウンドのクロックを修正
+ - 実ハードに合うようAY-8910をAY-8912と置き換え
+ - メモリマップを一部統合
+ - マシンをsys903とsys905に分割
+ - sys905のメモリマップオフセットを修正
+ - 公式・非公式ゲームのリストとそのステータスを追加
+ - カラーPROMの領域を拡張したときに起きたバグを修正
+ - 技術資料を更新
+
+- 数字、または"a"で始まるドライバについてメモリマップを統合。[Aaron Giles]
+
+-「クレイジークライマー」のビデオドライバをクリーンアップ。主にタイルマップへの
+  変換。これにより「クレイジーコング」でコングのスプライト位置と、プラットフォー
+  ムと足の間の隙間が修正されます。「ヤマト」ドライバと「クレイジークライマー」を
+  統合。[Zsolt Vasvari]
+
+-「XXミッション」をタイルマップにコンバート。[Zsolt Vasvari]
+
+- VIDEO_START(generic)を削除。[Zsolt Vasvari]
+
+- PGM.c EEPROM/ハイスコアセーブ追加。[Creamymami]
+
+-「オメガレース」のオリジナルステートPROMサポート。[Mathis Rosenhauer]
+
+- カーソル用のMC6845エミュレーションサポート。4つのブリンクモード全てをサポート。
+  [Zsolt Vasvari]
+
+- Rockwell 6545を実装中。[Nathan Woods]
+
+- NEC uPD7801、uPD78C05、uPD78C06 CPUを、uPD7810コアで基本サポート。
+  [Wilbert Pol]
+
+- 6850 ACIA CTPピンチェックロジックとMPU4 ACIAクロックロジックの改良。
+  [James Wallace]
+
+-「Risky Challenge / ぐっすんおよよ」の命令コード追加で、スプライトバグ修正。ま
+  たドライバの注釈を整理。[robiza]
+
+- 次のものにDIP配置追加: astinvad, bonzeadv, cadash, asuka, mofflott, galmedes, 
+   atarifb, atarifb4, abaseb, soccer
+  次のものにDIP配置追加と改良: seawolf2, wow, gorf, robby, profpac
+  [RansAckeR]
+
+- z80pioの一行修正。(割り込みが有効で)割り込み制御ワードが送信されたとき、割り込
+  みが発生します。しかし実際は、割り込みマスクバイトが送信されるまで、割り込みは
+  無効になっています。[Robert]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Jolly Joker [Roberto Fresca]
+Cal Omega - Game 7.6 (Arcade Poker) [Roberto Fresca]
+Cal Omega - Game 7.9 (Arcade Poker) [Roberto Fresca]
+Cal Omega - Game 12.8 (Arcade Game) [Roberto Fresca]
+Cal Omega - Game 17.51 (Gaming Draw Poker) [Roberto Fresca]
+Cal Omega - Game 23.9 (Gaming Draw Poker) [Roberto Fresca]
+El Grande - 5 Card Draw (New) [Roberto Fresca]
+Jackpot Joker Poker (5 sets) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+コズミックスマッシュ (JPN, USA, EXP, KOR, AUS) (original) [icronnya77]
+Jolly Card (Evona Electronic) [Roberto Fresca]
+Jolly Card (croatian, set 2) [Roberto Fresca]
+Super Joly 2000 - 3x [Roberto Fresca]
+Royal Vegas Joker Card (fast deal, english gfx) [Roberto Fresca]
+ダンジョンズ & ドラゴンズ タワーオブドゥーム (Japan 940412) [Razoola]
+Real Bout Fatal Fury / リアルバウト餓狼伝説 (バグ修正版) [Razoola]
+Metal Slug 5 (AES Cart) [Razoola]
+
+
+
+追加された未動作ゲーム
+----------------------
+A large number of Cal Omega games [Roberto Fresca]
+
+
+
+0.123u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+progear0123u1gra [stephh]
+
+
+
+ソースの変更点
+--------------
+- csk.cドライバの改良: [Mirko Buffoni]
+ * 全DIPスイッチにDIPLOCATIONマクロ追加。全てテストモードで確認
+ * custom_io_rがプロテクトだけでなくキーボード入力に使うよう修正
+
+- zlibを外部としてビルドしたときの修正。[R. Belmont]
+
+- 旧型のカラーテーブル削除を完了。MDRV_COLORTABLE_LENGTHマクロを削除。新型のカラー
+  テーブルがある場合はuigfxで表示するように更新。[Zsolt Vasvari]
+
+-「マッドエイリアン」ドライバの再構成とマイナークリーンアップ。[Zsolt Vasvari]
+
+-「ゼノフォーブ」のスプライト位置修正。[Derek Ledbetter]
+
+- パレットシステムの悪者だったSNES (デバッグコード以外)をRGB32にコンバート。
+  [Zsolt Vasvari]
+
+- emupalにcolortable_palette_get_size()を追加。また、エラーさらにをキャッチする
+  ためのアサートを追加。[Zsolt Vasvari]
+
+- mpatrolとtroanglのDIPスイッチ(特にコインエイジ)と入力の修正。両ドライバの統合
+  に挑戦(個人的にはまだ、部分的にはマージできると思っています)。iremipt.hをソー
+  スに追加(taitopt.hと同じ目的)。alpha1vのDIPと入力修正。一応ゲームはプレイでき
+  ますが、まだチェックすることが残ってるのでGAME_NOT_WORKINGフラグはそのままです。
+  [stephh]
+
+- IREM CPUの復号化を"リアルタイム"に変更(CPUの機能)。復号化テーブルのセットアッ
+  プ部をCPUの"config"構造体に移動。robiza氏からの最新版テーブル追加で、
+  「Risky Challenge / ぐっすんおよよ」がプレイ可能。CPUコアはbrkn命令後に復号化
+  を停止、iret後に再開する模様。これにより、コードから"復号化しない領域"のハックを
+  削除。全てのドライバを同様に更新。いまのところ、逆アセンブリがちょっと変なので、
+  調べる必要があります。[David Haywood, robiza]
+
+- AICA (Naomiサウンドチップ)の追加と実装。Naomiの起動音が再生。これはSCSPx2でFMを
+  ADPCMと置き換えたものなので、フィルタエンベロープ以外は機能的に完成しています。
+  ARM7コアのバグのため、Naomiのサウンドテストメニューなどで、パンと音量値が間違っ
+  て計算されます。これはAICA自体の問題ではありません。
+  [ElSemi, Deunan Knute, kingshriek, R. Belmont]
+
+- 10yardのDIPスイッチ(特にコインエイジ)と入力を修正。m52とm57ドライバの統合に挑
+  戦(個人的にはまだ、部分的にはマージできると思っています)。[stephh]
+
+- ARM7コアのunalignedな32-bit読み込みを修正。[R. Belmont]
+
+- 最近の変更でmpatrolの背景がずれていたのを修正。[Zsolt Vasvari]
+
+- マイナーなコードのクリーンアップ。必要に応じてstatic/constを追加の他、修正など。
+  MSVCでのビルドに失敗するため、u1からbuild.makを一部巻き戻し。m10.cのgfx_layout
+  の調整と最適化。cpuintrf.c、sndintrf.cのコア追加。5220intf.cの#ifが無い部分に
+  追加。[Atari Ace]
+
+- mirage.cドライバのDIPスイッチを1、2個修正。またサービススイッチらしいものと入
+  力のスタートと思われるのを発見。[Brian Troha]
+
+- expand_machine_driver()を削除。machine_config_alloc()とmachine_config_free()で
+  置き換え。全ての呼び出し元を更新。info.cスタイルの統一と、コードのシンプル化。
+  [Aaron Giles]
+
+- machine->drvをmachine->configに改名。"driver"という語句の使いすぎを減らすため。
+  [Aaron Giles]
+
+- taitosjとtank8の当たり判定をシンプル化。[Zsolt Vasvari]
+
+- 新モジュール: drvintrf.c/.h。サウンドやCPUインタフェース同様に、汎用のドライバ
+  インタフェースを提供します。[Aaron Giles]
+
+- 新モジュール: mconfig.c/.h。全てのmachine_configとMDRV_*マクロをdriver.c/.hか
+  らここに移動。デバイスの追加・削除・設定用のMDRVマクロ追加。[Aaron Giles]
+
+- 以下の定数は使わないで下さい。資料的なものに見せてますが、実はただの推測にすぎ
+  ません:
+  - DEFAULT_60HZ_VBLANK_DURATION
+  - DEFAULT_30HZ_VBLANK_DURATION
+  - DEFAULT_REAL_60HZ_VBLANK_DURATION
+  - DEFAULT_REAL_30HZ_VBLANK_DURATION
+  - DEFAULT_60HZ_3S_VBLANK_WATCHDOG
+  - DEFAULT_30HZ_3S_VBLANK_WATCHDOG
+
+  全てのドライバで、等価の更新間隔を本物ではない値として明示的に指定するよう変更
+  しました。また、"REAL"なVBLANK間隔も、正確ではないものとしてコメントを追加して
+  います。[Aaron Giles]
+
+- 下記のドライバで、DIPスイッチの改良、DIP配置の追加、必要な箇所でIPT_COINxを
+  IPT_SERVICE1に置き換え、操作定義のシンプル化: [RansAckeR]
+  alpha68k.c, actfancr.c, aeroboto.c, aerofgt.c, aliens.c, ambush.c, amidar.c, 
+  amspdwy.c, angelkds.c, appoooh.c, arabian.c, argus.c, arkanoid.c. 
+
+-「Shadow Warriors」のボタンを、オリジナルの基板(JAMMA)と同じように接続。
+  [Corrado Tomaselli]
+
+- 以下のものにDIP配置追加: [RansAckeR]
+  cclimbr2, legion, terraf, ultennis, cheesech, stonebal, stoneba2, scessjoe, 
+  ashnojoe, asteroid, llander, llander1, astdelux
+
+- Namco System 2ゲームのマルチセッションクラッシュを修正。[Atari Ace]
+
+-「プリント倶楽部」のDIPスイッチ実装。[Edward Swiftwood]
+
+- MPU4テストROMを動作させた結果を元に、6840エミュレーションのコーナーケースを修
+  正。また、ゲームの外部クロックを動的に変更できる機能を追加。[James Wallace]
+
+- 6850コアについて、MPU4のタイミング問題の一部を解決できるかもということで、
+  RXとTXクロックを動的に変更出来るよう変更。[James Wallace]
+
+- MPU4ビデオボードのドキュメント更新。「Cosmic Chasm」のクリスタルについて記述追
+  加と、メモリマップとの統合。[James Wallace]
+
+- GCC v3.3.5を使ってI686最適化コンパイルするとき、インライン関数_mul_32x32_hi()
+  と_mulu_32x32_hi()がバリデーションに引っかかるのを修正。[KO Myung-Hun]
+
+- 「レインボーアイランド」「ランボー3」「雷電II」のクロックを確認。
+  「Truxton 2 / 達人王」のサウンドOSCをサントラに合わせて27MHz/8に差し戻し。
+  以前測った基板では28MHz/8でしたが、一般的なものとはバージョンが違うものでした。
+  MAMEではマルチOSCはサポートしていないので、27MHzの方にしました。
+  [Corrado Tomaselli]
+
+-「ダブルドラゴン3」の吸い出し不良ROMを修正(一部は海賊版ベースでオリジナルではあ
+  りませんでした)。実際の基板に合わせて名称とロケーションを更新。[Kevin Eshbach]
+
+-「ザ・コンバットライブス」「Battle Toads」にDIP配置追加。[Kevin Eshbach]
+
+- 現在のビーム位置まで画面を強制更新する関数、
+  video_screen_update_now(int scrnum)を追加。[Zsolt Vasvari]
+
+- 旧型カラーテーブルの残り処理: [Aaron Giles]
+ * PALETTE_INITからcolortableパラメータ削除
+ * machine_configから、game_colortalbeとremapped_colortableを削除
+ * これらのフィールドを参照している古い箇所を更新
+ * tilemap.cからtile_draw_colortableを削除
+
+- 入力ポートトークンで、FPRTに全てキャストする代わりに、共用体を使うよう変更。
+  将来的には、C99を有効にしたコンパイラなら、指定したイニシャライザにより型安全
+  性を確保できると思われます。[Aaron Giles]
+
+- MESS用にi8749 CPUの派生版追加。[Curt Coder]
+
+- SH4に未追加だった命令実装とFPUのバグ修正。Naomi I/Oボードエミュレーションの改
+  良と動作可能な操作系追加。[Samuele Zannoli]
+
+- jedi.cを改良: [Zsolt Vasvari]
+ - メモリマップ完成
+ - クリスタル
+ - ドライバステートストラクチャ
+ - テキストレイヤを背景と同時に描画
+
+- Qixドライバの再構成 (ドライバステート、オーディオセクションの切り離しなど)
+  [Zsolt Vasvari]
+
+- MC6845チップを使う全ドライバで、新インタフェース使うよう変更。mc6845_configを
+  削除。[Zsolt Vasvari]
+
+- Gameplanドライバを再構成。「Trivia Quest」でGameplanのビデオコードを使うように
+  変更。Gameplanピクセルクロック用のクリスタル追加。[Zsolt Vasvari]
+
+- INDEXED16ドライバがペン配列を不必要に参照していたのを修正。[Zsolt Vasvari]
+
+- 画面毎のpalette_baseを削除。このアイディアはうまくいかなかった、または必要なかっ
+  たようです。[Aaron Giles]
+
+- 新デバイスタイプ、VIDEO_SCREENを定義。今のところ実際の機能はなく、ビデオ画面の
+  プレースホルダの役目しかしません。そのうち、画面管理のコードをstart/stop/reset
+　関数に移すかもしれません。[Aaron Giles]
+
+- MDRV_SCREEN_ADDについて、画面タイプ(今のところRASTER、VECTOR、LCD)を指定するよ
+  うに変更。以前のVIDEO_TYPE_RASTERとVIDEO_TYPE_VECTORは削除。この情報は画面リス
+  トをチェックして決定されます。[Aaron Giles]
+
+- MDRV_SCREEN_*マクロについて、screen[]配列に値を入れるのではなく、VIDEO_SCREEN
+  デバイスを生成するよに変更。machine_configからはscreen[]を削除。
+  Machine->config->screen[]の参照をしている全てのコードを修正して、新しい
+  video_screen_first()とvideo_screen_next()関数を使い、デバイスについて繰り返す
+  ように変更。[Aaron Giles]
+
+- 暗黙の画面#0を削除。全てのドライバで明示的に画面を宣言する必要があります。滑っ
+  てのドライバをそのように更新しました。この作業のとき、MDRV_SCREEN_*パラメータを
+  全てグループ化しました。また、VIDEO_TYPE_RASTERとVIDEO_TYPE_VECTORも不要なので
+  削除しました。さらに、ベクターゲームから、VBLANKとビットマップフォーマットの情
+  報も削除しています。疲れました。[Aaron Giles]
+
+- ゲーム情報で全ての画面について情報を表示するように更新。[Aaron Giles]
+
+- Beatheadドライバで、スキャンラインレベルをキャッシュするのに代えて、partial 
+  updateを使うように変更。[Zsolt Vasvari]
+
+- state_save_combine_module_and_tag()を追加。これは、インデックスではなくタグベー
+  スのモジュールでステートセーブのために、一意の名前を生成するためのものです。
+  [Zsolt Vasvari]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Champion Poker [Mirko Buffoni]
+Risky Challenge / ぐっすんおよよ [robiza]
+
+
+
+新規クローンセット
+------------------
+ファイティングサッカー (Japan) [Yasuhiro Ogawa]
+Red Hawk (Excellent Co., Ltd) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+トイファイター [Corrado Tomaselli]
+
+
+
+0.123u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+jantouki0121u3gra [RansAckeR]
+mcnpshnt0120u3gra [RansAckeR]
+mjdialq2_0120u3gra [RansAckeR]
+mjifb0111u2gra [RansAckeR]
+goldbug0105u4gra [stephh]
+zn.c0122u8yel [smf]
+pwrinst2_0122u8gra [Sonikos]
+
+
+
+ソースの変更点
+--------------
+- tilemap_createから'type'引数を削除。[Zsolt Vasvari]
+
+- audio/dkong.c: [couriersud]
+ * dkongでDACサウンドの過変調を修正
+ * 後で参照するために修正部分をDK_REVIEWで囲み
+
+- ドライバがカラーテーブルを使ってないかったところは、
+  machine->remapped_colortable からmachine->pensを使うように変更。
+  [Zsolt Vasvari]
+
+- 以下の基板のクロックを訂正:
+  フォーメーションZ、マグマックス、スラップファイト、タイガーヘリ
+
+  「JuJu伝説 / Toki」と「ブラッドブラザーズ」のOki m6295 Pin 7をhighに変更。
+  [Corrado Tomaselli]
+
+- CPU/サウンドコアのビルド非依存性を強化。M65CE02コアを'bit rot'地獄から救出。ま
+  た、deprecat.hの変更で起きたMESSコアの問題も修正。[Atari Ace]
+
+- 拡張INPファイルの初期検知を訂正。[Barry Rodewald]
+
+- Galaxy Gamesのエミュレーションをtmaster.cに移動。[Luca Elia]
+
+- makefile/buildのアップデート: [couriersud, Aaron Giles]
+ * verinfo.cをsrc/buildに移動
+ * verinfoのルールをsrc/build/build.makに移動
+ * osdcore.hをfire2str.c、verinfo.c、png2bdc.cから削除
+
+- 以下よりカラーテーブルを削除: 
+  gsword, hyperspt, jailbrek, magmax, konamigx, markham, megazone, pandoras,
+  rocnrope, strnskil, trackfld, tp84, shaolins, scotrsht, pingpong, skykid, 
+  wiping, punchout, ikki, rallyx, fastfred, fcombat, finalizr, flower, 
+  funworld, galivan, gdrawpkr, goldstar, hanaawas, higemaru, ironhors, jackal, 
+  kchamp
+
+  また、必要な箇所にresnet.cのカラー演算追加。[Zsolt Vasvari]
+
+-「マグマックス」の描画コードをシンプル化。[Zsolt Vasvari]
+
+- 正しいサウンドチップエミュレーションと入れ換える準備として、Exidy 440コードを
+  さらに置き換え。[Zsolt Vasvari]
+
+- scotrsht、shaolins、tp84の透過処理を統合。[Zsolt Vasvari]
+
+- timer_adjust()を、timer_adjust_oneshot()とtimer_adjust_periodic()に分離。
+  全ての呼び出し元を更新。[Aaron Giles]
+
+- arkanoidの一部クローンで、不思議なことにPORT_MODIFY("DSW")ではなく
+  PORT_START_TAG("DSW")をINPUT_PORTS定義に使っていたのを修正。[stephh]
+
+- cvs.cの全ゲームで、DIPスイッチと入力の修正。[stephh]
+
+- HOTD2専用のBIOSを追加。[Arzeno Fabrice]
+
+- stacticsにより正確なプライオリティシステムエミュレーションとビームロジックを追
+  加。カラーテーブルを削除。照準をセンタリング。ゲームの正しい座標を使用。メモリ
+  マップの統合。アートワークを使うように変更。アートワークが出来るまで
+  GAME_IMPERFECT_GRAPHICSをセット。[Zsolt Vasvari]
+
+-「Champion Skill」にサウンド追加。GAME_NO_SOUNDフラグを削除。BGMが遅すぎたので、
+  フレーム毎の割り込み数を増加。コメントのマイナーな調整。[Mirko Buffoni]
+
+- 可能な箇所で、PORT_SERVICEとPORT_SERVICE_NO_TOGGLEを使用。[stephh]
+
+- CPS2ドライバのゲーム定義について、各ゲームが何人プレイでいくつのボタンがそれぞ
+  れ必要かを反映するように変更。INPUT_PORTS定義について、PORT_INCLUDE、
+  PORT_MODIFY、PORT_CUSTOMマクロを使うように書き直し。不要なバグ報告を防ぐため、
+  いくつか注意書きを追加。ドライバのクリーンアップ開始。[stephh]
+
+-「ブレイゾン」「サンドスコーピオン」「フラッシュポイント」の基板、チップなどの
+  ドキュメント更新。[Brian Troha]
+
+-「カンガルー」の色について、回路上には転置が無いと仮定して修正。
+  [Nicola Salmoria]
+
+- mame_schedule_save()とmame_schedule_load()に絶対パスを渡すように改良。
+  [Nathan Woods]
+
+- Naomi/DCのアップデート: [Samuele Zannoli]
+ - SH4 I/Oポートを追加
+ - NAOMIの93C46とROMボードのx76f100を接続。BIOSチェックをパスするためダミーデー
+   タで埋め尽くし
+ - コントロールを使うのに必要なJVSトランスファを一部実装
+ - ROMボードDMAを実装
+ - 正しいNAOMI RAMサイズを設定 (メイン 32MB、AICA 8MB)
+ - PVR-TAグラフィックエミュレーションを改良
+
+- Naomi用のARM7クロックを修正。[Deunan Knute]
+
+- ARM7の更新: [Anonymous]
+ - リセット時のモードを修正 (常に0b1 ....)
+ - HandlePSRTransfer: 不良コード削除、特権モードの検知修正
+ - RORのキャリー出力訂正
+ - Thumb ASR Rd,Rs: キャリー演算訂正
+ - Thumb ldmia/stmia: ライトバックレジスタがリスト内にある場合の値を修正
+ - ARM ldm/stmがアドレスの下位ビットを無視するよう変更
+ - ほとんどの例外でIビット強制
+ - CPSRのフラグビットを一部無視
+
+- Funworldドライバの改良と新ゲームの追加。[Roberto Fresca]
+ - XTAL定義に切り替え
+ -「Magic Card II」のグラフィック問題修正
+ -「Magic Card II」の入力修正
+ - 画面と表示エリアをsnooker10に修正
+ - monglfirをmongolnwに改名
+ - セットの説明文を国から言語ベースに変更
+ - 年代と製造元修正
+ - テクニカルノートを更新
+ - ドライバをクリーンアップ
+
+- rallyxドライバで起こった'特殊な'混乱を解消。[Zsolt Vasvari]
+
+- もう使われなくなったTRANSPARENCY_COLORを削除。[Zsolt Vasvari]
+
+- MC6845の更新: [Zsolt Vasvari]
+ - 6845をハンドルベースに変更 --- 全ドライバを調整
+ - crtc6845をmc6845に改名
+ - レジスタ12と13の読み込み可能
+ - ライトオンリーのレジスタ読み込みで0を返すよう変更
+ - ヘッダのコメント更新
+
+- qix.cをRGB32モードに変更。また、videoram_wをスキャンライン毎ではなく、部分更新
+  するように変更。[Zsolt Vasvari]
+
+- marioとmasaoのメモリマップを、DIPスイッチのポート名に合うよう修正。[stephh]
+
+- pooyanの透過処理修正。resnetコードを使うよう更新。[Zsolt Vasvari]
+
+- ZN2のクロックスピードをボードの記述にあるように100MHzに変更。[smf]
+
+- sitv、sicv、invadpt2、lrescue、invasionにDIP配置追加。superinvとinvasionのコイ
+  ン2修正。[RansAckeR]
+
+- machine/nmk112.cに初期化追加。これによりdonpachiでマルチセッションのサウンド問
+  題が修正。また、machine/n64.cの変数初期化を追加して、starsldrのマルチセッショ
+  ンでの問題を修正。[Atari Ace]
+
+- policetrのDIP配置追加と、マニュアルや回路図を元に未使用のものをマーク付け。
+  [Mike Ellery]
+
+- maxaflex、mf_bdash、mf_achasドライバの致命的エラー修正。[Atari Ace]
+
+-「Risky Challenge / ぐっすんおよよ」の命令コードをさらに実装。一応ゲームは見え
+  る状態。[robiza]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Galaxy Games (BIOS v1.90) [Luca Elia]
+Royal Vegas Joker Card [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+魂斗羅 (US, Set 2) [Brian Troha]
+ゼロウィング (2 player simultaneous ver.) [Brian Troha]
+サンドスコーピオン (Revised Hardware) [Stefan Lindberg]
+ギャラクシアン (Taito) [Stefan Lindberg]
+Jolly Card (3x3 deal) [Roberto Fresca]
+Jolly Card Professional 2.0 [Roberto Fresca]
+Lucky Lady (3x3 deal) [Roberto Fresca]
+Lucky Lady (4x1 aces) [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+World PK Soccer V2 (ver 1.1) [David Haywood]

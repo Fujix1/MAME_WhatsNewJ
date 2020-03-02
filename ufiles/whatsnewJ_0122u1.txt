@@ -1,0 +1,83 @@
+0.122u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+ym2610_0119u2gre [Philip Bennett]
+
+
+
+ソースの変更点
+--------------
+- Zeusシステムの更新: [Aaron Giles]
+ * 2次元配列形式のデータフォーマット判明
+ * 光源用データ取得
+ * 背面のカリング追加。ほとんど動作するものの時々変になるので今のところ無効
+ * 初期ライティング演算を開始
+ * zeus wave RAMアクセサをクリーンアップ
+ * マルチコアシステムでより多くの並列処理ができるようにレンダリングコードを変更
+ * zeus 2のハック痕を削除
+ * 余計なものが表示されないように表示領域を縮小
+ * ギャップ問題を修正するため、右と下のバーテックスを包括的なものに変更
+ * invasnの光線銃オフセット修正
+
+ Zeus 2ハードウェア:
+ * ROMロードの修正。バンキングのサポート
+ * zeus 2のビデオ部をzeusから分離
+ * ダイレクトピクセルアクセスを実装; スタート画面が表示されます
+ * ZPRAMを実装
+ * crusnexoのデジタル入力修正
+ * デフォルトのスクリーンパラメータをゲームに合わせて修正
+
+- Afega/nmk16のクリーンアップ: [David Haywood, Tomasz Slanina]
+ * afega.cとnmk16.cドライバを統合
+ * 両者から多くのハックを削除
+ * ゲームの修正多数
+
+- C219サンプル読み込み順の修正と、sign+magnitudeフォーマットの実装。Namco NA-1ゲー
+  ム全てからGAME_IMPERFECT_SOUNDフラグを削除。[Philip Bennett]
+
+- ROMベースのDCS2システムでHLE転送を無視するように修正(invasnの音が修正)。
+  ADSP-2104系列の内部メモリも多分減少。[Aaron Giles]
+
+- デバッガ動作時にゲームに対してイベントがリークするバグを修正。[Aaron Giles]
+
+- CPUクロックを実機で計測: [Corrado Tomaselli]
+ *「あしたのジョー伝説 / Success Joe」のYM2203クロックを4MHzから3MHzに変更
+ *「ポンピングワールド / Pang」のM6295クロックを990kHzから1MHzに変更
+ *「ハレーズコメット」のメインCPUクロックを1.664MHzに変更（ミスじゃなくてクロッ
+   ク数がとても低い）
+ * その他クロックを確認をしたものを変更:
+ *「アストロファイター」「ターボフォース」のサウンド用Z80を5MHzに
+ *「ミッドナイトレジスタンス」の68kCPUを10MHz(クリスタルは20MHz)に。さらに
+    m6295のクロックを1MHzに。またPIN 7はハイであるのを確認
+    (「ミッドナイトレジスタンス」は実機でも速度低下が多い)
+
+- マイナーな"コード品質"の改善: [Atari Ace]
+ * static/constの判定残り修正
+ * #include "foo.h"がないものを修正
+ * グローバル変数名のいくつかをより固有名的で一貫性のあるものを変更
+   (voodoo.c, vrender0.c, lethal.c, rungun.c, zac2650.c)
+ * 使われていないコードの削除 (i8051.c, model1.c, romcmp.c)
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Invasion [Aaron Giles]
+バギーボーイジュニア / スピードバギー (Upright) [Philip Bennett]
+タスクフォースハリアー [David Haywood, Tomasz Slanina]
+US AAF ムスタング [David Haywood, Tomasz Slanina]
+ブラックハート [David Haywood, Tomasz Slanina]
+Red Hawk / ステッガーI [David Haywood, Tomasz Slanina]
+ステッガーI [David Haywood, Tomasz Slanina]
+戦神 - Guardian Storm [David Haywood, Tomasz Slanina]
+Spectrum 2000 [David Haywood, Tomasz Slanina]
+Fire Hawk [David Haywood, Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+World Class Bowling (v1.3) [Brian Troha]

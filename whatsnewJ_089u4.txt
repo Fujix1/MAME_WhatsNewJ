@@ -1,0 +1,58 @@
+0.89u4
+------
+
+全般的な改良点：
+----------------
+
+■「MVP」にDIP追加。[Brian Troha]
+
+■decocassドライバでリセットするとクラッシュするのを修正。[Juergen Buchmueller]
+
+■decocassドライバで別版のBIOSサポートとゲーム共通の不明なDIPを使うよう変更。
+  [David Haywood]
+
+■Z80コアのクリーンアップ。不正確なエミュレーションモードオプションと、C99のネー
+  ミング仕様に対応するように、アンダースコアで始まるマクロ名を削除。
+  [Juergen Buchmueller]
+
+■model3/ppcのクリーンアップ関係の64bit整数の追加。[Lawrence Gold]
+
+■新型デバッガで、ヒストリーリストが空のときにカーソルキーの下を押しっぱなしにす
+  るとオーバーランするのを修正。[Nathan Woods]
+
+■i386コアで、DASMFLAG_STEP_OVERとDASMFLAG_STEP_OUTフラグをサポート。
+  [Nathan Woods]
+
+■memory.cのMAX BANKSの問題修正。[Nathan Woods]
+
+■「Scorpion]の難易度設定DIP追加。[Chaneman]
+
+■artwork070u4の修正。[BUT]
+
+■()074u1oraの修正。[Rene Single]
+
+■「ジャッカル」「新入社員とおるくん」ドライバのクリーンアップ。[Curt Coder]
+
+■「スティールガンナー」でスプライトが表示されなくなったのを修正。
+  [Phil Stroffolino]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+デザートブレーカー (FD1094 317-0196) [Gerald, David Haywood]
+
+
+新規クローンセット：
+--------------------
+エイリアンストーム (US, 3 Players, FD1094 317-0147) [Gerald]
+テトリス (Japan, System 16A, FD1094 317-0093a) [Thierry]
+忍 (set 3, System 16A, unprotected) [Gerald, Thierry]
+レッスルウォー (FD1094, 317-0102) [Andy Conroy]
+Greyhound Trivia (alt questions) [Pierpaolo Prazzoli]
+ジャンプコースター (Taito) [Thierry, Gerald]
+
+
+新規未動作ゲーム：
+------------------
+Jackie Chan in Fists of Fire
+	プロテクトの問題

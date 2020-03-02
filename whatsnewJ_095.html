@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.95</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.95.txt</div>
+	<div class="main">
+<div class="wn">
+0.95
+----
+
+Aaron Giles氏による修正：
+-------------------------
+- サウンドアップデートによるクラッシュ修正
+ * garyoretのクラッシュ修正
+ * system18.c海賊版のクラッシュ修正
+ * konamigtのクラッシュ修正
+ * scionのクラッシュ修正
+ * double dribbleのクラッシュ修正
+ * iron horseのクラッシュ修正
+
+- サウンドオフ時でも、サウンド用に指定されているCPUを無効にしないように変更。
+
+
+Nicola Salmoria氏による変更：
+-----------------------------
+- Segaのアップデート
+ * aurailjの復号化及び追加。ただしプログラムROMが不良のため動作せず
+ *「Altered Beast / 獣王記」のセットが混乱して一部で間違ったバージョンのグラ
+   フィックROM使用（そのせいでロード方法が変でした）していたので修正
+ * bayrout1はworld版ではなくUS版
+ * wally1はリビジョンB
+ * NO_DUMPのキーをいくつか追加
+ * ゲーム名とROM名をさらに修正
+
+
+Pierpaolo Prazzoli氏による変更：
+--------------------------------
+-「Excelsior」のサウンド追加。
+
+-「Super Slam」のタイトル不具合修正。
+
+-「Buccaneers」のスプライトバグ修正。
+
+-「ブルファイター」の新セットのクラッシュ修正。
+
+-「Ring King (Woodplace licnese)」に正しいPROMデコーディング追加。
+
+-「カロリー君」のカクテルモード修正。
+
+- ufosensi093u3graとufosensi093gre修正
+
+
+R.Belmont氏による変更：
+-----------------------
+ * CD-ROMとハードディスクデバイスエミュレーションをam53cf96.cから新しくscsicd.c
+   とscsihd.cに移動。
+ * AM53cf96.cは自由に設定可能になりました: 7つまでのCD-ROMまたはハードディスクを
+   組み合わせてエミュレートしたSCSIバスに接続し、IDを指定できます。
+ * CD-ROMエミュレーションについて、SCSIコマンドの追加と既存のもののバグ修正。
+ * konamigvとkonamigqドライバで新しい53cf96をサポートするように変更。
+
+ * CHD-CDをCDRDAOの.bin/.tocイメージに逆コンバートする-extractcdを追加。
+
+
+その他の変更：
+--------------
+-「Best League」を改良。[Angelo Salese]
+
+-「XXミッション」のDIP訂正。[Brian Troha]
+
+-「ザ・シンプソンズ」のサウンドチップ周波数を基板でチェック。[Chris Hardy]
+
+- 24bitのチート検索サポート。[Thorwak]
+
+- MESS用sndintrf更新。[Nathan Woods]
+
+-「Buccaneers」のサウンド周波数修正。[Corrado Tomaselli]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Demons & Dragons (prototype) [Frank Palazzolo] (no sound)
+ゴーストハンター [Pierpaolo Prazzoli]
+Tut's Tomb [Pierpaolo Prazzoli]
+MegaPlay: Streets of Rage 2 [Guru] (may crash due to poor genesis emulation)
+MegaPlay: Biohazard Battle [Guru]
+ハイパーオリンピックインナガノ / Nagano Winter Olympics '98 (GX720 EAA) [R.Belmont]
+
+
+新規追加クローンセット：
+------------------------
+Hex Pool [Brian Troha]
+フック (Japan) [Corrado Tomaselli]
+パズルクラブ (set 2) [Corrado Tommaselli]
+Big Kong [Tom Girardot, Joe Magiera]
+サンセットライダーズ (Ver ADD) [Razoola]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Pinball Action (set 3, encrypted?) (暗号化されている模様。segacrpt?)
+
+
+0.94u5
+------
+
+Aaron Giles氏による修正：
+-------------------------
+segaxbd.c:
+ * rachero/abcopにサウンド追加
+ * loffireで高インタリーブが起きないように明示的な同期を使用
+ * Nicola氏が修正するまで317-0136.keyを吸い出し不良にマーク
+ * 除算チップが改良されたのでloffireを動作可能にマーク
+
+segaic16.c:
+ * 除算チップの動作をいくつか修正。これによりloffireとgpriderが修正
+    - 0で割る場合は約数を返す（要チェック）
+    - mode 1 divideはunsigned
+    - A4セットの書き込みのみで除算を実行
+
+midvunit.c:
+ * hotspotsのデバッグコードをオフ。V-unitゲームの動作速度が超改善（ガーン!）
+
+
+Angelo Salese氏による変更：
+---------------------------
+realbrk.c
+ *「パチンコ銀玉勝負」（通常版とDX）のセット修正と操作追加。ゲームプレイできます
+   が、バックアップRAMはハックです。どうなってるかはわかりませんが、多分NVRAMエ
+   ミュレーションが無いと思われます
+ * Reorganized a bit the memory map in the driver;
+
+2413intf
+ * YM2413サウンドチップに関数2つ追加。
+   YM2413_register_port_0_msb_w()とYM2413_data_port_0_msb_w()で、pkgnshで使用
+
+splash.c
+ *「Funny Strip」のスプライト修正
+
+jalmah.c
+ *「麻雀大霊界」のMCUプロテクトコード改良とROMロード関係の問題をいろいろ修正。
+
+
+Derrick Renaud氏による変更：
+----------------------------
+- dominos - ディスクリートサウンドを新しいコンポーネント値に更新。
+
+- clowns - コインカウンタと正しいウォッチドッグ追加。BGMと風船の音用にディスク
+  リートエミュレーション追加。
+
+- clowns - 飛び板の音用にディスクリートエミュレーション追加。
+
+- clowns - DIPスイッチ修正。
+
+- firetrk, montecar, superbug - 新しい7492カウンタを使うように更新。周波数調整の
+  動作を高くなるように変更。
+
+
+Nathan Woods氏による変更：
+--------------------------
+src/cpu/m6502/6502dasm.c:
+    - DASMフラグ実装
+    - 少しクリーンアップ
+
+src/cpu/m6502/m6502.c:
+src/cpu/m6502/m6502.h:
+src/cpu/m6502/m65ce02.c:
+src/cpu/m6502/m65ce02.h:
+    - RUNTIME_LOADED削除
+
+
+Nicola Salmoria氏による変更：
+-----------------------------
+- FD1094のドキュメントを更新。
+
+-「四川省II」の表示エリアを訂正（狭すぎた）。
+
+
+Pierpaolo Prazzoli氏による変更：
+--------------------------------
+-「四川省II」のDIP修正。
+
+-「Buccaneers」の透過表示修正。
+
+
+Sebastien Volpe氏による変更：
+-----------------------------
+- SRMP6ドライバをマイナーアップデート。DIP追加とメモリマップの更新。このハード
+  ウェアのグラフィックフォーマットはまだ不明。ただし、使われているチップはST0016
+  系の模様。
+
+-「Blood Warrior」で正しいROMをロードするようにKanekoドライバを更新。
+
+
+その他の変更：
+--------------
+- Model 3の表示系アップデート。[Ville Linde]
+    現在動作している全ゲームのレンダリングが改良
+
+-「Risky Challenge / ぐっすんおよよ」、「プッシュマン」「Olibochu / パンチング
+  キッド」「Funny Strip」のDIPスイッチ修正。[Brian Troha]
+
+-「シャドーダンサー」セットのROM名修正。[Chack'n]
+
+-「スプリント1 / 2」- ディスクリートサウンドを新しいコンポーネント値に更新。
+  [Hans Andersson]
+
+- seibuspiのリンク警告を修正。[Lawrence Gold]
+
+-「ギャラガ」と「ボスコニアン」の星空背景を修正。[James Rowan]
+
+- サウンドアップデートで「Nemesis」のサウンドが変になったのを修正。[R.Belmont]
+
+- makefileを少し再構成。[Atari Ace]
+
+-「ゲイングランド」にプレイヤー3の操作追加とDIPの修正。[Unknown]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Cookie & Bibi [David Haywood]
+Search Eye [Pierpaolo Prazzoli]
+パチンコ銀玉勝負 [Angelo Salese]
+パチンコ銀玉勝負DX [Angelo Salese]
+Shrike Avenger [Peter Sealy]
+GPライダー [Aaron Giles]
+ラインオブファイヤー [Aaron Giles]
+
+
+新規追加クローンセット：
+------------------------
+ブルファイター (Segaライセンスなし) [Brian Troha, Mame Italia Forum]
+Best League (ビッグストライカーの海賊版) [Angelo Salese, David Haywood]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Mazin Wars (Mega Play)
+Grand Slam Tennis (Mega Play)
+   MegaPlay / Genesisエミュレーションの問題あり
+
+
+
+0.94u4
+------
+- FMサウンドチップを使うゲームでステートロード時にクラッシュするのを修正。[BUT]
+
+- FD1094のステート変更動作を「ゲイングランド」用に少し変更。[Nicola Salmoria]
+
+- NMK004シミュレーション改良と「ブラックハート」のハング修正。[Nicola Salmoria]
+
+- playmark.cのスプライト色修正。[Pierpaolo Prazzoli]
+
+-「デッドアイ」の銃を実装。[smf]
+
+- デバッガで、アドレス値が高い場合のメモリダンプの問題を修正。[Ville Linde]
+
+- PSXのテクスチャウィンドウバグを修正(libero grandeのピッチと「アクアラッシュ」
+  のプレイフィールド部分)[smf]
+
+-「ペンゴ」のROMローディングを修正。[shimapong]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Buccaneers [David Haywood]
+カロリー君VSモグラニアン [David Haywood, Pierpaolo Prazzoli]
+	(海賊版のみ動作、オリジナルは暗号化)
+ゲイングランド [David Haywood]
+リベログランデ [smf]
+Pipeline [Tomasz Slanina]
+	(サウンド無し)
+
+
+新規クローンセット：
+--------------------
+Crazy Rally (Gecas license) [Manuel Assoni]
+パッシングショット (Japan, FD1094 317-0070) [Chack'n]
+ワンダーボーイIII (Japan, FD1094 317-0087) [Chack'n]
+鉄拳 (TE2/VERC) [smf]
+
+
+GAME_NOT_WORKINGステータスになったゲーム：
+------------------------------------------
+Snapper [David Haywood]
+
+
+
+0.94u3
+------
+
+- コンパイラ用の修正。[Atari Ace]
+- その他いろいろな修正。[Nathan Woods]
+
+
+新規追加クローンセット：
+------------------------
+バブルボブル (newer set) [Tormod Tjaberg]
+ぷよぷよ (World) [Fabrice Arzeno]
+
+
+
+0.94u2
+------
+
+Aaron Giles氏による修正：
+-------------------------
+mame.c: ドキュメントの更新
+cps1.c: QSoundルーチン修正
+cps2.c: QSoundルーチン修正
+itech32.c:「Driver's Edge」の色修正（赤と青が逆）
+segaorun.c: 回路図を元に改良たくさん
+    - 出力を8255 PPI経由に接続
+    - IRQ処理を回路図に合うよう修正
+    - ウォッチドッグ、グローバルミュートの実装
+    - IRQ2のタイミング修正
+segaxbd: 改良
+    -「GPライダー」が起動するようにハック追加; 入力系のバグで完全プレイ不可
+    - IRQ処理を回路図を元に修正
+    - ウォッチドッグ、サウンドリセット、グローバルミュートの実装
+    - SMGP通信動作用にダミーCPU追加
+    - 全ゲームでLOF以外のインターリーブ減少
+segaybd: 改良
+    - 回路図を元にCPU速度を修正
+    - グローバルミュートの実装
+    - 全ゲームでインターリーブ減少
+machine/segaic16.c: 0で割るケースで値を返すように変更
+vidhrdw/segaic16.c: アップデートいくつか
+    - Yボードのスプライトプライオリティ実装（解析はまだ不完全でも
+      動いてる感じ）
+    - Outrun/Xボードのスプライトピッチの8番目のビットを発見
+    - Leopardcatsからのロジックダンプに合わせて道路のプライオリティ実装
+    - Outrun/XボードでRAMのダブルバッファリングを追加
+    -「アウトラン」の道路でダイレクトスキャンラインモードはサポートされて
+      いないので無効化
+
+- サンプル再生の不具合修正
+
+- othunderのサウンドクリッピング修正
+
+-「バトライダー」のサウンド修正
+
+-「Dream Shopper」のクラッシュ修正
+
+- デバッグビルドにサウンドバランスアシスト表示追加
+
+- cpuintrf.cをクリーンアップ
+
+- サウンドコアから不要なコードを削除
+
+-「フロッガー」の音量調整
+
+
+Derrick Renaud氏による変更：
+----------------------------
+
+-「ボスコニアン」「ギャラガ」「ポールポジション」「ゼビウス」に正確なウォッチ
+  ドッグ追加
+
+-「Wigge Waggle」のクラッシュ修正
+
+- スピーカー設定を修正
+
+- schaser - ミサイル音の追加とドット音を回路図に基づいて修正
+
+- SN76477エミュレーション - 増幅率が通常の3倍だったバグを修正
+
+- SN76477エミュレーション - ワンショットエンベロープモードのアタックタイム修正
+
+- crash、ripcord、robotbwlのクラッシュ修正と、これらにサンプルサポート追加。
+  ただしサンプルは未録音
+
+- robotbwl - 足音のディスクリートシミュレーション追加
+
+- crash - ベル音のディスクリートシミュレーション追加
+
+
+Nathan Woods氏による変更：
+--------------------------
+src/sndintrf.c:
+src/sndintrf.h:
+    - MESS用サウンドコアのエントリーを2つ追加
+
+src/sound/wavwrite.c:
+src/sound/wavwrite.h:
+src/sound/discrete.c:
+    - wavwriteの型を'void *'から'wav_file *'に変更
+
+src/cpu/g65816/g65816op.h:
+    - CPUが目的のモードのファンクションセットに入らずモード変更できたバグ修正。
+      特にモード変更が実行中の関数から抜け出し正しい関数に再エントリを起こす場合
+
+
+Nicola Salmoria氏による変更：
+-----------------------------
+
+- TNZSのデバッグモードをドキュメント化
+
+-「スカイランサー」のグラフィック修正
+
+-「ジャイラス」の音量を再調整
+
+- NMK004サウンドエミュレーション
+
+- playmark.cのアップデート
+-「World Beach Volley」のスプライト/タイルプライオリティ修正。また「Excelsior」
+  のプライオリティも一部修正。全部ではなくて、ハイスコア画面はまだ不具合あり
+- ビットマップイネーブルビット発見。「Big Twin」と「Excelsior」のギャルピクチャ
+  とグラフィック化け修正
+- 列スクロールサポート。wbeachvl37b7greを修正
+- 以前に言ったように、wbeachvl37b16greはオリジナルのバグの可能性大。これ以外の
+  動作が思い浮かびません
+
+
+Pierpaolo Prazzoli氏による変更：
+--------------------------------
+-「スーパースラムズ」のアップデート
+ * スプライト修正
+ * テキストタイルマップ色修正
+ * テキストタイルマップのスクロール修正
+ * VSync修正
+
+-「スカイランサー」のDIPスイッチ修正
+
+- playmark.cのアップデート
+ *「Excelsior」のDIPスイッチ修正
+ *「Excelsior」のビットマップスクロール改良
+ * fg_tilemap後にビットマップを描画するよう変更（「Excelsior」の修正と、
+  「Big Twin」が改良されますが、「Excelsior」のサービスモードの“良好な”ビット
+   が透明になります）
+ *「Big Twin」にコンティニューのDIPスイッチ追加
+
+
+その他の変更：
+--------------
+- NMK16のDIPスイッチ修正。[Brian Troha]
+
+- TX1 / Speed Buggyドライバの改良。[Phil Bennett]
+	残りの作業:
+	
+	バギーボーイ/スピードバギー
+	# 演算チップサポート
+	# オブジェクトの正確な描画と属性（ズームファクタなど）
+	# 道路の描画
+	# CPU間のコミュニケーション修正
+	# レイヤーのミックス
+	# 操作の修正
+	# ディスクリートサウンドハード
+
+	TX-1
+	# 上記全部
+	# PROMなし
+
+
+- アナログメニューで40以上のエントリが可能。[Christopher Stone]
+
+-「ダンクショット」のDIP修正。[Sonikos]
+
+- gfxlayoutsの不良修正。[Atari Ace]
+
+-「Shrike Avenger」をアップデート。モーターの動作をドキュメント化。
+  [Peter Sealy]
+	ゲームは部分的に動作
+
+- スクロールマウスのサポート。[Robin Merrill]
+
+- f1enでアトラクトモードが全部表示されるように改良。[David Haywood]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+新規追加クローンセット：
+------------------------
+ピット&ラン (set 2) [MAN]
+スカイランサー (Orca) [Manuel Assoni]
+Star Trek (ディフェンダー海賊版) [Pierpaolo Prazzoli]
+ポーカーレディース (Leprechaun ver. 401) [Manuel Assoni]
+ピンボ (set 2) [Pierpaolo Prazzoli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+TX-1 [Phil Bennett]
+バギーボーイ [Phil Bennett]
+
+
+
+0.94u1
+------
+
+0.93のサウンドアップデートで起きた問題のバグ修正がほとんどです
+
+---
+
+- itech32ドライバ修正。以前の64bitの修正で表示不具合があったのも修正。
+  [Aaron Giles]
+
+- QSoundの“3スピーカー問題”修正。[Aaron Giles]
+
+- deadangのクラッシュ修正。[Aaron Giles]
+
+- 5110を使うゲームでスタートできなかったのを修正(bagman, cvsドライバなど)
+  [Aaron Giles]
+
+- その他のサウンド修正。[Aaron Giles]
+ * nyanpaiの初期化順の問題修正
+ * othunderの未使用フィルタ削除
+ * rungunの初期化順の問題修正
+ * stkclmnsのクラッシュ修正
+ * triplfunのリセット前にX1-010チップが確実に存在するように修正
+ * outrunのサウンド
+
+- cheat.cの綴り間違いなどを修正。[Atari Ace]
+
+- batriderのクラッシュの修正を試み。[Aaron Giles]
+
+- Intel Flashの改良。[smf]
+
+-「レーザーゴースト」のタイトル画面修正。[Aaron Giles] 
+
+- ディスクリートサウンドのアップデート。[Derrick Renaud]
+
+- KonamiGXドライバのクリーンアップ開始。[R.Belmont]
+
+- DOSツールで、auto_mallocの警告を修正。[smf]
+
+- XML出力のアップデート。[Logiqx]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Excelsior [Pierpaolo Prazzoli]
+	音無し (PICが未ダンプ)
+
+Star Fire 2 [David Rolfe]
+
+テクモワールドカップ ミレニアム [smf]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+カロリーくんvsモグラニアン [David Haywood]
+	初期版ドライバ, 基本のタイルマップとスプライトのみ実装
+
+Pipeline [David Haywood]
+	ROMロードのみ
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

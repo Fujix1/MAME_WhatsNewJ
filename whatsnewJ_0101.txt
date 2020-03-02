@@ -1,0 +1,348 @@
+0.101
+-----
+
+
+ソースの変更点
+--------------
+- pacman.c, jrpacman.c, pengo.cの全ゲームにステートセーブ追加。全ゲームに
+  GAME_SUPPORTS_SAVEフラグを付加。[Aaron Giles]
+
+- ステートセーブをシンプルにする汎用マクロをstate.hに追加。
+  state_save_register_global(var)はドライバに関係あるグローバル変数の登録に使用。
+  state_save_register_item(module, instance, var)は、特定のモジュールとインスタ
+  ンス名を持つその他の変数の登録に使用。MCRとCinematronicsベクターゲームでこれ
+  らを使うようにしました。その結果以前のバージョンとは互換性はなくなりました。
+  [Aaron Giles]
+
+- 8255 PPI, 7474 TTL, TMS5110サウンドチップにステートセーブ追加。galaxian.c系ド
+  ライバ全部でステートセーブサポート。galaxian.c, scramble.c, scobra.c,
+  frogger.c, amidar.cの全ゲームにGAME_SUPPORTS_SAVEフラグ追加。[Aaron Giles]
+
+- 動的にバンクが設定されるものでも動作するように、ステートセーブ時のバンク
+  レジストのタイミングを変更。[Aaron Giles]
+
+- ドライバ名が8文字以下かどうかのバリディティチェックを追加。[Aaron Giles]
+
+
+
+
+0.100u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+acrobatm0100u3gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- NSSを更にアップデート。ほとんどはMESSでプラスになりますが、nss_ncaaの改良もさ
+  れます。[R. Belmont]
+ - SPC700: SBCからメモリのオペランド順修正
+ - SNESHW: 未知のDMAとHDMAモードを実装
+ - SNESHW: SRAMのサイズ修正 (一部でプロテクトに使用)
+ - SNESHW: インターリーブのブースト
+ - 実際のハードのように動作するようスクロールレジスタ修正
+ - OAMアドレスリセットとレンジ、タイムオーバーのリセットタイミングを実際のハード
+  に合うように修正
+ - HDMA mode 5で"break"が無かったのを修正
+ - オートリード有効時のOLDJOYxレジスタの動作修正
+
+- Scrambleドライバにフィルタを再追加。[Hans Andersson]
+
+- 新デバッガのHexでの表示時のブレイク・ウォッチポイントを変更。[Anonymous]
+
+- usrintrf.cをMESSでうまく動くように更新。[Nathan Woods]
+
+- ddragon3とctribeのマシンドライバを統合。[Mamesick]
+
+-「Zip & Zap」のDIPスイッチを改良。[Brian Troha]
+
+-「Egg Hunt」のDIPスイッチを改良。[Brian Troha]
+
+- TC0100の画面反転修正。「ミズバク大冒険」が改良。[Bryan McPhail]
+
+-「Metal Saver」のDIPスイッチを改良。[Brian Troha]
+
+-「Jolly Card」のセットのマージをクリーンアップ。[Roberta Fresca]
+
+- 65816と37710コアをアップデート: [R. Belmont]
+ - 両CPUで、MVN/MVPの指すデータバンクレジスタをセットするように修正
+ - 65816がリードハンドラ不足で実行中にデバッガが正しく動作するように調整
+   (SNESで常にこの状態)
+
+-「アステロイド」で不足していたDIPスイッチを追加。[Kevin Jonas]
+
+- I386コアをアップデート: [Ville Linde]
+ - i486, Pentium，Cyrix MediaGX CPUを追加
+ - 命令コードテーブルを動的に構成されるもので置き換え
+ - 別のCPUをサポートするようにサイクルカウントを書き直し
+ - ページのトランスレーション追加
+ - バグ修正どっさり
+- またこれらの変更でSPIドライバが動作するようにアップデート。
+
+- taito_f2ドライバのクリーンアップ: [Brian Troha]
+ - port_includeとport_modifyにコンバート
+ - ROM名修正と基板レイアウト追加
+ - 基板上に16MHzのオシレータが無いので、サウンドCPUの周波数を240000/6、YM2610を
+   240000/3に変更。基板上は26.686と24.000MHzチップのみ。
+
+- vlinerの入力修正。[Mamesick]
+
+- gstriker/twcup94ドライバに基本的なズームサポート追加。[David Haywood]
+
+- -listxmlで報告されるジョイスティックタイプを正確に改良。[Buddabing]
+
+- UIに表示されるブックキーピング情報に"uptime"追加。[Aaron Giles]
+
+- 新ドライバフラグ GAME_SUPPORTS_SAVE 追加。ドライバがステート保存をサポートして
+  いるかを示します。このフラグがないゲームでステートセーブをしようとすると警告が
+  出ます。ステートセーブ関係のバグがこのフラグによって集まるかもしれません。
+  [Aaron Giles]
+
+- GAMEXとGAMEBXマクロを削除。フラグパラメータはGAMEとGAMEBマクロに移動。また
+  全ゲームでこれらを使用。[Aaron Giles]
+
+- ドライバ数本について新しいmemory_configure_bankを使うようにコンバート。
+  [Aaron Giles]
+
+- CinematronicsベクターサウンドハードとZ80CTCシステムにステートセーブを追加。
+  また、ステートセーブで使われるQB3バンキングも修正。cinemat.cの全ゲームに
+  GAME_SUPPORTS_SAVEをマーク。[Aaron Giles]
+
+- TMS5220チップにステートセーブ追加。6800コアのセーブステートで不足していたレジ
+  スタ追加。6821 PIA初期化とステートセーブ登録をクリーンアップ。mcr.cの全ゲーム
+  にGAME_SUPPORTS_SAVEをマーク。[Aaron Giles]
+
+- ui_popupで長いメッセージを表示するためにデフォルトの長さを変更。[Aaron Giles]
+
+- 新オプション -autosave 追加。GAME_SUPPORTS_SAVEのゲームで、起動時に自動でゲー
+  ムをロードして終了時にセーブをします。その他のゲームには効果はありません。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Magic's 10 [Pierpaolo Prazzoli]
+アルペンレーサー 2 (Ver. 97/01/10 17:10:59) [R. Belmont]
+ダークエッジ [Anonymous]
+Metal Saver [David Haywood, Corrado Tomaselli]
+
+
+
+新規クローンセット
+------------------
+ボナンザブラザーズ (Japan, Floppy) [David Haywood, Team Japump]
+スクランブルスピリッツ (Japan, Floppy) [David Haywood, Team Japump]
+ニンジャキッズ (US) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Magic's 10 2 [Pierpaolo Prazzoli]
+
+
+
+0.100u3
+-------
+
+
+ソースの変更点
+--------------
+- C2/Genesisベースのゲームをさらにクリーンアップ: [Aaron Giles]
+ - 前のバージョンで起きてたクラッシュを修正
+ - Genesisベースの全ゲームの割り込み発生を集中
+ -「ぷよぷよ2」のプロテクト正しく実装
+
+- 速度改善のためバリディティチェックでハッシュを使うようにしました。また、非デ
+  バッグビルドでは、全ゲームではなく実行するゲームのドライバのソースファイルだけ
+  に行うようにしました。さらにコインエイジのソートチェックで、ストリングの並び
+  順を特定の方法にするため、リンカに頼らないように修正しました。[Paul Priest]
+
+- -skip_validitychecksオプションを削除。チェックの実行時間が前ほど悪くないため。
+ [Aaron Giles]
+
+- ベクタープロセッサのマイクロコードのプレデコーディングで「Top Gunner」の速度改
+  善。またスコアとその他の数字表示をLCDっぽくするためにシフトレジスタ追加。  
+ [Mathis Rosenhauer]
+
+- Nintendo Super Systemのサウンドアップデート: [R. Belmont]
+ - SPC700 ADC, SBC, ADDW, SUBW, MUL, DIV, CLRV命令のバグ修正
+ - APUハードウェア/タイマーの問題を修正
+ - 最新のOpenSPCより正確なDSPエミュレーション追加
+ -「アクトレイザー」の同期ができなくなっていたタイミングの問題修正
+   結果:NSSゲームのサウンドはほとんど正確、MESSでのSNESゲームも同様
+
+-「ギャッツビー」の縦の動きを追加。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Laser Battle [Pierpaolo Prazzoli]
+Water Balls [David Haywood]
+Pop's Pop's [David Haywood]
+Egg Hunt [David Haywood]
+Zip & Zip [David Haywood]
+Power Balls [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+エスケープキッズ (Asia, 4 Players) [David Haywood]
+ギガンデス (Japan) [Chack'n]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+NFL Football [Aaron Giles]
+Cat'N Mouse [Pierpaolo Prazzoli]
+Metal Saver [David Haywood]
+
+
+
+0.100u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+pepper20100u1red [Aaron Giles]
+exidy440c0100u1red [Aaron Giles]
+ldrun0100u1gre [Pierpaolo Prazzoli]
+orld105k079yel [Mamesick]
+fromanc4099u2gre [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- ポーズ中にVIDEO_EOFルーチンが起こるバグを修正。これにより一部のゲームでグラ
+  フィックがおかしくなったり、タイマー不足が起きてました。[Aaron Giles]
+
+- redhawkbのDIPスイッチ改良。[Roberto Fresca]
+
+- Sega C2ドライバをいくつかに分解。[David Haywood]
+
+- m72の表示更新にパーシャルアップデートを使うように変更。[Aaron Giles]
+
+-「プロップサイクル」の入力用ハックを正しいアナログ操作に置き換え。
+  propcycl.nvファイルを削除してキャリブレート（「サイバーサイクルズ」と
+  「ファイナルラップR」と同じ手順）してください。[R. Belmont]
+
+- オプションファイルをチェックするときのメッセージを修正。[smf]
+
+- elecyoyoドライバのアトラクトモードでのハングを避けるためにインターリーブの改良。
+  [MASH]
+
+- solarqのオーバーレイを反転。[MASH]
+
+- Sega C2ドライバのアップデート: [Aaron Giles]
+ -「ツインスカッシュ」動作
+ - 8ラインスクロールとのコラムスクロールを修正
+ - 入力ポートクリーンアップ
+ -「Ribbit」のプロテクト実装部をクリーンアップ
+ -「プリクラ」のプロテクト修正
+ - cgfmのドキュメントに基づいてメモリマップの書き入れ
+ -「プリント倶楽部 v2, 4, 5」のプロテクトを実装
+
+- System FLにラスタ分割割り込み実装。「ファイナルラップR」完全動作。[El Semi]
+
+- funworldドライバのドライバフラグとセットの親子関係をクリーンアップ
+  [Roberto Fresca]
+
+- NSSのアップデートを少し: [R. Belmont]
+ - SPC700の命令2つの逆アセンブリを修正
+ - APUポートクリアフラグが出力ポートも削除しないように修正。
+   一部のゲームは“APUスキッパー”なしで動作するようになってます
+ - SPC700 CMP命令フラグ修正
+
+- デバッガの見えない部分の変更: [Olivier Galibert]
+ - ods-private void *を debug_viewsに追加
+ - ビューサイズを以前よりダイナミックに
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Lup Lup Puzzle [Pierpaolo Prazzoli]
+ツインスカッシュ [Aaron Giles]
+Cool Minigame Collection [Pierpaolo Prazzoli]
+ゴールデンアックス・ザ・デュエル [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+Moon Light [Roberto Fresca]
+Final Crash (World, bootleg) [David Haywood]
+Golden Tee Supreme Edition Tournament (v5.10) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+NBAプレイバイプレイ [Ville Linde]
+トップシューター [David Haywood]
+
+
+
+0.100u1
+-------
+
+
+ソースの変更点
+--------------
+- NB-1ゲームのボイスが間違っていたのを修正。[R. Belmont]
+
+- Namco FLシステムの更新: [R. Belmont, El Semi]
+ - 操作とコイン入力を含むMCUシミュレーション完成 (ステアリングのキャリブレーショ
+   ンの重要な事柄についてはドライバのはじめの部分を参照)
+ - スプライトバンキングの実装
+ - SE/BGM追加
+ - パレットバンク選択修正
+ - 両ゲームでの道路を修正
+ - ローテーションサインを修正
+
+- Namco System 22の改良: [R. Belmont]
+ -「タイムクライシス」に実際のMCUによる操作とコイン入力追加
+ - Super System 22のステレオの左右入れ替え
+ -「リッジレーサー2」のRAMテストを修正。ただしまだスタートアップせず
+ -「サイバーサイクルズ」「エースドライバ」のアナログ操作修正
+ -「エアコンバット22」の操作をMCUで読み込み
+ - System 22全ゲームにコイン入力追加。「リッジレーサー」で9キーを使う必要はもう
+   ありません :)
+
+-「Truco Clemente」の色修正。[David Haywood, Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+クイズ 宿題を忘れました [Brian Troha, Guru]
+Cookie & Bibi 3 [David Haywood, Corrado Tomaselli]
+ラフレーサー [David Haywood, Team Japump]
+ファイナルラップR [R. Belmont, El Semi]
+スピードレーサー（マッハGoGoGo）[R. Belmont, El Semi]
+ドラゴンボールZ V.R.V.S. [Anonymous]
+
+
+
+新規クローンセット
+------------------
+クラックダウン (Japan) [David Haywood, Team Japump]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+オペレーションサンダーハリケーン (ver UAA) [R. Belmont, Guru]
+Quizmaster [Pierpaolo Prazzoli]
+Trail Blazer [Pierpaolo Prazzoli]
+Super Nudger II [Pierpaolo Prazzoli]

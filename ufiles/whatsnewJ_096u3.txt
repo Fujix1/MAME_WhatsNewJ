@@ -1,0 +1,92 @@
+0.96u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+openice096u2red
+1945kiii096u2gre
+capbowl096u1gre
+
+
+
+ソースの変更点
+--------------
+「Wizz Quiz」のクローン修正。[Pierpaolo Prazzoli]
+
+SSVドライバにシャドーエフェクト追加。[Luca Elia]
+
+Slapsticコードの追加パスを簡略化。これを使うゲーム自体には影響ありませんが、確認
+してみる価値はあります。[Aaron Giles]
+
+Couplesドライバの改良: ビデオハードの改良とPPI8255初期版と入力インターフェース追
+加、$b011ジャンプのワークラウンド改良、サウンド追加など。ゲームは何とかプレイ可
+能。ただし問題有り。[Angelo Salese]
+
+以下のゲームのDIPスイッチ修正:
+* ドリームサッカー'94
+* メジャータイトル
+* セイブカップサッカー
+* Caveman Ninja / 戦え原始人 ジョー＆マック (World & US)
+* スパイナルブレーカーズ
+* Play Girl 2
+* Rohga / ウルフファング
+* Shootout / シュートアウト
+[Brian Troha]
+
+デバッガのメモリサーチ用に"find"コマンド追加。[Aaron Giles]
+
+一部のドライバのサウンドバランス調整。[David Haywood]
+
+penocup.cに表示エミュレーション初期版追加。[David Haywood]
+
+MIPSコア、PPCコアのデバッガサポート改良。[Nathan Woods]
+
+「Hot Shock」「Explorer」のサウンド改良。[Pierpaolo Prazzoli]
+
+「ゴルゴ13」の銃サポート。[R. Belmont]
+
+「パニックロード」のスプライト、操作、色、サウンド、表示系の問題を修正。
+それでもまだ動作せず。[Tomasz Slanina]
+
+TMS34010のリバースblitterで、外部からのメモリフェッチをしなかったのを修正。
+[Aaron Giles]
+
+旧デバッガで、メモリ表示がMコマンドで指定したサイズに関わらず、16bitワードに強制
+されることがなくなりました。[Andrew Church]
+
+「ダークシール」「クルードバスター」のOKIサンプルレート修正。「空牙」のサウンド
+コマンドドロップの修正中。[Bryan McPhail]
+
+ファイル名の前に">>"をつけてトレースとトレースオーバーコマンドを既存ファイルに追
+加できるように変更。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+AmeriDarts [Aaron Giles]
+A. D. 2083 [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+ウェルトリス (World) [Aaron Giles]
+Express Raider / ウエスタンエクスプレス(US set 2) [Joachim Bassmann]
+The Couples (Set 2) [Angelo Salese]
+ムーンシャトル (Japan set 2) [Corrado Tomaselli]
+ダンジョンズ&ドラゴンズ タワーオブドゥーム (Euro 940113) [Razoola]
+エイリアンVSプレデター (Hispanic 940520) [Razoola]
+エックスメンVSストリートファイター (Asia 960919) [Razoola]
+ストリートファイターZERO3 (Asia 980904) [Razoola]
+ギガウイング (Asia 990222) [Razoola]
+Hot Memory [David Haywood]
+ボーダーライン [Pierpaolo Prazzoli]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+サイバータンク [Angelo Salese]
+The Lost Castle In Darkmist [David Haywood/Tomasz Slanina]

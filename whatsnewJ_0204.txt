@@ -1,0 +1,558 @@
+0.204 2018-11-28
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 06985: [グラフィック] (eolith.cpp) landbrk and clones: サービスモードが真っ黒。(Ryan Holtz)
+- 07151: [ゲームプレイ] (asteroid.cpp) astdelux and clones: [バグかもね] ハイスコアの1位にFFFFFFが表示される。(AJR)
+- 06474: [グラフィック] (segas16b.cpp) goldnaxe: キャラクタが動くときスクロールが変になる。(hap)
+- 07046: [ゲームプレイ] (deco32.cpp) dragngun, dragngunj: 3面で画面が真っ黒になって止まってしまう。(hap)
+- 07149: [グラフィック] (docastle.cpp) dowild: 1面クリア後、画面の上端が点滅する。(hap)
+- 07154: [ドキュメント] (megadriv.cpp) megadriv [ppersia2]: リリース年は1995。
+- 06718: [クラッシュ/フリーズ] (mbc55x.cpp) mbc55x: シンタックスエラー後にBASICがフリーズする。(AJR)
+- 06607: [サウンド] (xmen.cpp) xmen and clones: BGMのバランスが再度おかしくなった。(hap)
+- 05613: [グラフィック] (prehisle.cpp) prehislek: イントロのテキスト（韓国語?）が正しく表示されない。
+
+
+新規動作可能マシン
+------------------
+Bare Knuckle III (bootleg of Megadrive version) [ShouTime, MetalliC]
+Dance Dance Revolution Disney Mix [Peter Bortas, ClawGrip, The Dumping Union, Recreativas.org]
+ゲーム＆ウォッチ: クライマー (new wide screen) [algestam]
+ゲーム＆ウォッチ: トロピカルフィッシュ [algestam]
+
+
+新規動作可能クローン
+--------------------
+センチピード (bootleg, set 2) [Joe Magiera, The Dumping Union]
+Dragon Master (set 2) [coolmod, The Dumping Union]
+ハチャメチャファイター (Location Test Prototype, 19th Sep. 1991) [Michael Moffitt]
+クラックス (Japan, version 4) [Arzeno Fabrice, The Dumping Union]
+Shin Ib Sa Won - Seok Dol I [gp-lee, Guru]
+忍 (set 5, System 16B) (unprotected) [Brian Troha]
+おてんきパラダイス -スノーブラザーズ2- (bootleg, set 2) [xuserv]
+ストリートファイターII -ザ・ワールドウォーリアー- (USA 910522, Rev. H) [Chris Gleed]
+ストリートファイターII -ザ・ワールドウォーリアー- (World 910204, conversion) [Brian Troha, The Dumping Union]
+Touchmaster 4000 (v6.02 England) [Porchy, Brian Troha, The Dumping Union]
+アースジョーカー (US / Japan, set 2) [Phil Bennet]
+エックスメン -チルドレンオブジアトム- (Asia 941219) [Brad Hicks]
+ゼビウス 3D/G (World, XV32/VER.A) [pacman70, Asayuki]
+
+
+動作可能に昇格したマシン
+------------------------
+アブノーマルチェック [Guru]
+Alpha One (Vision Electronics) [David Haywood]
+Qume QVT-102 [Al Kossow, Dirk Best, Robbbert]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Bingo Galaxy (main) [Darksoft]
+Bingo Galaxy (satellite) [Darksoft]
+Capitan Uncino (High Video, version 2) [f205v]
+Come Back [PinMAME]
+どこでもいっしょ -トロのおさかにゃ釣り- [ShouTime, Dane Biegert, rtw, The Dumping Union]
+Falco TS-1 (v2.13.0) [bhilpert, Bitsavers]
+Falco TS-2624 [Al Kossow]
+MIPS RC3230 [Patrick Mackinlay]
+MIPS RS3230 [Patrick Mackinlay]
+Model 931 Video Display Terminal [Al Kossow]
+Network Computing Devices NCD Explora Pro XQ [R. Belmont, Lord Nightmare]
+Network Computing Devices NCD HMX PRO [R. Belmont, Al Kossow]
+Network Computing Devices NCD-17C [R. Belmont, Al Kossow]
+Network Computing Devices NCD-19 [R. Belmont, Al Kossow]
+SGI 4D/410 [Ryan Holtz, NekoChan]
+SGI Crimson (R4000, 100MHz, Ver. 4.0.3) [Ryan Holtz, NekoChan]
+SGI O2 (version 4.18) [Ryan Holtz, NekoChan]
+SGI Octane (Version 6.5 Rev 4.9 05/22/03) [Ryan Holtz, NekoChan]
+Skate Board (Inder) [PinMAME]
+Sport 2000 [PinMAME]
+Top T. Cash [f205v]
+unknown Elsy game [f205v]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Arizona 10 (v1.1) [f205v]
+ダートデビルズ (Germany?) [Ordyne]
+Falco 5220s [Al Kossow]
+ファイティングバイパーズ2 [coolmod, The Dumping Union]
+クラックス (version 5, bootleg set 2) [PaTrYcK]
+Magic Colors (ver. 1.6) [f205v]
+ConnecTV Table Tennis (PAL) [David Haywood]
+セガラリー2 (prototype, 8 Dec 1997) [Ordyne]
+セガラリー2 (prototype, 29 Dec 1997) [Ordyne]
+Smashing Drive (Spain, Portugal) [ClawGrip, Gines Vivanco, Undergamers, Recreativas.org]
+Smashing Drive (World) [ClawGrip, MetalliC]
+Sperry Univac UTS-10 [Robbbert]
+スターウォーズ トリロジーアーケード (location test, 16.09.98) [coolmod, The Dumping Union]
+ロストワールド・ジュラシックパーク (older) [Ordyne]
+電脳戦機バーチャロン -オラトリオ・タングラム- [coolmod, The Dumping Union]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+bbc_rom:
+  ADE 1.00, ADE 1.9Z, ADE 2.01, ADE 2.02, ADE+, ADFS Utilities, AID, AIDS II Utility ROM, AIDS Utility ROM, AMS Disc Utility,
+  AMX MAX Desktop, AMX Mouse Support 2.10, AMX Mouse Support 2.11, AMX Pagemaker 1.0, AMX Pagemaker Plus 1.3,
+  AMX Pagemaker Plus 1.7, AMX Stop Press 1.9, AMX Super Rom 3.31, AMX Super Rom 3.41, AMX Super Rom 3.61, AMX Super Rom M3.61,
+  ARTS Communication ROM, ASM 1.1, ASM 2.2, ATS 2.58, ATS 2.59 (Morley), ATS 3.0, ATS 3.1, Acorn ADFS 1.30, Acorn ANFS 4.08,
+  Acorn ANFS 4.18, Acorn ANFS 4.21, Acorn ANFS 4.24, Acorn ANFS 4.25, Acorn DFS 0.90, Acorn DFS 0.98, Acorn DFS 2.10,
+  Acorn DFS 2.20, Acorn DFS 2.22, Acorn DFS 2.23, Acorn DFS 2.25, Acorn DFS 2.26, Acorn DNFS 1.00, Acorn DNFS 1.20, Acorn NFS 3.34,
+  Acorn NFS 3.60, AddComm 1.00, AddComm 1.10, AddComm 1.20, AddComm 1.30, Advanced 1770 DFS 1.00 (Master),
+  Advanced 1770 DFS 1.04 (Master), Advanced 1770 DFS 1.08 (B), Advanced 1770 DFS 1.08 (Master), Advanced BASIC,
+  Advanced Control Panel 1.00, Advanced Control Panel 1.02, Advanced Control Panel 1.03, Advanced Control Panel 1.04,
+  Advanced Control Panel 3.01, Advanced DFS 1770 2.00 (B), Advanced Disc Investigator 1.00 S/N:43700,
+  Advanced Disc Investigator 1.10 S/N:43543, Advanced Disc Investigator 1.20 S/N:43950, Advanced Disc Investigator 1.20 S/N:43970,
+  Advanced Disc Investigator 1.22 S/N:44712, Advanced Disc Investigator 2.00 S/N:43690, Advanced Disc Toolkit 1.20,
+  Advanced Disc Toolkit 1.40, Advanced Disc Toolkit 1.50, Advanced Disc Toolkit 1.60, Advanced Disc Toolkit 1.72,
+  Advanced Disc Toolkit 1.73, Advanced Disc Toolkit 1.74, Advanced Disc Toolkit 1.75, Advanced Disc Toolkit 1.76,
+  Advanced Disc Toolkit 1.77 [cracked], Advanced Disc Toolkit 1.78, Advanced Disc Toolkit 2.00, Advanced File Manager 1.06,
+  Advanced File Manager 1.07, Advanced File Manager 1.09, Advanced ROM Manager 1.00, Advanced ROM Manager 1.10,
+  Advanced ROM Manager 1.12, Advanced ROM Manager 1.13, Amcom DFS S/N:00000, Amcom DFS S/N:A4534, Amcom DFS S/N:A4554,
+  Amcom DFS S/N:A7259, Amcom DFS S/N:A7874, Amcom DFS S/N:B4084, Amcom DFS S/N:B4088, Amcom DFS S/N:B4218, Amcom E-Net 4.55,
+  Amcom E-Net 5.17, Amcom E-Net Client 6.23M, Arabic ROM, Artist, BASIC (1981), BASIC Extensions, BASIC2 (1982), BCPL, BROM 1.06,
+  BROM 1.12, BROM 1.14, BROM Plus, BS-DOS 2.19, BS-DOS 2.22, BeeBASE-1 1.06, BeeBASE-1 1.07, Beeb ROM, BeebAid, BeebFont,
+  BeebFont [alt], BeebMan, BeebMon, BeebPen 1.1, BeebPen 1.22, Beebtel 2.00, Beebtel 2.10, Beebug C 1.4, Beebug C 1.5,
+  Bitstik ROM 2.0, Bitstik Service ROM 1.0, Buffer & Backup ROM, C.U.C. DOS 1.00, COMAL, CP-ROM 1.01, CP-ROM 2.00,
+  Castle Quest (ROM Version), Centurion 1.03, Centurion 1.05, Chauffeur, Colour Screenprint 1.30s, CommPanion, CommSoft,
+  Command 1.00, Command 1.01, Command 1.04, Command Master 3.11, Commstar 1008, Commstar 1051, Commstar 3033, Commstar 6290,
+  Commstar 6397, Commstar 6973, Commstar 7537, Commstar 8179, Commstar 882A 1.40, Commstar 9057, Commstar II 2.22, Commstar II 2.31,
+  Commstar II 2.40, Commstar R032, Communicator 1.05, Crossware 65C02XR, Crossware 68000XR, Crossware Z80XR, D-Master, DIS-ASM,
+  DMON A1.08, DMON A1.14, DTT Version 7, Data Scribe 1.01, Data Scribe 1.20, Data Scribe 1.31, DataBeeb, DataStag 1.0,
+  Database 1.00, Database 1.20, DesROM, Diagram, Diary / Planner, Digital Drawings DD/B834, Digitiser 1.00, Digitiser 1.00 [alt],
+  Disc Servant, Disc-Aid, DotPrint-Plus, DoubleView, Dumpmaster II 1.00, Dumpmaster II 2.00, Dumpmaster II 2.15, Dumpout 0.5c,
+  Dumpout 0.5d, Dumpout 3.0m, Dumpout 3.0p, Dumpout 3.2g, Dumpout 3.2j, Dumpout 3.30, EXMON 1.0a, EXMON 1.1a, EXMON II 1.00,
+  EXMON II 1.03, EXMON II 2.01, EXMON II 2.02, EXROM: The Extension ROM, Easy Talk 1.01, Easy Talk 2.00, Edword 1.02, Edword 1.02E,
+  Edword 2.00E, Enigma Disc Imager 0.04, Enigma Disc Imager 1.05, Enigma Disc Imager 1.06, Enigma Disc Imager 1.07,
+  Enigma Disc Imager 1.08, Envelopes ROM, Epson Dump ROM, Epson NLQ, Everest, Extras, FORTH 1.03, Fanfare 1.40, File-Plus,
+  First Aid 1.1, Floppy Copy 1.2, Floppy-Wise 2.1, Floppy-Wise 2.3, Floppy-Wise MASTER 2.2, Floppy-Wise PLUS 1.7,
+  Floppy-Wise PLUS 1.8, Floppy-Wise PLUS 1.9, Floppy-Wise PLUS 1.C, Floppy-Wise PLUS 1.D, FontAid 1.01, FontAid 1.10, Forth 79,
+  G:Forth 0.95, G:Forth 2.30, GINN Language Chip, GXR 0.37 (B), GXR Model B, GXR Model B+, Giant Text ROM, GrafPad 2,
+  Graphics Terminal 2.01, Help 1.0, Help 1.01, Help II, Helping Hand 1.29, Helping Hand 1.36, HyperDriver 1.00, HyperDriver 1.10,
+  ISO-Pascal 1.00, ISO-Pascal 1.10, Ice-Box, Ice-Box [alt2], Ice-Box [alt3], Ice-Box [alt], Icon Master 1.00, Index Utility 2.05b,
+  Index Utility 3.00, Index Utility 3.03a, JWB Forth 2.0, JWB Forth 2.4, JWB Forth 2.5, Kermit 1.02, Kermit 1.30, Kermit 1.33,
+  Kermit 1.45, Kmon, LISP 1.00, LISP 2.00, LISP 4.06, LISP 5.00, LOGO, LOGO (Logotron), LOGO 1.00 (Catsoft), LOGO 1.20 (Catsoft),
+  LVL Dos 0.91, Le Modem 1.00, Le Modem 1.04, Linemaster, Logo-Forth, MACH 1 1.00, MACH 1 1.01, MASS, MASTERcopy, MOS Plus 1.14,
+  MOS Plus 1.15, MUROM 1.00, MUROM 1.01, MUROM 1.10, MUROM 1.2, Master Emulation ROM 1.00, Master Emulation ROM 2.01,
+  Master Emulation ROM 2.02, Master ROM 1.01, Master ROM 1.03, MedMon-B, Mega-ROM 1.00, Mega-ROM 1.01, Menu ROM 1.00, Menu ROM 1.20,
+  Merlin, Meta Assembler 2.13R, Meta Assembler 2.13R [alt], Meta Assembler 3.40A, Micro Prolog, Micro-C 1.0, Micronet 1.30,
+  Micronet 1.40, Micronet 2000, Microtext 3.3D, Microtext Plus 3.54, Microtext Plus 3.55R, Microware DDFS 0.90, Monitor 0.01,
+  Monitor 1.60, Monitor v2.01, Mouse Pac Driver, Movie Maker 1.0, Movie Maker 1.1, Multi-FORTH 83, Multi-FORTH 83 [alt],
+  Multi-Font NLQ, MultiFont, NLQ Designer 1.2, NLQ Designer 1.3, NTQ Font Extension ROM 1, NTQ Font Extension ROM 1 [alt],
+  NovaCAD 1.06, NovaCAD 2.0N, NovaCAD 3.3K, Numerator 1.00, Oak Mentor, Opus DDOS 3.00, Opus DDOS 3.05, Opus DDOS 3.12,
+  Opus DDOS 3.15, Opus DDOS 3.16, Opus DDOS 3.35, Opus DDOS 3.36, Opus DDOS 3.45, Opus DDOS 3.46, Opus EDOS 0.4, Overlay BASIC,
+  Oxford Pascal 1.1, Oxford Pascal 2.0, Oxford Pascal 2.1, PCB 1.01, PCB 1.03, PCB 1.07, PCB 3.02, PCB 4.02, PCB 4.03,
+  PCB Auto-Routing 1.03, PCB Auto-Routing 1.04, PHX 1.00, PHX 2.00, PMS Multi-Font NTQ 1.0, PMS Multi-Font NTQ 1.3,
+  PMS Multi-Font NTQ 1.4, Pascal-T, Pen-Friend 1.20, Pen-Friend 1.24, PenDown 1.13, Pointer, PowerFont NTQ, Prestel Terminal,
+  PrintBox 1.22, Printer Controller, Printer Server 1.00, Printer Server 1.11, ProWord 1.2, ProWord 1.3, Probe 4.02, Probe 4.05,
+  ProgramSmith 0.80, QFS 1.02, QFS 2.00, Quest 2.1A, ROM Manager 1.00, ROM Manager 1.10, ROM Manager 2, ROM Master, ROM-Spell 1.00,
+  ROM-Spell 1.02, ROM-Utils 1.70, ROMAS 3.00, ROMAS 3.02, Ramrod 1.82, Ramrod 4.00c, Romit 0.9, Romit 1.01, Romit 1.02, SPY 1.00,
+  SPY 1.11, SPY 2.01, SPY 2.10, SPY 2.12, Screen Dump ROM 1.01, Screen Dump ROM 2.01, Screenprint 0.20, Screenprint 1.00,
+  Scribe 1.10, Scribe 1.30, ScribeChec 1.10, Scythe, SecurIt, Slave 0.01, Slave 1.04, Slave 1.34, Sleuth 1.00, Sleuth 1.05,
+  Sleuth 1.05a, Sleuth 1.06, Softlife EPS Software Mk2, Softlife Keypad Software, Solidisk ADFS 2.1D Issue 2, Solidisk ADFS 2.1M,
+  Solidisk ADFS 2.1M Issue 2, Solidisk ADFS 20/2 Issue 2, Solidisk DFS 2.00 (8271/1770), Solidisk DFS 2.1M Issue 2,
+  Solidisk DFS 2.2D, Solidisk DFS 2.2J Issue 2, Solidisk DFS 2.2M Issue 2, Source Library Manager, Spark Dump, Speech!,
+  SpellCheck II, SpellCheck III, StarBASE 2.00, StarBASE 2.00 (CUC), StarBASE 2.10, StarGraph 2.01, StarMon 1.20b, StarStick 1.41,
+  StarStick 2.23, StarStick 2.24, StarStore II, StarWord 1.01, SuperFont, Supervisor, System Delta, TUBE Editor,
+  Tape to Disc 'TD' ROM (1770), Tape to Disc 'TD' ROM (8271), Teletext 1.04A, Teletext RTFROM, Teletext Support ROM, Termulator,
+  Text Library Manager, The BASIC Editor 1.32, Toolkit 1.01 (Algotek), Toolkit 1.10, Toolkit 1.20, Toolkit 1.21, Toolkit 1.22,
+  Toolkit 1.23, Toolkit 1.25b, Toolkit Plus 2.00, Toolkit Plus 2.02, Toolkit Plus 2.04, Toolkit Plus 2.05, Toolstar 1.77 1262,
+  Toolstar 1.77 1511, Trackerball 0.01, TransfeROM (SD) 0.95, TransfeROM (SD) 0.96, TransfeROM (SD) 1.10, U-Tools,
+  U-Tools Demonstration, UDM DDFS 2.00, UROM 1.2, UROM 1.3, UVIPROM 1.1, UVIPROM 1E1, UVIPROM 2.1, Ultracalc, Ultracalc 2,
+  Upgrade 2.2C, Upgrade 3.00, UserDUMP, UserROM, VASM 2.0C, VASM 2.0E, Viditel, View A2.1, View A3.0, View B3.0, View D2.1,
+  View Professional 1.0, View Professional 2.0, ViewShape, ViewSheet A0.7, ViewSheet B1.0, ViewSpell 1.0, ViewSpell 1.1,
+  ViewStore 0.5, ViewStore 1.0, ViewStore 1.1, ViewStore 1.2, ViewStore 1.5, WYSIWYG Plus, Watford Electronics DDFS 1.40,
+  Watford Electronics DDFS 1.50, Watford Electronics DDFS 1.53, Watford Electronics DDFS 1.54T, Watford Electronics DDFS+ 0.91,
+  Watford Electronics DFS 1.00, Watford Electronics DFS 1.10, Watford Electronics DFS 1.20, Watford Electronics DFS 1.30,
+  Watford Electronics DFS 1.41, Watford Electronics DFS 1.42, Watford Electronics DFS 1.43, Watford Electronics DFS 1.44,
+  Watford PRINT-ROM 0.1C, Watford PRINT-ROM 0.1E, Watford SFS 0.90, Watford SFS 0.92, Window 1025, Window 1045,
+  Wizard Joystick Utility 1.12, Word Power, Word-Aid, WordEase, Workstation 1.4, XTend [Nigel Barnes]
+electron_cass: Ewgeebez [AJR]
+gbcolor: Pocket GT (Eur, Prototype?) [VampierMSX, Porchy, The Dumping Union]
+megadriv: Battle Mania Daiginjou (Jpn, Prototype, 19910528), Centurion - Defender of Rome (Euro, Prototype, 19910528) [ArcadeShadow]
+uzebox (uzebox.xml): Wuergertime (Demo), Wuergertime with Music (Demo) [ArcadeShadow]
+
+
+動作可能に昇格したソフトウェアリストの項目
+------------------------------------------
+gamecom: The Lost World - Jurassic Park [Robbbert]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+bbc_rom:
+  ADDER, AMX Design, Advanced BASIC Editor, EPROM 1.04, EPROM 1.08, Epromer II, Inter-Word 1.O2, MASTERboard,
+  Micron EPROM Programmer 1.4a, Micron Plus EPROM Programmer 1.30, Micron Plus EPROM Programmer 1.40, Prestel 1.1,
+  Prestel 4.7n, Prestel 4.8n, Printer Buffer 1.00, Printer Buffer 2.10, Pro-Performer 2.1, Pro-Performer 2.2,
+  Replay System 8271 1.00, Replay System 8271 1.10, Replay System WD1770 1.01, Replay System WD1770A 1.17, STL Clock & Desk,
+  SideAid128, SideAid256, Solidisk ADFS 2.1S, Solidisk DDFS 1.5, Solidisk DDFS 1.9, Solidisk DFS 2.0J (8271/1770),
+  Solidisk DFS 2.0L (8271/1770), Solidisk DFS 2.0m (8271/1770), Solidisk DFS 2.1 (8271/1770), Solidisk DFS 2.1A (1770),
+  Solidisk DFS 2.1J Issue 1, Solidisk DFS 2.1J Issue 2, Solidisk DFS 2.2N Issue 2, TED 1.11, Tic-Toc RTC [Nigel Barnes]
+ekara:
+  1979-81 Volume 1 (Japan) (EC0008-G79), Artist Selection Volume 1 (unknown) (Japan) (EC0014-ATS),
+  Artist Selection Volume 5 (Matsuda Seiko) (Japan) (EC0035-ATS), Artist Selection Volume 8 (unknown) (Japan) (EC0041-ATS),
+  BHT Volume 3 (Japan) (GC0006-BHT), HWK (Japan) (SC0010-HKW), J-Pop Mix Volume 2 (Japan) (EC0002-JPM),
+  J-Pop Mix Volume 11 (Japan) (EC0023-JPM), J-Pop Mix Volume 13 (Japan) (EC0025-JPM), J-Pop Mix Volume 33 (Japan) (EC0068-JPM),
+  J-Pop Mix Volume 34 (Japan) (EC0070-JPM), J-Pop Mix Volume 36 (Japan) (EC0072-JPM), J-Pop Mix Volume 39 (Japan) (EC0076-JPM),
+  Mini Volume 1 (Japan) (MC0001-ATM), SAI Volume 1 (Japan) (SC0005-SAI), SAI Volume 2 (Japan) (SC0006-SAI),
+  SAI Volume 3 (Japan) (SC0009-SAI), SAI Volume 6 (Japan) (SC0019-SAI), SAI Volume 7 (Japan) (SC0021-SAI),
+  SAI Volume 8 (Japan) (SC0022-SAI), e-kara US Volume 3 (US-E003), e-kara US Volume 8 'No Boys Allowed' (US-E008),
+  e-kara US Volume 9 'No Boys Allowed' (US-E009), e-kara Web cartridge 28M (Japan) [Sean Riddle, ClawGrip, Peter Wilhelmsen]
+  Artist Selection Volume 2 (unknown) (Japan) (EC0015-ATS), Artist Selection Volume 3 (Dreams Come True) (Japan) (EC0029-ATS),
+  Artist Selection Volume 4 (unknown) (Japan) (EC0031-ATS), Artist Selection Volume 6 (KinKi Kids) (Japan) (EC0036-ATS),
+  Artist Selection Volume 9 (Every Little Thing) (Japan) (EC0044-ATS),
+  Artist Selection Volume 10 (Mr. Children) (Japan) (EC0045-ATS), Artist Selection Volume 12 (Judy and Mary) (Japan) (EC0049-ATS),
+  BHT Volume 1 (Japan) (GC0002-BHT), ENK Volume 1 (Japan) (EC0006-ENK), ENK Volume 6 (Japan) (EC0048-ENK),
+  J-Pop Mix Volume 3 (Japan) (EC0003-JPM), J-Pop Mix Volume 7 (Japan) (EC0012-JPM), J-Pop Mix Volume 8 (Japan) (EC0013-JPM),
+  J-Pop Mix Volume 10 (Japan) (EC0022-JPM), J-Pop Mix Volume 14 (Japan) (EC0026-JPM), J-Pop Mix Volume 15 (Japan) (EC0027-JPM),
+  J-Pop Mix Volume 19 (Japan) (EC0042-JPM), J-Pop Mix Volume 23 (Japan) (EC0054-JPM), Kid's Mix Volume 1 (Japan) (EC0010-KID),
+  Kid's Mix Volume 3 (Japan) (EC0034-KID), e-kara Germany 5-Songs Starter (GER-M001), e-kara UK / Europe Volume 1 (UK-E001),
+  e-kara UK / Europe Volume 2 (UK-E002), e-kara UK / Europe Volume 3 (UK-E003), e-kara UK / Europe Volume 6 (UK-E006),
+  e-kara UK / Europe Volume 7 (UK-E007), e-kara US Volume 4 (US-E004), e-kara US Volume 5 (US-E005), e-kara US Volume 6 (US-E006),
+  e-kara US Volume 7 (US-E007) [TeamEurope]
+electron_flop: E2P Hi-Basic, E2P Operating System (Disk) [Nigel Barnes]
+
+
+ソースの変更点
+--------------
+- v25: 内部データ領域とSFRのアドレスのアドレス空間を追加。[AJR]
+
+- i8088: I/Oアドレスを5ビットにマスク。[AJR]
+
+- mbc55xの追加と改良: [AJR]
+ * 全てのクロックを修正。マスタクリスタルから生成
+ * I/Oアドレスデコーディングを訂正
+ * 8251 USARTへのスピーカー出力を接続
+ * ISA拡張スロット、セントロニクスプリンタポート、RS-232"line"ポート追加
+ * HLEキーボードにバックスペースキー追加とマイクロコントローラが未吸出しと記載
+
+- i8251: breakコマンドの送信を実装。[AJR]
+
+- z80dart: WR5変更時にはレシーバをリセットしないよう変更。[AJR]
+
+- z80ctc: 各チャンネル用に設定する固定レートクロックのサポート。[AJR]
+ * 高周波数の同期タイマでのCLK/TRG入力をドライブする必要性を減らし、パフォーマンス改善
+
+- i386: プロテクトモードが有効化、または無効化されたとき、CSデスクリプタフラグが変更されたときデバッガに特権の変更を送
+  信。[AJR]
+
+- dsk_dsk.cpp: 削除され不良なCRCフラグが未初期化で使われていた問題を修正。[AmatCoder]
+
+- tecmo.cpp: コードの重複、ランタイムでのタグマップ参照の削減、初期化関数を派生したメモリマップに置き換え。[cam900]
+
+- serflash.cpp: ページサイズ設定をサポート。ブロック削除コマンド、過去の最後のページのリードとライトを修正。[cam900]
+
+- c6280.cpp: LFOスケールビットを修正。[cam900]
+
+- gottlieb.cpp: コードをクリーンアップ。[cam900]
+
+- hotblock.cpp: クリスタルの値を確認。ビデオコードのクリーンアップ。スタート時のRAM割当てを据え置き。[cam900]
+
+- fantland.cppのクリーンアップ: [cam900]
+ * ADPCMサウンドつきのマシンを派生したステートクラスに移動
+ * ランタイムでのタグマップ参照、ACCESSING_BITSマクロ、コードの重複を削減
+ * 関数名の改良とコードのクリーンアップ
+
+- namcos2.cpp: C123ビデオRAMミラーリング修正(metlhawkの面間修正)。[cam900]
+
+- gp9001.cpp: タイルマップの描画をクリッピング領域に限定。メンバ名改良。冗長なコードを削除。[cam900]
+
+- toaplan2.cpp: メンバ名の改良、無駄にregister_postloadを使用していたのを削除。[cam900]
+
+- c117.cpp: MCFGマクロを削除。[cam900]
+
+- stadhero.cpp: コードのクリーンアップ。MCFGマクロを一部削除。名称の改良。ノートの追加。[cam900]
+
+- namco_c123tmap.cpp: オフセットのサポート。ハーフハイトタイルマップ、8ビットI/O(namcos1.cpp用)のサポート。[cam900]
+
+- namcos1.cppの更新: [cam900]
+ * C123タイルマップエミュレーションをデバイスを使うようコンバート
+ * デバイスタイプの訂正、クリスタルの値、YM2151のクロック周波数訂正
+ * リージョン名改良。なるべくMCFGマクロを使わないよう改良。冗長なコードやコードの重複を削減
+
+- deco16ic.cpp: グラフィックデコードデバイスをタグ風オブジェクトを使う形にできるよう改良。[cam900]
+
+- wrally.cppのクリーンアップ: [cam900]
+ * ランタイムでのタグマップ参照とACCESSING_BITSマクロの使用を削減
+ * グラフィックデコードディスクリプションの整理と、コードの重複を削減
+
+- deco32.cppのクリーンアップ: [cam900]
+ * VIDEO_START_MEMBERを削除。メンバ名とフォーマットの改良、コードのクリーンアップ
+ * グラフィックデコードディスクリプションのシンプル化と重複の削減
+
+- thoop2.cpp: ランタイムでのタグマップ参照削減。グラフィックデコードディスクリプションをシンプル化。コードの重複削減。
+  [cam900]
+
+- gaelco.cppのクリーンアップ: [cam900]
+ * ランタイムでのタグマップ参照削減。メンバ名の改良
+ * グラフィックデコードディスクリプションとROMロードのクリーンアップ
+
+- backfire.cppの更新: [cam900]
+ * グラフィックデコード、ディスクリプションのシンプル化。重複したり未使用のコードの削除
+ * スクロールRAM割当をスタート時まで延期
+ * リリースリージョンをディスクリプションに追加。ノート追加
+
+- alpha68k.cpp: 未エミュレートなビデオエフェクトについてノート追加。[cam900]
+
+- imagetek_i4100: device_gfx_interfaceを実装。MCFGマクロを削除。スプライト描画コードをクリーンアップ。[cam900]
+
+- hyprduel.cpp: ACCESSING_BITSマクロの使用率を低下。[cam900]
+
+- metro.cppのアップデート: [cam900]
+ * blzntrndとgstrik2のスプライトラグ修正。gstrik2のサウンドバランス調整
+ * メンバ名改良。ACCESSING_BITSとMCFGマクロの使用度合いを低減。コードの重複削減とクリーンアップ
+ * karatourjのタイトル訂正
+
+- blmbycar.cppの更新: [cam900]
+ * ランタイム時のタグマップ参照、ACCESSING_BITSマクロの使用、コードの重複をそれぞれ削減
+ * サウンド出力をモノラルに変更
+ * ディスクリプションにバージョン追加
+
+- lordgun.cpp: alienchaのYMF278Bのクロックを訂正。コードの重複解消とシンプル化。メンバ名の改良。[cam900]
+
+- bmcpokr.cpp: 現在のベストプラクティスに沿ってコードをクリーンアップ。サウンド出力をモノラル化。[cam900]
+
+- dec0.cpp: スプライトRAMをbuffered_spriteram16_deviceに変換。グラフィックデコードのディスクリプションをクリーンアッ
+  プ。メンバ名の改良。[cam900]
+
+- karnov.cpp: 背景描画をタイルマップシステムを使うように変換。グラフィックデコーディングのシンプル化。コードのクリーン
+  アップ。[cam900]
+
+- taito_o.cpp: サウンドバランスの改良。[cam900]
+
+- igs011.cpp: パレット処理とグラフィックROMアクセスをシンプル化。[cam900]
+
+- f1gp.cppのクリーンアップ: [cam900]
+ * f1gp2を派生したステートクラス化。コードクリーンアップ。重複削減。メンバ名改良
+ * グラフィックデコードディスクリプションをシンプル化
+ * f1gpのサウンド出力をモノラルに変更
+
+- st0020.cpp: ROMリージョンのオブジェクトファインダ追加。コード重複削減。タイルマップマッピングをシンプル化。[cam900]
+
+- cave.cpp: ACCESSING_BITSとMCFGマクロの使用率削減。メンバ名改良。コードのクリーンアップ。[cam900]
+
+- drgnmst.cpp: 8x8のタイルバンク修正。[cam900]
+
+- nmk112.cpp: MCFGマクロを完全削除。書き込みハンドラシグネチャをシンプル化。[cam900]
+
+- segas32.cpp: ACCESSING_BITSマクロの使用率を削減。コードの重複解消。メンバ名改良。[cam900]
+
+- XaviXの更新: [David Haywood]
+ * I2Cメモリページサイズを設定しない(「Namco/Taitoノスタルジア」でのハング対策)
+ * パレットベースを1ピクセル4ビット以上のモードとなる自然な境界に設定
+ *「イーカラ」のカセットをソフトリストに移動
+ * 簡単なタイマ実装(周波数は修正)
+ * rad_mtrk用の初期的なホイール入力を追加。rad_fb/rad_madfのボール入力追加
+ * 上位バンクでのオペコードアクセスを修正
+ * ekaraとrad_rhの入力を改良
+ * rad_rhのタイルアドレッシングを修正
+ * 初期的なサウンドエミュレーション追加
+ * CPUエミュレーションの改良。ttv_mxの道路改良。ttv_swでグラフィック表示。ttv_lotrのタイトル画面でBGM再生
+ * スプライトの配置を改良
+ *「Monster Truck」のタイル反転改良とインラインヘッダモードでのレンダリング
+ * epo_efdxがEEPROMを読みこんでタイトル画面が表示さえるようにハック追加
+
+- supbtime.cpp: tumgblepとchinatwnのタイルマップが1ピクセルずれていたのを復旧。[David Haywood]
+
+- m52.cpp: alpha1vを別な派生ステートクラスに移動。表示系の問題修正。動作可能に昇格。[David Haywood]
+ * mpatrolのパレット処理で、もともとメモリの節約のために追加していた処理を削除
+
+- pbaction.cpp: pbactiontで数字LED表示を実装。[David Haywood]
+ * ディスプレイ制御CPUとの通信エミュレーションは不完全
+
+- asuka.cppの更新: [David Haywood]
+ * earthjkrのROMを吸出し不良に設定し、earthjkrpをもとにパッチを適用(最終面の列スクロールが修正)
+ * 音割れしないように音量調整
+
+- ppu2c0x_vt.cpp: モード選択前にパレットをセット可能(ddrdismxでのKoamiロゴ修正)。[David Haywood]
+
+- wrally.cpp, blmbycar.cpp: スプライト描画のデバイス化と、blmbycarでの影とハイライトエフェクトを修正。[David Haywood]
+
+- qvt102.cpp: デバイス実装。全てのビデオ属性を実装してビデオエミュレーションを書き直し。NVRAM追加。
+  [Dirk Best, Robbbert]
+
+- amiga: Commodore A2065イーサネットカードをサポート。[Dirk Best]
+
+- hp9825.cpp: hp9825b用の内部拡張ROM追加。[F.Ulivi]
+
+- luaengine: item:read_block(offset, count)がオフセットを適用するように修正。[feos]
+ * emu.item()のディスクリプションコメントも追加
+
+- bbcの更新: [Nigel Barnes]
+ * 起動時に拡張デバイスから要求されたROMを空のスロットに割当て
+ * 拡張デバイスからの全ルートデバイスアクセスを削除
+ * Econetの更新にフィットするような設定オプション追加
+ * bbcaとbbcb用に、OS 0.92をBIOSオプションに追加
+ * Opus Challenger ADFS 1MHzバスデバイスを追加(Masterのみ)
+ * torch MCP ROMを起動時に挿入されるようbbc_tube_zep100デバイスに移動
+ * bbc_acorn8271: DFS ROMをソフトウェアリストに移動
+ * Opus DDOS 3.05をbbc_opus8272に追加
+ * Opus DDOS 3.12をbbc_opus2791に追加
+ * 1MHzバス上のAries B488とAcorn IEEE488インタフェースデイバスを追加
+
+- amstr_pc.cpp: 内蔵3.5インチフロッピーをマシン設定に追加。[Nigel Barnes]
+
+- ampoker2.cpp: reabbitpkの復号化をシンプル化。[O. Galibert]
+
+- ymmu100.cpp: サウンド出力の実装。フィルタも含む。[O. Galibert]
+
+- v53のオーバホール: [Patrick Mackinlay]
+ * V50をサポート。現在のベストプラクティスに合わせてコードのリファクタリング
+ * DMAUで16ビット転送をサポート
+ * SCUの実装を整理
+
+- mips1のオーバホール: [Patrick Mackinlay]
+ * TLBとアドレス変換の実装。キャッシュ分離動作を改良
+ * ベクタロジック例外を修正
+ * オーバーフローロジック修正
+
+- am79c90: ネットワーク通信実装。動作の大幅改良。[Patrick Mackinlay]
+
+- mips.cpp: MACアドレスPROM、LANCEイーサネットコントローラ、フロッピードライブコントローラを実装。[Patrick Mackinlay]
+
+- pc9801_86.cpp: ステレオサウンドルーティング修正。PSG音量レベルがずれていたのを修正。[r09]
+
+- tec1: オリジナルのデザイナさんからのクリーンなROMに置き換え。[Robbbert]
+
+- ampoker2.cpp: piccolopのプロテクトをドキュメント化しシミュレート。ROMパッチを削除。[Roberto Fresca]
+
+- mb87030: パディングモード実装(Pascal 3.24の起動、hp9k_3xxのSCSIから動作可能)。[Sven Schnelle]
+
+- luaengine: screen_devクラスにパックしたRGBピクセル値を取得する関数追加。[Ryan Holtz, Carl]
+
+- hpc3.cppの更新: [Ryan Holtz]
+ * DMA転送動作を改良
+ * オーディオDMAを修正。2つ目のDACを実装。オーディオDAC DMAタイマを停止できないバグを修正
+ * Indigo2に2つ目のSCSIを部分実装
+ * INT3とPITレジスタアクセスを実装
+ * シングルバイトSCSI DMAリクエストをサポート
+ * 割り込みリクエストのあるオーバーサイトを修正
+ * ログ取得をlogmacroを使用するよう変更。verboseのログをさらに取得。セーブステートをサポート。コードの整理
+ * SGI Indyの起動チャイムを復活。IRIXインストーラがSCSIエラーで止まるまで動作可能
+
+- ioc2.cppの更新: [Ryan Holtz]
+ * Timer1/Timer0、z80scc、8042kbdc割り込みを実装
+ * 8042kbdcリセットを実装
+ * IRQ低下ロジックが実際にMIPS IRQラインをクリアするよう修正
+ * ログ取得でlogmacroを使うように変換。より多くのverboseをログに取得。セーブステートのサポート
+ * Gentoo Linuxの起動可能。ただし起動中にフリーズ
+
+- newport.cpp: 色解像度についての長年あったバグを修正。[Ryan Holtz]
+ * 現在のコーディングスタンダードに更新。ログ取得をlogmacroに変更。より多くのverboseをログとり
+
+- dp8573.cpp: DP8573リアルタムクロックエミュレーションを追加。[Ryan Holtz]
+
+- sgi.cpp: RPSSカウンタをより正確に改良。セマフォレジスタ追加。[Ryan Holtz]
+ * ログ取得をlogmacroに変更。より多くのverboseをログ出力。コーディングスタンダードに更新
+
+- indy_indigo2.cppの更新: [Ryan Holtz]
+ * Indigo2をデバイスステートクラスに移動。多くのデバイスをHPC3に移動
+ * MACHINE_CONFIG_START/MACHINE_CONFIG_ENDの使用を完全に削除
+ * EISA I/O空間のプルアップを実装
+
+- indigo.cppの更新: [Ryan Holtz]
+ * indigo3kとindigo4kのステートクラスを分離
+ * RS-232ポートを実装
+ * 新しいZilog SCCに切り替え。PIT8254デバイスを追加(フリーズ対策のため正しくないクロック値を使用)
+ * SCSIとHPC1の機能実装
+ * 新型のDP8573リアルタイムクロックを実装
+ * RAMレイアウトの改善
+ * DSP RAMとエントリレベルなグラフィック(LG1/LG2)のスタブ追加
+ * LG1パレットの設定、ブロック描画、パターン描画、フレームバッファコピー、PROMモニタで使用する残りのコマンドを実装
+ * 未使用のスクリーンデバイスを削除
+ * ログ取得の拡張とlogmacroを使う方法に変換。MAMEの設定スタンダードに合わせて変数名の変更
+
+- t10sbc.cpp: Format ParametersとGeometry Prametersページをサポート。[Ryan Holtz]
+
+- scsicd512.cpp: デフォルトで512バイトブロック使用する様々な新型SCSI CD-ROMデバイスを追加。[Ryan Holtz]
+
+- nscsi_cd.cpp: デフォルトで512バイトブロック使用する様々な新型SCSI CD-ROMデバイスを追加。[Ryan Holtz]
+
+- sgikbd: SGI Indigoキーボードの基本的なハイレベルレミュレーションを追加。[Ryan Holtz]
+
+- rs232/hlemouse.cpp: SGI Indigoマウスをサポート。[Ryan Holtz]
+
+- o2.cpp: CRINEとMACEのスケルトンドライバ追加。[Ryan Holtz]
+
+- mips3.cppの更新: [Ryan Holtz]
+ * R4400BE、R4400LE、R4600BE、R5000BEバス幅を64ビットに訂正
+ * 64ビットデータバスとDRCでクラッシュが起きていたバグを修正
+ * SGI O2の起動PROM DPRINTFコールをログ取得する機能追加(プリプロセッサマクロありで有効化)
+
+- clifront.cpp: -showusageと-showconfigオプションの説明を改良。[Ryan Holtz]
+
+- screen.cpp: スキャンラインタイマを簡単に実装できるデバイスコールバックを追加。[Ryan Holtz]
+
+- zerozone.cpp, zexall.cpp, zr107.cpp, zrt80.cpp, zt8802.cpp, zwackery.cpp, zx.cpp: MACHINE_CONFIG_START/_ENDマクロを
+  完全に削除。[Ryan Holtz]
+
+- m68kmmuの改良: [Sven Schnelle]
+ * アドレス変換キャッシュのRWビットを正しく処理
+ * Add page table walk resulting in BUSERROR to address translation cache.
+ * PTEST命令を修正。MMUステータス・レジスタでPTESTレベルレポート
+ * MC688851でMMUが無効なのにPLOADが呼ばれた場合にトラップ
+ * ページディスクリプタでディスクリプタステータスをスキップしないよう変更
+ * PTESTのアドレスを最後のディスクリプタアドレスに設定
+ * ファンクションコードページのテーブルルックアップ追加
+ * TTレジスタのマッチングを修正
+ * PLOAD命令のFCフィールドをデコード
+ * 8バイト間接ディスクリプタをサポート
+ * デバッガで変換をトリガしたとき、ページテーブル/アドレス変換キャッシュステートを変更しないよう修正
+ * バスエラー時にアドレス変換キャッシュBビットを保持し、最後の論理アドレスをハンドラに設定
+ * デバッガで68020/030/040 PMMUレジスタを表示
+
+- デバッガ: 次の特権レベルの変更まで動作させるgpコマンド追加。%cフォーマットによる変換をサポート。[Sven Schnelle]
+
+- hp9k_3xxの更新: [Sven Schnelle]
+ * HP9000/360で正しいメモリマップを使用
+ * RTCデータ化けのバグ修正(ラッチクロックの初期ステートがセーフでなかったため)
+
+- nereid: オーバーレイをサポート(HP98550Aで使用)。device_palette_interfaceを実装。[Sven Schnelle]
+
+- hp_dio: HP98550A高解像度カラーグラフィックカードをサポート。HP900/360と/370でデフォルトに設定。[Sven Schnelle]
+ * Window移動、ピクセル・ウィンドウ置換ルール、VRAMビットアクセス、ソリッドライン描画、パターンマスクコピーを実装
+ * シェイプの描画、領域塗りつぶし、追加のコピーモードは未サポート
+
+- hp_dio: HP98643A LANICイーサネットカードをサポート。[Sven Schnelle]
+
+- qvt102: 追加のファームバージョン吸出し。キーボードのマイコン吸出し。[Al Kossow]
+
+- バイナリディストリビューションにiniと例を追加。[anikom15]
+
+- atetris.cpp: Indel P8749HマイコンをデキャップしEPROM吸出し(既存吸出しと一致)。[Caps0ff, ClawGrip]
+
+- kickgoal.cpp: kickgoalのPICサウンドマイコンをデキャップして吸出し。エミュレーションを実装。[Caps0ff, balrog, David Haywood]
+
+- pbaction.cpp: 数字のLEDGER表示を動作させる追加基板を持つTecfri版の「ピンボールアクション」についてドキュメント追加。[ClawGrip]
+
+- segasp.cpp: SystemSP Network Boardバージョン1.23ファームウェア追加。[Darksoft]
+
+- magic10.cpp: より詳細にノートを更新。起動方法追加。メタデータ修正。PLD追加。[f205v]
+
+- prehisle.cpp: prehislekのキャラクタROMを正しく吸出し(MT05613)。[Guru]
+
+- namcond1.cpp:「アブノーマルチェック」のグラフィックROMを再吸出し。[Guru]
+
+- midyunit.cpp:「Smash T.V.」V3.01にSL1リビジョンのサウンドROM追加。[Jim Hernandez]
+
+- exidy.cpp: mtrapとクローンのPROMの基板配置を修正。[Jim Hernandez]
+
+- hiscore.dat: 最新の変更に合わせて更新。[Leezer]
+
+- 手作りのSAA5051キャラクタROMがデータシートに合うよう変更(jの文字で1ピクセル不足していた)。[Lord Nightmare]
+
+- segaxbd.cpp:「ロイヤルアスコット」のサテライトROM追加。[Ordyne]
+
+- by35.cpp, inder.cpp: toppinとpinclownのサウンドCPU ROMを修正。[PinMAME]
+
+- segahang.cpp: hangonとクローンセット用にCK2605デバイスを吸出し。[Porchy, The Dumping Union]
+
+- xerox820.cpp: ROMバージョン4.02(820-II)、v50 v018(820-II)、5.00(820-II 16/8)を追加。[rfka01, Bitsavers]
+
+- SAA5050キャラクタジェネレータをデキャップし内部ROMを取得。[Sean Riddle, ClawGrip, The Dumping Union]

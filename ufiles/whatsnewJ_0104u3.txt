@@ -1,0 +1,140 @@
+0.104u3
+-------
+
+OSD開発者向けの重要変更点：osd_exitの直接呼び出しはできなくなりました。
+osd_init関数でosd_exitコールバックを登録して（もし必要なら）add_exit_callbackを
+使用して下さい。また、グローバル変数のいくつかがMachine構造体に移動しました：
+
+   mame_debug -> Machine->debug_mode
+   playback   -> Machine->playback_file
+   record     -> Machine->record_file
+
+
+
+MAMETestersの修正バグ
+---------------------
+twinhawk0104u1gra [Alex Jackson]
+twinhawk0104u1gre [Alex Jackson]
+gtmr0100u1gre [Luigi30]
+armchmp20104u2gra [Luigi30]
+boothill0104gra [Luigi30]
+yiear0103u1gra [Luigi30]
+
+
+ソースの変更点
+--------------
+- taito_xドライバのクリーンアップ: [Alex Jackson]
+ * 入力ポートをINCLUDE/MODIFYツリーにコンバート
+ * twinhawkとtwinhwkuの残機設定DIPスイッチを修正
+ * twinhawkとtwinhwkuの筐体設定DIPを削除; 2Psimでカクテル筐体はサポートしていま
+   せん（DIPスイッチは動作してません）
+ * suprmanjのコインエイジDIPを修正
+ * Cチップを持たないゲーム（superman以外の全部）からMDRV_MACHINE_INIT(cchip1)を
+   削除
+
+- chdmanで、ハンクのサイズに十分満たないものを展開する場合の論理バイト数を正しく
+  書き出すように修正。[Chris Hardy]
+
+-「雷電II」のドキュメント部と、入力ポートの更新（まだプレイは不可）。
+  [Olivier Galibert]
+
+- 新関数osd_tool_fileは、OS独自の方法でファイルアクセスをするユーティリティツー
+  ルで使用します。[Nathan Woods]
+
+- Hyperstoneコアで、間違ったポジティブ警告表示を起こしていた綴り間違いを修正。
+  [Pierpaolo Prazzoli]
+
+- MIPS3のコア、再コンパイラ、逆アセンブラでIDT固有のMIPS MUL命令のサポート。
+  [R. Belmont, Aaron Giles]
+
+- -high_priorityを-priorityに置き換え。CPUプライオリティを-15から1の範囲で指定で
+  きます。デフォルトは-15でDELLのノートPCのキーボードが動作します。デバッガ動作
+  時にはプライオリティはまだ上がらず、下がります。また、-high_priorityがrdtscを
+  使ったときしか動作してなかったバグも同時に修正してます。[smf]
+
+- xml_file_read()とxml_string_read()にオプショナルなxml_parse_options引数を追加。
+  ホワイトスペースの維持、エラー報告、パーサーのセットアップのオプションを提供し
+  ます。[Nathan Woods]
+
+- bomjack.cとblktiger.cのシンプルなドライバにステートセーブ追加。[Adam Bousley]
+
+- fredmemのグラフィックROMロード順を改良。[Luigi30]
+
+- 新オプション-mngwrite追加。ゲームの最初からMNGムービーを記録します。保存ファイ
+  ル名を指定可能です。[Buddabing]
+
+- コアファイルをいくつか再構成/改名/削除/追加: [Aaron Giles]
+ * driver.cをmamedriv.cに変更
+ * driver.hで定義されている関数を含む、新driver.cを作成
+ * common.cをvideo.cとmachine/generic.cに分割
+ * mame.cの関数を大量にvideo.cに移動
+
+- 両デバッガの抽象化したインタフェースを含む新ファイルdebugger.hを追加。新関数
+  mame_debug_break()と新マクロDEBUGGER_BREAKの追加で、ブレークポイントのハード
+  コードを容易にします。古いコードで、debug_key_pressedや
+  debug_halt_on_next_instructionを直接たたくものを全て削除して、DEBUGGER_BREAKを
+  呼び出すように置き換えました。[Aaron Giles]
+
+- driver.hに#include "state.h"追加。これによりほとんどのドライバファイルで目地的
+  にインクルードする必要がなくなりました。ほとんどのドライバを調べて削除してあり
+  ます。[Aaron Giles]
+
+- コア初期化と終了シーケンスを再構成してよりわかりやすくしました。システムのク
+  リーンアップは、mame.cのコードから明示的に呼びだされるものではなくなりました。
+  初期化関数はそれぞれ終了ハンドラを自由に登録でき、これはシステムの終了に対して
+  逆の登録順で呼び出されます。[Aaron Giles]
+
+- config_init()からデフォルトのレジストレーションを削除し、関連モジュールの初期
+  化関数に移動するようにしました。コンフィグデータをもつそれぞれのシステム毎に、
+  それを処理する独自のコールバックを登録できるようになりました。[Aaron Giles]
+
+- MACHINE_DRIVER構造体で定義するコールバックの名前を統一するため、MACHINE_INITを
+  MACHINE_RESETに改名しました。またコールバックを新たに追加しています。今のとこ
+  ろ以下が完全なリストです:
+
+   DRIVER_INIT -- スタートアップ時に一度だけ呼び出されるゲーム毎の初期化
+   MACHINE_START/SOUND_START/VIDEO_START -- 起動時に一度だけ呼び出される
+   MACHINE_RESET/SOUND_RESET/VIDEO_RESET -- リセット時に呼び出される
+
+- セーブステートの登録はDRIVER_INIT、または（できることなら）_STARTコールバック
+  内で行った方がよいです; できれば_RESETコールバックでは避けて下さい。
+  [Aaron Giles]
+
+- VIDEO_DUAL_MONITORフラグを削除。[Aaron Giles]
+
+- デバッグビューの表示スタイルを更に自由にできるようよに新しいプロパティを多く追
+  加しました。また、逆アセンブリウィンドウの右側に復号化して命令コードを表示させ
+  るオプションも追加しています。[Aaron Giles]
+
+- セーブステートの変更: [Aaron Giles]
+ * コード全般についてセーブステートの使用状況をチェックして、ほとんどについて、
+   state_save_register_globalかstate_save_register_itemマクロに変更してコードを
+   単純化しました。
+ * save_state_register_<type>については、ほとんどのケースでマクロによって自動的
+   に扱えるようになったので廃止予定です。一部の例外については、
+   save_state_register_memoryがあります。
+ * セーブステートロジックを簡素化し、無制限のインスタンスを可能にして、コードの
+   複雑さを低減しました。これにより既存のセーブステートと互換性がなくなりました。
+   すいません、もう起きないように頑張ります。
+
+-「ミサイルコマンド」のステートセーブ修正。[Aaron Giles]
+
+- CEM3394エミュレータににオーバーサンプリング追加。[Aaron Giles]
+
+- CEM3394とNES APUサウンドチップにステートセーブサポート。[Aaron Giles]
+
+- jedi, balsente, dkongドライバにステートセーブサポート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Choko [Guru, Charles MacDonald]
+
+
+
+新規クローンセット
+------------------
+アグレス (English bootleg) [Pierpaolo Prazzoli]
+Tokio / スクランブルフォーメーション [Nicola Salmoria, Arzeno Fabrice]
+Bomb Kick [Pierpaolo Prazzoli]

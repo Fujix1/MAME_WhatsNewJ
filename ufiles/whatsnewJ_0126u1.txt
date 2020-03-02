@@ -1,0 +1,198 @@
+0.126u1
+-------
+
+ご注意: チートエンジンはこのバージョンで無効になっています。チート機能は現在、
+完全にゼロから再設計を行っています。0.127までには既存のチートコードの大部分が
+動作する新バージョンを追加予定です。
+
+
+MAMETestersの修正バグ
+---------------------
+- 00368: [Graphics] aliens: グラフィック不具合あり。(Nicola Salmoria)
+- 00871: [Graphics] pow: 1面の3/4くらい進んだところで、大きな柱が遅れて表示される。(Nicola Salmoria)
+- 02006: [DIP/Input] rtriv: P1のボタン4つ全てがダブっている。(Fabio Priuli)
+- 02009: [Graphics] frogger and clones: カクテルモードで背景が回転しない。(couriersud)
+- 01547: [Sound] cabalbl: Cabal (bootleg) 効果音がおかしい。(Nicola Salmoria)
+- 00244: [Graphics] aliens: 2人プレイで、プレイヤーのスプライトがおかしくなる。(Nicola Salmoria)
+- 01910: [DIP/Input] changela: ギアのシフトがデフォルトで逆。(RansAckeR)
+- 00900: [Color/Palette] kaiserkn, kaiserkj, gblchmp, dankuga: Aztecaの中パンチでキャラクタが化ける。(Nicola Salmoria)
+- 00895: [Color/Palette] arabianm and clones: 6面の雨の色が緑になっている。(Nicola Salmoria)
+- 01917: [Color/Palette] gunlock, rayforce, rayfocj: 1面最初の敵艦の色が間違っている。(Nicola Salmoria)
+- 01058: [Documentation] exctsccb: champbas.cに登録するべき。(Nicola Salmoria)
+- 00079: [Graphics] faceoff: ペナルティーショットの画面が逆さま。(Nicola Salmoria)
+- 01887: [DIP/Input] pushman, pushmana, pushmans: 画面反転DIPが動作しない。(Nicola Salmoria)
+- 01891: [DIP/Input] matchit, shisen, sichuan2, sichuana: 画面反転DIPが動作しない。(Nicola Salmoria)
+- 01574: [DIP/Input] dankuga, gblcmhp, kaiserkj, kaiserkn: P1とP2のボタン4がダブっている。(Nicola Salmoria)
+- 01925: [Color/Palette] gunlock, rayforce, rayforcj: デモ画面の爆発の色がおかしい。(Nicola Salmoria)
+- 01973: [Core] champbbj: テストモードの途中でゲームがリセットする。(Nicola Salmoria)
+
+
+
+ソースの変更点
+--------------
+- makemetaの変更: [Aaron Giles]
+ * マンチェスターコード解析を汎用モジュールに分割
+ * マンチェスターコードの解析をクロックベースに書き直し
+ * makemetaで新関数を呼び出すように更新
+ * makemetaに異なるフォーマットのメタデータ解析追加
+ * aviioのHuffyuv解凍を修正
+ * ホワイトフラグの割り出しのため、ロジックを強化
+
+- Naomi BIOSの最も新しい日本版を追加。[batman2509, starke/peap]
+
+- pit8253を更新: [Wilbert Pol]
+ - 内部的にタイマを使うよう変更
+ - 周波数変更コールバックを削除
+
+- slapfght driverの更新: [stephh]
+ * セットの改名:
+    - tigerh2  -> tigerhb1 ("Japan set 2"   -> "bootleg set 1")
+    - tigerhb1 -> tigerhb3 ("bootleg set 1" -> "bootleg set 3")
+    - gtstarba -> gtstarb1 ("bootleg set 2" -> "bootleg set 1")
+    - getstarb -> gtstarb2 ("bootleg set 1  -> "bootleg set 2")
+ *「パフォーマン」:
+    - DIPスイッチの整理と修正、ポート配置の追加
+ *「タイガーヘリ」:
+    - tigerhb1にMCUシミュレーション追加 (実際には、ハードテストに基づいて正しい
+      値を返すようにしただけで、他のコミュニケーションは無い模様。この海賊版が本
+      当にMCUを持っているかはまだ不明)
+    - DIPスイッチの整理と修正、ポート配置の追加
+    - セット毎の違いについて記載を追加
+ *「ゲットスター / Guardian」:
+    - getstar、getstarjにMCUシミュレーション追加。gtstarb1海賊版より
+    - DIPスイッチの整理と修正、ポート配置の追加
+    - セットの違いによる相違について記載追加 (また gtstarb2の大量のバグについて
+      も詳細追加)
+
+- 新モジュール、uiinput.cを追加。これはユーザインタフェースの入力管理を行います。
+  OSDでは、マウスの操作とテキストベース入力(今のところゲーム選択メニューだけで使
+  用)をサポートするために、マウスの押下イベント、キャラクタイベントをプッシュす
+  る必要があります。マウスを使ったメニュー操作をサポートしました。
+  [Nathan Woods, Aaron Giles]
+
+- UIメニューについて、さらに多くの状態を保持できるように改良。メニューはこれまで
+  のように各フレーム毎に再生製するのから、一度生成すれば再利用できるようになりま
+  した。また、全てのメニューで一つのコメントイベントシステムを共有し、ナビゲーショ
+  ンも集中して管理します。現在無効にしているチートメニューを除く全てのメニューで、
+  新システムを使うように書き直し。また、Videoメニューをわかりやすく再構成。
+  [Aaron Giles]
+
+- UIスタートアップ画面でastringを使うよう変更。[Aaron Giles]
+
+- DRCフロントエンドのエッジケースで、最後の命令が開始命令に関連づけられていなく
+  ても、最終シーケンスに"return to start"タグを追加する問題を修正。[Aaron Giles]
+
+- コンテナ描画用の異常な数のget/set関数を、ユーザ設定構造体の単一のget/setに置き
+  換え。[Aaron Giles]
+
+- exctsccr.cをchampbas.cに統合。[Nicola Salmoria]
+
+- UDRCベースのSH-2用ダイナミックリコンパイラ: [R. Belmont]
+ - colmns97とstressがサウンドシステムの不具合でクラッシュするの除いて、全てのゲー
+   ムが以前のように動作可能
+ - アイドルスキップはまだ全て有効です。インタプリタに比べて効果は低いですが、そ
+   れでもまだ高速化の効果があります
+ - Fast RAMのバイパス処理はまだ追加していないので、これが最終的なパフォーマンス
+   ではありません。とはいうものの、インタプリタよりもかなり高速化しています。
+   例: sfiii3の0.126インタプリタは609%、DRCでは961%
+
+- 0x800 (byteスワップ)のテキストを元にST-V BIOS情報を追加。BIOSリストと詳細を再
+  構成。smleageにUSA BIOSを追加。[Brian Troha]
+
+- Konami CPUと「エイリアンズ」にセーブステート追加。[Nicola Salmoria]
+
+- kodbをfcrash.cに移動 (cps1海賊版の居場所は最終的にここになりそう)。
+  [David Haywood]
+
+- SH-4の更新: [Samuele Zannoli]
+ - TRAPAと、FMOV系を修正
+ - MOV.W、MOV.L、FIPR、FSCAの逆アセンブリを改良
+
+- romcmpのメモリリークを修正。[Nicola Salmoria]
+
+- cabalドライバのメモリマップを統合。[Nicola Salmoria]
+
+- i960: CVTRIの丸めモードを考慮。[ElSemi]
+
+- g13knd wave ROMを0オフセットに訂正。[Philip Bennett]
+
+- galaxian.cのカクテルスプライト位置を修正。プレイヤー2のカエルが後ろに進んで消
+  える現象が修正。[couriersud]
+
+- EEPROMのダイレクトアクセスインタフェースで、EEPROMデータのバス幅を返すように変
+  更。また、サイズはバイトではなくユニット。全ドライバを必要に応じて更新。
+  [Aaron Giles]
+
+- ROMロードコードについて、領域生成時のCPUのエンディアンとバス幅に基づいて実際に
+  領域フラグを入れ替えるように変更。これまでは、オンザフライで修正処理していまし
+  た。これにより、memory_region_flags()の呼び出し側で正しい結果を取得できます。
+  [Aaron Giles]
+
+- エクスプレッションエンジンで、外部指定関数ではなく、リードライト用の2つのコー
+  ルバックを使うよう変更。[Aaron Giles]
+
+- エクスプレッションエンジンのメモリアクセスサポートを強化。
+  [space][num]<size>@<address>としてメモリアクセスできます。
+  spaceには以下のものを指定します:
+
+   p = CPU #numのプログラムアドレス空間 (デフォルト)
+   d = CPU #numのデータアドレス空間
+   i = CPU #numのI/Oアドレス空間
+   o = CPU #numの命令コードアドレス空間 (復号化した命令コードのR/Wアクセス)
+   r = CPU #numのダイレクトRAM空間 (ROMについても常に書き込み可能)
+   e = インデックス#numのEEPROM
+   c = ダイレクトREGION_CPU#numアクセス
+   u = ダイレクトREGION_USER#numアクセス
+   g = ダイレクトREGION_GFX#numアクセス
+   s = ダイレクトREGION_SOUND#numアクセス
+
+  numはp/d/i/o/r用のオプションフィールドでデフォルトは現在のCPUです。
+  また、eについてはデフォルトはEEPROM #0です。リージョン系の接頭部には全て
+  numが必要です。以下に例を挙げます:
+
+   w@curpc = アクティブなCPUプログラムアドレス空間内の'curpc'でのword値
+   dd@0    = アクティブなCPUデータアドレス空間アドレス0x0でのdword値
+   r2b@100 = CPU #2のプログラム空間のRAM領域アドレス0x100のbyte値
+   ew@7f   = EEPROMアドレス0x7fのword値
+   u2q@40  = REGION_USER2のqword値でオフセットは0x40
+
+  sizeフィールドは常に指定します。b/w/d/qはそれぞれbyte、word、dword、qwordでの
+  アクセスを意味します。[Aaron Giles]
+
+- tiny.mak/.cで「ワールドラリー」をサポート。[Macareno]
+
+- changelaの入力を改良: [RansAckeR]
+ - DIPスイッチを修正
+ - DIP配置を追加
+
+- srmp5のマイナーな更新: [Sonikos]
+ - R3000のハックを削除
+ - 同じハードのspeglshtを元にR3000の周波数を25MHzに調整
+ - 表示領域の調整(正しいかどうかは不明)
+ - ROM読み込みを一つ修正
+
+- snk68.cの部分リフレッシュポリシーを変更。コメントの更新。[Nicola Salmoria]
+
+- さらにinput_port_read()へコンバート: [Fabio Priuli]
+ * 頭文字SとTのドライバについて、タグ付き入力とハンドラを使うようコンバート
+ * system24の入力読み込みを簡略化 (重複したハンドラを削除)
+ * system 16と18の海賊版の入力を少しクリーンアップ (他のものも含む。fpointblと
+   fpointbjのP2入力が動作可能)
+ * taitoドライバから、余分な#defineが多くあったのを削除。これらはPORT_INCLUDEと、
+   taitoipt.hでの定義に置き換え
+
+
+
+新規クローンセット
+------------------
+ワールドクラスボウリング v1.6N [Brian Troha]
+タイガーヘリ (海賊版 set 1) [stephh]
+Guardian (US) / ゲットスター [stephh]
+ゲットスター (Japan) [stephh]
+バーチャファイター2 (Revision A) [Peabo / ElSemi]
+
+
+
+追加された未動作ゲーム
+----------------------
+Daytona USA Deluxe '93 [Peabo / ElSemi]

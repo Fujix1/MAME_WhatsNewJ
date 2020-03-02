@@ -1,0 +1,306 @@
+0.167
+-
+
+MAMETestersの修正バグ
+---------------------
+- 00100: [サウンド] (galdrvr.c) froggermc: ゲーム開始後、サウンドが鳴らなくなる。他のセットでは起きない。(Osso)
+- 05596: [色/パレット] (thunderj.c) thunderj & clones: ブリーフィングシーンでパレットがおかしい。 (hap)
+- 06049: [ゲームプレイ] (ibmpcjr.c) ibmpcjr [kingqst, mouser, pitfall2, scubavnt] : ソフトリストの一部のゲームが壊れている。(crazyc)
+
+
+ソースの変更点
+--------------
+- piggypas.c: CPUタイプ、レイアウト、入力系修正。[Sandro Ronco]
+
+- firebeat: kbm3rd、pop4、popn5のドングルを正しく吸い出したもの追加。
+  [Guru, Ville Linde]
+
+- PIの不具合修正。PIが長さを切り捨てでなく切り上げで送信。VIインタレースモードに
+  フィールド追加。インタレース表示はまだ不完全。[happy]
+
+- Commodore MPS-1000ドットマトリクスプリンタのROM吸い出し。[Felipe Sanches]
+
+- dvk_ksm: メモリマップ、ROMチェックサム更新。[shattered]
+
+- ec1840, ec1841: メモリオプションの整理。[shattered]
+
+- Victor 9000 Keyboard: 忘れてたキーラベルを2つ追加。キー下部にコンタクトが2つあって
+  も実際にはメタルコンタクト1つしかないキーのコメントを改善。テンキーの記号キーとモー
+  ドキーは白じゃなくベージュ色。[Lord Nightmare]
+
+- DEC LA120: ステータスLEDと7セグをpopmessage()化。[Lord Nightmare]
+
+- Votrax TNT: 回路図を元にメモリマップのミラーリングを修正。[Lord Nightmare, Kevtris]
+
+-「Led Storm Rally 2011」(US)のスプライトROMを吸い出し直し。[Guru]
+ 
+-「Led Storm Rally 2011」の正しいROMに適合するようにドライバのROMロードとGFXデコード
+  を調整。[David Haywood]
+
+- z80sccのリワーク: [Joakim Larsson]
+ * z80scc_channelクラスのベースをz80sio_channelからdevice_tに変更
+ * LOGプリントアウト改善
+ * 割り込みサポート開始
+ * スペックを元にレジスタポインタビットをA/Bチャンネル間で共有
+ * 変数型の保持をチャンネルクラスからデバイスクラスに移動
+ * ROMコードによりRx/Txが有効化されるまでクロックをブロック
+ * ログを改良
+ * 改良版の処理開始
+
+- tiki100: 8088拡張ROM追加。[Person]
+
+- tiki100: メモリマッピングにPROMを使用。[Curt Coder]
+
+- tiki100: 8088カード用の拡張バスとスケルトン追加。[Curt Coder]
+
+- tiki100: I/O空間を拡張バスに接続。MS-DOS用の360KBフロッピーフォーマット追加。
+  [Curt Coder]
+
+- tiki100: RAWスクリーンパラメータ追加。[Curt Coder]
+
+- tiki100: DART速度選択ジャンパ追加。[Curt Coder]
+
+- tiki100: Winchesterコントローラのスケルトン追加。[Curt Coder]
+
+- tiki100: Z80デイジーチェーンに拡張バススロット追加。[Curt Coder]
+
+- tiki100: 拡張バスにBUSRQ、BUSAK、EXINを追加。[Curt Coder]
+
+- u*x OSでPTYサポート。[F.Ulivi]
+
+- mips3例外がEPC設定用のブランチディレイスロットを検知するように修正。n64.cのマイナー
+  なクリーンアップと訂正。[Happy]
+
+- Siemens Sicomp PC16-05 BIOS ROM (Multitech MPF-PC/700メインボード)を追加。[rfka01]
+
+- cat.cをcanon catとiai swyftの2つのドライバに分割。[Lord Nightmare]
+
+- PSX GPU: GranTurismo、Digimon World 3などのゲームで使っているビデオシーケンスの
+  24bitレンダリングを修正。[Felipe Sanches]
+
+- ETI-660を修正して動作。[Robbbert]
+
+- Camputers Lynx 48k, 96k, 128kの修正と動作。[Robbbert]
+
+- Game-A-Tronギャンブルハードの変更: [Roberto Fresca]
+ * Pull Tabにサイレン/アラーム入力追加。Four In One Pokerにビープ/アラーム追加
+   これらはテストモードで使われているが、機能は不明
+ * PSGをSN76489に切り替え。Bingo基板で発見
+ * テクニカルノートとドキュメントを追加
+
+- ピンボール、Bally製初期ソリッドステート(by17.c by35.c) [Quench]
+ * Playboy、PowerPlay、Matahari用のモックアッププレイフィールドレイアウト追加。入出力
+   デバイスを含む
+ * 初期35ゲームにサウンド追加
+ * 回路図や計測データを元にいろいろな修正
+
+- TMS52xx: FIFOが0バイトでSPEAK(VSM)コマンドが出たときのバグを修正。チップがSPEAK 
+  EXTERNALモードでなくてもFIFOが空なのでコマンドはすぐに停止する。これによりTI 
+  Extened Basicのスピーチを修正。[Lord Nightmare]
+
+- wackygtr: 入力と入力レイアウト追加。[Sandro Ronco]
+
+- Aristocrat MKVドライバ: 未吸い出しのPLDデイバスをAdonis(parent) ROM_LOADに追加。最
+  近追加されたclonではなく同一ハードで動作しているため。[Roberto Fresca]
+
+- Aristocrat MKVドライバ: PCB ASCIIレイアウトとコンポーネント記述追加。ドキュメントの
+  追加。[Roberto Fresca]
+
+- Aristocrat MKVドライバの改良: [Roberto Fresca]
+  Adonisaに未吸い出しだったST93C46シリアルEEPROMを追加。同一デバイスの親セット用にプ
+  レースホルダ追加しNO_DUMPに設定。#defineでマスタークリスタルを追加し、CPUクロックを
+  分周して取得。テクニカルノート追加。
+
+- saa5050: グラフィックジェネレータとキャラクタラウンディング [Nigel Barnes]
+ * グラフィックジェネレータ実装で、フェイクのROMから読み込み不要
+ * キャラクタのラウンディング追加
+ * 制御コード処理実装
+ * 派生版、saa5051、saa5053、saa5054、saa5055、saa5056、saa5057のROM追加
+
+- osborne1: SCREEN-PACをサポート。[Vas Crabb]
+ * 104カラムと擬似80カラムモード実装
+ * 52カラムモードのスクロールを回路図を元に修正
+ * 104カラムと擬似80カラムモードの近似スクロール
+ * Osborne 1メモリとI/Oマップを回路図に合わせて再構成
+
+- bbc: フロッピーフォーマットとROM更新。[Nigel Barnes]
+ * ssd、dsd処理の改良
+ * Acorn DOSとCPMフォーマット追加
+ * acw443(Cambridge Workstation)の良吸い出しROM追加
+ * BAD_DUMPフラグを一部削除
+
+- bbc: ソフトリストいろいろ。[Nigel Barnes]
+ * bbca_cass - 新タイトル、追加情報
+ * bbcb_cass - 新タイトル、追加情報
+ * bbcb_flop - テストケースを含むテスト用リスト
+ * bbcm_flop - テスト用リスト
+ * bbc_32016_flop - 追加のハードウェアエミュレーションが必要
+ * bbc_65c102_flop - 追加のハードウェアエミュレーションが必要
+ * bbc_80186_flop - 追加のハードウェアエミュレーションが必要
+ * bbc_arm_flop - 追加のハードウェアエミュレーションが必要
+ * bbc_z80_flop - 追加のハードウェアエミュレーションが必要
+ * pro128s_flop - 既知の吸い出し全て
+
+- bbc: fdc intrq/drqがnmiを発生。[Nigel Barnes]
+
+- HLSLの変更。[ImJezze]
+ * ラスタ・ベクタグラフィック用HLSLレンダパイプライン
+ * レンダパス関数の描画コールをシンプル化
+ * レンダターゲット数を7から4に削減(ネイティブ2つとプレスケールが2つ)
+ * レンダパス関数を(ほぼ)互いに独立
+ * ラスタとベクタグラフィック用のレンダパイプラインを統合。これにより、全てのエフェク
+   トがベクタグラフィックでも使用可能(スキャンラインは除く)
+ * simple.fxをprimary.fxに置き換え
+ * CU_PHOSPHOR_IGNOREユニフォームを削除。これはphosphor pass関数のみで使用されていて
+   現在は直接設定
+ * 現在のレンダターゲットをベースにするCU_TARGET_DIMSユニフォームを追加
+ * 現在のフルスクリーンポリゴン四角領域をベースにするCU_QUAD_DIMSを追加
+ * シェーダからプレスケールのknowledgeを削除
+ * ほとんどのシェーダでDX9が半ピクセルずれるのを修正
+ * シャドウマスク色のにじみを低減
+ * プレスケールを変更しデフォーカスの強度を修正
+ * ブルームエフェクトレベルが低いときカラーバンドが出るのを低減するため僅かにノイズを
+   追加
+ * 画面を回転または反転した時の反射エフェクトの位置を修正
+ * 全てのアスペクト比で、角丸の丸さを修正
+ * ディストーションパスを追加。これはにじみパス後に適用される。湾曲、ケラレ、角丸、反
+   射エフェクトはこのパスに移動
+ * 画面が曲がっているとき、にじみに階段状の影響が出るのを修正
+ * スムースボーダーエフェクトとオプションを追加。適用量は角丸量に制限される
+ * にじみオーバードライブエフェクトとオプションを追加。これは赤緑青などの純色をオー
+   バードライブしより明るく見せる
+ * ベクタとラスタのにじみオプションを統合。区別するためにはvector.ini、raster.iniを使
+   用する
+ * raster.iniとlcd.iniをparser_standard_inis()に追加
+ * layout_viewに、bounds()とscreen_bounds()ゲッターを追加
+ * render_targetにcurrent_view()ゲッターを追加
+ * その他多くの小さな変更やリファクタリング
+ * ベクタ強度修正
+ * ベクタフリッカ修正
+ * ビーム幅をビーム最小幅とビーム最大幅に置き換え。これにより、ビーム強度に応じてダイ
+   ナミックでリニアなビームが生成可能
+ * ビーム強度幅追加。これはダイナミックビーム幅に指数的な効果を加える
+ * ベクタポイント(ゼロ幅線)の比率を修正
+
+- psxcd: CDROMのコントローラMCU用ROMイメージを宣言。[Felipe Sanches]
+
+- Apolloの変更: [Hans Ostermeyer]
+ * Apolloフロッピーディスクエミュレーション修正
+ * ノードID ROMイメージファイルからノードIDをセットするためのメディアオプション
+   -node_id resp. -niを追加
+ * 未マップのISAバスアクセスで0x00ではなく0xffを返すよう修正
+ * 未マップのISAバスアクセスで過剰なログエントリが起こるのを削除
+ * mc146818の日付(とその他の問題)を修正(0166で発生)
+
+- i8271のモダン化に伴うimdsドライバの修正。[F.Ulivi]
+
+- namcos23: polynewコンバージョン修正。[O. Galibert]
+
+- namcos23: zソートに巻き戻し。[O. Galibert]
+
+- cd32、3do_m2とpippinのソフトリストがバリディティチェックなどの対象になるよう孤立状
+  態を解消。[Shideravan]
+ 
+- amstrad: Draysoft Doubler拡張を追加。[Barry Rodewald]
+
+- qotnaがUS-Exportハードで動くよう変更。NSW/ACTでもプログラムはこのハードで動く模様。
+  ドキュメント追加。[Roberto Fresca]
+
+- apple2: "The Mill" 6809カードを修正しOS9が起動可能。[robj, R. Belmont]
+
+- vpokerセットのゲーム名は"Draw Poker"なので、名前をVideotronics Draw Pokerに変更。2
+  つの会社が別名で販売していた。法的な問題についてのドキュメントとリンクを追加。
+ [Roberto Fresca]
+
+- VMX/Altivec RGBの更新(PowerPCの修正)。[Vas Crabb]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+アタックプラレール (Japan, AP1/VER.A) [Guru, R. Belmont]
+Led Storm Rally 2011 (US) [Guru, David Haywood]
+Player's Edge Plus (X002287P+XP000057) Pay the Aces NO Faces Bonus Poker  [BrianT]
+Exidy Sorcerer II [Robbbert]
+Unisonic Champion 2711 [David Viens]
+セガソニックポップコーンショップ (Rev B) 
+  [ShouTime, The Dumping Union - insert full credit list here]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+ファイナルファイト (USA 900424) [Bonky0013]
+剣豪 / Lightning Swords [System11, The Dumping Union]
+アイレム・エアデュエル (World, M82) [system11, The Dumping Union]
+剣豪 (set 2) [caius]
+Master Boy (Italian, PCB Rev A, set 2) [Any, The Dumping Union]
+ウェック・ル・マン24 (v1.26)  [Any, The Dumping Union]
+Wonder Stick (set 2, censored)  [Any, The Dumping Union]
+Sliver (set 2)  [Any, The Dumping Union]
+ジョー＆マックリターンズ (Japan, Version 1.2, 1994.06.06)  [rtw, The Dumping Union]
+Led Storm Rally 2011 (World) [system11]
+Player's Edge Plus (KE0004) Keno [Badbaud, BrianT]
+Player's Edge Plus (KE1006) Keno [Badbaud, BrianT]
+Player's Edge Plus (KE1013) Keno (set 2) [Badbaud, BrianT]
+Player's Edge Plus (PP0042) 10's or Better (set 2) [Badbaud, BrianT]
+Player's Edge Plus (PP0045) 10's or Better (Gambler Downtown Reno)  [Badbaud, BrianT]
+Player's Edge Plus (PP0045) 10's or Better (Par-A-Dice Riverboat Casino)  [Badbaud, BrianT]
+Player's Edge Plus (PP0045) 10's or Better (Annie Oakely's Central City)  [Badbaud, BrianT]
+Player's Edge Plus (PP0055) Deuces Wild Poker (set 2, Skyline Casino)  [Badbaud, BrianT]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker (set 2, Skyline Casino)  [Badbaud, BrianT]
+Player's Edge Plus (PP0430) Deuces Joker Wild Poker [Badbaud, BrianT]
+Player's Edge Plus (PP0459) Joker Poker [Badbaud, BrianT]
+Player's Edge Plus (PP0515) Double Bonus Poker (set 4) [Badbaud, BrianT]
+Player's Edge Plus (X000055P+XP000038) Deuces Wild Poker (Sunset Station Hotel-Casino)
+  [Badbaud, BrianT]
+Player's Edge Plus (X000426P+XP000038) Joker Poker [Badbaud, BrianT]
+Player's Edge Plus (X002179P+XP000119) Double Bonus Poker [BrianT]
+Player's Edge Plus (XM00006P+XMP00002) Multi-Poker (The Orleans)  [Badbaud, BrianT]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Micral 80-22G [Robbbert]
+Data RD100 [Robbbert]
+Proteus III [Robbbert]
+ネオプリント (Japan) (T2d) [Bonky0013]
+Cuckoo (MV4104, Export) [Roberto Fresca]
+Mine, Mine, Mine (Export) [Roberto Fresca]
+Party Gras (MV4115/6, Export) [Roberto Fresca]
+Penguin Pays (Export) [Roberto Fresca]
+Wild Cougar (Export) [Roberto Fresca]
+Boot Scootin' (Export, 92.767%) [Roberto Fresca]
+Bumble Bugs (Export, 92.691%) [Roberto Fresca]
+Cash Chameleon (Export) [Roberto Fresca]
+Sub Hunter [Piero Andreini]
+The Chariot Challenge (04J00714, NSW/ACT) [Roberto Fresca]
+Eagle 1600 [SomeGuy]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Dolphin Treasure (Export) [Roberto Fresca]
+Magic Mask (MV4115, Export, set 2) [Roberto Fresca]
+Adonis (MV4124/1, Export) [Roberto Fresca]
+スーパー32XCD (Japan, NTSC) [Shideravan]
+スーパー32XCD (Europe, PAL) [Shideravan]
+Adonis (0100751V, NSW/ACT) [Roberto Fresca]
+Dolphin Treasure (Export) [Roberto Fresca]
+Queen of the Nile (MV4091, NSW/ACT) [Roberto Fresca]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+a2600.xml: Atari 2600 cartridges
+ - Stella's Stocking 2008 [The Dumping Union]
+megadriv.xml:
+ - Putty Squad (prototype) [?]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------

@@ -1,0 +1,310 @@
+0.129u4
+-------
+
+注意: このビルドにはメジャーな変更が加えられています(サウンドチップがデバイスになりま
+した)。そのため、予期しないエラーや、サウンド系の問題があるかもしれません。
+何か見つけた場合はTestersに報告してください: http://mametesters.org/mantis
+
+
+
+MAMETestersの修正バグ
+---------------------
+- 02893: [クラッシュ/フリーズ] Most sets in galdrvr.c: devcbダイアログが出てクラッシュする。(Aaron Giles)
+- 02890: [クラッシュ/フリーズ] pitboss, pitbossa: devcbエラーでクラッシュする。(Roberto Fresca)
+- 00754: [サウンド] mikie: ロッカールーム面でBGMがおかしい。(nicolasa)
+- 02918: [グラフィック] psychosj psychos: タイトル画面の背景は本来は濃い青色。(nicolasa)
+- 02907: [ゲームプレイ] spnchout, spnchotj: 名前入力画面のカウントダウンがすごく速い。(nicolasa)
+- 02917: [その他] himesiki: cppcheckで「(all) Array index out of bounds」の報告が出る。(Phil Bennett)
+- 02895: [色/パレット] macrossp: 面クリア画面の色が完全におかしくなっている。(Kale)
+- 02860: [クラッシュ/フリーズ] mach3, usvsthem: 起動時にMAMEがエラーを報告する。
+- 00808: [グラフィック] xsleena: キャラクタの一部分の線が欠けている。緑の惑星（Lagto Soa）のドラゴンの後ろ部分と、
+         後半の面のボスの頭部分。
+- 02801: [その他] cafetime: 午後にゲームを始めても、時計表示がAMになる。午後3時なら午前3時。(couriersud)
+- 01785: [その他] mjmyornt and more: AM/PMを無視した時刻が、ゲームに設定される。午後11時なら午前11に設定される。(couriersud)
+- 02896: [その他] Drivers using MSM6242.h: MSM6242で、AM/PMビットを無視する。(couriersud)
+- 02897: [サウンド] soldivid: 0.128からサウンドがかなりおかしくなっている。(Haze)
+
+
+
+ソースの変更点
+--------------
+-「Casino 5」で、競馬ゲームのときのハングを修正。[Angelo Salese]
+
+-「ファンキューブ2/4」のコンパイル時不具合を修正。[Angelo Salese]
+
+- volfiedドライバに追加情報とOSCの情報を追加。また、以前は含まれていなかったBPROMも追
+  加。[Brian Troha]
+
+- 命令コードアクセスをdebugger_accessにマーク。命令コードベースが見つからないときにリー
+  ドハンドラを自動で呼び出す変更を行ったため、これが重要になります。非RAM命令コードベー
+  スのログ保存について、debugger_accessが設定されてる場合は出力しないように変更。
+  [Aaron Giles]
+
+- ダイレクトレンジの取得ロジックについて、ルックアップ時にウォッチポイントと無関係な
+  テーブルを使用するを修正。[Aaron Giles]
+
+- memory_set_direct_regionで、DIRECT_UPDATE_HANDLERから返されたアドレスをメモリリード
+  関数に渡すように変更。[smf]
+
+- 6850acia: 分割比が変更されたとき、書き込み制御のrx/tx bitタイマーのみを調整。
+  [Phil Bennett]
+
+- CPUの入力ラインからdevcbのコールバックを発生させる機能を追加。sp0256でdebcbコールバッ
+  クを使うように変更。sauroドライバでこの新機能を使用するに更新。[Nathan Woods]
+
+-「ファンキューブ」の基板レイアウト追加と、高解像度な写真を元にROM名の訂正。[Brian Troha]
+
+- R3000の逆アセンブリを、TLB、またはFPUを使うように改良。[R. Belmont]
+
+-新タイトル「Number Dieci」追加。[Mirko Buffoni]
+ - 2000年のイタリア法改正に合わせたIGSポーカーのハック
+ - サウンド合成をOKIM ADPCMサンプルに置き換えている
+ - テストモードでのDIPスイッチマッピングが出来るようにパッチアウトされたルーチンをリ
+   カバリ
+ -「Stelle e Cubi」をこのメモリマップに配置。グラフィックが少し表示されるものの、ROM
+   自体が不良
+
+-新タイトル「PK Tetris」追加。[Mirko Buffoni]
+ - アミューズメントシーンがある変なゲーム(テトリスとポーカーのミックス)
+ - Amuseの入力は未配置。恐らくアミューズメントシーンで必要。DIPスイッチから無効に設定
+   可能
+
+-「Il Pagliaccio」ドライバの問題を修正: [Angelo Salese]
+ * blitter用のROMソース読み込み修正
+ * blitter用に正しい高さと幅のパラメータを使用
+ * バックアップRAMを実装
+ * 基本的な入力系の実装
+ * deprecat.hを使わないように更新
+
+- AGEMAMEのドライバを一部導入。[David Haywood, thanks to James Wallace / ageMAME]
+
+-「Il Pagliaccio」のblitterを更に修正: [Angelo Salese]
+ * 透過ペン修正
+ * charset用カラーペン修正
+
+-「Strip Teaser」と「Il Pagliaccio」ドライバを統合。両者のレイヤークリアランスの修正
+  と、前者に初期版なMCUシミュレーションを追加。[Angelo Salese]
+
+- クローンセット名の8文字制限を緩和。これはオリジナルのセット名を切り詰めることなく接
+  尾文字を追加するために導入したもので、いたずらに長い名前を設定したり、別な名前にす
+  るためのものではありません。[Olivier Galibert]
+
+- devcbを使って6522 VIAを実装。[Nathan Woods]
+
+- 6526ciaでdevcbを使うように変更。[Nathan Woods]
+
+-「セガウォータースキー」のサウンドCPUを再ダンプ。[Brian Troha]
+
+-「Super Poker 115IT」のオリジナル版追加。[Mirko Buffoni]
+ *「3 Super 8」で、"SUPER POKER 115IT"の文字列が見つかったために追加。3Super8はハック
+   の可能性があって、文字列は同じでもコードが異なり、一部暗号化されている
+
+-「Super Draw Poker」の"global column coloring"を追加。色は100%正確になりました。
+  [Angelo Salese]
+
+- アドレスバスシフトを使ってCPUの逆アセンブラを修正。[Aaron Giles]
+
+- TMS57002の初期的な実装。[Olivier Galibert]
+
+- Konami System 573ドライバに、デジタルI/Oボードのレイアウトと、メモリカードボードの
+  初期情報を追加。[smf]
+
+-「Rock 'n Rage / 恋のホットロック」(World)の非JEDECなROMを最ダンプ。
+  [Corrado Tomaselli]
+
+- Sega X Boardドライバのより詳細なドキュメントを追加。[Guru]
+
+- goldstar.cとsfbonus.cの多くのゲームを復号化。[Olivier Galibert]
+
+- marioについて、一部修正が必要なものを含めて更新中。[Couriersud, Smitdogg]
+ - サウンド動作用のカスタムモジュールを作成。ディスクリートサウンドシステムを480KHzで
+   動作させるのは最良ではありませんでした
+ - パーツリスト、回路図、基板写真の見直し
+ - Smitdogg氏による録音に合うように更新
+ - このためVCOの電圧を0Vにする必要がありましたが、未検証です
+ - コンデンサもエージングが必要です。VCOの問題がはっきりすれば削除します
+
+- ACIA6850でdevcbを使うように再構成。[Curt Coder]
+
+- Jackieドライバにパッチ追加でゲーム動作可能。[Mirko Buffoni]
+ * 完全なリールエミュレーション追加 (Luca氏、Angelo氏、David氏のドライバを参照)
+ * アミューズメントゲームはTキーで切り替え。ギャンブル動作を隠すために使用
+
+-「Champion League」を追加。[Mirko Buffoni]
+ *「Numero10」と同じ暗号化とパッチを使用。ただし基板は通常のIGS Poker V220Iを使用
+ * 拡張ROMメモリマップハンドラを修正
+
+- silkroadに効果音バンキング、コインカウンタ、スプライト間プライオリティを追加。
+  [Pierpaolo Prazzoli]
+
+- goldstarドライバの大幅改良で、セットの復号化が動作。[David Haywood]
+
+- seibu系の復号化を再チェック。[Nicola Salmoria]
+
+- 全てのサウンドチップを適切なデバイスにコンバート。サウンドチップインターフェイスを
+  デバイスインターフェースに統合。両者の相違点(ALIASコンセプトなど)を削除。
+  [Aaron Giles]
+
+- 全てのサウンドチップを以下のように変更: [Aaron Giles]
+ * デバイスインタフェースに合わせてアップデート
+ * リード・ライトハンドラ数を最小化
+ * get_safe_token()を使用
+ * その他マイナーなクリーンアップ
+
+- カスタムサウンドデバイスを削除。カスタムサウンドを使用するケースを完全にデバイス化
+  するために必要な作業はわずかなので、全部デバイス化してしまいました。[Aaron Giles]
+
+- サウンドインターフェイスを大幅にシンプル化。あまりにもひどいsndti_*系の削除や、サウ
+  ンドの判別用にタグを使用するように変更。sndintrfは、cpuintrf同様に、実装を伴わない
+  ただのヘッダファイルになりました。[Aaron Giles]
+
+- サウンドチップを参照している全てのドライバを変更: [Aaron Giles]
+ * 全てのメモリマップは、AM_DEVREAD/AM_DEVWRITE/AM_DEVREADWRITEを使用して対象デバイスを
+   明示的に参照します
+ * 8-bitチップに対する、16-bit、または32-bitアクセスでトランポリン関数の使用をやめ、
+   代わりに8-bit AM_DEVREAD/WRITEマクロを使用するように変更
+ * サウンドチップの参照をすべてタグで行うように変更
+ * これらの方法は総当たり的で、最適化されていません; そのため多くの場合で、ドライバは
+   MACHINE_STARTのデバイスへのポインタを取得し、デバイスを隠蔽した方がよいです
+
+-「プログレス」のDIPスイッチを2つ修正。[Brian Troha]
+
+- goldstarの改良: [Roberto Fresca]
+ - schery97、schery97a、skill98の入力とDIPスイッチを完全に実装
+ - プログラムバージョンに合わせてゲーム名を変更
+ - ゲームドライバ部を整理
+ - schery97、schry97a、skill98にGAME_NO_SOUNDフラグを追加
+ - プログラムバージョンについての記述を追加
+
+- cps1.cで"contact MAMEDEV"メッセージが出ていたので修正。[Nicola Salmoria]
+
+- sfbonusでタイルマップを使うように変更。[David Haywood]
+
+- sfbonusドライバにサウンドとスクロールレジスタを追加。sfbonus.cドライバにflipxと基本
+  入力を追加。[Angelo Salese]
+
+- wheelfir.cドライバの情報を追加。[Brian Troha]
+
+- twincobrドライバのROM名と基板配置を訂正。「Flying Shark / 飛翔鮫」のPROM追加と訂正。
+  [Brian Troha, Stefan Lindberg]
+
+- brasil.cとhighvdeo.cドライバを統合。[Angelo Salese]
+
+-「スーパーパンチアウト」のプロテクト系ハックを(ほとんど)削除するため、基本的なRP5C01
+  サポートを追加。[Nicola Salmoria, Bob Seidel]
+
+-「ミッドナイトラン」のROM名を訂正。[Guru]
+
+- hd63484でリードパラメータレジスタをサポート。ログ保存をdefine内に移動。
+  [Phil Bennett]
+
+-「Zoar」に基板レイアウト追加。AY-3-8910のクロック修正。不明PROMを追加。[Guru]
+
+- goldstar.cを更に改良: [Roberto Fresca]
+ - Amcoe製ゲームの異なるハードウェア用に3つのマシンドライバ追加
+ - スピーチとサウンド用にOKI M6295をサポート:
+    schery97, schery97a, skill98, pokonl97, match98
+ - サウンドをサポート:
+    nfb96, nfb96a, nfb96b, nfb96c, nfb96txt, roypok96, roypok96a, roypok96b, nc96, 
+    nc96a, nc96b, nc96c, nc96txt, nfb96se, nfb96sea, nfb96seb, carb2002, carb2003
+ - 入力とDIPスイッチを追加:
+    pokonl97, match98, nfb96, nfb96a, nfb96b, nfb96c, nfb96txt, roypok96, roypok96a, 
+    roypok96b, nc96, nc96a, nc96b, nc96c, nc96txt, nfb96se, nfb96sea, nfb96seb, 
+    carb2002, carb2003
+
+   これらを全て動作可能ステートに昇格
+
+ - match98のタイルマップ表示エリアの大きさと位置を修正
+ - ドライバのクリーンアップ
+
+- Cidelsaの変更: [Curt Coder]
+ - CDP1869の描画とサウンド部を一つのデバイスに統合
+ - CDP1852でdevcbを使うように更新
+
+- hanaawasの入力修正 (注: プレイヤー2は麻雀入力のABC…を使います)。また、hanarokuの
+  YES/NOボタンを修正。[Sonikos]
+
+- safarirのCPUを8085Aに変更。逆アセで8080では実行できない8085A専用コードがあるため。
+  [Luigi30]
+
+- deco_mlc.cの未使用コードを削除。[Christophe Jaillet]
+
+- midxuint.cにPALとreadme追加。[Guru]
+
+-「Pit Boss」にPPI8255デバイスを正しく追加。また、これら2本のゲームで、入力系の再構成。
+  [Angelo Salese]
+
+- gardiabのメモリマップ訂正で、動作可能に昇格。[Angelo Salese]
+
+- デバイスで、独自のインライン設定管理する機能を追加。これは、サウンドルートと現在の
+  ドライバ構成の互換性を持たせるためです。デバイス側は、DEVICE_CUSTOM_CONFIGコールバッ
+  クを定義可能です。これは、MCONFIG_TOKEN_DEVICE_CONFIG_CUSTOM_*トークンに当たったと
+  きに呼び出されます。特殊トークン、MCONFIG_TOKEN_DEVICE_CONFIG_CUSTOM_FREEを定義する
+  と、割り当て済みメモリのクリアやカスタム設定のリセットを行えます。これは、デバイス
+  が解放されメモリのクリーンアップが出来る状態になると呼び出されます。[Aaron Giles]
+
+-「Far West」(「大列車強盗 / Iron Horse」の海賊版)を改良。[Tomasz Slanina]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Monopoly [Phil Bennett]
+Monopoly Classic [Phil Bennett]
+Monopoly Deluxe [Phil Bennett]
+Player's Edge Plus (XMP00024) Multi-Poker [Gyrovision]
+Super Draw Poker [Angelo Salese]
+Squash (Itisa) [Angelo Salese]
+Age Of Heroes - Silkroad 2 (v0.63 - 2001/02/07) [Pierpaolo Prazzoli]
+Fever Soccer [Nicola Salmoria, Angelo Salese]
+Jackie [Mirko Buffoni]
+TomCat (prototype) [Mariusz Wojcieszek]
+Go 2000 [Angelo Salese]
+脱子ちゃん雀荘 [Angelo Salese]
+Skill Cherry '97 (two sets) [Roberto Fresca, Olivier Galibert, David Haywood]
+Skill '98 [Roberto Fresca, Olivier Galibert, David Haywood]
+Poker Only '97 [Roberto Fresca, Olivier Galibert, David Haywood]
+Match '98 [Roberto Fresca, Olivier Galibert, David Haywood]
+New Fruit Bonus '96 Special Edition (5 sets) 
+  [Roberto Fresca, Olivier Galibert, David Haywood]
+Royal Poker '96 (3 sets) 
+  [Roberto Fresca, Olivier Galibert, David Haywood]
+New Cherry '96 Special Edition (5 sets) 
+  [Roberto Fresca, Olivier Galibert, David Haywood]
+New Fruit Bonus '96 Special Edition (bootleg, 3 sets) 
+  [Roberto Fresca, Olivier Galibert, David Haywood]
+Carriage Bonus 2003 (bootleg) 
+  [Roberto Fresca, Olivier Galibert, David Haywood]
+
+
+
+新規クローンセット
+------------------
+Magic Card (set 3) [Chris Hardy]
+ヴォルフィード (Japan, older) [Brian Troha]
+テクモワールドカップ '90 (Euro set 2) [Tomasz Slanina]
+エクスターミネーション (World) [Stefan Lindberg]
+サイキック5 (set 2) [Dazzer]
+Head Panic (15/06/1999) [Corrado Tomaselli] (not working)
+イメージファイト (revision A, Japan) [Arzeno Fabrice]
+スカルファング -空牙外伝- (World) [Mexa]
+GTIクラブ (EAA) [Mexa]
+オペレーションサンダーハリケーン (ver EAA) [Mexa]
+ヘビースマッシュ -ハイパーハンドボール- (Europe version -2) [Mexa]
+フェニックス (Taito Japan Ver.) [Team Japump!!!]
+バーチャストライカー3 (Cart) (USA, EXP, KOR, AUS) [Andrea Turci]
+ライデンファイターズ2 (Japan set 2, SPI) [Corrado Tomaselli]
+マスターオブウエポン (Japan) [Team Japump!!!]
+麻雀 イフ...? (2 sets) [Uki]
+麻雀蜃気楼 2 [Uki]
+Pit Boss (Set 3) [Brian Troha]
+American Poker II (iamp2 v28) [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+パチフィーバー [Angelo Salese]
+Sweet Hearts II (C - 07/09/95, Venezuela version) [Heihachi_73]
+Margarita Magic (A - 07/07/2000) [Heihachi_73]
+Ciclone [f205v, Mirko Buffoni]

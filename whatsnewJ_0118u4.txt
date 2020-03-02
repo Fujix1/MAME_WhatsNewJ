@@ -1,0 +1,93 @@
+0.118u4
+-------
+
+
+ソースの変更点
+--------------
+- galaga.cの入力をタグにコンバート。クローンにはINCLUDE/MODIFYを使用。また、
+ 「ゼビウス」と「ディグダグ」（「ボスコニアン」と「ギャラガ」はまだ作業が必要）
+  でエクストラのDIPスイッチ設定の条件分け動作修正。stephh氏による、「ディグダグ」
+  のROMセットについての情報追加。[Alex Jackson]
+
+- superdqドライバのサウンドチップ周波数修正。[Jim Hernandez]
+
+- chdmanの改良: [smf]
+ * TOCの解析で、ファイル名にスペースと引用符が使えるように修正
+ * サブコードを読み込まない場合にcdrdaoが生成する、"offset start length"トラック
+   のサポート
+ * 続くデータが無いときには、トラックの残りを常にゼロで埋めるように変更
+ * cdrom_track_input_infoを、src/lib/util/cdrom.hから、src/tools/chdcd.hに移動
+ * オーディオバイトのスワッピングをサポート
+
+-「サイコニクスオスカー」(Japan Revision 0)のDIPスイッチ修正。
+  [Corrado Tomaselli]
+
+- aerofgtドライバのDIPスイッチ配置追加。[Fabio Priuli]
+
+- Amigaのアップデート: [Erneso Corvi]
+ - ECSのみのBLTCON0Lレジスタを実装
+ - Modified the amiga_interface structure to add a nmi callback and 
+    a flags variable.
+ - AGA chipmemマスク定義追加
+ - chipramで32ビットデータバスサポート。チップセットがAGAのときは自動的に使用さ
+   れます
+ - machine/amiga.hに68k PAL、NTSC、68EC00 NTSC用のクロックチップ定数追加。これら
+   の値を使うようにドライバを更新
+- ECSチップセット、AGAチップセット、または"ECSかAGAチップセット"のどれで動作し
+   ているかを取得するマクロ追加
+ - autoconfigが0xffffではなく0x0000を読み出すように変更
+ - 8520 ciaのMSB値タイマを修正。前は、LSB値が読み込まれたときに単純にタイマの値を
+   更新するだけでした
+ - cubocd32ドライバに、基本的なAkikoエミュレーション追加。ChunkyからPlanerへの
+   コンバータと、I2C NVRAMが完全に実装されたはずですが、CDROMの機能的には完全で
+   はありません。今のところ、kickstartでAkikoチェックをパスするのに必要なものだ
+   けです
+
+- Taito製ゲームの入力ポートクリーンアップの続き: [stephh]
+ - 1ボタンしか使わないゲーム用にincludes/taitopt.hにマクロ追加
+ - 以下のドライバのコンバートとドキュメント追加、これまでわかっている入力とDIPス
+   イッチの間違い修正: 
+    taitoair.c, taito_h.c, taito_x.c
+ -「スーパーマン」のカスタムチップエミュレーションを他のTaito製ゲームと同じよう
+   に動作するよう大幅改良
+ - その他のTaitoドライバのノートを修正
+
+- verinfoコードを、version.oへのリンクから、version.cファイルを調べるように変更。
+  これで、リンク順の問題や、ビルドする毎に再生製されるのを防ぎます。
+  [Aaron Giles]
+
+- i386逆アセンブラの大幅改良。あいまいなケースを除いて、"byte ptr"を出力しないよ
+  うに変更。フル64ビット逆アセンブリサポート。Intelのマニュアルを元に、フルIA32
+  命令マトリックスサポート。SSE系の命令も含む。[Aaron Giles]
+
+- 外部割り当てキャッシュサポート用の、x86 drcヘルパーを更新。また、キャッシュ外
+  のデータストラクチャ割り当てサポート。リセットまで待たず、直ちにコードを生成し
+  ないように初期化部を変更。[reg*scale] modrmフォームのコード生成時のバグ修正。
+  [Aaron Giles]
+
+- 32ビットと64ビットデータバスシステムで、アクセスマスクを明示的に指定するCPUコ
+  アをサポートするための新関数をメモリシステムに追加。これにより、MIPSコアで、
+  リード/モディファイ/ライトサイクル無しで、SWL/SWRとSDL/SDRを処理できます。
+  CとDRC MIPSコアを新メカニズムに更新しています。[Aaron Giles]
+
+- x86とx64システム両方のコード生成をサポートする新モジュールx86emit.hを追加。
+  この新システムは以前よりも遙かに完成された方法ですが、まだ全ての命令コードは
+  定義されていません。また、前にx86drc.hでの定義に比べると、新しいインターフェイ
+  スはシンプルになっています。既存のDRCコアはまだ旧インターフェイスを使ってます
+  が、新規のものについてはこの新システムを使って下さい。[Aaron Giles]
+
+- mips3コアで最近起きたバグを修正。Cコアで、最初の命令の後に処理がどこにも続かな
+  い問題。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+アンダーカバーコップス (Alpha Renewal Version) [Guru]
+ファイナルファイト (US) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Interstellar Laser Fantasy [Andrew Gardner]

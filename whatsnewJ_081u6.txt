@@ -1,0 +1,81 @@
+0.81u6
+------
+
+ソース全般の変更：
+------------------
+
+■noboranbで敵が全部表示されてなかったのを修正。[Stefan Jokisch]
+
+■前回の更新でleprechnのサービススイッチが壊れていたのを修正。[Stefan Jokisch]
+
+■修正いろいろ。[Nathan Woods]
+    src/cpu/i386/i386ops.c:
+    src/cpu/i386/i386op32.h:
+    src/cpu/i386/i386op16.h:
+    src/cpu/i386/i386op16.c:
+        - INT, INT3, ESセグメントオーバーライド, IMUL変数, LMSWを部分的に実装。
+          マイナーな16bitバグ修正。コプロセッサエスケープ命令
+
+    src/cpuintrf.c:
+    src/cpuintrf.h:
+        - CPUコアリストにMESS用のTMS7000コア追加
+
+■SPIシステムのアップデート。[Ville Linde]
+    * スプライトの反転追加の他、スプライト処理の改良
+    * タイルマップのパレットバンキングを訂正
+
+■「海底大戦争」のスピードアップを修正。[BouKiCHi]
+    注：最近のハードではm92ドライバの速度は特に問題にならなくなってきているので
+        スピードアップの改造はすぐに削除されるかもしれません
+
+■Model 1にサウンド追加。[R.Belmont]
+
+■ST-Vのスプライトバグを修正。[Mariusz Wojcieszek]
+    (hanagumiのイントロ、othellosのタイトル、cottonbmのイントロ、diehardのイントロ、sleague)
+
+■GPL12命令コード修正。[smf]
+    (cbajのグラフィック修正)
+
+■i386のアップデート。[Ville Linde]
+    - i386コアのリグレッションテスト。シフト・ローテート命令のバグを発見・修正。
+      これにより「ライデンファイターズ」のボスが直っています
+    - REP/REPNEプリフィクス処理を全て書き直し。以下の修正：
+     「戦球」のアトラクトモードが正常に動作。ゲーム中のボールの色が変化するように修正。
+     「E雀ハイスクール」のコイン入力可能。「バイパーフェイズ1」がプレイ可能（グラフィッ
+      クは未解読）
+
+■MIPSソフトウェア割り込みの修正。[Aaron Giles]
+
+■Seattleシステムのアップデート。[Aaron Giles]
+    * 割り込みソーシングのダイアグラム追加
+    *「SF Rush: The Rock」のオーディオROMのチェックサム修正
+    * FIFO経由のDCS HLEダウンロードサポート(Vegas製ゲームで使用)
+    *「ブリッツ99/2k」の音程修正
+
+■Hyperstoneの修正。[Pierpaolo Prazzoli]
+    - DASMのHフラグハンドリングを追加
+    - DASMの命令コードビットのインタプリタ処理を修正
+    - d-codeが0のときの、フレームインストラクションを修正
+    - 新規エントリーテーブルをつねにセットするように変更
+
+■Lord of Gunドライバを少し改良(まだ未動作)。[Pierpaolo Prazzoli]
+
+■YMZ280Bの更新。[R.Belmont]
+    (suprnova073greを修正)
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+きらきら五目ならべ 連珠貴族 [Tomasz Slanina]
+ねらってチュー！ [Tomasz Slanina]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+早指し将棋 五月陣戦 [Tomasz Slanina]
+早指し将棋 五月陣戦2 [Tomasz Slanina]
+    (v810CPUが未エミュレート。作業中)
+    
+スーパーイーグルショット [Tomasz Slanina]
+スーパーリアル麻雀PV [Tomasz Slanina]
+    (R3000側が未完成)

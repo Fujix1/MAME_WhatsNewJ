@@ -1,0 +1,68 @@
+0.107u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+savestate0104u7ora [Adam Bousley]
+ripoff097gre [Adam Bousley]
+cuebrckj0104u2gra_fix [Canim]
+
+
+
+ソースの変更点
+--------------
+- 16bitセガドライバの大幅クリーンアップと大修正: [AWJ]
+ * セット名の説明部分修正、リビジョン名追加、筐体タイプなどの追加多数
+ * DIPスイッチの修正多数と、PORT_DIPLOCATIONサポート
+ * レスポンス向上のため、アナログ操作の最小値・最大値を調整
+ * System 16A/B間のボタン順序付け修正
+ * ROM名のクリーンアップと見込み違いの修正
+ * turbo.cもクリーンアップ
+ * Hang-Onハードの表示エリア修正
+ * 8751が実際にはないゲームで無効化
+ * 8255PPIでモード2をサポートして正しく実装
+ * 後期のSegaサウンドボードのNMIラインの動作修正
+ * SegaPCMサウンドシステムのアドレッシング修正
+ * ハードウェア・ドキュメントのクリーンアップ
+
+- MESS向けの新UI・ビデオコードのクリーンアップ。[Nathan Woods]
+
+- クロスプラットフォームの互換性向上のため、strcasecmpとstrncasecmpを使わないよ
+  うなマクロ追加。[Nathan Woods]
+
+- 6809コアに未実装だった命令コード$01を追加。[Antoine Mine]
+
+- 6526CIAチップにCNTピンとシリアル系機能実装。[Nathan Woods]
+
+- slammastにサービスボタン追加。[Canim]
+
+- A11ラッチの8039CPU処理のバグ修正。[Aaron Giles]
+
+- Zaxxonドライバを回路図を元に書き直し。まだWIP状態で未完成です: [Aaron Giles]
+ * クロック速度とビデオタイミング訂正
+ * メモリマップを完全に
+ * ユニバーサルサウンドボードを「Ixion」と「Razmataz」に接続
+ * ビデオコードの単純化と、同一コードの統合
+ * レジスタのウェイトよりパレットを生成
+ * 背景位置はまだすこしずれがあり
+
+- サービスコインのロックアウト用にservice_coin_lockout_w()を追加。[Aaron Giles]
+
+- MDRV_SCREEN_RAW_PARAMS()を追加。これは、通常の画面サイズ、表示領域、リフレッシュ
+  レート、VBLANKタイミング値に代わる水平・垂直ビデオタイミング値、ピクセルクロッ
+  クを指定できます。[Aaron Giles]
+
+- UIからセーブとリストアが動かなくなっていたバグを修正。[Aaron Giles]
+
+- モード選択時にリフレッシュレートに重点を置くように選択ロジックを変更。これによ
+  り、-resolution 0x0@60で、60Hzの最適な解像度をMAMEが選択するようにできます。
+  [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+バイパーフェイズ 1 (World, New Version) [Corrado Tomaselli]
+ワンダーボーイ モンスターランド (Galaxy Electronics English bootleg)
+ギャルズパニックII (Asia) [Patrik Styrnell]

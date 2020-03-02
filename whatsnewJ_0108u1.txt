@@ -1,0 +1,73 @@
+0.108u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mbrush067gre [robiza]
+bonzeadv0107u4red [robiza]
+
+
+
+ソースの変更点
+--------------
+- bugrunとwildpltのDIPスイッチ修正。f1gpstarとf1gpstr2のリージョンをUKからEurope
+  に変更。[Sonikos]
+
+- TIA-MC1の改良: [Eugene Sandulenko]
+ - ドキュメント追加
+ - 入力修正
+ - フレームレートとVSyncディレイ修正
+ - ドキュメントに基づいてCPU周波数を調整
+ - オブボードビデオRAMのハックを削除
+ - サウンド改善
+ - NO_DUMPのPROMを追加
+
+- asteroidsとtempestドライバのドキュメントを改善。[Brian Troha]
+
+- Championship BowlingドライバのDIPスイッチとドキュメントを改良。[Brian Troha]
+
+- NES PPUレンダリングコードの大幅なクリーンアップと書き直し。[Brad Oliver]
+
+-「バーチャボウリング」海外版のプロテクト修正。[Brian Troha]
+
+-「ハレーズコメット'87」の当たり判定修正。[Brian Troha]
+
+- Hangmanドライバの不明DIPスイッチ追加。[Wolfi]
+
+- 68000エミュレータのTAS命令用コールバック追加。外部ハードベースの異なった実装が
+  可能になります。[David Haywood]
+
+- Namco System 22のアップデート: [R. Belmont]
+ - Guru氏が指摘していたROMロードの問題修正
+ -「プロップサイクル」のファンとライトを新アウトプットシステムに実装
+
+- 新フラグ VIDEO_ALWAYS_UPDATE 追加。これはフレームスキップ中でもVIDEO_UPDATEコー
+  ルバックを発生させます。これは、当たり判定などのように描画プロセスが常時存在す
+  る必要のあるゲームで使用します。[Aaron Giles]
+
+- 余分なタイマーを使用しなくても正確に処理可能な新しいスキャンラインタイミング関
+  数を修正。[Aaron Giles]
+
+- 前回のリリースサイクルで、Sega G80ベクターゲームの入力がおかしくなっていたものを
+  修正。[Aaron Giles]
+
+- Turboドライバのクリーンアップと書き直し開始: [Aaron Giles]
+ - ビデオタイミング訂正
+ - 完全なメモリマップ
+ - 前のものより良いドキュメントをもとに、描画コードのクリーンアップと簡略化
+ - いまのところWIP状態なので、不具合があります
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Space Bugger (set 2) [Tomasz Slanina]
+Reaktor (Track & Field 改造版) [Col Turner]
+
+
+
+新規クローンセット
+------------------
+忍者龍剣伝 (Japan, set 2) [Patrik Styrnell]
+サイレントドラゴン (US) [Patrik Styrnell]

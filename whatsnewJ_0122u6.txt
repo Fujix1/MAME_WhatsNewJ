@@ -1,0 +1,217 @@
+0.122u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+pangpoms098u3ora [Brian Troha]
+cuebrckj0102u5gre [Zsolt Vasvari]
+astinvad0106u11gre [Aaron Giles]
+victory137b4gre [Zsolt Vasvari]
+victory37b16gre [Zsolt Vasvari]
+dcs057ora [Aaron Giles]
+pleiads0111u4gre [Robbert]
+armwrest35b9yel [David Haywood]
+gstrik20105u4gra [Brian Troha]
+narc060gra [Aaron Giles]
+mia0106u5gra [RansAckeR]
+nss_smw0115ora [Atari Ace]
+darkplnt0119u3yel [Atari Ace]
+mhhonban0120u3gra [RansAckeR]
+rollerg0111u5gra [RansAckeR]
+bionicc0109ora [RansAckeR]
+lcasino0111ora [RansAckeR]
+megaplay.c0122u4red [Atari Ace]
+nmnlnd0122u3yel [Mamesick]
+cocktail0119yel [Robbert]
+tokisens0122u3gra [RansAckeR]
+alleymas0119u3gre [RansAckeR]
+crbaloon36finalgre [Zsolt Vasvari]
+topsecrt0109gre2 [Bryan McPhail]
+quasar0122u5red [Zsolt Vasvari]
+stadhero0122u3gra [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+- 「Swinging Singles」のクリーンアップ: [Tomasz Slanina]
+ - crt6845を実装
+ - タイルマップにコンバート
+ - プロテクション(?)のエミュレーションをシンプル化
+ - タイルマップ削除。前よりも低レベルなビデオハードエミュレーション
+ - フェイクカラー
+
+-「Chameleon」のハイスコアテーブルが化けるを防ぐため、lasso.cのFPSを低下。
+  [Zsolt Vasvari]
+
+- 古くなったuitext.c、またその参照を全て削除。[Aaron Giles]
+
+- exidyドライバを今風にクリーンアップ。[Zsolt Vasvari]
+
+- CVSドライバの当たり判定を安定させるため、VIDEO_ALWAYS_UPDATEDを追加。
+  [Zsolt Vasvari]
+
+- astinvadドライバのクリーンアップ: [Aaron Giles]
+ * ビデオタイミングの訂正
+ * 8255 PPIを実装
+ * 割り込みタイミングの修正
+ * コードを単一ファイルに統合
+
+- i8039.c/mario.cの更新: [couriersud]
+ * movd命令を修正
+ * MB8884とM58715 CPUタイプを追加
+ * M58715のタイマーハックを削除
+ * 内部RAMアクセス用のram_maskを追加
+ * R.A11を'M'としてDASMフラグに追加
+ * EA "IO"サポート
+ * marioのサウンドCPUをM58715に
+ * M58715のEAラインを実装
+ * portAスタートアップ値を修正
+ * mario基板でI8039を使う変更についてドキュメント化
+
+- sauro.c: [couriersud]
+ * trckydocのPROMサイズを256へ巻き戻し
+
+- zaxxon.cにXTALクロックを追加。[Aaron Giles]
+
+- cojag/jaguarドライバをクリーンアップ: [Aaron Giles]
+ * ビデオタイミングの訂正。チップセットより設定
+ * 32-bitでのレンダリング。16bppハックを削除
+ * ボーダーのサポート
+ * 正確なオブジェクトプロセッサタイミング。ライン毎のマルチパスを含む
+ * R3041をR3000の派生として追加
+ * ドキュメントを元にXTALを修正
+
+- exidyドライバとvictoryドライバを統合。victory.cから、複雑なdirty領域のトラッキ
+  ングを削除。exidyオーディオハードウェアコードを再構成。「Targ」でハードコード
+  したものから読み込んだPROMを使うように変更。タイトル画面に従いゲーム名を
+ 「Side Trak」から「Side Track」に変更。[Zsolt Vasvari]
+
+- 6821 PIAの変更: [Zsolt Vasvari]
+ - 垂直アクセサ追加
+ - ハッキーなupdate_shared_irq_handler()を削除。これにより、同一のIRQコールバッ
+   クを複数回呼び出されるかもしれませんが、問題にはならないでしょう
+ - リセット時にIRQラインをクリア
+
+- TMS5220で、ストップフレーム後にBuffer Emptyフラグをセットするコードを無効化。
+  これにより「ビクトリー」が修正されます。このやり方は正しくないかもしれませんが、
+  いずれにしても古いコードでも動作しません。[Zsolt Vasvari]
+
+- revxのDSCリセットラインを実装。DCSがデータを返すときに正しいCPUにIRQを送信。
+  [Aaron Giles]
+
+- grdforceでSCSPのハングの原因だった不要なチェックを削除。[kingshriek]
+
+- deco156で、ゲーム速度が低下するのを防ぐため、クロックスピードを28に調整。確か
+  入力ピンは7MHzだったはずなので156チップは内部分周しているかも。[David Haywood]
+
+- dkong.cの変更: [couriersud]
+ * Sanyo EZVオーディオアンプと等価の回路を追加
+ * ハイパスフィルタの効き過ぎを防ぐため、DK_C159 = 0に設定。実機の観測より
+ * 上記のことについて、ソースにコメントを追加
+ * DACフィルタと、ポストミキサーフィルタをデバッグ用にOFFにするための
+   DK_NO_FILTERSを定義
+
+-「Water Balls」のDIPと配置追加。[Brian Troha]
+
+- CPUクロックの倍率設定をサポートするため、CPUINFO_INT_CLOCK_MULTIPLIERを追加。
+  全てのCPUコアでCPUINFO_INT_CLOCK_MULTIPLIERに1を返すように更新。コアで、
+  CPUINFO_INT_CLOCK_MULTIPLIERとCPUINFO_INT_CLOCK_DIVIDERの両方を処理するように
+  変更。多くのドライバで、Machine->drv->cpu[x].clockに替えて、cpunum_get_clock()を
+  使うようにアップデート。Rawインプットのクロックスピードは、全CPUについて
+  MACHINE_DRIVERで設定して下さい。[Aaron Giles]
+
+- RGB32へTLC43076を使うよう変更。可能な箇所についてはグローバルなMachine変数を削
+  除。[Zsolt Vasvari]
+
+- dirtybufferをvideo/generic.c、またこれを使っているドライバ内から削除。
+  videoram_w、colorram_w、spriteram_wを削除。またこれらを使うドライバで、RAMに直
+  接アクセスするように変更。
+  video/generic.から、videoram_r、colorram_r、spriteram_r、spriteram16_r、
+  spriteram16_wを削除。また全てのゲームでRAMを使うよう変更。[Zsolt Vasvari]
+
+- seibuサウンドインターフェースのメモリマップをクリーンアップ。各ドライバで静的
+  にサウンド設定を共有するよう変更。[Aaron Giles]
+
+- 以下の基板を元に、CPU周波数とOKI M6295 PIN 7の確認、及び変更:
+  飛鳥＆飛鳥、カダッシュ、エクイテスハード（ゲームとサウンドボード）、
+  F-1グランプリ、スーパーフォーミュラ、Gladiator / 黄金の城、ピンポンキング、
+  グレートソードマン、Irem M52サウンドボード、トロピカルエンジェル、
+  爆裂ブレーカーズ、マジカルクリスタル、マッドギア、ローラーエース、
+  チャイニーズヒーロー、ザ・シンプソンズ、ゴルフィンググレイツ、
+  タイムパイロット84
+　[Corrado Tomaselli]
+
+- 最近追加・変更したコードのstaticチェックを追加。[Atari Ace]
+
+- 0.122u5で起きたdbreed72のクラッシュ修正。[Mamesick]
+
+- HuC6280の低速モードで、3ではなく4サイクルを使うように修正。[Charles MacDonald]
+
+-「Road Runner」の不良ROMを手修正。不良バイトは99.99%確実に「デザートガン」と同
+  じもの。[Zsolt Vasvari]
+
+- leland系のクロックをクリーンアップ。i186の内部クロックを半分に設定。
+  [Aaron Giles]
+
+- MCRゲームの一部にMACサウンドボード用のクロックを追加。TMS5220の派生版、TMS5200
+  とTMC0285を正しいチップとして追加。ドキュメントに基づいてMCR squawk & talkで
+  TMS5200を使うよう変更。[Aaron Giles]
+
+-「クレイジーバルーン」ドライバをクリーンアップ: メモリマップ修正、クリスタルな
+  ど。当たり判定用のカスタムICを実装。[Zsolt Vasvari]
+
+- Playstation互換ハードのCPUクロック修正第1弾。System10、System12はアップグレー
+  ドしたチップセットで動作するためクロック速度を向上。ウェイトステート、GPUタイ
+  ミング、DMAバス遅延、GTEタイミングが無く、DMAのタイミングも正しくないので
+  でCPUコアでの内部分周率を4に設定。[smf]
+
+- i960コアのRET命令修正。[Ernesto Corvi, ElSemi]
+
+- gstreamとlimenkoドライバのスピードアップハックでゲームが壊れていたので削除。
+  [David Haywood]
+
+- i8039 T1カウンタモードの不具合修正。[couriersud]
+
+- 入力ポートのコールバック定義用のCUSTOM_INPUTマクロを追加。コード全体で使用。
+  [Aaron Giles]
+
+- phoenixとクローン版: [couriersud]
+ * 回路図からビデオタイミング修正
+ * 回路図からパレット取得 (resnet.h)
+ * カラーテーブル廃止
+ * セーブステート追加
+
+- RSPのマイナーな修正: [SGINut]
+ - 実ハードウェアのテストを元にアキュムレータステートを修正
+ - 実ハードウェアのテストを元にシングルステップ動作修正
+
+- atateris.cにセーブステート追加。[Svante Gerhard]
+
+- 回路図を元にatetrisのメモリマップとクロックを修正。[Aaron Giles]
+
+- TinyMAMEにtargとspectarを追加。[neoforma]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Ripper Ribbit [Aaron Giles]
+Chicken Farm [Aaron Giles]
+Crazzy Clownz [Aaron Giles]
+スペースファイターマークII [Zsolt Vasvari, Guru]
+
+
+
+新規クローンセット
+------------------
+ヒーテッドバレル (US set 2) [Corrado Tomaselli]
+Player's Edge Plus (XMP00006) Multi-Poker [Jim Stolis]
+
+
+
+追加された未動作ゲーム
+----------------------
+International Toote (Germany) [Luca Elia]
+Dodge City [Roberto Fresca]

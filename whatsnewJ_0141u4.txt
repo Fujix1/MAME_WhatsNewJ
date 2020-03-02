@@ -1,0 +1,374 @@
+0.141u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01555: [グラフィック] vanvan, vanvanb, vanvank: アトラクトモード、プレイ中の画面が
+         乱れる。0.91から起きているが、以前よりひどい。(hap)
+- 02841: [グラフィック] pacnpal, pacnpal2, pacnchmp: モンスターの目が表示されない。
+         (hap)
+- 02175: [グラフィック] drgnbstr: 2面でプライオリティの問題あり。(hap)
+- 03870: [グラフィック] battlex: タイトル画面のハイライトする部分は実際には文字の部分
+         だけになる。MAMEでは背景もハイライトがかかっている。(hap)
+- 03206: [色/パレット] sshangha: 牌選択時の色が間違っている。(David Haywood)
+- 01665: [グラフィック] zigzag, zigzag2: 敵を膨らませるとき、ホースが正しく表示されな
+         い。(hap)
+- 03821: [クラッシュ/フリーズ] contra, contraj, gryzor: 3面ボスでコンティニューしたあ
+         とに、そのボスを倒すとゲームが固まる。(hap)
+- 02509: [グラフィック] bagmans: シーンチェンジのグラフィックが表示されない。(hap)
+- 03454: [ドキュメント] xeviousa, xeviousb, xeviousc: xeviuscがオリジナルのAtariライ
+         センス版。xeviusaは難易度が上がった後期版。
+- 03225: [その他] razmataz: サービスモードに入れない（P1スタート+F2キー）。(hap)
+- 03745: [色/パレット] anteaterg, anteateruk: 地下部分の背景色は青ではなく黒くなる。
+         (hap)
+- 04271: [その他] -listxmlでROMのマージ情報が間違っている。(Aaron Giles)
+- 03670: [ステート保存/再生] Many sets in toaplan2.c: -autosave、またはセーブステート
+         を行うとグラフィックが化ける。(Alex Jackson)
+- 02807: [ドキュメント] dogyuunk: ゲーム名が違っている。(Alex Jackson)
+- 03764: [サウンド] kuniokun, kuniokunb: PCMサウンドを再生するたびにベースラインがマ
+         イナスへずれていき、一部の環境では音が出なくなる。
+- 03172: [サウンド] amspdwy, amspdwya: サウンドにノイズが混じる。(hap)
+- 04093: [サウンド] spiders and clones: プレイ中に高い音が鳴り続ける。(hap)
+- 04029: [グラフィック] All sets in murogem.c: 0.139u1に比べると表示、入力などがおか
+         しい。(hap)
+- 04270: [グラフィック] commsega, locomotn and clones: 画面が上側にずれている。(hap)
+- 04269: [グラフィック] All sets in bagman.c: 画面が上側にずれている。(hap)
+- 04002: [グラフィック] bagman, sbagman, botanic, pickin: 画面が左に1ピクセルずれてい
+         る。(hap)
+- 04264: [クラッシュ/フリーズ] gtfrk3ma, gtrfrk3m, gtrfrk4m, pcnfrk3m: NVRAMのフォー
+         マット直前にクラッシュする。(galibert)
+- 04267: [インターフェイス] -verifyromsで存在しないクローンセットが不明ではなく不良と
+         報告される。(Aaron Giles)
+- 04263: [クラッシュ/フリーズ] pf2012: OK画面の後にクラッシュする。(hap)
+
+
+
+ソースの変更点
+--------------
+- 内部のフェイクシフタレイアウトが目立たないように彩度とアルファを低下。[hap]
+
+- OS/2でのコンパイルを修正。[K.O. Myung-Hun]
+
+- Aristocrat Mk4 / Mk5のいろいろな修正。[Palindrome]
+
+- Aristocrat Mk4の初期化手続きをドキュメント化。[Heihachi_73]
+
+- Aristocrat Mk-4ハードのvblankリードバックを正しく実装。[Angelo Salese]
+
+- naomi: ゲームのタイプ別、また同様の機能をまとめるようにドライバを再構成。[f205v]
+
+-「Winnders Circle」(Corona) デュアルCPUハードウェア用の新ドライバ。[Roberto Fresca]
+
+- 外部MMUから現在のアドレス空間がわかるよう、M68000のスーパーバイザフラグがみえるよう
+  に変更。[Curt Coder]
+
+- デバイス専用のinput_port_readから、不要なmachineパラメータを削除。[Curt Coder]
+
+- M68000の完全なFunction Codeを外部アクセスできるように変更(FC2のみでなく)。
+  [Curt Coder]
+
+- Corona.c:「Winners Circle」の比率を改良するため表示画面領域を修正。また、RE-800セッ
+  トも表示領域と回転を修正。その他クリーンアップ。[Roberto Fresca]
+
+- core_optionsをクラス化。新メカニズム導入に伴い、これまでの機能を多く削除。エラーの
+  報告はコールバックからastring経由になります。すべてのオプションで型(command、
+  integer、float、string、booleanなど)指定が必要です。コマンドが一つだけしか許可され
+  ないように動作を変更。[Aaron Giles]
+
+- fileioシステムで、options/optionの組み合わせではなく、そのままの検索パスを受け取る
+  ように変更。[Aaron Giles]
+
+- コアエミュレータオプションをラップするため、core_optionsから派生したemu_optionsクラ
+  スを作成。システム名の変更、およびシステム専用オプションの追加と削除を従来のコール
+  バックを使う方法に対して、クリーンに行うやりかたを追加。また、パラメータ処理の一貫
+  性を確保するため、全オプションのリードアクセサも追加。ほとんどのコアシステムで、
+  core_optionsに代えて、emu_optionsにアクセスするよう更新。machine->options()も
+  emu_optionsを返すよう変更。[Aaron Giles]
+
+- コマンドライン専用オプションを追加するため、emu_optionsより派生したcli_optionsクラ
+  スを追加。clifrontコードで新しいクラスとコア処理を使用。cli_execute()呼び出し時は、
+　cli_optionsを受けるように変更。[Aaron Giles]
+
+- SDLとWindowsでそれぞれ独自のオプションクラスを持つように更新。cli_optionsより派生し、
+  OSD専用のオプションが追加されます。クエリの型付け強化とシンプル化のため、全オプショ
+  ンにアクセサを追加。[Aaron Giles]
+
+- 以下をdriver_devicesに更新: [Atari Ace]
+  nmk/olympia/pacific/pce/phoenix/rare/seibu/seta
+
+- 以下をdriver_devicesに更新: [Atari Ace]
+  sigma/stern/subsino/tatsumi/tch/tecfri/technos/tehkan
+
+- roul (roul.c) [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+
+- ksys573: マシンドライバの選択が間違っていたのを修正。[O. Galibert]
+
+- ESが無効でもシリアル受信可能。[Couriersud]
+
+- sgnascar: マスクROMを吸い出し。[Guru, R. Belmont]
+
+-「ガンバリィーナ / Point Blank 3」のビットスワップを追加。[smf].
+
+- inptport: コントローラへの自動対応のため、existenceと使用ビットインタフェース追加。
+  [O. Galibert]
+
+- psx cpuコアをc++化。[smf]
+
+- Corona.cドライバの改良。入出力系の作業、サウンドCPU用の割り込み間隔修正、メーター、
+  DIPスイッチ、その他マイナーなことなるど。「Winners Circle 82」がプレイ可能。
+  [Roberto Fresca]
+
+- corona.cドライバをさらに改良。マシン、メモリマップを分け、「Lucky Roulette」タイプ
+  のゲーム用に入出力を完全に複合化。NVRAMと追加とblitter反転。[Roberto Fresca]
+
+- MC6845 列・行アドレスモードを実装。[Curt Coder]
+
+- チャンネルボリュームスライダで、シフト/ALT+右が動作(小数の端数は切り捨て)。[hap]
+
+- splash.cドライバの改良: [Tomasz Slanina]
+ *「The Return of Lady Frog」 : サウンド追加
+ *「Funny Strip」 : サウンド追加。プロテクトチェックパッチ。スプライトRAMアクセス修正
+
+-「Tetris Fighters」の入力追加。ゲーム起動可能。[Tomasz Slanina]
+
+- coronoa.cドライバの改良と変更。入出力動作と新セットをサポート。winner82のサウンドプ
+  ログラムを吸い出し直し。[Roberto Fresca]
+
+- SDL: MESS用にuimodekeyを修正。[Barry Rodewald, R. Belmont]
+
+- corona.cドライバの作業: [Roberto Fresca] 
+ - メモリマップのクリーンアップと改良
+ -「Winners Circle」の全セットにNVRAM追加
+ -「Winners Circle 82」のAY8910クロックを他のハードウェアにあわせて修正
+ - バッファからビットマップへのblitterの問題を修正
+ - セットの親再設定
+ - テクニカルノート追加
+
+- carjmbre: [hap]
+ * clutを3 bitから4 bitに変更
+ *「Popper」のresnet情報(同じ年、同じ会社、とても似たハードウェア)で、パレットを計算
+ * 背景色のエミュレーションをよりロジカルに改良
+ * その他のクリーンアップ
+
+-「1941」日本版の正しいROMを使用。[Brian Troha]
+
+-「ミッション660」のサウンドバグを修正。[Angelo Salese]
+
+- toaplan2.cの大幅な更新: [Alex Jackson]
+ * セットの親子関係変更、改名、ソースコメントの整理: grindstm (親), vfive (子) 
+    kingdmgp (親), shippumd (子)
+    sstrikeraセットはsstrikerに変更でmahoudaiの親
+    batridをbatriderに、bkraidをbbakraidに巻き戻し
+ * 共通の初期化コードをMACHINE_STARTに移動。DRIVER_INITは個別の初期化が必要なゲーム用
+   に保持
+ * デッドコードの整理: 古いハック、もう使われていないメンバ変数をdriverクラスから削除
+ * ROMバンクのクリーンアップ: fixeightblのOKI用デバイスアドレスマップ追加。また、実際
+   にはバンク切り替えされていないのにメモリにバンクシステムが使われてるのを修正。
+   Raizingゲームでの、Z80 ROMバンキング(とローディング)をシンプル化
+ * アドレスマップのクリーンアップ: Z80ベースとV25ベースのゲームで、8-bit共有RAMの処理
+   を統合。無意味なREAD_HANDLERをAM_RAM_WRITEに置き換え。fixeightのEEPROM処理を、
+   READ/WRITE_HANDLERを使ったものから入力ポート側に移動。これにより偶然にもtoaplan2.c
+   がAM_READWRITE_PORTマクロを使う最初のドライバになった
+ * IPT_VBLANK入力ポートを削除(表示系の書き直し以降不使用)
+ *「達人王2 / Truxton 2」のプレイヤー2ボタン4を削除(ゲームで一切読み込んでいない)。ま
+    た、プレイヤー1のボタン4をIPT_OTHERにしてデフォルトでは割り当て無しに変更。普通の
+    筐体ではテスト/デバッグ入力は接続していないため
+ *「バツグン スペシャルバージョン」にボタン3追加。これはCaveゲーム同様の連射ボタン。
+    入力テストには出てこないのは、Toaplanがサービスモードの更新が面倒だったから？
+ * ROM内の文字列やプログラムの解析により、いろいろなセットのリージョンジャンパとDIPス
+   イッチを修正
+ *「達人王2 / Truxton 2」をステレオにする#define節を追加(デフォルトはコメントアウト)。
+   ドライバとMACHINE_CONFIGのコメントを参照のこと
+ * kbashのROM名訂正。Charles MacDonald氏の情報による。batriderクローンのROM名も調整
+ * bbakraidのデフォルトEEPROMをドライバ決め打ちからROMとして読み込むよう変更
+ * V25の復号と実装がされたため、不要になったaudio/toaplan2.cを削除
+
+- リール回転ゲームの技術的な変更: [James Wallace]
+ * MPU4のランプタイミング修正と、steppersでのMPU3サポート準備(ドライバのリールコード
+   もクリーンアップ)
+ * 不必要なタイミングコードを削除
+ * BwBをテストサポート。CHRチップの動作がどのようになるかを示すものです
+
+- -romidentなどで全ドライバを反復処理するときにメモリを大食いするのを修正。
+  [Aaron Giles]
+
+- namco/thepit/toaplan/unico/upl/valadon/veltmjr/venture/vsystem/zaccariaを
+  driver_deviceにコンバート。また、unicoのシンプル化とgridleeをbalsenteから分離。
+  [Atari Ace]
+
+- これからのdriver_deviceコンバートに備えてぐちゃぐちゃなドライバの整理: [Atari Ace]
+ * taito_f3は共有変数ではなくAM_SHAREを使って他のドライバからのしがらみを解放
+ * 一部のドライバを他のドライバの明示的なサブクラス化:
+    mw8080bwから8080bw、bublboblからmissb2、cvsからquasar、setaからtaito_x
+ * ビットマップ描画コードの複製で、arcadeclをrampartから分離
+ * jalecoの復号コードをjalcrpt.cに移動
+ * ビデオコードの複製で、cischeatをmegasys1から分離
+ * mcr3をmcrから一部分離
+ * machine/midwunit.cをwunitとxunitファイルに分割
+ * gfx_rom変数をmidyunitからのdistinct化
+ * namconb1の定数を、namcoflにコピーして改名
+ * namcos2_kickstartを導入してnamcos21からnamcos2を使用するのを廃止
+ * ビデオコードの複製でtoypopをmappyから独立
+
+- 個々のdriver_deviceにあるspriteramを使うため、バッファ無しのspriteramドライバを汎用
+  spriteramを使わないように更新。[Atari Ace]
+
+- ADSP21xxコアに前からあったAGSフラグのバグ修正。[Christophe Jaillet]
+
+- NVRAMデバイスへの移行のため、レガシーなNVRAM_HANDLERを削除。[Aaron Giles]
+
+- timekpr.cにM48T37派生型追加。レジスタが0xffに初期化され、動作が変になるバグ修正。ま
+  たモダンデバイスタイマに更新。[Aaron Giles]
+
+- vegasで独自実装からM48T37を使うように変更。[Aaron Giles]
+
+- machine_configとにemu_optionsをアタッチ。running_machineでこれを継承。[Aaron Giles]
+
+- KEYCODE_BACKSLASH2をOEM_102キーに割り当て(キーボードによっては左シフトとZキーの間に
+  このキーがある)。[Curt Coder]
+
+- micro3d 8051シリアルRXを修正。todo: 1サイクルコールバック下でのCLEARが必要。
+  [Lord Nightmare]
+
+- SDLで、.iniからのuimodekeyのパース処理を修正。[Fabio Priuli]
+
+-「Lucky Roulette Plus」のDIPスイッチと入力の改良。「Ruleta RCI」もサポート。
+  [Roberto Fresca]
+
+- model3: oceanhunのプロテクトデータを追加(ゲームはまだ起動不可)。[Ville Linde]
+
+- galdrvr.c:「Anteater」に背景色の分割を追加。[hap]
+
+- spriteramを汎用のものから個々のプライベートなものを使うように多くのドライバをコン
+  バート。バッファspriteramが必要なドライバのみで共有版を使ってください。[Atari Ace]
+
+- misc.aからのほとんどのドライバと、最近依存関係が解消されたドライバで、global/static
+  変数をdriver_deviceクラスへ移動する作業を継続中。[Atari Ace]
+
+- Z80-DARTトランスミットのword長を修正。[Curt Coder]
+
+- ROMREGIONフラグからmemory_regionパラメータを分離。[Aaron Giles]
+
+- path_iterator::next()の引数にpathに追加するオプションファイル名を追加。
+  [Aaron Giles]
+
+- peiadesの色修正(パレットのhigh/lowビットを交換)。[Couriersud]
+
+- デバイスコールバックでDEVICE_SELF_OWNERをサポート。[Curt Coder]
+
+- anteateruk/anteatergをgaldrvr.cに移動。[hap]
+
+- デバイスのデフォルト入力ポート設定が入れ替わる可能性があったのを修正。
+  [Miodrag Milanovic]
+
+-「ギャラクシアン」ドライバ: スプライトXオフセット修正。[hap]
+
+- 引き続きdriver_deviceクラスからのglobal/static変数削除。[Atari Ace]
+
+- 未使用な静的ハンドラエントリを削除。また、静的メモリ型の再マッピングと解放でメモリ
+  パラメータが変わらないように修正。これにより、動的なメモリマッピングでオフセットの
+  値が間違って報告されるのを防ぎます。[Aaron Giles]
+
+- あちこちにばらばらになったconst address_spaceの参照を削除と、memory.hのexplicit 
+  const_castsを廃止。[Aaron Giles]
+
+- galxwarsの専用筐体は白黒ではなくカラーのため、いまのところ他のゲームからpromを流用
+  して吸い出し不良と色不良のフラグ追加。[hap]
+
+- contra.c: 基板を参考にして、メインCPUをHD6309、割り込みソースをk007121に変更。[hap]
+
+- 変数を持たないドライバにも一貫性を持たすためdriver_deviceクラスを追加。[Atari Ace]
+
+- driver_deviceへのコンバートにために、ドライバファイルをさらに分解: [Atari Ace] 
+ 1. cclimberとgalaxianのオーディオコード、seibuspiの復号化コードに独自インクルード
+    追加
+ 2. galpani2のビデオ宣言をkaneko16.hから独自ファイルに移動
+ 3. cchanceとchampbwlをtnzsのサブクラス化。xevious/bosco/digdugをgalagaのサブクラス化。
+    vmetalをmetroのサブクラス化
+ 4. yvg608をnamcond1から独立
+ 5. ettriviaのパレットコードをnaughtybからコピー
+ 6. mshuttleの復号化コードをgalaxianから移動
+ 7. tetrisp2_draw_spritesをms32.c版とtetrsp2.c版に分割
+
+- asteroid/bzone/funworld/itech8/kongambl/legionna/leland/quakeat/quizpun2/segas24/
+  twincobr/warpwarpをdriver_deviceにコンバート。[Atari Ace]
+
+- Kaneko Super Novaのスプライトチップエミュレーションを独自ファイルに移動。
+  [David Haywood]
+
+- Deco 56ビデオスプライトチップを独自ファイルに移動。[David Haywood]
+
+- Deco 56: マニュアルミキシング用に、プライオリティデータをそのままにビットマップ描画
+  [David Haywood]
+
+- battlex.c: ドライバのクリーンアップ。特に重要なのは、: [hap]
+ * 割り込み生成をよりロジカルに改良(ホールドの代わりにアサート/クリア)
+ * 背景タイル用のハック風なハードコードパレットを削除し、パレットRAMを使用
+
+-「アンブッシュ」とクローンセットのXTALを確認しクロックを生成。ダンパーノート追加。
+  AY8912も同様の変更。[Tafoid / Tomasz Slanina]
+
+- z80dmaコアのデクリメント転送を修正。[Angelo Salese]
+
+-「Tattoo Assassins」(と「ナイトスラッシャーズ」)でdeco16ic.cを使うようにコンバート。
+  これにより「Tattoo Assassins」の追加当時からあるグラフィック不具合が改善。
+  [David Haywood]
+
+- デバイス風共有システムでグローバル変数を、静的変数かデバイス変数に変更。[Atari Ace]
+
+- cclimber/galpani2/gticlub/namcond1/pacman/seibuspi/tetrisp2/vicdual を
+  driver_deviceにコンバート。[Atari Ace]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Ruleta RE-800 (earlier) [Roberto Fresca]
+Ruleta RE-800 (v1.0) [Roberto Fresca]
+Ruleta RE-800 (v3.0) [Roberto Fresca, Grull Osgo]
+Galactica (Marcello Mancini, Silvio Finotti, Augusto Garcia, hap]
+Lucky Roulette (6-players, Spanish) [Roberto Fresca, Rob Ragon]
+Super Twenty One [Siftware, gregf, hap]
+Ruleta RCI (6-players, Spanish) [Roberto Fresca, Rob Ragon]
+Winners Circle 82 [Roberto Fresca, Angelo Salese, Rob Ragon]
+Winners Circle (81, 28*28 PCB) [Roberto Fresca, Rob Ragon]
+Winners Circle (81, 18*22 PCB) [Roberto Fresca, Rob Ragon]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Big Twin (No Girls Conversion) [Andrew Welburn, Pierpaolo Prazzoli]
+Super Star Crest[Marcello Mancini, Silvio Finotti, Augusto Garcia, hap]
+1941: カウンターアタック (USA 900227) [Kevin Eshbach, Team CPS-1]
+Simpsons Pinball Party (4.00,2.04) (En,Sp,Fr,It,Ger)
+  [Miodrag Milanovic]
+Grand Prix (4.00,3.40,3.01) (En,Sp,Fr,It,Ger) [Miodrag Milanovic]
+Nascar (4.00,3.50,3.40, 3.01) (En,Sp) [destruk, Miodrag Milanovic]
+Sopranos (3.00, 2.04, 1.07) (En,Sp,Fr,It,Ger) [Miodrag Milanovic]
+High Roller Casino (2.10) [destruk]
+Playboy (4.01,2.03) (En,Sp,Fr,It,Ger) [destruk]
+Roller Coaster Tycoon (6.00) (En,Sp,Fr,It) [destruk]
+Street Fighter Alpha 3 / ストリートファイターZERO 3 (Hispanic 980904)
+  [Layne, Dr. Spankenstein, ranger_lennier, Smitdogg, The Dumping Union]
+ジンジンジップ (海賊版) [ANY] (not working)
+エンパイアシティ1931 (Italy) [ANY]
+サンダー＆ライトニング (テトリスサウンドな海賊版) [ANY]
+ザ・ピット (US, set 2) [Siftware]
+テラクレスタ (newer PCB) [Siftware]
+スピークアンドレスキュー (海賊版) [Siftware]
+Heavy Unit -U.S.A. Version-
+  [Hurray Banana, Tormod, hotaru, Dna Disturber, F. Marsaud, N. 
+   Francfort, Smitdogg, The Dumping Union]
+ATV Track (Set 2) [Guru] (not working)
+Ropeman (ロックンロープの海賊版) [Tafoid]
+
+
+
+追加された未動作ゲーム
+----------------------
+Catch (prototype) [Siftware, hap]
+湾岸ミッドナイト マキシマムチューン2 Ver. B (Japan) (GDX-0016A)
+  [Guru, R. Belmont]

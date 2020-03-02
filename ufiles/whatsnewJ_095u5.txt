@@ -1,0 +1,8 @@
+0.95u5
+------
+
+u4で起きていたWindowsのみの入力系バグ修正。[Aaron Giles]
+
+「ギャルズハスラー」のOKI周波数修正。[Sonikos]
+
+DECO102ゲームの残りも復号化の解読。[Nicola Salmoria]

@@ -1,0 +1,96 @@
+0.104u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+upsidedown0103yel [Takahiro Nogi]
+mgion0104u6yel [Takahiro Nogi]
+hyouban095u2red [Takahiro Nogi]
+model1.c_0104u5yel [Aaron Giles]
+ohmygod0104u6red [Aaron Giles]
+stv.c_0104u5red [Aaron Giles]
+ad2083_0104u5red [Aaron Giles]
+gauntdl0104u6red [Aaron Giles]
+zwackery0104u3red [Aaron Giles]
+triviaes0104u6ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「パラレルターン」ドライバのプロテクトシミュレート追加。[Tatsuyuki Satoh]
+
+- spelunk2のデモサウンドDIPスイッチ追加。[Roberto Fresca]
+
+- Nichibutsu麻雀ドライバの多くで入力系の問題修正。[Takahiro Nogi]
+
+-「ドラゴンボールZ」でK056832チップエミュレーションを使うよう更新。
+  プライオリティとカラーオフセットが修正。[Pierpaolo Prazzoli]
+
+- Windows XP用の直接マウスサポート更新: [Derrick Renaud]
+ * RAWMOUSEデバイスリストを反転。RAWMOUSEは、最後にインストールされたマウスを最
+   初のデバイスとして報告します。新しいマウスは最後に配置します
+ * Windowモードでゲームエリアからカーソルが出ないようにRAWMOUSEモードにクリッピ
+   ングを追加。また、前回の変更で非RAWMOUSEのWindowモードクリッピングが壊れてい
+   たのを修正
+ * -verboseで接続されているマウス名が見れるようにしました
+ * XP使用時の光線銃機能を変更。-lightgun、または-dual_lightgunは不要になりました。
+   -mouseか複数の“HID互換マウス”を使うと、光線銃が検知されます。Win98/Meでの光
+   線銃サポートは以前のままです。-offscreen_reloadはWin98/Me/XPでまだ使用可能で
+   す。詳細はwindows.txtを見てください
+
+- System32ドライバの間接パレット修正。これで「ソニック」のグラフィックがついに
+  修正。[Anonymous]
+
+- ウィンドウ動作時のウィンドリサイズのバグ修正。[Wilbert Pol]
+
+- MDECのデコーディングをCbCrYからCrCbYに変更。またMDECの15bit出力をRGBからBGRに
+  スイッチ。[smf]
+
+- 多くのファイルから不要な#includesを削除。また、ヘッダで宣言されていたものは
+  ファイルへの#includesを追加。[Atari Ace]
+
+- ゲーム動作中にアクティブなCPUがない場合、ブレークポイント設定しようとするとデ
+  バッガクラッシュするのを修正。[Nathan Woods]
+
+- システムの準備前に致命的エラーを呼び出してクラッシュするのを修正。
+  [Nathan Woods]
+
+- Segaユニバーサルサウンドボードをさらに改良。「スタートレック」についてはサンプ
+  ルとほぼ同一。「タックスキャン」も思いの外いい感じ。[Aaron Giles]
+
+- 新関数input_port_set_changed_callback()追加。これにより、入力ポートの特定の
+  ビットが変更されたことを知ることができます。sega.cに例があります。
+  [Nathan Woods, Aaron Giles]
+
+- PROT_CUSTOM()マクロ追加。コールバックさせる入力ポートのビット値を指定できます。
+  これにより、ポートリードに割り込んで、ビットを操作する必要がなくなります。
+  sega.cに例があります。[Aaron Giles]
+
+- PORT_DIPLOCATION()マクロ追加。これにより、DIPスイッチの物理的なPCB上の配置を指
+  定して、DIPSETTINGのビットに対応したスイッチングができます。例はsega.cを見てく
+  ださい。[Aaron Giles]
+
+- i8039逆アセンブラを新インターフェースに更新。[Aaron Giles]
+
+- 入力ポート、ウォッチドッグ、割り込み用のリード・ライトハンドラをコアから
+  machine/generic.cに移動。また、標準のパレットハンドラをコアから
+  vidhrdw/generic.cに移動。パレットハンドラの名称を整理して、コードを簡素化。
+  [Aaron Giles]
+
+- 入力項目名を標準的な順序で並べ替えるコードをUIに追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+クリスタルギャル (Japan 860512) [Takahiro Nogi]
+クリスタルギャル 2 (Japan 860620) [Takahiro Nogi]
+
+
+
+新規クローンセット
+------------------
+サーカスチャーリー (Selectable level set 2) [Brian Troha]
+麻雀刺客外伝 花のももこ組！(Japan 881125) [Takahiro Nogi]

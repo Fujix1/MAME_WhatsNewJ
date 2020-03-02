@@ -1,0 +1,95 @@
+0.122u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+hstennis0103u2gra [Brian Troha]
+edrandy0113gra [Brian Troha]
+robocop2_0106u3gra [Brian Troha, Bryan McPhail]
+mario0110u1gre [couriersud]
+sbrkout0118yel [R. Belmont, Adam Bousley]
+pestplce0122red [couriersud]
+funkyjet055yel [Bryan McPhail]
+liberate074u1gre [Bryan McPhail]
+tokiu056gre [Bryan McPhail]
+powerbls0112u4red [Pierpaolo Prazzoli]
+wwestern0115u1yel [Atari Ace]
+namcos1_0118u2yel [Atari Ace]
+victnine0116u2red [Pierpaolo Prazzoli]
+btoads0103gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Orbs」のクロック修正。[David Haywood, Tomasz Slanina]
+
+- 64-bit GCCでの警告を修正。[R. Belmont]
+
+- NSS/SNES DSP-1の精度とドキュメントを改良。[Andreas Naive, R. Belmont]
+
+- xtal.hを追加。既知のアーケード基板のクリスタル周波数のドキュメント。
+  ドライバのクロックを更新する場合は、これを元にして下さい。新しいクリスタルが見
+  つかったときはリストを更新して下さい。[Guru, Aaron Giles]
+
+- suprlocoの改良: [Pierpaolo Prazzoli]
+ * IC.34メモリテストを修正
+ * 2プレイヤーのカクテルモード修正
+ * コイン3をサービス1に変更
+
+- cninjaドライバの入力/DIPスイッチのクリーンアップ。[Brian Troha]
+
+- mario.cの書き直し: [couriersud]
+ - ドライバの書き直し、MACHINE_DRIVER(mario_audio)の分離
+ - 回路図よりパレットを構成
+ - 回路図よりビデオタイミングを構成
+ - Nintendoモニタと普通のモニタを切り替えるドライバ設定
+ - COLORTABLEを削除
+
+- hyperstoneコアのI01 IRQコールバックの綴り違い修正。[Pierpaolo Prazzoli]
+
+- memory_get_bank()関数を追加。memory.cのログ出力のポインタ値を%pを使うように修
+  正。[Aaron Giles]
+
+- i8051 CPUコアのステートセーブ修正。[Pierpaolo Prazzoli]
+
+- Naomiで、SysCtrl、Maple、PVR/HOLLY bitを実装。BIOSは前より少し進みますが、起動
+  まではいきません。[R. Belmont]
+
+- Zeusシステムの更新: [Aaron Giles]
+ * bit latchのドキュメント改良
+ * crusnexoのランプ基板を実装 (レイアウト追加)
+ * MK4のスタートアップテストの年度を修正
+
+- TMS5110テーブルを修正。[couriersud, Lord Nightmare]
+
+- ui_popup()を削除。かわりにpopmessage()を使って下さい。また、NULLを渡すとどんな
+  メッセージも無視するようにpopmessage()を拡張。
+  [Aaron Giles, thanks to Oliver Stoneberg's suggestion]
+
+- printf機能を持つ多くの関数にATTR_PRINTFを追加。[Oliver Stoneberg]
+
+- sbrkoutドライバを回路図を元に書き直し: [Aaron Giles]
+ * XTALを元にしたタイミング
+ * ビデオタイミングの修正
+ * 完全なメモリマップ
+ * メモリマップの使い方を訂正 ("ゼロページ"RAMはビデオRAMと共有)
+ * 入力系のハックを全て削除
+ * 割り込み生成の修正
+ * コインカウンタの訂正
+ * ステートセーブ追加
+
+- デバッガでのUNICODE=1による問題を修正。Windowsビルドプロセスで64bitビルドにつ
+  いては常にUNICODE=1にするよう変更。[Oliver Stoneberg, Aaron Giles]
+
+- btoadsにステートセーブ機能追加。[Aaron Giles]
+
+- onna34roのMCUシミュレーションを修正。[Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Mutant Fighter / デスブレイド (World, EM-3) [Stefan Lindberg]
+ザ・シンプソンズ (2 Players Asia) [Arzeno Fabrice]

@@ -1,0 +1,139 @@
+0.126u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01448: [DIP/Input] twotiger: コントローラーをセンターの位置にすると実は少し右に寄っている。(Aaron Giles)
+- 00595: [DIP/Input] playch10.c games: ボタン1と2が逆。(Fabio Priuli)
+- 02007: [Misc.] avengrgs: SH2リコンパイラのバグ。(R. Belmont)
+- 01892: [Sound] calspeed: リフレッシュスピードのせいで、一部のゲームで甲高い音が出る。(Aaron Giles)
+- 01472: [DIP/Input] flower: ゲームが時々開始出来ない。(David Haywood)
+- 02029: [DIP/Input] aurail and clones: コインエイジのDIPスイッチ設定が無視される。(Fabio Priuli)
+- 01902: [Core] galpani3: スタート時にクラッシュ。(Fabio Priuli)
+- 01718: [DIP/Input] bishi: Coin1とサービス1がダブっている。(Fabio Priuli)
+- 01572: [DIP/Input] hypreact: カン、ポン、チー、リーチ、ロンがダブっている。(Fabio Priuli)
+- 01568: [DIP/Input] gstrik2: サービスモードがダブっている。(Fabio Priuli)
+- 02019: [Core] vfkids: SH-2のログファイルが残る。(R. Belmont)
+- 01113: [Speed] btlkroad: [possible] このゲームはゲーム中に60/ 60fpsなのにスローモーションで動作する。(Nicola Salmoria)
+- 00479: [DIP/Input] livegal: P1スタートでP2ゲームが始まる。(Fabio Priuli)
+
+
+
+ソースの変更点
+--------------
+- デバッガが表示されているときのキー動作をしっかりしたものに改良。これにより、
+  "break into debugger"用のキー押下も正しく無視し、関係するキャラクタも正確に
+  フィルタリングします。これまで、この動作をさせるために追加していたハックを削除。
+  [Aaron Giles]
+
+- osd_wait_for_debugger()で、machine引数と"firsttime"引数を取るように変更。ブレ
+  イク後に初めて関数を呼び出すときは、これを1に設定します。Windows版デバッガでは
+  ブレイク時にデバッガにフォーカスが必ず移るように、これを利用します。
+  [Aaron Giles]
+
+- STV BIOSの名前の短い方を、1つの単語に巻き戻し。[Brian Troha]
+
+-「ミズパックマン」のスピードアップと「ギャラガ」、20pacgalの連射の有効化につい
+  て情報を追加。[Brian Troha]
+
+- MDRV_SOUND_ADDを削除。MDRV_SOUND_ADD_TAGをMDRV_SOUND_ADDに改名。サウンドチップ
+  は全てタグを含む必要があります。既存ドライバ全てで、各サウンドチップにユニーク
+  なタグを定義するように変更しました。[Aaron Giles]
+
+- 割り込み生成時のi960の動作が間違っていたのを修正。[ElSemi]
+
+- -listxmlでCPUとサウンドチップのタグ名を出力するように変更。[Aaron Giles]
+
+- サウンドとCPUタグの重複についてバリディティチェック追加。いくつか修正。
+  [Aaron Giles]
+
+- MDRV_CPU_ADDでタグが必要なように変更。MDRV_CPU_ADD_TAGを削除。全CPUをタグ付け。
+  [Aaron Giles]
+
+- TGP/ Model 2の修正。[ElSemi]
+ - TGPが正しくテーブルROMを使うように更新 (Model1/2も合わせて更新)
+ - srallycのFIFOハックを削除(ゲームは動作)
+ - Model 2A/B/C用のアナログポート読み込み追加
+ - TGPのローディング命令を修正。これにより、srallycのオートマバグ修正
+
+-「フラワー」のCPU0と1のメモリマップを統合。割り込み生成を改良。[David Haywood]
+
+- DSP56156逆アセンブラの書き直し。[Andrew Gardner]
+ - デコーディング動作を再構成
+ - コードスタイルをMAME標準に更新
+ - カスタムROMを使って、各シングルワード命令コードをテスト
+
+- レーザーディスクをデバイスに指定。全ドライバを合わせて更新。[Aaron Giles]
+
+- battlngtsd、bbusters、bigevglf、bigstrkb、bioniccのメモリマップをマージ。
+  [Aaron Giles]
+
+- 新関数attotime_to_ticks()とticks_to_attotime()を追加。これは、attotimeと内部周
+  波数でのクロックチックとを変換します。[Aaron Giles]
+
+- 6532 RIOTデバイスをデバイスへ変更。ロジックのシンプル化と、新しいattotime関数を
+  使うよう書き直し。I/Oポートセッタでマスクを指定するよう変更、また、I/Oポートコー
+  ルバックが以前の値を渡すように変更。toutablとgameplanドライバでこのデバイスイ
+  ンターフェイスを使うように更新。[Aaron Giles]
+
+- audio/starwars.c、audio/exidy.c、audio/gottlieb.cについて、これまでの自分自身
+  にローリングするものから、新しいRIOTを使ったものにコンバート。[Aaron Giles]
+
+- gottlieb.cのクリーンアップ開始。パレットの演算をレジスタウェイトにコンバート。
+  ビデオタイミング訂正。個別のmachineドライバの数を削減。間違ったspriteramサイズ
+  修正。メインCPU用とリビジョン1のサウンドボード用メモリマップを統合。
+  [Aaron Giles]
+
+- オートロードモードでの8257DMAのターミナルカウント停止の修正と、コールバック関
+  数の存在チェックを追加。[Miodrag Milanovic]
+
+- input_port_read_indexed()への明示的な呼び出しを全て削除。[Fabio Priuli]
+
+- tinklpitでのkeycusの実装をテーブルからLFSRにコンバート。[Olivier Galibert]
+
+- namconb2での不要なROMシャッフルコードを削除。[Olivier Galibert]
+
+- 各種Konami PPCドライバの各起動時の初期化動作を統一。マルチセッションの問題が修
+  正されたはず。また、割り当て部分を一部、静的から動的ストレージに移動。
+  [Atari Ace]
+
+- input_port_read_indexed()を、machine/generic.cのプライベート化。いずれ完全に削
+  除する予定。2つ残っているインスタンスを修正。[Aaron Giles]
+
+- 頭文字AからCで始まるドライバについて、タグ付き入力ポートと、アドレスマップで
+  AM_PORT_READを使うようにコンバート。[Fabio Priuli]
+
+- 多くのドライバにDIP配置追加: [Fabio Priuli]
+  bwidow.c、bzone.c、bestleag、blackt96、bogeyman、bombjack、boogwing、bottom9、
+  brkthru、darwin、buggychl、squaitsa、btime、bnj、lnc、zoar、disco、cabal、
+  canyon、cbuster、cclimber、swimmer、guzzler
+
+- UIの比率に関わらず、DIPスイッチのレンダリングを統一。[Aaron Giles]
+
+- const指定、0以外による初期化(初期化とリセット時に上書きされる場合)、または正し
+  い初期化コードを追加することで、.dataからさらに項目を移動。[Atari Ace]
+
+- コンパイラよる最適化を可能にするため、条件付きログ取りコードを削除。これにより、
+  #ifdefをつけた箇所のbitrotを抑制します。[Atari Ace]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Shinobi III (Mega Play) [Tomasz Slanina, Kowal]
+Player's Edge Plus (X002069P) Double Double Bonus Poker [Hammer300]
+
+
+
+新規クローンセット
+------------------
+メジャータイトル (World) [Tirino73 / MAME Italia]
+ワインディングヒート (EAA, Euro v1.11) [Highwayman]
+Demon's World / ホラーストーリー (set 5) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+レールチェイス 2 [AndyGeezer]

@@ -1,0 +1,484 @@
+0.111
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+perfrman0110u5gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- "Autocenter Speed"を使用しない時にUIからきちんと削除されるように修正。
+  [Derrick Renaud]
+
+- NeoGeoの海賊版セットの一部(特にkf2k2mpとkf2k3upl)の復号化を修正。memcpyを
+  memmoveとして実装していないプラットフォーム、またはコンパイラ向け。
+  [Alex Jackson]
+
+
+
+0.110u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+circusc0110u2gre [Derrick Renaud]
+circusc37b16ora [Derrick Renaud]
+64street057gre [Mamesick]
+cannonb0104u8Yel [Mamesick]
+gratia099u4red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- Polygonet Commandersドライバの改良: [Andrew Gardner]
+ * dsp56k命令をいろいろ実装
+ *「ポリゴネットコマンダーズ」がメモりテストをパスするようになりました
+
+- perfrmanの背景色修正。[Pierpaolo Prazzoli]
+
+- MESS用のPCサポートコードを統合。[Nathan Woods]
+
+- valtricにモザイクエフェクト追加。MAMEでも実際のハードと同じように不具合っぽく
+  表示されます :)[Tomasz Slanina]
+
+-「Honey Dolls」の色修正。[David Haywood]
+
+- circuscドライバにサウンドの最終フィルタリングステージ、正確なウォッチドッグ、
+  メモリーミラーリングを追加。またPORT_DIPLOCATION情報とセーブステートも追加。
+  [Derrick Renaud]
+
+- vconv.cで、プリプロセッサとMSVCビルドでのアセンブリファイル出力サポート。
+  [Nathan Woods]
+
+-「Honey Dolls」と「Twin Adventure」のDIPスイッチ改良。[Brian Troha]
+
+- アナログコントロールから"Autocenter Speed"メニューを削除。[Derrick Renaud]
+
+- アナログコントロールメニューに値0の"Digital Speed"追加。これはボタンの押した時
+  間に関係なく、1回押す毎に値の増減があるような操作に使います。増減量は
+  "Sensitivity"設定によるので注意してください。[Derrick Renaud]
+
+- WindowsでのマウスZ軸を使えるように入力を30倍に拡大。ほとんどのマウスではホイー
+  ルクリック当たりの数値は120です。ごく稀に30のもあるようです。というわけで、大
+  抵のマウスでは、Sensitivityを25%に設定すれば、ホイールクリック1回で増減の入力
+  が1になります。[Derrick Renaud]
+
+- cclimberドライバをクリーンアップ。cannonbのハック部分を別個のビデオ更新コール
+  バックと置き換え。[Mamesick]
+
+- ST-Vのプロテクト関係コードをstvprot.cに移動。また「デカスリート」のプロテクト
+  情報追加。stvhacksには速度用のハックの他にもほとんどの初期化部分が含まれている
+  のでstvinitに改名。[David Haywood]
+
+- funworldドライバの大幅書き直し: [Roberto Fresca]
+ - 一部のmachineドライバ、メモリマップ、入力を統合・分割
+ - 全ゲームでget_bg_tile_infoを統一
+ - 全ゲームの入力ボタンマップのフォーマットを改良
+ - 正しいカラーPROMデコードルーチン追加
+ - ドライバをdriver/vidhrdwに分割
+ - magiccrdの画面サイズと表示エリア修正
+ - magiccrdの残り2グラフィックレイヤ追加: 表示は不完全
+ - Royalcrd: 全入力とDIPスイッチ追加
+ - jolycdcrのグラフィックを4bppに修正
+ - jolycdcrが動作するようにその他の修正
+ - royalcdbが動作するようにプログラムROMの後半を使用
+ - jolycditが動作。グラフィックは不完全
+ - 残り全てのゲームもCPUクロックを2MHzに修正
+ - elephfamの音に合わせてay8910の周波数を修正
+ - ay8910の音量をクリッピングしないように調整
+ - jolycdcr、jolycditの入力を修正
+ - jolycdatをbigdealのクローンに設定
+ - jolycditにバイポーラPROMとGAL追加
+ - cuoreunoとelephfamにカラーPROM追加
+ - jollycrdの画面サイズと表示領域修正
+ - jollycrdでカラーPROMデコードと実装
+ - cuoreunoとelephfamでカラーPROMデコードと実装
+ - royalcrdのカラーPROMデコードと実装
+ - bigdealでカラーPROMデコードと実装
+ - jolycditグラフィックROMを復号化
+ - jolycdaeの復号化と正しい色表示
+
+- WindowsコードのマイナーなUnicode変更。[Nathan Woods]
+
+- Amigaハードウェアのシリアル入力・出力サポート。出力ピンとライトペンのポジショ
+  ニング実装。また、デバッグビルドでの起動時のひどい雑音を修正。[Aaron Giles]
+
+- 新しいプレーヤーに対応するため、レーザーディスクサポートを再構成。Sony 
+  LDP-1450をサポートに追加。[Aaron Giles]
+
+- 新しいレンダテクスチャフォーマットTEXFORMAT_YUY16追加。これは、4:2:2 Y/Cb/Cr
+  フォーマットのピクセルを保持するのに使用します。WindowsのDirect3Dコードとソフ
+  トウェアレンダラでこのフォーマットを直接使用するように変更。[Aaron Giles]
+
+- 新しいレンダテクスチャフォーマットTEXFORMAT_PALETTEA16追加。これは、
+  TEXFORMAT_PALETTE16と同じものですが、パレットエントリのアルファコンポーネントを
+  考慮しています。Windows Direct3Dとソフトウェアレンダラでこのフォーマットを使う
+  ように更新。[Aaron Giles]
+
+- レンダシステムで、画面要素に対してブレンドモードを考慮するように変更。これによ
+  り個々のVIDEO_UPDATEルーチンが独自の表示合成を行えます。[Aaron Giles]
+
+- レンダリングシステムで、任意のパレットを渡せるような誤解を与える部分があっ
+  たので削除。サポートされているのはシステムパレットのみです。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Twin Adventure [David Haywood]
+Royal Card [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Twins (set 2) [David Haywood]
+Jolly Card (Austria, encrypted) [Roberto Fresca]
+Royal Card (Slovakia, encrypted) [Roberto Fresca]
+Elephant Family (Italia, old) [Roberto Fresca]
+Phoenix (Centuri), Set 2 [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+パラパラパラダイス [Ville Linde]
+キーボードマニア 3rd Mix [Ville Linde]
+マッドドッグマックリー [Andrea Turci, Aaron Giles]
+Who Shot Johnny Rock? [Andrea Turci, Aaron Giles]
+Mad Dog II: The Lost Gold [Andrea Turci, Aaron Giles]
+Space Pirates [Andrea Turci, Aaron Giles]
+Gallagher's Gallery [Andrea Turci, Aaron Giles]
+クライムパトロール [Andrea Turci, Aaron Giles]
+Crime Patrol 2: Drug Wars [Andrea Turci, Aaron Giles]
+The Last Bounty Hunter [Andrea Turci, Aaron Giles]
+Fast Draw Showdown [Andrea Turci, Aaron Giles]
+Platoon [Andrea Turci, Aaron Giles]
+Zorton Brothers (Los Justicieros) [Andrea Turci, Aaron Giles]
+Joker Card [Roberto Fresca]
+
+
+
+
+0.110u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+raiga0104u4yel [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- SCSI CDエミュレーションの改良: [Ville Linde]
+ - オーディオ再生コマンド(12)追加
+ - トラック番号修正と、Read Sub-ChannelコマンドでMSFサポート
+
+- MediaGXドライバをとりあえず修正。[Ville Linde]
+
+- SNESのラスタタイミングでMDRV_SCREEN_RAW_PARAMS()とその仲間達を使うように更新。
+  SNESのテストカセットの"electronics test"が、一つ以外は全部パスするようになりま
+  した。[R. Belmont]
+
+-「Super Breakout」のレイアウト修正。[Mr. Do]
+
+- CPS2のアップデート: [David Haywood]
+ - jyangoku用テーブル追加(Guru氏より)。グラフィックスとサウンドROMはこれでは未ダ
+   ンプなので注意
+ - CHDがある物については、“手作り”していたこれまでのXORを削除して、CHDを使って
+   MAMEで生成したXORと入れ替え。これにより、起動時間を短縮させたい場合なら、CHD
+   があれば誰でもXORを作成できることになります
+ - CHDがあるセットではデフォルトでXORの読み込みをしないように変更。この場合、CHD
+   から作成したXORのみについてロードする設定を変更してない限り、CHDのみがロード
+   されます
+
+- Windowsのバージョンによって、5つ以上のマウスボタンをサポート。Win98/MeはDX7以
+  降、XPはデフォルト。サポートされていないときはデフォルトの4ボタンです。
+  [Derrick Renaud]
+
+- PlayChoice-10の光線銃ゲームの照準がマルチモニタサポートの時におかしくなってい
+  たのを修正。[Derrick Renaud]
+
+- Dragon's Lairドライバを回路図を元に書き起こし。PR-7280とLD-V1000レーザーディス
+  クエミュレーション用のモジュールmachine/laserdsc.cを追加。レーザーディスクの
+  CHDオーディオとビデオのフルエミュレーションについては保留ですが、ゲーム自体の
+  動作とフレームナンバーは表示されます。またスコアと残ライフ、クレジット情報表示
+  用のビルトインレイアウトを追加。[Aaron Giles]
+
+- Windows Vista環境での“linpming”コンパイルができるようにwindows.makに細工。
+  これを動作させるには、mingwディレクトリと同じ値のVISTA_MINGW_ROOTという環境変
+  数を設定し、環境パスに%VISTA_MINGW_ROOT%\libexec\gcc\mingw32\3.4.2と追加します。
+  まだ少し問題が残ってますが、これでMSVCでのビルドとgccのほとんどのコード
+  (Windows OSDファイル2つ以外)はコンパイルできるようになるはずです。
+  [Aaron Giles]
+
+
+
+
+0.110u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+sandscrp0110u1yel [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- chokoに素の復号用テーブル追加。また巨大CHDベースのテーブルをデフォルトで有効化。
+  [David Haywood]
+
+- kram3の復号化をソース内にハードコードしたものから外部テーブルを使うように変更。
+  [Atari Ace]
+
+- Konamiドライバの更新: [Ville Linde]
+ * drivers/gticlub.c:
+   - ビデオハードをvidhrdw/gticlub.cに移動
+   - サウンドエミュレーションを実装
+   -「ハングパイロット」のデュアルスクリーン追加
+ * drivers/hornet.c:
+   - マルチK037122チップをサポート
+   -「サイレントスコープ」「同2」のデュアルスクリーンサポート
+ * drivers/nwk-tr.c:
+   - マルチK001604チップサポート
+   - サウンドエミュレーションを実装
+ * vidhrdw/gticlub.c:
+   - K001005エミュレーションにテクスチャマッピングとZバッファ追加
+ * いろいろ:
+   - K05600エミュレーションを統合 (machine/konamiic.c)
+   - Pilot/NWK-TRグラフィックボードエミュレーションを改良
+
+- STVの修正: [Mariusz Wojcieszek]
+ - vdp2: RGBビットマップの縦スクロール修正（batmnfrのグラフィック修正）
+ - vdp2: 拡大したレイヤーの垂直ラインスクロール修正（astrassの背景修正）
+ - stv:  batmnfrのマスタSH2をスピードアップ
+
+- TMS32010コアのオーバーフロー処理とSUBCエミュレーションのバグ修正。
+  [Rainer Keuchel]
+
+-「マリオブラザーズ」のグラフィックオフセットの修正が別な問題を起こしていたので
+  巻戻し。[Derrick Renaud]
+
+- chd.cのファイルサイズを64kから16MBに拡張。[Aaron Giles]
+
+- chd.cに特定コーデック用の設定情報追加。[Aaron Giles]
+
+- stream_update()から使用しなくなったタイミングパラメータ削除。[Aaron Giles]
+
+- cdrom.cをクリーンアップ。オーディオの実装部を削除して、sound/cdda.cに再配置。
+  メタデータフォーマットをバイナリからテキストに変更（古いメタデータ形式もサポー
+  トしてます）。CHDポジションへの外部アクセス削除; アクセスは全て物理LBAレベルか
+  ら行い内部変換されるようになりました。[Aaron Giles]
+
+- 分割CHDファイルをサポート。CHDファイルを透過的に複数に分割して読み込みアクセス
+  時にもそのままにしておけます。分割ファイルへの変更は常に最後のファイルに書き込
+  まれます。chdmanに-splitコマンドを追加しました。これで既存のCHDファイルを分割
+  できます。[Aaron Giles]
+
+- 新オプション-fontpath追加。フォントファイルのロード先を指定します。
+  [Aaron Giles]
+
+- options_add_entries()に、コアで設定されているデフォルト値をオーバーライドする
+  機能を追加。これを行うには、単純にコアオプションと同じ名前のセット名リストを
+  インクルードすれば新しいデフォルトになります。[Aaron Giles]
+
+
+新規クローンセット
+------------------
+World Rally (set 3 - 930217) [Kevin Eshbach]
+Bionic Commando (Euro) / トップシークレット [Stefan Lindberg]
+
+
+
+
+0.110u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+vulcan137b1gre [robiza, Mamesick]
+mario0110u1gre [Derrick Renaud]
+
+
+
+ソースの変更点
+--------------
+- i286コアのフラグアクセス修正。[Barry Rodewald]
+
+- MC146818モジュールでコアの日付・時刻の新ルーチンを使うように更新。
+  [Nathan Woods]
+
+- 逆アセンブラのスタブをクリーンアップと、デバッグビルド以外では逆アセンブラが必
+  ず参照なれないように更新。[Nathan Woods]
+
+- CHDを使ったCPS2ゲームの復号化をサポート。今のところこのコードは無効にしていま
+  すが、いずれは有効になるでしょう。完全なテーブルがあるゲームはまだ一握りです。
+  このテーブルは巨大（〜4GB）で、暗号化アルゴリズムが判明するまでは圧縮できま
+  せん。[David Haywood]
+
+- デバッガで、次のコンテキストへのスイッチがあるまでウォッチポイントがアクティブ
+  にならないバグを修正。[smf]
+
+- N方向ジョイスティックについて以前よりもはっきりした定義にクリーンアップ。また、
+  "16方向"ジョイスティックのコンセプトを追加。このジョイスティックは、反対向きの
+  入力が同時に押されてもその報告を妨げないものです。[smf]
+
+- System 573のメジャーアップデート: [smf]
+ * PSX SIO制御レジスタの動作を修正
+ * SCSI CDコマンドをいくつか実装: START/STOP UNIT, PAUSE/
+    RESUME, READ SUB-CHANNEL, READ TOC
+ * μPD4701エミュレーション追加
+ * ATAPIリセット、PIO、IDENTIFY PACKET DEICEコマンド修正
+ * 魚釣り、DDR、ギターフリークス系ゲームの操作実装
+ * CDDAオーディオを実装
+ * 「コナミ 80'sアーケードギャラリー」のセキュリティーチップから未使用のバイトを
+   削除
+
+- commando.cドライバのサービスモードが逆さまなのを修正。[Canim]
+
+-「Triple Hunt」の8トラオーディオをサポート。[Derrick Renaud]
+
+- Galaxian/Scrambleドライバの再構成: [Atari Ace]
+ * machine/scramble.cをmachine/galaxian.cとmachine/scramble.cに分割
+ * drivers/amidar.c、drivers/frogger.c、drivers/scobra.cで、他のドライバから共有
+   していたデータ構造をコピー
+ * galaxian_baseを静的に作成して、メインドライバ外での使用を書き直し
+ * cclimber_decodeコードをmshuttleで直接共有できるようにdrivers/cclimber.cから
+   machine/cclimber.cファイルに分割
+
+-「メイジャーハボック」のX軸反転追加。[Mathis Rosenhauer]
+
+- trivia madnessドライバを改良。クイズ問題のROMバンキングにまだ問題あり。
+  [Pierpaolo Prazzoli]
+
+- ST-Vドライバをさらに更新: [Mariusz Wojcieszek]
+ * vdp1: スプライトのシェーディング追加 (znpwfv、cotton、その他で使用)
+ * vdp1: スプライトクリッピング修正 (znpwfvのスプライト修正)
+ * vdp1: カラールックアップテーブルスプライトの透過を修正 
+         (znpwfvのスプライト修正)
+ * vdp2: RGBレイヤーのキャッシュ化修正 (rsgunのボス背景修正)
+ * vdp2: タイルマップとスプライトの追加ブレンディング (rsgun)
+ * vdp2: 縦方向のラインスクロールとラインズーム追加 (diehardのロゴ修正)
+ * stv:  diehardのスピードアップ
+ * stv:  znpwfvのスピードアップ修正
+ * stv:  セーブステートの予備サポート
+
+- chd.cを大幅にクリーンアップ: [Aaron Giles]
+ * last_errorのコンセプトを削除; 全ルーチンでエラーを直接返すようにしました
+ * メタデータの管理に関わる問題を修正
+ * 圧縮と検証のルーチンをモノリシックからクライアントドリブンに変更
+ * 内部CODECの使用を以前よりもフレキシブルに変更
+ * chdmanとMAMEで新インタフェースを使うように更新
+ * RawデータCHD作成用に-createrawコマンド追加
+
+- romcmpでZIPファイル比較時にクラッシュするバグを修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+バスアングラー / Fisherman's Bait * A Bass Challenge [smf]
+バスアングラー2 / Fisherman's Bait 2 * A Bass Challenge [smf]
+Fisherman's Bait * Marlin Challenge [smf]
+ダンスダンスレボリューション / Dancing Stage [smf]
+ギターフリークス [smf]
+ダンスダンスレボリューション 2nd Mix [smf]
+ダンスダンスレボリューション 2nd Mix Link [smf]
+
+
+
+新規クローンセット
+------------------
+ヘルファイヤー (2P Ver., first edition) [Tirino73]
+コナミ 80'sアーケードギャラリー (3 versions) [smf]
+Stratovox (bootleg) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀國志 覇王の采牌 (Japan) [David Haywood]
+
+
+
+
+0.110u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+warriorb0109u2gre [Aaron Giles]
+ballbros0109u5gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- チートエンジンを大幅改良。[ShimaPong]
+ * 動作系
+  - 直前の値のコピー
+  - タイプフィールドにリンク拡張ビット定義
+  - 直前の値を復旧できる場合のワンショット命令を改良
+
+ * メニュー
+  - 以前のサーチメニューを大幅にアップデート
+  - チートのメニュー全体を少し再配置
+  - コード編集画面で、選択したタイプコードの表示を改良
+  - EditCheatMenu()用のエントリインデックス引数追加
+
+ * ウォッチポイント
+  - ROM領域用のウォッチポイント追加
+  - チートリストからのウォッチ追加を改良
+
+ * アクティベーションキー
+  - アクティベーションキーのセーブ追加
+  - 2つ目のアクティベーションキー追加
+  - アクティベーションキーメッセージオプション表示追加
+
+ * その他
+  - コマンドコードフォーマットを改良
+
+- PPC403コアの“Fixed Interval Timer”を追加。[Ville Linde]
+
+-「ポリゴネットコマンダーズ」の更新: [Andrew Gardner]
+ * 以前より正確なdsp56kコアのホストインタフェースを追加
+ * plygonet.cのハックを大量に削除
+
+- いろいろなファイルアクセス用のパス設定に使用する新フィールド、
+  Machine->basenameを追加。これはMESS用の改良で、見た目の変更などは特にありませ
+  ん。影響のあるファイルアクセスは次の通り:
+
+  コンフィグ（cfg）ファイル、スクリーンショット、デバッガコメント、NVRAM、
+  メモリカード
+  [Aaron Giles]
+
+- スクリーンショットの保存方法を変更。ゲーム毎のフォルダに0000.png、0001.pngの順
+  で保存します。[Aaron Giles]
+
+- アートワークレイアウトの読み込みを変更。ゲーム名/ゲーム名.layと
+  ゲーム名/default.layの両方が対象になり、後者が優先されます。これにより、ゲーム
+  同士でのレイアウト共有が簡単になります。[Aaron Giles]
+
+- 新デバッガでのアサーションを避けるために68020+CPUの最大命令長を修正。
+  [Aaron Giles]
+
+- pacman.cドライバの新ビデオパラメータで必要な画面反転オフセットを追加。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Fishing Frenzy [Aaron Giles]
+Freeze (Atari) [Aaron Giles]

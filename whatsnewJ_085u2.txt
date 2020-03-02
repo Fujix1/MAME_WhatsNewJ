@@ -1,0 +1,49 @@
+0.85u2
+------
+
+ドライバの改良点：
+------------------
+
+- warlords、sbrkout、destroyrの自動センタリングをデフォルトでオフに変更。これ以
+  外にもオフにする必要があるゲームがあると思いますので、www.mametesters.orgまで
+  お知らせを。[Aaron Giles]
+
+- 最近の入力ポート定義の導入によりエラーがたくさん起きていたのを修正。
+  [El Condor]
+
+- jalmah.cドライバをいろいろ修正。suchipiの起動、表示改善、操作系の実装など。
+  [Angelo Salese]
+
+- Namco Super System 22ドライバでM37710コアの初期版を使うように更新。ただし、今
+  のところこれといった働きはなし。[R. Belmont]
+
+- snowbrosにコインエイジの条件分け追加。[Inigo Luja]
+
+- ckongの操作修正。[Inigo Luja]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- PORT_CENTERを実際の動作に即してPORT_RESETに改称。また、自動センタリングの動
+  作をコントロールするためのPORT_CENTERDELTA(x)を追加。[Aaron Giles]
+
+- M7700シリーズCPUコアのWIP版を追加。M37710用。[R. Belmont]
+
+- ゲームカウントをランタイムで取得することで、static MAX_DATAFILE_ENTRIESの定義
+　削除。[Rene Single]
+
+- 全部のサウンドチャンネルを変更しないとミキサー設定がロードされないバグを修正。
+  [Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+The Return of Lady Frog [David Haywood]
+バーチャファイター [Andrew Gardner, Olivier Galibert]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Twin Cobra 2 / 究極タイガーII (World) (2 sets) [Brian Troha]
+カウンターラン (海賊版 set 1) [Tomasz Slanina]

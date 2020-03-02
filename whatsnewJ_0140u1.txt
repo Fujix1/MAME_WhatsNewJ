@@ -1,0 +1,133 @@
+0.140u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04096: [DIP/入力] sjryuko: 入力がほとんど動作しない。(Angelo Salese)
+- 02561: [インターフェイス] UIフォント名オプションの追加についてのご提案。
+         (Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- OSDコールバックを保持するosd_interfaceクラスを追加。デフォルトの空実装用osdepend.cを
+  追加。mame_execute()とcli_execute()で呼び出し元から与えられるosd_interfaceへの参照を
+  受け付けるように変更。[Aaron Giles]
+
+- SDLとWindows OSDでosd_interfaceの派生クラスを生成し、そのOSDコールバックをメンバに
+  移動。[Aaron Giles]
+
+- osdminiがビルドできなかったのを修正。[Aaron Giles]
+
+- ディスクリートサウンド - DISCRETE_XTIME_xxxロジックモジュールを追加。これにより、
+  x_time倍のアンチエイリアスを使うノードのロジック処理ができます。つまり、オシレータ
+  に対して、x_timeをカウンタへ渡すことで、カウンタビットがデコードされ、新ロジックモ
+  ジュールへ渡され、同時にx_timeをエネルギー/アンチエイリアス済み電圧にコンバートさせ
+  ます。「ドンキーコングJr.」で新モジュールを使用しています。[Derrick Renaud]
+
+- rendfontをC++にコンバート。[Aaron Giles]
+
+- [SDL Debugger] 不要なアサートを削除して、起動時にメインデバッガウィンドウにフォーカ
+  スが来るように変更。[Andrew Gardner]
+
+- OSD生成フォントをサポート。OSDは最初に指定されてフォントがあるかを調べます(名前ベー
+  ス)。もしあれば、OSD側で使用する文字のビットマップをオンザフライで生成する必要があ
+  ります。[Aaron Giles]
+
+- UIフォントを指定する新オプション-uifontを追加。これにファイル名を指定すると、BDF
+  フォントが読み込まれます。また、(OSD側のサポートがある場合は)フォント名を指定するこ
+  も可能です。デフォルト値は'default'で、OSDに対してデフォルトのフォント名でこれを置
+  き換えさせる、または以前のui.bdfを使うようにさせることになります。どちらにしても、
+  この指定が失敗したときには内蔵のデフォルトが使用されます。[Aaron Giles]
+
+  注: WindowsではOSDのデフォルトフォント名はTahomaです。また、Windowsのフォント名は
+      [b]でボールド、[i]でイタリックとして指定できます。
+
+  アートワーク要素についても'default'を使用。UIの背景を少し透明化。OSDコードにNULLな
+  ファイル名を渡したときのクラッシュを修正。[Aaron Giles]
+
+- system16.cドライバで管理されているSystem 18海賊版の入力をDIPスイッチについてテスト
+  モードで確認と修正。[Tafoid]
+
+- ディスクリートの更新: [Derrick Renaud] 
+ * DISCRETE_74LS624のコードを削除して、新しく74LS629ベースのコードに置き換え。
+   「マリオブラザーズ」で新しいDISCRETE_74LS624とDISCRETE_XTIME_logicモジュールを使う
+   よう更新
+
+- チートエンジンのC++化。[Aaron Giles]
+
+- Naomiの更新:
+ *「Kick 4 Cash」を再吸い出し [f205v] 
+ *「ネオジオバトルコロシアム」の吸い出し完了 [Guru]
+
+- i286.c: i80286_urinitの呼び出しをCPU_INITに移動。デバッガのPC表示が修正。
+  [Wilbert Pol]
+
+- M6805: 68HC05EGの超超初期版を追加。[R. Belmont]
+
+- i80186/i80286: セグメントでプリフィクスしたときの境界命令のリスタートを修正。
+  [Wilbert Pol]
+
+- i286.c: プロテクトモードを部分実装。verw、verr、lar、lsl、arpl命令を修正。
+  [Wilbert Pol]
+
+-「コップスアンドロバーズ」の更新: [Derrick Renaud]
+ * 操作系を位置タイプに切り替え
+ * ディスクリートサウンド実装開始(モーター2と3、クラッシュ音を実装)
+ * モーター0と1、弾の音。弾の音は、弾とショット音が見つかるまで未実装
+
+- DISCRETE_DAC_R1の速度を最適化。[Derrick Renaud]
+
+- エクスプレッションエンジンをC++にコンバートとクリーンアップ。[Aaron Giles]
+
+- Neo Geoの変更: [Johnboy] 
+ * maglord/maglordh - CRCのミックスアップと修正
+ * flipshot - 正確なp1追加
+ * kotm2 - MVS AND AES VERSIONのタグ付け
+ * miexchng - 正確なc3/c4を追加
+ * ゲーム基板情報を更新
+ * マスクROMタイプのドキュメント作業中
+
+- cubocd32/akikoのクラッシュ修正。[Mariusz Wojcieszek]
+
+-「コップスアンドロバーズ」の更新。[Derrick Renaud] 
+
+- DISCRETE_COUNTER_7492の動作修正。[Derrick Renaud]
+
+- kofxi: TSOP70アダプタエラーのため、マスクROMを再吸い出し。[Cah4e3]
+
+- カーソルキー矢印用のUTF-8定数を追加。また、スウェーデン語とフィンランド語キーボード
+  用のアクセントキャラクタも追加。[Curt Coder]
+
+-「DJボーイ」でdeprecat.cが不要なように更新とIRQルーチンの書き直し。[Angelo Salese]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pit Boss Megatouch II
+  [Mariusz Wojcieszek, f205v, Smitdogg, The Dumping Union]
+Royal Card (TAB original) [Roberto Fresca]
+ジャンピュータースペシャル
+  [gamerfan, ranger_lennier, Smitdogg, The Dumping Union]
+Bygone
+  [Cananas, Mr. Do, S. Brown, J. Bijl,ranger_lennier, F. Xerri, Gor, 
+   Kevin Eshbach, Smitdogg, Tormod, Guru, Tomasz Slanina, 
+   The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Mega Double Poker (conversion kit, set 2) [Roberto Fresca]
+まーじゃん ねるとん牌鯨団 (Japan, Rev. A?)
+  [Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Odeon Twister 2 [XoreX, Mariusz Wojcieszek]
+ザ・キング・オブ・ファイターズXI (Cah4e3) [rbelmont]
+Shooting Star [Tomasz Slanina]
+ゼロガンナー2 [The Dumping Union]

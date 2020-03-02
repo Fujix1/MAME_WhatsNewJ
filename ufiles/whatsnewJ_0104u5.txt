@@ -1,0 +1,145 @@
+0.104u5
+-------
+
+OSD開発者向けの重要変更点: 新関数osd_create_directory追加。これはメモリカードの
+サブディレクトリ作成に必要です。この関数は以前はMESSコア用のみに定義されてたので、
+MESS版ができていればインポートできます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+exprraid0103u1red [Pierpaolo Prazzoli]
+asterix053gre [Pierpaolo Prazzoli]
+asterix_2055gre [Pierpaolo Prazzoli]
+asterix_3055gre [Pierpaolo Prazzoli]
+namcos10104u4red [Aaron Giles]
+rthunder0104u3ora [Aaron Giles]
+memorycard0104u2ora [Aaron Giles]
+pause0104u2ora [Aaron Giles]
+undrfire0104u4yel [Aaron Giles]
+wwallyj0104u4red [Aaron Giles]
+scorpion0104u4red [Aaron Giles]
+itech8c0104u4red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Psikyoの4ゲームで言語設定ジャンパが実装されていないものを修正。[David Haywood]
+
+- Namco System 12ドライバの基板情報追加。「Ghouls Panic/Point Blank 2/
+  ガンバァール」の光線銃実装と、「鉄拳タッグトーナメント」のDMAプロテクトを
+  エミュレート(プレイはまだ不可）。[Olivier Galibert, Duddie, smf]
+
+- 非windowsプラットフォームでの旧デバッガの互換性修正。これにともない、
+  mame_strnicmpを追加。[Lawrence Gold]
+
+- GCC 4.1でのコンパイルエラー修正。[Lawrence Gold]
+
+- NES PPUインタフェースを新構造体にあわせて変更。[Nathan Woods]
+
+- 逆アセのコメントサポートを更新: [Andrew Gardner]
+ * 長さゼロのコメントのバグ修正（"// 0, "は使用不可）
+ * 新デバッガのDASMコマンドにコメントアウトプット追加
+ * コメント保存パスを/mame/commnetから/mame/commentsに変更
+
+- 新しいデバッガプロパティ追加: logunmap, logunmapd, logunmapi。これらは未マップ
+  のメモリアクセスをログ取りするか切り替えます。[Nathan Woods]
+
+- Astrocadeドライバにステートセーブサポート。[Adam Bousley]
+
+- Polygonet Commanderドライバに小改良。[Andrew Gardner]
+
+- ARM7コアの予備版サム実装。命令コードは多くあるが、明らかにサイン問題あり、
+  [Ryan Holtz]
+
+- KOV2にARM7プロテクトCPU実装。起動はできるものの、サムサインの問題で動作とプレ
+  イは不可。[R. Belmont]
+
+- 8080のCMA命令のフラグエミュレーションの間違い修正。[Kopromaster]
+
+- 長さゼロのパレットサポート（RGBダイレクトモードで必要）と、表示系変数のバリ
+  ディティチェック。[Nathan Woods]
+
+- Windowsの入力コードを更新:  [Derrick Renaud]
+ * 可能な場合RAWMOUSEを使うようにしました。これでWindowsXPでマルチマウスを使うこ
+   とができます。光線銃サポートは変更ありません
+ * Windowsのマルチマウスサポートのため、DX7のサポート追加。104u2まではDX5の設定
+ * 非XPシステムで、使用可能マウスのリストからシステムマウスを削除。これにより、
+   特定のマウスを正しく選択できます
+ * プレイヤーのアナログ軸選択の反応を改良
+
+- Scorpion 2ドライバのビデオシステムをクリーンアップ。[El Condor]
+
+-「アステリクス」でK056832エミュレーションを使うようにコンバート。
+  [Pierpaolo Prazzoli]
+
+- Gelco製ゲームの解読式を削減。まだ最適化の必要はありますが、巨大解読テーブルは
+  もう不要になりました。[Nicola Salmoria]
+
+- CPU/soundコアのインクルードファイルをクリーンアップ。CPUコアはcpuintrf.hのみ、
+  サウンドコアはsndintrf.hのみを基本的にインクルードするだけにします。
+  [Atari Ace, Aaron Giles]
+
+- リリースビルドでもフルセットのバリディティチェックがされていたバグ修正。
+  [Aaron Giles]
+
+- デバッガ新機能: [Aaron Giles]
+ * 新コマンド"print"追加。式の結果表示を簡単にできます
+ * 新コマンド"symlist"追加。登録された全部のシンボルを表示します
+ * 登録されている全セーブステートのスカラグローバル変数はシンボルとして使用でき
+   ます(手前に'.'をつける)
+ * 登録されている全セーブステートのグローバル配列はメモリウィンドウで表示・編集
+   できます
+ * 登録されている全メモリ領域もメモリウィンドウで表示・編集できます
+
+- 無効なサウンド・CPUインデックスでの命令リクエストで、致命的エラーが出るように
+  しました。これは以前error.logファイルに記録されましたが、クリーンアップする必
+  要がありました。そこで新関数safe_activecpu_get_pc()を追加、PCのログ取得時に
+  activecpu_get_pc()を安全にコールしているかどうかを判断して動作します。
+  [Aaron Giles]
+
+- CPU init/resetコールバックを変更。initコールバックはCPUインデックス、クロック、
+  一般的な設定パラメータ、IRQコールバックへのポインタなど、多くの引数をとるよう
+  になりました。resetコールバックは引数をとりません（設定パラメータはinitコール
+  バックへ移動）。また、IRQ_CALLBACK getter/setteは初期化時にセットアップされる
+  ようになったので削除しました。[Aaron Giles]
+
+- システムのプログラムフェーズがどこか（init/reset/running/exit)を判定する
+  mame_get_phase追加。あるアクションがとられるときのルールを強制して判定するため
+  の初期的な目的で導入。[Aaron Giles]
+
+- winallocを以前より動的に書き直し。ランタイム時にメモリリークを無視。
+  [Aaron Giles]
+
+- メモリカードのプロパティを修正。neogeoのハードコードではなくなり、
+  generic/machine.cに実装部を移動しました。コールバックハンドラはNVRAMによく似て
+  いるので、machineドライバでサポートしてます。カードはゲーム毎に作成されるので、
+  memcardディレクトリにはゲーム毎のサブフォルダが作成されます。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+Fighters Swords (サムライスピリッツ斬紅郎無双剣の韓国リリース版) [Haze, Razoola]
+Art of Fighting 3 (龍虎の拳外伝の韓国リリース版) [Haze, Razoola]
+The Last Solider (幕末浪漫 月華の剣士の韓国リリース版) [Haze, Razoola]
+Real Bout Fatal Fury 2 (リアルバウト餓狼伝説2の韓国版) [Haze, Razoola]
+鉄拳3 (TET2/VER.B) [smf]
+ソウルキャリバー (SOC11/VER.C) [smf]
+Point Blank 2 (GNB5/VER.A) / ガンバァール [smf]
+鉄拳タッグトーナメント (TEG1/VER.B) [smf]
+鉄拳タッグトーナメント (TEG1/VER.A3) [smf]
+ゴルゴ13 奇跡の弾道 (GLS1/VER.A) [R. Belmont]
+Pollux (set 3) [ClawGrip]
+アウトゾーン (set 4) [Tormod Tjaberg]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+銃武者羅 [smf]
+対戦ホットギミック フォーエバー (Japan) [Guru, David Haywood]
+ホットギミックインテグラル (Japan) [Guru, David Haywood]
+Gテイスト麻雀 [Guru, David Haywood]

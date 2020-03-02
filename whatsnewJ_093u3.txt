@@ -1,0 +1,19 @@
+0.93u3
+------
+
+Mame Italiaの掲示板の人たちに捧ぐミニアップデート。
+( http://www.mame.emuita.it/ )
+
+----
+
+■Taito Lドライバのアップデート。[Nicola Salmoria]
+    - 割り込み処理変更。「Plotting / フリップル」のテストモード修正
+    - champwrのMSM5205の再生を修正。音量も含む
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Twinkle
+More More
+XESS - The New Revolution (SemiCom 3-in-1)
+    [Corrado Tomaselli / Mame Italia Forum, David Haywood]

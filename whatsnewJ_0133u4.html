@@ -1,0 +1,247 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.133u4</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.133u4.txt</div>
+	<div class="main">
+<div class="wn">
+0.133u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03405: [その他] trckydoc trckydoca: デフォルトのハイスコア表示が実機と異なっている。(Pierpaolo Prazzoli)
+- 03412: [ゲームプレイ] goindol and clones: 画面がひどく乱れて、操作やコイン入力が動作しない。(Tafoid)
+- 03404: [クラッシュ/フリーズ] Some drivers using mc6845.c: Access Violationエラー。(hap)
+- 01043: [DIP/入力] m79amb: 照準に難あり。カーソルが表示されないが、おそらく必要だろう。(hap)
+- 01754: [グラフィック] tm7k, tm, tm3k, tm4k, tm5k: 上海ゲームの色が違う。このゲームでのBGMが速すぎる。(Luca Elia)
+- 02191: [サウンド] wseries, basebal2, dblplay, strkzone: ボイスの音質が下がった。(couriersud)
+- 02608: [色/パレット] machomou: 色がおかしい。(hap)
+
+
+
+ソースの変更点
+--------------
+- Intel 8085: [Curt Coder]
+ - コールバックでdevcbを使うように再構成
+ - 8080A派生版を追加
+
+- GND/Vccに結びついた入力ライン用のヘルパーマクロをdevcbに追加。[Curt Coder]
+
+-「ダートダッシュ」Wave ROMを吸い直し。[Guru]
+
+-「バトルゾーン」のディスクリートサウンド追加: [couriersud]
+ - エンジン周波数(R11抵抗)はスライダで変更可能
+ - bzone.hのBZONE_DISCRETEを0に設定すれば、ディスクリートサウンドは無効に設定可能
+
+- ディスクリートサウンドの改良:  [couriersud]
+ - DISCRETE_RCDISC3: 接合ダイオード電圧追加: 接合電圧は極性も示します
+ - DISCRETE_OPAMP_FILTER: DISC_OP_AMP_FILTER_IS_LOW_PASS_1M型追加; INP2は、この型で
+   v_refの役割をします
+ - DISCRETE_OPAMP: バグ修正(多分0で割っていたもの)
+ - DISCRETE_LFSR: サブノード1へのシフトレジスタ出力がされないバグを修正
+
+- SNESの改良: [Angelo Salese]
+ - 半混色動作を修正
+
+- ユニバーサルスタンドアロン逆アセンブラをコンパイルするための基礎部分追加:
+  [Aaron Giles]
+ - ツールビルドにunidasmを追加
+ - 逆アセンブラをlibcpuから新しくlibdasmに分離移動
+ - 全ての逆アセンブラ用エントリポイントがソースファイル内に確実にあるように更新(新し
+   く、汎用バージョンを作成したものもあり)
+
+-「Noraut Poker」ドライバの改良:  [Roberto Fresca]
+ * クリスタルの周波数を先頭定義型に変更
+ * グラフィックスのバンキングとアクセス法を変更
+ * グラフィックオフセットとバンク当たりのタイル数を修正
+ * 新セット追加: Noraut Red Hot Joker Poker
+ * 新セット追加: Noraut Poker (NTX10A)
+ * 新セット追加: Noraut Joker Poker (V3.010a)
+ * 最初のグラフィックバンクにおけるタイルサイズとデコードを修正
+ * norautrhの入力を修正。リードアウトボタンを含む
+ * norautrhに一部DIPスイッチを追加
+ *「Noraut Red Hot Joker Poker」に追加のDIPスイッチ実装
+ * 全バンクのDIP配置追加
+ * デフォルトNVRAMを「Noraut Joker Poker」に追加
+ * 2つのnorautシステムでトロイの木馬を走らせて、16x32のタイルデコード方法を確認
+ * 32x32タイルラインのxオフセットを修正
+ * 画面比率と表示領域を修正
+ * 正確な色の確認。バイポーラPROMは関係ないことが判明
+ *「Noraut Joker Poker」ハードウェアと基板レイアウトを追加
+ * ディスクリートオーディオ回路のドキュメント化。完全な回路図追加
+ * コインカウンタ修正
+ * 出力ポートについてドキュメント化
+ * 全てのポートについて解説付きの図を追加
+ * naroutp、naroutjp、naroutrh、naroutpnでランプの完全サポート
+ * 11と12ランプ構成用のランプレイアウト追加
+ * 入力レイアウトの維持用に一部の入力を迂回
+ * 一部の入力ボタン名を実筐体のボタンテキストに合わせて改名
+ * 既存セットから色不完全フラグを削除
+ * ソースにさらに2種類のコントロールパネルレイアウト追加
+ * テクニカルノートを更新
+
+- 周波数指定部分を1で割っている箇所を整理。[Tafoid]
+
+- Argonaut SuperFX コアの改良: [Anonymous]
+ - Branch命令の実装
+ - SuperFXコアのバグを大量に修正
+ - 逆アセンブラがALT*命令のエフェクト処理をより華麗に改良
+ - 命令動作の修正: STOP, SUB, SBC, SUBI, CMP
+ - LSR、ROL命令追加
+ - より安全なsuperfx_gpr_writeを使うように更新: LOOP, PLOT, INC, DEC
+ - LMSへのレジスタライトバックが無かったので追加
+ - ROL命令のキャリーフラグ動作を修正
+ - BRAのターゲットアドレス演算を訂正(まだ違ってるかも)
+ - LOOPのターゲットアドレス演算を訂正
+ - FROMがcpustate->sreg_idxの確実に設定するよう改良
+ - RAM/ROMクロッキングを無効化。これからはインスタントトランスファでいきます
+ - パイプライン命令の動作解析と再有効化。「スターフォックス」の更に動作
+ - ROL命令のタイポ修正
+ - ADDI / ADCIのオーバーフローフラグ演算を修正
+ - ADD / ADC / ADDI / ADCI後のレジスタリセットが無かったのを修正
+
+- tmaster.cの更新: [Luca Elia]
+ - カートリッジバンキングとマルチEEPROMの実装
+ - "ペン置き換え"blitモードを追加
+ - パレットサイズを修正
+
+- ディスクリート系の作業: [couriersud] 
+ - カスタムモジュールの処理方法を変更
+ - これに伴い、marioとdkongドライバを更新
+ - ストリーム入力処理にマイナーな変更
+ - ノードのリニアなリスト処理を廃止。全てのノード処理はリンクリストに切り替え
+ - モジュールのステップとリセットでノードポインタだけを渡すように変更
+ - ノードにdiscrete_info * ポインタを追加
+ - ステップルーチンを持つノードのみを実際に処理するよう変更.
+ - バグ修正: いつ頃からかログ機能が動作していない問題
+ - 並列タスク用定数を予備追加; 結果によっては削除予定
+ - 全体的なパフォーマンスが少し向上。dkongは940%から960%、galaxianでは740%から790%
+
+- mc6845のNULLタイマクラッシュを修正。[hap]
+
+- Z80コアのIM2割り込みサイクルを修正。[eke]
+
+- kaneko16の更新:
+ -「ビィラップボーイズ」の全てのプロテクトをデコード [David Haywood, Tomasz Slanina]
+ -「ビィラップボーイズ」外部ROMの復号化関数をクリーンアップ [David Haywood]
+ -「ビィラップボーイズ」のビデオエミュレーションを改良 [David Haywood]
+ -「ビィラップボーイズ」のグラフィックROMの一部を吸い出し不良に指定 [David Haywood]
+ - ライトバックアドレスについてのプロテクトシミュレーションロジック改良で、
+  「ビィラップボーイズ」が起動 [Tomasz Slanina]
+ - グラフィックROMを再吸い出し [Guru]
+ - suprnovaと各ゲームに基づきhitboxシミュレーションを追加 [Tomasz Slanina]
+ - MCUの書き込みでwrite_byteを使うように切り替え [David Haywood]
+ - RAM不足でクラッシュが起きないように、MCUデータの書き込みアドレスをリセットするパッ
+   チを追加 [David Haywood]
+ - DIPスイッチ追加 [David Haywood]
+ -「ビィラップボーイズ」のプロテクトシミュレーションでeepromをサポート[David Haywood]
+ - 表示系の問題を解決するためプライオリティの変更 [David Haywood]
+
+- mk3のセットに正確なU2サウンドROMを追加。[MK3Fan - Mike]
+
+- ディスクリートサウンドの並列タスクサポート: [couriersud]
+ - DISCRETE_TASK_STARTとDISCRETE_TASK_ENDを導入
+ - DISCRETE_TASK_START: 新しいタスクを開始します。タスクとは入力ノード、及びセット内
+   のノードのみにからなるノードセットとなります
+ - DISCRETE_TASK_END(task_output_node): タスクの終わりを示します。task_output_nodeは
+   出力オーバータイムが保持されるノードです。このノードはメインスレッドからアクセス可
+   能です
+ - dkongのディスクリートエミュレーションで、このコンセプトを解説しています。また、DAC
+   出力をバッファリングするよう改良されています
+ - ディスクリートタスクで、マルチ出力ノードをサポートしました
+
+- ディスクリートを更に変更: [couriersud]
+ - DISCRETE_OUTPUTをステッピングノードに設定
+ - DISCRETE_STREAM_INPUTも合わせて入力ポインタを進めるよう設定
+ - linked_listをさらに使用
+
+-「Pit Boss」ドライバを更新: [Brian Troha]
+ -「Megastar」「Supertouch 30」のROM名を修正
+ -「Supertouch 30」の不明ROM追加と、以前のbad_dumpの検証
+ -「Megastar」の各セットについてのドキュメント追加
+ - pbst30bをpbst30のクローンに設定して、名称にプログラムバージョンを追加
+   例: Pit Boss Supertouch 30 (9234-10-01)
+
+-「ビィラップボーイズ」のサウンドバンキングを修正。[Phil Bennett]
+
+-「Sigma Poker」: Hold 2ボタンの重複を修正。Hold 3ボタンを追加。[Roberto Fresca]
+
+- ディスクリートサウンドシステムの"リスト化"を継続: [couriersud]
+ - 入力、出力ノード数制限を撤廃
+ - 入力ノードでコンテキストを使用
+
+- osd_is_bad_read_ptr関数を削除。[Aaron Giles]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Noraut Red Hot Joker Poker [Roberto Fresca, Alan Griffin]
+Galaxy Games StarPak 2 [Luca Elia, Siftware]
+Great Football [Kevin Eshbach, Charles MacDonald, Smitdogg, Dumping Union]
+Pit Boss Megastar (9244-00-01) [Mariusz Wojcieszek]
+ビィラップボーイズ / ビィラップボーイズ スペシャル [David Haywood, Tomasz Slanina, Luca Elia]
+Billiard [Alexander Stakhanov, CaH4e3, Black1972]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Kollon (V2.04JC)  [Joerg Hartenberger, Frank Berlt]
+Mortal Kombat Turbo Ninja (rev 3.1 T-Unit 03/19/93, hack) [MK3Fan - Mike]
+Pit Boss Megastar (9244-00-01) [Brian Troha, Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Noraut Poker (NTX10A) [Roberto Fresca, Alan Griffin]
+Noraut Joker Poker (V3.010a) [Roberto Fresca, Alan Griffin]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

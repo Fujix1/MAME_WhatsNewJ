@@ -1,0 +1,143 @@
+0.143u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04242: [グラフィック] All sets in m62.c and phoenix.c: 表示色が全体に薄くなった。
+         (hap)
+- 04432: [クラッシュ/フリーズ] destroyr, destroyr1: ゲームのポーズと解除を繰り返すと
+         ゲームが変になったりクラッシュする。(hap)
+- 02729: [システムコア] tms9928a.c: アドレス書き込みとスプライトオーバーフローの間違
+         い。(hap)
+- 04431: [グラフィック] cottonbm: ボスやプレイヤーなどが表示されない。(Angelo Salese)
+- 00460: [DIP/入力] gimeabrk: カクテルモードにするとプレイヤー1のマウスもジョイス
+         ティックも動作しない。プレイヤー2は動作する模様。(Tafoid)
+- 04428: [サウンド] All sets in balsente.c: サウンドが壊れているか完全に鳴らない。
+         (Tafoid)
+- 04423: [グラフィック] vulgus, vulgusa: 画面が通常より90度回転している。
+         (Angelo Salese)
+
+
+ソースの変更点
+--------------
+- balsente.c - 修正と改良多数: [Tafoid]
+ * gghost - DIP配置の修正
+ * gimeabrk - カクテルモード用のプレイヤー2のトラックボールとボタン、スタート追加
+   注: カクテルモード時はプレイヤー1の操作がプレイヤー2のものになる。バグ#00460が修正
+ * hattrick - プレイヤー1(青）の操作を再追加。左のプレイヤーが正しく操作できなかった
+   ため
+ * rescraid - 実機のコントロールパネルに合わせて操作を修正(ハンドル=左スティック、
+   発射=右スティック)
+ * stompin - 不要な左右ジョイスティック操作を削除
+ * toggle - デフォルトの操作を、左側のジョイスティック2本のものから、通常のジョイス
+   ティックに変更
+
+-「コスミックモンスター」のオーバーレイ表示を実機筐体のビデオを参考に訂正。[Tafoid]
+
+- taitoair: 完全なインタリーブ処理により、toplandの3D表示が改善(ただしまだ不具合あり)。
+  [R. Belmont]
+
+- Model 3: サウンドの通信動作。[Bart Trzynadlowski, R. Belmont]
+
+- Sega Saturn / ST-V向けの修正いろいろ。「ばくばくアニマル」
+ 「ファンキーヘッドボクサーズ」のサウンドが動作したほか、「ペブルビーチの波濤」
+ 「ファンキーヘッドボクサーズ」で使われていたinstadmaのハック削除。[Angelo Salese]
+
+- m68k: MMUバスエラーの特殊な状態での、リード・ライトビットを正しく設定。[R. Belmont]
+
+-「ぱずり2」のプロテクトルーチンのうっかりバグを修正。[Balrog]
+
+- 既知のAristrocrat MK6ゲームタイトルについてドキュメントを更新。[Heihachi_73]
+
+- m68k: バスエラー入力ライン追加、FMOVEM修正、HMMUの問題修正。[R. Belmont]
+
+- ppc: 601とメモリ強制I/OコントローラインタフェースアクセスにBATを正しく実装。
+  [R. Belmont]
+
+- Mac OS Xでマルチスレッド動作をしているとき、オートリリースプール警告が出るのを修正。
+  [Tim Lindner]
+
+- seta.c: 以下のゲームのコインモード1と2を実装: [Brian Troha]
+  アルバレスタ, ブランディア, キャリバー50,　目撃,　キャッスルオブドラゴン / 
+  Dragon Unit, メタフォックス, 特殊部隊UAG / Thundercade / Twin Formation, 
+  ツインイーグル
+  以下のゲームにDIP配置追加: 
+  アルバレスタ, キャリバー50, メタフォックス, クイズココロジー2, 底抜け対戦ゲーム,
+  ツインイーグル
+
+- i386: FCLEX FPU命令を実装。[Barry Rodewald]
+
+- スケジューラコスレッドの実行を再有効化。[Curt Coder]
+
+-「ステッピングステージ」ドライバである程度の進捗。[Angelo Salese]
+
+- Neo-GeoドライバゲームのROM名改良。[Johnboy]
+
+- 変数のシャドウイングに対する修正。[Oliver Stöneberg]
+
+- Sega Starun / ST-V SCU DSPコアにDSPとIRQイベントを追加。[Angelo Salese]
+
+- sshangha.c:「スーパー上海 ドラゴンズアイ」にDIP配置追加。[Brian Troha]
+
+- speglsht.c:「スーパーイーグルショット」にDIP配置追加。[Brian Troha]
+
+- speedspn.c:「Speed Spin」にDIP配置追加。[Brian Troha]
+
+- cave.c:「ホットドッグストーム」の基板配置、ノート、情報などを追加。[Brian Troha]
+
+- chaknpop.c:「ちゃっくんぽっぷ」の完全な基板レイアウトを追加。[Guru]
+
+- chaknpop.c:「ちゃっくんぽっぷ」のDIP配置追加。[Brian Troha]
+
+- クローンセットのROMが不良でも親セットの方で正常な場合はクローンセットが不明とならな
+  いように変更。also_used_by_parentの最適化や、ハッシュに合わせて長さも使用。[smf]
+
+- m68k: CPU型ごとのジャンプテーブルを生成。linefの処理修正により、Atari STの動作が改
+  善。[O. Galibert]
+
+- AMS40041の派生版(Amstrad PC1512で使用)をmc6845.cに追加。[Curt Coder]
+
+- d3d->hlslのdouble-freeを修正。[Oliver Stoneberg]
+
+- tagteam.cの整理: [hap]
+ * maincpuの割り込み修正
+ * カラーPROMにresnet追加
+ * コインカウンタ追加
+ * DIP配置追加
+
+- m62.c: デフォルトのコントラストを強化。色あせた表示が修正。[hap]
+
+- 以下のシステムに対応するギャンブルゲーム(1600本以上)について、整理、ドキュメント追
+  加、及びサポート: [David Haywood]
+  - Aristocrat MK6
+  - Barcrest MPU3, MPU4, MPU4 (Video), MPU5
+  - JPM Impact, MPS1, MPS2, System 5, System 5 (Video), System 6, System 6 (Video),
+    System 80
+  - Maygay EPOCH, MV1
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+GPライダー (set 2, World, FD1094 317-0163) [Fallout (Arcadezentrum)]
+花札 華五光 番外編 [Guru, Dyq, Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+Donkey King Jr. (ドンキーコングJr.の海賊版) [Guru, Tingoes]
+サウロ (Philko license) [Guru]
+Raiders (Rev.3) [Andrew Welburn]
+Magic Card Export 94 [Team Europe]
+Sagaia (dual screen) (World) [an UK collector]
+モータルコンバット (Nifty Kombo, hack) [Colonel_Klink]
+モータルコンバット (Nifty Kombo 666, hack) [bulldawg, B2K24, kosmo, vascodiaz,
+  Paratech, S. Arnold, S. Healey, J. Bijl, M. David, R. Balke, D. Leipold, 
+  N. Francfort, Smitdogg, The Dumping Union]
+Savanna (ジャングラーの海賊版)  [f205v, robotype]
+
+
+追加された未動作ゲーム
+----------------------
+Quiz Punch [Guru]
+Castle Revolution [David Haywood]

@@ -1,0 +1,711 @@
+0.79
+
+ソース全般の変更：
+------------------
+
+- 0.78uサイクルのバグをほとんど修正しました。レポートした方は修正されているか確
+  認をお願いします。[Aaron Giles 他]
+
+- Atari / Midwayドライバの新型メモリマップを使うように更新とクリーンアップ。
+  [Aaron Giles]
+
+- YMF278bの更新で「阿修羅ブレード」のサウンド改善。[R.Belmont]
+
+- 以前追加したSH2のスピードアップにあった問題を修正。[Olivier Galibert]
+
+- ST-Vドライバを新メモリシステムに更新とマップのクリーンアップ。
+  [Olivier Galibert]
+
+- ASM 68kコアのコンパイルが通るように再修正。[BUT]
+
+- -ftrを指定して5分以内で起動する場合は警告画面をスキップするように変更。
+  [Aaron Giles]
+
+-「ブラックドラゴン」と「Money Money」のファイル名修正。[chaneman]
+
+- poolshrk078u6yelを修正。[Stefan Jokisch]
+
+- 回転表示しているベクターゲームのスクリーンショットを撮るとクラッシュするのを修
+  正。[Stefan Jokish]
+
+- マルチセッションの修正（Mame32系用）。[Nathan Woods]
+
+- unaligned SCU direct mode DMAの修正。[R.Belmont]
+
+-「スターウォーズ」の問題を修正。[Aaron Giles]
+
+- コンパイラ特有の修正をいろいろ。[Olivier Galibert, smf]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+スクランブルスピリッツ
+Triv Four (1985 Status) [Pierpaolo Prazzoli]
+Super Triv III (1986 Status) [Pierpaolo Prazzoli]
+ウイニングスパイク [R.Belmont]
+Whizz [Chris Hardy, David Haywood, Pierpaolo Prazzoli]
+More More Plus
+ペアーズラブ [David Haywood]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+ペレストロイカガールズ (フウキライセンスなし)
+Changes (EME license) [Stefan Jokisch]
+VS.テニス (Japan) [Pierpaolo Prazzoli]
+Dual Assault [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+ヴァリアメタル [David Haywood]
+電神魔傀 (protected)
+スーパーハングオン リミテッドエディション [Brian Troha]
+Plasma Sword (スターグラディエイター2のマスタ) [Brian Troha]
+
+
+
+0.78u6
+------
+
+ソース全般の変更：
+------------------
+
+- メモリをさらに大幅変更。[Aaron Giles]
+
+一番大きな変更はドライバのアドレスマップ宣言方法です。リード・ライトのアドレス
+マップを別々に取るのではなく、マージしたマップ一つで済むようにしました。コードの
+変更を最小限にするため、以前の分離アドレスマップもまだサポートしていますが、内部
+的にはメモリの初期化とセットアップ時に一つにまとめられています。
+
+この変更により、アドレスマップ用の“start”マクロも変更されました。以下の古いマ
+クロセット：
+
+   PROGRAM_READ*_MAP_START(name)
+   DATA_READ*_MAP_START(name)
+   IO_READ*_MAP_START(name)
+
+は、次のマクロ一本に置き換えられました：
+
+   ADDRESS_MAP_START(name, address_space, bits)
+
+全ドライバで新しい方法を使うように更新されています。さらに、PROGRAM_*、DATA_*、
+IO_*などは全部ADRESS_*マクロにマージしました。たとえば、PROGRAM_MAP_FLAGSは
+ADDRESS_MAP_FLAGSになってます。
+
+もう一つの変更点はアドレスマップが統合されたことに加えて静的配列ではなくなったこ
+とです。マシンドライバとほとんど同じ方法で構成されるようになりました。アドレス
+マップはマクロ全般について、コード内で構成とタイプチェックされます。MAMEドライバ
+全部で新しいマクロへの更新がされています。
+
+そのほかに、ミラーリングやポインタの自動割り当て、メモリポインタの共有などの新機
+能も追加されています。このバージョンではとりあえずseattle.cとsystem24.cで、新型
+コンストラクタをサポートするように更新しました。このドライバを新機能のサンプルと
+して参考にしてください。また、新マクロについての全解説はmemory.cの初めの部分に記
+載してあります。
+
+メモリの自動割り当て方法もメモリマップベースに行われるように変更されていますが、
+前と同様にメモリ領域の共有ポインタと、ハードコードポインタはサポートしています。
+
+ステート保存も動作するはずですが、厳密に必要なデータ量よりも多くセーブされます。
+
+内部的には、アドレスマップのルックアップテーブル方法が変更され、サブテーブルを再
+利用できるようになりました。これは小さいメモリ領域が大きなアドレススペースでミ
+ラーリングされる場合に重要です。古いコードではサブテーブルと結び付きがなかったの
+で、ミラーリングの扱いが大変でした。
+
+OP_ROM、OP_RAMなどの内部メモリステートをリネームしました。
+
+- 64bitデータタイプのセーブステートをサポート。[Olivier Galibert]
+
+
+
+0.78u5
+------
+
+Aaron氏がさらに変更を加える前にちょっとアップデート :-)
+
+
+ソース全般の変更：
+------------------
+
+-「紫炎龍」の色間違いを修正。[Mariusz Wojcieszek]
+	src/vidhrdw/stvvdp1.c
+
+- ディスクリートサウンドシステムの更新。[Derrick Renaud]
+
+	ディスクリートサウンドの変更
+	============================
+	* discrete.hファイルの先頭部分の関数の解説を追加
+	* DISCRETE_RCFILTER - モジュールで無効なノードが使えたバグを修正
+	  なんでクラッシュが起きなかったのか信じられんくらい
+
+	ディスクリートモジュールの新規追加
+	==================================
+	* DISCRETE_CRFILTER - ハイパスR/Cフィルタ
+	* DISCRETE_COUNTER - プリセット可能なアップ・ダウンカウンタ及び、
+	  セレクタブルなカウントエッジ付き外部クロック
+	* DISCRETE_COUNTER_FIX - 内蔵周波数ジェネレータ付きのプリセット可能な
+	  アップ・ダウンカウンタ
+	* DISCRETE_ONESHOT - 修正しました。セレクタブル、エッジトリガ、リトリガ
+	  出力アクティブ状態の追加
+	* DISCRETE_ONESHOTR - DISCRETE_ONESHOTにリセットを追加したもの
+
+	ゲームドライバの変更
+	====================
+	* poolshrk - ディスクリートサウンド追加
+	* bsktball - 玉跳ね音でDISCRETE_CRFILTERを使うように変更
+
+- Gameplanドライバの更新。[Nicola Salmoria]
+	- ドライバ追加時点ではまだ出来ていなかったmachine/6552via.cと
+	  machine/6532riot.cを使うように書き換え。表示と音関係が直ってます
+	- vidhrdw/gameplan.cは不要になりました
+	- machine/6532riot: PA7エッジ検知とIRQのコールバックを追加
+	- machine/6522via: 入力のピンセットが“Pulled High”になるように
+	  ポートライトを修正
+	  ゲームプラン製ゲームで必要で、65422のデータシートで確認済みです。
+	  また、CA2パルスのハンドシェイクをサポートしました
+
+- System 21の更新。[Phil Stroffolino]
+	- System21の“深度バイアス”機能の初歩的な実装。Z軸の代表値の修正ファ
+	  クタとして用います。完全ではありませんが、進む方向としては正しいです
+	-「サイバースレッド」のポリゴンカラー修正
+	-「サイバースレッド」のディスプレイリストのパースを改善。タイトル画面、
+	  ゲーム中のグラフィックスなどがほとんど正確になってます
+	-「サイバースレッド」の入力ポート実装。これについてはいつものやり方で
+	  確認できます（テストのDIPスイッチを入れてサービスキーを押し続ける）
+	- System21のフラットシェードポリゴンのニアプレーンクリッピングを追加
+	- ビュートランスフォームの実装。「スターブレード」で画面端を狙ったときに
+	  画面チルトで利用
+	- C355スプライトレンダリング用にプライベートなzdrawgfx()を実装。これに
+	  より、同チップを使う前ゲームのスプライトとタイルマップ間のの直交性を
+	  追加。テスターバグのptblank056greが修正されます
+	- C355によるスプライトレンダリングで、ゲームそれぞれでのXY位置のハックが
+	  不要になりました
+	-「ウイニングラン'91」の基本部分の作業完了。このゲームはSystem21のプロト
+	  タイプハードウェアで動作しているため、他のタイトルとはかなり異なります。
+	  3番目の68kCPUをビットマップレイヤーの描画に使用（スプライトチップは
+	  無し）しているものの3DグラフィックについてはDSPで処理している模様です
+	- System21のコメント部を更新
+
+- Aaron氏の更新で起きた以下のバグを修正。
+	VSNesのデュアルゲーム [Pierpaolo Prazzoli]
+	decocass.c、tnzs.c、cvs.cの警告メッセージ
+	雷牙のサウンド
+	グレートソードマンのBAD RAM
+	グリーンベレーのBAD RAM [Stefan Jokisch]
+	MX5000 / フラックアタック のRAM不良 [R.Belmont]
+
+- DIPの修正。
+	インドアサッカー [Brian A. Troha]
+	ラジカルラジアル [Stefan Jokisch]
+
+- USBキーボードのLEDサポート。[smf]
+	-led_mode ps/2がデフォルトで、DeviceIOControlを使用
+	-led_mode usbはkeybd_event()を使用
+
+	これはWindows NT/2000/XPのみで有効です。
+
+	もしかしたらDeviceIOControl経由でUSBキーボードのLEDを操作する方法がある
+	かもしれませんが、見つかりませんでした。keybd_event()を使った場合、終了
+	時に問題があるかもしれませんが、ひとまず動いています
+
+- コマンドラインからのステートロード。[smf]
+	Windows版に-stateを追加しました。コード自体はコアに既に実装されていまし
+	た。信頼性についてはあまり確信がありませんが、とりあえずギャラクシアンで
+	は動きました
+
+- ディスクリートサウンドシステムが-nosoundでクラッシュするのを修正。[R.Belmont]
+
+- alibabaにROM追加。[Pierpaolo Prazzoli]
+
+-「Space Thunderbird」のグラフィック修正に挑戦。[Pierpaolo Prazzoli]
+
+- CHDファイル名処理から“smart”なコードを削除。[Olivier Galibert]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Hard Head 2 [Luca Elia]
+	src/drivers/suna8.c
+	src/vidhrdw/suna8.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+アウトラン (日本版 プロトタイプ?)
+ゼビウス (Atari set 3)  [Pierpaolo Prazzoli]
+Strafe Bomb (スクランブル基板 海賊版) [Pierpaolo Prazzoli]
+怒号層圏 (ジョイスティック 海賊版) [Pierpaolo Prazzoli]
+
+
+
+0.78u4
+------
+
+引き続きテストをお願いします。今回のような時期では特に重要です。
+
+
+アーロンのアップデート第2弾 [Aaron Giles]
+-----------------------------------------
+
+変更点：
+* 暗黙のアドレスシフトがあるCPU（例：TMS34010は右に3ビット、TMS32031左に2ビッ
+  トなど）について、メモリマップとinsatll_memory_read/write_hander()の呼び出し
+  についてアドレスシフトを自動で行うようにしました。これで、コードを汚していた
+  マクロを大量に減らすことができます。適用されるCPUコアは、ADSP210x、CCPU、
+  PICI16C5x、TMS3201x、TMS3202x、TMS32031、TMS340x0です。ただし、CPUコア自体は
+  リード・ライトルーチンへシフトした値をまだ渡す必要があります。対象コアを使う
+  全ドライバから、邪魔ものだったマクロとビットシフトが削除されています。
+
+* ハーバードアーキテクチャCPUのデータメモリの実装が完了しました。
+  適用されるCPUは、ADSP210x、TMS3201x、TMS3202x、PIC16C5x、CCPUで、これらのコア
+  について、プログラムとデータのメモリを完全に分割しました。これにより、メモリ
+  マップで使っていた余計なマクロをごっそり削除することができました。
+
+* memory_set_bankhandlerを廃止しました。これを使用していたドライバは全て
+  install_mem_read_handlerを必要に応じて使うようにコンバート済みです。
+  メモリシステムの最後の8bit用ハックが削除されたことになります。この結果、8bit
+  CPUのバンクメモリの読み書きがインラインで処理されるため、若干スピードアップ
+  するはずです。
+
+* 動的メモリ割り当てシステムの更新。古い方法ではリード・ライトハンドラのパース
+  に依存していましたが、ポピュレートが済んでからトップレベルのメモリマップを
+  参照して、マップ済みの16k毎にメモリを割り当てます。一見するとこの方がメモリを
+  多く割り当てそうですが、誤差範囲以内に収まっています。さらに、プログラムア
+  ドレス空間のmemory_regionが、非パースアドレス空間をサポートするのに必要最小
+  限であるかのチェックが追加されました。
+
+* メモリブロックのセーブ・リストアを完全統合。以前は独自のメモリマップチェック
+  ルーチンを持っていましたがこれを廃止し、新たに動的なメモリアロケータによりメ
+  モリブロックを割り当ててレジストするようにしました。この方法だと、セーブステー
+  トが前より大きく（さらに互換性もなく）なると思われますが、ディスクスペース自
+  体はちっぽけなのでこれで行くことにします。
+
+* アドレス空間については、CPUが与えられた空間のアドレスバス幅として0以外の値を
+  返すかどうかに基づき動的に決定されるようになりました。
+
+* I8039CPUコアのアドレスバス幅を修正。
+
+* TMS32026のエントリ追加と、内部RAMが新システムで動作するように更新。
+これによりTaito Airシステムが以前の状態にもどりました。
+
+* gottlieb.cのメモリハンドラで、ミラーエリアを追加するのではなく、
+アドレス空間マスキングを使うように修正。
+
+
+ソース全般の変更：
+------------------
+
+- ST-Vのアルファブレンディングを一部追加。[Mariusz Wojcieszek]
+	bakubaku、mausukeの背景、shienryuの雲、他
+
+- マッピー時代のNamcoシステムを大幅更新。[Nicola Salmoria]
+
+- ほとんどのゲームをmappy.cにマージしました。以下のファイルが不要になってます：
+	drivers/superpac.c vidhrdw/superpac.c machine/superpac.c
+	drivers/grobda.c vidhrdw/grobda.c machine/grobda.c
+	drivers/phozon.c vidhrdw/phozon.c machine/phozon.c
+	machine/mappy.c
+
+- machine/namcoio.cを追加。このファイルは全ゲームで使っている56XXと58XX I/Oカス
+  タムチップを実装しています。チップのシミュレートを正確にしたため、通常時の微妙
+  な動作、テストモードの微妙じゃない動作などが修正されています（マッピーのグリッ
+  ド表示など）
+- 全ゲームの入力とDIPをチェック・修正しました
+-「トイポップ」以外のゲームのイースターエッグを書き出しました
+- 割り込みとサブCPUのリセットハンドリングを修正。これにより、リセットせずにテス
+  トモードに入るとエラーが出るゲームがあります
+- 回路図があるものについては詳細なメモリマップを追加
+- 全ドライバをタイルマップにコンバート
+-「フォゾン」のカクテルモード追加と、「ギャプラス」のハックではない実装
+-「スーパーパックマン」のプライオリティ修正。以前のコードではゴーストの目が一番
+  手前でしたが、これではゴースト同士が重なるときに不具合が出ていました
+-「ギャプラス」の面進めDIPの追加と動作
+-「フォゾン」で多分だれも気づいていなかったSEの修正
+- MAME testersの修正分:
+  mappy37b4gre
+  mappy37b8gre
+  phozon37b8gre
+  motos054gre
+- warpwarp.cもタイルマップコンバート及び、イースターエッグを追加。
+
+- SH-2を若干スピードアップ。[Carlos Santillan]
+
+-「Miss Bubble 2」と「豪血寺一族 / Power Instinct」(海賊版 set 2)のサウンド改善。
+  [Quench]
+
+-「スカイダイバー」にディスクリートサウンド追加。[Derrick Renaud]
+
+-「バーディートライ」のスプライト改善にチャレンジ。[Pierpaolo Prazzoli]
+
+- u3でのcompgolfのバグを修正。[Pierpaolo Prazzoli]
+
+-「クロスパング」のDIPスイッチ。[Pierpaolo Prazzoli]
+
+
+
+0.78u3
+------
+
+ソース全般の変更：
+------------------
+
+- u2の変更で起きていた以下のバグを修正
+
+	DJGPPでcpuintrfをコンパイルするときのバグ [smf]
+	cpuintf.cのCPU_M6809Eのミスタイプ [Aaron Giles]
+	HD63705のアドレスバス幅 (namcos2のクラッシュ) [Aaron Giles]
+	namcos1のクラッシュ [Aaron Giles]
+	namcos21のクラッシュ [Aaron Giles]
+	mpatrolのクラッシュ [Aaron Giles]
+	ASM68kでコンパイルできない問題 [Aaron Giles]
+	boblboblが動作しない問題 [David Haywood]
+	circuscの'Ram Bad'エラー [David Haywood]
+	crospangのサウンドハンドラ [Pierpaolo Prazzoli]
+
+テスト及びバグ報告をする場合はこのバージョンに更新してください。
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+雀闘記 [Luca Elia]
+	src/drivers/dynax.c
+
+コンペティションゴルフ [Pierpaolo Prazzoli, Bryan McPhail]
+	src/drivers/compgolf.c
+	src/vidhrdw/compgolf.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+Golden Tee Golf (Trackball, v1.0) [Bryan Troha]
+	src/drivers/itech8.c
+
+与作とドン平 (set 2) [Stefan Jokisch]
+	src/drivers/8080bw.c
+
+Miss Mister World '96 Nude [Taucher]
+	src/drivers/galpanic.
+
+Space Thunderbird (ムーンクレスタのクローン) [Pierpaolo Prazzoli]
+	src/drivers/galaxian.c
+
+
+
+0.78u2
+------
+
+u2での変更は、以下で解説しているメモリシステムのオーバーホールのみで、ドライバの
+新規追加はありません。
+
+
+ソース全般の変更：
+------------------
+
+- メモリシステムの大改修を行っています。これは、最初の段階のものですが、将来の拡
+  張へのベースとなるものです。この変更に伴って、全てのCPUコア及びドライバファイ
+  ルに手を加える必要があります。[Aaron Giles]
+
+
+メモリシステムの変更点：
+------------------------
+
+最大の変更点はアドレス空間の考えを導入したことです。CPUそれぞれが将来的に容易に
+拡張できるように最大で3つの独立したアドレス空間を持つことできます。個々のアドレ
+ス空間は、データバス幅、アドレスバス幅、アドレスシフト、未マップメモリ値などそれ
+ぞれ独立した構造をとれます。
+
+この3つのアドレス空間はプログラム、データ、I/Oとして定義され、プログラムアドレス
+空間については、コードが存在するとされる場所になりますが、通常のフォン・ノイマン
+アーキテクチャCPUでは全メモリの場所が利用可能です。データアドレス空間はハーバー
+ドアーキテクチャCPU用であるCCPU、PIC16C5x、ADSP210x、TMS32010、TMS32025用で、将
+来的にプログラムとデータの分離を正しく行うためのものです。I/Oアドレス空間は、Z80
+やx86CPUによるポートアクセス等に使用します。
+
+CPUがメモリアクセスに利用するリード/ライトハンドラは全て名称を変更しました。これ
+は、アドレス空間のネーミング(プログラム/データ/IO）と揃えるのと、ハンドラがどう
+いう目的のものかをはっきりさせるためです。さらに、大幅な統合も行っています。アド
+レスバス幅とデータバス幅に基づく個別のメモリアクセサに替えて、それぞれのデータバ
+ス幅に合わせたメモリアクセサの共有セットを新しく一つだけ用意しました。以下に以前
+のファンクションマップがどのように変更されたかを示します：
+
+   cpu_readmem16, cpu_readmem17, cpu_readmem20,     -> program_read_byte_8
+   cpu_readmem21, cpu_readmem24
+
+   cpu_writemem_16bew_word, cpu_writemem18bew_word, -> program_write_word_16be
+   cpu_writemem_24bew_word, cpu_writemem32bew_word
+
+   cpu_readport                                     -> io_read_byte_8
+
+以前は、ドライバがメモリの読み込み時にどの関数を使うか把握しておかなければならず、
+悩みの種でしたが、メモリコンテキストスイッチの一部にアクセサのテーブルが含まれた
+ため、メモリアクセス用の一般的な関数を追加できるようになりました。例えば、ドライ
+バが68000のアドレス空間からword値を読み込む場合、以前はcpu_readmem24bew_word()を
+コールする必要がありましたが、現在はprogram_read_word()を呼べばメモリシステムは
+正常に動作します。さらに、全CPUコアでデータバスとアドレスバスの幅に関係なく
+change_pc()マクロを使うようにしました。これらの変更に伴い、メモリマップの定義マ
+クロも以下のように変更されています：
+
+   MEMORY_READ_START                -> PROGRAM_READ8_MAP_START
+   MEMORY_READ16_START              -> PROGRAM_READ16_MAP_START
+   MEMORY_READ32_START              -> PROGRAM_READ32_MAP_START
+   MEMORY_WRITE_START               -> PROGRAM_WRITE8_MAP_START
+   MEMORY_WRITE16_START             -> PROGRAM_WRITE16_MAP_START
+   MEMORY_WRITE32_START             -> PROGRAM_WRITE32_MAP_START
+   MEMORY_END                       -> PROGRAM_MAP_END
+
+   PORT_READ_START                  -> IO_READ8_MAP_START
+   PORT_READ16_START                -> IO_READ16_MAP_START
+   PORT_READ32_START                -> IO_READ32_MAP_START
+   PORT_WRITE_START                 -> IO_WRITE8_MAP_START
+   PORT_WRITE16_START               -> IO_WRITE16_MAP_START
+   PORT_WRITE32_START               -> IO_WRITE32_MAP_START
+   PORT_END                         -> IO_MAP_END
+
+同様に、CPUの64bitデータバスサポートも追加したので、PROGRAM_READ64_MAP_STARTなど
+のマクロも追加しました。
+
+メモリシステムの目標はメモリレンジのサポートのみではなく、ミラーリングやアドレッ
+シングが等間隔で繰り返されるような複雑な状況のサポートを改善することです。この作
+業をスムーズに行うために、メモリマップ定義時に使用するマクロを作成しました：
+
+   MEMORY_READ_START                                  PROGRAM_READ8_MAP_START
+     { 0x0000, 0xffff, MRA_RAM },                  ->   READ_RANGE( 0x0000, 0xffff, MRA8_RAM )
+   MEMORY_END                                         PROGRAM_MAP_END
+
+   MEMORY_WRITE_START                                 PROGRAM_WRITE8_MAP_START
+     { 0x0000, 0x0fff, MRA_RAM },                       WRITE_RANGE   ( 0x0000, 0x0fff, MRA_RAM )
+     { 0x1000, 0x7fff, MRA_RAM, &foo },            ->   WRITE_RANGE_P ( 0x1000, 0x7fff, MRA_RAM, &foo )
+     { 0x8000, 0xffff, MRA_RAM, &bar, &bar_size },      WRITE_RANGE_PS( 0x8000, 0xffff, MRA_RAM, &bar, &bar_size )
+   MEMORY_END                                         PROGRAM_MAP_END
+
+全部のメモリマップが変更されたため、static 8bitハンドラも合わせて名称変更してま
+す。例えば、MRA_NOPはMRA8_NOPなど。
+
+以前のMAMEでは有効なアドレスビットの数をコントロールするための特殊なリード/ライ
+トマップのエントリーが使えましたが、任意のフラグを割り当てるように変更されました：
+
+   MEMORY_ADDRESS_BITS(20)          -> PROGRAM_MAP_FLAGS( MEMORY_ABITS(20) )
+
+また、未マップのメモリ値を指定できるように拡張してます：
+
+   PROGRAM_MAP_FLAGS( MEMORY_UNMAPPED_0 ) /* unmapped reads return all 0's */
+   PROGRAM_MAP_FLAGS( MEMORY_UNMAPPED_1 ) /* unmapped reads return all 1's */
+
+このメカニズムのため、旧関数memory_set_unmap_value()は使用しないようにしてくださ
+い。この関数を使っていたドライバは全て新型に更新しました。さらに、MRA_NOPハンド
+ラが常に0から、未マップの値を返すようになったので注意してください。
+
+その他の変更点としては、20bit未満のアドレス空間の未マップのリード/ライトがRAMの
+ように動作しなくなりました。このためいくつかのドライバが動かなくなってますが、
+8bitアドレス空間の特別扱いをやめることができました。
+
+マシンドライバマクロでは、アドレス空間が明示的に定義されるようになります：
+
+   MDRV_CPU_MEMORY(read,write)     -> MDRV_CPU_PROGRAM_MAP(read,write)
+   /* not applicable */            -> MDRV_CPU_DATA_MAP(read,write)
+   MDRV_CPU_PORTS(read,write)      -> MDRV_CPU_IO_MAP(read,write)
+
+
+CPUインターフェースの変更点：
+-----------------------------
+
+このリリースでのもう一つの大きな変更がCPUの定義と参照方法です。以前は、
+cpuintrf.cファイルが各CPUのポインタや、大量のCPUタイプを保持する巨大なテーブルを
+持ってましたが、メンテナンスがしずらく、CPUコア自体ではなくMAME側から多くのデー
+タが定義される状態でした。
+
+新しい方法では、全てのCPUで実装する必要のある新関数で定義します：
+
+   <cputype>_get_info(UINT32 state, union cpuinfo *info)
+
+それぞれのCPUコアについて定義されるパブリック関数はこれだけです。cpuintrf.cの
+テーブルはCPUタイプのインデックスだけを保持するようになり、実際のCPUのget_info関
+数に対するポインタが続きます（？）。そのため、フレキシブルなget_info関数は残り全
+ての関数へのポインタを提供するようにしなければいけません。
+さらに、その他の関数の数も大幅に減少しました：
+
+   void   set_info(UINT32 state, union cpuinfo *info);
+   void   get_context(void *context);
+   void   set_context(void *context);
+   void   init(void);
+   void   reset(void *param);
+   void   exit(void);
+   int    execute(int cycles);
+   void   burn(int cycles);
+   offs_t disassemble(char *buffer, offs_t pc);
+
+旧関数であるget_reg, set_reg, set_irq_line, set_irq_callback, info, 
+get_cycle_table, set_cycle_tableは全てget_infoとset_infoに統合されました。
+
+現在の全CPUコアがこの新システムに更新されています。また、ほとんどのコアで、全関
+数とicountグローバル変数をget_info関数から切り離しました。get_info/set_info用の
+セレクタの多くがCPU情報を返すように定義されています。
+このCPU情報にはアドレスと全アドレス空間のデータバスサイズ、クロックディバイダ、
+IRQラインサイズ、コンテキストサイズなどが含まれます。
+
+移植者向けの注意：cpuintrf[]配列はcpuintrf_init()で動的に構成されるようになりま
+した。つまり、もしrun_game()を呼ぶ前にCPU情報が有ることを前提にしたコード（例：
+cputype_*関数など）を使う場合は、予め手動でcpuintrf_init()を呼び出す必要があると
+いうことです。複数回cpuintrf_init()を呼び出しても安全なので安心して下さい。
+
+
+
+0.78u1
+------
+
+ソース全般の変更：
+------------------
+
+- 以下のゲームのOKIサウンド（とその他）を修正。[Quench]
+	Diverboy (diverboy.c)
+	爆裂ブレイカー (kaneko16.c)
+	アクアリウム (aquarium.c)
+	Funny Bubble (funybubl.c)
+
+-「アシュラブレード」にSEとBGMを完全に追加。[R.Belmont]
+
+-「ビデオピンボール」にディスクリートサウンド追加。[Derrick Renaud]
+
+-「Truco-Tron」にDACサウンド追加。[Tomasz Slanina]
+
+-「クロスパング」のグラフィック修正とサウンド追加。[Pierpaolo Prazzoli]
+
+- 以下のゲームに未使用のPROMを追加。[Stefan Jokisch]
+	rallyx (rallyx.c)
+	acedrvrw (namcos22.c)
+	millpac (centiped.c)
+	sci (taito_z.c)
+
+- Moon Patrolドライバのアップデート。[Stefan Jokisch]
+	- Williamsセットに新しいPROM追加
+	- IREMセットのPROMサイズ変更
+	- ROMのリネーム
+	- タイルマップシステムにドライバをコンバート
+	- 256x64のグラフィックレイアウトを生成することで、背景描画を簡略化
+	- 回路図を元にビデオ部分のマイナーな修正
+
+-「機動戦士ガンダム EXレビュー」の修正。[Tomasz Slanina]
+	- EEPROM (68301パラレルポート)の実装と初期化を追加
+	- 言語設定のDIPを追加
+
+- ST-Vエミュレーションを改善。[Mariusz Wojcieszek]
+	- VDP2のカラーオフセットレジスタを使ったカラーバンクモードを使用してスプ
+	  ライトカラーの演算するように修正しました。これで「紫炎龍」の修正が不要
+	  になり、「バーチャファイターキッズ」と「ウィンターヒート」のスプライト
+	  カラーも正確になりました
+	-「プリクラ大作戦」がプレイ可能になりました
+	-「プリクラ大作戦」では、xsize=0またはysize=0のゆがんだスプライトを描画
+	  しようとしてクラッシュしていました。マニュアルによるとこれらは使用でき
+	  ないことになっているので、無視するようにしています
+	- スレーブでスプライトを動作させるためのMINITが不明でしたが、0x01000000
+	  ではなく0x01406f40のアドレスを使えばよいことがわかりました。この方法が
+	  実機のものなのか、ハックなのかは分かりませんが、個人的にはアドレスの全
+	  範囲(0x01000000 - 0x017fffff)がMINITに利用できると思います。
+	  prikuraで使うアドレス一つ分だけのMINITを追加しました
+	- Point 1のスプライトカラーを修正
+	- VDP2の変更:usrintf_showmessage()のコールをコメントアウトしました
+
+- Data East MLCの改善。[Bryan McPhail]
+	ビデオ描画がいろいろな面で改善しています。「アベンジャーズインギャラク
+	ティックストーム」はキャラクタ付きでプレイ可能ですが、CPUコアのバグが
+	ゲーム自体に影響しています。「キャプテンアメリカ」の反転が一番目立つもの
+	です。原因探しのお手伝いや修正歓迎です。他にも、未動作のゲームを何本か追
+	加してます。
+
+- 実行中でもドライバ側からリフレッシュレートを変更できるように更新。
+  [Aaron Giles]
+
+- Namco 8080のクリーンアップ。[Nicola Salmoria]
+	- geebee.cとwarpwarp.cは基本的に同じハードデザインなので統合。
+	  drivers/geebee.c、machine/geebee.c、vidhrdw/geebee.cは不要です
+	- NavaloneをNavaroneに改名。“the guns of Navarone”にあるように、多分
+	  こっちが正しいと思います
+	- kaiteinをkaitei、kaiteiをkaiteikにして、Namco版をメインセットにしまし
+	  た。これについての話は出てなかったと思いますが、確かサードパーティによ
+	  るプロトタイプをナムコが買い取って完全に書き直したもののはずです
+	- 全ゲームのDIPと入力を修正
+	- sosとkaiteinのボールサイズを修正。kaiteinの銛が岩のように見えたため
+	-「ワープ＆ワープ」のハックを削除。フライヤーによると画面左下にはボール
+	  があって正解
+
+- いろいろな修正。[Nathan Woods]
+	src/chd.c:
+    	- Metrowerks製コンパイラ用の応急処置
+
+	src/x86drc.c:
+	src/x86drc.h:
+    	- 命令定義をいくつか追加
+    	- CPUIDからCPUのフラグを取得するコールを追加
+
+	src/windows/ticker.c:
+    	- 上で追加したコールによって置き換えられたコンパイラ別のフィーチャリー
+	  ディング用アセンブラコード
+
+- TESTDRIVER関係で残っていたものを完全に消去。[Paul Priest]
+
+- BIOS ROMをinfo.cに追加する必要がないように変更。[Paul Priest]
+
+-「ファイナルラップ2」のオブジェクトROMの読み込みを修正。[Brian Troha]
+
+-「Black Dragon / ブラックタイガー」海賊版のROMを正しい物に置き換え。
+  [Stefan Jokisch]
+
+-「スペースファイアーバード」のサンプル追加。[Chris Hardy]
+
+- DIPスイッチが消えないので、toaplanドライバからIPF_CHEATをいくつか削除。
+  [Mamesick]
+
+-「Lady Frog」の難易度DIPを修正。[Nicola Salmoria]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+プリクラ大作戦 [Mariusz Wojcieszek]
+	src/drivers/stv.c
+
+ワイルドパイロット [Pierpaolo Prazzoli]
+	src/drivers/cischeat.c
+	表示関係にいろいろ問題あり。サービスボタンがスタートボタンと兼用
+
+Target Balls [Luca Elia]
+	src/drivers/paradise.c
+
+International Cup '94 / ハットトリックヒーロー '94 [David Haywood]
+	サッカーゲームの親子関係も少し変更
+	src/drivers/taito_f3.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+PGMのクローン数本
+
+Run & Gun / スラムダンクの追加セット [Brian Troha]
+
+Qバート (Us Set 2) [Smitdogg]
+
+
+削除ゲーム / セット：
+---------------------
+
+New Rally-X (vertical hack) [removed by Stefan Jokisch]
+	グラフィックハック（タイルと表示を回転）はサポートする価値なし
+
+
+新規未動作 / クローンゲーム：
+-----------------------------
+
+スタジアムヒーロー'96 [Bryan McPhail]
+スカルファング - 空牙外伝 [Bryan McPhail]
+	src/drivers/deco_mlc.c
+	Encrypted (Deco 156)

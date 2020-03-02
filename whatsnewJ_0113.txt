@@ -1,0 +1,699 @@
+0.113
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+fastlane0112u4gra [Canim]
+diamond0112u4gra [Canim]
+calorie0112u4gra [Canim]
+qcrayon237b9gra [stephh]
+leftover0112u4ora [Aaron Giles]
+asserts0112u4ora [Aaron Giles, Derrick Renaud]
+nes0112u4red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- m92とdeco32から、アイドルスキップを削除。これにより、cpuexecから不要な関数を2
+  つ削除。[Zsolt Vasvari]
+
+- Berzerkドライバのマイナークリーンアップ。[Lord Nightmare]
+
+- cpu_gethorzbeampos()を削除して、video_screen_get_hpos()に置き換え。また、
+  TMS34010の設定を画面番号を取るように変更。atarigen_get_hblank()でも同様に変更。
+  [Zsolt Vasvari]
+
+- model2.cのROM定義修正で、不明なZ-ソートモードエラーを起こしていたのを修正。
+  [R. Belmont]
+
+- BIOSのみのドライバを動作させたときにクラッシュするのを修正。
+  [R. Belmont, Aaron Giles]
+
+- MAMEのポーズ中にウィンドウスレッドがイベント処理をしなくなるバグを修正。[BUT]
+
+- ストリートファイターのトーナメント版で、デフォルトではネットワークアダプタが無
+  いように変更。[David Haywood]
+
+- u3でのEolith用スピードアップが間違っていたのを修正。[David Haywood]
+
+- 0.112u4でディスクリートゲームが3本変になっていたのを修正。[Derrick Renaud]
+
+- 新しく有効にしたバリディティチェックによる、アナログ操作を全て修正:
+  [Derrick Renaud]
+
+ * demndrgn - 正しいIPT_AD_STICK操作に修正
+ * konamigt, hcrash, rf2 - 正しいPADDLE操作設定とマスクの修正
+ * overdriv - 正しいPADDLE操作に修正
+ * sspeedr - アクセルとハンドル用にIPT_POSITIONALをPORT_REMAP_TABLEの操作へ変更
+ * midvunit.c - ブレーキペダルがプレイヤー1に現われるように変更
+ * simpbowl - ポートマスク修正。トラックボールが正しく動作するようになってます
+ * ssrj - アクセルペダル修正
+ * namcos2 - 全ゲームでの入力を修正（nvファイルの削除が必要かも）
+
+- segas16a、segas16b、segas18、megaplay、news、ninjadks2、nemesisドライバにDIP
+  スイッチ位置追加。segas16bでは「SDI」にallow_continue追加。megaplay
+  (「Mazin Wars」)で、ゲームの設定からとった名前をDIP名に設定。[Ruben]
+
+- u4で追加し忘れていたRF5C400の変更を追加。[hoot development team]
+
+- sprint4とultratnkドライバを再分割。「スプリント4」ドライバを更新。
+  [Stefan Jokisch]
+
+-「ザ・コンバットライブズ」と「Jail Break / マンハッタン24分署」にセーブステート
+  追加。[Kevin Eshbach]
+
+-「Destroyer」と「Altair」にサウンド初期版追加。ホワイトノイズはまだ鳴らず。
+ 「Draco」はまだ音無し。[Curt Coder]
+
+- リグレッションテストをしてmamdev.org用のレポートを出力するツールを追加。レポー
+  トジェネレータはクロスプラットフォームですが、テストは今のところWindowsだけで
+  動作します。[Aaron Giles]
+
+- Nintendoゲームで、NES APUのクロックが指定されていなかったのを修正。
+  [Aaron Giles]
+
+- BSMT2000をさらに正確に書き換え。リセット時のレジスタ値をベースにして、スタート
+  アップのときに様々なモードをソフトウェアで選択します。この機能が動作するように、
+  既存ドライバのリセットを正しく実装。また、正しいBSMT2000 ADPCM出力も追加。
+  [Aaron Giles]
+
+- "不明なゲーム"や、"無効な設定"用のexitコードを新しく定義。Windows OSDレイヤー
+  でこれらを出力するように変更。[Aaron Giles]
+
+- 不要になったジョイスティックのキャリブレーションをosdependレイヤーから削除。
+  この機能がまだ必要な場合は、OSDコードをUIメニューに追加できるかどうか検討して
+  みます。[Aaron Giles]
+
+- file2strをobjディレクトリにビルトするように変更。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ビートマニア 3rd MIX [Yasuhiro Ogawa]
+A Question of Sport [Philip Bennett]
+
+
+
+新規クローンセット
+------------------
+Jail Break (Bootleg) / マンハッタン24分署 [Kevin Eshbach]
+ザ・コンバットライブス (US) - Set 1? [Kevin Eshbach]
+Plotting (World set 3, Earliest) / フリップル [Stefan Lindberg]
+フリップル (Japan) [Stefan Lindberg]
+
+
+
+追加された未動作ゲーム
+----------------------
+ドラムマニア [smf]
+Percussion Freaks 3rd Mix / ドラムマニア 3rd MIX[smf]
+ギターフリークス 4th Mix [smf]
+ギターフリークス 5th Mix [smf]
+Snooker 10 [Roberto Fresca]
+ParaParaDancing / パラパラパラダイス [Ian Patterson]
+キーボードマニア [Ian Patterson]
+キーボードマニア 2nd Mix [Ian Patterson]
+ポップンミュージック 7 [Ian Patterson]
+
+
+
+0.112u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+speakres0112yel [Zsolt Vasvari]
+minigolf0112u2gra [Derrick Renaud]
+empcity36finalyel [Aaron Giles]
+rdtsc0101u5yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Checkmate」にディスクリートサウンド追加: [Derrick Renaud]
+ * 新モジュールDISCRETE_ADJUSTMENT_TAG追加。ポートナンバーの代わりにタグを使用し
+   ます。この方が適切な方法なので、全部のゲームでこれを使うように更新しました。
+ * triplhntにPORT_CROSHAIRを追加
+
+- Konami 573システムのマイナーなアップデート: [smf]
+ * 2つのゲームに間違って動作不可タグがついていたのを修正
+ * 845jab02の正確なハッシュ追加
+ * フラッシュROM全てにNO_DUMP追加
+
+- 新ストリーミングエンジンとサウンドコードに関わる問題を修正: [Aaron Giles]
+ * セーブステートから復旧したときのクラッシュ
+ * -nosoundを指定したときのクラッシュ
+ * デバッガで停止したときの音のループ
+ * サンプルレートを変更したときのクラッシュ (YM2203など)
+ * k054539サウンドコアのクラッシュ
+
+- SN76477ノイズRNG polynomial追加。
+  [Zsolt Vasvari, Derrick Renaud, Jarek Burczynski]
+
+- Midway 8080ドライバのアップデート: [Zsolt Vasvari]
+ * mw8080bwゲームでステートロード後にフリーズするバグを修正
+ *「M-4」のDIPスイッチ順を訂正
+ *「Dog Patch」をPORT_POSITIONALにコンバート
+
+- RF5C400サウンドコアの改良: [hoot development team]
+ * ボリュームエンベロープ実装
+ * チャンネルボリュームの計算を修正
+ * リバーブ、コーラス、チャンネル毎のデジタルフィルタのドキュメント追加
+   (実装はまだ)
+
+- galspnblドライバのDIPスイッチと入力修正。[stephh, Justin Szczap]
+
+- 新マクロ、PORT_DIPUNUSEDマクロを使うように多くのドライバを更新。[stephh]
+
+- メモリプールルーチンの改良: [Nathan Woods]
+ - pool_clear()追加。プール自体は解放せずに、メモリプールのみをクリアします
+ - サイズゼロのpool_realloc()をサポート。プール内のポインタを解放します
+ - プール動作のテストコード追加
+
+- CJK文字のフレキシブルなワードラップ追加。また、ハイフンのラッピングも追加。
+  [MAME Plus! team, Aaron Giles]
+
+- T5182をサポート。darkmist、mustache、panicrにサウンドが追加されています。
+  また、YM2151のタイマー関係の問題が起きないように変更。さらに、
+ 「マスタッシュボーイ」にX軸反転追加。
+  [Nicola Salmora, Lord Nightmare, Ernesto Corvi]
+
+- 入力関係をさらに修正と改良: [Derrick Renaud]
+ * 入力システムでの動作がはっきりしないマスク、シフト、オーバーフローなどを修正。
+   sfootbalのアナログ操作や、redlin2pのアクセルペダルの動作などで、この修正がよ
+   くわかります
+ * アナログポートは、デフォルト値を設定ファイルにセーブ、またはロードしなくしま
+    した。ドライバで指定した値だけを使った方がよいです。これを保存すると、ゲーム
+    が再スタートすればするほど、値が変更されてしまいます
+ * アナログポートにバリディティテストを大量追加。一部は、問題が修正されるまでコ
+    メントアウト
+ * アナログポートのデフォルトが(0,mask)のPORT_MINMAXになりました。これにより、制
+    限をしていないときはPORT_MINMAXを指定する必要がなくなりました。不要になった
+    PORT_MINMAXエントリは削除しました
+
+- デフォルトでビットマップを0でクリアするように変更。いろいろなゲームでのランダ
+  ムなクラッシュが修正されます。[Aaron Giles]
+
+- ラスタ位置演算の処理結果安定のため、最も近いピクセルに丸めるよう改良。
+  [Aaron Giles]
+
+- ほとんどのサウンドコアについて、ユーザが指定した出力周波数ではなく、それぞれの
+  内部クロックレート(またはそれの倍数をかけたものか、分周したもの)でサウンドを生
+  成するように変更しました。これにより、ユーザ指定したサンプルレートと、オーディ
+  オエミュレーションを分離する計画の第2弾が完了しました。[Aaron Giles]
+
+- DMA-driven DACドライバのかなりヤバい部分がたくさんあったのを削除。
+  [Aaron Giles]
+
+- cchasmのカスタムサウンドコードを削除して、普通のDACに置き換え。[Aaron Giles]
+
+- attckufodドライバのクリーンアップ。1MHzの6502ゲームとして動作するように再変更
+  しました。[Aaron Giles]
+
+
+
+追加された未動作ゲーム
+----------------------
+ときめきメモリアル おしえてユアハート [R. Belmont]
+ときめきメモリアル おしえてユアハート シールバージョンPLUS [R. Belmont]
+
+
+
+0.112u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+ghouls097u4yel [MAME Italia Forum]
+hotchase0111u2gra [Brian Troha]
+bigtwin0111u4gra [Brian Troha]
+
+
+
+ソースの変更点
+--------------
+- ledutilで、ポーズから復帰したときにLEDのステートを保存するように改良。
+  [Bob Seidel]
+
+-「スキーチャンプ」の操作追加と、デバッグビルドでのクラッシュを修正。
+  [Ville Linde]
+
+- makefileでクリーンコンパイルのときマップファイルを削除するように更新。
+  [Dirk Best]
+
+- 入力システムの大幅変更: [Derrick Renaud]
+ * ドキュメント通りに-volumeのショートカット-volを追加
+ * ジョイスティック用の新オプション追加: -joy_deadzone, -joy_saturation
+    -a2d_deadzoneは削除。これらは、アナログと、アナログを変換したデジタルデータ
+    に適用されます。詳しくはwindows.txtをみてください
+ * アナログジョイスティックのデータは、IPT_POSITIONALコントロール用のデータチャ
+    ンクに分割されます。たとえば、エミュレートされた操作に7カ所のポジションがあ
+    る場合、ジョイスティックの軸はセンター位置から3つの方向に入力し、これにセン
+    ターを加えて合計7つになります。この方法のよい使用例が49方向スティックです。
+    ドライバの入力コード部では、IPT_POSITIONAL、PORT_POSITIONS(7)、
+    PORT_REMAP_TABLEを設定するだけです。
+ * IPT_PEDALコントロールはコア内で特殊ではなくなり、パドル同様にどんなコントロー
+    ラからも使えます。OSへの入力レベルから、全てのジョイスティック軸、および+/-
+    軸を提供するようにコードを変更しています。これにより、どのようなエミュレート
+    操作にも、軸の半分、または全部の範囲を利用できます。たとえば、Y軸のマイナス
+    値のみを出力するペダルでも、boothillのガンのフルレンジとして使えます。また、
+    全範囲をとるジョイスティックのスライダを、エミュレートとしてフルレンジに使用
+    できます。また、DECではなく、INCがペダルの値を増加するようになりました。
+ * メニューからプレイヤーの操作を設定するとき、アナログジョイスティック軸が最初
+    に選択され、フルレンジを使用します。同じジョイスティック軸をすぐ再選択すると、
+    +/-軸半分と切り替えできます
+ * アナログジョイスティックで、トラックボールのような相対的な入力デバイスをシミュ
+    レートできるようにしました。ジョイスティックで入力し続けると、トラックボールを
+    回転し続けるような動作になります。回転速度を上げたいときは、感度設定を変更し
+    ます
+ * マウスの+/-軸入力をボタン入力にできるように改良
+ * IPT_PADDLEとIPT_AD_STICKについて、デフォルト値がPORT_MINMAXと等しいときは、ジョ
+    イスティックレンジの半分を使用するペダルとしては動作しないように変更。軸の
+    +/-全部を使うように設定できます
+
+- acefruitドライバの更新: [stephh]
+ * 以前のリリースで無くなっていた'sidewndr'と'spellbnd'(旧'sidewnda')を追加
+ * 全てのランプとソレノイドが前面(何も無いところ)になるようにレイアウトを再構成
+ * ランプとソレノイドをリネーム
+ * starspnrを追加…でも吸い出し不良のためゲームは動きません (H11)
+
+- 将来のドライバに備えて、DISCRETE_OP_AMP_OSCILLATORを更新。
+  DISC_OP_AMP_OSCILLATOR_1、またはDISC_OP_AMP_IS_NORTONのオシレータで、 静的な値
+  だけだったの代えて、抵抗値を調整するためにノードを使用します。[Derrick Renaud]
+
+-「ルナーランダー」の推進操作を修正。[Derrick Renaud]
+
+- メモリプール管理用の新ユーティリティモジュールpool.c追加。auto_mallocをこのコ
+  ンセプトにたってリビルド。[Nathan Woods]
+
+- Eolith製ゲームの多くにスピードアップ追加。[David Haywood]
+
+- realbrkドライバにスプライト回転追加。これにより、パチンコゲームのハンドルや、
+  ビリヤードゲームのキュー位置と方向が修正。
+
+-「Amazing Maze」のディスクリートサウンド追加。また新ディスクリートモジュールを
+  追加: DISCRETE_LOOKUP_TABLE & DISCRETE_LOGIC_JKFLIPFLOP
+  [Derrick Renaud]
+
+- Cidelsaドライバの表示関係修正。Draceはまだ色が不完全。[Curt Coder]
+
+- Neo Geo ROMの名称と分類を修正。[JohnBoy]
+
+- GeeBeeドライバがおかしくなっていたのを修正。[David Haywood]
+
+- Konami System 573ドライバの大幅更新: [smf]
+ * emu\sound\cdda.cとmame\dirvers\ksys573.cにステートセーブ追加
+ * DS2401エミュレーション追加
+ * X76F100エミュレーション追加
+ * ZS01エミュレーション(System 573 PICのHLE)追加
+ * X76F041エミュレーションの書き込み追加
+ * 新ゲームを部分的にサポート
+
+- CPS1に明度の調整を追加。実機で確認。[MAME Italia forum]
+
+- K001604タイルマップチップエミュレーションを改良。[Ville Linde]
+
+- 一部のシステムでフォントにゴミが混じるのを修正。[Aaron Giles]
+
+- 新ツールmakemeta.exe追加。これは入力として特別にキャプチャしたAVI、または
+  Philipsのコードを手処理したセットのレーザーディスクCHDについて、正しいフォーマッ
+  トのメタデータとして生成するものです。[Aaron Giles]
+
+- 速度制限コードを、OSDレベルの不具合や不規則なフレームレートにより対応するよう
+  に書き直し。[Aaron Giles]
+
+- サウンドストリーミングエンジンを、サンプルベースからタイムベースでエミュレート
+  するように変更。これにより、ユーザ指定のサンプルレート(まだこれを使っている
+  一部のサウンドコアは除く。更新予定)から、エミュレーション動作が独立することに
+  なります。また、サウンド生成は描画のフレームレートから分離しました。サウンドは、
+  エミュレーション内の1秒あたり50回の固定間隔でOSDレイヤーへ送られます。このため、
+  OSDレイヤーへのサウンドを渡す方法も変更されることになります。これまでのように、
+  OSDレイヤーが各フレーム毎に任意のサイズのサンプルを要求するのではなく、コア側
+  からエミュレート時間を元に、しかるべき数のサンプルをプッシュする形になります。
+  [Aaron Giles]
+
+- サウンド用のOSDインターフェイスを単純化。osd_start_audio_streamと
+  osd_stop_audo_streamを削除; OSDの初期化コードでこれらの初期化が必要です。
+  また、osd_get_mastervolumeとosd_sound_enableも削除。メイン音量はemu/sound.cで
+  制御します。[Aaron Giles]
+
+- K054539がネイティブサンプルレートで動作するよう変更。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Crazy War [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+スーパーパズルファイター II Turbo (Asia 960529) [Nicola Salmoria]
+迷宮ハンターG (Japan, set 2) [David Haywood]
+チャイニーズヒーロー (Taito) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+ダンスダンスレボリューション (GC845 VER. JAB) [smf]
+ダンシングステージ - フィーチャリングトゥルーキスディスティネーション (G*884 VER. JAA) [smf]
+ダンスダンスレボリューション Solo Bass Mix (GQ894 VER. JAA) [smf]
+ダンスダンスレボリューションn Solo 2000 (GC905 VER. AAA) [smf]
+ダンスダンスレボリューション 3rd Mix [smf]
+Dance Freaks (G*874 VER. KAA) / ダンスダンスレボリューション [smf]
+ドラムマニア 2nd Mix (GE912 VER. JAA) [smf]
+ダンスダンスレボリューション 3rd Mix Plus (G*A22 VER. JAA) [smf]
+ダンスダンスレボリューション 4th Mix (G*A33 VER. AAA) [smf]
+ダンスダンスレボリューション Solo 4th Mix (G*A33 VER. ABA) [smf]
+ダンスダンスレボリューション USA (G*A44 VER. UAA) [smf]
+ダンスダンスレボリューション 4th Mix Plus (G*A34 VER. JAA) [smf]
+ダンスダンスレボリューション 4th Mix Plus Solo (G*A34 VER. JAA) [smf]
+ダンスマニアックス 2nd Mix (G*A39 VER. JAA) [smf]
+ダンスダンスレボリューション 5th Mix (G*A27 VER. JAA) [smf]
+ダンスマニアックス 2nd Mix アペンドJパラダイス (G*A38 VER. JAA ) [smf]
+サラリーマンチャンプ (G*A18 VER. JAA) [smf]
+DDR Max - ダンスダンスレボリューション 6th Mix (G*B19 VER. JAA) [smf]
+DDR Max 2 - ダンスダンスレボリューション 7th Mix (G*B20 VER. JAA) [smf]
+
+
+
+0.112u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+analog0112u1gra [Derrick Renaud]
+UItext0112u1yel [Aaron Giles]
+layout0112u1gre [Aaron Giles]
+pinbo0112u1gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- cidelsaドライバの改良: [Curt Coder]
+ - ステートマシンとしてCDP1802 CPUエミュレーションを書き直し
+ -「Draco」のDIPスイッチと入力修正
+ -「Destroyer」「Draco」にNVRAM追加（「Altair」には基板上にバッテリ無し）
+ - クロックを修正
+
+- spcenctrの宇宙船コントロールのマッピングを修正。[Canim]
+
+- プロジェクト全体で不要なヘッダファイルのインクルードを削除。[Atari Ace]
+
+- Namco 54xxの効果音にディスクリートフィルタ追加。また52xxの効果音にも将来の変更
+  に備えてフィルタを実装。[Derrick Renaud]
+
+- 出力システムでポーズのサポート: [Bob Seidel]
+ - MAMEがポーズしているが、クライアントからわかるようにOutputシステム経由で
+  "pause"のメッセージ送信を追加
+ - アイテムが最初に作成されたとき、そのステートを送るように変更
+ - ledutilでポーズステートを使うように更新
+
+- MillipedeドライバにカクテルモードとDIP配置追加。[Mike Haaland]
+
+- CPUS2キーをさらに追加で、全てのXORとそのサポートを削除。
+  [Nicola Salmoria, Andreas Naive]
+
+- ar_xeonドライバのスプライトがおかしくなっていたのを修正。[Ernesto Corvi]
+
+- Kanekoドライバの改良:
+ - bloodwar: [Gary Walkling, Sebastien Volpe]
+    * プロテクトデータの取り出し。まだ検証が必要
+    * 実機でのテストを元に当たり判定のシミュレート
+ - bonkadv: [Guru, Sebastien Volpe]
+    * プロテクトデータの完全検証: 2面と3面のタイルマップ色を修正
+    * MCUコマンド43を正しく実装
+
+- 680x0チップのMOVEC命令の動作を修正。逆アセンブラでも同様。[Ernesto Corvi]
+
+-「獣王記」セット2のサウンドROMを正しく指定。[Brian Troha]
+
+- FD1094キー2つでビット不良を修正。[Aaron Giles]
+
+- デバッガのバグで、アドレスシフトにより間違ったエンドオフセットが起きていたのを
+  修正。[Ville Linde]
+
+- コアユーティリティライブラリのコア機能の追加部分を移動。[Nathan Woods]
+
+- porkyにサウンド追加。[Tomasz Slanina]
+
+- フォントの拡大縮小を再度変更。24ピクセル以上の高さがあるものは古い方法でスケー
+  リングします。それより小さいものは、全体からのスケールファクタを使い、新しい方
+  法で調整します。[Aaron Giles]
+
+- FD1094のデコード段を少し最適化。[Aaron Giles]
+
+- 新モジュールをユーティリティライブラリlibutilに追加。一つは汎用のハフマンエン
+  コーディングモジュール。二つ目は、プラットフォームからは独立した形式でAVI
+  ファイルをリード・ライトするためのモジュール。三つ目は、ロスレスのA/V圧縮
+  モジュール。これら三つのモジュールにともない、圧縮オーディオとビデオのCHDを作
+  成できるように、CHDコードも変更しています。[Aaron Giles]
+
+- chdmanに新コマンド2つ追加: -createavはAVIファイルを未圧縮YUYフォーマットか、
+  HuffYUV圧縮のYUYフォーマットにコンバート。-extractavは圧縮オーディオとビデオを
+  含むCHDを未圧縮のYUYフォーマットのAVIファイルにコンバートします。[Aaron Giles]
+
+- 新オーディオ・ビデオ圧縮にレーザーディスクサポートの実装を完了。今のところは、
+  レーザーディスクデータのきちんとしたCHDはまだありません。ただし、これらが登場
+  すればサポートする体制は整いました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Altair [Curt Coder]
+Draco [Curt Coder]
+Wyvern Wings [Pierpaolo Prazzoli]
+長江 [Guru]
+アシュラバスター - エターナルウォリアーズ (Japan) [David Haywood, Guru]
+Blood Warrior / 大江戸ファイト [Sebastien Volpe]
+Deal 'Em (MPU4 Conversion Kit) [James Wallace]
+雀國志 - 覇王の采配 (Japan) [Guru]
+Dynamite Bomber (Korea) (Rev 1.5) [Guru, Pierpaolo Prazzoli]
+Search Eye 2 Plus V2.0 [Guru, David Haywood]
+
+
+
+新規クローンセット
+------------------
+ダンジョンズ＆ドラゴンズ - タワーオブドゥーム (Asia 940113) [Nicola Salmoria]
+エックスメン - チルドレンオブジアトム (Hispanic 950331) [Nicola Salmoria]
+Armored Warriors (Asia 940920) / パワードギア [Nicola Salmoria]
+ストリートファイターZERO (4セット) [Nicola Salmoria]
+ダンジョンズ＆ドラゴンズ - シャドーオーバーミスタラ (Brazil 960223) [Nicola]
+Mega Man 2: The Power Fighters (Asia 960708) / ロックマン2 [Nicola Salmoria]
+ストリートファイターZERO 2 (6セット) [Nicola Salmoria]
+エックスメンVSストリートファイター (7セット) [Nicola Salmoria]
+バトルサーキット (Asia 970319) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (2セット) [Nicola Salmoria]
+Super Gem Fighter: Mini Mix (Hispanic 970904) / スーパーパズルファイター [Nicola Salmoria]
+ハイパーストリートファイター2 (Japan 031222) [Nicola Salmoria]
+ギガウイング (Asia 990222) [Nicola Salmoria]
+1944 - ザループマスター (Japan 000620) [Nicola Salmoria]
+Progear (Asia 010117) / プロギアの嵐 [Nicola Salmoria]
+X-Men (4 Players ver JBA) [Brian Troha]
+餓狼 - Mark of the Wolves (海賊版) [David Haywood, JohnBoy]
+Puzzle Bang Bang (version 2.8 / 990106) [Guru]
+宇宙戦艦ゴモラ [Guru]
+
+
+
+追加された未動作ゲーム
+----------------------
+Candy Puzzle [David Haywood]
+Harem Challenge [David Haywood]
+Laser Quiz [David Haywood]
+Laser Quiz '2' Italy [David Haywood]
+Magic Premium [David Haywood]
+Laser Stixx [David Haywood]
+恋来 [David Haywood]
+スキーチャンプ [R. Belmont]
+
+
+
+0.112u1
+-------
+
+重要: このリリースではソースコードを大幅に再編成しています。このため、diffファイ
+ルが巨大になるので、diffでの更新はありません。
+
+新しいレイアウトは以下の通りです:
+
+makefile
+docs/
+src/
+  emu/        (旧src/ディレクトリからの汎用エミュレーションファイル)
+    cpu/      (src/cpuからCPUコア)
+    sound/    (src/soundからサウンドコア)
+    debug/    (src/debugからデバッガのコード)
+    audio/    (src/sndhrdwからの汎用オーディオファイル)
+    layout/   (src/layoutからの汎用レイアウトファイル)
+    machine/  (src/machineからの汎用マシンファイル)
+    video/    (src/vidhrdwからの汎用ビデオファイル)
+
+  mame/       (MAME用のドライバ)
+    drivers/  (src/driversからのドライバファイル)
+    includes/ (src/includesからのインクルードファイル)
+    layout/   (src/layoutからの大半のファイル)
+    machine/  (src/machineからの大半のファイル)
+    audio/    (src/sndhrdwからの大半のファイル)
+    video/    (src/vidhrdwからの大半のファイル)
+    etc/      (src/etcからのいろいろなファイル)
+
+  lib/        (ライブラリ)
+    util/     (srcから、軽い依存関係を持つファイル)
+    zlib/     (zlibライブラリ)
+    expat/    (expatライブラリ)
+
+  osd/        (OS依存コード)
+    osdmini/  (ミニOS依存コード)
+    windows/  (Windows OS依存コード)
+
+  tools/      (その他のツール類)
+
+これらの変更に伴い、makefileの改修も行っています。また、新しくビルド時の問題や、
+その他の影響があるかもしれません。見つけた場合はMAMETestersに報告してください。
+
+
+
+MAMETestersの修正バグ
+---------------------
+m4_0111u4gra [Mike Ellery]
+mouser0112yel [Mamesick]
+bnj0111u5ora [Canim]
+
+
+
+ソースの変更点
+--------------
+- Cidelsaドライバの改良: [Curt Coder]
+ - cdp1802のLSKP命令の逆アセンブリを修正
+ - cdp1802のOUT命令で、書き込みハンドラ呼び出し後にR(X)をインクリメントするよう
+   に変更
+ - cdp1869のディスプレイサイズと表示領域をデータシートに基づいて設定
+ - cdp1869のCFCエミュレーション追加（多分使われてませんが、完全性のために追加）
+ - ドライバのクリーンアップ
+
+- M2ドライバの改良: [Ville Linde]
+ - CDコントローラエミュレーションの初期型追加
+ - マルチプロセッサ機能と割り込みをさらに実装
+
+- C352サウンドエミュレータの改良: [cync, hoot development team]
+ - ループとフラグ処理を書き直し。グローバルキーオンレジスタをサポート
+ - ステートセーブ追加
+
+- MSVCでコンパイルすると、Neo Geoゲームで"Calendar error"が起こるので対策を追加。
+  [Atari Ace]
+
+- RF5C400サウンドエミュレータの大幅書き換え。ループ、ステレオパニング、8bitサン
+  プルのサポート。[hoot development team, Ville Linde]
+
+- mjleagueのパッチが不要になったので削除。[Arenzo Fabrice]
+
+- bubbletrのクロスヘア修正。[Canim]
+
+- mamedriv.cの情報をクリーンアップ。[Brian Troha]
+
+- gng.c、gunsmoke.c、lasso.c、solomon.c、terracre.cの全ゲームでセーブステートを
+  サポート。[Vas Crabb]
+
+- Namco 54xxサウンドチップを、オリジナルの組み込みROMを動作させるMB8844 CPUコア
+  と置き換え。古いサウンドコアは削除。「ポールポジション」「ボスコニアン」はサン
+  プルが不要になりました。[Nicola Salmora, Ernesto Corvi, Guru]
+
+- ドライバの数を返す新関数driver_get_count()を追加。[Nathan Woods]
+
+-「SDガンダム」「ヒーテッドバレル」用のプロテクトルーチンを大量追加。
+  [Angelo Salese]
+
+- 入力システムの変更: [Derrick Renaud]
+ - 新入力タイプ、IPT_POSITIONALを追加。これは「怒」などのロータリータイプや、
+  「シーウルフ」などのグレーコードデバイスで使用します。これにより、カスタムハン
+   ドラを使用せずに、ロータリースイッチや、グレイコード操作を追加できます
+ - コア入力コード部の、切り捨て、最小・最大値のエラーを修正
+ - 照準コードを実際の拡大率をベースするよう改良。「シーウルフ」などを参照。また、
+  必要なら、一つの入力ポートに対して複数の照準を持つこともできます
+ - namcos2の照準を再追加。キャリブレーションで必要
+ - 不要になったgwarの操作用ハックを削除。gwarの操作は、1フレームのみ使うように
+   変更
+ - boothill、gunfight、seawolf、spacenctrで新しいPROT_REMAP_TABLEを使用
+
+- exidy/ster-sb1000 6840ベースサウンドハードで、回路図を元に、正しいと思われる
+  LFSR/PRNGウェーブフォームを2次クロックソースに使用するよう修正。
+  [Lord Nightmare]
+
+-「Dragon Bowl」でサウンド割り込みにHOLD_LINEを使うように更新。同様の変更を以下
+  のドライバにも適用: afega, ettrivia, funybubl, jack, mustache, seta,
+   trvmadns, wink. [Pierpaolo Prazzoli]
+
+- 6809/6309 CPUコアで、CWAI/SYNCが使用されたときにMAMEデバッガを呼び出すよう変更。
+  [Nathan Woods]
+
+- 64bitビルドでrfjetがクラッシュするのに対応するため、video_dma_addressが初期化
+  しないで使用していたのを修正。[Ville Linde]
+
+- Motorola MPC8240をPowerPCコアに追加。[Ville Linde]
+
+- ZIPファイルの検索で、最初に名前とCRCが一致するもの、次にCRCのみの一致、最後に
+  名前のみの一致するものを探すように改良。[Ben Rudiak-Gould]
+
+- stepperの動作を実機で検証、改良。[James Wallace]
+
+- file2strがどのバイナリファイルでも動作して、文字列ではなくバイト列を出力するよ
+  うに変更。[Aaron Giles]
+
+- UIフォントサイズをさらにフレキシブルに変更。これにより、縦サイズ全体から拡大率を
+  割り出すので、大抵のフォントの表示バランスが改善するはずです。[Aaron Giles]
+
+- サウンドインデックスをタグで参照する関数sound_find_sndnum_by_tag()を追加。
+  [Aaron Giles]
+
+- osd_uchar_from_osdcharをosdcodeファイルライブラリのメンバに追加。[Aaron Giles]
+
+- MAMEに対する依存度が低い、新汎用ビットマップ管理コードを作成。ユーティリティ
+  コードとして使用できます。bitmap_allocでフォーマットパラメータを常にとるように
+  変更したので、bitmap_alloc_formatは廃止します。ビットマップ割り当て時にフォー
+  マットを渡しているドライバを全て更新しました。また、auto_bitmap_allocも同様に
+  変更しています。[Aaron Giles]
+
+- fileio.cから一部分をcorefile.cモジュールに分割。これはユニコードサポートが必要
+  なユーティリティや、OSDルーチントップのfopenスタイルなファイルI/Oで使用します。
+  また、mame_core_file()を追加、mame_fileからのcore_fileオブジェクトを構成して、
+  PNGやxmlfileコードで使用できます。[Aaron Giles]
+
+- タイニービルドの動作を変更。SUBTARGETのコンセプトを導入しました。デフォルトで
+  は、SUBTARGETはTARGET（MAMEのこと）と同じで、全て普通通りビルドします。インク
+  ルードされるmakefileは、src/$(TARGET)/$(SUBTARGET).makになります。そのため、タ
+  イニービルドをする場合は、“make SUBTARGET=tiny”と指定する必要があります。実
+  行ファイル名は$(TARGET)$(SUBTARGET)です。[Aaron Giles]
+
+- トラブルが多いようなので、ENABLE_BORDER_PIXを復活。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Cash Quiz [Pierpaolo Prazzoli]
+Sidewinder [smf]
+
+
+
+新規クローンセット
+------------------
+Power Spikes (China) / スーパーバレー'91 [Pierpaolo Prazzoli]
+ラスタンサーガ (Japan Rev 1) [Gerald Coy]
+Eco Fighters (USA 931203) / アルティミットエコロジー [Nicola Salmoria]
+アルティミットエコロジー (Japan 931203) [Nicola Salmoria]
+Eco Fighters (Asia 931203) / アルティミットエコロジー [Nicola Salmoria]
+Night Warriors: Darkstalkers' Revenge (Hispanic 950403) / ヴァンパイアハンター [Nicola]
+Night Warriors: Darkstalkers' Revenge (Brazil 950403) / ヴァンパイアハンター [Nicola]

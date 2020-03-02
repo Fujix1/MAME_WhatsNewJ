@@ -1,0 +1,47 @@
+0.78u3
+------
+
+ソース全般の変更：
+------------------
+
+■u2の変更で起きていた以下のバグを修正
+
+	DJGPPでcpuintrfをコンパイルするときのバグ [smf]
+	cpuintf.cのCPU_M6809Eのミスタイプ [Aaron Giles]
+	HD63705のアドレスバス幅 (namcos2のクラッシュ) [Aaron Giles]
+	namcos1のクラッシュ [Aaron Giles]
+	namcos21のクラッシュ [Aaron Giles]
+	mpatrolのクラッシュ [Aaron Giles]
+	ASM68kでコンパイルできない問題 [Aaron Giles]
+	boblboblが動作しない問題 [David Haywood]
+	circuscの'Ram Bad'エラー [David Haywood]
+	crospangのサウンドハンドラ [Pierpaolo Prazzoli]
+
+テスト及びバグ報告をする場合はこのバージョンに更新してください。
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+雀闘記 [Luca Elia]
+	src/drivers/dynax.c
+
+コンペティションゴルフ [Pierpaolo Prazzoli, Bryan McPhail]
+	src/drivers/compgolf.c
+	src/vidhrdw/compgolf.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+Golden Tee Golf (Trackball, v1.0) [Bryan Troha]
+	src/drivers/itech8.c
+
+与作とドン平 (set 2) [Stefan Jokisch]
+	src/drivers/8080bw.c
+
+Miss Mister World '96 Nude [Taucher]
+	src/drivers/galpanic.
+
+Space Thunderbird (ムーンクレスタのクローン) [Pierpaolo Prazzoli]
+	src/drivers/galaxian.c

@@ -1,0 +1,226 @@
+0.137u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02134: [グラフィック] ffight2b: 1面の後半開始直後、画面下に化けたラインが現れる。
+         (Angelo Salese)
+- 03396: [クラッシュ/フリーズ] nss_aten: 初期化画面からゲームが進まない。
+         (Angelo Salese)
+- 03397: [DIP/ 入力] nss_skin: 入力が効かない。(Angelo Salese)
+- 03116: [クラッシュ/フリーズ] nss_actr: スタート後にゲームが固まる。(Angelo Salese)
+- 03227: [デバッガ] 8080 CPUのAレジスタの値がFレジスタに設定される。Fに設定するとエラー
+         が出る。
+
+
+
+ソースの変更点
+--------------
+-「Championship Bowling」のデフォルトNVRAM実装とサンプルROMロード順の修正。
+  [David Haywood]
+
+- snes.c: タイル描画ルーチンを大幅に簡略化。モザイク表示のバグを2箇所修正。全てのゲー
+  ムでデバッグファンクションが正しく検出されるように修正。[Fabio Priuli]
+
+- snes.c: VRAMアクセス(アクティブディスプレイ中は無効)とDMA転送(全アドレスにはアクセ
+  ス出来ない)を改良。[Fabio Priuli]
+
+- snes.c: PPU->CPU HDMA転送有効化とHDMA変数をsnes_stateに移動。[Fabio Priuli]
+
+- snes.c: Anomy氏のドキュメントをもとに、HDMAの初期化と更新を追加。[Fabio Priuli]
+
+- namcos23: 超ラフな3D表示の初期実装。[O. Galibert]
+
+-「The Killing Blade」の親版をPGM BIOSに変更。[smf]
+
+- namcos23: ライティング追加。[O. Galibert, Naibo]
+
+- namcos23: タイルマップスクロール実装。ラスタIRQ改良。[R. Belmont]
+
+- snes.c: DMA転送読み込み時に必ずABUSバリディティチェックをするよう改良。タイルとVRAM
+  のアウトオブバウンズバグの可能性があったのを修正。[Fabio Priuli]
+
+-「Stocker」のセットを正しいものに置き換え。[Kevin Eshbach]
+
+-「ゴーリーゴースト」「バブルトラブル」にデフォルトNVRAM追加。[David Haywood]
+
+- namcos23: 3Dモデルスケーリング追加。[O. Galibert]
+
+- slot 72 のポーカーゲームを大幅改良。ゲームは「Poker Monarch」と判明。
+  [Angelo Salese]
+
+- m680x0 FPUのアップデート: [R. Belmont]
+ * Kファクターを含むBCD Packed Decimalをサポート
+ * NULLフレームリストア時のFPUリセットを含むFSAVE/FRESTOREの改良
+ * FREM命令をサポート
+ * FPU命令の逆アセを改良
+
+- superfx.c: CPUにセーブステート追加。[Fabio Priuli]
+
+- snes.c: ドライバステートにさらに変数を移動。アドレスの一部をオープンバスに設定し、
+  SuperFXのハンドラをSNES WRAMにアクセスしないよう変更。[Fabio Priuli]
+
+- namcos23: c361修正とアドレスの自動インクリメント。[O. Galibert]
+
+- snes.cの更なるWIP: [Fabio Priuli]
+ * SPC7110ハンドラのバグを修正(「天外魔境ゼロ」のテストで、これまでのMUL/DIVテストで
+   停止するのから、RTCテストまで動作してテスト失敗まで動作)
+ * 非常に初歩的な(しかもまだ動かない)SPC7110 RTCエミュレーションを実装
+ * Overloadのドキュメントをより反映するようDSP2ハンドラを更新(問題の発見と修正は
+   byuu氏)
+- byuu氏の発見を反映するようにアドオンチップのハンドラを更新
+
+- snes.c wip: リザーブメモリアドレスの読み込みでopen_busを返さないよう修正。
+  [Fabio Priuli]
+
+- input_deviceのポインタを不揮発に変更。input_device_add()に応えてこれらにポインタを
+  返すため、ポインタがその結果生じる追加後に変わらないようにします。[Aaron Giles]
+
+- snes.c: SRAMサイズの問題修正と、PPUレジスタ処理をvideo/snes.cに移動。[Fabio Priuli]
+
+- ppu2c0x.c: NES PPUのセーブステート追加と、クリーンアップを少々。[Fabio Priuli]
+
+- i386+ コアのアップデート: [Samuele Zannoli]
+ * CR4レジスタを追加
+ * bswap命令を追加
+ * 4MBページをサポート
+
+- chihiro.c: BIOS動作のためにマイナーなメモリマップの更新。[Samuele Zannoli]
+
+- ガンゲーム出力のクリーンアップと実装: [Howard Casto]
+ * drivers\othunder.c:「オペレーションサンダーボルト」の出力名を修正(これらはLEDに接
+   続されているもの)
+ * video\rastan.c:「オペレーションウルフ」の出力実装
+ * machine\midwunit.c:「Revolution X」の出力実装
+ * machine\midyunit.c:「ターミネーター2」の出力実装
+ * drivers\seta.c:「Zombie Raid」の出力実装
+
+- i386/NEC逆アセンブラを更新: [Alex Jackson]
+ * "MOV AL, offset"など(命令コードA0-A3)をセグメントオーバーライドの接頭句として正し
+   く設定
+ * NECのみにある命令を正しく逆アセンブリ(主にV25/V35のみの命令)
+ * i86とNECのCPUINFO_INT_MAX_INSTRUCTION_BYTESを、15から8に変更
+
+-「Dragon's Lair (Italian)」(dlital)に正しいROMを追加。[f205v]
+
+- supdrapo.cドライバの更新: [Roberto Fresca]
+ * 一般的なポーカー入力名とレイアウトに合わせて入力系の再構成
+ * ペイアウトスイッチ実装
+ * ウォッチドック用回路を追加。ゲームと外部デバイスのリセットに使う模様
+ * マシンスタートとリセットを追加
+ * クロックを全て事前定義化
+ * 不明なポートを入力に設定したときの書き込みを調べるため、ay8910インターフェイスを予
+   備的に追加
+ * 以下のDIPスイッチが判明: Auto Bet (No, Yes), Allow Raise (No, Yes), 
+    Double-Up (No, Yes), Minimal Winner Hand (Jacks or Better, Two Pair),
+    Deal Speed (Slow, Fast). Aces Type (Normal Aces, Number 1),
+    Cards Deck Type (english cards, french cards), Max Bet (5, 10, 15, 20)
+ * NVRAMサポート
+ * ドライバの再構成とクリーンアップ
+
+- hng64: サウンドROMロードを修正。[Andrew Gardner]
+
+- Nintendo 64のレンダラをクラスベースに書き直しとクリーンアップ。[Harmony]
+
+- texture_rectangle_32bitとfill_rectangle_32bitを削除して、これらを使用するゲームのバ
+  グレポートが出てくるのを期待してるみたいな。[Harmony]
+
+- cppcheckによる修正を適用。[Oliver Stoneberg]
+
+- SNESドライバでIRQイネーブルのフラグが無効なときは未処理IRQをクリアするよう設定。
+  [Angelo Salese]
+
+- midtunit.c: TMS340のパラメータを修正。[Alex Jackson]
+
+- namcos23: ズーム値を修正。[O. Galibert]
+
+- namcos23: Zソートの初期版。[O. Galibert]
+
+- [8080/8085 CPU] テスターバグ3227の修正。[Robbbert]
+
+- SNESドライバで、タイマー内のI/Oアップデートステータスを移動。[Angelo Salese]
+
+- cppcheckとVS2008コードアナリシスを元に、未使用変数とコードを無効化。
+  [Oliver Stoneberg]
+
+- Nintendo 64 / RDPの新型レンダラのテクスチャ問題を修正。[Harmony]
+
+- ジオメトリの問題を回避するため、RSPコアにある特定のDRC版ベクターロード・ストア命令を
+  無効化。[Harmony]
+
+- RDPコアの矩形描画を改良。[Harmony]
+
+- poly.c: パラメータ補完をよりしっかりしたものに改良。[O. Galibert]
+
+- namcos23: poly.cの問題を回避するため、とりあえずzclipをプッシュ。[O. Galibert]
+
+- G65816 CPUコアで、MモードのときのMVNとMVP命令の境界チェックを追加。[Angelo Salese]
+
+- MESS用の新入力型IPT_KEYPADを追加。フル機能キーボードとキーパッド操作を区別するため。
+  [Fabio Priuli]
+
+- skyarmy (skyarmy.c)  [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+ * 部分的な画面反転を扱うためにメモリマップを更新
+
+- DIPスイッチと入力の修正(Z80コードの検証による): [stephh]
+  scobra, scobrase, scobras, scobrab, suprheli, moonwar, moonwara, armorcar, 
+  armorcar2, tazmania, anteater, calipso, losttomb, losttombh, spdcoin, superbon 
+  (galaxian.cドライバ + galdrvr.c)
+
+- namcos23: ポリゴンの強制的な最前面表示ビットを発見。[O. Galibert]
+
+- info.c: xml出力にキーボードとキーパッド操作を追加。[Fabio Priuli]
+
+- SNESドライバのマスタサイクルディレイサポートに向けた第一歩。[Angelo Salese]
+
+- SNESドライバのDMAにおけるマスタサイクル流用処理を基本実装。[Angelo Salese]
+
+- SNESドライバのメモリマップにおけるマスタサイクル流用処理を基本実装。[Angelo Salese]
+
+- snes.c: S-DD1ゲームのDMA問題を修正。[Fabio Priuli]
+
+- 1943.c: ROM名訂正。[Bill D, The Dumping Union]
+
+- segaybd.c:「レールチェイス」のIC26を再ダンプ。PCBボードID番号追加、ROM名の訂正。
+  [ANY]
+
+- makefileにgprofサポート追加。[Bryan Ischo]
+
+- コード実行前にOPTION_READCONFIGオプションが、コンフィグファイルの設定を現在の設定に
+  取り込もうとしているかどうかのチェックを追加。これは、OPTION_READCONFIGがFalseなら
+  ば、全てのコンフィグファイルは無視してもよいので、この動作自体必要がないからです。
+  [Bryan Ischo]
+
+- mame.cのメモリリーク修正。[Bryan Ischo]
+
+- render.cのダブルフリーエラー修正。[Bryan Ischo]
+
+- core_strdupについて、mallocではなくosd_mallocを使うように変更。[Bryan Ischo]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+レールチェイス (World) [Dumping Union]
+High Impact Football (rev LA2 12/26/90)
+  [A. Hoekman, tormod, Smitdogg, The Dumping Union]
+Shark Party (english, alpha license) [Kevin Eshbach, Smitdogg, The Dumping Union]
+Touchmaster 8000 (v9.02 Standard) [Bill D., The Dumping Union]
+リッジレーサー (Full Scale, 1993-12-13, World)
+  [tormod, Smitdogg, The Dumping Union] (動作せず, ボードセット不完全)
+Super Draw Poker (set 2) [Roberto Fresca, Team Europe, Dumping Union]
+スーパーフットボールチャンプ (Ver 2.4O) [Caius]
+ストリートファイター (US, set 2) (protected) [Bill D & the Dumping Union]
+スリルドライブ (JAB) [The Dumping Union]
+ムーンベース (set 2) [jmurjr, D. Maeby, Charles MacDonald, The Dumping Union] 
+Vapor Trail - Hyper Offence Formation / 空牙 (World revision 3?) [f205v, Tirino73] 
+Cherry Bonus III (alt, set 2) [Anonymous]
+
+
+
+追加された未動作ゲーム
+----------------------
+Lucky Boy / Poker 72 [David Haywood]
+プリント倶楽部 ポケモンB [Guru]

@@ -1,0 +1,197 @@
+0.138u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00948: [グラフィック] batsugun: エンディングとスタッフロールのテキストが間違ってい
+         る。(David Haywood)
+- 03832: [サウンド] monymony, jackrabt: クレジット投入時のボイスが鳴らない。0.137u4の
+         TMS5200のアップデートより発生。(couriersud)
+- 00946: [グラフィック] batsugun, batsuguna, batsugunsp: 1面の初めと、最初のボスのと
+         ころで、グラフィックのゴミが表示される。(David Haywood)
+- 03445: [クラッシュ/フリーズ] znpwfv: ゲーリー・オブライトを選んでゲームを始めようと
+         するとクラッシュする。(Angelo Salese)
+- 02642: [クラッシュ/フリーズ] myfairld: [バグかもね] ゲームモードを1Pにすると、黒画
+         面しか表示されなくなる。(Angelo Salese)
+- 01009: [クラッシュ/フリーズ] grdforce: サービスモードに入って"Each Game Test"を選ん
+         でも動作しない。(Angelo Salese)
+- 03710: [クラッシュ/フリーズ] sokyugrt: プレイヤーを選択するとゲームがクラッシュする。
+         (Angelo Salese)
+- 02567: [色/パレット] All Sets in zaccaria.c: マイナーな色の問題がある。(hap)
+- 00799: [グラフィック] monymony: 鮫かワニにプレイヤーが食われるときのプライオリティ
+         がおかしい。(hap)
+- 03474: [サウンド] wilytowr: 0.129u6からBGMの音量がとても低い。効果音も何やら変になっ
+         ている。(hap)
+- 03853: [グラフィック] ssriders and clones: 一部のスプライトが画面に残る。(hap)
+- 03817: [グラフィック] popflame + clones: 前に比べて色がおかしくなった。
+         (Angelo Salese)
+- 03816: [クラッシュ/フリーズ] popflame: 3面を過ぎて4面が表示されるとすぐにゲームがリ
+         セットする。(Angelo Salese)
+- 03852: [ゲームプレイ] 20pacgal, 20pacgala: イニシャル入力後に速度が大幅に落ちる。
+         (couriersud)
+- 03476: [クラッシュ/フリーズ] quartet, quarteta, dumpmtmt: 黒画面のままゲームが始ま
+         らない。(Alex Jackson)
+
+
+ソースの変更点
+--------------
+- NEC-Vコアより、存在しない"premov"命令への参照を全て削除。[Alex Jackson]
+
+- UNICODE_POSTFIXを使ってスタックウォークを修正。winmain.cの間違った関数宣言を訂正。
+  [Oliver Stoneberg]
+
+- cps2: ssf2tを親セットに変更。[Alex Jackson]
+
+- 新ドライバ追加: sigmab98.c [Luca Elia]
+
+- astrocorp.c: Astro M1.1とM1.2基板のレイアウト図を追加。[Brian Troha]
+
+- デフォルトではオフになっているaladblのエネルギーバーについて、デバッグ用表示切り替
+  えについてドキュメント追加。。[Angelo Salese]
+
+- aladblで穴に落ちた時のクラッシュを修正。[Angelo Salese]
+
+- Z180タイマとHALT処理を改良。これによりMT03852が修正。[Couriersud]
+
+- Konamiデバイス: スプライトZコードのリジェクション不具合修正。[hap]
+
+- Nintendo Super System BIOSの基本実装。[Angelo Salese]
+
+- namcos2: ピクセルマップ回転処理の最適化、「アサルト」などこの機能を使うゲームのパ
+  フォーマンス向上。[Bryan Ischo]
+
+- tecmo.c:「Rygar / アルゴスの戦士」基板のドキュメント追加。[Guru]
+
+-「ポップフレーマー」3面のプロテクト不具合についてドキュメントと対策追加。
+  [Angelo Salese]
+
+-「Naughty Boy」ハードウェアで、RESNETを使いパレット初期化処理を書き直し。
+  [Angelo Salese]
+
+- Z180で、より正確な内部I/Oとタイマ処理、また割り込み優先度の実装のベースとなるサイク
+  ル算出方法を書き直し。また、未使用のBIG_SWITCHコードを削除。[Couriersud]
+
+- MPU4の更新: [James Wallace]
+ * トラックボールをサポート
+ * クイズゲームの操作を修正
+ * AWPゲームのキャラクタライザ処理を再構成
+
+-「フォトY2K 2」の復号テーブルを追加。[iq132]
+
+- Z180の割り込みとタイマ処理を改良。セーブステートエントリの追加とHALTの修正。
+  [Couriersud]
+
+- ROM/RAMバンキングの書き直し。20pacgalでセーブステート動作。[Couriersud]
+
+-「ペンゴ」「ジュニアパックマン」にDIP LOCATIONS追加。[Tafoid]
+
+- zaccaria.c: スプライト描画の改良、DIP配置の追加。[hap]
+
+- スーパーファミコンボックスをMESSからMAMEに移植。[Angelo Salese] 
+
+- Naomiで、画面下に黒い線がたくさん表示されるのを防ぐため、クリッピング処理を少し変更。
+  [David Haywood]
+
+-「ワイアラエの奇蹟」「スーパー麻雀2」(スーパーファミコンボックス)。[Angelo Salese]
+
+-「グルーヴオンファイト」の起動用ハック削除。もう不要です。[Angelo Salese]
+
+- ST-VビットマップのX/Y境界チェックを追加。[Angelo Salese]
+
+- atarigx2.c:「Moto Frenzy Mini Deluxe」基板を元にROM名の修正。"Clarn"ゲームリンクサ
+  ブ基板のROMを追加。[Charles MacDonald, P. Sealy, Smitdogg, The Dumping Union]
+
+- 20pacgalにlfsr動作の星空表示を追加。基本動作は判明したものの、星セットの選択と描画
+  条件はいまのところ推測。[Couriersud]
+
+-「ギャラガ」ドライバのグローバルと静的変数をmachineクラスに移動。一部の変数名を変更。
+  galaga_videoramとbosco_videoramをvideoramになど。[Couriersud]
+
+- 新しいDECOカセットBIOSの追加と、ROM名、ロケーション、タイプをさらに正確なものに更新。
+  [Lord Nightmare, The Dumping Union]
+
+- micro3d.c: botssaにPLDダンプ追加。[Phil Bennett, Smitdogg]
+
+- danchihのタイトル画面の不要なハックを削除。[Angelo Salese]
+
+- ZaccariaハードウェアでTMS5200クロックの再確認とVSyncクロック測定。
+  [Corrado Tomaselli]
+
+- input.cにdebug_global_input_code_pressed_once()を追加。[Angelo Salese]
+
+- TMS5220インタフェースにreadyqコールバック追加。これはMT3832を修正するのに必要です。
+  Zaccaria製ゲームでは、intqとreadyqがピア6821のエッジドリブンなca2ラインとcb1ライン
+  に接続されています。readyqだけを読み込むと、readyqが0-1-0となるときのステージ変更を
+  見逃すことになります。zaccaria.cとlooping.cを更新し、MT3832が修正しました。
+  [Couriersud]
+
+- toaplan2ドライバのタイルマップとスプライト描画をシングルパスで行うように書き直し。
+  まだ実機に対してもっと正確にする必要があります。
+  注意: これにより「バツグン」と「ドギューン」のミキシングがさらに変になります。以前
+  のハックは新レンダリングコードでは動作しないためです。これらのゲームは、解決策が見
+  つかるまでNOT_WORKINGステータスに降格しておきます; いずれにせよ、サポートに表示用ハッ
+  クが必要な限り、このゲームは正しく動作していたとは言えません。[David Haywood]
+
+- ドキュメント: 製造元名をクリーンアップ。[hap]
+
+- NSC800 CPUエミュレーションをZ80コアに追加。[Sandro Ronco]
+
+-「アレスの翼 / Legendary Wings」の実基板速度を元に更新。[Corrado Tomaselli]
+
+- decocassのコメント、BIOS名についてD.Widel氏ページの情報をもとに更新。
+  [Lord Nightmare, David Widel]
+
+- toaplan2: batsugunとdogyuunのスプライト間プライオリティ修正。[robiza]
+
+-「スーパーGT24h」「オーバーレブ」用の最低限なネットワークボード対策を追加。アトラク
+  トモードまで動作可能。[Angelo Salese]
+
+- Revision 9295 by rbelmont
+  SDL: GTK+ 2.20以降へのコンピレーション修正。[R. Belmont, Wingman]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ゲゲゲの鬼太郎 妖怪スロット
+   [A. Hoekman, ranger_lennier, Smitdogg, The Dumping Union, Luca Elia]
+Video Carnival / Super Royal Card [f205v, Angelo Salese]
+Mouse Attack [Phil Bennett, Smitdogg]
+Super Game III [Mariusz Wojcieszek, Guru]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Golden Tee 2K (v1.00) (alt protection) [Guru, Brian Troha]
+1943 (Euro) [Stefan Lindberg]
+ファンタジーゾーン (NEC 0317-5000 encrypted Z80)
+  [Cools, Andrew Welburn, The Dumping Union]
+エックスメンVS.ストリートファイター (Asia 960910) [ANY, The Dumping Union]
+エックスマルチプライ (Japan, M81) [hap, porchy]
+The Crystal Maze (2 sets) [James Wallace]
+The Crystsl Maze Team Challenge (2 sets) [James Wallace]
+The New Crystal Maze Featuring Ocean Zone (2 sets) [James Wallace]
+Road Riot's Revenge (プロトタイプ, set 3) [Siftware]
+インドアサッカー (set 2) [Siftware]
+Ms. Pacman Champion Edition / Zola-Puc Gal
+  [Andrew Welburn, The Dumping Union]
+ヘビーウエイトチャンプ (Japan, FD1094) [Team Japump, Dumping Union]
+Super Draw Poker (海賊版) [f205v]
+Ms. Pac-Man/Galaga - 20 Year Reunion (2 sets) 
+  [Brian Troha, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Win Win Bingo (2 sets) [f205v, Filippo Tarderia]
+Zoo [Brian Troha, The Dumping Union]
+X Five Jokers [f205v]
+Magic Number (Italian Gambling Game) [f205v]
+Magic Class [f205v]
+Abacus [f205v]
+Euro Class [f205v]
+Book Theatre [f205v]
+スーパーファミコンボックスBIOS [Angelo Salese]

@@ -1,0 +1,604 @@
+0.88 (0.87u5のwhatsnew.txt詳細も含む)
+
+全般的な改良点：
+----------------
+
+- Sega FD1094(暗号化命令68000CPU)のエミュレーションを追加しました。これにより、
+  暗号化されているSega製ゲームで大幅な進展が可能になるでしょう。ただし、これらの
+  ゲームをエミュレートするには、動作可能なCPUから暗号化データを取り出す必要があ
+  ります。詳しくはhttp://cgfm2.emuviews.com/をチェックしてください。このコードの
+  導入により、暗号化されたゲームがいくつか動作すると思います (astorm, ddcrew, 
+  wb3a, wb3b, tetris, ddux, sonicbom など)
+    [Charles MacDonald - CPUからのデータ抽出, Nicola Salmoria - 解読コード]
+
+- Mame32Plusよりいろいろな修正。
+    ay.diff: AY8910系でのステートセーブサポート
+    crbaloon.diff: BGM追加
+    darius.diff: FM/ADPCMバランス修正
+    f3.diff: landmakrのサウンドロード修正
+    harddriv.diff: 配列サイズ不足でメモリが切り捨てられていたのを修正
+    mario.diff: ステートセーブサポート
+    qsound.diff: ステートセーブサポート
+    renegade.diff: ブレイク修正; MCUシミュレーション内
+    s16.diff: FM/ADPCMバランス修正
+    scsp.diff: 配列サイズ不足でスタックが切り捨てられていたのを修正
+    ssv.diff: hypreac2のサウンドロード修正
+
+- i960とModel2のアップデート。[R.Belmont, ElSemi]
+    i960:
+    - movlのバグ修正 (ElSemi)
+
+    model2:
+    - i960の修正によりhotdとlastbrnxのハックを削除
+    - ポート0スイッチング追加。一部のゲームで2Pスタートが動作 (ElSemi)
+    - ワーキングタイマー追加。タイマーIRQも
+    - ゲームステータスのリスト更新
+
+- C99関係のコンパイラの問題修正。[Jeff Mitchell, Lawrence Gold]
+
+- ppmast93ドライバ更新。まだプレイ不可。[David Haywood]
+
+- ディスクリートサウンドの変更。[Derrick Renaud]
+
+    ディスクリートサウンドの変更
+    ============================
+    * コードが読みやすいようにさらにクリーンアップ
+
+    新規追加ディスクリートモジュール
+    ================================
+    * DISCRETE_NOTE - 音/BGM生成用のカウンタ回路
+    * DISCRETE_INTEGRATE - いろいろなオペアンプをまとめた(ramp)回路
+    * DISCRETE_OP_AMP_TRIG_VCA - なんて呼べばよいかちょっと不明 :-)  
+        基本的には電圧プログラムが出来るアンプですが、ON/OFFにしか使われ
+        ていません。ライズ・フォールタイムを選択するレジスタを装備してい
+        ます。また、完全な電圧制御増幅回路ではなく、実際には入力信号の最
+        低値の切り捨て量で増幅量を調節します。ですが一般的な回路です
+
+    ドライバの変更
+    ==============
+    * polaris - 新コンポーネントを使うようにサウンド部を完全に書き換え。
+        ウォッチドッグタイマーの実装
+
+- ウォッチドッグの新機能追加。[Derrick Renaud]
+
+    ドライバの変更
+    ==============
+    * dominos, sprint1, sprint2, dragrace, canyon, nitedrvr - ウォッチドッ
+    グの追加と、MDRV_WATCHDOG_VBLANK_INITを使用する正確なタイムに変更
+    * firetrk, montecar, superbug, pacman, polaris - ウォッチドッグタイムを
+    MDRV_WATCHDOG_VBLANK_INITを使用する正確なものに変更
+    * galpania, galpanib - ゲームスタート時にウォッチドッグの初期化が必要な
+    ため、MDRV_MDRV_WATCHDOG_VBLANK_INITに変更
+
+    コアの変更
+    ==========
+    マシン起動時にウォッチドッグを動作開始できるように変更。これを使用しない
+    場合は以前のウォッチドッグの動作になります。この2種類のウォッチドッグの
+    うち、各ゲームで定義できるのは1つのみです。両方が定義されると、
+    MDRV_WATCHDOG_VBLANK_INITが使われます
+
+    * MDRV_WATCHDOG_VBLANK_INIT(watch_count) - MACHINE_DRIVER_でウォッチドッ
+    グを初期化します。watch_countは強制リセットまでの垂直ブランク期間数です。
+    タイムが不明の場合、以下のデフォルト値を使用できます：
+    DEFAULT_60HZ_3S_VBLANK_WATCHDOG, DEFAULT_30HZ_3S_VBLANK_WATCHDOG
+
+    * MDRV_WATCHDOG_TIME_INIT(time) - MACHINE_DRIVER_でウォッチドッグを初期
+    化します。timeには強制リセットまでの時間を秒で指定します
+
+    * ゲーム内でウォッチドッグのON/OFFをする関数追加：
+    watchdog_enable(0 | 1) - 0=無効, !0=有効
+
+    * 74LS122、LS123のパルスタイムを求めるマクロ作成：
+    TIME_OF_74LS123(r,c)
+    rはΩ、cはFを指定。cは1000pF以上
+
+
+- バリディティチェックを無効にするランタイムオプション追加。[Derrick Renaud]
+
+    追加したランタイムオプション：
+    -[no]skip_validitychecks
+        MAMEがコードのバリディティチェックをするのをスキップできます。デフォ
+        ルトはOFF(-noskip_validitychecks)です。
+
+    デフォルトではコードテストをします。不要なときはONにすれば起動時間を短縮
+    できます
+
+    注：提出用コードではチェックをオフにしないでください
+
+- u3のクリーンアップでVoodooのコードがおかしくなっていたのを修正。[Aaron Giles]
+
+- u3のクリーンアップでqdrmfgpが動作しなくなっていたのを修正。[Olivier Galibert]
+
+- chdmanのカットアンドペーストなエラーを修正。[Ren&eacute; Single]
+
+- maydayの入力修正。[Stefan Jokisch]
+
+-「パズルクラブ」のDIP修正。[Brian Troha]
+
+- 入力ポートシステムの更新。[Aaron Giles]
+
+    PORT_INCLUDE()：以前と同様の動作をするようになりました
+    PORT_MODIFY("tag")：tagで指定するポートを変更できます
+
+    PORT_MODIFYよりも後ろで同じエントリのPORT_BIT()を使うと、手前の定義は無
+    効になるので、新しいもので上書き可能です
+
+    新しい関数も追加しました：
+
+    readinputportbytag_safe()：タグとデフォルト値を取ります。タグが無い場合
+    はデフォルト値が返されます
+    port_tag_to_handler8()
+    port_tag_to_handler16()
+    port_tag_to_handler32()：これら3つは、タグ文字列により入力ポートを見つけ
+    出して割り当てられているハンドラを返します。AM_READ内で使用可能なので、
+
+      AM_RANGE(0x00, 0x00) AM_READ(input_port_1_r)
+
+    という代わりに、以下のようにできます：
+
+      AM_RANGE(0x00, 0x00) AM_READ(port_tag_to_handler8("MyPortName"))
+
+    この機能のテストとしてexidy.cを変更してあります。問題があった場合は知ら
+    せてください
+
+
+- メモリシステムの変更・修正。[Aaron Giles]
+    * リード/ライトハンドラ用のシフトデータ/マスク演算時のメモリハンドラ幅の
+    明示的な型変換を追加しました。理論的にはR.Belmont氏の64bitの問題が直るは
+    ずです
+
+    * memory_install_read/write8/16/32/64_matchmask_handler関数を追加しまし
+    た。match/mask(AM_SPACEスタイル)メモリ領域を動的に確保できます。
+    AstrocadeドライバのFrank P氏のリクエストによる追加です
+
+    * match/maskペアのマスキング動作を変更。AM_MASK付のAM_SPACEが明示的に定
+    義されたマスク値を拡大しないようにしました。dwidel氏が「パックマン」を正
+    確にする際に起きていた問題が直ったはずです
+
+    * 動的バンク割り当てについて、AM_MASKでマスク値を明示定義した場合、常に
+    割り当てを行うように変更。これによりAM_MASKでのミラーリングもできますが、
+    AM_MIRRORを使うようにしてください
+
+-「フィグゼイト」海賊版のOKIバンキングを修正。[Quench]
+
+- その他の変更。[Derrick Renaud]
+
+    ドライバの変更
+    ==============
+    * firetrk, montecar - サービスモードに出入りするときにCPUクロックが正し
+    く変更されるように修正
+
+    コアの変更
+    ==========
+    新ウォッチドッグ導入で残っていた問題を修正。特定の条件で、
+    watchdog_enable(0)を呼び出しても無効になりませんでした
+
+    ゲーム中にCPUクロックスピードを変更する新しい機能を追加しました。これま
+    でと同じ倍率設定が適用されます。例えば、倍率が50%のときにCPUのクロックを
+    1MHzに変更すると、実際のCPU速度は500kHzになります。ただ、ドライバ側から
+    は倍率は見えないのでクロックスピードは1MHzと表示されます
+
+    /* スケーリングしていないCPUの実際の動作クロックを返す */
+    int cpunum_get_clock(int cpunum);
+
+    /* CPUのクロックスピード設定後、スケーリングを調整する */
+    void cpunum_set_clock(int cpunum, int clock);
+
+-「Steel Force」の問題修正。[Pierpaolo Prazzoli]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+F-1グランプリスターII [Brian Troha]
+    ROMリダンプ
+
+ソニックブーム [Charles MacDonald, Nicola Salmoria]
+
+Mighty Warriors [Pierpaolo Prazzoli]
+    スプライト不具合あり
+
+Twins [David Haywood]
+    EEPROM不明
+
+Greyhound Selection [Pierpaolo Prazzoli]
+
+BMC Bowling [Tomasz Slanina]
+    BGM無し、表示不具合あり
+
+フィールドコンバット [Tomasz Slanina]
+    スプライト表示色不良
+
+ギャロップレーサー3 [smf]
+    サウンド系の問題あり
+
+タンク8 [Stefan Jokisch]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+
+テトリス (Sega) (2 encrypted sets) [Charles MacDonald, Nicola Salmoria]
+
+ワンダーボーイIII モンスターレア (2 encrypted sets) 
+ [Charles MacDonald, Nicola Salmoria]
+
+Greyhound trivia (alt questions) [Pierpaolo Prazzoli]
+
+アストロブラスター (version 2a) [Mash]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+D.D.クルー [Charles MacDonald, Nicola Salmoria]
+    System 18エミュレーションに問題あり
+
+ダイナマイトダックス (original) [Charles MacDonald, Nicola Salmoria]
+    System 16エミュレーションに問題あり
+    
+BC Story (set 2) [David Haywood]
+    プロテクト関係の問題か？
+    
+Super GX [Mash]
+    ROM不良
+
+Skelagon [Mash]
+    ROM不良
+
+バーチャフォーミュラ
+    バーチャレーシングと同じ問題あり
+
+
+
+0.87u4
+
+全般的な改良点：
+----------------
+
+- u3でAtari/Midayドライバのゲームがクラッシュしていたバグを修正。
+  [Olivier Galibert]
+
+- ソース名のcfgファイルがセット名のcfgとだぶって保存されるのを変更。
+  [Ren&eacute; Single]
+
+- memory.hの静的な関数の実装をインラインに変更。[Brad Oliver]
+
+- Hyper Neogeo 64のレンダリングを改良。3Dグラフィックも表示されるようになりまし
+  たが、エミュレーションはまだ不完全です。「餓狼伝説ワイルドアンビジョン」が起動
+  するにはまだハックが必要です。
+    [Andrew Gardner, Rasterizing code provided in part by Andrew Zaferakis]
+
+- FD1094 CPU 317-0092のステータス0x00〜0xff（0x00はリセット、0x10はIRQ）の解読を
+  するコード追加。これは「テトリス」で使っているCPU。コード自体の実装はまだ。
+  [Nicola Salmoria]
+
+- instr86.cを以下に基づいて変更：
+
+  cpu/i86コードのCMPSW命令をエミュレートする部分に、カット＆ペーストのミスのよう
+  なバグあり：instr86.cの524行目で、SUBW()マクロを呼び出すところがSUBB()を呼び出
+  していてる
+    [Juergen Buchmueller]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Puzzle Club (Yun Sung) [Pierpaolo Prazzoli]
+Pop Bingo [David Haywood]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Explosive Breaker (爆裂ブレイカーのマスタセット) [David Haywood]
+ストリートファイター2 EX (USA) [Brian Troha]
+トップレーサー (海賊版, set 2) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Funny Strip [David Haywood]
+    プロテクト未エミュレート?
+
+Ping Pong Masters '93
+Twin Brats
+Twins
+Mighty Warriors
+    上の4ドライバはまだ作業中
+
+
+
+0.87u3
+
+全般的な改良点：
+----------------
+
+- Exidy製ゲームのアップデート。[Aaron Giles]
+    このアップデートはExidyドライバのクリーンアップがメインです。メモリマッ
+    プのマージや、実機では存在していないRAMをかなり削除しました。さらに海賊
+    版も何本かで入力ポートの修正をしています。
+
+- Cinematronics Vectorドライバのアップデート。[Aaron Giles]
+    * CCPUコアをシンプルになるように完全に書き直して、MAME流にしました
+    * CCPUの逆アセンブラで“オフィシャル”なシンタックスを使うように書き直し
+    * 新しく見つけたプロトタイプゲーム「QB-3」追加
+    * 全部のゲームでCCPU用のPROMが必要になりました
+    *「バリアー」「スターホーク」「War of the Worlds」「Boxing Bugs」にサウ
+      ンド追加（サンプルはまだありませんが、Zonn Moore氏と共同で「バリアー」
+      以外について作業中です）
+    * Zonn氏のドキュメントと回路図に基づき全ゲームのサウンドルーチンを書き直
+      し
+    *「Demon」のサウンド修正（以前のはぜんぜん間違い）
+    *「Solar Quest」で、サンプルの代わりに矩形波のループでBGMがかかるように
+      サウンド処理を変更
+    *「Solar Quest」で64レベルのサポート
+    *「Boxing Bugs」「War of the Worlds」のカラーサポートを修正
+    * 星が光るエフェクト追加（vector.cを更にアップデートする必要有り）
+    *「War of the World」を「Star Castle」のアップグレードとしてよくあるよう
+      に白黒画面版に変更
+    * wotwcをカラーハード版として追加（同じROM）
+    * 全ゲームの入力ポートのクリーンアップと修正
+
+- Namco ICのアップデート。[Phil Stroffolino]
+    System FL、Namco NB2、Namco System 2の一部で使っている拡張ROZチップの修
+    正。「マッハブレイカーズ」の大幅改善と、各ゲーム固有のROZハックを削除
+
+    System2ゲームのROZシステム修正; 「ドラゴンセイバー」の不具合修正
+
+    多くのNamcoタイトルで使われいるタイルマップシステムのアブストラクト
+
+    メモリマップのマージ
+
+    このROZの修正でカスタムコードを多く使うようになってしまったので、
+    tilemap.cのROZサポートに一時的な制限追加。機会があればtilemap.cの改良
+    予定
+
+- jalmah.cの改良。[Angelo Salese]
+
+- recalhとintcup94のサウンド改善。[David Haywood]
+
+- GCC 3.4.2でのコンパイラ警告をクリーンアップ。[Olivier Galibert]
+
+- Segaデクリプトの更新に備えてC68kコアに機能追加。[Olivier Galibert]
+
+- GNETバイオスROMの実装。起動画面が表示。[smf]
+
+- xfilesドライバの改良。起動画面が表示。[Tomasz Slanina]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+QB-3 (プロトタイプ) [Aaron Giles]
+    グラフィックの問題あり
+スペースレイダー [Frank Palazzolo]
+    グラフィック関係と基板との比較が必要な問題あり
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+War of the Worlds (color) [Aaron Giles]
+オペレーションサンダーボルト (US, older) [Fabrice Arzeno] 
+Killer Instinct (proto v4.7) [Aaron Giles]
+Killer Instinct 2 (v1.0) [Aaron Giles]
+Farmer Rebelion (いっきのクローン版) [Pierpaolo Prazzoli]
+Atlant Olimpic (trackfldの海賊版) [Pierpaolo Prazzoli]
+銀河任侠伝 (set 2) [Mash]
+'99: The Last War (Kyugo) [Mash]
+トロン (set 3) と (set 4) [Mash]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Oriental Legend Super
+    プロテクト未エミュレート
+Killer Instinct 2 (v1.4k, upgrade kit) [Aaron Giles]
+Beat the Champ [R.Belmont]
+    SCSI / CD-ROM エミュレーションの問題
+
+
+
+0.87u2
+
+- i960のアップデート。[R.Belmont]
+    - Spanbit追加
+    - ElSemi氏が指摘してくれたSpanbitとScanbitのエラー修正
+    - 割り込みテーブルがROMにあるゲームをサポートするため、キューに入らない
+      割り込みを追加（「スカイターゲット」の色とハング修正。「パイロットキッ
+      ズ」でも多分必要）
+    - リード・ライトハンドラ自身を"noburst"で定義する機能を追加。i960のバル
+      ク転送でメモリ領域のアドレスが自動インクリメントしない場合用
+    - 割り込みハンドリングの全体的なクリーンアップ。重複コードの削除など。
+      機能的な変更はなし
+
+- model2のアップデート。[R.Belmont]
+    -「デイトナUSA」と「デザートタンク」で外されていたROMを正しくマッピング
+    - タイマーと割り込み制御レジスタのnoburstサポート用コールを追加
+    - ゲームステータスを最新の状態に更新
+    - 「ラストブロンクス」起動可能
+    - VF2のセット変更：2.1を親に、ver.Bとオリジナルを子セットに変更
+    - lastbexp, doa, pltkidsのSHA1追加
+    - DOAから不要なコードパッチ削除
+    -「デザートタンク」の共同クレジットにMartin Marietta追加
+    -「ビハインドエネミーライン」の共同クレジットにEPL Productions追加
+    - "Sonic Championship"を"Sonic The Fighters"に改名
+    -「バーチャロン」の"Cyber Troopers"は一語ではなく二語に修正
+    -「ゼロガンナー」の(Jap)を(Japan)に修正
+    - フレームバッファRAMをマップ（「ラストブロンクス」で使用）
+    - 割り込みレジスタの非32bit書き込みを修正
+    - シリアルハードウェアマッピングを修正
+    - タイマーをきちんと実装するまでHOTDがフリーズしないように一時的なハック
+    - 2O/2A/2B/2Cのドライバの分割を改良。vonで"MODEL 2BCRX"と正しく出力し
+      ます
+    - i960コアのバグが見つかるまで、「ラストブロンクス」を動作させるハック
+    -「ゼロガンナー」のクラッシュのパッチをElSemi氏から
+    - TGP用に「デイトナUSA」のbusywaitにパッチ
+    -「スカイターゲット」の68000ROMロード修正
+    - 割り込みレジスタハンドリングのうっかりミス修正
+      (「ラストブロンクス」については効果無し。ただし前の間違った方法は
+      もっとおかしかった)
+    - ビッグエンディアンのマシンで起こる問題修正
+    - DSPプログラムのアップロードを正確に処理するフレームワーク追加
+
+- C352の音程調整。[R.Belmont, Cap]
+
+- アナログポートの修正。[Derrick Renaud]
+    downtown - アナログ操作がどっちもプレイヤー1にセットされていた
+    eterm - アナログポート用の増減ボタンが定義されてなかったのでクラッシュ
+
+-「アタリサッカー」の同期PROMのロード。[Stefan Jokisch]
+
+- vamphalfドライバのゲームにEEPROMと画面反転追加。[Pierpaolo Prazzoli]
+
+-「ハードヘッド / Popper」のサウンド改善。[Pierpaolo Prazzoli, 
+  Corrado Tomaselli]
+
+- その他のアップデート。[Nathan Woods]
+    src/mame.c:
+    - MAME_VALIDITYCHECKSマクロを作成。バリディティチェックを動作させるかの
+      指定が可能。未定義時にはデフォルトでチェックします。これにより派生版で
+      バリディティチェックをオフにするのが楽になると思います
+
+      MAMEソースに変更を加える場合、これらをOFFにしないでください。
+      バリディティチェックに引っかかる変更は受け付けません。
+
+    src/windows/fronthlp.c:
+        - stat()からWin32の同等のものに変更
+        
+- コンパイラ警告を修正。[Lawrence Gold]
+
+- rf2_2kのSPIシステムスプライトデクリプトを改善。[Ville Linde]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+フィグゼイト (海賊版) [Tomasz Slanina]
+    イントロを表示させるには無敵のDIPスイッチをONに！
+タイトルファイト [David Haywood]
+Raiders [Mash]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+
+スペースアタック (セガ) (set 3) [Mash]
+ペンゴ (set 4) [Mash]
+Eagle (set 3) [chaneman]
+クレイジークライマー2 (Japan Harder) [chaneman]
+ニブラー (Olympia) [Costa Sgantzos]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Mazer Blazer (set 2) [chaneman]
+ゼロチーム (set 2)
+ダークエッジ (World)
+Farmer Rebelion (いっきのクローン版) [Pierpaolo Prazzoli]
+    ROM不良？
+ダイナマイト刑事2 (Dynamite copのクローン版) [Chris Hardy]
+
+
+
+0.87u1
+
+全般的な改良点：
+----------------
+
+- コンパイラのマイナーな修正。[Brad Oliver]
+
+- options.color_depthを削除（どっちにしても古くなってたので）。[Brad Oliver]
+
+- VCのコンパイラ用修正。[Bryan McPhail]
+    src\drivers\suprgolf.c        - C99の修正
+    src\cpu\m37710\m37710op.h    - VCで警告が出ないように修正
+    src\cpu\powerpc\ppc.c        - VCで警告が出ないように修正
+    src\cpu\powerpc\ppc403.c    - VCで警告が出ないように修正
+
+-「リカルホーン」でクラッシュが起きないようにデフォルトのEEPROM追加。
+  [Bryan McPhail]
+
+- テスターバグsotsugyo069u3greを修正。[Bryan McPhail].
+    sotsugyo: 通知表でゼロが表示されない問題
+
+- tilemap.cでROZとRGB_DIRECTが同時に使えるように改良。[Andrew Gardner]
+
+- HyperstoneのI/Oアドレス修正でvamphalfドライバのハックを削除。
+  [Pierpaolo Prazzoli]
+
+-「夢札」の更新（EEPROMなど）。[Gondos, Pierpaolo Prazzoli]
+
+- tmmjprdのグラフィック修正。[Pierpaolo Prazzoli]
+
+- i960の更新。[R.Belmont]
+    - 以下の命令コードをサポート: nor, addc, subc, atanr, sinr, cosr, tanr,
+      atanrl, logrl, sinrl, cosrl, tanrl
+    - 逆アセンブラにもこれらと、その他いくつかを追加
+    - コンパイラの警告に括弧を追加
+    - sttのストアワード数を4から3に修正
+    - logeprとcvtri追加
+    - cmprとcmprlを修正。正しいレジスタの値でなくゴミ値を比較してました
+    - movrlの逆アセ追加
+    - scanbit追加
+    - flushregを書き直し。前のは*完全に*間違ってました。これでHOTDが動作
+    - ゼロ除算でMAMEがクラッシュしないようにハック（一部のゲームが、まだ実装
+      していないDSPから0を受け取るため）
+    - 逆アセンブラをさらに改良
+    - 次の命令追加：NAND, EDIV, SCALER, SCALERL, ROUNDR, ROUNDRL,
+      EXPRL, MOVRE, CPYSRE
+    - 割り込みハンドリングのエラーを修正。fvipersのグラフィック化け、
+      また、fvipers、schamp、dynamcopのクラッシュが解決
+    - REMR命令追加
+
+- SegaIC24のアップデート。[R.Belmont]
+    キャラクタとタイルRAMに32bitでアクセスする方法を追加。
+
+-「グランドチャンピオン」のサウンド修正。[Justin Szczap]
+
+- INPの変更。[Barry Rodewald]
+    基本的に、interpolate_analog_port()でアナログポートデータのリード/ライ
+    トを毎回行うのはよい方法ではありません。特にreadinputport()が呼び出され
+    る度に、これも呼び出されてしまいます。
+    そこで、アナログポートのリード/ライト部分をforループに入れました。これに
+    より、ポートが実際にアナログの場合のみ、アナログポートのリード/ライトが
+    行われます
+
+-「ダイナギア」のDIP修正。[Derrick Renaud]
+
+- ZN1/ZN2のビッグエンディアンの修正。[smf]
+
+- SPIの解読の改善(rf2_2k)。[Ville Linde]
+
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Painted Lady (Splash) (Ver 1.3 US) [Manuel Abadia]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Tatsumiドライバ [Bryan McPhail]
+    ある程度はプレイできますが、きちんと動作しているわけではありません
+    アパッチ3
+    ラウンドアップ5
+    サイクルウォリアーズ
+
+    超複雑なハードです。それぞれ別な基板ですが、似たようなスプライトチップ
+    （アパッチ3はTZB215、その他はTZB315）を使っています。そのほかのグラ
+    フィック（道部分、空、背景、前景の各レイヤー）はそれぞれのゲームで異なり
+    ます
+
+    Todo:
+        スプライト回転
+        道路のレイヤーを完成させる (ラウンドアップ5)
+        道路のレイヤーを実装する (アパッチ3, サイクルウォリアーズ)
+        背景レイヤー (サイクルウォリアーズ)
+        背景レイヤー (ラウンドアップ5) - おそらく不明のVRAMデータで動作
+        ラウンドアップ5がコイン入力された状態で起動する
+        ラウンドアップ5でリセットが働かない
+        DIPスイッチ
+        その他いろいろ..
+
+Sega Model 2ドライバ [R.Belmont]
+    (ゲームリストはmodel2.cを参照)
+    タイルマップ、サウンド、入力がゲームによってある程度まで動作。
+    大抵のものは最低限起動だけはします。その他のものは固まったり、
+    クラッシュします。

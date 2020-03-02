@@ -1,0 +1,102 @@
+0.115u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+connect4_0115u1ora [Luigi30]
+
+
+
+ソースの変更点
+--------------
+-「スパイダー」ドライバのPIAナンバー修正。[Zsolt Vasvari]
+
+- MESSからTIAグラフィックコードを更新。この変更に合わせて、tourtablドライバを
+  更新。[Wilbert Pol]
+
+-「スペースファイアバード」 で、弾とスプライト同士で不透明になるよう修正。
+  また、星空背景に対しては透過。[Zsolt Vasvari]
+
+- PIAポートAの微妙な動作を修正。これにより、「クイックス」ドライバとWilliamsドラ
+  イバからハックを削除。[Zsolt Vasvari]
+
+- タイルマップ関連のget_infoコールバックをクリーンアップ: [Atari Ace]
+ * 既存のコールバックの整理とクリーンアップ
+ * 全てのコールバックの名称で整合性を持たせるため、一部のコールバック関数で、
+   int tile_indexを引数にとるように変更。
+ * tile_info.flagsの直接使用を、SET_TILE_INFO()にたたみ込み
+ * Konamiドライバで、tile_infoグローバル変数をtile_get_infoコールバック内でのみ
+   操作するように変更
+ * TILE_GET_INFO()ラッパーで、全コールバックの宣言を置き換え
+ * tile_infoを引数として渡すようにインターフェイス変更。また、tile_infoを静的変
+   数として、tilemap.c内でのみアクセスできるように変更。
+
+-「berzerk」ドライバの大幅変更: [Zsolt Vasvari]
+ - 回路図を元にビデオタイミング、メモリマップ、割り込みシステム実装
+ - 同じく、回路図を元に表示色の実装。色は以前より大きく変わっています。
+   例えば、黄色いロボットは黄土色に近くなってます
+
+- さらにARMレスリング: [R. Belmont]
+ - 以下の形式での、ALU命令コードのキャリー伝播エラーを修正
+    ALU r1, r2, r3 SHIFTEROP #imm
+ - PCが関係したThumb ADD命令を修正
+ - LDMIA命令で、書き出しアドレスのビット0とビット1をマスクするように修正
+ - MSR命令が、プロセッサモードとフィールドコードフラグを配慮するように変更
+
+-「ビームインベーダー」「Clay Shoot」「Embargo」ドライバを近代化。
+  [Zsolt Vasvari]
+
+-「サンダードラゴン2」のサウンドバランスを実機をもとに調整。また、68000のクロッ
+  クも確認。[Corrado Tomaselli]
+
+- 暗号化されたIrem CPUの命令コードをさらに修正。[Robiza]
+
+- 68HC11コアのbrestとbrclr命令コードの逆アセンブラ修正。[Phil Skuse]
+
+- Konami ZR107ドライバのタイルマップ色修正。[Ville Linde]
+
+- 8085 CPUコアのINR/DCR命令のバグ修正。[allentown_john]
+
+- PIAインタフェースでポートA/B入力のマスクをサポート。これにより、未接続ピンの正
+  確な動作ができます。多くのゲームでこの新インターフェイスを使うように更新しま
+  した。[Zsolt Vasvari]
+
+- 6809コアのリセット時に、全てのIRQステートの初期化に失敗するバグを修正。
+  また、サイクルタイミングの修正と、コアから古くなったコードの削除。
+  [Ernesto Corvi, Zsolt Vasvari]
+
+- vec_multの実装をクリーンアップ。[Nathan Woods]
+
+- toratoraドライバの改良: [Zsolt Vasvari]
+ - 回路図を元に、SN76477を追加。ただしサウンドはかなり変。これは回路図があちこち
+  間違っているため
+ - 最近のPIA変更にアップデート
+
+- input.cで、clock()に代えてosd_ticks()を使うように修正。[Nathan Woods]
+
+- 6526cia.cのビット演算修正。MESSのC64ドライバでのジョイスティック操作がおかしかっ
+  たのを修正。[Pete Rittwage]
+
+- r2dtankドライバの改良: [Zsolt Vasvari]
+ - 色修正、「レッドタンク」のフライヤーをベース
+ - AY8910を追加。音は正しく鳴っていますが、8910が実際のPIAに対してどのように実装
+   されているかは完全にわかっていません
+ - CRTCを正しく実装
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Wild Arrow [Zsolt Vasvari]
+Gストリーム -G2020 [David Haywood]
+
+
+
+新規クローンセット
+------------------
+Multi Game (set 2) [Roberto Fresca]
+19XX: The War Against Destiny (Brazil 951218) [Nicola Salmoria]
+サンダードラゴン2 (9th Nov. 1993) [Corrado Tomaselli]
+フリッキー (128k Version, System 2, not encrypted) [Corrado Tomaselli]
+フリッキー (64k Version, System 1, 315-5051, set 2) [Corrado Tomaselli]

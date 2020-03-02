@@ -1,0 +1,195 @@
+0.94u3
+------
+
+■コンパイラ用の修正。[Atari Ace]
+■その他いろいろな修正。[Nathan Woods]
+
+新規追加クローンセット：
+------------------------
+バブルボブル (newer set) [Tormod Tjaberg]
+ぷよぷよ (World) [Fabrice Arzeno]
+
+
+0.94u2
+------
+
+Aaron Giles氏による修正：
+-------------------------
+mame.c: ドキュメントの更新
+cps1.c: QSoundルーチン修正
+cps2.c: QSoundルーチン修正
+itech32.c:「Driver's Edge」の色修正（赤と青が逆）
+segaorun.c: 回路図を元に改良たくさん
+    - 出力を8255 PPI経由に接続
+    - IRQ処理を回路図に合うよう修正
+    - ウォッチドッグ、グローバルミュートの実装
+    - IRQ2のタイミング修正
+segaxbd: 改良
+    -「GPライダー」が起動するようにハック追加; 入力系のバグで完全プレイ不可
+    - IRQ処理を回路図を元に修正
+    - ウォッチドッグ、サウンドリセット、グローバルミュートの実装
+    - SMGP通信動作用にダミーCPU追加
+    - 全ゲームでLOF以外のインターリーブ減少
+segaybd: 改良
+    - 回路図を元にCPU速度を修正
+    - グローバルミュートの実装
+    - 全ゲームでインターリーブ減少
+machine/segaic16.c: 0で割るケースで値を返すように変更
+vidhrdw/segaic16.c: アップデートいくつか
+    - Yボードのスプライトプライオリティ実装（解析はまだ不完全でも
+      動いてる感じ）
+    - Outrun/Xボードのスプライトピッチの8番目のビットを発見
+    - Leopardcatsからのロジックダンプに合わせて道路のプライオリティ実装
+    - Outrun/XボードでRAMのダブルバッファリングを追加
+    -「アウトラン」の道路でダイレクトスキャンラインモードはサポートされて
+      いないので無効化
+
+■サンプル再生の不具合修正
+
+■othunderのサウンドクリッピング修正
+
+■「バトライダー」のサウンド修正
+
+■「Dream Shopper」のクラッシュ修正
+
+■デバッグビルドにサウンドバランスアシスト表示追加
+
+■cpuintrf.cをクリーンアップ
+
+■サウンドコアから不要なコードを削除
+
+■「フロッガー」の音量調整
+
+
+Derrick Renaud氏による変更：
+----------------------------
+
+■「ボスコニアン」「ギャラガ」「ポールポジション」「ゼビウス」に正確なウォッチ
+ドッグ追加
+
+■「Wigge Waggle」のクラッシュ修正
+
+■スピーカー設定を修正
+
+■schaser - ミサイル音の追加とドット音を回路図に基づいて修正
+
+■SN76477エミュレーション - 増幅率が通常の3倍だったバグを修正
+
+■SN76477エミュレーション - ワンショットエンベロープモードのアタックタイム修正
+
+■crash、ripcord、robotbwlのクラッシュ修正と、これらにサンプルサポート追加。
+ただしサンプルは未録音
+
+■robotbwl - 足音のディスクリートシミュレーション追加
+
+■crash - ベル音のディスクリートシミュレーション追加
+
+
+Nathan Woods氏による変更：
+--------------------------
+src/sndintrf.c:
+src/sndintrf.h:
+    - MESS用サウンドコアのエントリーを2つ追加
+
+src/sound/wavwrite.c:
+src/sound/wavwrite.h:
+src/sound/discrete.c:
+    - wavwriteの型を'void *'から'wav_file *'に変更
+
+src/cpu/g65816/g65816op.h:
+    - CPUが目的のモードのファンクションセットに入らずモード変更できたバグ修正。
+      特にモード変更が実行中の関数から抜け出し正しい関数に再エントリを起こす場合
+
+
+Nicola Salmoria氏による変更：
+-----------------------------
+
+■TNZSのデバッグモードをドキュメント化
+
+■「スカイランサー」のグラフィック修正
+
+■「ジャイラス」の音量を再調整
+
+■NMK004サウンドエミュレーション
+
+■playmark.cのアップデート
+-「World Beach Volley」のスプライト/タイルプライオリティ修正。また「Excelsior」
+  のプライオリティも一部修正。全部ではなくて、ハイスコア画面はまだ不具合あり
+- ビットマップイネーブルビット発見。「Big Twin」と「Excelsior」のギャルピクチャ
+  とグラフィック化け修正
+- 列スクロールサポート。wbeachvl37b7greを修正
+- 以前に言ったように、wbeachvl37b16greはオリジナルのバグの可能性大。これ以外の
+  動作が思い浮かびません
+
+
+Pierpaolo Prazzoli氏による変更：
+--------------------------------
+「スーパースラムズ」のアップデート
+- スプライト修正
+- テキストタイルマップ色修正
+- テキストタイルマップのスクロール修正
+- VSync修正
+
+「スカイランサー」のDIPスイッチ修正
+
+playmark.cのアップデート
+-「Excelsior」のDIPスイッチ修正
+-「Excelsior」のビットマップスクロール改良
+- Changed bitmap to be drawn after the fg_tilemap (this is correct in Excelsior
+  and looks better in Big Twin, but looking at the service mode in Excelsior
+  some "good" bits are trasparent)
+-「Big Twin」にコンティニューのDIPスイッチ追加
+
+
+その他の変更：
+--------------
+■NMK16のDIPスイッチ修正。[Brian Troha]
+
+■TX1 / Speed Buggyドライバの改良。[Phil Bennett]
+    残りの作業:
+    
+    バギーボーイ/スピードバギー
+    # 演算チップサポート
+    # オブジェクトの正確な描画と属性（ズームファクタなど）
+    # 道路の描画
+    # CPU間のコミュニケーション修正
+    # レイヤーのミックス
+    # 操作の修正
+    # ディスクリートサウンドハード
+
+    TX-1
+    # 上記全部
+    # PROMなし
+
+
+■アナログメニューで40以上のエントリが可能。[Christopher Stone]
+
+■「ダンクショット」のDIP修正。[Sonikos]
+
+■gfxlayoutsの不良修正。[Atari Ace]
+
+■「Shrike Avenger」をアップデート。モーターの動作をドキュメント化。
+  [Peter Sealy]
+    ゲームは部分的に動作
+
+■スクロールマウスのサポート。[Robin Merrill]
+
+■f1enでアトラクトモードが全部表示されるように改良。[David Haywood]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+新規追加クローンセット：
+------------------------
+ピット&ラン (set 2) [MAN]
+スカイランサー (Orca) [Manuel Assoni]
+Star Trek (ディフェンダー海賊版) [Pierpaolo Prazzoli]
+ポーカーレディース (Leprechaun ver. 401) [Manuel Assoni]
+ピンボ (set 2) [Pierpaolo Prazzoli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+TX-1 [Phil Bennett]
+バギーボーイ [Phil Bennett]

@@ -1,0 +1,80 @@
+0.90u1
+------
+
+私の留守中に0.90のリリースをまとめてくれたPierpaolo Prazzoli(Reip)氏に感謝。
+
+全般的な改良点：
+----------------
+
+■FD1089の解読。[Nicola Salmoria, Charles MacDonald]
+    - FD1089Aのエミュレーションは100%正確。他のCPUで確認が必要なので、
+      FD1089Bは99%くらい（現在サポートしているものについては100%正確）
+
+    - Charles MacDonald氏より317-0018（「アクションファイター」）、317-0022
+    （「ダンクショット」）、317-0168（「オーライル」）の完全なテーブル提供
+
+    - 暗号化されていないバージョンとの比較から得られた部分的なテーブル：
+    「エンデューロレーサー」「アレックスキッド」、317-0024（「タイムスキャ
+     ナー」）、317-0033（「エイリアンシンドローム」）、317-0027（「SDI」）
+     （完全なテーブルを得るには動作可能なCPUが必要）
+
+■Segaの大幅アップデート。[Aaron Giles]
+    * dunkshotのグラフィック修正と操作の実装
+    * sdiojの操作系実装
+    * timescnaのスプライト修正
+    * shangona, shangnleがプレイ可能
+    * toutrunの道路修正
+    * メモリマッピングコードを全部統一してmachine/segaic16.cに移動
+    * タイルマップ、スプライト、道路表示コードを全て統一して
+      vidhrdw/segaic16.cに移動
+    * ビデオ機能側のレジストレイアウトのドキュメントを改良
+
+    まだ作業中なので注意してくだい。「レーザーゴースト」のタイトルアニメー
+    ションの調子が悪くなってます。また、ddcrewのアトラクトモードの横列1ドッ
+    トにエラーが出てます。これらは既知ですので、すぐに対応する予定です
+
+■seabassが動作するようにST-Vの修正。[Angelo Salese]
+
+■UI=1のときwindows objからリソース取得（MAME32用）。[Chris Kirmse]
+
+■「ポラリス」のサウンド改善（実際の基板は回路図と異なる）。[Derrick Renaud]
+
+■「ポラリス」の雲スクロール方向を修正。[Pierpaolo Prazzoli]
+
+■enigma2の色修正。[Pierpaolo Prazzoli]
+
+■新コンパイラでm6509の警告が出ないように修正。[Nathan Woods]
+
+■Arcadiaの更新。[Mariusz Wojcieszek]
+    - DMACONレジスタ書き込みを修正
+    - 横スクロール追加
+    - コインハンドリング改良
+    - blitternの塗りつぶし修正
+    - ar_dartが動作するように改良（サウンドエミュレーションを追加）
+    - スプライト組み合わせのレンダリング修正
+    - CIAレジスタの読み込み修正
+    - vblank/video更新のタイミング改良
+
+■mt_gngのROMロードを変更。[David Haywood]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Merlins Money Maze [Pierpaolo Prazzoli]
+    勝てない？
+
+Spot (Arcadia) [Mariusz Wojcieszek]
+Magic Johnson's Fast Break (Arcadia) [Mariusz Wojcieszek]
+World Darts (Arcadia) [Mariusz Wojcieszek]
+Xenon (Arcadia) [Mariusz Wojcieszek]
+
+シーバスフィッシング [Angelo Salese]
+    システム設定で1プレイヤーにセット
+
+ダンクショット [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+アクションファイター [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+
+Segaセットいろいろ [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+    sdioj, shangona, shangnle, alexkidd
+
+Tazzmania (ギャラクシアン基板の海賊版) [Pierpaolo Prazzoli]

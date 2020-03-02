@@ -1,0 +1,190 @@
+0.142u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04320: [クラッシュ/フリーズ] Many sets in mpu4drvr.c: Divide by Zeroエラーでクラッ
+         シュする。
+- 01893: [クラッシュ/フリーズ] mk4: デモモードで5戦するとハングする。(Phil Bennett)
+- 04334: [グラフィック] wiz: スプライトが表示されずゲームがプレイできない。
+         (Angelo Salese)
+- 04326: [グラフィック] Many games in cave.c: グラフィックが大きく乱れている。
+         (Alex Jackson)
+- 03103: [色/パレット] all sets in mrdo.c: 4面の色が異なる。
+- 04325: [ドキュメント] madrace: 製造年が間違っている。
+- 04304: [グラフィック] captaven: 海面の表示色がおかしくなっている。(David Haywood)
+
+
+ソースの変更点
+--------------
+- 以下のドライバで、deprecat.hを不要にしてIRQを更新: [Angelo Salese]
+
+    8080bw.c airbustr.c albazg.c argus.c aristmk4.c armedf.c atarifb.c avalnche.c 
+    battlex.c bigevglf.c bionicc.c bionicc.c bishi.c bladestl.c blockout.c 
+    blueprnt.c bmcbowl.c bogeyman.c bottom9.c bsktball.c bublbobl.c buggychl.c 
+    bwing.c changela.c chqflag.c circus.c cischeat.c cloak.c commando.c cosmic.c 
+    cshooter.c darkmist.c dbz.c deadang.c destroyr.c discoboy.c djmain.c docastle.c 
+    dogfgt.c dogfgt.c dooyong.c dorachan.c dragrace.c enigma2.c equites.c esd16.c 
+    espial.c exedexes.c exidy.c expro02.c fastfred.c finalizr.c firetrap.c flower.c 
+    flstory.c gberet.c gng.c goindol.c gsword.c gunsmoke.c itech32.c jack.c jack.c
+    kyugo.c ladyfrog.c liberatr.c m72.c matmania.c megaplay.c meijinsn.c metlclsh.c 
+    mirax.c mjsister.c mlanding.c mouser.c namcos2.c namcos21.c naughtyb.c 
+    nbmj8688.c nbmj8891.c nova2001.c overdriv.c pacman.c paradise.c photon2.c 
+    polepos.c popper.c retofinv.c rollrace.c route16.c sbugger.c segag80r.c 
+    segas18.c seta.c shisen.c slapfght.c snk6502.c solomon.c sonson.c speedbal.c 
+    srmp2.c srmp2.c srumbler.c sstrangr.c strnskil.c suna8.c suprloco.c tagteam.c 
+    taito_l.c tomcat.c tsamurai.c tunhunt.c vastar.c vigilant.c vulgus.c wecleman.c
+    wheelfir.c wiz.c xxmissio.c zn.c zodiack.c
+
+- expro02.cのスプライト不具合修正。[Angelo Salese]
+
+- Taito_LドライバでAM_SHAREマクロを使うように更新。[Angelo Salese] 
+
+-「Evil Stone」のサウンドハックを削除。レベル1のボスでやられるとサウンド不具合が出る
+  のを修正。[Angelo Salese]
+
+- intelfsh.c: Fujitsu 29DL16Xをサポート。[Sandro Ronco]
+
+- bs666さんが報告した「Xenix」の起動時についてのバグレポートにより、
+  i86/i386のPOP SPとPOP ESPをを修正。[Miodrag Milanovic]
+
+- device_configとdevice_tを一つのクラスに統合。既存のモダンデバイス全てと、レガシー
+  ラッパがこの環境で動くように更新。これによりモダンデバイスを書くのが大幅に簡素化。
+  [Aaron Giles]
+
+- psx.c: ロックアップを防ぐため、MDECのタイミングを調整。ほとんどのFMVでビデオがなめ
+  らか表示可能。[R. Belmont]
+
+- Z80STIの割り込みを修正。[Curt Coder]
+
+- I8255の割り込みイネーブルを修正。[Curt Coder]
+
+- RP5C01とRP5C15のリセットレジスタビットマスクを修正。[Curt Coder]
+
+- 3.5" EDフロッピードライブ型を追加。[Curt Coder]
+
+- Naomi / Triforce / Chihiroのドキュメントを更新。[f205v]
+
+- k051733演算チップのプロテクトリードバックレジスタ0c07と0x0e/0x0fを修正で
+  「チェッカーフラグ」のプレイ中の問題が解決。[Angelo Salese]
+
+- konamigv: ドキュメントの更新。[Guru]
+
+- diimage.c: Valgrind氏が発見した初期化されていない変数を修正。[R. Belmont]
+
+- mc146818: Valgrind氏が発見した初期化されていない変数を修正。[R. Belmont]
+
+-「シスコヒート」ドライバの入力修正とデジタルハックを削除。[Angelo Salese]
+
+- MCC1850 RTCエミュレーションを追加。[Curt Coder]
+
+-「シスコヒート」ドライバにシフト表示を追加。[Angelo Salese] 
+
+-「F-1グランプリスターII」のIRQコミュニケーションにあったあやしいハックを削除。
+  [Angelo Salese]
+
+- SEIBU_ADPCMを使うゲームでの2つ目のADPCMプレイヤーを修正。[R. Belmont]
+
+- k051733 RNGを加算器と動作するように変更。「ファストレーン」の疑似ランダムイベントが
+  改良。[Angelo Salese]
+
+-「ホットチェイス」のゲーム速度の一時的なテスト。ただしまだ不完全(特に音とのかねあい)。
+  [Angelo Salese]
+
+- devcbをデリゲートとクラスを使って再実装。ターゲットの特定ロジック統合とコードの整理。
+  [Aaron Giles]
+
+- naomi: mapleとjvsインタフェースをデバイスのセットへと抽出。
+  [O. Galibert, MetalliC, Tormod, D. Knute]
+
+- setax001/x002チップのスプライト実装を統合開始。[David Haywood]
+
+- drcbex64: op_debugを修正。[O. Galibert]
+
+-「パズニック」のMCU追加と、PALをNO_DUMPに設定。MCUはまだ正しい実装が必要。
+  [Smitdogg, The Dumping Union, Lord Nightmare]
+
+- naomi: jvs コマンド 0x32を追加。「クレイジータクシー」
+ 「Virtua Tennis 2 / パワースマッシュ2」の起動が改善。[O. Galibert]
+
+- Midway T-Unitドライバの入力ボタン名ラベル追加。[Joe Caporale]
+
+- NB1414M4ルーチンを非"state"化。また、関連する「アームドF」のタイルマップを8ビットに
+  コンバート。[Angelo Salese]
+
+- NB1414M4を「妖魔忍法帖 / Ninja Emaki」に実装。グラフィックが大幅に改善。
+  [Angelo Salese]
+
+-「妖魔忍法帖」海賊版にシリアルタイプのスクロールを実装。[Angelo Salese]
+
+- ダイナミックデバイスをコアでサポート: [Miodrag Milanovic]
+ * スロットとスロットカードインタフェースを追加
+ * デバイス追加を単純化するため、SLOT_INTERFACEマクロを追加
+ * 新メニューオプション"Slot Devices"追加と、ランタイムでのデバイス変更をサポート
+ * スロットカードのコマンド設定をサポートするため、emuoptを更新
+
+- clifrontを更新して、使用可能なスロットを表示するためのlistslotsオプションとそれぞれ
+  のデバイスオプションを追加。[Miodrag Milanovic]
+
+- mpu4.c: Crystal Gamingプログラムカードと、パラメータ設定のためのリンクキーをサポー
+  ト開始。[J Wallace]
+
+- 6840ptm.c: set_gate()のモードチェックを修正。[J Wallace]
+
+- srcclean.c: srccleanでクリーニングするファイルを、XMLではないソースファイルのみにす
+  るよう改良(ソフトリストにはUTF-8キャラクタが含まれているので)。[Fabio Priuli]
+
+-「コンバットスクール」海賊版で正しいサウンドプログラムを実装。[Angelo Salese]
+
+- フォーマット処理と、全てのフォーマットを別のライブラリに移動。[Miodrag Milanovic]
+
+- PlayStation DMAをCPUコアの内部デバイスにコンバート。外部デバイスへのDMAはmachine 
+  configで設定できます。コードのコンバートが完了するまで、古いコードはそのまま残して
+  あります。[smf]
+
+- MCCS1850でデフォルトのNVRAMをサポート。[Curt Coder]
+
+- Irem M92/M107の修正: [Alex Jackson]
+ * サウンドCPUの割り込みを正しく実装。ドライバでベクタ生成する方法をやめ、V35組み込み
+   の割り込みコントローラを使用
+ * ROMミラーリングを整理。DRIVER_INITでmemcpy()を使いまくる方法をやめて、AM_REGIONマ
+   クロを使用
+ * バンク切り替えを設定済みバンクを使うように切り替え。ゲームでバンク切り替えを使うも
+   ののみ、バンク設定とWRITE_HANDLERインストールを行う(プログラムROMが満杯のものなど)。
+   この変更と上の変更により、ドライバがかなり見やすくなったはず
+ * 両ドライバでスキャンラインタイマデバイスを使うよう変更
+ * m92.cでセーブステートをサポート。必要なものは既に全て保存されていたものの、タグの
+   追加が必要でした。ただ、おそらくコアのemu_timerの故障(MT 4330、4331)のため、今のと
+   ころセーブステートは動作しません。このことはMT #4333として報告済みです
+ * wpksocとクローンセットにGAME_MECHANICALタグを追加
+
+-「銀河任侠伝」で6840 PTMデバイスを使うように変更。[Angelo Salese]
+
+- Wizドライバのスプライトが表示されないバグを修正。[Angelo Salese]
+
+- chdman: .nrgファイルでトラックタイプ6を処理。[R. Belmont]
+
+- kFreeBSDでのコンパイルを修正。[Christian Marillat]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+チェッカーフラグ [Angelo Salese]
+Super Wing [Tomasz Slanina, Wulfman]
+
+
+新しく追加されたクローンセット
+------------------------------
+Witch Card (German, WC3050, 27-4-94) [Roberto Fresca, Team Europe]
+
+
+追加された未動作ゲーム
+----------------------
+Quizard Rainbow 4.0  [Team Europe]
+Frank 'n' Stein (unencrypted) [J Wallace]
+ハイレートDVDシリーズ7 麻雀マニア 快楽館へようこそ [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ11 ザ・ナンパ [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ13 コスプレ天国7 -スーパーコギャルグランプリ-
+  [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ15 ふーどる [alien_mame, The Dumping Union]

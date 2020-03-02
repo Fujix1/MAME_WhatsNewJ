@@ -1,0 +1,92 @@
+0.109u2
+-------
+
+OSD開発者向け重要情報: このリリースよりコアオプションの指定にoption.cを使う必要
+があります。最低限でも、run_game()の前にoptions_init(NULL)を呼び出して下さい。
+
+
+
+MAMETestersの修正バグ
+---------------------
+capbowl0109u1yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- yunsun16ドライバのDIPスイッチ改良とドキュメントの追加。[stephh]
+
+- タイマーの精度改善と、6526 CIAモジュールにセーブステート追加。[Nathan Woods]
+
+- メモリマップのダンプコードで間違ったアドレスがダンプされるバグを修正。
+  [Wilbert Pol]
+
+-「メイジャーハヴォック: Return to Vax mod」にTMS5220スピーチサポート追加。
+  [Jess Askey]
+
+- 逆アセンブラウィンドウで、Ctrl+Cのコピーでクラッシュするのを避けるため、コメン
+  トショートカットを変更。[Nathan Woods]
+
+- レジスタシンボル名が数字でないのをチェックする機能を追加（数字の場合、表記パー
+  サからの参照に問題が起きます）。M4510 CPUのシンボルを、このチェックに引っかか
+  らないように変更。[Nathan Woods]
+
+- Win32デバッガのウィンドウサイズを小さくするとクラッシュする問題を修正。
+  [Samuele Zannoli]
+
+- サンプル、またはROMが無いときのROMチェックシステムの判定を修正。[Nathan Woods]
+
+- pmpokerドライバの改良: [Roberto Fresca]
+ - pmpokerにサービス・セッティングモード追加
+ - 全てのゲームで、ほとんどの入力タイミングを正確にするため、PORT_IMPULSEを追加
+
+- アドレスバスシフトのあるCPU用に"run to cursor"機能を修正。[Andrew Gardner]
+
+- ZIPファイル名の一致判定が間違っていたのを修正。[Aaron Giles]
+
+- パスのセパレータがスラッシュではないプラットフォーム用にPATH_SEPARATORを追加。
+  [Aaron Giles]
+
+- オプションマネージャの改良: [Aaron Giles]
+ * 起動用のoptions_initを追加
+ * 内部オプションのサポート
+ * 複数の被修飾オプションサポート
+ * コアオプション定義をコアoptions.cに移動
+    (クロスプラットフォームではないので、デフォルトのINIパスには$HOME/.mameを含
+     みません; *nixプラットフォームではOSDコードでデフォルトのオーバーライドが
+     必要です)
+ * 指定したオプションのデフォルト値を設定するアクセサを追加
+ * エラートラッキングを内部で行い、一回だけ報告するように変更
+
+- osdepend.hのドキュメントについて、関数の説明の改善と動作概要を追加。使用してな
+  いosd_readkey_unicode関数を削除。[Aaron Giles]
+
+- ソフトウェアのバイリニア拡大処理で範囲外のビットマップを読み込んでしまうバグを
+  修正。[Aaron Giles]
+
+- Max-a-FlexドライバにスーパーバイザDACサポート追加。[Aaron Giles]
+
+-「ターボ」「ズーム909 / Buck Rogers」のクロック速度修正。[Aaron Giles]
+
+- ZIPファイルでの-romidentを修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Rock Duck [Roberto Fresca, Tomasz Slanina, David Haywood]
+
+
+
+新規クローンセット
+------------------
+首領蜂 (Hong Kong) [Arenzo Fabrice]
+Las Vegas, Nevada [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Destroyer (Cidelsa) [Curt Coder]
+Altair [Curt Coder]
+Draco [Curt Coder]

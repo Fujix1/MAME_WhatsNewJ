@@ -1,0 +1,242 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.133u3</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.133u3.txt</div>
+	<div class="main">
+<div class="wn">
+0.133u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03389: [DIP/入力] amspdwy: P1の操作でP1とP2両方の車が動いてしまう。(Xander)
+- 03120: [色/パレット] nss_lwep: ゲーム内の色が緑っぽい。(Angelo Salese)
+- 02701: [システムコア] z80.c: SCF CCF XとYフラグ。(hap)
+- 02959: [クラッシュ/フリーズ] kinstb: 黒画面のまま起動しない。(R. Belmont)
+- 03275: [サウンド] gradius4: MAMEでは音程が全て高い。(R. Belmont)
+- 03387: [DIP/入力] galmedes: デモサウンドDIP設定が逆。(Tafoid)
+
+
+
+ソースの変更点
+--------------
+- multifishドライバのクリーンアップと、クローン版の大量追加。
+  [Vampirz, Fabio Priuli, Brian Troha]
+
+- さらにROM名修正とドライバ名の変更: [Yasuhiro Ogawa]
+ - digdugbをdigdub1に変更(海賊版ではなくrev1)
+ - digduga1をdigdugat1に改名
+
+- SNESの更新: [Angelo Salese]
+ - モード7のダイレクトカラーフラフィックスを修正
+ - モード3/4のダイレクトカラーフラフィックスを修正
+ - VRAMの境界バグを修正
+ - メイン/サブカラー演算に関わるブレンド処理のバグを修正
+ - モード5/6のインタレースモードグラフィックを修正
+ - GDMAの境界バグ修正
+ - OAMアドレスリセットをより正確に改良
+ - HDMA フレーム間初期化を修正
+ - ウィンドウ機能の黒くするためクリップカラーを追加
+ - カラークリッピングで構造体エントリを使うようにコンバート
+ - 動的な横方向解像度変更について、Vblankのスタート時のみ呼び出せるようにして、グラ
+   フィックモード1→5、5→1への切り替えを修正
+ - グラフィックモードの切り替えをより正確に修正
+ - SPCレジスタの動作を大量に訂正
+ - ジョイパッドのリード/ライト処理改善と、シリアルポートの変な箇所を修正
+ - プレイヤー2用のシリアルポートも修正
+ - カートモード20のリザーブアクセス動作を改善
+ - OBJインタレースをサポート
+
+- ST-V: タイマー1 IRQの処理を改良。「ペブルビーチ・ザ・グレートショット」はまだゲーム
+  開始時に問題あり(画面にゴミが表示される。以前動いたのはかなりまぐれ)。
+  [Angelo Salese]
+
+-「Devil's Island」の名称を「Devil Island」に訂正。「Fruit Bonus 2006 SE」「Bug Fever」
+  の年代を追加。[Brian Troha]
+
+- ディスクリートサウンドのアップデート:  [couriersud]
+ - グローバル変数discrete_current_contextを削除
+ - デバイスの代わりにdiscrete_infoを渡すよう変更。デバイスはdisc_info->deviceで取得し
+   ます
+ - DISCRETE_IMPORT(*block)を追加: 他のディスクリートブロックをインポートします
+ - DISCRETE_REMOVE(node1, node2)を追加: ノードレンジを削除します
+ - DISCRETE_REPLACEを追加: 次のノードを既存ノードに置き換え、動作順序を保持します
+ - DISCRETE_NOP(node)を追加: 何も行いません。置き換え予定です
+ - 上記動作後に最終ブロックリストを作成するため、プリスキャンステージを追加
+ - これらの追加により、基板による微妙な違いのドキュメント化が容易になります
+ - 使用例はaudio/galaxian.cを見てください
+
+-「ギャラクシアン」のサウンドをアップデート: [couriersud]
+ -「ムーンクレスタ」と「ギャラクシアン」でそれぞれ独自の回路をエミュレート。例えば、
+  「ムーンクレスタ」ではミキシングステージが少し異なります
+ - ドライバをクリーンアップ。セクションタイトルとコメントの追加、旧コードの削除
+ - emu_timerを削除。これによりstream_updatesのストリームが3回しか更新されない状態になっ
+   ていました
+ - これをディスクリートタイマモジュール DSS_TIMERに置き換え
+ - 音程生成にDISCRETE_NOTEを使用; (1 ms以内に音程が変わるとき:-) )より正確な動作にな
+   ります。またノードをセーブします
+ - DISCRETE_BITS_DECODEを使ってノードを2つセーブ
+
+- YM2612/3834の更新: [Eke-Eke, Nemesis]
+ - 他のOPNチップの混乱を避けるため、YM2612/3834を個別のファイルに分割
+ - SSG-EG、エンベロープ、LFO、CSMの全てについて、実際のYM2612チップでの動作テストに合
+   致するよう動作を改良
+
+- DSS_COUNTERの更新: [couriersud]
+ - DISC_CLK_IS_FREQに対してclock_nodeはstaticでなくてもいいように変更
+ - ループを避けるためinc/decロジックを書き直し
+
+- DISCRETE_BIT(S)_DECODEを追加: [couriersud]
+ - 入力値から各bitをデコード
+ - DISCRETE_BITSETマクロを使っていたドライバを更新(名前が間違いやすいので)
+ - DISCRETE_TRANSROMを使うよりも少し高速なはずです
+
+- ディスクートサウンドの機能強化:  [couriersud]
+ - RDCISC5イネーブルモードに有効期間を追加。これにより、RとC間のスイッチとして動作し
+   ます。これを無効にすると、コンデンサの電圧は保持されます
+ -「ギャラクシアン」で上記のものを使用。ノード2つをセーブと、正確さの向上
+ - DISC_LFSR_FLAG_OUTPUT_SR_SN1フラグを追加。レジスタノイズジェネレータをシフトします。
+   これは、サブノード1にシフトレジスタの値を出力するものです。将来的に、bzoneのディス
+   クリートサウンドエミュれーhそんで必要です。ちなみに、RCDISC5も必要です
+ - RCDISC3について、bzoneへの実装に何が必要かを記載
+ - LFSRを少し最適化。LFSRは高周波数(> sample_freq)で動作した方がよいようです
+
+- deniam.cの「ロジックプロ」「ロジックプロ2」について、M68K、Z80、YM3812、OKIM6295ク
+  ロック、OKI pin 7を検証。「ロジックプロ」「同2」で実機に合わせて表示領域を修正。使
+  用されているYM3812クローンの種類を明記。「ロジックプロ」の未実装グラフィックエフェ
+  クト(コインを入れると画面が暗くなる)を記載して、IMPERFECT_GRAPHICSフラグを設定。
+  画面左端の4ピクセルについても記載追加。[Charles MacDonald, Lord Nightmare]
+
+- 64-bit整数をprintfに使用できるようにI64FMT文字列定義の試み。これは現在のMSVCと最近
+  のmingwコンパイラでは"I64"として、その他では"ll"として定義されています。64-bitの
+  printインスタンスで全て新マクロを使うように更新。[Aaron Giles]
+
+- spacwalkのタイムエクステンド設定とDIP配置追加。[gregf, hap]
+
+- 5110intfをtms5110に、5220intfをtms5220に統合。[Aaron Giles]
+
+- Z80の変更: [hap]
+ - CCF/SCF/BITのX/Yフラグを修正。ZEXALLが正常動作で幸せ
+ - DAAをシンプル化。MEMPTR (3.8)をWZ(8080の一時レジスタが同じでオフィシャル名がWZ)に
+   改名。TODOを追加
+
+- 8085の変更: [hap]
+ - 無条件なCALL / RETでのサイクル低減を修正。これまでは約半分過剰でした
+ - サイクルテーブル追加と、ソースレイアウトのクリーンアップ。注意して作業したので、エ
+   ラーは無いはずです
+ - HLTのサイクル過剰消費を停止(以前は、EI後のHLTが理論上失敗する可能性がありました)
+ - add/sub/cmpのパリティフラグを修正。バグはZ80にたまたま残っていたオーバーフロー検知
+   により発生していました
+ - 一時レジスタXXをオフィシャル名WZに改名
+ - Z80スタイル S Z Y H X V N Cフラグを、S Z X5 H X3 P V Cに改名。またフラグ名の混乱に
+   より、X5 / Vフラグが壊れていたのを修正
+
+- MSVC 64-bitでのコンパイルエラーを修正。[Aaron Giles]
+
+- rgbutilに rgb[a]int_sh[l|r] 処理を追加。rgbvmx(まだ使われてません)の更新が必要。
+  [Aaron Giles]
+
+-「Triple Draw Poker」にカラーPROMを追加。[David Haywood]
+
+- プロファイラについて、スタートとストップのケースを分割。[Christophe Jaillet]
+
+- taito_zのDIPスイッチ修正。[kanikani]
+
+-「エクストリームハンティング2」の復号キーを追加。[Andreas Naive]
+
+- Naomiの更新: [R. Belmont, Deunan Knute, Alex, Mr. Mudkips, Frank Bukor]
+ - ic31/32の新ダンプ使用で、ROMボートテストをパス
+ -「マーヴルVSカプコン2」のプロテクトを実装。音無しでゲームがプレイ可能
+
+- TMS1000ファミリのTMS1000/1070/1100/1200/1270/1300をサポート。tms0980/tms1000インタ
+  フェースで出力PLAの設定をサポート。[Wilbert Pol]
+
+- 6845のsy6845モデルにトランスペアレントモードアクセスを実装。[Roberto Lavarone]
+
+-「Downtown / 目撃」「キャリバー50」「Xメン」(2人～4人プレイ)のクロックとVsyncを検証。
+  [Corrado Tomaselli]
+
+-「Downtown / 目撃」「キャリバー50」をモノラルに変更: これらの基板にはステレオ出力が
+  無いため。[Corrado Tomaselli]
+
+- cps1基板の水晶値の検証と正確な値の追加。「Forgotten Worlds / ロストワールド」の回路
+  図から取得したOKI6295の正確なクリスタル値と分周を追加。[Corrado Tomaselli]
+
+-「Bラップボーイズ」ROMからテーブルを一部復号化。[David Haywood]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+WOW New Fantasia [Irongiant, David Haywood]
+Island 2 (060529) [Vampirz]
+Pirate (060210) [Vampirz]
+Keks (several sets) [Vampirz]
+
+
+新しく追加されたクローンセット
+------------------------------
+Fruit Cocktail (060111) [Vampirz]
+Saulabi Spirits / Jin Saulabi Tu Hon (真サムライスピリッツの韓国リリース版) 
+  [Guru / David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Colorama (english) [Roberto Fresca, Angelo Salese]
+Roulette V75 (spanish) [Roberto Fresca, Angelo Salese]
+Rabbit Poker (Arizona Poker v1.1?) 
+   [Roberto Fresca, Andreas Naive, Tomasz Slanina]
+Coinmaster Keno (Y2K, spanish, 2000-12-14) [Roberto Fresca]
+Coinmaster Keno (Y2K, spanish, 2000-12-02) [Roberto Fresca]
+Extreme Hunting 2 [Guru]
+ダートダッシュ (Rev. DT2) [Guru]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

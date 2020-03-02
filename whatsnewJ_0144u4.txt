@@ -1,0 +1,142 @@
+0.144u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04556: [インターフェイス] INCとDEC系入力を変更すると.cfgファイルが正しく保存されな
+         い。(hap)
+- 04569: [インターフェイス] UIメニューでINCを変更しようとするとDECの方が変わる。
+         (Olivier Galibert)
+- 04575: [インターフェイス] DIPスイッチの状態表示の周りにボックスが描画されない。
+         (Olivier Galibert)
+- 04574: [速度] Many sets in snowbros.c: 大幅な速度低下が起きている。(Angelo Salese)
+- 04578: [グラフィック] mwalk: ゲーム開始後すぐにグラフィックが乱れる。(Alex Jackson)
+- 04572: [クラッシュ/フリーズ] Many sets in dynax.c, royalmah.c: 起動時に固まったりエ
+         ラーが起こる。(Angelo Salese)
+- 04536: [サウンド] flicky, flickys2: Z80 PIOの問題によりBGMがならない。(hap)
+- 03457: [グラフィック] choplift: プロテクト版のスクロールが滑らかにいかない。(hap)
+- 04558: [ゲームプレイ] wboy and clones: ゲームの動作がスムーズでない。0.131から。
+         (hap)
+- 04576: [クラッシュ/フリーズ] geebee, geebeeb, geebeeg: ゲーム開始時にフリーズする。
+         (hap)
+- 04570: [クラッシュ/フリーズ] wof: 起動時、黒画面のまま進まない。
+- 04562: [クラッシュ/フリーズ] All sets in namconb1.c: 起動処理をパスできない。
+         (Angelo Salese)
+- 04564: [クラッシュ/フリーズ] dwex, drgw3 and clones: OK画面後Access Violationエラー
+         で落ちる。(Angelo Salese)
+- 04566: [サウンド] rockragej, rockrage, rockragea: 音楽がステレオ出力されていない。
+         一部のパートが鳴っていない。(Angelo Salese)
+- 04565: [サウンド] salamand, lifefrce: YM2151のステレオ出力が逆。(Angelo Salese)
+- 04563: [クラッシュ/フリーズ] thedeep: Access Violationエラーが出る。(Angelo Salese)
+- 03538: [サウンド] salamand, lifefrce, lifefrcej, salamandj: BGMの音量が効果音に対し
+         て低い。(Fujix)
+- 04559: [ドキュメント] m5draclb: 正しいゲーム名は"Ooh Aah Dracula Club (Barcrest) 
+         (MPU5)"。
+- 04557: [ドキュメント] m5bankrl: 正しいゲーム名は"The Bank Roll (Barcrest) (MPU5)"。
+
+
+ソースの変更点
+--------------
+-「Forte Card」の改良: [Roberto Fresca]
+ * 入力系の作業
+ * DIP配置追加
+ * ランプのドキュメント追加とサポート
+ * ランプのレイアウト追加
+ * 入力系の修正とシンプル化。Owner、Rental、Creditsを正しいトグルサービスキーに設定
+ * ギャンブルステージのBET用に、HALFとDOUBLEのボタンランプレイアウトを改良
+ * シリアルEEPROMデータのリバースエンジニアリングと部分的なドキュメント追加
+ * クリーンなデフォルトNVRAMとシリアルEEPROMを追加
+ * 製造元と製造年を追加
+ * テクニカルノートを追加
+
+- nemesis.cの「沙羅曼蛇/ライフフォース」の音量レベルを基板に合わせて調整。VLM5030は
+  ローパスフィルタが未実装なので仮の値。MTバグ3538も一部修正。[Fujix]
+
+-「California Chase」の修正いろいろ。POST画面を通過可能。[Grull Osgo]
+
+- CD-Iのビデオコードを修正。[fgs]
+
+- Naomi / AW / DCドライバのセーブステートを仮サポート。[Angelo Salese]
+
+- SN76477インタフェースを改良。[Curt Coder]
+
+- vigilant.c: kikcubicのデモサウンドDIPスイッチを反転。[Alex Jackson]
+
+- MSM6242 RTCデバイスをモダン化。[Angelo Salese]
+
+- MSM6242デバイスにタイムのインクリメントを追加。[Angelo Salese]
+
+- MSM6242のIRQ生成機能をテスト実装。これを使用するドライバの更新。[Angelo Salese]
+
+- Capcom ZN-1とZN-2の更新: [Team CPS-1]
+ * 各セットのボード番号の確認とドキュメント化
+ * 実基板に合わせてROMラベルと配置を修正
+ * ts2、ts2jのMASK ROMを吸い出し不良に指定。現在のROMは実基板と一致しない
+ * strider2とクローンセットのHR2-01M.3Aを、実基板に合わせて32MBitで吸い出したものに置
+   き換え。後半は切り捨て
+ * タイトル名をより正確なものに置き換え
+ * いろいろなセットのドキュメントを追加
+ * 全セットをリリース日順に並べ直し
+ * 細かなクリーンアップと修正
+
+- Super Kaneko Nova SystemにMSM6242を実装。[Angelo Salese]
+
+- avt.cの進捗。グラフィックが表示可能。[Angelo Salese]
+
+- MiraxからPCベースのサウンドハックを削除。[Angelo Salese]
+
+- 8042kbc.cのIRQ生成を修正。「California Chase」でキーボード入力が動作。[Grull Osgo]
+
+- ソフトリスト機能のクリーンアップと互換性フィルタを追加。[Miodrag Milanovic]
+
+-「ザ・ディープ」のMCUポートをドキュメント化。MCS51コアのバグがあるため未動作。
+  [Angelo Salese]
+
+- atamanotの改良。タイトル画面が化けていることで、ゲームが強力にプロテクトされている
+  ことが判明。[Angelo Salese]
+
+- U8106サウンドチップを追加して「ミスターDo!」で使用。これはSN76489のAがつかないもの
+  と100%同じものと見られるが、さらにテストが必要。[Lord Nightmare, plgDavid]
+
+-「雷電II」サウンドZ80でHIGHに固定されているピンについて記述を追加。[Lord Nightmare,
+  balrog]
+
+- gamtor.cでRAMDACデバイスを使用するように変更。[Angelo Salese]
+
+- Photo PlayにVGAデバイスを実装。[Angelo Salese]
+
+- eeprom.c: 'erase'機能で、指定したアドレスの全データを強制的に1にするように変更。
+  [Wilbert Pol]
+
+-「California Chase」をさらに改良して、Windows 98のロゴが表示。[Grull Osgo]
+
+- Windows 98のロゴが正しくなるよう、VGAライン比較レジスタマスクを修正。
+  [Angelo Salese]
+
+-「悪戯天使」のIRQ ACKを修正。[Angelo Salese]
+
+- dacholer.cとitaten.cドライバを統合。「ダチョラー」「キックボーイ」のプライオリティ、
+  スプライトのY位置を修正。[Angelo Salese]
+
+-「タクシードライバー」のROM名を追加。[f205v]
+
+- Neo-Geoドライバの変更: [Johnboy]
+ * quizkofをMVSとAES版にマーク
+ * プロトタイプセットのほとんどは正しいラベル名がわからないため、proto_ID-XX.XXに設定
+ * viewpoint、savager、blazstarのプロダクトコードを確認
+ * kotm2p m1/s1の親子セット修正
+ * ドキュメントの更新
+ * 内部DBの変更をXMLに反映(/* Plane x */はのぞく)
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Forte Card (Spanish) [Angelo Salese, Roberto Fresca, Rob Ragon]
+悪戯天使 [Team Japump!!!, Hau, Yohji]
+
+
+追加された未動作ゲーム
+----------------------
+SCI (Tourvision PCE 海賊版)
+  [Mariusz Wojcieszek, Clawgrip, Charles MacDonald, AUMAP]

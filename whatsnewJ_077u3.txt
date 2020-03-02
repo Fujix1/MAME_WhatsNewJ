@@ -1,0 +1,138 @@
+0.77u3
+
+ソース全般の変更：
+------------------
+
+■残りのドライバにもSHA1情報追加。
+
+■Seattle（とその類）の改善。[Aaron Giles]
+	* ADSP2100コアに派生版ADSP2104を追加
+	* ADSP2100コアのROMロードコードを修正
+	*「Biofreaks」と「カリフォルニアスピード」のマイナーなバグ修正
+	* Brian Troha氏によるDIPスイッチ修正
+	*「カリフォルニアスピード」「SFラッシュ」の入力ポート修正
+	*「Biofreaks」用にデフォルトの表示エリアを拡大
+	*「ブリッツ」「ブリッツ2000」をスピードアップ
+	* IDEコントローラの割り込み発生の前にほんの少し待ち時間が入るので
+	  注意して下さい
+	* IDEコントローラの機能定義バッファが完全にエミュレートされました
+	* ワードオフセットからバスマスターステータスレジスタの読み込みコードを修正
+	*「Biofreaks」でシリアルナンバーが読めるようにMidway PICの扱いを改良
+	* DCSのバッファ満杯・空ステータスのレポートメカニズムを変更
+	* DCSからのバッファ満杯・空の割り込みサポートをIOASICに追加
+	* ADSP-2104ベースのサウンドにDCSの初期版追加
+	* Voodooの頂点について1/16ピクセルの増分はクリップするコードを追加
+	* VoodooのパレットRAMへの書込みを修正
+	* バイリニアフィルタ使用時のVoodooのレンダリングエラーを修正
+	* Voodooのローカルアルファブレンディングを修正
+
+■STVの改善。[Angelo Salese. Mariusz Wojcieszek]
+
+■quizpaniのサウンドバンクの改善。[Pierpaolo Prazzoli]
+
+■MESSからNSS用にSNESエミュレーションの改善。[Nathan Woods]
+	src/drivers/nss.c
+	src/includes/snes.h
+	src/machine/snes.c
+	src/sndhrdw/snes.c
+	src/vidhrdw/snes.c
+	    - MESSのSNESドライバからいろいろな変更と改善
+
+■Unicoのサウンド周波数を実機から取得した値に訂正。[El Condor]
+
+■YMF271サウンドコアをms32.cに非常に初期段階の実装（「Desert War / 湾岸戦争」のみで
+  すこし音が出るものの全く不正確。多分Z80とのコミュニケーションとバンキングの問題）。
+  [R.Belmont]
+
+■ビットマップが16バイト毎の領域に配置されるようになっています。[Brad Oliver]
+	src/common.c
+
+■Vballドライバで実機から吸い出したグラフィックを使用するように変更。[Jarek Burczynski]
+
+■viofightでOKIチップを一つに修正。[Jarek Burczynski]
+	- viofightのADPCMサウンド修正: OKI M6295チップは一つだけになりました
+	- viofightのZ80周波数修正
+	- viofightのROM名修正
+	- PALについての情報追加: viofight, nastar
+
+
+■MESS用の修正をいろいろ。[Nathan Woods]
+	src/common.c:
+	src/common.h:
+	- auto_strdup()追加。strdup()の自動メモリ確保版
+
+	src/ui_text.c:
+	src/ui_text.h:
+	src/mame.c:
+	- UI文字列サポートをクリーンアップして、MAMEのファイルを変更することなく、
+	  今までより簡単にMESS用の文字列をサポートできるようにしました。さらに、
+	  auto_strdup()の追加で不要になったuistring_shutdown()を削除しています
+
+	src/osdepend.h
+	src/cpu/z80/z80.c
+	src/windows/config.c
+	- osd_die()追加; exit(-1)やその他恐ろしい方法ではなくきちんとプログラムを
+	  終了させる方法です
+
+	src/harddisk.h
+	src/chd.h
+	- #ifndef <headername>_H のプロテクト追加
+
+	src/windows/config.c
+	- #ifdef MESSに少しコード追加
+
+
+■TSM9900インラインアセンブリの更新。[Brad Oliver]
+	TMS9900コアのインラインPPCアセンブリの書式が少し変更されています
+
+■「Miss Bubble 2」の背景を実装。[Angelo Salese]
+
+■SCSPの更新。[Elsemi, R.Belmont]
+
+■Solaris用のパッチ [Lawrence Gold]
+	添付ファイルはSolaris用のパッチで、倍精度コンピュータである同プラットフォームで
+	使えないsqrtfとfloorfを置き換える物です。もし何か問題があれば、Solaris用の
+	#definesなどを追加したいと思います。
+
+■「リバレーター」でPROMを使うように変更。ただし、正確なPROMは未ダンプ。[Stefan Jokisch]
+
+■Namcoサウンドコアの改善。[BUT]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ギャルズハスラー [Pierpaolo Prazzoli, David Haywood]
+	src/drivers/galpanic.c
+
+ホットロッド [GreyRogue, Olivier Galibert]
+	** 初期化しないと動作しないので注意 **
+
+Monkey Mole Panic / ワイワイアニマルランド [Luca Elia]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+ストリートファイター・ザ・ムービー (v1.11) [Brian Troha]
+
+Sorcer Striker (ハック版?) / 魔法大作戦 [Brian Troha]
+Kingdom Grand Prix (ハック版?) / 疾風魔法大作戦 [Brian Troha]
+	純正版かどうかの判断は困難
+
+Power Instinct / 豪血寺一族 (USA alt 海賊版) [Pierpaolo Prazzoli]
+	サウンド未動作
+
+Roller Aces (set 2) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Malzak [Barry Rodewald]
+	当り判定動作せず
+	src/drivers/malzak.c
+	src/vidhrdw/malzak.c
+
+あしたのジョー [David Haywood]
+	セット不完全

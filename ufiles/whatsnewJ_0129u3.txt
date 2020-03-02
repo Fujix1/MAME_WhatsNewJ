@@ -1,0 +1,154 @@
+0.129u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01017: [Sound] nslasher: Tボス戦のときと、2面でBGMが止まる。(Mamesick)
+- 02862: [Graphics] Many sets in taitosj.c: スクロール中に画面の下側が黒くなる。(Aaron Giles)
+- 02860: [Crash/Freeze] mach3, usvsthem: 起動時にMAMEがエラーを報告する。(Aaron Giles)
+- 02880: [Original Reference] stactics: スクラッチパッドRAMが大きすぎる。現在は2KBだが、正しくはミラーリングした256bytesサイズ。(chowell)
+- 02843: [Original Reference] schaser, schasrcv, polaris: カラーRAMが半分しかエミュレートされていない。(chowell)
+- 02884: [Original Reference] kopunch: メインCPUはZ80ではなく、8080。(Tomasz Slanina)
+- 02888: [Graphics] All sets in megaplay.c: 画面の真ん中が大きく黒く表示される。(Aaron Giles)
+- 02827: [Compiling] 64-bitビルドに失敗する。(Phil Bennett)
+- 02804: [Documentation] dkongf: ゲームの発売年は1981年ではなく2004年。(Fabio Priuli)
+- 02803: [DIP/Input] dkongf: DIPスイッチの"5 Coins/1 Credit"の設定はフリープレイ。(Fabio Priuli)
+- 02719: [DIP/Input] arkbloc2, arkgcbl, paddle2: 左にパドルを移動できない。(Fabio Priuli)
+- 02697: [DIP/Input] hkagerou: 入力のマッピングがおかしい、またはマッピングされていない。(Fabio Priuli)
+- 02574: [DIP/Input] yumefuda: 操作系が不完全。(Fabio Priuli)
+- 02873: [Graphics] Many sets in system1.c: テキストレイヤーが表示されない。(David Haywood)
+- 02866: [Misc.] bublbobl and clones: Vsync値が少しずれている。ソースによると59.185606Hzだが、MAMEでは59Hz。(Phil Bennett)
+- 02792: [DIP/Input] 	STANDARD_DIPS設定に、DIP4、5、6(COMM設定)が無い。(Fabio Priuli)
+
+
+
+ソースの変更点
+--------------
+-「Big 10」の入力系をクリーンアップ、及び再マッピング。ゲームノート更新。その他細かな
+  変更。[Roberto Fresca]
+
+-「ダブルウイングス」のサウンド処理を「ナイトスラッシャーズ」と同じものにして改善。こ
+  れらはメモリマップが違う以外は同様のもの。[Angelo Salese]
+
+-「Magic's 10」のスクロールレイヤーを修正。[Angelo Salese]
+
+-「Magic's 10 2」「Super Pool」「Hot Slot」「Magic Colors」のH8/330 MCUをNO_DUMPに設
+  定。[Angelo Salese]
+
+- marioを主に対象としたディスクリートサウンドの改良: [couriersud]
+
+ * LS624データシートの図2と図3にある式を使用。
+   係数は最小二乗近似を使って計算。
+   これにより、以前の方法よりも少し音質が向上
+
+ * LS624のエネルギー演算処理を修正
+
+ * エネルギー値をXORの入力に使用。これにより、2つの信号の重畳を改善。将来的には、
+  LS629とXORについて、互いの周波数が近いときのミキシングを正しくモデル化するため、
+  カスタムモジュールにコンバートする必要あり
+
+ * スリップ音用にC41を60%に調整
+
+- CPS3セットで、以前の中途半端なリネームのために壊れたままになっていたものを修正。ま
+  た、コードを他の人がいじりやすくなるように再構成(コンフィグテーブルの削除とキーのド
+  ライバ初期化部へ移動、リージョンサイズの定義、CDベースゲーム用初期化部でメモリ割り
+  当て)。機能的な変更はありませんが、リージョンルックアップが少なくなったため、わずか
+  に速度が上がっているかもしれません。[David Haywood]
+
+-「Aero Fighters / ソニックウイングス」海賊版(aerfbootとaerfboo2)で、サウンドを仮サポー
+  ト。[Angelo Salese]
+
+-「New Fruit Bonus '96'」セットを追加。正体は不明。[David Haywood]
+
+- 'time dog'と記された謎のセットをgoldstarドライバに追加。あまり合っていないようで、
+  プログラムROMもありません。このうち1つのセットでは暗号化されたコード、別なものでは
+  素のコードを使っている模様。まだ、コードの整理が必要です。少なくとも一つのセットが
+  有効と見られるので追加しましたが、ダンプには使えるような情報は含まれていません。
+  [David Haywood]
+
+-「セクシーギャル」「スイートギャル」のプロテクトを仮サポート。[Angelo Salese]
+
+-「Magic Card」68k版の色、表示領域、ソフトリセットを修正。ドライバを正しいinfoと基本
+  ビデオレジスタ付きにコンバート開始。これは、改良したPhilipx CD-iアーキテクチャでも
+  ある程度動作します。[Angelo Salese]
+
+- MESSからArchimedesのコードを導入。[R. Belmont]
+
+-「Diamond Derby」の手前のタイルマップ色を修正。[Angelo Salese]
+
+- 新モジュールdevcbを追加。これはデバイスのリードライト関数と、その他の様々な関数間で
+  のコンバートを汎用的に処理します。これを可能にするための、新構造体を追加:
+  [Aaron Giles]
+
+  これを利用するため、デバイスは新しいdevcb_read/write構造体を使ったリードライトコー
+  ルバックにインタフェース置き換える必要があります。デバイスのスタート時に、この新し
+  いdevcbモジュールを使って、devcb_read/write構造体の情報をより効率的な形に展開します。
+  デバイスがコールバックを呼ぶ必要があるときには、インラインのdevcb_call_read/write関
+  数を使用します。
+
+  デバイスがdevcb_read/writeとしてコールバックを定義した場合、デバイスの使用元は使用
+  するハンドラについて、型と情報を指定するためにDEVCB_*マクロを使います:
+
+    DEVCB_NULL = ハンドラ無し
+    DEVCB_HANDLER = 通常デバイスのリードライトハンドラ
+    DEVCB_MEMORY_HANDLER = メモリアドレス空間のリードライトハンドラ
+    DEVCB_DEVICE_HANDLER = 異なるデバイス用のデバイスリードライトハンドラ
+    DEVCB_INPUT_PORT = 入力ポート
+
+- 8255PPIデバイスを新構造体を使うようにコンバート。また、全ての使用元でDEVCBマクロを
+  使うように更新と、不要になったトランポリン関数を削除。[Aaron Giles]
+
+-「Buck Rogers / ズーム909」の周波数演算に、caps >= 100pf用の計算を追加。この式は、
+  LS624/628/629と625/626/627データシートの図6より取得。タイトル文字や敵の大型船が中央
+  に正しく表示。[couriersud, Guru]
+
+- 6821newデバイスでdevcbを使うようにコンバート。Williamsドライバでトランポリン関数を
+  削除。[Nathan Woods]
+
+- norautp.cドライバの改良: [Roberto Fresca]
+ -「GTI Poker」(gtipoker.c)をこのドライバに統合
+ - 新メモリマップとマシンドライバを追加
+ - gtipokerにPPI 8255を2つ実装
+ - gtipokerにビデオRAMアクセスポートを実装
+ -「Noraut Poker (No Payout)」のゲーム名を「Noraut Poker (bootleg)」に変更。ゲームに
+   ペイアウトシステムがあるため
+ - その他のくリーンアップ
+
+-「Cabaret」の暗号化修正。サウンドエミュレーションの追加。[Mirko Buffoni]
+ - 単独ドライバに移動
+ - まだ完全にはプレイ不可。穴から出るにはリセットを押す
+
+- H8/3xx命令をさらに追加。seta2.cに「ファンキューブ」追加。[Luca Elia]
+
+- エンドユーザでも起動できるよう、jolyc980にデフォルトのバックアップRAMを追加。
+  [Angelo Salese]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Big 10 [Angelo Salese, Roberto Fresca, Tomasz Slanina]
+Bottle 10 (italian, 2 sets) [Roberto Fresca]
+Super Poker (v116IT) [Mirko Buffoni]
+Casino Five [Mariusz Wojcieszek]
+Big Apple Games [Mariusz Wojcieszek]
+ファンキューブ 2 [Luca Elia]
+ファンキューブ 4 [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+Turbo Sub (prototype rev. TSC7) [Jay Gallagher]
+のぼらんか (Japan) (NOT WORKING, undumped 8751 MCU)
+バトルバクレイド - アンリミテッドバージョン (U.S.A.) [Josh W.]
+アームドポリスバトライダー (several versions) [Josh W.]
+モータルコンバット (prototype, rev 8.0 07/21/92) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Jansou
+Noraut Poker [Roberto Fresca, Angelo Salese]

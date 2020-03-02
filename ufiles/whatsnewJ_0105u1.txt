@@ -1,0 +1,121 @@
+0.105u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+metmqstr0105yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- includes/*.hファイルのプロジェクト間の使用について以下の項目を確保してクリーン
+  アップしました:
+
+  1. includes/***.hファイルは全て、宣言ソースを示すコメントを注釈としてつける
+  2. それぞれのソースファイルでも #include "includes/***.h" の定義が正しいことを
+     保証するためはっきりと注釈付けする
+
+  これにともない、矛盾していたり、無関係だったり、不完全な宣言は削除もしくはク
+  リーンアップしました。[Atari Ace]
+
+- ui_set_visible_area()の呼び出し部をset_visible_area()に移動して、1フレーム中に
+  別なタイミングでこれらが呼び出されたときの問題に対応。[Nathan Woods]
+
+- CPUドライバを更新。ROM混合ボードから得られた情報に基づき、タイルマップ描画精度
+  の向上。[David Haywood]
+
+- 前回のリリースから古いデバッガがクラッシュするバグを修正。[Olivier Galibert]
+
+-「Pig Newton」にデモサウンドのDIPスイッチ追加。[Derrick Renaud]
+
+- gumast, batlbublのDIPスイッチ修正。[Brian Troha]
+
+- tumbleb2とpangpangにシミュレートサウンド追加。[David Haywood]
+
+- 6821PIAにCA2、CB2、IRQシグナルのアクセサ追加。[Nathan Woods]
+
+-「Bonze Adventure / 地獄めぐり」のCチップエミュレーションを正確にしてプロテクト
+  関係の問題を修正（不明なデータと自作データを削除して、すべて実機から抽出）。
+  [Bryan McPhail]
+
+- Taito F3の名称をクリーンアップ。[Marco, Bryan McPhail]
+
+- Z80 PIOコードが、PIO_OP_MODE byteとそれに続くマスクの間で割り込みが発生するの
+  を妨げていたのを修正。データシートによると、ハードウェアではこれは許可されてい
+  ないとのこと。[Robert]
+
+- M68040コアにFPU命令コードを大量追加。[Ville Linde]
+
+- TaitoJC全ゲームのROMロードを修正。[Ville Linde]
+
+- TMS320C51 CPUコア追加。[Ville Linde]
+
+- Nintendo 64コアの一部をMESSの共有モジュールとして分割。[R. Belmont]
+
+- ゲームドライバクローンとのハード的なつながりを削除。これにより、ドライバ内の
+  ハードの依存度を減らし、tiny.makを使いやすくします。[Atari Ace, Aaron Giles]
+
+- PGMドライバのアップデート: [El Semi]
+ - スプライトリストのスプライトマスク幅パラメータを訂正
+ -「The Killer Blade」の複合化機能を修正
+ -「The Killer Blade」のグラフィックROMロードを修正
+ -「The Killing Blade」(台湾版?)のセット追加
+ -「The Killing Blade」(台湾版?)のプロテクトシミュレーションWIP版追加。
+   ゲームは起動可能。最終ステージが動作しない
+
+- makefileに$(OBJ)/%.sターゲットを追加して、生成コードの逆アセンブリ解析を簡単に
+  しました（また、$(OBJ)/%.ppでプリプロセッサ出力の検査もできます）。
+  [Nathan Woods]
+
+- リージョンとアドレス空間名をWindows専用コードから共有的なところに移動。
+  [Olivier Galibert]
+
+- コードコメントが長すぎるときに表示がおかしくなるバグを修正。[Andrew Gardner]
+
+- H8命令コードがいくつか無かったのでコアに追加、またカラーDACをlastfght.cに追加。
+  [Tomasz Slanina]
+
+- -romidentオプションでいくつのROMが確認できたを元にエラーレベルを返すように変更
+  (0=全部確認, 1=ROM以外のファイルは全て確認, 3=確認できたファイル無し)
+  [Aaron Giles]
+
+- セーブステート登録用のタイプチェックをさらに厳しく（GCCでのみ動作）。
+  [Aaron Giles]
+
+- メモリシステムの自動ROM割り当てロジックについて、ROM領域外に自動で割り当てない
+  ように変更。[Aaron Giles]
+
+- セーブするメモリエリアがメモリ領域にオーバーラップしないように登録するようにメ
+  モリセーブステートのレジストを変更。これにより、RAM用の追加メモリ領域に頼って
+  いるドライバはセーブをサポートする前に修正が必要です。[Aaron Giles]
+
+- 空のRAM領域や無関係なメモリ領域を使っていたかなりのドライバを修正しました。
+  arcadia、nss、stvドライバでは特に大がかりです。[Aaron Giles]
+
+- 整合性チェックで空メモリ領域を警告するようにしました。空領域は削除するか、明確
+  な値（ROMREGION_ERASE00かROMREGION_ERASEFF)で埋めて警告をクリアするようにして
+  ください。[Aaron Giles]
+
+- Amigaエミュレータでサウンドと追加のビデオモード、さらにハーフブライトモードや
+  マニュアルスプライト、スキャンラインの変更を含むエフェクトをサポートするように
+  大幅に書き直し。まだ作業中です。[Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Pang Pang [David Haywood]
+Crazy Fight [Luca Elia]
+Puzzle King (Dance & Puzzle) [Pierpaolo Prazzoli]
+ファイターズヒストリー [Bryan McPhail]
+Sex Triv [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Battle Bubble [f205v, Corrado Tomaselli]
+Bonze Adventure / 地獄めぐり (World, Older) [Bryan McPhail]
+Fantasia II (set 2, less explicit) [HIGHWAYMAN]
+The Killing Blade (Taiwan?) [El Semi]

@@ -1,0 +1,217 @@
+0.158
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04662: [速度] (psikyosh.c) tgm2, tgm2p: フレームレート・リフレッシュレートが間違っ
+         ている。(Alex Jackson)
+- 00995: [ゲームプレイ] (segahang.c) sharrier: 残機数が正しく動作しない。やられても減
+         らなかったり、逆に増えたりする。
+- 05832: [グラフィック] (toaplan2.c) batrider, batriderj: ボスの顔が一部表示されない。
+         (David Haywood)
+- 01214: [グラフィック] (dec0.c) bouldash, bouldashj: 画面のフェードアウト・インがず
+         れている。(Angelo Salese)
+- 05507: [その他] (model2.c) zerogun, zerogunj, zerogunaj, zeroguna: 
+         AddressSanitizer: global-buffer-overflowエラー。(David Haywood)
+- 05828: [ゲームプレイ] (punchout.c) spnchout,spnchouta,spnchoutj: アトラクトモードの
+         ハイスコア画面でリセットする。(hap)
+- 05790: [既知事項/未実装] (senjyo.c) All sets in senjyo.c: m_int_delay_kludgeの削除
+         について。(Angelo Salese)
+- 05816: [クラッシュ/フリーズ] (bfm_sc2.c) Several bfm_sc2.c sets: [デバッグ限定] ア
+         サート。(Osso)
+- 05812: [クラッシュ/フリーズ] (maygay1bsw.c) m1bankrl, m1bankrl2p, m1bankrlp / 
+         m4nod - mpu4.c: 致命的エラーが起こる。(Osso)
+- 05811: [クラッシュ/フリーズ] (maygay1bsw.c) Many sets in maygay1bsw.c: OK画面後クラ
+         ッシュする。(Osso)
+
+
+ソースの変更点
+--------------
+- m68k: FTRAP命令実装。"FPU付き68020"CPUタイプを追加。[R. Belmont]
+
+- MCUシミュレーションの修正。[Chris Hard, Adrian Smethurst, Philip Campbell]
+
+- winprefix: 古いMSVCで、C99拡張サポート。[Peter Ferrie]
+
+- クロスコンパイルをより簡単に改良。[Ramiro Polla]
+
+- luaengine: HUD的な機能追加。[Luca Bruno]
+
+-「センジョウ」ハードウェアにIRQ ACKメカニズム追加で、昔からあったハックを削除。
+  [Angelo Salese]
+
+- SDL: ドライバ"accel"(draw13.c)で"-filter"をサポート。バイリニアフィルタリングなど。
+  [Couriersud]
+
+- ui: DipSwitchとConfSettingsメニューに「リセット」機能追加。ハードリセットが助けとな
+  る他のメニューにあわせ、ファイルマネージャにも追加。[Fabio Priuli] 
+
+- ui: DipLocationで、配置情報が無いスイッチも画面上でハイライトしておくように改良。
+  [Fabio Priuli]
+
+- work_osd.cでディスクリートサウンドがクラッシュを起こすバグ修正。
+  [Tafoid, Haze, Couriersud]
+
+- -DOSD_WINDOWS、-DOSD_SDL、-DOSD_MINIの定義を、$(OSD).makに移動。makefileにサニティ
+  チェック追加。[Couriersud]
+
+- zn: nbjamexにROMバンキング実装(不完全かも?)。グラフィックが出るように。
+  [Peter Ferrie]
+
+- ui: PORT_DEVICEを使用する動的な入力について、入力名のそばにデバイスタグを表示開始。
+  スロットデバイスが変更されると入力メニューがおかしくなるのを予防。[Fabio Priuli]
+
+- png2bcdツールをpythonに変更。[Andrew Gardner]
+
+- luaengine: デバイスステートエントリを外部に出力。[Luca Bruno]
+
+- ui: ユーザが設定できないスロットオプションに"[Internal]"を追加。また内部オプション
+  をスクロール可能に修正。[Fabio Priuli]
+
+- ui: Image Informationコードをシンプル化し、多くのイメージデバイスがあるシステムで完
+  全に表示するよう変更。[Fabio Priuli]
+
+-「イレブンビート」で"Joystick Type Error"メッセージが出ないようROMを吸い直し。ただし、
+  キックオフのところでクラッシュする。[brizzo, Zoinkity, Angelo Salese]
+
+- chdman: createhdに-s/--sizeパラメータ追加。サイズとセクターサイズベースの空ハードデ
+  ィスクを作成するため。[Oliver Steberg]
+
+- ui: デバイス固有オプションの最低限なメニューを追加。スロットデバイスオプションをク
+  リックすると現在マウントされているか、また選択した値に応じてどの追加オプションがあ
+  るかを確認できる。[Fabio Priuli]
+
+- ui: 内部UIのサブオプションからスロットオプションが正しく生成されないバグを修正。
+  [Fabio Priuli]
+
+-「マリオブラザーズ」用の部分的なnetlistサウンド実装。ルイージの音はまだ無し。デフォ
+  ルトで、以前のdiscrete.hベースなサウンドを集めて利用。興味のある人はmario.hの
+  OLD_SOUNDを0に設定するとお試しできる。[Couriersud]
+
+- naomi.c: vstrik3cを再吸い出し。既存と新吸い出しの両方がBADだったので良さそうものを
+  両方より作成。[ANY, MetalliC]
+
+- twinkle.c: 68000とSPUボードでコマンド処理を行い効果音が再生可能。[R. Belmont]
+
+- ui: ゲームセレクタでROMの無いシステムをファイルが無いと報告するのを停止。
+  [Fabio Priuli]
+
+- ui: コマンドライン、ゲームセレクタの両方から必須カートリッジのあるシステムを起動し
+  た場合、エラーでエミュレーションを終了させるのではなく、ファイルマネージャから必要
+  なゲームをマウントできるように変更。[Fabio Priuli]
+
+- SEGA 315-5881暗号化・圧縮デバイスエミュレーション
+  [Andreas Naive, Metallic, David Haywood, ANY] 
+ *「バーチャストライカー2 '98」での検証を元にアルゴリズムを更新
+ * ST-V、Model 2、Model 3ドライバに正しくチップを実装
+ * 暗号化ストリームのマルチブロックサポート
+ * 異なる高さ・幅の圧縮データストリームをサポート
+ * ゲーム単位でのシミュレーションの削除が可能となったり、圧縮がおかしかったグラフィッ
+   クの修正につながるキーの発見
+ * キーとSegaパーツナンバーの相関性を発見
+
+    ST-V :
+    - ファイナルファイトリベンジが起動・プレイ可能
+    - 闘龍伝説エランドールのテクスチャ修正、さらにプレイ可能
+    - アストラスーパースターズでサターン版のフェイクROMが不要
+    - テクモワールドカップ98のテクモロゴ・タイトル画面修正
+    - SSS、レイディアントシルバーガンで、カスタムプロテクトシミュレーションが不要
+
+    Model 2:
+    - ゼロガンナー、パイロットキッズ、ダイナマイト刑事でカスタムプロテクトシミュレー
+      ションが不要
+
+    Model 3:
+    - ダートデビルズ、マジカルトロッコアドベンチャー、バーチャロン2、LAマシンガンズの
+      2Dグラフィックを正しく復号化
+    - デイトナ2の暗号化コードブロックを正しく復号しROMパッチが不要に
+       * デイトナ2パワーエディションのキーは現状のアルゴリズム解析レベルでは不明
+    - スターウォーズトリロジーアーケード、スパイクアウト、ファイティングバイパーズ2、
+      救急車、オーシャンハンターでカスタムプロテクトシミュレーションが不要に
+    - バーチャストライカー2 98・99でキックオフ時のハング修正
+ 
+    Hikaru:
+    -「スターウォーズアーケードレーサー」のキー確保(315-5881はMAME的にまだ追加できず)
+
+
+- Sega 315-5838 / 317-0029圧縮デバイスの更新: [David Haywood]
+ * 315-5838を「デカスリート」のプロテクトチップとしてドキュメント化
+ * 317-0029(「デッドオアアライブ」)は別バージョンのものと判明
+ * decathltの処理をstv.cから分離しデバイス化。doaのシミュレーションもmodel2.cから分け
+   て同じ場所に移動
+ * 機能的な改善はなくてリファクタリングのみ
+
+- ui: 必要なファイルが無いソフトリストのエントリを起動しようとするとエミュレーション
+  が即終了せずにメッセージを表示するようにファイルマネージャを改良。[Fabio Priuli]
+
+- *nix: manページバージョンと日付を更新。[Wallyweek]
+
+- hikaru.c: sgnascarのプロテクションキー追加。[MetalliC]
+
+- ui: ソフトウェア項目が新規でイメージデバイスやスロットオプションを作る場合
+  (passthru cartsなど)、内部UIのファイルマネージャ経由だと失敗するバグを修正。
+  [Fabio Priuli]
+
+-「トップランディング」の地面以外の色修正(また、領域外のパレットクラッシュバグも修正)。
+  [Angelo Salese]
+
+-「救急車」「デイトナUSA2」「LAマシンガンズ」「マジカルトロッコアドベンチャー」
+ 「バーチャロン2」のプロテクトキー。[Metallic]
+
+- パッチリリース毎にSDLがSDL_HINTを追加し続けている。[qmc2]
+
+- nbajamex: ROMバンキング実装。コイン入力動作によりプレイ可能。
+  [R. Belmont, Peter Ferrie]
+
+- core: ゲーム単位のパラメータ追加: [O. Galibert]
+
+  ゲーム単位パラメータは(タグ、値）のペアで、ROM_PARAMETER(tag, value)の形でROMセク
+  ション内で追加します。デバイスメソッド parameter(tag)を使って検索可能で、存在しない
+  場合は""を返します。
+
+- i386: SSEオペコードの改良: [Samuele Zannoli]
+ * MOVHLPS MOVLHPSオペコード追加
+ * PACKUSWB PACKSSDW SHUFPS UNPCKLPS UNPCKHPSの安全な実装
+ * ソースとターゲットのレジスタが同じケースでより安全な実装が必要
+
+- Solaris 11ビルドをサポート。[Couriersud]
+
+- discofのROMを新しく吸い出したものに置き換え。[f205v]
+
+- Caveman (Exidy Pinball)の画面部分エミュレーション開始。[David Haywood]
+
+- funkball.cでフラッシュROM処理にintelfsh.cを使って、マッピングする仮想空間用に
+  bankdevを使うよう更新。[David Haywood]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Star Trek (Sidam, Head On hardware) [Piero Andreini, PaTrYcK]
+Endless Riches [Brian Troha]
+ポップンミュージック3 (ver JA-A) [R. Belmont]
+Come Back Toto [system11, David Haywood]
+NBA Jam Extreme [R. Belmont, Peter Ferrie]
+ファイナルファイトリベンジ [Metallic]
+Player's Edge Plus (PS0366) Double Diamond Deluxe Slots [BrianT]
+Player's Edge Plus (PS0372) Double Diamond Deluxe Slots [BrianT]
+Player's Edge Plus (PS0373) Double Diamond Deluxe Slots [BrianT]
+
+
+新しく追加されたクローンセット
+------------------------------
+オーバードライブ (set 2) [ShouTime, The Dumping Union]
+オーバードライブ (set 3) [ShouTime, The Dumping Union]
+ダンジョンズ&ドラゴンズ -シャドーオーバーミスタラ- (Asia 960208) [ArcadeHacker]
+Black Widow (prototype) [Mariusz Wojcieszek]
+Player's Edge Plus (PP0038) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0116) Standard Draw Poker (Mirage) [BrianT]
+アドベンチャークイズ カプコンワールド2 (Japan 920611, B-Board 90629B-3, no battery) 
+[manimani]
+
+
+追加された未動作ゲーム
+----------------------
+シャカっとタンバリン！ (Rev B) (GDS-0002B) [rtw, ShouTime]
+Space Train [f205v]
+ミサイルX [TTL]  [Andrew Welburn]

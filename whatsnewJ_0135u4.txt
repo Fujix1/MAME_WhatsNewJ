@@ -1,0 +1,288 @@
+0.135u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03583: [システムコア] Windows Debug: スタッククロールが生成されない。(Firewave)
+- 03588: [サウンド] mystston, myststono: BGMのテンポが速過ぎる。(Kold666)
+- 03589: [グラフィック] mystston, myststono: 実機計測のVSYNCは57.4Hz。MAMEでは68Hzに
+         なっている。(Kold666)
+- 03592: [実機資料] outrun, outrunra, outruno, outrundx, outrunb: マスタークロックが
+         正しくない。他のYボードゲームとは異なり40MHｚ。そのため、68000のクロックも
+         12.5MHzではなく10MHｚのはず。(Tafoid)
+- 00400: [グラフィック] combascb: 0.79からプレイヤー画面に表示化けあり。1面でスクロー
+         ルの問題もあり。(Fabio Priuli)
+- 03575: [クラッシュ/フリーズ] block2: [デバッグ限定] デバッグビルドでメモリリークが
+         起こる。(Fabio Priuli)
+- 03569: [クラッシュ/フリーズ] escounts: OK入力後にAccess Violationエラーが起こる。
+         (Phil Bennett)
+- 03444: [デバッガ] デバッガで、セーブステートに登録されたRAMブロックを参照できなくなっ
+         た。(Aaron Giles)
+- 03567: [クラッシュ/フリーズ] trvquest: OK入力後にAccess Violationエラーが起こる。
+         (Fabio Priuli)
+- 03574: [クラッシュ/フリーズ] All sets in drivers using s2636 video chip: 
+         [デバッグ限定] アサート: src/emu/video/s2636.c:320: offset < 8(Fabio Priuli)
+- 03570: [クラッシュ/フリーズ] kf2k3pcb: OK入力後にAccess Violationエラーが起こる。
+         (Fabio Priuli)
+
+ソースの変更点
+--------------
+- 以下にドライバデータ構造体を追加: [Fabio Priuli]
+ - airbustr.c
+ - cvs.c
+ - 8080bw.c, mw8080bw.c
+ - 88games.c, combatsc.c, rockrage.c
+ - psikyo4.c, psikyosh.c
+
+- ドライバデータ構造体とセーブステート追加: [Fabio Priuli]
+ - djboy.c
+ - toratora.c, sf.c
+ - neogeo.c
+ - cps1.c, cps2.c, fcrash.c
+ - cbasebal.c, chinsan.c, mitchell.c, quasar.c
+ - malzak.c
+ - battlnts.c, bladestl.c, crshrace.c, contra.c
+ - f1gp.c, fastlane.c, flkatck.c, hcastle.c, labyrunr.c, suprslam.c
+ - psikyo.c, pgm.c
+
+- インデックスベースのDISCRETE_ADJUSTMENTを削除して、DISCRETE_ADJUSTMENT_TAGに置き換
+  え。呼び出し元全ての更新。[Aaron Giles]
+
+- input_port_by_index()の使用箇所を全て削除。また、この関数自体も削除。
+  [Fabio Priuli, Aaron Giles]
+
+- 6522via.cにセーブ追加。これにより、gameplan.cとtrvquest.cで-autosaveを使ったときの
+  バグが修正。[Fabio Priuli]
+
+- dday.cで、コアの変更によってロード時のサウンド問題が修正されたため、
+  GAME_SUPPORTS_SAVEフラグを有効化。[Fabio Priuli]
+
+- MESSよりSAA5050エミュレーションの取込み、及びデバイス化。malzak.cでこれを使うよう更
+  新し、ほぼ同様の機能があった箇所を削除。[Fabio Priuli]
+
+- TILE_GET_INFO_DEVICEとSET_TILE_INFO_DEVICEマクロをtilemap.cに追加。[Fabio Priuli]
+
+- MB14241 Shifter ICをデバイス化。また、そのソースをemu/machineに移動。mw8080bw.cと
+  8080bw.cを合わせて更新。fgoal.cでも独自のものからこれを使うようにコンバート。
+  [Fabio Priuli]
+
+- LOAD、LOADS、STOREのUML命令について、任意の倍率をサポートするように拡張。これまでは、
+  サイズ指定をすると、倍率とサイズが同じだと見なされていました(例: DWORD型を指定する
+  とインデックスを4倍にする)。デフォルトはまだこのままです。新しく、明示的な倍率指定
+  が可能です。例えばDWORD型の取得にDWORD_x1を指定すると、インデックスは拡張されません。
+  または、BYTE型の取得にBYTE_x8を指定するとインデックスを8倍する意味になります。
+  この機能が動作するように、全てのバックエンドを更新しています。[Aaron Giles]
+
+- Konamiのデバイス化と改良: [Fabio Priuli]
+ - machine/konamiic.cとvideo/konamiic.cの全KonamiカスタムICのデバイス版を追加
+ - 新コードを使用: combatsc.c, contra.c, crshrace.c, f1gp.c, fastlane.c, flkatck.c,
+    hcastle.c, labyrunr.c, suprslam.c
+ - k056800サウンドデバイスをemu/soundに移動し旧コードを削除: gticlub.c, hornet.c, 
+    nwk-tr.c, ultrsprt.c, zr107.c
+ - 新デバイス使用: 88games.c, battlnts.c, bladestl.c, rockrage.c
+ - 新デバイス使用: asterix.c, moo.c
+ - Konamiビデオデバイス使用: aliens.c, blockhl.c, crimfght.c, gbusters.c
+ - 新ビデオデバイス使用: parodius.c, simpsons.c, thunderx.c, vendetta.c, xexex.c
+ - Konamiビデオデバイス使用: overdriv.c
+ - Konamiビデオデバイス使用: gradius3.c, mainevt.c, gijoe.c
+ - Konamiビデオデバイス使用: ajax.c, bottom9.c, chqflag.c, rollerg.c, spy.c, 
+    surpratk.c 
+ - konamiic.hコードの代わりにKonamiビデオデバイス使用: dbz.c, lethal.c, metro.c, 
+    rungun.c, tail2nos.c, tmnt.c, ultraman.c, wecleman.c, xmen.c, zr107.c
+ - Konamiビデオデバイス使用: bishi.c, djmain.c
+ - Konamiビデオデバイスと、eepromdev_read_bit用のinput_port_write使用: plygonet.c
+ - EEPROMデバイスを使用: asterix.c, gijoe.c, hornet.c, lethal.c, moo.c, overdriv.c, 
+    rungun.c, vendetta.c, xexex.c, xmen.c
+ - EEPROMデバイスを使用: konamigx.c, tmnt.c, mystwarr.c
+
+- デバイスの開始時にタイルマップが初期化できるように修正。[Aaron Giles]
+
+- coolridrの吸い出し直しROMを追加。[David Haywood]
+
+- タイルマップを使わないシステムで終了時にクラッシュするのを修正。[Aaron Giles]
+
+- 初期化後のauto_malloc、タイマ、セーブステートの割り当てに対して警告メッセージ追加。
+  これが出た場合は修正の必要があります。警告自体はすぐに無効化する予定です。これに当
+  てはまる多くの箇所を修正。[Aaron Giles]
+
+- Taito F3のサウンド部について、それを利用するゲームでインポートする形の独立したマシ
+  ンドライバに分割。[Aaron Giles]
+
+- balsenteドライバをdriver_data構造体にコンバート。[Aaron Giles]
+
+- Atariドライバをさらに手入れ。全てのタイマとセーブステート用レジスタを割り当てる関数
+  atarigen_init()を追加。全てのドライバでこれを使用する用に更新。また、一部のドライバ
+  でデバイスタイマを使うようにコンバート。[Aaron Giles]
+
+- ticket.cをデバイスに変更。使用部を全て更新。[Aaron Giles]
+
+- CIA6526: FLAG処理の修正とインタフェースを少し整理。[Curt Coder]
+
+- SNESのタイマ割り当てをMACHINE_STARTに移動。[Fabio Priuli]
+
+-「恋来パート2」: ハードコードテーブルを書き出し(デフォルトでは無効)。カラーPROMは未
+  吸い出しだと推測されます。また、未使用ポートについてのドキュメント化。
+  [Angelo Salese]
+
+- Carrera: 色の修正。[Angelo Salese]
+
+-「スカイアーミー」: ドライバのクリーンアップ。また、資料によると色は正しいようなので
+  GAME_WRONG_COLORSフラグを削除。[Angelo Salese]
+
+-「Trivia Madness」: グラフィックと色の改良。[Angelo Salese]
+
+-「Super Rider」: ビットプレーン順と色修正。[Angelo Salese]
+
+- RSP再コンパイラのテスト版。一時的に全てのベクタ命令はC関数へスタブアウト。[Harmony]
+
+- sbowling.c - DIP LOCATIONSと正しいCOINAGE選択機能を追加。カーブとストレートを切り替
+  えるためのボタン1をマッピング。クロック速度をXTALを使ったもので置き換え。[Tafoid]
+
+- hng64ドライバ3Dラスタライズ処理をFIFOシステムとして再実装。[Andrew Gardner]
+
+- ggconnie.c - サービスモードに合わせてDIP LOCATIONを追加。タイトル画面の元にリリース
+  年度を追加。[Tafoid]
+
+-「Victor 5」「Victor 21」「Cross Bingo」の復号化テスト版追加。[David Haywood]
+
+-「Cross Bingo」のPROMをデコード。[Angelo Salese]
+
+- hexa.c - DIP LOCATIONS追加とXTALによるクロック指定を「アルカノイド」から取得。基板
+  はあらゆる視点からほぼ同一のため。[Tafoid]
+
+- RSP再コンパイラの改良と最適化: [Harmony]
+ - SATURATE_ACCUMをsignedとunsigned版に分けてスタックの使用量を削減
+ - 0hの派生型であるVMRG、VAND、VNAND、VOR、VNOR、VXOR、VNXORの問題を訂正
+ - unalingedな読み込みと書き込みを少し最適化
+ - unalignedなdward型読み込みを最適化
+ - RSPプログラムの不備で不正なアドレスに飛ぶ問題を修正
+
+- DRC再コンパイル用の新プロファイラバケットを追加。[Aaron Giles]
+
+- luckgrln: CRTコントローラを実装。[Angelo Salese]
+
+- gomoku.c, sspeedr.c - DIPスイッチ追加とクロックのXTAL化。[Tafoid]
+
+- nitedrvr.c, tourtabl.c - クロックをXTALによる指定に変更。[Tafoid]
+
+- 新オプション-numprocessorsを追加(詳細はwindows.txtを参照)。[couriersud]
+
+- N64 RDPレンダラについて、処理量の多いブランチを廃止して、関数ポインタを使うことで最
+  適化。[Harmony]
+
+- drcのマイナーな改良: [Aaron Giles]
+ - RSPの不整列メモリアクセスをシンプル化
+ - mips3/powerpc drcのダイレクトメモリアクセスから、現在は不要になったシフトを削除
+ - x89/x64のときの0xff/0xffff/0xffffffffとのANDケースを最適化
+ - 冗長なローディングを削除するため、x86バックエンドに基本的なメモリ・レジスタトラッ
+   キングを追加
+
+- cb2001の改良: [robiza]
+ - ay8910と8255ppiデバイスを追加
+ - cmast91とcb2001の関係について情報を追加
+ - 命令コードをたくさん追加
+
+-「Super Slams」のスプライト・タイルマップ間プライオリティを修正。[Angelo Salese]
+
+- sranger、srangerw、srangerbのプロテクト用応急処置。[Angelo Salese]
+
+- 7474、74148、74153 TLLをデバイスにコンバート。[Aaron Giles]
+
+- merit.cドライバのROM名を更に訂正。[Brian Troha]
+
+-「アウトラン」「スーパーハングオン」ドライバにGuruな基板情報ノートを追加。[Guru]
+
+- ds2404をデバイスにコンバート。[Aaron Giles]
+
+- 不要になったコア関数、decodegfx()を削除。[Christophe Jaillet]
+
+- グローバルな"includes"用インクルードを削除し、全ての#include部で"includes"へのパスを
+  指定するよう変更。[Oliver Stoneberg]
+
+- generic.colorramとgeneric.videoramを廃止。[Atari Ace]
+
+-「Brick Zone」親セットのビットプレーングラフィックを修正。[Angelo Salese]
+
+- megadriveエミュレーションで、sn76489サウンドチップのSMSIIIバージョンを使うように修
+  正。[Lord Nightmare, DFJustin]
+
+- ics2115サウンドデバイスのセーブステート追加。[Fabio Priuli]
+
+- 多くのドライバでのEEPROM使用部を、新デバイス版に変更。[Aaron Giles, Fabio Priuli]
+
+- 一部のKonamiゲームから自動初期化ハックを削除。他のゲーム同様に、F2キーを押したまま
+  F3キーでリセットして、EEPROMの初期化する必要があります。[Fabio Priuli]
+
+- EEPROMデバイスの実装を少し整理。[Aaron Giles]
+
+-「Super Slams」のタイトル画面に点滅エフェクトを追加。[Angelo Salese, Guru]
+
+-「Spark Man」のスプライトバンクビットを修正。[Angelo Salese]
+
+- gaelco3d.cでEEPROMデバイスコードを使うようにコンバート。[Fabio Priuli]
+
+-「Spark Man」: プロテクトの再構成と、タイトル画面後に使用されるスラッシュプロテクト
+  の実装。[Angelo Salese]
+
+- EEPROMデバイスで、デフォルト値を読み込む領域を取得するため、一致するメモリ領域を
+  チェックするように変更。ROMローダで、アドレスバスが無いデバイスに合わせてメモリ領域
+  フラグを変更するバグを修正。groundfxで新型のデフォルト値ロード処理を使うように更新。
+  [Aaron Giles]
+
+- hng64のポリゴンチャンクリカバリコードをクラッシュしにくく改良。3Dデータの情報を改良。
+  fatfurwaとburikiの頂点ROMロードを修正。[Andrew Gardner]
+
+- rtc65271をデバイスにコンバート。[Aaron Giles]
+
+- 新コマンド -listdevices (または -ld )を追加。ドライバにアタッチしたデバイスを出力し
+  ます。MESSでも同名のコマンドがあるので、動作を統合してもらえればと思います。
+  [Aaron Giles]
+
+- ステートセーブ用の明示的なリソーストラッキングを削除。登録が初期化部に制限されるた
+  め、auto_アロケータを使用するよう変更。[Aaron Giles]
+
+- machine->gfxの初期化部をビデオモジュールからdrawgfxに移動。また、必要に応じて
+  machine->gfxを動的に追加できるよう、この処理をデバイスの初期化前に変更。
+  [Aaron Giles]
+
+- i386の改良: [Barry Rodewald]
+ * LSLプロテクトモードの命令を最小限実装
+ * セグメントプリフィクスを使ったときのREP命令を修正
+
+-「レースドライビンコンパクト」のreadme更新。[Guru]
+
+- srcclean.cのエッジケースバグを2ヶ所修正。[Atari Ace]
+
+- ソース内のアンバランスな引用と括弧を修正(ほとんどは無効化したコード内)。[Atari Ace]
+
+- PIC 16c62xシリーズプロセッサの新CPUコア追加。[Samuele Zannoli]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Shark Party (Italy, v1.3) [David Haywood, Angelo Salese]
+Victor 5 [David Haywood, Angelo Salese]
+Victor 21 [David Haywood, Angelo Salese]
+Poker Carnival [David Haywood, Angelo Salese]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+ハイパーストリートファイターII -アニバーサリーエディション- (USA 040202) 
+   [Artemio Urbina, David Haywood]
+ST-V BIOS 1.11 [2 sets - Japan and Taiwan] [XingXing]
+ブラッドブラザーズ (set 3) [Dlfrsilver]
+Caveman Ninja / 戦え原始人 ジョー＆マック (海賊版) [Dlfrsilver] (NOT WORKING)
+Pipi & Bibis / フーピー!! (Z80 sound cpu, set 2) [Dlfrsilver]
+Mortal Kombat 4 v1.0 (not working) 
+   [xrodney, HobbyRoms, Patrick McCarron]
+
+
+
+追加された未動作ゲーム
+----------------------
+Happy 6-in-1 [XX]
+

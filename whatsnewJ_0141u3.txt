@@ -1,0 +1,384 @@
+0.141u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03660: [グラフィック] pengo and clones: カクテルモードでのプレイヤー2のグラフィック
+         がずれている。(hap)
+- 03907: [グラフィック] All sets in xain.c: カクテルモードでプレイヤー2の画面がずれて
+         いる。(hap)
+- 04224: [グラフィック] All sets in snk6502.c: カクテル画面設定でプレイヤー2の画面が
+         ずれている。(hap)
+- 04260: [グラフィック] nyny and clones: 背景の星空が表示されない。(hap)
+- 02856: [色/パレット] comotion, hustle: ゲームフライヤーに比べると、オーバーレイの色
+         が間違っている。(hap)
+- 04114: [ドキュメント] thepit and clones: セットの親子関係を修正する必要がある。
+         (hap)
+- 04257: [ドキュメント] ewf: 正しいゲーム名は"Earth Wind Fire"。
+- 03789: [グラフィック] ambush, ambusht, ambushv: 速度計の背景色は間違っている。昔は
+         正しかった。(hap)
+- 03945: [色/パレット] cosmica and clones: エイリアンフォーメーション時のスプライト色
+         が間違っている。(hap)
+- 02997: [サウンド] hotsmash: デモシーンで効果音の不具合がある。(hap)
+- 03785: [サウンド] pbillian: サンプル音が再生されるとき、そのバンク内にある全部のサ
+         ウンドが続けて再生されてしまう。(hap)
+- 00939: [グラフィック] rjammer: tubep.cの更新により、いろいろな表示不具合が起きてい
+         る。(hap)
+- 04243: [クラッシュ/フリーズ] ddrsbm: NVRAMのフォーマット直前にクラッシュする。
+         (galibert)
+- 03766: [クラッシュ/フリーズ] cartfury, roadburn, sf2049 + clones: 起動直後にクラッ
+         シュする。(Atari Ace)
+- 03428: [サウンド] sfx: サウンドが出ない。(hap)
+- 03194: [ドキュメント] tsamuraih: このセットは海賊版の基板から吸い出したもの。
+         (f205v)
+- 03686: [サウンド] superbug: エクステンドサウンドが鳴り止まない。(hap)
+- 03617: [サウンド] barricad: 0.128u2からヒット音が出ない。(hap)
+- 03486: [サウンド] hitme and clones: ディスクリートサウンドが止まらない。(hap)
+- 01122: [グラフィック] circus: [バグかもね] 初回プレイ時に、ジャンパーが画面上端に浮
+         かんでいる。(hap)
+- 00391: [その他] circus: 左右の段の近くに見えない壁のようなものがあり、そこで跳ね返
+         る。(hap)
+- 04241: [クラッシュ/フリーズ] egghunt: OK画面が出る前に"Called save_item on a 
+         pointer with no count!"エラーが出てクラッシュする。(hap)
+- 04240: [クラッシュ/フリーズ] All sets using TLCS90 CPU; all sets using MultiPCM:
+          OK画面の前に"Called save_item on a non-fundamental type!"エラーでクラッシュ
+         する。
+- 03279: [サウンド] psyvaria, psyvarrv: 面選択後のシュワシュワした効果音がずっと鳴り
+         続ける。(R. Belmont)
+- 03107: [サウンド] Drivers using emu/sound/psx.c: 効果音がいきなり途切れたり、不要に
+         鳴り続けたりする。(R. Belmont)
+- 00313: [グラフィック] speedatk: 画面反転を有効にすると、グラフィックが一方に寄って
+         しまう。(Angelo Salese)
+- 04227: [その他] ソース内でReceiveの綴りがRecieveになってる箇所多数。
+- 04226: [ドキュメント] sfiii2: ソース内で誤ってright SFIII2_970930の代わりに
+         SFIII2_970204が使われている。(David Haywood)
+
+
+
+ソースの変更点
+--------------
+- IOXキーマトリックスデバイスを書き直し。「スーパーリアル麻雀p2/p3」で使用。
+  [Angelo Salese]
+
+-「スーパーリアル麻雀P3」のROMパッチ削除とプレイヤー2の入力を追加。[Angelo Salese]
+
+- GCC 4.6プレリリースでのコンパイルを修正。[Belegdol]
+
+- データが不良、または不足していることがわかっているゲームについて、エミュレーション
+  が期待通りに動作しない可能性があることをユーザに知らせるため、情報画面にそのことを
+  表示するよう変更。[Alex Jackson]
+
+-「スーパーリアル麻雀 p2」のROMパッチを削除。[Angelo Salese]
+
+-「スピードアタック」のioxをクリーンアップ。[Angelo Salese]
+
+-「スピードアタック」のビデオルーチンをゼロから書き直し。画面反転も修正。
+  [Angelo Salese]
+
+- 新マクロALLOW_SAVE_TYPEを追加。これは、有効なセーブタイプを個別に列挙宣言するために
+  使用します。cosmac CPUコアでモードとステートenum宣言のため、これを使用するよう更新。
+  [Aaron Giles]
+
+- 新サウンドデバイスOKI MSM 9810を追加: [Andrew Gardner]
+ * ボリュームテーブルの追加と実装
+ * ADPCM2のテストサポート
+ * サブテーブルルックアップを追加
+ * OPTコマンドを追加
+ * オンチップインタポレーションとステータスリードを実装
+ * PANコマンドとステレオミキシングを実装
+
+- destroyr.cドライバのマイナー更新: [hap]
+ * 正しいアドレスマップマスク
+ * 30132-01.k3 ROMを追加。30132-01.f4のコピー
+ * バージョン01のROMセット追加。Siftware氏のダンプ
+
+- デバイス毎のROMロードを行うため、デバイスの短縮名を追加。[Miodrag Milanovic]
+
+- ksys573, naomi: セキュリティフラッシュとdallas idチップのデバイス化。[O. Galibert]
+
+- tms5xxxチップで、特許の回路をシミュレートした結果に基づき、インタポレーションの係数
+  シフトを修正。[Lord Nightmare]
+
+- mame_fileをemu_fileに改名してクラス化。コンストラクタにはサーチパスに加えて
+  core_optionsオブジェクトを渡す必要があります。これは、running_machineかcore_options
+  を、それまで未準備のコードを通してプッシュする必要がありました。emu_filesでは、セッ
+  ションを複数回オープン・クローズでき、コアコードのコンバーにより、かなり整理されま
+  した。[Aaron Giles]
+
+- searchpathのファイルをイテレートするfile_enumeratorクラスを追加。古いmame_openpath
+  関数を置き換えます。[Aaron Giles]
+
+- machine->options()が参照を返すように変更。[Aaron Giles]
+
+- public nvram_open()を削除し、jchan/kaneko16が直接NVRAMをセーブするのを停止。
+  [Aaron Giles]
+
+- mame_options()の呼び出しを削除; オプションはrunning_machineからのみクエリされるか、
+  単独で渡される場合のみです。[Aaron Giles]
+
+- device_validity_check()にcore_options追加で、バリデートに使用可能。[Aaron Giles]
+
+- chdman: 試験的な.nrgディスクイメージのインポート処理。[R. Belmont]
+
+- Megadriveベースドライバのクラス化に向けて最初の(小)ステップ。[Fabio Priuli]
+
+- i386 CPUコアのLLDT [reg]、LTR、LMSW命令の修正と、VERR、VERW、LARのテスト実装。
+  [Barry Rodewald]
+
+- megadriv.c: SegaCD/MegaCDエミュレーションを書き直し。[David Haywood]
+
+- cdrom.h: SegaCD/MegaCDで必要なlba_to_msfのコンバージョンを追加。[David Haywood]
+
+- PSX SPUをもっと完全なものに置き換え。[pSXAuthor, R. Belmont]
+
+- Konami/Segaドライバにdriver_deviceクラスの導入・使用でglobal/static変数を削除。
+  [Atari Ace]
+
+- aristocr/atlus/bfm/bmc/capcom/cinemat/dataeastドライバで、driver_deviceクラスを使っ
+  たり導入したりでglobal/static変数を一掃。[Atari Ace]
+
+- atarirleをデバイス化。[Atari Ace]
+
+- 全ドライバのSPU IRQ通知を修正。「Simpsons Bowling」のストリームオーディオが修正。
+  [R. Belmont]
+
+- rf5c68サウンドコアのアドレスリードバック位置レジスタを実装。[Angelo Salese]
+
+- M6800 CPUコアにHD6301サブタイプを追加。[Curt Coder]
+
+- cleanターゲットが指定されているときシンボルファイルを削除。[Curt Coder]
+
+- micro3d.cで共有のMC68901デバイスを使用。[Curt Coder]
+
+- salarymc: CDを再吸い出し。[Roberto Malone, Yohji, Smitdogg, The Dumping Union]
+
+- sigmab98: Sammy製メダルゲームのテスト版サウンドを追加。[Andrew Gardner]
+
+- tms9928a.c: マルチカラーモードでの色を修正。[Michael Zapf]
+
+- i386: インライン関数が整列、非整列書き込みを正しくサポートするようにREAD/WRITEPORT
+  マクロを変更。PCIバスを使用するすべてのMESSドライバでの不具合を修正。[Dirk Best]
+
+- 入力ポートをデバイスに追加できるように改良。名前は親デバイスのタグからサブタグとし
+  て生成。[Miodrag Milanovic]
+
+- OKI MSM9810 : ADPCM2のテストサポート。[Andrew Gardner, Lord Nightmare]
+
+- PSX: ホームシステムでのCD転送に使用するDMAモードを追加。またホームシステムがフリー
+  ズを起こすDMAのバグを修正。[pSXAuthor, Harmony, R. Belmont]
+
+- ハッシュ生成と全般的なクリーンアップ。新クラスhash_collectionでハッシュの保持、管理、
+  各ROM内の内部フォーマット文字列からハッシュを生成もできます。また、ROMで使用する
+  ハッシュ文字列のコンパクト化と、非ZIPファイルのベリファイとハッシュ化も修正。
+  [Aaron Giles]
+
+- snes_snd.c: セーブステートエラー修正。[Fabio Priuli]
+
+- circus.c: 割り込み処理の改良: circusはripcordと同じ方法で発生(スプライトと背景の接
+  触時)、robotbwlは一切割り込みを発生しない。[hap]
+
+- KLOVのLaschek氏によるドキュメントを元にDIPスイッチとDIP配置を更新。[Tafoid]
+
+- SDL: 全ピクセルフォーマットでGLSLが動作; テクスチャのメモリリークを修正。[cgwg]
+
+- jpm/kaneko/maygay/meadows/merit/metro/midcoin/midw8080/midway/msx/namcoドライバの
+  statics/globalsを削除。[Atari Ace]
+
+- dooyong/edevices/eolith/exidy/gaelco/gottlieb/igs/itech/jalecoドライバを
+  driver_deviceにコンバート。[Atari Ace]
+
+- ドライバの整理: [Atari Ace]
+ * 不要な#include行を削除 (gal3.c、galaxold.c、asic65.c)
+ * ドライバのインクルードを別々の複数ドライバインクルードに分割 (audio/exidy.h 
+    audio/exidy440.h audio/wiping.h machine/segag80.h)
+ * 一部のコードを複数ドライバから参照ができるように新ファイルに移動
+   (ms32crpt.[ch] opwolf.c rainbow.c)
+ * パレット関係のコードをドライバ間で複製 (mainsnk rollrace sslam)
+ * ドライバ専用のルーチンを汎用デバイスファイルに移動 (atarimo)
+ * インクルードファイルの整理 (cubocd32 cidelsa metalmx seicross thoop2)
+
+-「Pollux」「ガルフストーム」「The Last Day」のサウンドを修正。[Tomasz Slanina]
+
+- LH5801 CPUコアを更新: [Sandro Ronco]
+ * IO_SPACE追加と、それ用のME1メモリアクセスをすべて更新
+ * 割り込みの実装
+ * ROL/ROR/SHL/SHRオペコードのフラグを修正
+ * 10進数のadd/subオペコードを修正
+
+- i386 - フォールト時の命令へのアドレスを返す必要がある例外を修正。[Barry Rodewald]
+
+- 逆アセのオーバーライドフックを修正。[Aaron Giles]
+
+- 64-bit CPUでも32-bitハンドラ読み込みを修正。[R. Belmont]
+
+- Amigaの修正: [Roberto Zandona] 
+ * 非Agnusレジスタでのmove命令について、追加の2サイクルを削除
+ * copper命令のスタートサイクルを#0に設定
+
+- PSXの更新: [smf]
+ * DICR処理を修正
+ * 存在しないルートカウンタ3IRQを削除
+ * リセットが設定されているときのルートカウンタを無視
+ * Konami 573ドライバのカスタムルートカウンタを削除
+
+- DS2401: タイマインターバルを修正。[smf]
+
+-「ルージュアン」の背景色を訂正。[Angelo Salese]
+
+- M680x0の更新: [Hans Ostermeyer]
+ * 020以降で命令キャッシュをエミュレート
+ * MMUとbfextu/bfxts/bfinsの相互動作を修正
+ * FPU命令のfsgldiv、fsglmul、fsccを追加
+ * スタックフレームの不良アドレスを修正
+ * MMUステータスレジスタのスーパーバイザバイオレーションビットを修正
+ * fmovemモード1と3を追加
+ * その他MMU関係の修正
+
+- blkdrgonのROM名とドライバ名を修正。[Team Japump]
+
+- ポート内でのDEVICE_SELFが動作可能。[O. Galibert]
+
+- Sega製のPSGクローンチップで、周波数を0に設定したとき周波数0x400として動作するように
+  個別の対応。TI製のものでは正常に動作する。Sega Master Systemの「ビジランテ」のBGMが
+  修正。[Lord Nightmare, Enik]
+
+- 画面更新システムを改良: [Miodrag Milanovic] 
+ * 画面更新関数は画面単位のデバイスとなりました(以前もそうでしたが、マシンドライバに
+   アタッチしてました)
+
+      MCFG_VIDEO_UPDATE -> MCFG_SCREEN_UPDATE 
+      MCFG_VIDEO_EOF -> MCFG_SCREEN_EOF
+
+ * EOFをすべての画面で実行するように変更。そのため、既存のものは一つの画面として定義。
+   いずれこれは更新予定
+
+- MAMEとMESSでのコードの重複を防ぐため、CD32コードベースを書き直し。[David Haywood]
+
+- 入力ポートを持つ読み込みデバイス用にオーバーロードしたinput_port_read()を追加。
+  [Curt Coder]
+
+- global flipscreenを修正。[hap]
+
+- Naomi: M2/M3の実処理時復号化、解凍処理の実装により、これらのゲームからトロイの木馬
+  で取り出したデータを削除。
+  [Andreas Naive, Olivier Galibert, Deunan Knute, Cah4e3, R. Belmont]
+
+- Naomi: DMAのオンザフライ解凍とXORをサポート。[Deunan Knute, R. Belmont]
+
+- 情報ノードの追加のためWIPなソフトリストコード追加。[Fabio Priuli]
+
+- seta2.cの更新: [Luca Elia]
+ * タイルマップなスプライトの横方向クリッピング
+ * 影のエミュレーション
+
+- sigmab98: sammymdl BIOSとハードウェア情報を追加。[Smitdogg, The Dumping Union]
+
+- pangofun.cとpcat_dyn.cで共有PCエミュレーションを使うように更新。
+  [Mariusz Wojcieszek]
+
+- AICA: slotmonのリードバックを訂正。capsnkなどでストリームサウンドが進行。
+  [R. Belmont]
+
+- nichibut/nintendo/nixドライバでdriver_deviceを使うようにコンバート。[Atari Ace]
+
+- attotime max()がmin()のコピーにならないよう修正。最近のアト秒オブジェクトのコンバー
+  ジョンで起きていた不具合が解決。[Aaron Giles]
+
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ハエハエ・カカカ
+  [Luca Elia, Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+パイ投げ大会i [Luca Elia, Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union]
+大砲でドボーン
+  [Luca Elia, Gnoppi, john666, Gerald (COY), Smitdogg, The Dumping Union] 
+ダンスダンスレボリューション 2nd MIX - Link Ver (GE885 VER. JAB) [smf]
+ギルティギアX 1.5 [gamerfan, TrevEB, Falcone, M. Viste, john666, Cah4e3, Smitdogg, 
+   The Dumping Union]
+Tetris Fighters (not working) [Kevin Eshbach, Smitdogg, The Dumping Union]
+Brasil 86 [Roberto Fresca, Rob Ragon]
+Brasil 87 [Roberto Fresca, Rob Ragon]
+Brasil 89 (set 2) [Roberto Fresca, Rob Ragon]
+Brasil 93 [Roberto Fresca, Rob Ragon]
+Reel'N Quake [Luca Elia, Smitdogg, The Dumping Union]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Whirlwind (LG-3) [desturk]
+りある麻雀ごーるど夢牌 (スーパーリアル麻雀 Part 3メダル版)
+  [Chackn] (not working)
+りある麻雀ごーるど夢牌 / スーパーリアル麻雀GOLD part.2
+  (スーパーリアル麻雀 Part 3メダル版) [Chackn, Angelo Salese]
+Video Hustler (Dynamo Games)  [TrevEB]
+Hot Memory (V1.1, Germany) [Smitdogg, The Dumping Union]
+Pigskin 621AD (rev 2.0 7/06/90) [Smitdogg, The Dumping Union]
+Wild West C.O.W.-Boys of Moo Mesa (ver UA, set 1) [Irongiant]
+Bubble Pong Pong (clone of Miss Bubble 2) 
+  [David Haywood, Smitdogg, The Dumping Union]
+Knights of Valour 2 / 三国戦紀2 (ver. 101, 101, 100HK) [tafoid]
+Monopoly (3.01) [Miodrag Milanovic]
+Monopoly (2.51) [destruk]
+Monopoly (2.33) [destruk]
+Austin Powers (3.01) [destruk]
+Austin Powers (3.00) [Miodrag Milanovic]
+Austin Powers (2.01) [Miodrag Milanovic]
+Maverick (Display Rev. 4.00) [destruk]
+Cut The Cheese (Redemption)[destruk]
+Cut The Cheese Deluxe (Redemption)[destruk]
+Night Rider (rev. 21) [destruk]
+Eight Ball Deluxe (rev. 14) [destruk]
+Lord Of The Rings, The (9,8,7,401)(En,Sp,Ger,Fr,It)
+  [destruk, Miodrag Milanovic]
+Elvis (4.00,3.03,3.02) (En,Sp,It,Fr,Ger) [destruk, Miodrag Milanovic]
+Ripley's Believe It or Not! (3.10,3.02,3.00) (En,Sp,It,Fr,Ger)
+  [destruk, Miodrag Milanovic]
+Sharkey's Shootout (2.07) (En,Ger,Fr,It) [Miodrag Milanovic]
+Terminator 3: Rise of the Machines (2.05) (En,Sp,Fr,It) [Miodrag Milanovic]
+Playboy (3.03,3.00) (En,Sp,Fr,It,Ger) [Miodrag Milanovic]
+Roller Coaster Tycoon (7.01,4.00) (En,Sp,Fr,It,Ger) [Miodrag Milanovic]
+Magic Train (Clear NVRAM ROM?) (未動作) [Grull Osgo, Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+ガンマニア (GL906 VER. JAA) [smf] 
+Fighting Mania / パンチマニア 北斗の拳 (QG918 VER. EAA) [smf] 
+Fighting Mania / パンチマニア 北斗の拳 (QG918 VER. AAA) [smf] 
+パンチマニア 北斗の拳 (GQ918 VER. JAB) [smf] 
+パンチマニア 北斗の拳 (GQ918 VER. JAB, ALT CD) [smf] 
+Fighting Mania / パンチマニア 北斗の拳 (QG918 VER. KAA) [smf] 
+Fighting Mania / パンチマニア 北斗の拳 (QG918 VER. UAA) [smf] 
+パンチマニア 北斗の拳2 (GQA09 JAA) [smf] 
+ドラムマニア 4th Mix (G*A25 VER. JAA) [smf] 
+ドラムマニア 5th Mix (G*B05 VER. JAA) [smf] 
+ギターフリークス 7th Mix (G*B17 VER. JAA) [smf] 
+マーシャルビート (G*B47 VER. JBA) [smf] 
+ドラムマニア 7th Mix power-up ver. (G*C07 VER. JBA) [smf] 
+ドラムマニア 7th Mix (G*C07 VER. JAA) [smf] 
+ギターフリークス 8th Mix power-up ver. (G*C08 VER. JBA) [smf] 
+ギターフリークス 8th Mix (G*C08 VER. JAA) [smf] 
+ドラムマニア 8th Mix (G*C38 VER. JAA) [smf] 
+ギターフリークス 9th Mix (G*C39 VER. JAA) [smf] 
+ドラムマニア 9th Mix (G*D09 VER. JAA) [smf] 
+ギターフリークス 10th Mix (G*D10 VER. JAB) [smf] 
+ギターフリークス 10th Mix (G*D10 VER. JAA) [smf] 
+ギターフリークス 10th Mix eAmusement (G*D10 VER. JBA) [smf] 
+ドラムマニア 10th Mix (G*D40 VER. JAA) [smf]
+頭文字D アーケードステージ Ver. 2 (Japan) (Rev. B) (GDS-0026B)
+  [The Dumping Union]
+頭文字D アーケードステージ Ver. 2 (Export) (GDS-0027)
+  [Gerald, The Dumping Union]
+頭文字D アーケードステージ Ver. 3 (Japan) (Rev. C) (GDS-0032C)
+  [f205v, The Dumping Union]
+The Rumble Fish 2 [Guru, R. Belmont]
+Point Blank 3 / ガンバリィーナ (GNN2 Ver. A) 
+  [Kevin Eshbach, hap, D. Edwardson, Paratech, ranger_lennier, M. Ponweiser,
+   T. Petersen, Smitdogg, The Dumping Union]
+宇宙大作戦チョコベーダー コンタクティー (CVC1 Ver. A) 
+  [R. Mucciarelli, W. Belk, Yohji, Roberto Malone, Smitdogg, The Dumping Union]

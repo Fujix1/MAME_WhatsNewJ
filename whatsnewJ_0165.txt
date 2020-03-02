@@ -1,0 +1,159 @@
+0.165
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05762: [クラッシュ/フリーズ] (itgambl2.c) All sets in itgambl2.c, namcos23.c: OK画面直後にクラッシュする。(hap)
+- 05814: [グラフィック] (apple2.c) ivelultr: フォントが反転している。(R. Belmont)
+- 05435: [サウンド] (leland.c) offroad, offroadt, possibly others: サウンドが壊れている。(crazyc)
+- 05377: [サウンド] (leland.c) All sets in leland.c: [64bit限定] 32ビットと64ビットでDACサウンドの出力が異なる。(crazyc)
+- 02892: [その他] (cps1.c) 3wondersh: 起動時に「CPS-B write 0000 to port 06 contact MAMEDEV」のメッセージが出る。(Robbbert)
+- 03193: [その他] (cps1.c) 3wondersh: ハック版にだけある、未マップのポートについて。(Robbbert)
+- 05801: [色/パレット] (cps1.c) 3wondersb: 動作不可から表示不完全ステータスに変更の提案。(Robbbert)
+- 06006: [クラッシュ/フリーズ] (rocnrope.c) rocnrope, ropeman: スタートを押すとゲームがリセットする。(Mamesick)
+- 06014: [ドキュメント] (aerofgt.c) karatblzj: 日本語の間違い。(hap)
+- 05690: [グラフィック] (eprom.c) eprom, eprom2: 敵のコンピュータを破壊するとグラフィック化けする。(hap)
+- 05217: [サウンド] (exidy.c) spectar: サンプル以外のサウンドが鳴らない。(Osso)
+- 06008: [グラフィック] (bfm_sc4.c) bfm_sc4.c: 致命的エラーが起こる。(hap)
+- 06007: [速度] (suna16.c) bssoccer: イントロで大幅な速度低下が起こる。(David Haywood)
+- 06005: [グラフィック] (taito_x.c) kyustrkr: 画面が上にずれている。(Mamesick)
+- 03966: [グラフィック] (macrossp.c) macrossp: 背景の表示不具合あり。(Tourniquet)
+
+
+ソースの変更点
+--------------
+- Sega 837-14645 JVS I/O吸い出し。[Darksoft]
+
+- monzagp.cの更新: [Sandro Ronco]
+	* 8035 VRAMリード/ライト修正
+	* 背景グラフィック追加
+	* コインとDSW入力追加
+
+- vidbrain.xml: Information Managerプロトタイプ追加。[Sean Riddle]
+
+- デキャップにより正しいCD2802 chirp ROMを追加。[Sean Riddle]
+
+- mk4: 初期バージョンのブレンド処理追加。[MooglyGuy]
+
+- pstringでutf8をサポート。utf16やutf32に容易に拡張可能であるスケーラブルな方法を採用。
+  位置関連命令の全てでバイト位置からキャラクタコード位置でのオペレートに変更。
+  [Couriersud]
+
+- chihiro.c: Xboxコンソールのパーツコモンを独自ファイル machine/xbox.cと
+  includes/xbox.hに移動。[Samuele Zannoli]
+
+- gei.c: マイナーなクリーンアップ。[Brian Troha]
+
+- XboxコンソールドライバでChihiroのベースコモンマシン設定を使用。[Samuele Zannoli]
+
+- M58819 VSMエミュレータをサポート。「レーダースコープ」TRS01セットでのスピーチ修正。
+  [Lord Nightmare]
+
+- tms5110.cからのフレームパースとスピーチ生成をtms5220.cからのものに置き換え。これに
+  より、正確性と将来的な統合性の大幅向上。さらにtms5110r.incのCOEFF_ENERGY_SENTINELハ
+  ックもついに削除。[Lord Nightmare]
+
+- deco32.c:「ファイターズヒストリー」 (World ver 43-07, DE-0380-2 PCB) セットのROMラ
+  ベル検証と訂正。[Charles MacDonald]
+
+- monzagp.cの更新(第二弾): [Sandro Ronco]
+	* グラフィックRAM修正
+	* 7セグアートワーク追加
+	* 自車スプライト追加
+
+- hp64k: RS232ターミナル用のマルチスクリーンを利用可能に。[F. Ulivi]
+
+- goldstar.cのDIPスイッチについてのドキュメント [hsialin]
+	* cmv4、cmv801、crazybonのHold Pair
+	* cmv801のCard Shuffle Animation
+	* crazybonのFast Take
+
+- TMS52xxの実チップからのサンプルに合うように補完処理の修正。
+  [PlgDavid, Lord Nightmare]
+
+- c128: PARTNER 128カートリッジをエミュレート。[Curt Coder]
+
+- 3wondersbを修正。[Robbbert]
+
+- apple2: Ivel Ultraのユニークなテキスト描画を修正。(MT#5814) [R. Belmont]
+
+- tms51xx: 実機の動作である生成中の係数ROMリロードに切り替え、target_x変数を削除。
+  アイドル中や無音フレーム中のパラメータゼロ化のため、正しいZPARと無声のZPARロジック
+  を実装。サンプル単位ではなく、補完周期全体にゼロ化ロジックが継続するのを抑制するよ
+  うに変更。speech-is-synthesizingステートマシンをオリジナルのTALK、TALKD、SPENビット
+  に置き換え。talk_statusロジックで、実機同様に(TALKD || SPEN)を使うように変更。
+	[Lord Nightmare]
+
+- pet: CBM 8030フランス版ROM追加。[Hervé Warin]
+
+- pet_rom.xml: Edex (France, v4.4)を追加。[Hervé Warin]
+
+- floppy.c: ドライブ音追加(ドライバでMCFG_FLOPPY_DRIVE_SOUND(true);として有効にする)。
+  まだ単純なもので、全ドライバで同じ音となる。[Michael Zapf]
+
+- at29x: 以前のat29040aからAT29ファミリ用の汎用クラス作成。at29c040とat29c020の実装。
+  [Michael Zapf]
+
+- geneve: プログラマブルフラッシュメモリブート機能(PFM512)追加。[Michael Zapf]
+
+- ti99: 新カートリッジタイプ paged378、paged377を追加;
+	HFDCの新スイッチ"wait for HD"追加(後期のHFDCモデルで使用);
+	32K内部メモリMODはデフォルトでオフに設定。[Michael Zapf]
+
+- midzeus.c: さらに改良: [Phil Bennett]
+   * Added alternate back-face culling method
+   * ブレンドモード追加
+   * デプステストとライトイネーブル追加
+   * ラスタリゼーションを少し改良
+
+- MAME 0.164用のOS/2パッチ。[KO Myung-Hun]
+
+- x68k: フェードイン・アウト効果に使用するブライトネス制御追加。[Barry Rodewald]
+
+- thedealrのi8742内部ROM吸い出し。[Porchy]
+
+- tahjongの正しいカラーPROM追加。[Mike Coates]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Bandai Pair Match [hap, Kevin Horton, Rik]
+VTech Invaders [Kevin Horton]
+Castle Toy Tactix [hap, Sean Riddle, Kevin Horton]
+Pack'n Bang Bang (prototype) [rtw]
+Merit Joker Poker (9131-01) [Brian Troha, The Dumping Union]
+Touch & Tell [hap, Sean Riddle]
+Vocaid [hap, Sean Riddle]
+
+
+新しく追加されたクローンセット
+------------------------------
+天聖龍＜セイントドラゴン＞ (海賊版) [Yves Marchand]
+E.D.F ＜アースディフェンスフォース＞ (set 2) [Yves Marchand]
+Player's Edge Plus (PP0555) Standard Draw Poker [BrianT]
+Player's Edge Plus (KE1012) Keno (set 2) [BrianT]
+WAR ファイナルアサルト (EPROM 1.6 Jan 14 1999, GUTS 1.1 Mar 16 1999, GAME Mar 16 1999)
+	[Alex Cmaylo] (not working)
+ガンスモーク (US, 851115) (alt set) [Caius, Alexander F]
+ファイターズヒストリー (World ver 43-05) [??]
+必殺！無頼拳 (Japan, 海賊版?) [David Haywood]
+Americana (9131-01) [Brian Troha, The Dumping Union]
+ファイターズヒストリー (US ver 42-09, DE-0396-0 PCB) [Brian Troha, The Dumping Union]
+Meteors [Andrew Welburn, Trevor Brown]
+Street Fighter Alpha 3/ストリートファイターZERO 3 (USA 980616, SAMPLE Version) [Guru]
+麻雀 東洋の神秘P2 [Dyq, Guru]
+Mighty Monkey (Kaina Games, bootleg on Scramble hardware) [Team Europe]
+ナックルバッシュ (韓国基板) [caius]
+
+
+追加された未動作ゲーム
+----------------------
+テクノドライブ (Japan, TD2/VER.B, 2.06) [Guru, R. Belmont]
+ピクチャーマジック [David Haywood]
+Joy Stand Private [Luca Elia, Guru]
+Dino Dino [Guru]
+Fruit Paradise (V214) [Guru, iq_132]
+Face-Off (EM Bubble Hockey) [Jarrod Wright, Luca Elia]
+Chexx (EM Bubble Hockey, 1983 1.1) [Clay Harrell, Luca Elia]
+ROLLing eX.tre.me [Ville Linde, Guru]

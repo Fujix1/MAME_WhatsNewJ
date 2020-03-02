@@ -1,0 +1,181 @@
+0.142u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04377: [グラフィック] All sets in fuukifg2.c: グラフィックレイヤーが表示されない。
+         (Tafoid)
+- 04376: [その他] lib/util/opresolv.cのタイポ。
+- 04375: [グラフィック] ojankohs: 牌の影に別なグラフィックが現れる。(Angelo Salese)
+- 00765: [クラッシュ/フリーズ] tekken3aa, tekken3ua: アトラクトモードでのグラフィック
+         がおかしい。また、デモが一回終わるとフリーズする。
+- 04373: [サウンド] All sets in polepos.c: プレイ中にタイヤの滑る音が断続的に聞こえる。
+         (Alex Jackson)
+- 04298: [インターフェイス] mame -h で説明される使用法のファイル名が古い。(Tafoid)
+- 04329: [ドキュメント] mexico: ゲーム名が少し違う。(Tafoid)
+
+
+ソースの変更点
+--------------
+- chdman: GCC 4.6でのビルドを修正。[R. Belmont]
+
+- HLSLの更新: [Ryan Holtz, Bat Country Entertainment, austere]
+ * デフォルトのシャドウマスク設定を再調整。虹色のライン発生を解消して、参考写真により
+   近くなるように改良
+ * 色の強さをシャドウマスク後に移動。蛍光体の反応な非線形であるのをシミュレートするた
+   め
+ - NTSCポストプロセスのYチャンネルに様々な幅のノッチフィルタを追加。これにより、Coco 
+   2やApple IIでの輝度ジャンプが解消
+
+- i286 - Phar LapとBorland 16-bit DPMIサーバ向け修正。[Carl]
+
+- Sega ST-V / Saturnハードの変更多数。[Angelo Salese] 
+
+- 286 - Lotus 123r3に付属するDOS/16M DOS拡張を修正。[Carl]
+
+- デバッガでイメージデバイスをサポート。[Miodrag Milanovic]
+
+- デバッガにイメージデバイスのメニュー追加(今のところWindowsのみ)。
+  [Miodrag Milanovic]
+
+- sdlsocket: tcp/ipソケットアドレス検出の問題に一時的な対策。[Michael Zapf]
+
+- goldstar:「Kknot No Li」の韓国語ローマ字表記を修正。[30yr]
+
+- info.c: -lxのスロット情報の基本ディスプレイを追加。[Fabio Priuli]
+
+- inptport: 一時的にデフォルトのシーケンス認証処理を無効化。[O. Galibert]
+
+- memory: 超よくできているpopulate_range_mirroredコードをmap_rangeで呼び出すように変
+  更。大抵の場合はこれ。[O. Galibert]
+
+- polepos.c: MCFG_SCREEN_RAW_PARAMS、及びスキャンラインベースのIRQタイミングに変更。
+  [Alex Jackson, O. Galibert]
+
+- ins8250 - pcドライバのマウスサポート改良版を有効にする修正。[Carl]
+
+- i286 - PUSHとPOP命令でのSSのリミットチェック。[Carl]
+
+- TMS5220: OLDPとOLDEが、IP=0 PC=0のAサブサイクルでのみ更新されるように固定; 出力に対
+  しては影響はないく、チップ動作のドキュメント性の改良が目的。[Lord Nightmare] 
+
+- TMS5220: 特許より回路412をエミュレート。これは、補間抑制されたフレーム推移で、擬似
+  的なクリックが起こるのを防ぐとされるもの; これにより、starwarsのTIEファイター音や、
+  EPROM/EPROMAのクリッキングが改善されたはず。[Lord Nightmare]
+
+- naomi/jvs: coin add/subコマンドを追加(subは「クレイジータクシー」で使用)。
+  [O. Galibert]
+
+-「Warp Speed」のアップデート: [Mariusz Wojcieszek]
+ * vblank割り込み修正とROMパッチの削除
+ * コイン入力追加
+ - 星空背景エミュレーションのテスト版
+
+- HLSLの更新: [Ryan Holtz, Bat Country Entertainment]
+ * MAMEではINIファイルが無いゲームの初回起動時にHLSL INIファイルを書き出し
+ * HLSL INIファイルのパラメータ順序は保存時のままにする必要があります
+ * HLSLモードで、斜めに折り目が入ったようになるのを修正
+
+-「デカスリート」の圧縮テクスチャプロテクトを改良。[David Haywood]
+
+- INS8250割り込みラインでdevcbを使うように改良。[Curt Coder]
+
+- memory.c: デバッグメモリビューアの物理アドレス表示を修正。[Wilbert Pol]
+
+- マウントするイメージデバイスをマーキングせずに、ソフトリストアイテムを直接開始する
+  機能をサポート。ソフトアイテムがある場合、インタフェース定義が必要な最初のイメージ
+  デバイスとしてロードされます。[Miodrag Milanovic]
+
+- Aristocrat MK5の画面オフセットを修正。[Palindrome]
+
+- dmdtouchとgeishanzでSRAMをサポート。[Palindrome]
+
+- arstmk4.cの変更: [Heihachi_73]
+ * ボタンパネルのアートワーク追加。全ゲームの入力について改名と再マッピング
+ * cgold2のPROMをより互換性の高いバージョンに置き換え
+
+- aristmk5.cの変更いろいろ: [Heihachi_73]
+ *「Dolphin Treasure」の親子関係を変更(後期版を親に)
+ * セットのチップROMにUSクリアチップを追加
+ * セットチップを使用しないゲームからセットチップのロードを削除
+ * aristmk4.cのフォーマットに合わせてROM名を整理
+
+- OKIM6376のチャンネル2を正しくサポート。またログ出力も追加。[J.Wallace]
+
+- OKIM6376のディバイダ動作を訂正。完成するにはROMの解析が必要。ただし、サポートしてい
+  るプログラムは全てデフォルトモードのみを使用。[J.Wallace]
+
+- High Videoゲームのクロック周波数を、正しいOKIチップ周波数になるように変更。これらは、
+  基板上でよく見られる値ですが、基板のスキャンを見てもクロック信号が見つからないので、
+  正確かどうか確認が必要かもしれません。[J.Wallace]
+
+- MSM6376とPIA、PTMを組み合わせ、ループするADPCMサンプルに対し、ダイナミックに音程変
+  化をさせるMPU4サンプルサウンドハードを追加。[J.Wallace]
+
+- INCPATHのインクルードが重複していたのを削除。[Oliver Stoneberg]
+
+- メモリリークの可能性がある箇所とNULLポインタ参照の削除、重複したチェックの削除。
+  [Oliver Stoneberg]
+
+- i286 - フォールトリスタートを修正。[Carl]
+
+- -listclonesで、BIOSを使う親セットが子セットとして出力されるのを修正。[Tafoid]
+
+- i386: タスクゲート、コールゲート、タスクステートセグメントを実装(286と386)。トリプ
+  ルフォールトCPUリセットも実装(OS/2で使用)。
+  x87: FSTENVの基本実装(OS/2で使用)。[Barry Rodewald]
+
+- NAOMIのM4復号化を管理するコード追加。[Andreas Naive]
+
+- Midway Zeusの改良: [Phil Bennett]
+ * mk4bで使用する別のFIFOコマンドを追加
+ * ショートフォーマットドローコマンドを実装(mk4のライフバーと影の描画に使用)
+ * 別の4/8ビットテクスチャフォーマットを追加(mk4で使用)
+
+- dec8.c:「Ghost Busters / 迷宮ハンターG」のROM名訂正とPCB配置を追加。
+  [The Dumping Union]
+
+- OKIM6576のNARタイミングをデータシートに合わせて修正。[J. Wallace]
+
+- OKIM6376で各チャンネルのプレイ中にサンプルがラッチされる動作(New Magic Card 'Skill 
+  Game'の最初のループで勝った音が鳴らないのが解消)と、MPU4のサウンドテストを修正。
+  [J. Wallace]
+
+- MPU4のオーディオインタフェース修正。[J. Wallace]
+
+- MPU4のsmall extender用修正。[J. Wallace]
+
+- MPU4で、分割LEDセグメントのアクセスをサポート(mpu4ledXXXとしてインデックス化)。最初
+  のディスプレイユニットが0-7、2番目が8-15…という順序)。[J. Wallace]
+
+- JPM IMPACTとMaygay M1用にAWPドライバを更新。[J. Wallace]
+
+-「The Mating Game」が起動と動作ができるように様々な変更。ただしまだタイミングの問題
+  あり。[J. Wallace]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Mortal Kombat 4 (version 1.0) [Phil Bennett]
+
+
+新しく追加されたクローンセット
+------------------------------
+ヒーテッドバレル (Electronic Devices license)
+  [Hurray Banana, Tormod, hotaru, Dna Disturber, F. Marsaud, N. Francfort, Smitdogg, 
+   The Dumping Union]
+Albatross (スーパークラウンズゴルフ US clone)
+  [Antonio Gonzalez Jr., Smitdogg, The Dumping Union] (動作せず)
+鉄拳3 (Japan, TET1/VER.A) [Yohji, Smitdogg, The Dumping Union]
+鉄拳3 (Asia, TET2/VER.E1) [Tormod, Smitdogg, The Dumping Union]
+The Real Ghostbusters / 迷宮ハンターG (US 2 Players, revision 2) 
+  [JF, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Special Forces Elite Training [Guru, R. Belmont]
+Donggul Donggul Haerong [Guru]
+Warp Speed (プロトタイプ) [TrevEB, Siftware, Mariusz Wojcieszek]

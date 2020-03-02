@@ -1,0 +1,47 @@
+0.80u3
+
+ソース全般の変更：
+------------------
+
+■CHDCD / Konami GVの更新。[R.Belmont]
+- CHDMANにCD-ROMサポートの追加。CDRDAOの.toc/.binイメージ（cdrdao.sorceforge.net）
+  を入力として使用。CDRDAOにはCDRWINの.cur/.binイメージを.toc/.binフォーマットに
+  コンバートするツールが付属しています
+- Intel Flash ROMエミュレーションサポート
+- レッドブックオーディオ再生を含むCD-ROMエミュレーションの初期版追加
+- AM53cf96 SCSIコントローラ用のCD-ROMサポート
+- Konami GV Systemドライバ追加。GV SystemはCD-ROMを専用のものから、SCSIに変更して
+  いる以外はPlayStation/PSOneと同一です
+
+進行中の事柄：
+- SPUエミュレーションで大幅な作業が必要です。特に「ウエディングラプソディ」にて。
+  smf氏が現在作業に当たっています
+- SCSI CD-ROMエミュレーションについては、他のSCSIコントローラーやCD-ROMデバイスが
+  エミュレートされる場合に備えて、AM53cf96から分離する必要があります
+- CHD-CDイメージをCHDMANで解凍しても今は特に使える物は出力されません。CDRDAOイメージを
+  出力したほうがよいと思われます
+- CD上のオーディオトラックは今のところ圧縮されていません（正確に言えば、gzipでの圧縮
+  なので意味がありません）。予定としてはいずれFLACを使うつもりです
+
+■修正をいろいろ。[Nathan Woods]
+    src/mame.c:
+    src/mame.h:
+    src/windows/config.c:
+    - options.savegameを文字列に変更。もしこの文字列に一文字しか入っていない場合は
+      以前のような動作になり、長い文字列のときはcpu_loadsave_schedule_file()が使用
+      されます
+
+    src/state.c:
+    src/state.h:
+    - state_save_check_file()を追加; フロントエンドでステートセーブファイルのバリ
+      デートを利用できるようにする関数
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Baby Phoenix/GV System [R.Belmont]
+    実況パワフルプロ野球'96
+    ハイパーアスリート
+    進め！対戦ぱずるだま
+    ウエディングラプソディ

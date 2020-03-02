@@ -1,0 +1,84 @@
+0.86u2
+
+大きな更新があったので早めですがアップデートします
+
+
+ドライバの改良点：
+------------------
+■アップデートをいろいろ。[R.Belmont]
+    m37710.diff:
+    - アナログとデジタルI/Oポートサポート
+    - LDBアブソリュートとDIVダイレクト命令追加
+    - RLA命令の書き直し。以前のものは動作結果、フラグ、サイクルカウントなど
+      ほとんどが間違ってました
+    - RLAの逆アセンブラ修正
+    
+    flash.diff:
+    - ワード幅のフラッシュROMサポート追加（Konamiの「Beat the Champ」基板上
+      で発見したSHARP LH28F400のID用）
+
+■「Boomer Rangr / ジェネシス」「タッチダウンフィーバー」のDIPスイッチ。
+   [Brian Troha]
+
+■「Dragon Bowl」新セットでスプライト色修正。[Pierpaolo Prazzoli]
+
+■「フィールドゴール」の色改善。[Stefan Jokisch]
+
+■一部ゲームのオートセンタリングを解除。[Stefan Jokisch]
+
+■dblpointのボタンが足りなかったのを追加。[Pierpaolo Prazzoli]
+
+■HyperNeogeo64エミュレーションの改良。[ElSemi, David Haywood]
+
+
+Takahiro Nogi氏による麻雀ゲームの大幅更新
+ (Pierpaolo Prazzoli氏によりコンパイル用アップデート)
+-----------------------------------------------------
+
+drivers/gomoku.c - サウンドの改善
+vidhrdw/gomoku.c
+sndhrdw/gomoku.c
+
+drivers/pastelg.c - dipsw1と2追加（2人プレイは未実装）
+
+vidhrdw/pastelg.c - 描画ルーチンの書き直し
+
+machine/nb1413m3.c - プロセス追加
+machine/nb1413m3.h - 定義追加
+
+drivers/nbmj8688.c - 追加：mjsikakc, mjsikakd, mmsikaku, mcitylov, livegal, 
+                     kaguya2, korinaim, kyuhito, mjcamerb
+vidhrdw/nbmj8688.c - mmsikaku, livegalの修正
+
+drivers/nbmj8891.c - 追加：lovehous, mmaiko, mgion, omotesnd, taiwanmb (テストドライバ)
+vidhrdw/nbmj8891.c - 描画ルーチン変更。hanamomoにフォント処理ルーチン追加
+
+drivers/nbmj9195.c - 追加：sailorwa(sailorwsのクローン), jituroku, wcatcher, 
+                     yosimoto, janbari (mjanbariはjanbariのクローンに変更）
+vidhrdw/nbmj9195.c - 描画ルーチン変更（「お立ち台の掟」アトラクト画面のずれ修正）
+
+drivers/niyanpai.c - 追加：musobana, 4psimasy, mhhonban
+vidhrdw/niyanpai.c - 描画ルーチン変更。musobanaにハイカラー処理ルーチン追加
+
+drivers/hyhoo.c - キーマッピング変更
+vidhrdw/hyhoo.c - hyhoo2のタイトル画面修正
+
+pairsten - 入力修正
+
+machine/nb1413.c/.hを使うドライバの割り込みを調整したため、いくつかのゲームが
+動作しなくなっています
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+ストリートファイターEX2プラス (USA) [Brian Troha]
+D&D タワーオブドゥーム (alt Japan set) [Razoola]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Roads Edge / ラウンドトリップRV
+Samurai Shodown: Warrior's Rage / 侍魂
+Fatal Fury: Wild Ambition / 餓狼伝説 ワイルドアンビジョン
+    Hyper Neogeo 64ベース。まずMIPSコアのMMUエミュレーションをもっと進める
+    必要あり。ドライバはまだ予備段階

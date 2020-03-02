@@ -1,0 +1,267 @@
+0.139u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04060: [クラッシュ/フリーズ] All sets in taitogn.c: NVRAMの書き出しがうまくい
+         かずゲーム正常に起動しない。(Aaron Giles)
+- 04068: [DIP/入力] viofight: プレイヤー2のボタン3が実装されてない。(Tafoid)
+- 04063: [ゲームプレイ] All sets in solomon.c: キャラクタが表示されない。(hap)
+
+
+
+ソースの変更点
+--------------
+- amigaドライバをdriver_devicesを使うようコンバート。AmigaとAGAビデオのレガシー
+  システムで共通のコードを統合。[Atari Ace]
+
+- NVRAM_HANDLERSをさらに廃止。[Aaron Giles]
+
+- cdda - チャンネル毎の音量設定を追加。[Barry Rodewald]
+
+- M68k: 場合分けとFGETEXP命令を追加。[R. Belmont]
+
+- x2212をモダンデバイスにコンバート。x2212デバイスが、上位4ビットの未マップビッ
+  トを返すように変更。ラッチ済みコンテンツが見えるように、x2212にe2promアドレス
+  空間を追加。starwarsとfirefoxを更新。foodfにx2212を実装。[Aaron Giles]
+
+- ccastlesとclooud9で、フェイク版からx2212を使うように変更。[Aaron Giles]
+
+- デバッガのコンボボックスで縦スクロールバーを有効化。これをリサイズしてテキスト
+  全体を表示可能。[Aaron Giles]
+
+- メモリの幅スタブについて、未実装領域を未マップ値の適切な箇所で埋めるように変更。
+  [Aaron Giles]
+
+- ER2055デバイスを追加。liberatorでこれを使用するように変更。その他のAtariゲーム
+  も今後使用予定。[Aaron Giles]
+
+- liberatorドライバのモダン化とセーブステートサポート。汎用のEAROM処理をatarigen
+  に移動。[Aaron Giles]
+
+- 基底クラスのメンバ参照関数に新型(モダン)アドレスマップマクロを追加:
+   AM_READ_BASE(_class, _member)、AM_WRITE_BASE、AM_READWRITE_BASEなど
+  [Aaron Giles]
+
+- デバッガ (SDL) : SDLデバッガのウインドウ位置保存機能追加。起動時と終了時にロー
+  ド。[Andrew Gardner]
+
+- Z80-DMAのリセットコマンド(C3)がレジスタをランダムにクリアしないよう変更。
+  [Curt Coder]
+
+- raiden2: 現ステートのチェックポイント。[Olivier Galibert]
+
+- niyanpaiハードウェアからIRQハックを削除。[Angelo Salese]
+
+- MESSよりCD-iのクリーンアップを導入。[Harmony]
+
+- SH2 DMAをタイマに配置。これは、これまで32Xの「Knucles Chaotix」が、68k転送中に
+  FIFOポートがフルになっているところからSH2 DMAが読み込みをしており、'Instant 
+  DMA'では動作しないためです。[David Haywood]
+
+- 32xの8ビットDRAM(フレームバッファ)アクセスを修正。[David Haywood]
+
+-「ミラージュ妖獣麻雀伝」のスプライトバッファリングを追加。実機の動作ビデオで確
+  認。[Angelo Salese]
+
+- 680x0: '030 MMUで、トランスレーションキャッシュをエミュレート; MMU命令のインター
+  プリタ処理の間違いを修正。[R. Belmont]
+
+- Megadrive: 68kスペースでz80ウィンドウを動かす方法を、32xのように自動で処理する
+  よう変更。[David Haywood]
+
+-「Piccolo Poker 100」の改良: [Roberto Fresca]
+ * ゲームが起動できるように対策追加
+ * 入力系をゼロから作成
+ * 動作可能ステータスに昇格
+ * テクニカルノートとゲームノートを追加
+
+- Fairchild F8 CPUの割り込み処理を修正。[Curt Coder]
+
+- SH-2のサイクルスティールモードを実装。「Fever Soccer」で使用。[David Haywood]
+
+- TSTM命令でSH-2を修正。[R.Belmont]
+
+- Neo-Geoの更新: [Johnboy]
+ * savagere, kizuna - u2でのC1の変更を巻き戻し(チップ不良でC1は正確だった)
+ * gururin - 正しいM1 ROM追加
+ * quizdai2 - MVSとAESバージョンのタグ付け
+ * マスクROMタイプのドキュメント化を開始
+
+- naomi.c: Mamonoroカートリッジの説明追加。[f205v]
+
+- viper.c: 941a01 BIOSと、p911eの不足NVRAMを吸い出し。[John Bud @ Jamma+]
+
+-「Golden Poker」ドライバの更新: [Roberto Fresca]
+ *「Witch Card」3本追加
+ *「Falcons Wild」3本追加(ハードウェアはそれぞれ別)
+ * FalconハードウェアにセカンドCPU実装(まだ未解読)
+ * FalconハードウェアのセカンドCPUプログラムを部分的に復号化
+ *「Falcons Wild (Video Klein)」メモリマップとマシンの判明
+ * Video Klein製「Witch Card」ハードウェアを解析
+ * 一部セットの入力を再設定
+ * 新セットにランプレイアウトと接続系を追加
+ * Falcon基板サウンドの複合化されたデータとアドレスを解析
+ * Falconハードウェアにサウンドを完全サポート
+ * ドライバの再構成と一部クリーンアップ
+ * テクニカルノートをさらに追加
+
+- i386 CPUコアの不正列な16ビットと32ビットI/Oアクセスを修正。[Barry Rodewald]
+
+- sampleofアトリビュートを複数出力するときにXMLが変になるバグを修正。
+  [Aaron Giles]
+
+- -nosoundが設定されているときでもwavwrite(とaviwrite)のサウンドを有効化。
+  [Aaron Giles]
+
+- PNG書き出しをMNGでも使っているため、パフォーマンスを適度に保つ目的で圧縮率を最
+  高からデフォルトに再変更。[Aaron Giles]
+
+- Clangの問題をさらに修正。[Balrog]
+
+- SH2DRC: ディレスロットのinsnが必要な場合に演算したPRを破棄できるよう、BSRFと
+  JSRを修正。[R. Belmont]
+
+- v9938 - ステータスレジスタ4と6のデフォルト値を設定。[Michael Zapf]
+
+- Intel 80186 CPUインタフェースに、INT1、INT2、INT3、DRQ0、DRQ1、TMRIN0、TMRIN1
+  入力、TMROUT0、TMROUT1出力ラインを追加。[Curt Coder]
+
+- SH2: ディレイスロットのPC相対MOVを修正
+- SH2: ディレイスロットのPC_relateiveロードをさらに修正
+  [R. Belmont]
+
+- vpoker.cドライバの改良: [Roberto Fresca]
+ *「5-Aces Poker」追加
+ * メモリマップの修正、改良、統合
+ * ROMロードの修正
+ * blitterのリードハンドラからランダムハックを削除
+ * 入力系の予備サポート
+ * 表示画面の修正
+
+- NSM TMS9995ベースなハードウェアの新ドライバ追加。[Roberto Fresca]
+
+- CD-i 68070実装部にUART Tx/Rxフレームワークを追加。「Quizard」のプロテクトに必
+  要。[Harmony]
+
+- デフォルトのCD-i SLAVEのビデオ設定をPALに変更。「Quizard」の起動に必要。
+  [Harmony]
+
+- Naomi: gundmctのプロテクションキーを追加。起動可能。[Cah4e3]
+
+- CD-iベースのアーケードゲームについて、表示領域と解像度を変更。[Harmony] 
+
+-「Quizard 1.7」をターゲットハックを使い起動可能に。プレイはまだ不可。[Harmony]
+
+- Advanced Video Techonology (AVT)プラットフォーム用の新ドライバ追加:
+  [Roberto Fresca]
+ * ほぼ正確なメモリマップ
+ * グラフィックのデコード
+ * バイポーラPROMのデコード
+ * コードリバース処理用のCRTC (MC6845タイプ)を発見
+ * 正しい値を得るため、CRTCクロックの推測
+ * AY-3-8910の実装
+ * ゲームノートの追加
+ * テクニカルノートの追加
+
+-「Quizard 1.7」のプロテクトチェックの大部分をパッチ化し、入力系をエミュレート。
+  [Harmony]
+
+-「Quizard 1.2」のプロテクトチェックの大部分をパッチ化し、パッチ自体をより汎用化。
+  [Harmony]
+
+-「Quizard 3.2」「Quizard Rainbow 4.1」に不完全なプロテクトパッチを追加; 両タイ
+  トルともアトラクトモードまで動作してコイン入力可能。ゲームに入るとクラッシュ。
+  [Harmony]
+
+- video/neogeo.c: VIDEO_RESET時にoptimize_sprite_data()を呼び出し(Neo Geo CD用)。
+  [Barry Rodewald]
+
+- zr107.cの全ゲーム(midnrun, windheat, waveshrk)の共有マッピングを分割にチャレン
+  ジ。プレイはできないが、テストモードに一致するようボタンラベルを追加。[Tafoid]
+
+- vspinbalj (vsnes.c)のフリッパー操作修正と、重複入力の削除。[Tafoid]
+
+- render.cのオブジェクトをC++オブジェクトにコンバート。呼び出し元の更新。
+  [Aaron Giles]
+
+- Subsinoドライバの改良: [Roberto Fresca]
+ *「Victor 6」の入力改良
+ *「Magic Train」のテクニカルノートを修正と拡張
+ *「Magin Train」の3つの未吸い出しPROMについて、実はバイポーラPROMではなくダーリ
+   ントンアレイだとわかったので削除
+
+-「Quizard」の異常に大きなパッチスキームを、もっと小さい4バイトパッチとプロテク
+  トシミュレーションに置き換え。[Harmony]
+
+-「Quizard 2.2」の正しいパッチ値を設定して動作可能に昇格。[Harmony]
+
+-「Quizard」シリーズのRAMプロテクトパッチを削除。全ゲームでプロテクトをシミュレー
+  トして最低限起動は可能。これまでプレイ可能だったものは引き続きプレイ可能。
+  [Harmony]
+
+- CUSTOM_INPUTを使って2つの入力ポートに分かれている残ライフ設定を1つのDIPに変更。
+  [Tafoid, Fabio Priuli]
+
+- 重複して動作していないサービスモード用マッピング(ssridersb - tmnt.c)を削除。
+  bombkick (yunsun16.c)のDIP設定ラベルを"DON"T CHANGE IT!"のコピーから、状況を説
+  明したものに変更。[Tafoid]
+
+- 8237dma.c: リセット時にコマンドレジスタを0にリセット。[Wilbert Pol]
+
+- psxドライバでdriver_deviceを使うように更新。[Atari Ace]
+
+- 特定ドライバ専用のサウンドデバイスで、他のデバイスのようにトークンを使ってステー
+  トを保持するように更新。[Atari Ace]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+テトリス / ブロクシード (Korean System 16 bootleg) 
+  (ISG Selection Master Type 2006) [Anonymous]
+Mallet Madness v2.1 [Brian Troha, The Dumping Union]
+Piccolo Poker 100 [Roberto Fresca]
+Witch Card (Falcon, enhanced sound) [Roberto Fresca, Team Europe]
+Witch Card (German, set 3, alt gfx) [Roberto Fresca, Team Europe]
+Witch Game (Video Klein) [Roberto Fresca, Team Europe]
+Falcons Wild - Wild Card 1991 (TVG) [Roberto Fresca, Team Europe]
+Falcons Wild - World Wide Poker (Video Klein) [Roberto Fresca, Team Europe]
+Victor 6 [Smitdogg, The Dumping Union]
+Quizard 1.7 [Harmony]
+Quizard 1.2 [Harmony]
+Quizard 2.2 [Harmony]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+シーウルフ (older?) [Siftware]
+ガンファイト (older?) [Siftware]
+Puckman Pockimon (set 2) [Guru]
+Hit Me [Siftware]
+エックスメン -チルドレンオブジアトム- (Asia 950105) [Razoola]
+ファイナルラップ3 (Japan - Rev C) [Smitdogg, Guru, The Dumping Union]
+オメガレース (set 2) [Dave France, The Dumping Union]
+Star Raker [Andreas Kraemer, Steffen & Laschek]
+
+
+
+追加された未動作ゲーム
+----------------------
+ハイレートDVDシリーズ4 麻雀花札 コスプレ天国5 [alien_mame, Angelo Salese]
+u12で"BAD"RAMDACが起こるため動作しないゲーム [briantro]
+Falcons Wild - World Wide Poker (Falcon original) [Roberto Fresca, Darran]
+Faster Than Speed [Cah4e3, R. Belmont]
+ウェーブランナーGP [Cah4e3, R. Belmont]
+5-Aces Poker [Roberto Fresca]
+NSM Poker (TMS9995) [Roberto Fresca, Team Europe]
+Dual Games (プロトタイプ) [Smitdogg, The Dumping Union]
+Symbols (ver 1.4) [Roberto Fresca, Dave Ormiston]
+Symbols (ver 2.5) [Roberto Fresca, Dave Ormiston]
+Arrow Bingo [Roberto Fresca, Dave Ormiston]
+NFL (ver 109) [Roberto Fresca, Dave Ormiston]
+バーチャストライカー3 (rev. B) [ANY]
+ぷよぷよDA！-フィーチャリングエレナシステム- [Guru, f205v]
+機動戦士ガンダム 連邦vs.ジオン [Guru]

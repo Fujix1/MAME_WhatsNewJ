@@ -1,0 +1,474 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.128u4</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.128u4.txt</div>
+	<div class="main">
+<div class="wn">
+0.128u4
+-------
+
+重要なお知らせ: このアップデートは、MAMEでのCPUコアの管理方法やメモリの処理方法につい
+ての大変更の第1弾になります。皆様も2つの方法でこの変更作業に協力することができます。
+
+1. ゲームをテストしてみて、おかしな点があればバグをhttp://mametesters.org/mantisへ報
+   告する。
+
+2. コーディングをする場合、[Mm]achine->activecpuや、cpunum_get_active()を使わないよう
+   に更新するパッチの提出する。これらを使わなくても他の方法で参照するCPUを取得できる
+   はずです。作業が重複しないように、少量でもすぐに提出するか、あるドライバについて作
+   業する予定があることを提出用アドレスまでお知らせ下さい。
+
+
+
+MAMETestersの修正バグ
+---------------------
+- 02668: [DIP/Input] vendetta + clones: NVRAMの書き出し不良。(Mamesick)
+- 02656: [Crash/Freeze] elevator: コイン入力後、画面下側に「8」が表示され止まる。(David Haywood)
+- 02660: [Crash/Freeze] All sets in decocass.c: ロードカウンタが13秒くらいでゲームが固まる。(couriersud)
+- 02654: [Crash/Freeze] timecris, timecrsa: 初期化に不具合があってゲームを始められない。(robiza)
+- 02667: [Sound] bbmanwj: 0.123u2からサウンドが出ない。(robiza)
+- 02655: [Misc.] MC6845を使うゲーム: "Mode Control 88 is not supported!!!"のメッセージが出る。(couriersud)
+- 02092: [Graphics] spinlbrk and clones: プライオリティ不具合。(robiza)
+- 02641: [Graphics] strider and clones: グラフィックレイヤーの問題。(Nicola Salmoria)
+- 02196: [DIP/Input] scross: プレイヤー2のボタン5つが重複している。(Luigi30)
+
+
+
+ソースの変更点
+--------------
+- UPI-41/42 (ファイル名はまだI8x41.c)の変更: [couriersud]
+ * cpu/i8x41はUPI-4xに改名する必要があります。コアをポインタ化したときに対応します
+ * mcs48からI8041の定義を削除
+ * I8x41 CPU定義と設定構造体を削除
+ * I8041、I8741、I8042、I8742の各CPUをi8x41.cに追加
+ * 内部メモリマップを追加
+ * 内部RAMでDATAメモリ空間を使用
+ * ドライバを更新
+ * decocassのインタリーブを70に増加。これによりカウントダウンが13くらいでハングするの
+   が修正されます。このバグはいつ起きたのでしょう
+ * i8x41のステートアクセスにポインタを使うようにコンバート
+ * 命令コードをi8x41ops.cに分離
+
+- フェイクCPUデバイスのタグとstatic_config部を追加。CPU_INITからconfig引数を削除。CPU
+  コアは設定をデバイスのstatic_configから取得するように変更。[Aaron Giles]
+
+- s14001a.c: チップピンアウトと、オペレーションノート追加。[Lord Nightmare]
+
+- ST-Vドライバのクリーンアップと、elandoreのプロテクト番号シードを訂正。
+  [Angelo Salese]
+
+- Ghost Eolithハード(未動作)のビデオエミュレーションを修正。[Angelo Salese]
+
+- i960コアをポインタステートアクセスに切り替え。[couriersud]
+
+- cpuintrfの大幅変更: [Aaron Giles]
+ * CPUデバイスオブジェクトを受け取るcpu_*コールセットを追加; これがCPU操作用の推奨手
+   段となります
+ * cpunum_*コールを削除; cpu[]配列をrunning_machineオブジェクトに追加; 既存のcpunum_*
+   コールを全てcpu_*に変更、running_machineの新しい配列からCPUデバイスオブジェクトを
+   引き出し
+ * activecpu_*コールを削除; running_machineオブジェクトにactivecpuメンバを追加; 既存
+   の全activecpu_*コールをコンバート、running_machineからアクティブCPUデバイスを引き
+   抜き
+ * cpuintrf_push_context()をcpu_push_context()に変更。CPUオブジェクトポインタを取りま
+   す。また、cpuintrf_pop_context()をcpu_pop_context()に変更。これらは廃止予定
+ * 全てのCPU参照をインデックスからCPUオブジェクトで行うよう、同様の変更多数
+ * CPUデバイスパラメータを、コンテキスト以外のCPUコールバック全てに追加と妥当性検査
+
+- TMS340x0コアをポインタベースにコンバート。[Aaron Giles]
+
+- lkageとクローンセットのDIPスイッチ修正。海賊版の表示領域をオリジナル版に合わせて修
+  正。[stephh]
+
+- magmaxのDIPスイッチ修正。[stephh]
+
+- mermaid.cドライバの全ゲームで、DIPスイッチ修正。[stephh]
+
+- peplus.cのアップデート: [couriersud]
+ * 6845の型をR6545_1に変更
+ * 透過アドレッシング使用
+ * ライトペンのコードが、正しい画面位置でlightpen_assertを生成
+ * ラッパーを使わず6545を完全に実装
+
+- abc_stepとabc_resetが、DISCRETE_STEP( abc )とDISCRETE_RESET( abc )として宣言される
+  ように変更。[couriersud]
+
+- momomkoのDIPスイッチ修正。[stephh]
+
+- joyfulrとクローンセットのDIPスイッチ修正。[stephh]
+
+- ディスクリートサウンドのステートセーブを修正: [couriersud]
+ * セーブステートでsndindexを考慮するように改良
+ * discrete_sound_n_r(void *chip, ...)が複数のディスクリートサウンドコアにアクセスで
+   きるように表面化
+
+- Kanekoの変更: [David Haywood, Andreas Naive]
+ * Toybox外部データROM復号器のシミュレーション追加
+ *「Blood Warrior / 大江戸ファイト」「Bonk's Adventure / 究極!!PC原人」
+  「グレート1000マイルズラリー1」「同2」で新コードを使うようコンバート
+ * suprnovaのレンダリングでスプライトチップを2つ使えるように更新
+ *「ジャッキーチェン」「ギャルズパニック3」の作業開始
+
+- APIの大規模な整理と変更: [Aaron Giles]
+
+  全てのCPU関係のAPIで、インデックスの代わりにデバイスポインタを取るようにするのが主
+  な目的です。CPUデバイスを取る関数は全てcpu_*のプリフィクスがつきます。また、CPUの実
+  行にグローバルな関わりを持つ関数は全てcpuexec_*のプリフィクスになります。以下に一部
+  のマッピングリストを示します:
+
+    cpu_boost_interleave     -> cpuexec_boost_interleave
+    cpunum_suspend           -> cpu_suspend
+    cpunum_resume            -> cpu_resume
+    cpunum_is_suspended      -> cpu_is_suspended
+    cpunum_get_clock         -> cpu_get_clock
+    cpunum_set_clock         -> cpu_set_clock
+    cpunum_get_clockscale    -> cpu_get_clockscale
+    cpunum_set_clockscale    -> cpu_set_clockscale
+    cpunum_get_localtime     -> cpu_get_local_time
+    cpunum_gettotalcycles    -> cpu_get_total_cycles
+    activecpu_eat_cycles     -> cpu_eat_cycles
+    activecpu_adjust_icount  -> cpu_adjust_icount
+    cpu_trigger              -> cpuexec_trigger
+    cpu_triggertime          -> cpuexec_triggertime
+    cpunum_set_input_line    -> cpu_set_input_line
+    cpunum_set_irq_callback  -> cpu_set_irq_callback
+  
+  また、多くの関数は同じ名前のままですが、以下では固有のCPU引数を渡す必要があります:
+  
+    cpu_yield
+    cpu_spin
+    cpu_spinuntil_time
+    cpu_spinuntil_int
+    cpu_spinuntil_trigger
+    cpu_triggerint
+  
+  cpuint.cをcpuexec.cに統合。この変更により、CPUとデバイスのリセット後にドライバリセッ
+  トのコールバックが呼ばれるというる副作用があります。つまり、リセットルーチン内でCPU
+  ステートの変更を行い、実際の変更を確認するためのリセットベクタを待つ場合、変更後に
+  マニュアルでCPUをリセットする必要があります(既にリセット済みのため)。
+
+  アドレス管理用に、インラインヘルパ関数をcpuintrf.hに追加。
+
+  cpu_gettotalcpu()を削除。コア以外から情報が必要になることはほとんど無く、
+  machine->cpu[]を見れば取得できるため。
+
+  CPU割り込みACKコールバックで、machine/cpunumの組み合わせから、CPUデバイスを渡すよう
+  に変更。
+
+  VBLANKと周期タイマーコールバックで、machine/cpunumの組み合わせから、CPUデバイスを渡
+  すように変更。
+  
+  情報取得関数、cpu_*をcpu_get_*に、cputype_*をcputype_get_*に改名。
+
+- 標準のサウンドコア関数用マクロ定義と、全てのサウンドコアでこれを使用するように更新。
+  [Atari Ace]
+
+- running_machine *が使える箇所はMachine引数を置き換え。また、必要に応じてdeprecat.hを
+  削除。[Atari Ace, Oliver Stoeneberg]
+
+- Windows版のデバッガコードからrunning_machineを削除。[Oliver Stoeneberg]
+
+- jchanのDIPスイッチと入力系の修正。[stephh]
+
+- CPS2版の「Phoneix」セットについてと、CPS2基板のバッテリが切れたときに起こることにつ
+  いてドキュメント追加。[MAMEPlus]
+
+- 6800、6809、hd6309 CPUコアをポインタ化: [couriersud]
+ * 68xxコアのstate var m68_stateの仮名称追加
+ * 68xxコアの比較用に一部のコードを再構成
+
+- IRQ書き直し前のST-Vドライバの変更: [Angelo Salese]
+ * hblank、vblankビットの管理を改良
+ * 解像度変更の呼び出しをランタイムからタイマに変更
+ * 解像度変更が毎フレームはなく、実際の変更があったときだけに行われるように変更
+ *「ファイナルアーチ」のテストモードを修正
+ *「ファイナルアーチ / Super Major League」をGAME_NOT_WORKINGに格下げ。SH-2のマスタ・
+   スレーブ通信RAMの問題でランダムにハングするため
+ *「闘龍伝説エランドール」のGAME_NOT_WORKINGフラグを削除。プロテクトはゲーム内のグラ
+   フィックのみに影響していて、ゲームプレイ自体には影響ないため
+ * リード／ライトハンドラによるスピードハックを全て削除。これらは不要で、効果よりもダ
+   メージの方が大きいものでした。これにより「ゴールデンアックス ザ・デュエル」のゲー
+   ム速度が修正。「グルーヴオンファイト」のスタート時コインカウンタが不調
+
+- メモリシステムの大幅な変更: [Aaron Giles, couriersud, smf, R. Belmont]
+
+  READ/WRITEハンドラが、machine *ではなくaddress_space *を受けるように変更。
+  address_spaceオブジェクトはmachineと関連するCPUオブジェクトへのポインタを保持します。
+  
+  新関数cpu_get_address_space()を追加。これは関数呼び出し用のアドレス空間をマニュアル
+  で取得します。将来的にデバイスにコンバートする必要があるものは場合によって、CPU#0の
+  プログラム空間取得がハードコードされています。これは、有効なものを渡すためです。
+
+- culturesドライバで、各プレーン用に独立したカラーテーブルを持つようコンバート。
+  [Angelo Salese]
+
+- 68kコアを大幅に軽量化。MAME外部のシェルをコアに適切に統合して、不要なマクロを削除。
+  外部インタフェースがCPUデバイスを渡すように変更。デフォルトで64-bit命令を有効化。
+  より積極的にコードをカスケード化と共有するするため、インタフェース関数を再定義。
+  これらの変更でtaito_f3の問題が直った模様(最低でもpbobble3は正しい模様)。
+  [Aaron Giles]
+
+- 68000コアについて、よりシンプルで分かりやすいように整理。変更されることのないオプショ
+  ンはハードコード化。昔のCPU2の暗号化に使っていた部分を削除。暗号化インタフェースが
+  CPUコアオブジェクトを渡すように変更。[Aaron Giles]
+
+- CPS1のドキュメント更新。[Nicola Salmoria]
+
+- m6809について、命令コード10と11が2番目のバイトをフェッチするかの設定を追加。
+  [Nicola Salmoria]
+
+- kram3で部分的に判明した復号アルゴリズムを使用して外部テーブルを削除。
+  [Nicola Salmoria]
+
+- scotrshtのDIPスイッチ修正。[stephh]
+
+- Naomiの改良: [Samuele Zannoli]
+ * Naomi用プラグインボードデバイスを実装。これは、各ゲーム用ROMボードとGDROM用のDIMM
+   ボードです
+ * 今のところ、DIMMボード部はGDROMのCHDからROMファイルをロードするルーチンだけです。
+   将来的に専用のSH4プロセッサ、セキュリティチップなどを実装予定です
+ * 抽出した.romファイルは不要になりました。コード側でCHDから抽出します
+
+- state_save_register_item_*にtag引数追加。レジスト時にタグを渡す方法に移行するため、
+  state_save_combine_module_and_tag()関数を削除。全てのステートセーブ項目のレジスト部を
+  調べて、必要な箇所はタグを使用するように変更。[Aaron Giles]
+
+- kram3で6809の逆アセンブラが動作するように変更。[Nicola Salmoria]
+
+- regrepでテンプレートをサポート。各セルの背景全体を色づけしないように出力を変更。内
+  部的に、astingとcore_fileに切り替え。[Aaron Giles]
+
+- ST-VのIRQを書き直して、グローバルなものや、ゲーム専用のハックを削除(SMPC irw bit、
+  introdon IRQレジスタハック、pblbeachフレームバッファハック、その他)。
+  注: 一部のゲームで問題が出ていますが、次かその次の更新で修正できるかも
+  [Angelo Salese]
+
+- opbaseアクセスのコンセプトを"direct"アクセスに一般化。address_spaceからopbaseのグロー
+  バルを削除。ポインタ名の整理(復号済みとRAQ、ROMとRAM)。全てのアドレス空間経由のデー
+  タ読み込み、書き込みを行うインライン関数追加。既存関数で新関数を指定するためのマク
+  ロを追加。その他関連項目の整理。[Aaron Giles]
+
+- CDP1802 CPUコアをポインタ化。[Curt Coder]
+
+-「ビーストバスターズ」のガン処理を少し改良。より簡単にキャリブレートできるように、精
+  度を7bitに半減。多分オリジナルもこんな感じ。また、MAMEの適当な方法でキャリブレート
+  したEEPROMをデフォルトとして追加。サウンドは大変なことになっているけど、サウンドROM
+  のチェックが必要？[David Haywood]
+
+- Z80コアでマクロがぐちゃぐちゃなのを整理。program_*とio_*に代えて、汎用のメモリコー
+  ルを使うように切り替え。[Aaron Giles]
+
+- ASAPコアをポインタ化。[Aaron Giles]
+
+- COP400 CPUコアをポインタ化。[Curt Coder]
+
+- mcs48、mcs51、m68000を新メモリ関数に切り替え。[couriersud]
+
+-「A-JAX」の別なROMボードについてドキュメント化。[Phil Morris]
+
+-「2 Minutes Drill」の基本操作を修正と、シャッターとディフェンダーのセンサーの初期版を
+  追加。動作にはまだボールヒットとランのセンサーが必要。[Angelo Salese]
+
+- H8の大幅更新: [R. Belmont]
+ - 8-bitのH8ファミリMCUをサポート。H8/3344から
+ - H8コア全てをポインタ化
+ - 将来に備えてクリーンアップと改名
+
+- System 23: [R. Belmont]
+ - H8/3344を使い、非常に初期段階的なI/Oボードのサポート
+
+- change_pc()マクロを削除。memory_set_direct_region()で、指定アドレスのバンク配置が成
+  功したかのbooleanを返すように変更。RAWと復号化アクセスでこの結果を調べるように変更。
+  もしバンク内にアドレスが無い場合は、通常のリードハンドラを使って呼び出し。これによ
+  り、命令コードにアクセスするときのクラッシュをほとんど防げるはずです。[Aaron Giles]
+
+- アドレス空間マッピングハンドラについて、マッピングに対する変更が行われる場合は直接
+  アクセス領域を無効にするよう修正。これは、Segaのダイナミックメモリマッピングチップ
+  が正しく動作するのに必要です。[Aaron Giles]
+
+- CDP1802とCOP400 CPUコアを新メモリ関数に切り替え。[Curt Coder]
+
+- m6809とhd6309を新メモリ関数に切り替え: [couriersud]
+ * マクロの整理
+ * コードの整理
+ * 割り込みのチェックをset_contextからcpu_executeに変更
+
+- PSX CPUコアのポインタ化と、新メモリ関数への切り替え。MPIS_*をPSXCPU_*に変更。[smf]
+
+- crazywarのeepromが壊れていたのを修正。[David Haywood]
+
+- メモリシステムを更に大幅変更: [Aaron Giles]
+
+  メモリグローバルステートをmachineオブジェクト付属の構造体に移動。ほぼ全てのメモリ
+  APIで、必要に応じてaddress_space *を取るように変更。全ての呼び出し元を更新。また、
+  メモリインターナルがアドレス空間を使用するように変更。アクセサについて、アドレス空
+  間専用関数からmemory_* 関数を指定するように変更。ウォッチポイントの内部処理を改良。
+
+  cputag_*関数を追加: cputag_reset()、cputag_get_index()、cputag_get_address_space()
+  これらは、マクロ経由から、通常のCPUコールに続くcputag_get_cpu()経由によるCPUのイニ
+  シャルフェッチに拡張します。
+
+  debugger_interrupt_hook()とdebugger_exception_hook()を追加。これらは、呼び出し前に
+  デバッガフラッグをチェックします。
+
+  メモリバンキングにmachineオブジェクトが必要になりました。これにより、メモリシステムを
+  完全に非グローバル化できます。
+
+- jaguar CPUコアをポインタ化。[Aaron Giles]
+
+- TMS32031コアをポインタ化。[Aaron Giles]
+
+- crkdownのイメージファイルを、有効な設定データを含むものに置き換え(すぐに起動して、
+  ハイスコアデータが化けてしまい復旧できない状態を防ぐため)。[David Haywood]
+
+- H8 CPUを新メモリ関数にコンバート。[R. Belmont]
+
+- デバッガインタフェースのクリーンアップ。コールバックの引数にエクスプレッションエン
+  ジン追加。CPUのパースで、CPUタグかインデックスを使えるように改良。必要に応じて、CPU
+  とアドレス空間オブジェクトを渡すように切り替え。シンボルテーブルを、各シンボルのref
+  と同様にグローバルなrefに変更。debugcpuからアクティブなCPUの参照とグローバルな
+  Machineへの参照を削除。その他、いろいろな改良いっぱい。[Aaron Giles]
+
+- cpu/nec (V30)をポインタ化。[couriersud]
+
+- adsp21xxを新メモリ関数に切り替え。[couriersud]
+
+-「ダブルウイングス」のプロテクトを修正。表示、音の改善。[Angelo Salese]
+
+- ssp1601をポインタにコンバート(ジェネシス版「バーチャレーシング」で動作確認)。
+  [Curt Coder]
+
+- se3208のポインタ化(ただし、逆アセンブラはまだ)。[David Haywood]
+
+- bbustersの音量バランスを少し調整。[David Haywood]
+
+- MC6845: スキャンライン毎にHsyncを出す必要あり。[Curt Coder]
+
+- 残りのCPUコアも、新メモリ関数にコンバート。[Aaron Giles]
+
+- H8コアを新しい書き方に更新(非deprecat化)。[R. Belmont]
+
+- cpu_read_byte/cpu_write_byteを削除して、memory_read_byte/memory_write_byteに置き換
+  え。[Aaron Giles]
+
+- M377xxをポインタ化。[R. Belmont]
+
+- ゲームドライバより、program_read/write_*を使った直接メモリアクセスを全て削除。全ド
+  ライバで、memory_read/write_*を使いアドレス空間を渡すようにしています。
+  [Aaron Giles]
+
+- ROMバンキング用のクラッジを以下より削除: bublbobl、ninjakd2、tnzs、lsasquad、
+  missb2、その他のドライバ。[Nicola Salmoria, David Haywood]
+
+- s2650コアをポインタ化。[couriersud]
+
+- メモリコンテキストスイッチを削除。メモリアクセスは全て明示的にアドレス空間を指定す
+  るようになりました。今後、"現在の"メモリコンテキストのやり方はとりません。
+  [Aaron Giles]
+
+- runtest.cmdで使用可能な全てのプロセッサを使うように改良。[Aaron Giles]
+
+- デバイスオブジェクトをキープするため、SH2よりcpu_num情報を削除。[Aaron Giles]
+
+- vendettaのeeprom修正の改良版。[Mamesick, Fabio Priuli]
+
+- 古いchange_pcマクロの痕跡を全て削除。バンキングの改良でこれらは不要になりました。
+  [Aaron Giles]
+
+- plygonetドライバに新しく判明した事柄を追加。[Phil Bennett]
+
+-「ミズパックマン」の補助基板についてより正確な記述を追加。基板動作の完全な動作につい
+  ての詳細です。mspacmanのエミュレーションが更にオリジナルに忠実になったため、特にゲー
+  ムプレイ中にサービスモードに入れるなどの改善があります。[Steve Golson]
+
+- 以下のドライバでクリスタルからクロックを取得: [Luigi30]
+  ace.c、asteroid.c、avalnche.c、blockade.c、boxer.c、bzone.c、cosmic.c、firetrk.c、
+  galaga.c、lazercmd.c、meadows.c、missile.c、orbit.c、skydiver.c、sprint2.c、
+  warpwarp.c、williams.c
+
+- meadows.c、mugsmash.c、orbit.cにDIP配置追加。[Luigi30]
+
+- sprint2.cのメモリマップを統合。[Luigi30]
+
+- galaga.cのCPU4メモリマップを統合。[Luigi30]
+
+- flyballのCPUクロックを#defineで定義するクリスタルに変更。DIP配置追加。
+  [Luigi30]
+
+- Oki MSM6258用の新サウンドコア追加。[Barry Rodewald]
+
+-「トロン」のリビジョンに日付を追加。tron2が後期版と判明したので、tronとtron2を入れ替
+  え。[Tim Lindquist]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Filetto [Angelo Salese]
+ジャッキーチェン [David Haywood, Andreas Naive, stephh, Angelo Salese]
+ファイヤーフォックス [Aaron Giles, smf]
+
+
+
+新規クローンセット
+------------------
+Beast Busters (US, Version 2) [Brian Hargrove]
+パズルボブル2 (Ver 2.3O 1995/07/31) [Ross Myers]
+ストリートファイターII' - チャンピオンエディション (Rainbow set 3, bootleg) 
+   [Bill DeLeo]
+バイオレントストーム (ver UAC) [Bill DeLeo]
+大牌砦 (YMF278B version) [Stefan Lindberg]
+ソルダム (World?) [Gerald]
+
+
+
+追加された未動作ゲーム
+----------------------
+モトクロスゴー！ (MG3 Ver. A) [Guru]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

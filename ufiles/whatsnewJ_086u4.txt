@@ -1,0 +1,77 @@
+﻿0.86u4
+
+CPU / サウンドコアの改良点：
+----------------------------
+
+■M37710のアップデート。[R.Belmont]
+    * 外部制御のタイマーサポート（「プロップサイクル」ペダル読み込み用）
+
+
+その他の改良：
+--------------
+
+■kaneko16.c系ドライバで、プロテクト関係のファイルが別々になっていたのを再構成と
+  クリーンアップ。[Sebastien Volpe]
+
+■NCV2のタイル反転。[Mark McDougall]
+
+■HNG64の背景ズーム初期版。[David Haywood]
+
+■名前の変更をいろいろ。[Darren Hatton]
+
+■「Hydra」の操作を修正。[Pierpaolo Prazzoli]
+
+■変更いろいろ。[Curt Coder]
+    *「ラブリーカード」
+    drivers/lvcards.c
+    vidhrdw/lvcards.c
+    - タイルマップにコンバート
+    - タイルレンダリングの修正。タイルROMの吸い出しは問題なくて、グラフィッ
+      クルーチンが間違ってました！
+    
+    *「アウトランナーズ」
+    drivers/multi32.c
+    - タイトル画面とフライヤーに合わせて「OutRunners」につづりを変更
+    
+    *「ソニック・ザ・ヘッジホッグ」
+    drivers/system32.c
+    drivers/segac2.c
+    - 「Sonic the Hedgehog」を「Sonic The Hedgehog」に変更しました。“The
+      Ultimate History of Video Games”のP428によると、“The”はソニックの
+      ミドルネームだそうです
+    - 「The Revenge Of Shinobi」を「The Revenge of Shinobi」に変更
+    - 「MegaPlay」を「Mega Play」に変更。system16.comを参考
+
+■rabbitドライバでEEPROMを実装。[R.Belmont]
+
+■rabbitドライバのtmmjprdsを改良。[David Haywood]
+
+■swaにサウンド追加。[R.Belmont]
+
+■SPIの解読を改良。[Ville Linde]
+
+■「ビーストバスターズ」のDIP修正。[Iñigo Luja]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+Hot Blocks - Tetrix II [David Haywood]
+    EEPROM未実装
+
+Fighting Basketball [Pierpaolo Prazzoli]
+    スプライトのちらつき、サウンド不完全など
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+
+テトリス (B-System, YM2203 sound) [Charles MacDonald]
+ストリートファイターII' ハイパーファイティング (World 921209) [smf]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Paint & Puzzle [David Haywood]
+    他のDEVが作業中

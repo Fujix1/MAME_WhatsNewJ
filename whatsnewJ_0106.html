@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.106</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.106.txt</div>
+	<div class="main">
+<div class="wn">
+0.106
+-----
+
+
+ソースの変更点
+--------------
+- vconv.exeについて、MSVC 2005で廃止予定になっているオプションを使わないように修
+  正。[Aaron Giles]
+
+- 空のROM領域をクリーンアップして起きていたmodel3ゲームのクラッシュを修正。
+  [Ville Linde]
+
+
+
+0.105u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+memory0105u4red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- freekick.cドライバをクリーンアップ [Sonikos]:
+ - gigas/gigas2m/oigasに2つめのボタン追加
+ - Z80の周波数をgigasで確認した値に調整
+
+- gfxlayout構造体でxとyのオフセットである"拡張"配列をサポートするようにしました。
+  これらは32x32よりも大きなレイアウトを行うのに使います。これにより、巨大なグラ
+  フィックのデコードが不要なほとんどのゲームで通常の構造体を小型化できます。最終
+  的にはMAME.exeが約3MB小さくなりました。[Atari Ace, Aaron Giles]
+
+- MESSのAmigaとCDTVドライバで必要な改良。[Dirk Best]
+
+- deadconxから不要なプレイヤー3と4の操作を削除。[Don Maeby]
+
+- MACSドライバの改良: [Tomasz Slanina]
+ - st0016ビデオエミュレーションのバグを修正
+ - MACSゲームが起動するようにハック追加
+ - srmp5とspeaglshtからREGION_DISPOSEフラグを削除（もうクラッシュしないため）
+
+- powerbal.c, konamigx.c, gsword.cドライバのDIPスイッチ修正と改良。[Twisty]
+
+- BFMドライバと6840タイマーエミュレーションをさらに改良。[El Condor]
+
+- x86 DRCエンジンとWindows blitterの改良:
+ - BlitterのCPUIDにはdrc_x86_get_features()を使ってアクセスするようにしました
+ - blitter初期化用のwin_blit_init()追加
+ - CPUコア以外のものを使用するためにDRCを変更
+ - drc_dasm()が再び動作するように修正
+ - MMX/SSE命令用のマクロを大量に追加
+ - i386逆アセンブラにMMX/SSE命令をたくさん追加
+
+- 前のリリースで言っていた「マリンデート」の修正を実際に適用。[Aaron Giles]
+
+- Visual C++ 2003/2005でのビルドサポートを実験的に追加。これを実行するためには
+ （皮肉なことに）mingwの環境が必要です。MSVCのコンパイラを呼び出すためにmingwの
+  makeシステムに頼っているためです。コマンドラインか、windows.makでMSVC_BUILD=1
+  と指定すると、Microsoftのコンパイラを使ってビルドします。この動作はgccのオプショ
+  ンをMSVCのオプションに変換を行うための書きかけソフトvconv.exeを通じて行われま
+  す。vconv.exeはクリーンビルドの開始時にmingwがコンパイルします。通常のビルドオ
+  プション(SYMBOLS, MAP, DBUG, etc)はほとんど動作します。使っているコンピュータ
+  がのろい場合は、MAXOPT=1をセットしてリンクタイムコードジェネレーションを使えば
+  最強の最適化ができます :) [Aaron Giles]
+
+- 64bitターゲットの予備的なサポートを追加。64bitターゲットでコンパイルするときは
+  makefileのPTR64をセットしてください。これによりCファイルにもPTR64の定義が適用
+  されます。makefileについては64bitのdrcコアを自動で無効にできるよう、十分に手を
+  加えてあります。また、64bitビルドの妨げになるものについては、アセンブリblitter
+  以外はほとんど削除しました。これはまだ書き直し作業中です。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Hidden Catch 2 [Pierpaolo Prazzoli, Guru]
+Fishing Maniac 3 [Pierpaolo Prazzoli, Guru]
+遊華 [Tomasz Slanina]
+遊雀 [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Greyhound Selection (Version 40.02TMB) set 2 [Brian Troha]
+Greyhound Poker (3 new sets) [Brian Troha]
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Master Boy [David Haywood]
+Intersecti [David Haywood]
+
+
+
+
+0.105u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+invaders0105u2gre [Giuseppe Gorgoglione]
+taitosj0105u3yel [Aaron Giles]
+wardner0105u3red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Nintendo 64システムの改良: [Ville Linde, Ryan Holtz]
+ - RSPコアのメジャーなバグ修正
+ - PIFハンドリングの書き直し
+ - トライアングルのレンダリングを少し改善
+
+- memory_set_bankptr(), memory_configure_bank(), 
+  memory_configure_bank_decrypted()にNULLチェック追加。[Nathan Woods]
+
+- デバッガのメモリウィンドウに列当たりに表示するバイト数を変更する機能追加。
+  [Andrew Gardner]
+
+- orlegend super / specialのプロテクトのシミュレート開始。[XingXing, ElSemi]
+
+-「パーフェクトビリヤード」の色とBGMテンポ修正。[Sonikos]
+
+- 6840のクリーンアップとscorpion2ドライバの未マップ領域の処理を修正。またMPU4の
+  メモリマップも更新。[El Condor]
+
+- Toaplan 2ドライバの大幅クリーンアップ: [Quench]
+ -「ナックルバッシュ2」(kbash2)追加
+ - メモリマップのリード・ライトを統合
+ - 一部のゲームのコインカウンタ修正
+ - 一部のゲームの音量増加
+ - 入力のクリーンアップ:
+    入力の継承とDIPSWロケーション追加
+    DIPSWで必要な場合に条件による動作追加
+    あちこちで入力が間違っていたのを修正
+
+- m92、afega、tumbleb、yusun16ドライバのDIPスイッチ修正と改良。[Twisty]
+
+- liberate.cドライバのクリーンアップ。[Sonikos]
+
+- ARM7のThumbモード逆アセンブラを改良。[MooglyGuy]
+
+-「Air Raid / クロスシューター」の改善。グラフィックROMが無いのでプレイ不能。
+  [Tomasz Slanina]
+
+- アートワーク有効時にUIの表示位置がおかしくなるのを修正。[Giuseppe Gorgoglione]
+
+- ARM7コアのThumbモード、およびPGMドライバを大幅にアップデートと改良。
+  [David Haywood, ElSemi]
+
+- sslamとpowerblsのOKI周波数改善。[f205v]
+
+- m62.c、m72.c、ddragon.cのDIPスイッチをさらに改良。[Twisty]
+
+- デバッガのコマンドラインで表示部分よりも長く入力できないバグを修正。
+  [Aaron Giles]
+
+- 新ツールjedutil追加。.JEDファイルをバイナリフォームへ変換、および元に戻します。
+  [Aaron Giles]
+
+- 新規ROM領域、REGION_PLDSを追加。PLDヒューズマップ(jedutilで生成した.JEDファイ
+  ル)のバイナリダンプを保持するためのものです。-romidentには自動的に.JEDファイル
+  とバイナリのダンプとを見分けるロジックを組み込みました。PLDダンプは
+  「ビンジケーターズ」「Batman」「ピットファイター」「ThunderJaws」
+  「Rrlief Pitcher」ドライバに追加しました。さらに追加予定です。[Aaron Giles]
+
+- 新バイナリフォーマットに合わせてcatnmousとlazarianのPLDをコンバート。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+テトリス (D.R. Korea) [David Haywood]
+ナックルバッシュ 2 (海賊版) [Quench]
+
+
+
+新規クローンセット
+------------------
+Metal Slug 6 (メタルスラッグ3 海賊版) [Mame32Plus]
+Metal Slug 5 (JAMMA基板) [Mame32Plus]
+SVCカオス - SNK vs CAPCOM (JAMMA基板, set 2) [Mame32Plus]
+ナイトスラッシャーズ (Over Sea Rev 1.2) [Stefan Lindberg]
+ダブルドラゴン (World Set 2) [Stefan Lindberg]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+怒首領蜂 大往生 (V100) [Wu]
+
+
+
+
+0.105u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mystston097u3yel [David Haywood]
+decocass0105u2yel [Aaron Giles]
+taitosj0105u2yel [Aaron Giles]
+vicdual0105u2gre [Aaron Giles]
+chqflag0105u2red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- dec0ドライバのDIPスイッチの修正とクリーンアップ。[Roberto Fresca]
+
+- PGMのビデオコードをさらに改良。また、ddp2のブートができるようにサウンドCPUの
+  一時停止ハック追加。[David Haywood] 
+
+- 間違った光線銃ゲームの名称を修正。[Derrick Renaud]
+
+-「Bozne Adventure / 地獄めぐり」の2面と9面を修正。[Bryan McPhail]
+
+- 8530CIAコードをAmigaから単独モジュールへ再構成して同類機種6526と8530をサポート。
+  [Nathan Woods]
+
+- megasys1のDIPスイッチ修正と改良。diego, ynsun16ドライバ。[Twisty]
+
+-「Lost Castle in Darkmist」のDIP修正、カクテルモードでのP2操作追加。[Sonikos]
+
+-　Windowsのレンダリングコードを大幅修正: [Giuseppe Gorgoglione]
+ * D3Dモードで、blit_vectorsがdirtyピクセルアレイを使うよう修正
+ * dirty pixel同様にblit_vectorの回転問題も修正
+ * -full_screen_brightnessを-full_screen_gammaに変更
+    (説明的にはより正確)
+ * -d3dfileterをbooleanに変更。他のフィルタモードはMAMEにはもう古くて時代遅れな
+   ため
+ * ウィンドウの位置を強制的に8ピクセルの境界部分にそろえなくてもいいように変更
+ * 未使用のグローバル変数を大量にクリーンアップ
+ * マルチスクリーンサポートについて、GDIモードだけでなく、フルスクリーンモードで
+   ないときでも動作するように改良
+ * -screenパラメータの説明追加
+
+- MAMEヘッダについて、実際のの定義と比べ、残っていたエラーと不一致部分を削除。重
+  複または単独で使われていない宣言を多く削除。また、#includeを正しいところに移動、
+  または位置が違っていたものは他のファイルに移動。[Atari Ace]
+
+- 未使用のROM領域を大幅に削除。ほとんど（ただし全部じゃない）の空ROM領域警告は処
+  理済み。また、NamcoとCPS2ゲームで、未ダンプのROM/XORを追加。[Aaron Giles]
+
+- Amiga系のクリーンアップ: [Aaron Giles]
+ * デュアルプレイフィールドモード修正
+ * blitterコードを書き直し（ar_bowlなどの不具合修正）
+ * Arcadiaの起動で自動設定ではなくROMタグを使うよう変更
+ * Kickstart 1.2をArcadia BIOSに入れ替え（ar_adwrが修正）
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Puzzle Star [XingXing]
+Marine Date [MAME32Plus]
+Speed Up [Aaron Giles]
+Up Scope [Mariusz Wojcieszek, Tomasz Slanina, Aaron Giles]
+Greyhound Poker (Version 50.02) [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+The Pit (Bootleg) [Brian Troha]
+アミダー (Bootleg) [Brian Troha]
+ムーンクレスタ (bootleg set 3) [Brian Troha]
+ゼクセクス (ver AAA) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+The Gladiator [David Haywood]
+
+
+
+0.105u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+raizing0105u1red [Ville Linde]
+psbasedgames0105u1red [Nathan Woods]
+
+
+
+ソースの変更点
+--------------
+-「Monster World」のDIPスイッチ修正。[Sonikos]
+
+- PowerPC FPUの浮動小数点の丸めエラー修正。[Ville Linde]
+
+-「The Killing Blade」のプロテクト作業。[El Semi]
+
+- PGMのスプライト描画コードの再構成とクリーンアップを少々。ズーム機能追加。
+  [David Haywood]
+
+- 6821のPIAをクリーンアップ。MAMEの新定義法にコンバートして、初期化時のみに設定
+  と初期化を行うように変更。[Nathan Woods]
+
+-「コスモポリスギャリバン」と「UFOロボ ダンガー」の不明DIPを修正。[Twisty]
+
+- Playmark製「Roulette」を少し改良。ただしまだ動作は不完全。[David Haywood]
+
+-「Showdown」のスタートボタン修正。[Don Maeby]
+
+-「Shocking」のサウンド周波数修正。[Brian Troha, Guru]
+
+-「トップローラー」の修正: [Tomasz Slanina]
+ - 色の修正
+ - グラフィックバグの修正
+ - 音の改良（サンプルROM追加）
+ 
+ まだ手前のテキストレイヤーの色に一部問題あり
+
+- "This game doesn't work"の内容をもっとはっきりと表示。[Olivier Galibert]
+
+- PAIRとPAIR64を有効なセーブステートtタイプに追加。[Nathan Woods]
+
+- Amiga/Arcadiaシステムのアップデート: [Aaron Giles]
+ - 自動configシステムをもっと一般的にも使えるように書き直し
+ - CIAをさらに完全にするため、クリーンアップと書き直し
+ - デュアルプレイフィールドとスプライトプライオリティ追加
+ - アタリ判定サポート
+ - COPPERタイミングを調整して「Fast Break」のスコア修正
+ - 新しいバージョンがデフォルトになるようにBIOSを並べ替え
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Mang-Chi [David Haywood, Brian Troha]
+New Hidden Catch [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Abscam [David Widel]
+ミズパックマン (bootleg, encrypted) [David Widel]
+ビリヤードアカデミー リアルブレイク (Korea) [Corrado Tomaselli]
+Carrier Air Wing / USネイビー (World 901009) [Stefan Lindberg]
+Plasma Sword / スターグラディエイター2 (ASIA 980316) [Chris Hardy]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+トータルバイス [Curt Coder]
+セガスキー スーパーG [R. Belmont]
+Over Rev [R. Belmont]
+Sliver [David Haywood]
+Puck People [David Haywood]
+
+
+
+0.105u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+metmqstr0105yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- includes/*.hファイルのプロジェクト間の使用について以下の項目を確保してクリーン
+  アップしました:
+
+  1. includes/***.hファイルは全て、宣言ソースを示すコメントを注釈としてつける
+  2. それぞれのソースファイルでも #include "includes/***.h" の定義が正しいことを
+     保証するためはっきりと注釈付けする
+
+  これにともない、矛盾していたり、無関係だったり、不完全な宣言は削除もしくはク
+  リーンアップしました。[Atari Ace]
+
+- ui_set_visible_area()の呼び出し部をset_visible_area()に移動して、1フレーム中に
+  別なタイミングでこれらが呼び出されたときの問題に対応。[Nathan Woods]
+
+- CPUドライバを更新。ROM混合ボードから得られた情報に基づき、タイルマップ描画精度
+  の向上。[David Haywood]
+
+- 前回のリリースから古いデバッガがクラッシュするバグを修正。[Olivier Galibert]
+
+-「Pig Newton」にデモサウンドのDIPスイッチ追加。[Derrick Renaud]
+
+- gumast, batlbublのDIPスイッチ修正。[Brian Troha]
+
+- tumbleb2とpangpangにシミュレートサウンド追加。[David Haywood]
+
+- 6821PIAにCA2、CB2、IRQシグナルのアクセサ追加。[Nathan Woods]
+
+-「Bonze Adventure / 地獄めぐり」のCチップエミュレーションを正確にしてプロテクト
+  関係の問題を修正（不明なデータと自作データを削除して、すべて実機から抽出）。
+  [Bryan McPhail]
+
+- Taito F3の名称をクリーンアップ。[Marco, Bryan McPhail]
+
+- Z80 PIOコードが、PIO_OP_MODE byteとそれに続くマスクの間で割り込みが発生するの
+  を妨げていたのを修正。データシートによると、ハードウェアではこれは許可されてい
+  ないとのこと。[Robert]
+
+- M68040コアにFPU命令コードを大量追加。[Ville Linde]
+
+- TaitoJC全ゲームのROMロードを修正。[Ville Linde]
+
+- TMS320C51 CPUコア追加。[Ville Linde]
+
+- Nintendo 64コアの一部をMESSの共有モジュールとして分割。[R. Belmont]
+
+- ゲームドライバクローンとのハード的なつながりを削除。これにより、ドライバ内の
+  ハードの依存度を減らし、tiny.makを使いやすくします。[Atari Ace, Aaron Giles]
+
+- PGMドライバのアップデート: [El Semi]
+ - スプライトリストのスプライトマスク幅パラメータを訂正
+ -「The Killer Blade」の複合化機能を修正
+ -「The Killer Blade」のグラフィックROMロードを修正
+ -「The Killing Blade」(台湾版?)のセット追加
+ -「The Killing Blade」(台湾版?)のプロテクトシミュレーションWIP版追加。
+   ゲームは起動可能。最終ステージが動作しない
+
+- makefileに$(OBJ)/%.sターゲットを追加して、生成コードの逆アセンブリ解析を簡単に
+  しました（また、$(OBJ)/%.ppでプリプロセッサ出力の検査もできます）。
+  [Nathan Woods]
+
+- リージョンとアドレス空間名をWindows専用コードから共有的なところに移動。
+  [Olivier Galibert]
+
+- コードコメントが長すぎるときに表示がおかしくなるバグを修正。[Andrew Gardner]
+
+- H8命令コードがいくつか無かったのでコアに追加、またカラーDACをlastfght.cに追加。
+  [Tomasz Slanina]
+
+- -romidentオプションでいくつのROMが確認できたを元にエラーレベルを返すように変更
+  (0=全部確認, 1=ROM以外のファイルは全て確認, 3=確認できたファイル無し)
+  [Aaron Giles]
+
+- セーブステート登録用のタイプチェックをさらに厳しく（GCCでのみ動作）。
+  [Aaron Giles]
+
+- メモリシステムの自動ROM割り当てロジックについて、ROM領域外に自動で割り当てない
+  ように変更。[Aaron Giles]
+
+- セーブするメモリエリアがメモリ領域にオーバーラップしないように登録するようにメ
+  モリセーブステートのレジストを変更。これにより、RAM用の追加メモリ領域に頼って
+  いるドライバはセーブをサポートする前に修正が必要です。[Aaron Giles]
+
+- 空のRAM領域や無関係なメモリ領域を使っていたかなりのドライバを修正しました。
+  arcadia、nss、stvドライバでは特に大がかりです。[Aaron Giles]
+
+- 整合性チェックで空メモリ領域を警告するようにしました。空領域は削除するか、明確
+  な値（ROMREGION_ERASE00かROMREGION_ERASEFF)で埋めて警告をクリアするようにして
+  ください。[Aaron Giles]
+
+- Amigaエミュレータでサウンドと追加のビデオモード、さらにハーフブライトモードや
+  マニュアルスプライト、スキャンラインの変更を含むエフェクトをサポートするように
+  大幅に書き直し。まだ作業中です。[Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Pang Pang [David Haywood]
+Crazy Fight [Luca Elia]
+Puzzle King (Dance & Puzzle) [Pierpaolo Prazzoli]
+ファイターズヒストリー [Bryan McPhail]
+Sex Triv [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Battle Bubble [f205v, Corrado Tomaselli]
+Bonze Adventure / 地獄めぐり (World, Older) [Bryan McPhail]
+Fantasia II (set 2, less explicit) [HIGHWAYMAN]
+The Killing Blade (Taiwan?) [El Semi]
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

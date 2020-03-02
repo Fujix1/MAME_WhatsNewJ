@@ -1,0 +1,110 @@
+0.111u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+tourtabl0111u1red [Nathan Woods]
+
+
+
+ソースの変更点
+--------------
+- Amigaコアシステムの更新: [Ernesto Corvi]
+ - 6526/8520 CIAでSPピンの値をセットできるように改良。これにはAmigaのキーボードを
+   エミュレートする必要があります
+ - カスタムチップエミュレーションで、INTERNA、またはINTERQへの書き込みの後、割り
+   込みが約24サイクル遅れるように更新
+ - INTERQがプログラム的にクリアされるときのバグを修正。これにより未処理のCIA割り
+   込みは無視され、CIAはこれ以上割り込みを発生しなくなります
+ - 割り込み遅延ロジックを修正。割り込み要求発生で正しく遅延が起きます
+ - 未使用、または無効なカスタムレジスタ読み込み時の返値を修正
+ - OCS、ECS、AGAを正しく判定するためにDenise IDカスタムレジスタ追加
+ - RESET命令があったときの、custom、autoconfig、ciaのリセットを追加
+ - カスタムチップのリセットで、INTENAをクリアしてそれ以上割り込みが起きないよう
+   に変更
+ - RBF割り込みリクエストのコードチェックを修正
+ - 6526/8520 CIAで、チェーンカウンタが動作しなかったバグを修正
+ - blitterで"blitter-nasty"なビットをサポート。グラフィック表示がおかしかったゲー
+   ムの修正
+
+-「ガンファイト」コインカウンタ実装。また、回路図を元にサウンドを訂正。invaders
+  とinvad2ctに正確なウォッチドッグ追加。[Derrick Renaud]
+
+- TMS5220 RNGの初期化を追加。[Lord Nightmare]
+
+- Taito JCドライバの改良: [Ville Linde]
+ - MC68HC11のコミュニケーションを改良
+ - MC68HC11にアナログコントロール追加
+ - TMS320C51コアのバグ修正と新命令の追加
+ - ビデオハードエミュレーションをvidhrdw/taitojc.cに移動
+ - 3Dハードウェアエミュレーションの実装
+
+- u1で追加された8080bwのサウンド変更をクリーンアップ。[Robert]
+
+- 6532ritoとtiaコードで、起動時のみ初期化できるように変更。[Nathan Woods]
+
+- System16海賊版のバグ修正。[Mamesick]
+
+- i8085エミュレータのSIM命令修正。[Tomasz Slanina]
+
+- コアとWindows OSDでの初期的なUnicodeサポート: [Nathan Woods]
+ - テキストファイルの読み込みと書き出しで自動的にUTF-8変換を行います
+ - Windows関数の多くでは内部的にTCHARで処理します
+ - 新しいWindowsのコンパイルオプションUNICODEを追加。MAMEをUnicodeアプリケーショ
+   ンとしてビルドできます(windows.makを参照)
+
+- ドライバで定義されているものについて、DIPスイッチの実際の状態表示を追加。これを
+  表示させるには、ドキュメント化されているドライバで、DIPスイッチメニューを開く
+  だけです。[Brian Oberholtzer]
+
+- 1942、toaplan2、sega80rドライバのDIPスイッチを訂正。[Brian Oberholtzer]
+
+- MESS CPUコアの残り部分をMAMEに追加。ビルド時には無効になっていますが、MAME CPU
+  コアの変更があったときには、これらのメンテナンスも行います。[Nathan Woods]
+
+- サンプルサウンドシステムのマルチインスタンスをサポート。[Zsolt Vasvari]
+
+- input port定義をコードベースのコンストラクタから、データ駆動型のトークン値にコ
+  ンバート。これによりMAME全体のコードサイズがかなり減ります。このトークン化では、
+  64bitビルドと32bitビルドでは若干違いがあるので、誰か64bitシステムで正しく動作
+  するかチェックしてもらえると幸いです(mame -listxmlについては32bit版と同じもの
+  になるはずです) [Atari Ace, Aaron Giles]
+
+-「ナイトスラッシャーズ」のサウンド割り込みを正しく実装。[Aaron Giles]
+
+- ARM CPUコアのサイクルタイミングを改良。deco32 CPUのクロックを以前よりも妥当な
+  設定に変更。[Aaron Giles]
+
+- ヘッダファイルとドキュメントのコピーライトの日付を更新。 [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Dwarfs Den [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+JuJu伝説 (Japan, bootleg) [David Haywood]
+New Tropical Angel [Stefan Lindberg]
+Circus (Sub-Electro bootleg) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Backgammon [Tomasz Slanina]
+Skat TV [Tomasz Slanina]
+Fashion Gambler [Tomasz Slanina]
+Pit Boss II [David Haywood]
+Super Bitboss [David Haywood]
+Pitboss Megastar [David Haywood]
+Megatouch 3 [David Haywood]
+Megatouch 5 [David Haywood]
+Touchmaster [David Haywood]
+Touchmaster 3000 [David Haywood]
+Touchmaster 4000 [David Haywood]
+麻雀士様 [David Haywood]

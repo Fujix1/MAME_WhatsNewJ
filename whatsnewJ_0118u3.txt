@@ -1,0 +1,89 @@
+0.118u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+qbert0118u2gra [Aaron Giles]
+zoom909_0118u2ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- dacholer.cドライバで、これまでわかっているDIPスイッチを全て更新。[stephh]
+
+- MDRV_VBLANK_DURATIONマクロで、1秒未満の値について、doubleからコンバートせずに
+  直接受け取るように変更。新マクロ、USEC_TO_SUBSECONDSも追加。全ドライバでこれを
+  使うようにコンバートしました。[Atari Ace]
+
+- メモリマップの検証について、memory.cの現在のロジックに合うように改良と修正。
+  この方法でわかった問題も修正。また、construct_map_0を削除して、マップの生成を
+  単一の関数に独立。[Atari Ace]
+
+- AM_READ_PORT()マクロを新規追加。これは、入力ポートのリードコールバックをポート
+  タグに基づいて定義するものです。従来のAM_READ()マクロ内でport_tag_to_handler()を
+  呼び出すテクニックに代えて、新しい方法を使って下さい。後者のパターンを使ってい
+  た全てのドライバを、新システムを使うように更新しています。[Atari Ace]
+
+- 0.36b10(!)で起きていたmonymonyの微妙な不具合を修正。[Atari Ace]
+
+- F8 CPUコアで、リセット時にirq_callbackをclobbertしないように修正。
+  [Wilbert Pol]
+
+- Amigaシステムの更新: [Ernesto Corvi]
+ - ECSのみのBLTSIZVとBLTSIZHカスタムレジスタを実装。また、BLTSIZEとblitterでこれ
+   らを使用するように変更
+ - VPOSRのbitが、PALかNTSC Amigaのどちらで動作しているか示すように正しく実装
+ - alg.cのPictmaticドライバのPALクロックを修正
+
+- COP420 CPUコアにカウンタエミュレーション追加。「Thayer's Quest」で実装。また別
+  セット追加。[Andrew Gardner]
+
+-「Status Trivia」ドライバにPROM追加。[Brian Troha]
+
+- Taitoドライバ(opwolf.c, othunder.c, topspeed.c, warriorb.c, wgp.c, rastan.c, 
+  rainbow.c, volfied.c)で、共通の入力ポートマクロを使うようにクリーンアップ。
+  全ゲームのDIPスイッチ修正(まだいくつか不明のものあり)と、ノートの追加。また、
+  ninjaw.cドライバで間違っていた点を2つ修正。「オペレーションウルフ」とクローン
+  版のC-chipエミュレーション改良で、複数のコインエイジ処理が可能。[stephh]
+
+- aladblで、ゲームがコイン入力を正しく処理されるようにMCUシミュレーションを改良。
+  アーケード筐体にマッチするように入力の修正と、ゲームのM68000コードを元にDIPス
+  イッチも追加。[stephh]
+
+- バージョン情報を抽出して、それをWindowsのバージョンリソースに追加するビルドツー
+  ルを追加。[Nathan Woods]
+
+- かなり完成度の高いWD33C93 SCSIコントローラエミュレーション追加。cps3.cドライバ
+  でこれを使うように更新。[Ernesto Corvi]
+
+-「チェイスHQ」のランプ実装。[R. Belmont, couriersud]
+
+- NEC V30 CPUコアで、16ビットデータバスを使うように変更。影響のあるドライバを
+  更新: raiden, raiden2, m72, m90, m92, m107, segas32, hng64, deadang, dynduke,
+  sengokmj, shanghai, lockon, tatsumi, fantland, twins, gunpey, ttchamp
+
+  i386逆アセンブラから、Vシリーズの逆アセンブラの分離、及び正しいレジスタと命令
+  コード用語を使うように更新。[Aaron Giles, Philip Bennett, Pierpaolo Prazzoli]
+
+- I8086 CPUコアで16ビットデータバスを使うように変更。影響のあるドライバを更新:
+  gottlieb, leland, tx1, fantland, tetriunk
+
+  CPUのネーミングをクリーンアップ（i86 → i8086など）。[Aaron Giles]
+
+- 共有PCコンポーネントの多くに16ビットハンドラ追加。[Nathan Woods]
+
+- drcと非drc MIPSコアで共通なコードを統合。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Aladdin (bootleg of Japanese Megadrive version) [stephh]
+
+
+
+新規クローンセット
+------------------
+ライデンファイターズ (Italy) [Corrado Tomaselli]

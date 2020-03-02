@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.92</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.92.txt</div>
+	<div class="main">
+<div class="wn">
+0.92
+----
+
+今回はAaron氏によるサウンドシステムの大幅な変更前のリリースです。
+Aaron氏がサウンドシステムを提出後に0.93をリリース予定です。
+
+----
+
+- Taito F3サウンドの残っていた問題をほぼ修正。[Nicola Salmoria]
+	「リングレイジ」と「ライディングファイト」はまだ動作せず
+	「クイズシアター」はサウンドROM不良
+	「Bust-A-Move Again」(US)はサウンドROMの実機比較が必要
+
+- Microprose 3Dドライバの改良。[Philip J Bennett]
+	ゲームはまだプレイ不可。ただし、スケルトンドライバについて大幅改良
+
+- MACsドライバを改良。[Tomasz Slanina]
+	ST0016ビデオ表示にしたものの、エミュレーション自体はまだ不完全
+
+- Hyperstoneベースのドライバを改良。[Tomasz Slanina]
+
+- 多くのドライバに不足PROM追加。[HIGHWAYMAN]
+
+-「Vs. Goonies」のDIP修正。[chaneman]
+
+-「リーサルエンフォーサーズ」の改良。[R.Belmont]
+	修正:
+	- タイルマップカラー
+	- 銃操作の実装と位置合わせ
+	- タイルマップとスプライトレイヤーを銃と位置合わせ
+	- その他クリーンアップいろいろ - 不足してたスプライトROM追加
+
+	To do:
+	- スプライトデコードの解決
+	- スプライト・タイルマップ間のプライオリティ
+	-“リロード”の表示がファンキーになってる。多分タイルマップフリップビッ
+	  トが必要
+	- K056832外部ラインスクロールRAMサポート修正（スクロールする面とハイスコ
+	  ア表示に使用）
+
+- 変更いろいろ。[Nathan Woods]
+	src/cpu/g65816/g65816.h:
+	src/cpu/g65816/g65816.c:
+	src/cpu/g65816/g65816op.h:
+	src/cpu/g65816/g65816cm.h:
+	    - ドライバで割り込みベクタ読み込み用のハンドラを設定するフック追加
+	（65816はベクタ読み込み時と特定のハードで再ルートが必要なときに、真にな
+	るシグナルあり）
+
+	src/memory.c:
+	src/memory.h:
+	    - memory_get_op_ptr()追加。opbaseハンドラをチェックしている以外は
+	ADDRESS_SPACE_PROGRAMのmemory_get_read_ptr()と同等
+
+	src/debug/debugcmd.c:
+	src/debug/debugvw.c:
+	   - OPCODEメモリが未マップか確認できるように、デバッガで
+	memory_get_op_ptr()を使うように変更
+
+- コンパイラ系の修正いろいろ。[Lawrence Gold]
+
+- Taito SJのアップデート。[Nicola Salmoria]
+	- サウンドCPU→メインCPUの通信を追加（「ティンスター」でパッチなしでもハ
+	  ング修正。また面切り替え時の音楽も最後まで再生）
+	- 回路図を元にしてメモリマップを追加
+	- DAC音量操作追加（これを追加しても少し違う感じ）
+	- コインのロックアウト（10以上コインが入らないように）
+
+- HyperstoneのIRAMミラーリングを修正。[Pierpaolo Prazzoli]
+
+- TMS5110に本物のノイズジェネレータ追加。[Jarek Burczynski]
+
+-「Mr. Do's Castle」のDIPスイッチの問題用パッチ。[Nicola Salmoria]
+
+- M37710CPUコアのバグ修正。[R.Belmont]
+
+- Sega系の改良。セットの改名、不要コードを削除してドライバのクリーンアップなど。
+  [Aaron Giles]
+
+- マージャンドライバで新入力スタンダードを使うように更新。[James Wallace]
+
+- PSXベースドライバの改良。[smf]
+	- Guru氏より基板の情報追加
+	- Namco System 11のROM名から8.3の制限を削除
+	- ルートカウンタエミュレーション改良
+	- DMAのACKエミュレーションを改良
+	- 表示エリアの変更を、ビデオ表示の更新中ではなく直ちにするように変更
+
+- fitfight.cのサウンドCPU実装。[Tomasz Slanina]
+
+- VCのコンパイラ向けに修正。[Bryan McPhail]
+
+- Minesweeperドライバのサウンド。[Frank Palazzolo]
+
+- その他、細かくて忘れたことがいろいろ（詳しくはWIPを参照）
+  ここに追加されていないものは、たぶんAaron氏の変更後に再提出が必要です。
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Golden Tee 3D Golf [Brian Troha, Aaron Giles]
+Golden Tee 97 [Brian Troha, Aaron Giles]
+Golden Tee 98 [Brian Troha, Aaron Giles]
+Golden Tee 99 [Brian Troha, Aaron Giles]
+Golden Tee 2k [Brian Troha, Aaron Giles]
+Golden Tee Classic [Brian Troha, Aaron Giles]
+World Class Bowling Deluxe [Brian Troha, Aaron Giles]
+
+Land Breaker [Tomasz Slanina]
+
+Point Blank II / ガンバァール [smf]
+
+Kawaksに合わせてNeoGeoのサポートを更新（未テスト）[Kawaks]
+
+Super Trio [David Haywood]
+
+Join 'em [Pierpaolo Prazzoli]
+
+Rack + Roll [Pierpaolo Prazzoli, siftware]
+
+Bronx (サイクルシューティング 海賊版) [Tomasz Slanina]
+
+
+新規追加クローンセット：
+------------------------
+Lightning Fighters / トライゴン (World) [Gerald]
+ウォールクラッシュ (別プロテクト) [Pierpaolo Prazzoli]
+Egg Venture (ver 7) [Brian Troha]
+Colt (N.Y.キャプター 海賊版) [Tomasz Slanina]
+Minesweeper (4 player) [Frank Palazzolo]
+パックマン (Falcom 海賊版) [smf]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Wild Arrow [Tomasz Slanina]
+	ギャンブル機の模様
+
+ピンポンキング [Tomasz Slanina]
+	MCUシミュレーション無し、他
+
+グンペイ [Tomasz Slanina]
+	スケルトンドライバ
+
+ダムバスター [Tomasz Slanina]
+	スケルトンドライバ
+
+Championship Bowling [Pierpaolo Prazzoli]
+	スプライト不具合、操作未実装
+
+Trivia Challenge [Pierpaolo Prazzoli]
+	クイズ問題のROM無し
+
+スペースゲリラ [Jarek Burczynski, Tomasz Slanina]
+	グラフィック系の問題、サウンド無し
+
+Laser Base / フューチャーフラッシュ [Tomasz Slanina]
+	プロテクト未エミュレート
+
+究極のオセロゲーム [Tomasz Slanina]
+	ビデオエミュレーション不完全
+
+
+
+0.91u2
+------
+
+このリリースはコンパイル時の警告のクリーンアップがメインです。
+
+--
+
+- 警告のクリーンアップ。[Nathan Woods, David Haywood]
+
+- ST-Vのアップデート。[Angelo Salese]
+	-「アストラスーパースターズ」をとりあえず動作するように改良。SH-2の方の
+	  バグである可能性が大なのでいずれ作業が必要
+	- VDP2レジスタを新たに追加。DISPのトランジションドローを回避など
+	- 以前提出したのが無くなったので、レイヤーの有効化・無効化コードを再追加
+	  また、非デバッグビルドでレイヤーが無効になる可能性があったのを修正
+	- デフォルトEEPROMの追加開始。今のところ「紫炎龍」に実装して、縦画面ス
+	  イッチが既に設定されているように動作
+	- 動的クロック追加。多分100%動作。
+
+- TNZSドライバのアップデート。[Nicola Salmoria]
+	- バンクの境界を越えてコードが実行されクラッシュしていたのを修正 
+	  (tnzs36b16yel)
+	-「アルカノイド2」を動作させるためのパッチを削除（単にミラーアドレスだっ
+	  た模様）
+	- スプライトバンキング追加（seta.cと同様）。「インセクターX」などは以前
+	  は完全に30fpsで動作していたのが修正。またinsectx136b16greと
+	  insectx236b16greも修正
+	- スプライトバッファリング追加（seta.cとはちょっと違う）。kabukizのスプ
+	  ライトと背景修正。ただし、まだ少しミスあり
+	- kabukizのサウンド修正
+
+- NeoGeoのミラーリング訂正とコインカウンタなどの情報追加。[Razoola]
+
+-「リーサルエンフォーサーズ」をアップデート。[Nicola Salmoria, R.Belmont]
+
+- μPD7759の書き直しで、System16のサウンド修正。[Aaron Giles]
+
+- jalmah.cのクラッシュ修正。[Angelo Salese]
+
+-「ガンスモーク」のタイトル透過部分修正。[Nicola Salmoria]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+歌舞伎Z [Nicola Salmoria]
+
+
+新規追加クローンセット：
+------------------------
+闘神ブレイザーズ (Japan) [Gerald]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Super Trio - 背景が不完全 (タイルが暗号化されてる？)
+             サウンドエミュレーションも不完全
+
+Join 'Em [David Haywood] - 基本ドライバのみ、ほとんど未作業
+
+The Couples [Angelo Salese] - 基本ドライバのみ、ほとんど未作業
+
+
+0.91u1
+------
+
+メモリシステムにバグが残っていたので0.91からすぐですがリリースします。
+コアのバグは重大なので、オフィシャルアップデートでなるべく早く修正した方がよいと
+思われます。
+
+--
+
+- 非GCCコンパイラでの警告を修正。[Bryan McPhail]
+	cpuintrf.h			- enumの重複
+	cpu/mh68hc11/hc11ops.c		- C99変数と警告の修正
+	sound/streams.c			- C99変数の修正
+	vidhrdw/pacman.c		- C99変数の修正
+	vidhrdw/model3.c		- C99変数の修正、未使用変数の修正
+					- マクロ再定義の修正
+	vidhrdw/namcona1.c		- 未使用変数の警告修正
+	vidhrdw/taitoic.c		- 未使用変数の警告修正
+	vidhrdw/wgp.c			- 未使用変数の警告修正
+	windows/debugwin.c		- #includeが無かったのを修正
+
+- さらにコンパイラ系の修正。[Lawrence Gold]
+	src/cpu/arm7/arm7core.h
+	src/cpu/powerpc/ppc.h
+		Trailing comma at the end of an enum.
+	
+	src/cpu/mc68hc11/hc11ops.c
+	src/cpu/mc68hc11/mc68hc11.c
+		ANSI C89では名称未指定の構造体と共用体が使えないので、すこしコー
+		ドをみにくく変更。もっときれいな方法があれば歓迎
+	
+	src/drivers/segaorun.c
+		void関数から値を返すように変更
+
+- もっとコンパイラの修正。[Lawrence Gold]
+
+- 64bitビルド/システムでのSFTM修正。[R.Belmont]
+
+-「リーサルエンフォーサーズ」の変更。[R.Belmont]
+	- 48xxバンクスイッチリージョン実装。カスタムチップレジスタとRAMを切り替
+	  え可能
+	- POSTをパスするハック削除。正しい方法になったため
+	- 56832RAMインタフェースを訂正。56832の外部ラインスクロールRAMを予備サ
+	  ポート。これでラインスクロールデータがVRAM全域に影響しなくなるので、
+	  タイルマップ化けに効果有り
+
+- NEC逆アセンブラのアップデート。[Bryan McPhail]
+	i386逆アセンブラの暗号化命令サポート（Iremゲーム用）
+	i386逆アセンブラにNEC Vシリーズの命令追加
+
+- 0.91で導入したメモリシステムのバグ修正。kinst、Seattleドライバ、wwallyなどが動
+  作しなくなっていたもの。[Aaron Giles]
+
+- Qixドライバの更新。[Nicola Salmoria]
+	-「The Electric Yo-Yo」のアトラクトでのハング修正 (elecyoyo055yel)
+	- 外部音量調整とステレオサポート [Derrick Renaud]
+	- kram3を解読で動作可能。残念ながら大きいテーブルを使用
+
+-「スーパーバレーボール」でネットが表示されてなかったのを修正 (svolley37b12yel)。
+  [David Haywood]
+
+- radiolepのライフバーの表示不具合修正 (rabiolep37b1gre)。[David Haywood]
+
+-「ソロモンの鍵」で特定のスコアで面が表示されくなるのを修正？ (solomon36b10yel)
+  これは基本的なプロテクトによるもよう。さらに調査必要。[David Haywood] 
+
+-「Zero Zone」背景バンキング修正。[David Haywood]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+ガントレットレジェンド [Aaron Giles]
+Tenth Degree [Aaron Giles]
+Kram (encrypted) [Nicola Salmoria]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Monza GP [Phil Stroffolino]
+	まだ何も表示されず
+ガントレット ダークレガシー [Aaron Giles]
+WAR ファイナルアサルト [Aaron Giles]
+ロードバーナーズ [Aaron Giles]
+NBAショータイム NBA on NBC [Aaron Giles]
+NBAショータイム / NFLブリッツ 2000 [Aaron Giles]
+サンフランシスコラッシュ2049 [Aaron Giles]
+Cart Fury [Aaron Giles]
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

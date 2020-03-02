@@ -1,0 +1,164 @@
+0.79u1
+
+ソース全般の変更：
+------------------
+
+■80年代Namcoゲームの大更新。[Nicola Salmoria]
+
+- 以下のファイルが不要になりました:
+  drivers/bosco.c, drivers/xevious.c, drivers/digdug.c, machine/digdug.c,
+  machine/galaga.c, machine/bosco.c, machine/polepos.c, sndhrdw/bosco.c
+- 新サウンドチップを3つ追加しました: NAMCO_15XX, NAMCO_52XX, NAMCO_54XX
+  ドライバもこれらを使うように変更しました（NAMCO_54XXはサンプル再生用で
+  チップがリバースエンジニアリングされるまでの代替用）
+- MAMEテスターズの修正：digdug063gre, galaga057gre, bosco071u2gre, poleposc059gra
+-「ディグダグ」でEAROMサポート
+-「ポールポジション2」のタイトル画面がずれていたのを修正。いままで誰も気づかな
+  かったのは謎
+-「ポールポジション」のROMロードの間違いを修正（poleposはスピーチROMが一つ不明、
+  polepos2のエンジンサウンドROMは間違い（今までのはターボ用！）。さらに縦拡大用の
+  PROMも不明）
+- ROM名称と配置、さらにナムコ版とライセンス版の違いをドキュメント化
+- 全ドライバをタイルマップにコンバート。また、回路図をもとにグラフィックエミュ
+  レーション精度を向上。
+- poleposのスプライトズームはオリジナルにさらに近くなっているはずです
+- IP_KEY_PREVIOUSとIP_JOY_PREVIOUSはもう使いません。コアから削除できると思います
+- スタートランプ、コインカウンター、コインロックアウトのサポート
+  （すべてカスタムI/Oチップにより内部処理されています）
+- ゲーム動作中にテストスイッチを押した場合、リセット無しでテストモードに入るように
+  修正
+-「ゼビウス」以外の全ゲームのテストモード・イースターエッグを書き出し
+-「ボスコニアン」のPROMを変更。以前よりも正確と思われるもの
+-「ギャラガ」のPROMももっとよい物に変更。トップの未使用4bitは0に設定
+- ROMの52XXサンプル開始・終了ポインタを正確に扱うように修正
+- 50XXカスタムチップのエミュレーション改良により、ボスコニアンのハックが不要になり
+  ました
+- digdugとdigdugbを入れ替え。メインセットは新しい方です
+- 以下のギャラガクローンを削除： 
+    nebulbee (コピーライト/名称の変更のみ)
+    galagab2 (他のセットからのROMを混ぜたもの)
+    galaga84 (コピーライト/グラフィックの変更のみ)
+    galagads (ショット速度を上げるために1バイトだけ書き換えたもの。チートで
+              galaga:1:070D:0D:100:Fast Shootとすれば再現可能)
+
+-「ギャラガ」のrev.Bを追加して、これをメインセットにしました。他のセットはリネーム
+  しています
+- Midwayの別版、galagamkを追加しました
+- polepos2bとpoleps2cから吸い出し不良なものをいろいろ削除したところ、poleps2cと同じ
+  ものになったので削除しました
+- drivers/locomotn.cが不要になったので削除してもよいと思います
+- タイルマップへのコンバートと、出来る限りドライバを統合しました
+- 修正： jungler37b3gre
+- タイル/スプライトプライオリティハンドリングを修正（「ボスコニアン」も）
+-「ラリーX」のイースターエッグを書き出し
+-「タクティシャン」に星空追加
+- KonamiサウンドチップゲームでのRCフィルタ制御を修正
+
+■Namco NB1の大更新。[Phil Stroffolino]
+SystemNBエミュレーションのいろいろな改善。内容は以下の通り：
+
+- 新ドライバ：「グレートスラッガーズ'93」(Japan)
+- ハードウェアシャドーサポート (グレートスラッガーズで使用)
+- 専用の乱数生成チップ追加
+- スプライト拡大縮小の不具合修正 (「アウトフォクシーズ」のイントロ)
+- タイルマップのタイルバンキング機能追加 (「マッハブレイカーズ」で使用)
+- 特定ゲームで使っていたハックを削除; 割り込みには専用のCPUレジスタを使います
+- スクリーン点滅の初期サポート(「アウトフォクシーズ」の化け部分隠し)
+- スケーリングエフェクト用のPOSIRQハンドリングを正確にして、「アウトフォクシーズ」
+  の水のエフェクトを修正。System 2でも同じ機能が必要ですが、まだ作業してません
+- ROZレイヤーレジスタの割り込みのため「マッハブレイカーズ」専用のハックを追加。
+  これらはまだ不明な部分があります。特に“Monster Pull”の面の3Dの床が表示されない
+  などです。
+
+  以下のテスターバグが直っているはずです：
+  machbrkr068gre, nebulray066gre, ptblank056gre, sws9637b16yel
+
+
+■AM_SHAREのバグ修正。[Aaron Giles]
+
+■PSXファイルの更新とクリーンアップをいろいろ。[smf]
+
+■VSNesのファイル名修正。[chaneman]
+
+■Hard Drivin'ドライバの更新と、「スティールタロンズ」「HD Airborne」の再修正。
+  [Aaron Giles]
+
+■いろいろな修正。[CUrt Coder]
+
+	「パックランド」のタイルマップコンバート時に起きた問題
+	「特殊部隊ジャッカル」をタイルマップへコンバート
+	「ガーディアン・オブ・ザ・フッド」のプレイヤー3の操作
+	「ヒーテッドバレル」のDIP修正
+	「ショットライダー」のDIP修正
+	「ファイアーバトル」のDIP修正
+	docastle.cのメモリマップ更新
+	「インドアサッカー」にMSM5205追加
+
+■Atariドライバのクリーンアップとマージ。[Aaron Giles]
+	(clayshoo.c, cloak.c, cloud9.c, copsnrob.c, cyberbal.c, destroyr.c, eprom.c
+	fastfred.c, firetrk.c, flyball.c, foodf.c)
+
+■「セガソニック・ザ・ヘッジホッグ」のプロテクト修正。[Roger Sanders]
+	(ただしビデオエミュレーションバグでクラッシュあり)
+
+■修正いろいろ。[Nathan Woods]
+	src/cpu/hd6309/6309tbl.c:
+	src/cpu/hd6309/hd6309.c:
+	- マイナーなタイミングの改良と、インデックスモードがいくつか不良なのを修正
+
+	src/cpuintrf.c:
+	- CPU_CP1600をCPU_CP1610に改名
+
+	src/sound/k051649.c:
+	src/sound/k051649.h:
+	- K051649サウンドシステムの改良
+
+■sspiritsのDIP修正。[B.S.Ruggeri]
+
+■0.79で「モータルコンバット」のダメージが与えられない問題を修正。[Aaron Giles]
+
+■「Super Slam」のサウンドをシミュレート。[Quench]
+
+■hydra / pitfightでの“bad colour RAM”エラー修正。[Aaron Giles]
+
+■「エスケープキッズ」が起動するように修正。[Aaron Giles]
+
+■CPU固有の内部メモリマップサポート。[Aaron Giles]
+
+■RF5c68を古いバージョンに巻き戻し。[R.Belmont]
+
+■outrundxのサウンド修正。[Santeri Saarimaa]
+
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Drivers Edge [Aaron Giles]
+ヴァリアメタル [David Haywood] - サウンド無し、表示不具合あり
+麻雀 電子基盤 スーパーエクスプレス [Luca Elia, yong]
+まーじゃん ねるとん牌鯨団 [Luca Elia]
+Space Launcher [Pierpaolo Prazzoli]
+Bulls Eye Darts [Pierpaolo Prazzoli] - colour problems
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+タイムパイロット (Atari license) [Chris Hardy]
+バトルガレッガ (香港・旧バージョン) [Brian Troha]
+テトリス (アタリ) (海賊版 set 2) [Kevin Eshbach]
+マーシャルチャンピオン (US UAD version) [R.Belmont]
+クイズ365放送開始 (Japan) [Luca Elia]
+功夫大君 (alt) [Taucher]
+Fever SOS / 弾銃フィーバロン
+Sorcer Striker / 魔法大作戦 (alt dump) [Brian Troha] (one dump migh be bad)
+スペースフィーバー (color set 2, b&w set 2) [Pierpaolo Prazzoli]
+リバレーション (海賊版) [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Double Cheese [Pierpaolo Prazzoli]
+タルボット [Pierpaolo Prazzoli]

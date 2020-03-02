@@ -1,0 +1,185 @@
+0.139u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03969: [クラッシュ/フリーズ] All sets and drivers using OKI audio: セーブステートを
+         使うとクラッシュする。(Aaron Giles)
+- 03981: [クラッシュ/フリーズ] bosco, xevious and clones: 起動シーケンスで再起動を繰
+         り返す。またはスタートを押した後に固まる。(Alex Jackson)
+- 03977: [グラフィック] tceptor2: 上下の通路部分に表示される線が多すぎる。
+         (Phil Bennett)
+- 03964: [ドキュメント] shangonro: リリース年は1992ではなく1987。また、セット名にroと
+         付いているがライドオン筐体版？(Smitdogg)
+
+
+ソースの変更点
+--------------
+- raiden2.c:「雷電II」に不足していたVOICE2サンプルROMを追加。基板直づけのマスクROM名を
+  修正。[Brian Troha]
+
+-「Southern Systems Joker Poker」: マシンドライバにCPU IPマップを追加。ゲームの起動と
+  アトラクトモードまで動作可能。[Roberto Fresca]
+
+-「Mini Boy 7」の改良: [Roberto Fresca]
+ * 新しい完全セット追加。またそれを親に設定
+ * XTAL周波数の訂正
+ * PIA MC6821をマッピング
+ * カラーPROMのデコードにチャレンジ
+ * AY-3-8910をマッピング。ただし、ポートと確認が必要
+ * デバッグとテクニカルノートを追加
+
+- Blitz System Inc.製「Mega Dpuble Poker」用の新ドライバ: [Roberto Fresca]
+ * 最初のリリース
+ * メモリマップはテスト版
+ * 両PIAを実装。ただし、解析とオフセットの確認が必要
+ * 正確なグラフィックとカラーデコード
+ * メイン基板とドーターボードのレイアウト追加
+ * CPU/MCU/ROMアドレッシングの部分的なドキュメントとダイアグラム追加
+ * デバッグとテクニカルノートを追加
+
+- Subsino製「Magic Train」追加。これはHD647180X0CP6(Subsino - SS9600)とSS9601、
+  SS9602(それぞれビデオとI/O用)で動作しているため、近いうちに新しいドライバに移動する
+  必要があるかもしれません。テクニカルノートも追加。[Roberto Fresca]
+
+- mpu4drvr.c: ミッドスクリーンのパレット更新を修正。[David Haywood]
+
+- segas16b.c:「ヘビーウェイトチャンプ」のROMボードについて、ゲームIDのドキュメント化
+  とROM名の訂正。[Brian Troha]
+
+- システムを再度型安全化。型チェックが失われてしまう完全なトークン化システムから、
+  定義生成を行う関数部分へアドレスマップを配置戻し。アドレスマップクラスを実装するた
+  めのaddrmap.cモジュールを追加し、型指定されたaddress_mapクラスとaddress_map_entryク
+  ラスのメソッドを呼び出すようマクロを変更。同時に、twincobr.c、lordgun.c、galaxold.c
+  での間違ったメモリマップエントリを修正。[Aaron Giles]
+
+- APIをさらにクリーンアップ: [Aaron Giles]
+ * クラスの拡張に伴い、cputag_clocks_to_attotime()とcputag_attotime_to_clocks()を削除
+ * cputag_suspend()とcputag_resume()についても同様
+
+- ブレークポイントを設定したままだとデバッガ終了時にクラッシュするのを修正。
+  [Aaron Giles]
+
+- Konami Polygonetハードウェアで、dsp561xx CPUコアが正確な逆アセンブリを生成するよう
+  更新(Motorolaのリファレンス逆アセで検証)。[Andrew Gardner, Stiletto]
+
+- イメージデバイスのエラーハンドリングを修正。[ShimaPong, Miodrag Milanovic]
+
+- 新クラスdriver_data_tを定義。これは全てのdriver_dataの継承元になります。全てのクラ
+  ス定義部を新クラスからの継承にし、コンストラクタでこれを呼び出すよう更新。また、
+  alloc()シグネチャが、void *からdriver_data_tポインタを返すように変更。
+  machine->driver_dataをmachine->m_driver_dataに改名して隠蔽。また、新しいテンプレー
+  トメソッドmachine->driver_data<class>を追加。これは、ドライバデータを正しくダウンキャ
+  ストしたものを返します。全てのコードは次のように更新しました:
+
+  mydriver_state *state = (mydriver_state *)machine->driver_data;
+
+　が、次のようになります:
+
+  mydriver_state *state = machine->driver_data<mydriver_state>();
+
+- 新しい関数ではデバッグビルドで、実際に正しい型にキャストしているかを動的に検証する
+  downcast<>を行います。[Aaron Giles]
+
+- atarigen_stateをベースクラスとして、そこから関連するAtari系ドライバステートを継承
+  するように変更。[Aaron Giles]
+
+- gaelco、namco、nileサウンドコアからグローバル変数を削除。[Atari Ace]
+
+- seta.c、seta2.c、ssv.cをdriver_dataにコンバート。[Atari Ace]
+
+- ドキュメントを元にSAA5050を12x20キャラクタ形式に更新。malzakドライバをSAA5050の変更
+  に合わせて更新。[Miodrag Milanovic]
+
+- taitotz:「バトルギア2」(2.04J)のHDDイメージ追加。[gtbb08, R. Belmont]
+
+- namcoic.c: tceptor2、finallapなどの道路色を修正。[Phil Bennett]
+
+-「サンダーセプター」の道路部透過表示修正。[Phil Bennett]
+
+- Z80 SIO割り込みをコンストラクト時にクリアすることで、Z80のデイジーチェーン動作と、
+  存在しないIEO条件でもストールしないよう修正。[Curt Coder]
+
+- Z80 DMAの変更: [Curt Coder]
+ - ENABLE DMAコマンドへのステータスアップデートコールを追加することでDMAを修正
+ - MESS側でのtrs80m2の都合により、イリーガルモード0のDMA転送命令を許可
+ - 各バイトのレディ条件チェック追加によりレディ信号処理を修正
+
+- Toaplan2 VDPをデバイスに変換開始。[David Haywood]
+
+- dsp56k: 新しい実行エンジンを実装。[Andrew Gardner]
+
+- plygonet.c: driver_dataクラスを使うように更新。[Atari Ace]
+
+- Toaplan2 / GP9001 VDPデバイスをさらに改造。[David Haywood]
+
+- CPS-1の更新: [Team CPS-1]
+ * video\cps1.cのゲームテーブルを拡張、または更新
+ * 3wondersu、varthのB基板番号を確認
+ * ghouls、ghoulsuのラベルを実基板に合わせて修正
+ * dynwarjの14.binが吸い出し不良のため削除
+ * nemojのnm_23.12bを吸い出し不良に設定
+ * knightsjaセットを削除(自爆基板で動作するようにROMを分割＆ハックしたもの)
+ * ROMの親子関係が無かったものを修正
+ * 以前の更新で記述が間違っていたのを修正
+ * dynwaru -> dynwara、forgottnua -> forgottnu、forgottnu -> forgottnua、
+   wofhfb -> wofhfhに改名(実際の名称はHuo Feng Huang)
+ * 一部セットの整理
+ * マイナーなクリーンアップ
+ * sf2ceuaのラベル修正と、基板情報を追加
+ * sfceubのラベル修正と、基板情報を追加、不良なROMをひとつ削除してDumping Unionが正確
+   にリダンプしたものに置き換え
+ * punisher、punisheruのQ-Soundラベル修正と、D基板のPAL追加
+
+- dsp56k.c: dsp56k cpuコアからグローバル変数を削除。[AtariAce]
+
+- cps1.c: CPS1のB基板チップの情報について、Team Japumpの基板写真を元にドキュメントを
+  更新。[Brian Troha]
+
+-「Puzzle Star」(Sang Ho Soft)のメモリバンキングを改良。[Mariusz Wojcieszek]
+
+- term2 (rev. LA4)が、サイバーダイン社の面のオープニングで固まるのを修正。
+  [Phil Bennett]
+
+- aladbl.cとssfmd.cをgenesisb.cに統合。[Sonikos]
+
+- video/astrocde.c: astrocade_trigger_lightpen()で生成される可能性のあるタイマ数を制
+  限。[ranger_lennier]
+
+- cps1.c: リセールキット用のB基板マッパーを正しく設定。これにより「エリア88」(Japan 
+  Resale)のグラフィック欠けが修正。[Brian Troha]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pacman - 25th Anniversary Edition (V2.0) [Sara S.]
+The Last Starfighter (プロトタイプ) [Phil Bennett, Ken Van Mersbergen]
+Air Race (プロトタイプ) [Phil Bennett, Ken Van Mersbergen]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+クラッシュロード (Data East license) [Tirino 73]
+Quizard v1.2 [Team Europe, The Dumping Union]
+Quizard Rainbow 4.2 [Team Europe, The Dumping Union]
+Super Megatouch IV Turnier Version (9255-51-50 ROA, Bi-Lingual ENG/GER version)
+  [bodger319, Smitdogg, The Dumping Union]
+Megatouch 5 Turnier Version (9255-70-50 RON, Bi-Lingual ENG/GER version)
+  [bodger319, Smitdogg, The Dumping Union]
+ナイツ・オブ・ザ・ラウンド (Japan 911127, 91634B-2 B-Board)
+  [Team Japump, The Dumping Union]
+エリア88 (Japan Resale Ver.) [Team Japump]
+Ms. Pac-Man/Galaga - 20th Anniversary Class of 1981 Reunion (V1.00) [Mark F.]
+Ms. Pac-Man/Galaga - 20th Anniversary Class of 1981 Reunion (V1.03) [Sara S.]
+
+
+
+追加された未動作ゲーム
+----------------------
+Mini Boy 7 (set 1) [Roberto Fresca, Siftware]
+Mega Double Poker (conversion kit) [Roberto Fresca, ChrisQC, Smitdogg]
+Magic Train [Roberto Fresca]
+ガンダムSEED 連合 vs. Z.A.F.T. (SED1 Ver. A) [Guru, Smitdogg]

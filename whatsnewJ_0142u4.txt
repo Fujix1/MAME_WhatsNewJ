@@ -1,0 +1,149 @@
+0.142u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04354: [クラッシュ/フリーズ] bigappg, casino5, dodge, slither, slithera, ssingles: 
+         VS2010 RTCでヒープコラプトが検出される。(R. Belmont)
+- 04350: [グラフィック] buggyboy, buggyboyjr: グラフィックの不具合多数。
+         (Alex Jackson)
+- 04346: [グラフィック] dangar, galivan and clones: 背景がいろいろな場所でおかしく
+         なっている。(Angelo Salese)
+
+
+ソースの変更点
+--------------
+- 以下のドライバでdeprecat.hを使用しないように更新: [Angelo Salese]
+ - galpanic.c, gradius3.c, halleys.c, hexion.c
+
+-「Champion Poker」(v100)の入力系をゼロから作成。[Roberto Fresca]
+
+-「Yam yam!?」のプロテクトシミュレーションを整理。[Angelo Salese]
+
+- Konami k053252デバイスエミュレーションのほぼ完全版を実装。90年代中盤のKonami製ゲー
+  ムに対して、正確なリフレッシュレートタイミングとIRQ ACKを追加。
+  [Angelo Salese, O.Galibert]
+
+- PSX HWの変更: [smf]
+ - 内部メモリマップをモダン化
+ - MDECをPlayStation CPUの内部デバイス化
+ - ルートカウンタとシリアルI/Oを内部CPUデバイス化
+ - PlayStation IRQコードをCPUのサブデバイスに移動
+
+- 入力ポートについて、トークンではなく関数ベースのコンストラクタを使うように切り替え。
+  以前のトークン化用ヘルパを削除。第一段階として、ポート、フィールド、設定、DIP配置用
+  の基本クラスを追加。これらは今後整理する予定です。必要なインダイレクトを隠すため、
+  フィールドにmachine()メソッドを追加。カスタムハンドラと変更されたハンドラを汎用の
+  リードライトハンドラに変更し、これらをデバイスのリード・ライトラインへコンバートす
+  るためのラッパを追加。[Aaron Giles]
+
+- 入力のリード・ライトと照準のコールバックをデリゲートへ変更。コールバックへのシグネ
+  チャでポインタに代えてinput_field_configを取るように変更。[Aaron Giles]
+
+- eeprom_deviceから古くなったトランポリン関数を削除し、デリゲートをサポートする新型入
+  力ポートを利用。[Aaron Giles]
+
+- mc6845.c: C++にコンバート。[Wilbert Pol]
+
+- i386とNEC逆アセンブラで、"mov ax, mem"命令(オペコードA0-A3)の逆アセンブリを修正。
+  引数(メモリアドレス)が符号付き数字として表示されていたが、全く意味がなかった。
+  [Alex Jackson]
+
+- デバッガのhex dumpコマンドのバグ修正: ASCII文字として出力可能な範囲は32〜127ではな
+  く126。[Alex Jackson]
+
+-「レーシングフォース」に出ていた入力不具合修正。再び起動可能。[Angelo Salese]
+
+- Midway T-Unit、Wolf、Y-Unit、CPS1、CPS3のゲームにラベル追加。[Joe Caporale]
+
+- Direct3D 9ターゲットで、HLSLポストプロセス効果を試験的に実装: 
+  [Ryan Holtz, Bat Country Entertainment]
+ * 5パスのポストプロセス: アップスケール、ポストプロセス、直前フレームの保存、
+                          デフォーカス1、デフォーカス2
+ * 多くのエフェクト: スキャンライン、フォーカスずらし、線形コンバージェンスずらし、
+     YIQ色空間畳み込み、彩度、ドットクロールシミュレーション、彩度のサブマッピング
+     シミュレーション、アパーチャマスク、その他
+ * 機能を有効にするにはShader Model 3.0をサポートする高性能なGPUが必要です。パイプラ
+   インは全体で約30テクセルフェッチ、約230の演算命令で構成されています
+ * フレームバッファはXとYの両方向に最大9倍スーパーサンプリングできますが、これでは現
+   存するGPUでもパワー不足のため、Radeon 5000クラスなら3倍、Radeon 4000クラスなら1.5
+   倍程度としてください
+ * デフォルト設定では特に効果はありません。ユーザ側で好みに合わせて設定する必要があり
+   ます
+
+  当然ながら、Direct3D 8ではサポートされません。
+
+- 非最適化ビルドで、Visual Studioの基本ランタイムチェックを有効化。[Oliver Stoneberg]
+
+- 出力がリダイレクトされたときにデータが実際に書き込まれるようにstderrをクリア。
+  [Oliver Stoneberg]
+
+- i286 - 286 LOADALLとトリプルフォールトリセットを追加。[Carl]
+
+- i286 - セグメント特権用に16ビットプロテクトモードをサポート。[Carl] 
+
+- i86 - shift命令を修正。正しいCPUの検出に必要。[Miodrag Milanovic]
+
+- i86 - 0x60-0x6fセクションの無効命令の処理を修正。[Miodrag Milanovic]
+
+- Sega ST-V / Saturnドライバの大幅な整理とstate machineへ転換。[Angelo Salese]
+
+- HLSLの更新。[Ryan Holtz, Bat Country Entertainment]
+ * GPUがラインへ書き出しすることを考えて、カラーコンボリューションとコンバージェンス
+   ずらしを別シェーダに分割
+ * カラーコンボリューションシェーダのヘビーなバリエーションとライトを追加。以前のYIQ
+   カラースペースは削除
+ * 実際のモニタと同じように、フォーカスずらしをシャドーマスクの前に適用するよう変更
+ * "pincushion"を"Pincushion"と"Screen Curvature"に分割。前者は表示画像のみに、また後
+   者はシャドーマスクのみに影響します
+ * CVBSシミュレーションの修正。特に彩度の向上
+ * シェーダユニフォーム経由で、磁石によるコンバージェンスのずれを追加
+ * phosphorescence(燐光)効果を改良
+ * YIQコーデックを改良
+ * YIQプロセスモードに調整可能なカラーキャリアを追加
+ * 解像度変更時のクラッシュや、低スペックカードで-nohlslとしたときのパフォーマンス低
+   下を修正
+ * OS専用のスライダコントロールを可能にするOSD関数、osd_get_slider_listを追加
+
+- HLSLポストプロセス効果の更新: [Ryan Holtz, Bat Country Entertainment, cgwg]
+ * defocus_xとdefocus_yがゼロのときはピンぼけをオフにするよう変更。細かな粒子状効果の
+   調整が可能
+ * YIQコンボリューション効果をメインのカラー畳み込みシェーダから削除して、完全なエン
+   コード/デコードパスの組み合わせと置き換え。これは速度的には遅くなりますが、古いTV
+   風の表示が可能で、オフにすることもできます。
+ * さらに実物に基づくNTSCドットクロールと帯域制限
+
+- i86 - 8086専用のPOP CSとMOV CS,reg命令を実装。[Miodrag Milanovic]
+
+- ST-Vドライバでマルチカセットをサポート。[Angelo Salese, Tafoid]
+
+- BFMゲーム用のウォッチドック修正の中で、マルチプレクサ/ステートマシンをエミュレート。
+  [J. Wallace]
+
+-「Lucky Lady」(Wing)のバイポーラPROMの吸い出しを追加。[Team Europe]
+
+- pic8259 - よりドキュメントにあわせた更新。[Carl]
+
+- アートワーク用の更新に備えてフレームワークを追加。[Mr. Do]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ドラえもんのえあわせモンタージュ (プロトタイプ)
+  [dopefishjustin, Smitdogg, Luca Elia, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Champion Poker (v100) [Roberto Fresca, Team Europe]
+ガンバァール (Japan, GNB4/VER.A) [The Dumping Union]
+アミダー (Konami/1982)  [Patrik Styrnell]
+
+
+追加された未動作ゲーム
+----------------------
+Baryon Future Assault [Corrado Tomaselli, f205v, The Dumping Union]
+Brixian [ Corrado Tomaselli, f205v, The Dumping Union]
+Orbatak (プロトタイプ)
+ポパイ (20p/8 GBP Token) [J. Wallace]

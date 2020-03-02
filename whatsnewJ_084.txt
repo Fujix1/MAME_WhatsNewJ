@@ -1,0 +1,206 @@
+0.84
+----
+
+MAME Testersの修正項目（多分これ以外にもあるはず）：
+----------------------------------------------------
+mouja059yel [Hau]
+rimrockn057yel [Aaron Giles]
+
+
+ドライバの改良点：
+------------------
+
+- Metro製ゲームのサウンド改善。[Hau]
+
+-「ヘッドオン（アイレム）」のクロックスピードを訂正。[Guru]
+
+-「ガイアポリス - 黄金鷹の剣」のイントロ修正。[R. Belmont]
+
+-「Red Robbin」を修正。[MASH]
+
+- ZNのアップデート。[smf]
+    「まじかるでーと」のタイトルに日本語部分追加
+    sfchampとsfchampjの親子関係を修正
+    taitofx1のウォッチドッグを正しくエミュレート
+    System11のnvram実装を修正
+  　「ソニックウイングスリミテッド」でアトラクトモードからスタートする修正
+    縦ディスプレイのスタート/エンドレジスタ関係の問題を修正
+    横画面のスタート/エンドレジスタエミュレーションを追加
+    QSoundゲームの音修正
+
+-「Dragon Bowl」のスプライト縦反転を追加。[Pierpaolo Prazzoli]
+
+- PGMドライバのクリーンアップとリネーム。[David Haywood]
+
+- itech8ドライバのクリーンアップ。メモリマップとスタンダードVIAサポート使用。
+  [Aaron Giles]
+
+- machine/turbo.cを二つに分解。ひとつはサウンドコードを全て含むもの、もう一つは
+  ビープのディスクリート用の未完成なものを含むもの。[Aaron Giles]
+
+- Seattleドライバに新しく見つけたPIC IDを追加。[Aaron Giles]
+
+- PSXのSPU修正。[darkcoder]
+
+- konamigvゲームのSPUとCDDAの音量バランスを修正。[R. Belmont]
+
+-「ゼロポイント」のサウンドクロック周波数を修正。[El Condor]
+
+- SHA1チェックサムがなかった一部のROMセットに追加。[Logiqx]
+
+-「スーパーパックマン」のDIPスイッチ修正。[Pierpaolo Prazzoli]
+
+- Sega C2ドライバでmmecpyの使い方が間違っていたのを修正。[Andrea Mazzoleni]
+
+-「スーパースティングレイ」「カイロスの館」にカクテルモード追加。また
+ 「ネクストスペース」にコインカウンタ追加。[Pierpaolo Prazzoli]
+
+-「Simpsons Bowling」のトラックボール修正とフラッシュロード・セーブを整理。[smf]
+
+- NeoGeoとSuper Kaneko Novaのレンダリングを少しスピードアップ。
+  [Carlos Santillan]
+
+-「ジャッキーチェン」のいろいろな改良。ただしまだプレイは不可。
+  [Sebastien Volpe, David Haywood]
+
+- PSX SPUの改良。[smf]
+    PIO SPU RAM書き込み追加
+    ステータスレジスタのリード・ライトを修正
+    内部ミキサーの出力を16ビットに固定して音割れを修正
+    全レジスタをステートセーブ時に保存
+    サンプルバッファのデコードを符号付きにすることで型キャストを不要に
+    DMAのリード・ライトをSPU RAM内に制限
+
+-「陸海空最前線」「Whizz」「チェイスHQ」「SCI」のDIPスイッチ改善。[Brian Troha]
+
+- YM2610エミュレーションのセーブ/リストア時のクラッシュを修正。[Blip]
+
+-「リムロッキンバスケットボール」のDIPスイッチを改善。[Brian Troha]
+
+- PSX系ドライバのエンディアンの問題を修正。[R. Belmont, smf]
+
+- PSXのルートカウンタを改善。[smf]
+
+- YMF271Cの音質改善。[Toshiaki Nijiura]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- 下位互換性のための古くなったマクロを大幅に削除。[Aaron Giles]
+  ドライバ内でこれらを使っている場合は、以下の対照リストを参考にして下さい：
+
+     cpu_set_reset_line -> cpunum_set_input_line
+     cpu_set_halt_line -> cpunum_set_input_line
+     cpu_set_irq_line -> cpunum_set_input_line
+     cpu_set_irq_line_and_vector -> cpunum_set_input_line_and_vector
+
+     timer_suspendcpu -> cpunum_suspend/cpunum_resume
+     timer_holdcpu -> cpunum_suspend/cpunum_resume
+     cpu_getstatus -> cpunum_is_suspended
+     timer_get_overclock -> cpunum_get_clockscale
+     timer_set_overclock -> cpunum_set_clockscale
+
+     cpu_gettotalcycles -> cpunum_gettotalcycles
+     cpu_gettotalcycles64 -> cpunum_gettotalcycles64
+
+     keyboard_name -> code_name
+     keyboard_pressed -> code_pressed
+     keyboard_pressed_memory -> code_pressed_memory
+     keyboard_pressed_memory_repeat -> code_pressed_memory_repeat
+     keyboard_read_async -> code_read_async
+
+     install_mem_read*_handler -> memory_install_read*_handler
+     install_mem_write*_handler -> memory_install_write*_handler
+     install_port_read*_handler -> memory_install_read*_handler
+     install_port_write*_handler -> memory_install_write*_handler
+     memory_install_read*_handler_mirror -> memory_install_read*_handler
+     memory_install_write*_handler_mirror -> memory_install_write*_handler
+
+     READ_HANDLER -> READ8_HANDLER
+     WRITE_HANDLER -> WRITE8_HANDLER
+
+- 新規のMESS用機能追加のためのいろいろなクリーンアップと整理。'#if 0'コードも
+  一部削除。[Nathan Woods]
+
+- 新規入力ポート定義導入。新型のメモリマップ定義と似ています。以前のPORT_BIT、
+  PORT_BITX、PORT_ANALOGマクロも今のところ使用可能ですが、PORT_BITのみを使って、
+  新マクロにより他のフラグとオプションを追加していくことをお勧めします。
+  pacman.cを新フォーマットの例として参考にして下さい。新型の入力ポートではポート
+  のトラッキングが簡単に行えるようにタグ付けもサポートしています。また、他のセッ
+  トからポート定義を取り込むことも可能です。[Nathan Woods]
+
+- 'mame -listxml|xml2info'が'mame -listinfo'に完全にマッチするようにマイナーな修
+  正を2つほど。[Logiqx]
+
+- Windows版に新オプション「-wavewrite」追加。サウンドをWAVファイルに出力します。
+  [smf]
+
+- -listinfoオプションを削除。xml2infoが完全なものを出力します。[Aaron Giles]
+
+- ADSP21xxCPUコアに同系列のADSP2181を追加。[Aaron Giles]
+
+- x86drc.hに命令フォームをさらに大量追加。[Aaron Giles]
+
+- 年度欄の一貫性チェック追加。[Nathan Woods]
+
+- Atari製ゲームにあった6502のスピードアップを削除。[Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Hangman [Pierpaolo Prazzoli]
+Dragon Bowl [Pierpaolo Prazzoli]
+Knightmare (prototype) [Pierpaolo Prazzoli]
+Grayhound Triviaのセットいろいろ [Pierpaolo Prazzoli]
+サイキックフォースEX [smf]
+Double Point [David Haywood]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+プチカラット (World) [Brian Troha]
+中国龍II (ver. 110X, Export) [David Haywood]
+ヴェイパーTRX (プロトタイプ) [Aaron Giles]
+Street Drivin' (プロトタイプ) [Aaron Giles]
+エンパイアシティ1931 (US) [David Haywood]
+ファイナルブロー (US) [David Haywood]
+ゴールドメダリスト (alt) [Pierpaolo Prazzoli]
+サボテンボンバーズ (set 2) [David Haywood]
+メガゾーン (3 alternate sets) [David Haywood]
+Street Fight / エンパイアシティ1931 [David Haywood]
+Fantasy Land (set 2) [MASH]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+アイドル雀士スーチーパイスペシャル [Pierpaolo Prazzoli]
+The Killing Blade [David Haywood]
+スカッシュ (Ver. 1.0) [Pierpaolo Prazzoli]
+Thunder Hoop [Pierpaolo Prazzoli]
+ポケットギャルデラックス [David Haywood]
+ダイエットゴーゴー [David Haywood]
+ダブルウイングス [David Haywood]
+Boogie Wings / ザ・グレイトラグタイムショー [David Haywood]
+Osman [David Haywood]
+Chain Reaction / マジカルドロップ [David Haywood]
+マジカルドロップ [David Haywood]
+マジカルドロッププラス1 [David Haywood]
+Charlie Ninja [David Haywood]
+ジョー＆マックリターンズ [David Haywood]
+がんばれ！ゴンタ!!2 - パーティータイム [David Haywood]
+ヘビースマッシュ - ハイパーハンドボール [David Haywood]
+ワールドカップバレーボール'95 [David Haywood]
+バックファイア！ [David Haywood]
+スペースロウズ (2 new sets) [Aaron Giles]
+モトフレンジー (3 new sets) [Aaron Giles]
+BMC Bowling [David Haywood]
+名人戦 [David Haywood]
+ジャンボウ (Japan) [Pierpaolo Prazzoli]
+ギャルズパニック3 [David Haywood, Sebastien Volpe]
+トルネード (2 sets) [David Haywood]
+Street Fighter Alpha: Warriors' Dreams (Euro 950605) / ストリートファイターZERO 
+  [Razoola]
+ストリートファイターZERO2 (Oceania 960229) [Razoola]
+マーヴルVSカプコン - クラッシュオブスーパーヒーローズ (Brazil 980123) [Razoola]
+Street Fighter Alpha 3 (Brazil 980629) / ストリートファイターZERO3 [Razoola]

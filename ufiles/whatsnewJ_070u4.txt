@@ -1,0 +1,79 @@
+﻿0.70u4
+
+ソース全般の変更：
+------------------
+
+■タイルマップビューアを"tilemap#1"、"tilemap#2"等の順序で表示するように改良。
+  [Phil Stroffolino]
+
+■palette_offsetを、タイルマップビューアでも動作するように拡張。[Phil Stroffolino]
+	src/tilemap.c
+
+■Namco系の更新いろいろ。[Phil Stroffolino]
+	- Namcoロードエミュレーションの改善
+	- ROZレイヤーの高速パレットスイッチの動作を高速化(メタルホークの2面)
+	- namconb1スプライト描画でのウィンドウレジスタ(ガンバレットの戦車面修正)
+	- vidhdrw/namco2.cの整理とクリーンアップ大量
+	
+	src/drivers/namcoic.c
+	src/includes/namcoic.h
+	src/drivers/namconb1.c
+	src/vidhrdw/namconb1.c
+	src/includes/namconb1.h
+	src/drivers/namcos2.c
+	src/vidhrdw/namcos2.c
+	src/machine/namcos2.c
+	src/includes/namcos2.h
+	src/drivers/namcos21.c
+	src/vidhrdw/namcos21.c
+	src/drivers/namcos22.c
+	src/vidhrdw/namcos22.c
+	src/includes/namcos22.h
+	src/vidhrdw/namcos3d.c
+	src/includes/namcos3d.h
+
+■「サイレントドラゴン」のDIP修正。[Brian A. Troha]
+	src/drivers/taito_b.c
+
+■Data East系のROM名と基板情報修正をいくつか。[Brian A. Troha]
+	src/drivers/deco32.c
+	src/vidhrdw/deco16ic.c
+
+
+新規サポートゲーム：
+--------------------
+
+ファイナルラップ [Phil Stroffolino]
+スズカエイトアワーズ2 [Phil Stroffolino]
+フォートラックス [Phil Stroffolino]
+	表示・音系に少し問題あり。ただしほとんどは動作
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+ファイナルラップ2 [Phil Stroffolino]
+コカ・コーラ 鈴鹿8アワーズ [Phil Stroffolino]
+	ROM不良または不足のため動作しないか、不完全。とりあえず追加
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+
+ファイナルラップ3 [Phil Stroffolino]
+	エミュレーション不完全のため動作せず。とりあえず追加
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+
+新規TESTDRIVER：
+----------------
+
+サイバーコマンド [Phil Stroffolino]
+エアーコンバット22 [Phil Stroffolino]
+サイバーサイクルズ [Phil Stroffolino]
+タイムクライシス [Phil Stroffolino]
+	以上は超初期版
+	src/drivers/namcos22.c
+	+ 他、namco系ファイル
+
+R2D Tank [Pierpaolo Prazzoli]
+	まだ作業が必要
+	src/drivers/r2dtank.c

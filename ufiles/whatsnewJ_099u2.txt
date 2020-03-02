@@ -1,0 +1,123 @@
+0.99u2
+------
+
+これまでのバージョンでは理念的な事情により一部のドライバ（主にギャンブル関係）を
+排除してきました。これらのゲームも年代を重ねる毎に失われるリスクがあり、多くは
+MAMEがエミュレートしているゲームと比べて大きな類似点をもっています。そのため、こ
+れらのゲームの追加をしていくことにしました。これによりMAMEに追加されるゲームの
+基準は単純に「主として映像をベースにしたアーケードマシンで、CPUによって動作する」
+となり、この問題による混乱を軽減するものと思われます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+namcos1099u1red [Aaron Giles]
+mcr3099u1yel [Aaron Giles]
+zaxxon088u2gre [Derrick Renaud]
+sprint1097gre [Derrick Renaud]
+sdgndmps058gre [Pierpaolo Prazzoli]
+gunforc2058gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* 入力ポートを更に修正: [Aaron Giles]
+ - port_tag_to_handlerで使われている入力ポートハンドラを修正
+ - 入力ポートの動作を確実にするため、リード・ライトを簡略化
+ - 変更された入力設定のみを.cfgファイルに書き込み
+ - アナログポートの設定保存を修正
+
+* 最新のzlibにアップデート。[Atari Ace]
+
+*「Pop Bingo」に画面反転追加。またタイルマップ/スプライトのディスエイブルレジス
+  タ追加（lastdayのデモ修正）[Pierpaolo Prazzoli]
+
+*「がんばれ！ゴンタ!!2」の表示バグ修正。[David Haywood]
+
+* Namco CUS30ノイズ周波数調整。[BUT]
+
+* djmainの入力ポート修正。[BUT]
+
+* Konami系の改良: [R. Belmont]
+ - YMZ280Bに“外部メモリアドレス”レジスタ追加。追加ROMまたはRAMから読み込みがで
+   きます
+ - サービスメニューのマスクROMテストを実装。タイルキャラクタROMとサウンドROMがた
+   だしテストされます
+ - 2つ目のコントロールレジスタ追加
+ - IRQコントロール実装
+ - 両方のゲームでPCBロケーション情報を含むようにROMを改名
+
+* DECOカセットゲームの改良: [Juergen Buchmueller]
+ -「トレジャーアイランド」のグラフィックROM（オーバーレイボード）をゲームコード
+   のデバッグにより見つかった情報をもとにマッピング
+ - ctislnd2とctislnd3のイメージ名をドライバ名に合うように入れ替え;
+    ctislnd3は未動作セット; IMPERFECT_GRAPHICSフラグ削除
+ -「ゼロイゼ」タイプ#3のドングルのビットスワップ発見; ゲームコードのデバッグによ
+   りドングルROMなしでも動くハック法も発見; 年代を1983に変更; NOT_WORKINGフラグ
+   削除
+
+* SHARC/Model 2のアップデート: [Ville Linde]
+ - SHARCの内部RAM実装で、コア動作のマルチインスタンスについて再作業
+ - データアドレス空間追加
+ - コプロ入力と出力FIFOをModel2に追加
+ - Konami zr107, gticlub, nwk-tr, hornetがSHARCの変更で動作
+
+* Seibu SPIの改良: [Ville Linde]
+ - スプライトプライオリティ修正
+ - タイルマップとスプライトにペンベースのアルファブレンディング追加。
+   今のところ全ゲームで固定アルファテーブルを使っていますが、一部のゲームがおか
+   しくなるので正しくないと思われます
+
+* ディスクリートサウンド555タイマーモジュールで実際のDCモードを使うときの修正。
+  [Derrick Renaud]
+
+* YMF271エミュレータに低周波発信器追加。[Ville Linde]
+
+* dconドライバを改良: [Pierpaolo Prazzoli]
+ - スプライト同士のプライオリティ
+ - スプライト・タイルマップ間のプライオリティ
+ - スプライトのY軸フリップのラップ追加
+
+* MNGレコーディングサポート (デフォルトはShift+F12）。[Mathis Rosenhauer]
+
+* HD6309の6309除算命令オーバーフロー動作を修正。[Tim Lindner]
+
+* YM271をさらに修正: [Ville Linde]
+ - 2オペレータのFMサウンド間でミックスバッファポインタがリセットされず音が出な
+   かったのを修正
+ - FMサウンドのフェーズ変調のバグ修正
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Super Derby [David Haywood]
+Champion Skill [Mirko Buffoni]
+Pontoon (Tehkan) [Zsolt Vasvari]
+ラブリーポーカー [Uki/El Condor]
+Golden Star [Mirko Buffoni]
+Jolly Card/Jolly Poker [Curt Coder, Peter Trauner]
+Inter Game Poker [Curt Coder, Peter Trauner]
+Magic Card II [Curt Coder, Peter Trauner]
+ゼロイゼ (casette) [Juergen Buchmueller]
+Lucky Today [Curt Coder]
+Chewing Gum [Curt Coder]
+Royal Casino [Curt Coder]
+Vegas Roulette [Curt Coder]
+Jin [David Haywood]
+アタックUFO [Tomasz Slanina]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Roulette (Playmark) [David Haywood]
+バブルトラブル [David Haywood]
+American Poker II [Curt Coder]
+Cherry Master [Curt Coder]
+Cherry Master II v8.41 [Curt Coder]
+Lucky 8 Lines [Curt Coder]
+Starspinner [Curt Coder]
+906III Video Poker [Curt Coder]

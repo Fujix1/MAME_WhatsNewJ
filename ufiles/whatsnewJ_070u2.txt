@@ -1,0 +1,86 @@
+﻿0.70u2
+
+ソース全般の変更：
+------------------
+
+■Wolf Packドライバのマイナーな問題修正。[Stefan Jokisch]
+	src/drivers/wolfpack.c
+	src/vidhrdw/wolfpack.c
+
+■TESTDRIVERのサニティチェックが通るようにポート修正。[smf]
+	src/drivers/coolpool.c
+	src/drivers/taitoair.c
+	src/cpu/yms32025/tms32025.h
+
+■YM2610、YM2608、Y8950の様々な改善。[Jarek Burczynski]
+	Frits Hilderink氏(NLMSXエミュ作者)を参考。以下のような試み：
+	- ステータスレジスタ用のymdeltatモジュールサポート改善 (YM2610,YM2608,Y8950),
+	- ADPCMサンプル用のx1bit/x8bitDRAMを実装
+	- deltat経由のメモリリード/ライト実装 (Y8950とYM2608)
+	- “スレーブ”モードでのADPCM合成 (メモリベースの代わりにCPUによる制御)
+
+	テストはいくつか行ったものの変更がかなり大がかりのためインクルードの前にテストして下さい。
+	Y8950についてはNLMSXの作者もテストしてくれるでしょう。
+
+	src/sound/ymdelta.c
+	src/sound/ymdelta.h
+	src/sound/fmopl.c
+	src/sound/fmopl.h
+	src/sound/fm.c
+	src/sound/3812intf.c
+	src/sound/3812intf.h
+	
+■DIP、入力修正。[Curt Coder]
+	src/drivers/twin16.c
+	src/drivers/sega.c
+	src/drivers/safarir.c
+	src/drivers/playch10.c
+	src/drivers/nmk16.c
+	
+■DIP、入力修正。[El Condor]
+	src/drivers/crimfght.c
+	src/drivers/cps1.c
+	src/drivers/contra.c
+	src/drivers/astrocde.c
+	src/drivers/8080bw.c
+	
+■DIP、入力修正。[Utuk Ku]
+	src/drivers/toaplan2.c
+	src/drivers/taito_b.c
+	src/drivers/deniam.c
+	src/drivers/sg1000a.c
+	
+■i86 DAA命令コードなどの修正。[Nathan Woods]
+	src/usrintrf.c:
+	src/usrintrf.h:
+	- display_fps()をui_display_fps()に改名。またnon-staticに変更。
+	
+	src/windows/fileio.c:
+	- osd_fopen()で、“r”モードでファイルが開かれた場合、CreateFile()の
+	dwShareMode引数としてFILE_SHARE_READが渡されます。これにより、MAMEが
+	リードオンリーとして開いているファイルを、他のプログラムから読み込む
+	ことができます。
+
+	src/cpu/i86/instr86.c
+	src/cpu/nec/nec.h
+	- i86 DAAの修正。
+
+■「グリーンベレー」ROM名訂正。[Gérald]
+	src/drivers/gberet.c
+
+■「Paddle 2」に初期版MCUシミュレーション追加。[Angelo Salese]
+	src/drivers/arkanoid.c
+	
+■オプショナルROMのAudit修正。[Nathan Woods]
+	src\audit.c
+	src\audit.h
+	
+■D3Dの更新。[Leon van Rooij]
+
+
+新規サポートゲーム：
+--------------------
+
+Enigma 2 [Pierpaolo Prazzoli, Tomasz Slanina]
+	サウンド無し(ROM不良?)。8080bwとマージ可?
+	src/drivers/enigma2.c

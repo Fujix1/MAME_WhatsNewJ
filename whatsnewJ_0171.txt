@@ -1,0 +1,329 @@
+0.171
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06137: [クラッシュ/フリーズ] (maygay1bsw.c) Many sets in maygay1bsw.cpp: 初期化中にクラッシュする。(Osso)
+- 06135: [インターフェイス] 内部UIからROMなしゲームを起動出来ない。
+- 02327: [グラフィック] (megasys1.c) chimerab: プライオリティPROMが無い。(David Haywood)
+- 06134: [その他] all games with LED outputs: ledutilが動作しなくなった。(micko)
+- 06139: [色/パレット] (x68k.c) x68k [akumajo]: 一部のグラフィックが青く表示される。(crazyc)
+
+
+ソースの変更点
+--------------
+- 新ビデオチップサポート: Thomson EF9364 / Sescosem SFF96364 [Jean-Francois DEL NERO]
+
+-「ぴょんぴょんジャンプ」: [Roberto Fresca]
+ * 派生版マシンドライバ作成
+ * V9938 Yamaha VDP実装
+ * DIPスイッチバンク#1追加
+ * システム入力ポート実装
+ * Yamaha YM2149をサポート
+ * YM2149データ読み込みを分離
+ * バンク切り替え修正
+ * サウンドラッチと出力ポート追加
+ * ゲーム名にバージョン追加
+ * 入力とDIPスイッチの正確なサポート
+ * 2番目のCPU IRQ ack。動作可能に昇格
+ * OKI M5205 ADPCMサンプルサポート
+
+- pulsarlb: 追加のBIOS。[Robbbert]
+
+- Atariドライバ各種で、音量設定コードをモダン化。[AJR]
+
+-「アルカノイド」のMCU有りセットでのF3ソフトリセットを修正。[Lord Nightmare]
+
+- osdmini: ビルドの問題修正。[Stuart Carnie]
+
+- std::mutexをosd_lockに置き換え。[Miodrag Milanovic]
+
+- ソフトウェアリストのエントリでデフォルトのスロットオプションを指定可能。[AJR]
+
+- i8271: Unload head after programmed revolutions [Nigel Barnes]
+
+- apple2: 並列カードACK処理修正。Print Shopがlx8101でほぼ動作。[R. Belmont]
+
+- Nibbleドライバ: ドライバを全部書き直し。ビデオハード、試験的なマシンドライバ、メモ
+  リマップを追加。グラフィックをデコード。[Roberto Fresca]
+
+- arkanoid.cppのアノニマスタイマを非アノニマス化。オリジナルのTaito版MCUコードを使っ
+  ているセットでのセーブステートが修正。[Lord Nightmare]
+
+- ステートロードとセーブのスロットをジョイスティックボタンに割り当て可能。
+  [Victor Vasiliev]
+
+-「デッド・オア・アライブ2」(Rev A)を吸い出し。既存セットと一致。ゲーム名とEPRROM名を
+  修正。[Smitdogg, The Dumping Union] 
+
+-「キング／オブ／ファイターズXI」の英語版吸い出し。日本語版と一致。ノート追加。
+  [Brizzo]
+
+- Emscripten版のWeb Audioサウンドバックエンドを大幅改善。[Grant Galitz]
+
+- disound: 入力不足によりミキサーが無効になっている場合にステートをロードしてもクラッ
+  シュしないよう修正(設定ミスかサンプルがない場合)。[O. Galibert]
+
+- MEWUIをMAMEに取込み。[Maurizio Petrarota]
+
+- 外部DATを一つのビューにグループ化。[Maurizio Petrarota]
+
+- 新ビデオチップサポート: Thomson EF9364 / Sescosem SFF96364 [Jean-Francois DEL NERO]
+
+- z80.cpp: /WAITピンアサートメカニズム用のデバッグメカニズム追加(CPUコアの
+  STALLS_ON_WAIT_ASSERTで有効化)。「ナイトギャル」ドライバに例として追加。
+  [Angelo Salese]
+
+- address_space/address_space_configの8進数フラグ部作成。[AJR]
+
+- 謎のNAOMI開発?基板用ブートROM追加。[coolmod]
+
+- BGFXのサポート開始。[Ryan Holtz, Dario Manesku, Branimir Karadic, Miodrag 
+  Milanovic]
+
+- BGFXレンダラの速度を大幅改善。[Ryan Holtz]
+
+- BGFXレンダラでJSONベースのシングルパスシェーダエフェクトを基本サポート。[Ryan 
+  Holtz]
+
+-「ハットトリックヒーロー93」のPAL追加。[Alex Cmaylo]
+
+- catnmous: 表示系の改善。[Vernimark, Vas Crabb]
+   *「 Cat and Mouse」のカラースプライトROMを正しいサイズで吸い直し
+   * スプライトROMバンキング実装
+   * カラーパレットを基板写真のレジスタ値を使って改良
+
+- laserbat: TMS organチップのクロックを間違えて入れ替えたのを修正(BGM)。[Vas Crabb]
+
+- Zaccaria 1B11107と1B11142基板デバイスを作成し共有パーツをシェア。[Vas Crabb]
+
+- apple1: ドライバをモダン方式で完全書き直し。動作は全て同じはず。[R. Belmont]
+
+- Xerox NoteTakerのROMのスクランブルを解除し、起動するために必要な領域に正しくマッピ
+  ング。[Lord Nightmare]
+
+- Xerox NoteTaker: CPUクロック速度修正。RAMいくつかにマップ。[Lord Nightmare]
+
+- electron: カセットソフトリスト追加とBREAKキーの実装。[Nigel Barnes]
+
+- Xerox NoteTaker: RAMマウント修正。pic8259割り込みコントローラのアタッチ。ただし割り
+  込みはまだアタッチしていない。ブートプロセス中のI/O書き込みについてドキュメント追加。
+  [Lord Nightmare]
+
+- vigilant.cpp: ビデオタイミングPROM追加。[Pasky, caius]
+
+- ビデオスナップのパッチ (書き込みする追加ファイル: gamename.inp.timecode)
+  [Michele Fochi]
+  新しいオプション追加: 
+   * [no]exit_after_playback (デフォルト=no)
+   * [no]record_input (デフォルト=no)
+  現在のタイムコードをセーブする新しいUIショートカット追加(デフォルトはF12)
+  変数名とコメントを英語に翻訳
+
+- Sord m5ドライバの更新: [Ales Dlabac]
+  RAM拡張EM-5、64KBI、64KBF、64KRXをサポート
+  m5p_brno mod Sord m5+102kBを追加
+  ramdisk+cp/m カートスロット2つ
+
+- Moon Light (Set 2): プログラムROMのアドレッシング修正。これによりダブルアップ機能の
+  グラフィック不具合が解消。[Roberto Fresca]
+
+- JANGOU_BLITTERをデバイスに移動。[Angelo Salese]
+
+- NCS8105 ADCXオペコードは実はADDX。nightgal.cppのグラフィック修正。[Angelo Salese]
+
+- notetakerでROMラベルの訂正と、ROMの読み込みを逆にするためにスクランブル解除中のエン
+  ディアンスワップを削除。ROM配置追加。[Lord Nightmare]
+
+- Xerox NoteTaker: 回路図を元にROM/RAMオーバーレイを実装。アドレスマップとI/Oマップの
+  一部をドキュメント化。[Lord Nightmare]
+
+- buccaneersのPROMの一つが「ビジランテ」のビデオ同期PROMに一致することをノートに追加。
+  [caius, David Haywood]
+
+- Moon Light: プログラムによる再構成と分割。これによりプログラムROMにあった隠しプログ
+  ラムを新セットとして生成した。[Roberto Fresca]
+
+- Xerox NoteTaker: IOプロセッサファームウェアv1.50を別版BIOSとして追加。
+  after typing it from the assembly source listing on bitsavers. 
+  PROM二つをNO_DUMPとして追加。ヒストリとコメントを更新したもののさらに改良が必要。
+  [Lord Nightmare]
+
+- Xerox NoteTakerのドキュメントとヒストリセクションを更新。出典を明記。
+  [Lord Nightmare]
+
+- Cherry Master v1.10: 入力とDIPスイッチを修正。[Roberto Fresca]
+
+- Xerox NoteTaker: I/O CPUのI/Oポートのドキュメント化完了。ヒストリのドキュメントも少
+  し更新。[Lord Nightmare]
+
+-「Snow Board Championship」でアルゴリズムを解析し、正しくエミュレートしたデバイスに
+  よるルックアップテーブルに置き換え。[Samuel Neves & Peter Wilhelmsen]
+
+- chihiro.c:「セガネットワーク対戦麻雀 MJ 2」(Rev G)の再吸い出し。[ANY]
+  再び親セットに設定。
+
+- mitchell.cpp: blockjoy基板の吸い出しと、ROMラベルの違いについてノート追加。
+ [Andrea Palazzetti]
+
+- snotec.xml: 新しく吸い出したカセットを3本追加。[TeamEurope]
+
+- LUA APIを拡張。[Jeffrey Clark]
+
+- AMPAL18P8をjedutilツールでサポート。[Kevin Eshbach]
+
+- クロスコンパイルのサポートを改良。[Jeffrey Clark]
+
+- Hp9845: テープドライバ追加。[F. Ulivi]
+
+- r9751: シリアルとフロッピーのDMAレジスタを追加。[Brandon Munger]
+
+- slapstic: slapsticのモダン化に向けた小さな一歩。[AJR]
+   * デバイス設定の初期化パラメータではなく、チップ番号パートを作成
+   * racedrivpanでのmainpcbのslapstic番号を修正
+   * 未使用なslapsticを多く削除
+
+- c64_cart.xml, c128_cart.xml: 診断用カセットの追加。[World of Jani]
+
+- COM5016/COM8116 ボー生成器: さらに多くの約数テーブルとノートを追加。
+  [Lord Nightmare]
+
+- Apolloの変更: [Hans Ostermeyer]
+ * 関連デバイスのログフォーマットを統一
+ * 正しいRAWビデオモードを使用
+ 
+- Xerox NoteTaker: IOCPUメモリマップのドキュメント化完了。UARTS2つを実装。画面/CRTCの
+  実装開始。RAMのシャドウとしてROMマップされた領域への書き込み問題修正。960kHzのXTAL
+  をキーボードUART用に追加。[Lord Nightmare]
+
+- AY-3-1015 UART: 2つのピン関数が入れ替わっていたのを修正。[Lord Nightmare]
+
+- MAMEでマルチ言語をサポート。[Miodrag Milanovic]
+
+- sq1: LCDの大幅改良とフロントパネルボタンをサポート。[Parduz, R. Belmont]
+
+- weddingr: 入力ポート名改良。[Vas Crabb]
+
+- 簡体字中国語、繁体字中国語翻訳追加。[YuiFAN]
+
+- ドイツ語の翻訳追加。[Raf Tacker]
+
+- 日本語の翻訳追加。[Fujix]
+
+- イタリア語の翻訳追加。[Angelo Salese,Antonio Paradossi,Fabio Priuli]
+
+- ポルトガル語(ブラジル)の翻訳追加。[Ashura-X]
+
+- pacman.cpp, meadwttl.cpp: Novamatic製の「Cannon Ball」とMeadows製の「Meadows 4 in 1」
+  についてhistory.datに合わせて製造年を修正。[Antonio Paradossi]
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+ぴょんぴょんジャンプ (V1.40, Japan) [Roberto Fresca]
+Carnival King [Ted Green]
+Fidelity Chess Challenger 10 [hap, Berger] 
+Fidelity Sensory Chess Challenger 12-B [hap, Berger] 
+Fidelity Voice Chess Challenger [hap] 
+Fidelity Voice Sensory Chess Challenger [hap] 
+Fidelity Champion Sensory Chess Challenger [hap]
+Fidelity Chess Challenger 7 [hap, Berger]
+Fidelity Excellence [hap, plgDavid]
+Fidelity Voice Excellence [hap, plgDavid]
+SMT Goupil G1 [Jean-Francois DEL NERO]
+Michigan Super Draw (2131-16, U5-2)
+  [Charles MacDonald, Brian Troha, David Haywood, The Dumping Union]
+'96 Flag Rally [Nosunosu, ShouTime, David Haywood]
+Apple IIe (Spanish) [robcfg, R. Belmont]
+Super Cherry Master (v1.0) [Roberto Fresca, Ioannis Bampoulas]
+Fidelity Elite Avant Garde (model 6114) [hap, Micha]
+Coleco Electronic Quarterback [hap, Sean Riddle]
+Fidelity Elite Avant Garde (model 6117-7) [hap, Micha]
+Fidelity Elite Avant Garde (V10/V11) [hap, Micha]
+Parker Brothers Lost Treasure [hap, Sean Riddle]
+Coleco Zodiac [hap, Sean Riddle]
+Conic Electronic Football II [hap, Sean Riddle]
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+Touche Me (set 2, harder) [system11]
+Speak & Math (1980 version) [Sean Riddle, plgDavid] 
+La Dictee Magique (French Speak & Spell) [Sean Riddle, plgDavid] 
+Grillo Parlante (Italian Speak & Spell) [Sean Riddle, plgDavid]
+グレート1000マイルズラリー(94/05/10) [Corrado Tomaselli]
+Multi Champ (World, older) [f205v]
+グレート1000マイルズラリー (94/05/26) [caius]
+NBAジャム (rev 1.00 02/1/93 [Alex Meijer, Bernard Tack]
+ライデンファイターズ2 -オペレーションヘルダイブ- (Italy) [Corrado Tomaselli]
+64番街 (Japan, set 2) [Corrado Tomaselli]
+ワールドラリー (Version 1.0, Checksum 8AA2) [Artemio Urbina]
+ファイティングゴルフ (US, Ver 2)
+  [Ryan Holtz, Shoutime, Smitdogg, The Dumping Union]
+ワールドカップバレーボール'95 Extra Version (Asia v2.0B) [Kevin Eshbach]
+Moon Light (bootleg of Golden Star, set 2) [f205v, Roberto Fresca]
+フロッガー (Sega set 3) [Team Europe]
+Moon Light (v.0629, high program) [Roberto Fresca, f205v]
+Moon Light (v.02L0A, low program) [Roberto Fresca, f205v]
+Moon Light (v.02L0A, high program, alt gfx) [Roberto Fresca, f205v]
+Cherry Gold I (set 2, encrypted bootleg) [Roberto Fresca, f205v]
+Cherry Master I (ver.1.01, set 8, V4-B-) [Roberto Fresca, f205v]
+Cherry Master I (ver.1.10) [Roberto Fresca, Ioannis Bampoulas]
+スーパーボブルボブル (bootleg, set 4) [Jose Jorge Fuentes]
+1943 -ミッドウェイ海戦- (bootleg)  [Andrea Palazzetti]
+Space Rocks (Spanish clone of Asteroids) [pako ikarihardmods]
+Block Block (World 911219 Joystick) [caius, The Dumping Union]
+Royal Poker '96 (set 4, C3 board) [Roberto Fresca, Ioannis Bampoulas]
+New Cherry '96 (bootleg of New Fruit Bonus?) [Roberto Fresca, Ioannis Bampoulas]
+
+
+新規追加された未動作マシン
+--------------------------
+Argox Rabbit Printer (model OS-214) [Felipe Sanches]
+Xerox NoteTaker [Lord Nightmare, bitsavers]
+Unknown Nibble game
+  [Team Europe, Marcus Jendroska, Y~K, Smitdogg, Roberto Fresca, The Dumping Union]
+ネーム倶楽部 Ver.2 (J 960315 V1.000) [TeamEurope, Ryan Holtz]
+Cross Puzzle [Ryan Holtz, Smitdogg, The Dumping Union]
+プリント倶楽部 ラブラブ (J 970421 V1.000) [TeamEurope, Ryan Holtz]
+プリント倶楽部 よしもと V2 (J 970422 V1.100) [TeamEurope, Ryan Holtz]
+プリント倶楽部2 Vol.7 春 (J 970313 V1.100)  [TeamEurope, Ryan Holtz]
+プリント倶楽部2 パフィー (Japan)  [TeamEurope, Ryan Holtz]
+プリント倶楽部2 ペプシマン (J 970618 V1.100) [Team Europe, Ryan Holtz]
+プリント倶楽部2 Vol.6 冬 (J 961210 V1.000)  [Team Europe, Ryan Holtz]
+プリント倶楽部2 Warner Bros (J 970228 V1.000) [Team Europe, Ryan Holtz] 
+プリント倶楽部2 '97 ウィンターバージョン (J 971017 V1.100, set 2) 
+  [Team Europe, Ryan Holtz] 
+プリント倶楽部2 '98 サマーバージョン (J 980603 V1.100) [Team Europe, Ryan Holtz] 
+プリント倶楽部 ラブラブ Ver 2 (J 970825 V1.000) [TeamEurope, Ryan Holtz]
+ネーム倶楽部 (J 960315 V1.000)  [Team Europe, Ryan Holtz]
+ドラゴントレジャー2 (Rev A) (GDS-0037A) [Jorge Valero, rtw, The Dumping Union]
+Tiger K28/Coleco Talking Teacher 
+  [hap, Jonathan Gevaryahu, Sean Riddle, plgDavid, Kevin Horton]
+Mattel Computer Gin [hap, Kevin Horton]
+Tiger K28 (model 7-230) [hap, Kevin Horton]
+Coleco Head to Head Basketball (COP420L) [Sean Riddle]
+湾岸ミッドナイトR (WMR1 Ver. A) [Darksoft, Guru, R. Belmont]
+IGT Multistar 7 2c [Miodrag Milanovic]
+
+
+新規追加された未動作クローン
+----------------------------
+ジュラシックパークIII (ver UA)  [ShouTime]
+ザ・警察官 -新宿24時- / Police 24/7 (ver EAA, alt) [Guru]
+スリルドライブ2 (ver EAA, 2 alt versions) [Guru]
+剣 ＜つるぎ＞ (ver EAB, alt) [Guru]
+ワールドコンバット (ver AAD, alt) [Guru]
+The Rumble Fish (prototype) [Brizzo, MetalliC, Arzeno Fabrice]
+ネオジオバトルコロシアム (World) [Brizzo, MetalliC, Arzeno Fabrice]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+Fidelity Chess CB16 [anonymous]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------

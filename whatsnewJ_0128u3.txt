@@ -1,0 +1,138 @@
+0.128u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02633: [Crash/Freeze] MC6845を使うセット: クラッシュ、またはゲーム中のフリーズ。(Curt Coder)
+- 02626: [DIP/Input] crimfgt2, crimfgtj: ゲームをスタートできない。(Fabio Priuli)
+- 02618: [Sound] samuraia and clones: 効果音が鳴らない。(Pierpaolo Prazzoli)
+- 02544: [Core] DIP条件設定 / ポートインクルードの制限事項。(Aaron Giles)
+- 02542: [DIP/Input] ghoulsu: 条件付きポート使用時に元のポートがそのまま残る。(Aaron Giles)
+- 02607: [Crash/Freeze] frogs: スクリーンショットを撮るとエラーで終了する。(aaron)
+
+
+
+ソースの変更点
+--------------
+- 74123をデバイスに変更。データシートを元に動作のチェック。再帰呼び出しを防ぐロジックを
+  追加。[couriersud]
+
+- halleys.cドライバの全ゲームでDIPスイッチ修正。halleysとクローンにDIP配置追加。
+  [stephh]
+
+- 32xのコードをさらに改良。[David Haywood]
+
+- Irem M10: 回路図を元にした最初の改良: [couriersud]
+ * ビデオタイミング、CPU/ピクセルクロックの更新
+ * m10/m11で74LS123を2つ使うようにIRQを書き直し
+
+- AICA: DTPKドライバゲームに未実装の命令追加。[R. Belmont, Deunan Knute, kingshriek]
+
+- Naomi: AICAの未マップアドレス領域がゼロとして読み込まれるよう変更。[R. Belmont]
+
+- powerinsのYM2203バランス修正。[Jim Hernandez]
+
+- toobinで画面中でのパレット更新ができるようにRGB32にコンバート。また、正確なビデオタ
+  イミングと完全なメモリマップの追加とウォッチドッグの接続。[Aaron Giles]
+
+- exprraid、gyruss、各クローンセットにDIP配置追加。[stephh]
+
+- peplusドライバに6845を実装: [couriersud]
+ * 既存の6845エミュレーションに対して6845をデイジーチェーン実装
+ * 回路図よりクロックを取得
+ * 表示サイズの問題は6845コードに関係。メーリングリストで議論中
+
+- コアのattotime関数を再びインライン化。これにより、高インタリーブ動作時にかなりの違
+  いが出ます。[Aaron Giles]
+
+- Z80コアに、最近見つかった内部レジスタを追加。未定義フラグの精度向上。
+  [Miodrag Milanovic]
+
+- MC6845の変更で問題が起きていたので巻き戻し。[Curt Coder]
+
+- Z80、R3000、ADSP2100、M680x0コアのデータ参照について、グローバルな構造体からポイン
+  タ経由で行うようコンバート。将来的な変更に備えた措置。[Aaron Giles]
+
+-「スピードアタック」のコインエイジ修正と、ドライバを現在の基準に合わせてクリーンアッ
+  プ。[Angelo Salese]
+
+- MCS-48、MCS-51、m6502コアについて、ポインタ経由でデータを参照するようにコンバート。
+  [couriersud]
+
+- タイマーシステムにスケジューリングカンタムを導入。また、実用になる最小のスケジュー
+  リングカンタム設定の平均値を追加して、全てのカンタムをその値に固定。[Aaron Giles]
+
+- インタリーブとブースト処理をタイマーからスケジューリングカンタムを使うように変更。
+  [Aaron Giles]
+
+- cpu_boost_interleaveにmachine引数追加。[Aaron Giles]
+
+- cpuexecについて、CPUコアにより指定される命令毎の最小サイクル数(cpi)を考慮した"完璧
+  な"インタリーブ値を計算するように更新。Z80コアのcpiを2に指定。また、68020+コアの間
+  違った最小cpiを修正。[Aaron Giles]
+
+- コアサイクル演算について、完全な64ビット除算から、div_64x32を使用するように変更。こ
+  れにより、除算の解像度に数ビットの揺れが出ますが、実際の動作に違いは出ないはずです。
+  [Aaron Giles]
+
+- 68000コアから余分なオプションを取り除いて、MAMEに必要なものをハードコーディングする
+  作業を開始。コア自体は十分に煮詰まっているので既に汎用性はありません。今回はコードを
+  シンプルにして、さらにこれを進めることができるようにするよい機会です(まだ作業中)。 
+  [Aaron Giles]
+
+- 全てのコアCPU関数用マクロを定義。devintrf.hのマクロと同じように、nameとcallのマクロ
+  も同じく定義。[Aaron Giles]
+
+- const device_config * オブジェクトに渡すinit、reset、exit、executeインタフェースを
+  変更。現時点ではこれはフェイクのオブジェクトですが、machineポインタとtokenをカプセ
+  ル化しています。今後、本物のデバイスにしていきます。[Aaron Giles]
+
+- CPU IRQコールバックを適切な型に変更。またデバイスパラメータを追加。[Aaron Giles]
+
+- srmp1/srmp2の背景色修正。[EdxGROfS0]
+
+- ST-Vドライバの改良いろいろ: [Angelo Salese]
+ *「バーチャル麻雀II マイフェアーレディ」のビットマップズーム修正
+ *「闘龍伝説エランドール」のメジャーなグラフィックバグに取り組み
+ *「プロ麻雀極S」のタイトル画面に必要なアルファブレンディングを追加。
+   ただし、これとは別な問題のためにまだ動作せず (検証中)
+ * デバッガが有効なときに「アストラスーパースターズ」がクラッシュするバグを修正
+
+- DS5002FPをMCS51に統合: [couriersud]
+ * DS5002FPを統合
+ * 逆アセンブラで型固有のメモリ名を使うように変更
+ * DS5002FP逆アセンブラを統合
+ * 逆アセンブラにメモリ名83C751を追加
+ * DS5002FP専用のファイルを削除
+ * wrallyから不要なCPUコールバックを削除
+ * wrallyでDATA_MAP ==> IO_MAP
+
+- Motorola DSP56k CPUコアの書き直し中: [Andrew Gardner, PhilB, RBelmont]
+ * plygonet.cのクロック速度修正とdsp56.cに内部分周追加
+ * 逆アセンブラのadd/sub、05xx、bsr命令を修正
+ * plygonetのadd命令で見つかった謎のuuuuF命令を処理
+ * add、sub、mac、mpy、inc、cmpm、macr、asr16、jscc、lea、movec命令を部分的に実装
+ * デュアルXメモリリードと並列移動の短い置換によるデータ移動追加(?)
+
+- Forte Cardドライバの改良。まだ動作せず。[Angelo Salese]
+
+-「サイコニクスオスカー」(japan revision 0) に日本国内使用の警告が無いため 
+  (world revision 0)に変更。[Corrado Tomaselli]
+
+- expro02の不足している入力追加。[Sonikos]
+
+- 基板上のラベルの合うようにCPS2 ROMを更新。[Razoola]
+
+- ADDRESS_MAP_NAMEマクロ追加。内部アドレスマップの参照でこれを使用するようにCPUコアを
+  更新。[Atari Ace]
+
+- 多くのドライバにインクルードファイルを追加。[Atari Ace]
+
+-「Star Castle」のドローンサウンドを改良。[Jim Hernandez]
+
+
+
+追加された未動作ゲーム
+----------------------
+Snezhnaja Koroleva [Antro]

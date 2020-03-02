@@ -1,0 +1,95 @@
+0.104u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+zwackery0104u1gre [Aaron Giles]
+typo0104ora [Aaron Giles]
+x86compile0104u1ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- System 23ゲームでMCU ROMを正しく実装。[R. Belmont]
+
+-「Nitorball / ガンボール」のタイルマップサイズ修正。[Bryan McPhail]
+
+-「パニックロード」のカラーPROM修正。[Nicola Salmoria]
+
+-「ナイトドライバー」にステートセーブ追加（ただし、ディスクリートコア側のステー
+  トセーブサポートは不完全）。[Oshah]
+
+- 8255 PPIコードのクリーンアップ; 'int'型を一部'offs_t'と'UINT8'に変更。また、
+  ppi8255_get_prtA/B/C()関数追加。さらに、フォーマット系の問題の修正。
+  [Nathan Woods]
+
+- M37710コアの更新: [R. Belmont]
+ * バンク0外実行時のLDMの動作修正
+ * バンク0外実行時のいろいろなバグを修正
+ * 8bitインデックスモードで保護されたXとYのトップ8bitを修正
+ * 逆アセンブラのエラー修正
+ * ステートセーブサポート
+ * ドキュメント化の目的でM37702のエイリアス追加
+
+- Namco System 22ドライバのアップデート: [R. Belmont]
+ * System 22ゲームでBGM/SE用に本物のC74BIOSを使うように変更
+ * C74の起動用にシステムコントローラ追加
+ * C74 CPUボード用のスピードアップチート
+ *「エースドライバー」をNO_SOUNDからIMPERFECT_SOUNDに昇格
+
+- グローバルな名前空間の汚染を減らすため、多くのドライバの宣言と変数をstaticと
+  constに設定。また、重複宣言されたグローバル変数をたくさん修正。[Atari Ace]
+
+- Jaleco MegaSystem 32とYMF271サウンドコアにステートセーブ追加。[Nathan Woods]
+
+- Windowsのレンダリングコアのバグで、-nohws -nod3d -notbを使用時に-waitvsyncが効
+  かなくなるのを修正。[Derrick Renaud]
+
+- Namco Sysmtem 23ドライバで、テキストレイヤーとパレットの予備サポート追加。
+  [R. Belmont]
+
+- Windowsビルドで、multimon.hを廃止しました。これはWindows95とNT4.0と互換性のあ
+  るバイナリを作成するためだけに必要でした。これによりMAMEをサポートするOSの最低
+  条件はWindows98となります。[Aaron Giles]
+
+- Windowsソースで最新のビルドツールをサポートするように細かい改良をしました。
+  環境が古い場合は http://mamedev.org/tools をチェックしてください。
+  [Aaron Giles]
+
+- assert_alwaysマクロ追加。リリースビルドでもアサートします。[Aaron Giles]
+
+- 新関数xml_read_string追加。内部文字列をXMLツリーにパースできます。
+  [Aaron Giles]
+
+- nemesisドライバで人為的にガンマ補正していたのを削除。[Aaron Giles]
+
+- グローバルMachineストラクチャからscrbitmapとmemory_regionを削除しました。コア
+  以外のシステムからこれらに直接アクセスする必要はありません。[Aaron Giles]
+
+- Machine->sample_rate==0をチェックするハックを大量に削除。この方法は全く間違っ
+  ています。[Aaron Giles]
+
+- ROM管理をcommon.cから分離して、新しくromload.cに移動。[Aaron Giles]
+
+- POKEYエミュレータにステートセーブ追加。[Aaron Giles]
+
+- デバッガとWindowsのコードのstructs/unionsを、新コアに合わせてクリーンアップ。
+  [Aaron Giles]
+
+- ビットマップのセーブを単純化するために、state_save_register_bitmap関数を追加。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ダークミスト [Tomasz Slanina, Nicola Salmoria]
+
+
+
+新規クローンセット
+------------------
+Super Glob (Pac-Man hardware) German [Chaneman, David Widel]
+バーニングフォース (Japan old version) [Team Japump]

@@ -1,0 +1,177 @@
+0.122u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+gui0121u1gre [Aaron Giles]
+drivedge0121u4gre [Aaron Giles]
+bking3076u2red [Pierpaolo Prazzoli]
+btoads0102u5gre [Aaron Giles]
+btoads0103u1gre [Aaron Giles]
+editableui0120u4red [Aaron Giles]
+cheat0118red [Aaron Giles]
+altf4_0111u4gre [Aaron Giles]
+beastrzb097u2red [Oliver Stoneberg]
+memoryleak0118u1ora [Oliver Stoneberg]
+memory_leak0111u6ora [Oliver Stoneberg]
+mahoudai0106u7yel [Philip Bennett]
+gridiron079gre [David Haywood]
+maniach37b11gre [David Haywood]
+matmaniac37b14gre [David Haywood]
+qzkklgy2_0106u6red [David Haywood]
+warriorb0109u2gre [David Haywood]
+vball071u1gre [Bryan McPhail]
+d3dwindow0117u3red [Aaron Giles, Emuman]
+arkanoid061gre [Bryan McPhail]
+flkatck058gre [David Haywood]
+memleak0119u3ora [Oliver Stoneberg]
+system24_0120u3red [Atari Ace, Aaron Giles]
+aleck64_0120red [Aaron Giles]
+mtetrisc0115u1red [Aaron Giles]
+suratk0122u3gra [Pierpaolo Prazzoli]
+suratk0122u3ora [Pierpaolo Prazzoli]
+skychut37b1yel [couriersud]
+skychut37b6gre [couriersud]
+darius2_0114gre [Bryan McPhail]
+ad2083_0111u5gra [couriersud]
+abaseb0122u3red [Zsolt Vasvari]
+ladybug080u1gre [Zsolt Vasvari]
+suprridr0122u2gra [Zsolt Vasvari]
+invho2_0122u3red [Zsolt Vasvari]
+narc37b16yel [Aaron Giles]
+kingofb37b6gre [robiza]
+stonebal0117u2gre [Aaron Giles]
+wotw36b1gre [Zsolt Vasvari]
+wallst071gre [Zsolt Vasvari]
+mtrap37b14gre [Zsolt Vasvari]
+pitfight0109u2gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- 基板上のクリスタルに基づいてbtoadsのクロックを修正。[Aaron Giles]
+
+- MC8123の復号動作を"シンプル化"。ただし、個人的にはまだ複雑。[Nicola Salmoria]
+
+- itech32ドライバのクロックを整理。[Aaron Giles]
+
+- FD1089B 317-0037のキーを部分的に追加。[Nicola Salmoria]
+
+- Guru氏のreadmeを元にbking3のクロックを修正。また、GAME_WRONG_COLORSフラグ追加。
+  [Pierpaolo Prazzoli]
+
+- TMS34020の修正: [Aaron Giles]
+ * 32ビットのピクセルサイズが使用可能
+ * RPIX命令を修正
+
+- キーイベントのみをプールするための新関数、input_poll_keyboard_switchesを追加。
+  また、同時に押すことが出来るスイッチの最大数を拡張。[Aaron Giles]
+
+-「Cluedo」以外のjpmimpctゲームからGAME_IMPERFECT_GRAPHICSを削除(ドライバノートを
+  参照)。[Philip Bennett]
+
+- marioドライバの改良: [couriersud]
+ - 画面反転を実装
+ - モニタの方向をROT0に変更
+
+- Z80 DMAチップ追加。[couriersud]
+ - only implements intelligence to emulate dkong3
+ - 8257dma.hの誤解を招きそうなコメントを訂正
+
+- dkongドライバの改良: [couriersud]
+ - Z80 DMAの実装
+ - sdbkのinput_portsからプレイヤー2の入力を削除
+ - DIP配置のコピペなバグを修正
+
+- seta2.cドライバに再吸い出しした「Turkey USA」を追加。[Brian Troha]
+
+- stacticsのサービスモードでRAMページ不良エラーが出るのを修正。
+  [Pierpaolo Prazzoli]
+
+- Atariゲームの更新: [Aaron Giles]
+ - slapsticのステートセーブ追加
+ - YM2413のステートセーブ追加
+ - slapsticコードについて、アドレス領域のミラーリングをサポートするように改良
+ -「ランパート」のドライバをクリーンアップ:
+    - レンダリングコードのシンプル化
+    - 完全なメモリマップ追加
+    - ステートセーブサポート
+
+- SCSPにまともに鳴るFM音源を実装。[kingshriek]
+
+- Naomiドライバを更新。起動とテストメニューの表示(F2キーでテストモードに入り、9
+  キーで選択)。また、ROMボードPIOと、DMAに対してスケルトンを実装。
+  [R. Belmont, Samuele Zannoli, ElSemi]
+
+- N64の改良: [SGINut]
+ - 座標調整後にテクスチャマスキングを移動
+ - load_tileでの32-bitテクスチャリングを修正(「マリオカート64」のタイトル画面)
+ - Zero-alpha early-outを追加 (「マリオ64」の木と星、「マリオカート64」の木と
+   カート)
+
+- ad2083の改良: [couriersud]
+ * TMS5110Aコード完成
+ * スピーチ合成の作業中
+ * 基板の写真とその他見つけたことのドキュメント化
+ * その結果、サウンドROMは全部吸い出し不良
+ * scramble.cのサウンドドライバ作成
+
+- 新フォーマットに向けてグラフィックレイアウトのクリーンアップ。新規に
+  GFXLAYOUT_RAW()マクロの追加。新しいバリデーションコード追加。gfx_layoutsのイン
+  スタンスの残りについても全てconst化。[Atari Ace]
+
+- Amigaドライバで正式なXTAL値を使うように更新。[Dirk Best]
+
+- 6522エミュレーションについて、ACRレジスタの書き込みを継続カウントモードでのタ
+  イマー1で行うように変更。タイマー1の値はリロードしてはいけないものの、カウント
+  は続けます。[Wilbert Pol]
+
+- bfm_sc2.cにXTAL定義追加と、lvcards.cをクリーンアップ。[James Wallace]
+
+- neogeoゲームで、画面端を切るか、304x224のレイアウトにストレッチするかを選べる
+  ように、デフォルトのレイアウトを追加。ドライバからはデフォルトのクロップ処理を
+  削除。[David Haywood, Aaron Giles]
+
+- DCSベースのゲームで、ステートセーブ時にクラッシュするのを修正。また、midvunit
+  ドライバにステートセーブ追加。[Aaron Giles]
+
+-「サイクルウォリアーズ」のビデオコードを大幅改良(まだ不完全ですが、道路のレイヤー
+  は表示されます)。[Bryan McPhail]
+
+- skyschut.cを大幅に書き直し。まだいくつか不具合は残っていて不完全ですが、以下の
+  ついてはクリアしました: [couriersud]
+ *「IPMインベーダー」にサンプル追加 - 古いインベーダーのサンプルをipminvadに改名
+   してテストできます
+ *「IPMインベーダー」の"カプセル"DIPスイッチを追加
+ * サウンドポートの解明
+ * デモサウンドと筐体タイプについてのドライバ設定
+
+- peplusドライバのSuperboard版についてメモリ設定を更新。また、リロード時のCMOS 
+  DATAエラーを修正。[Jim Stolis]
+
+- CVSシステムのビデオコードを書き直し。[Zsolt Vasvari]
+
+- S2650レジスタウィンドウ表示を修正。[Zsolt Vasvari]
+
+-「サイクルウォリアーズ」と「ビッグファイト」にサウンド追加。OKI M6295のクロック
+  修正。[Philip Bennett]
+
+-「ベンチャー」の拡大マップで矢印が表示されないのと、「Hard Hat」の竜巻を修正。
+  [Zsolt Vasvari]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+デンジャラスカーブス [Philip Bennett, Dazzer]
+ビッグファイト [Bryan McPhail]
+
+
+
+新規クローンセット
+------------------
+Invasion - The Abductors (version 5.0) [Brian Troha]
+エイリアンシンドローム (set 5, System 16A, FD1089B 317-0037) [Nicola Salmoria]
+ドラゴンスピリット (Atari license) [Satoshi Suzuki]

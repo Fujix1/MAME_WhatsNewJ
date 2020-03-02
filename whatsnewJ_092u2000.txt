@@ -1,0 +1,57 @@
+0.92u2000
+---------
+
+雰囲気的に出す価値があるようなので出します ;-).
+
+----
+
+■Seibu SPI復号化の改良。[Nicola Salmoria]
+    全ゲームでのタイルグラフィックの復号化
+    「ライデンファイターズ2000」のスプライト復号化
+
+■「タンク8」にディスクリートサウンド追加。[Hans Andersson]
+
+■「Championship Bowling」にトラックボール追加。[Pierpaolo Prazzoli]
+
+■「Super Trio」のサウンド周波数修正。[Pierpaolo Prazzoli]
+
+■コンパイラ用の修正。[R.Belmont]
+
+■FD1089のアップデート。[Nicola Salmoria, Charles MacDonald]
+    317-0033（「エイリアンシンドローム」）と317-0034（「スーパーハングオン」）
+    の完全なテーブル追加
+
+■麻雀ドライバで新デフォルト操作を使うように更新。[James Wallace]
+
+■Gladiatorドライバのアップデート。[Nicola Salmoria]
+    - 回路図を元に検証（ただし、回路図が読みにくいため怪しい部分有り）
+    - タイルマップにコンバート、スクロール修正
+    - タイルマップデコードをシンプルに
+    - 画面反転サポート
+    - スプライトRAMサイズを修正（gladiatr36rc2greを修正)
+    - スプライトデュアルバッファサポート（スプライトが遅れるのを修正）
+    - 低音が聞こえるようにYM2203ミックスレベル調整（オーディオのミックスはプ
+      ログラムでコントロールされているが未サポート）
+    - ppkingとマージ、drivers/ppking.cは不要
+    - fgレイヤーを正しくブレンド（アルファブレンディングでなくパレットエフェ
+      クト）
+
+■「XFiles」のビデオエミュレーション改良。[Tomasz Slanina]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+ライデンファイターズ 2: 2000 [Nicola Salmoria, Ville Linde]
+    サウンドはまだ不完全。表示エフェクトは一部未実装
+
+新規追加クローンセット：
+------------------------
+Little Hero (快傑ヤンチャ丸 / KidNikiの海賊版) [Pierpaolo Prazzoli]
+Astro Combat (アストロブラスターの海賊版) [Pierpaolo Prazzoli]
+Super Missile Attack (encrypted set) [Mowerman, Dave Widel]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+TurboSub [Tomasz Slanina]
+    基本ドライバのみ。グラフィックROMのビットマップビューア機能のみ

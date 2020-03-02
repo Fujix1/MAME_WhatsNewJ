@@ -1,0 +1,476 @@
+0.102
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+bbmanw0101u4red [Pierpaolo Prazzoli]
+dirtfoxj063gra [Mamesick, Pierpaolo Prazzoli]
+starblad0101u5yel [Aaron Giles]
+mouja0101u5gre [Hau]
+
+
+
+ソースの変更点
+--------------
+- 0.101u1の更新での問題をさらにいくつか修正。[Aaron Giles, Pierpaolo Prazzoli]
+
+- nanameのタイルの問題修正。[Pierpaolo Prazzoli]
+
+*「T.N.K.3/T.A.N.K.」のBGMテンポ修正。[R. Belmont, Kold666]
+
+- 53C810エミュレーションにSCRIPTSプログラムサポート追加開始。
+  [Nathan Woods, R. Belmont]
+
+*「パッシングショット」(Japan)の入力修正。[Ange Albertini, Barry Rodewald]
+
+*「Wonder Stick」「Search Eye」で鳴ってない効果音を追加。[Pierpaolo Prazzoli]
+
+- Taito SJゲームのMCUによるステータスフラグ訂正。「フロントライン」のスコア最後
+  の桁表示修正。[Nicola Salmoria]
+
+- SHARCコアとKonami PPCドライバを大幅修正。[Ville Linde]
+
+*「アステロイド」のディスクリートサウンドによるぶつかる音を式から求めるのではな
+  くコンポーネント値を使うように更新。[Hans Andersson, Derrick Renaud]
+
+- esd16にタイルマップ0カラーバンキング追加。[Pierpaolo Prazzoli]
+
+- 8253 PITのセーブ・リストアを修正。また「Top Gunner / 特殊部隊ジャッカル」も更
+  新: [Mathis Rosenhauer]
+ - 速度の異なるDACを補正する必要がありそうなので、シフトレジスタを削除
+ - PCエミュレーションから8254 PITを追加
+ - ステートセーブ追加
+
+- PSX GTEフラグセッティングを修正。[Olivier Galibert]
+
+- 6502の初期化について、全部の初期状態がきちんとリセットされるよう修正。
+  [Nathan Woods]
+
+- 非デバッグビルドでデバッグオブジェクトがコンパイルされないようにmakefileを変更。
+  [Aaron Giles]
+
+- コード内のgfx_layoutとgfx_decode構造体のほとんどをconstにマーク。[Aaron Giles]
+
+- MIPS3のStatusレジスタのFRビット処理を修正。これにより「カーンエビル」の問題修
+  正。たぶんその他のゲームも影響あり。またTLB例外がContextとEntryHiレジスタを正 
+  しく記入しなかったバグも修正。[Aaron Giles]
+
+- ROMREGION_SOUNDONLYを削除。-nosoundで、サウンドROMのロードが失敗した場合クラッ
+  シュしていたため、サウンドCPUまたはサウンドコアを無効にしなくなったため。
+  [Aaron Giles]
+
+- Voodooエミュレーションのディザリングをピクセル単位まで正確に改良。
+  [Aaron Giles]
+
+- my_stricmpをmame_stricmpに改名。コード中のstrcmp使用部分をすべてmame_stricmpに
+  コンバート、また今後コード中でこれが使われないようにstricmpを定義。
+  [Aaron Giles]
+
+- mame_stricmpの実装を修正。[William Krick]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ジョッキーグランプリ [Mamesick]
+グラディウスIV: 復活 [Ville Linde]
+See See Find Out [Tomasz Slanina]
+Pang Pang Car [Tomasz Slanina]
+D-Day (Jaleco) [Tomasz Slanina]
+NBAプレイバイプレイ [Ville Linde]
+
+
+
+新規クローンセット
+------------------
+Touch & Go (newer revision) [Corrado Tomaselli]
+アベンジャーズ・イン・ギャラクティックストーム (World) [Corrado Tomaselli]
+メタモルフィックフォース (ver EAA) [Stefan Lindberg]
+Rohga v5.0 Asia/Europe / ウルフファング [Stefan Lindberg]
+Rohga v3.0 Asia/Europe (Alt) / ウルフファング [Stefan Lindberg]
+Tricky Doc (Alt) [Stefan Lindberg]
+バンダイク (Jaleco lic. Alt set) [Stefan Lindberg]
+バース - Operation Thunderstorm (World 920714) [Stefan Lindberg]
+スーパーモナコGP (US, Rev B) [Arzeno Fabrice]
+DownTown / 目撃 (Set 2) [Stefan Lindberg]
+NFLブリッツ (boot ROM 1.1) [Brian Troha]
+マーシャルチャンピオン (ver EAB) [Stefan Lindberg]
+
+
+
+
+0.101u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+vf097u2gre [R. Belmont]
+daytona099u4gre [R. Belmont]
+memoryupdate0101u1red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Sega Model 1ドライバのサウンドコマンドにFIFO追加。これで起動時の不具合修正。
+  また68000CPU速度も修正。[R. Belmont]
+
+- C352サウンドエミュレータのいろいろな修正と改良。[hoot development team]
+
+- Namco NAサウンドエミュレータの未実装機能追加。[cync]
+
+- excelsrに条件別DIPスイッチと未実装DIPスイッチ追加。[Pierpaolo Prazzoli]
+
+-「Jリーグ」のプロテクト回避を修正して2人プレイも動作。また、sonicのプロトタイプ
+  が動作するようにも修正（ただしグラフィックの問題あり）。[Anonymous]
+
+- 大型配列を正しくconstに指定。[Atari Ace]
+
+- 6805コアでCLRAがキャリーフラグを変更しないように修正。[Ernesto Corvi]
+
+- st0016でのスプライト巻き戻し修正（nratechuで必要)。[Pierpaolo Prazzoli]
+
+- Model 3のアップデート: [Ville Linde]
+ *「デイトナUSA2パワーエディション」追加
+ * 表示系ハードの大幅更新：
+    - 透過表示サポート（ポリゴン及びテクスチャ）
+    - レンダリング順序がほぼ完璧
+    - 並列光源
+    - テクスチャ座標のミラーリング
+
+- Voodooエミュレータにラスタライザジェネレータの実験版追加。これはケースに応じて
+  X86アセンブラblitterを生成します。ただし、速度はあまり改善されず、バグもとても
+  多いので今のところ無効にしてます。makefileで有効にできます。[Aaron Giles]
+
+- Voodooエミュレータランタイムでの最適化ハックの有効・無効設定追加。またフレーム
+  スキッパーも追加。Ctrl+1〜6キーでフレームスキップの調整、Ctrl+F/H/Qでフル/半
+  分/4分の1解像度を選択します。[Aaron Giles]
+
+- ほとんどのバリディティチェックが1秒以内で完了するように書き直し。またメモリ
+  マップに対する領域サイズチェックも加えました。全バリディティチェックは新ファイ
+  ルvalidity.cに移動しました。[Aaron Giles]
+
+- 領域バリデーションを簡略化するため、AM_REGION()マクロで保存領域・オフセット情
+  報を持たせました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Wonder Stick [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+アトミックロボキッド (Japan, Set 2) [Brian Troha]
+レイメイズ (Japan) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Ping Pong Car [David Haywood, Guru]
+デイトナ USA 2 パワーエディション [Ville Linde]
+
+
+
+
+0.101u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+flstory0101u3red [Aaron Giles]
+gottlieb0101u2yel [HobbesAtPlay]
+lelandsound0101u3yel [Aaron Giles]
+kamikcab101u2yel [Aaron Giles]
+segac0101u3red [Mathis Rosenhauer]
+spiders0101u3yel [Aaron Giles]
+drgnmst067gre1 [Pierpaolo Prazzoli]
+memoryupdate0101u1red  [Aaron Giles & others]
+missile0101u3red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- u1の変更で壊れたゲームをさらに修正。問題がまだあるのは残りわずか。
+  [Aaron Giles with contributions from Mathis Rosenhauer]
+
+-「フェアリーランドストーリー」の描画改良と最終面のグラフィック不具合修正。
+  [Nicola Salmoria]
+
+- h6280CPUで新アドレス変換システムを使うように更新。[Aaron Giles]
+
+- listxmlの出力にMAMEのビルド情報を追加。xml2infoをセーブステートタグを扱うよう
+  に更新。[cutebutwrong]
+
+- PSXコアを新しいセーブステートと逆アセンブラインターフェースに更新。また、
+  dismipsも新アセンブラを扱うように更新。[smf]
+
+- mk48t08タイムキーパーチップのリード/ライト時にタイマーをリセットするコードを
+  削除。ステートセーブインターフェースも更新。新しいマクロ
+  state_save_register_item_pointer()を動的割り当て配列を追加。[smf]
+
+- R3000コアを新逆アセンブラインターフェースにアップデート。[Aaron Giles]
+
+- drgnmstドライバにコインカウンタ/ロックアウトと列スクロール追加。
+  [Pierpaolo Prazzoli]
+
+- MIPS3インタプリタにSC/LL命令追加。[R. Belmont]
+
+- KonamiとR3000逆アセンブラを新フォーマットに更新。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ザ・Jリーグ [Anonymous]
+
+
+
+新規クローンセット
+------------------
+Kosmo Killer [David Haywood]
+Splash 1.0 [Corrado Tomaselli]
+Glass 1.1 [Corrado Tomaselli]
+Match It II [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Dwarfs Den [David Haywood]
+Trivia Quest [Pierpaolo Prazzoli]
+Wheels & Fire [David Haywood]
+
+
+
+
+0.101u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+bigkarnk0101u2gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- u1の更新で不具合の出たゲームを修正。まだ問題が少しあるものの、ほとんどのゲーム
+  は動作するようになってます。[Aaron Giles, 協力El Condor, R. Belmont, Ville 
+  Linde]
+
+-「ミサイルコマンド」「バトルゾーン」にステートセーブ初期版追加。[Buddabing]
+
+-「Pop's Pop's」のDIP修正。[Sonikos]
+
+-「ウッドペッカー」の入力修正。[Pierpaolo Prazzoli]
+
+- PowerPCコアで新しい逆アセンブラのスタイルを使うよう更新。[Nathan Woods]
+
+- 最近のMESS PCエミュレーションコードを統合。[Nathan Woods]
+
+- -listxml出力のDTDを修正。[Oliver Stoneberg] 
+
+-「Egg Hunt」のスプライトバンキング、タイルバンキング、サウンドバンキング、DIPス
+  イッチ2つ修正。[Pierpaolo Prazzoli]
+
+- 6502ファミリーを新逆アセンブラのスタイルに更新。m6510とm4510CPUコアに内部メモ
+  リマップ追加。m4510でアドレス変換用フック追加。[Nathan Woods]
+
+- ステッピングとsteps_until_stopの値が高いとき、デバッガの表示更新頻度を下げまし
+  た。これで"step #10000"のようなコマンドが以前より使い物になるはずです。
+  [Nathan Woods]
+
+- MESSのUIコードがPキーとESCキーのインターセプトを阻害していたのを修正。
+  [Lawrence Gold]
+
+- 0サイズのmallocのチェックと不実行追加。[Nathan Woods]
+
+- i86とi286コアを新しいi386逆アセンブラにフック。[Nathan Woods]
+
+- MIPS3ダイナミックリコンパイラにMMUサポート追加。デフォルトで再び有効にしてます。
+  ダイナミックリコンパイラにダイレクト高速RAMアクセスとオプションのホットスポッ
+  トの最適化を追加。以前のMMUコンパイラに比べてほとんどのゲームの動作速度が向上
+  しています。[Aaron Giles]
+
+- FPUデコードと、i386逆アセのその他のマイナーな問題を修正。[Aaron Giles]
+
+- デバッガにホットスポット検知機能のベースを追加。"help hotspot"とタイプすると
+  動作の詳細が表示されます。[Aaron Giles]
+
+- デバッガのメモリサブシステムへ実装法をクリーンアップ。それぞれのCPU切り替え毎
+  に、リード・ライト毎にコールバックの呼び出しをデバッガが照会します。これにより
+  ウォッチポイントのトラッキング効率の向上と、ホットスポットの検知など非ウォッチ
+  ポイントのデバッグができます。[Aaron Giles]
+
+- 暗号化されたCPUメモリの配置と管理方法を変更しました。以前は  
+  memory_set_opcode_base()を使って復号化した命令コードへの単一のポインタを設定し
+  ていましたが、この方法では多くの制限がありました。そこで、RAM全てとROM系の領
+  域をバンクに割り当て、メモリシステムがバンク毎に復号化した命令をトラッキング
+  するようにしました。暗黙のバンク（メモリマップ内のマーク付RAM、またはROM）につ
+  いては、新関数memory_set_decrypted_region()で、アドレス空間のどの領域に復号化
+  した命令コードが含まれるか、またどこの復号化命令コードが生きているかを設定しま
+  す。明示的なバンクでは、新関数memory_configure_bank_decrypted()が
+  memory_configure_bank()と同じ動作をしますが、復号命令コードポインタはバンクを
+  基準にして指定します。全ドライバを新システムに更新して、旧システムは削除しまし
+  た。[Aaron Giles]
+
+- 新しいメモリコードハンドリングにより、メモリシステム全体から"RAMROM"のサポー
+  トを削除できました。また、CPUが復号化する領域を単に制限するだけに全ドライバを
+  更新しました。[Aaron Giles]
+
+- activecpu_dasm()とcpunum_dasm()で、更新された逆アセンブラがあるのを検知して、
+  クラッシュする代わりに呼び出しを止めるように修正。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ストリートファイターEX 2 (ASIA 980312) [Corrado Tomaselli]
+バツグン (set 2) [Parodier]
+Glass (Ver 1.0 set 2) [Corrado Tomaselli]
+Golden Tee Royal Edition Tournament (v4.02) [Brian Troha]
+
+
+
+
+0.101u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mgcrystl093u3gre [Pierpaolo Prazzoli]
+lastmisn096u3gre, part 1 [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- Pentiumコアのタイムスタンプカウンタ修正。[Ville Linde]
+
+- Z80のウォームリセットに対してコールドリセットの動作を修正。[Frank Palazzolo]
+
+- メモリシステムの変更で動作しなくなったゲームを多く修正。まだ直す問題が残ってる
+  ので、引き続きレポートしてください。[Aaron Giles]
+
+- CPUインターフェースとデバッガにロジカルマッピング追加。MMUがあるCPUでは、論理
+  アドレスマスク、各アドレス空間のページサイズ、新変換関数などの新しいインター
+  フェースをサポートする必要があります。また、逆アセンブラのインターフェースも
+  新しいものにしていきます。これは、非常にシンプルに逆アセンブラを独立させられ、
+  命令コードのアクセスもMAMEの関数に依存しなくなるものです。i386コアを新インター
+  フェースにコンバートしてあります。[Aaron Giles]
+
+- 非DRC MIPS3エミュレータにMMUサポートを追加。Killer Instinct, Seattle, Vegas,
+  Hyper Neo-Geo 64ドライバを正しい物理メモリレイアウトに変更しました。またDRC 
+  MIPS3コアはMMUを追加するまで無効にします。[Aaron Giles]
+
+- S2650 CPUにステートセーブ追加。[Aaron Giles]
+
+- T11コアからグロスバンキングのハックを削除。Atari System 2ドライバで、このハッ
+  ク削除に対応。[Aaron Giles]
+
+- MESSよりメモリハンドラの変換ヘルパーをたくさん導入。memconv.hに配置。
+  [Aaron Giles]
+
+- i386逆アセンブラでIntelスタンダードの出力をするようにクリーンアップ。
+  [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+豪血寺一族 (Japan, bootleg) [David Haywood]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+アルペンサーファー [R. Belmont]
+Area 51: Site 4 [Ville Linde]
+サイキックフォース2012 [Ville Linde]
+
+
+
+
+
+0.101u1
+-------
+
+注意: このバージョンではメモリシステムで大幅な変更を行いました。そのため多くの
+ゲームが動作しなくなっていると思われます。見つけた場合は
+http://www.mametesters.orgに報告をしてください。
+
+
+MAMETestersの修正バグ
+---------------------
+galpanic0100u4yel [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- 53C810をSCSIフレームワークに統合。[Tomas Karlsson]
+
+-「Final Tetris」「グレートラグタイムショー」「B.C. Story」「Metal Saver」のサウ
+  ンドバランス調整。[sonikos]
+
+-「Q*バート」の"knocker connection"修正。[Kevin Jonas]
+
+- M37710, C352, NamcoNAサウンドの改善。[cync]
+
+- CPS1の周波数を実基板を測定した値に訂正。[Philip Bennett]
+
+- メモリシステムの大幅な変更。RAMエリアが与えられたCPUに対してmemory_region以外
+  に割り当てられないようにしました。RAMがメモリ領域からオフセットした処理をして
+  いるドライバは動作しません。[Aaron Giles]
+
+- ダイナミックなボリューム変更が正しくリストアされるように、ステートセーブ情報を
+  ストリームに追加。残念ながら、これにより既存のセーブステートとの互換性がなくな
+  りました。[Aaron Giles]
+
+- HC55516サウンドチップ及び、Williamsサウンドボードにステートセーブ追加。mcr3.c
+  とmcr68.cドライバにステートセーブ追加でGAME_SUPPORTS_SAVEフラグ付加。
+  [Aaron Giles]
+
+- timer_alloc_ptr系のタイマについて、ポインタ引数が割り当てタイムとして供給され、
+  変更出来ないように変更。これにより、これらのタイマでのステートセーブサポートが
+  簡単になります。[Aaron Giles]
+
+- m6809 CPUコアのステートセーブ登録がされてなかったのを修正。[Aaron Giles]
+
+- 匿名タイマが全部クリアされるまでステートロードを保留するように変更。これにより、
+  ロード直後のデータ破壊とタイマー作動の問題を修正。[Aaron Giles]
+
+- Williamsサウンドボードのクリーンアップと完全なマッピング。ステートセーブも追加。
+  [Aaron Giles]
+
+- オールドWilliamsドライバにステートセーブ追加。GAME_SUPPORTS_SAVEを付加。 
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Chewing Gum [f205v]
+
+
+
+新規クローンセット
+------------------
+パズループ (Korea) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ゲットバス [Ville Linde, Guru]
+スカッドレースプラス [Ville Linde, Guru]

@@ -1,0 +1,408 @@
+0.173
+-
+
+MAMETestersの修正バグ
+---------------------
+- 04965: [インターフェイス] 画面の無いゲームで-STRオプションを使用しても、"final.png"ファイルを出力しない。(Osso)
+- 04919: [画面反転/カクテルモード] (dynduke.c) All sets in dynduke.c: 画面反転すると背景が表示されない。(Osso)
+- 06181: [誤字] (vicdual.c) tranqgun: ゲーム名の綴りが違う。(M.A.S.H.)
+- 06170: [コンパイル] OpenMP: OpenMPを有効にするとコンパイルできない。(Jindřich Makovička)
+- 05897: [その他] (hornet.c) gradius4: サービスモードで"MASK ROM CHECK"に失敗する。(Ville Linde)
+- 06176: [クラッシュ/フリーズ] (ksys573.c) All sets in ksys573.c using CD: 起動出来ない。(crazyc)
+- 06019: [インターフェイス] -listxmlコマンドで間違ったデフォルトBIOSが出力される。(dankan1890)
+- 06174: [DIP/入力] (twincobr.c) fshark, skyshark, hishouza, tp84, tp84a, tp84b: DIPスイッチの情報。
+- 01792: [DIP/入力] (subsino2.c) bishjan: DIP設定のキーボードモードが正しく動作しない。チーやポンなどができない。(Luca Elia)
+- 06175: [その他] (apple2.c) apple2jp: Ctrl+TキーはInverseカナ？(R. Belmont)
+- 06182: [システムコア] (cgenie.c) All sets in cgenie.cpp: 起動時にクラッシュする。(Fabio Priuli)
+- 06163: [その他] (apple2e.c) apple2e: XPS Diagnostic IIeテストをパスしない。(R. Belmont)
+- 06074: [DIP/入力] (glasgow.c) glasgow: チェス駒をマウスで動かせない。(Robbbert)
+- 06173: [システムコア] All software saving SRAM: ソフトウェアリスト外からロードしたソフトでSRAMの保存に失敗する。(dankan1890)
+- 06172: [DIP/入力] (sms.c) パドル2個デバイスのデフォルト設定が衝突している。(AJR)
+- 06178: [クラッシュ/フリーズ] (toypop.c) liblrabl: アトラクトモード2回目でリセットがかかる。(Angelo Salese)
+
+
+ソースの変更点
+--------------
+- 新しいAndroidアイコンイメージ。[JacKc]
+
+- 内部レイアウトの圧縮。[David Haywood]
+
+- TMS5220/5110の統合第1弾。[Lord Nightmare]
+
+- Crystal Colours (Ver 1.02): デフォルトNVRAM追加。テクニカルノートをさらに追加。
+  [Roberto Fresca]
+
+-「Crystals Colours」の両セットに専用の入力系追加。テクニカルノートをさらに追加。
+  [Roberto Fresca]
+
+- コアクラスのC+11スタイルイテレート。[AJR]
+
+- レイアウトで「£」が動作するようにui.cppから文字列処理コードを拝借。[David Haywood]
+
+- sc4fd7tha.layをutf-8の£記号を使うように更新。[Krick]
+
+- コントローラ入力の全領域を認識。[AJR]
+
+- leapstertvを再吸い出し。[Team Europe]
+
+- カタロニア語の翻訳追加。[jmallach]
+
+- naomi.c:「ダービーオーナーズII」のプロテクトキーを追加。[MetalliC]
+
+- サブデバイスでのequired_device<palette_device>の出番を低減。[AJR]
+
+- UML: 整数と浮動小数点レジスタ間でRAWデータをやりとりするためFCOPYIとICOPYF命令を追
+  加。[Ville Linde]
+
+- mips3: 32/64ビットモードの浮動小数点レジスタエイリアス処理を修正。[Happy]
+
+- Magic10ドライバ: テクニカルノート追加。クロック定義。間違ったノートを修正。ドライバ
+  の整理。[Roberto Fresca]
+
+- screen: ROMの内部からsvgレンダリング。[O. Galibert]
+
+- ポルトガル語(ブラジル)の更新。[Ashura-X]
+
+- luaengine: プラグインオプションメニューを追加。[Carl]
+
+- メイジャーハヴォック: ガンマCPUアドレスのデコーディングとミラーリングを回路図を元に
+  更新。[Lord Nightmare]
+
+- FB01: ROMラベルを実際のチップに合わせて修正。[anonymous]
+
+- マジカルクリスタル: ROMラベリングのラベルを日本版基板写真を元に改善。また日本版はリ
+  ビジョン2であることを記載。リビジョン0があるが未吸い出し。[Lord Nightmare]
+
+- TMS5220: チップをリセットしないよう、両方ピンを完全に同時に変更する必要があるシステ
+  ムのためにrs/ws書き込みを合体した関数を追加。[Lord Nightmare]
+
+- ソフトウェア変更時のソフトインストールスロット・イメージオプションを巻き戻し。[AJR]
+  emuopts.hからmconfig.hにかけてのemu.hのステルスインクルードを削除;
+  他のヘッダやソースファイルでのemuopts.hへの依存度を低減。MCFG_CPU_FORCE_NO_DRCをグ
+  ローバルからCPU設定パラメータに変更; -drcオプションの設定を上書きするためにまだ動作
+  可能
+
+- bbusters / mechattの表示されなかったグラフィックを修正。[dink]
+
+- 整数倍ターゲットのオーバースキャンをオプションに変更(-intoverscanオプション追加)。
+  [Calamity]
+
+- luaengine: ダイレクトアクセサとリージョンアクセサ。[Carl]
+
+- 日本のゲーム「スポーツパッドサッカー」のバグ:
+  プレイヤー2の入力がプレイヤー1のものになっている。
+  また、スポーツパッドコントローラデバイスのコードを再構成し、
+  PORT_CUSTOM/PORT_CHANGEDコールバックをPORT_READ_LINE/PORT_WRITE_LINEに置き換え。
+  [Enik]
+
+- cheat luaプラグインのテスト版追加。[Carl]
+
+- hp9845bのテープドライバを改良。[F. Ulivi]
+
+- info.cpp: -listxml出力における入力デバイスのドキュメント改良。ホームシステムでは
+  キーボードやキーパッド、ジョイパッドなどが自由に構成できるため、汎用的なボタン数は
+  あまり意味を持たない。そこで、さまざまなコントローラをそれぞれのボタン数と共に分け
+  てリスト出力するように変更した。
+  フロントエンドの制作者においては、入力ノードボタン数をフィルタ条件などに使っている
+  場合、新しく利用可能なコントローラ全てをスキャンし、buttons属性の最大数を利用すると
+  これまでと同様の結果となる。[Fabio Priuli]
+
+- info.cpp: -lxでPORT_16WAY入力のサポート。これまでは8方向として出力されていた。
+  [Fabio Priuli]
+
+- Devfindリビジョン第1弾、古いものを片付ける [AJR]
+ * キャッシュされたdevice_t::m_regionポインタと、それのregion()ゲッタメソッドを削除。
+   同じタグでリージョンにバインドする必要があるデバイスはサブタグとしてDEVICE_SELFを
+   使いoptional/required_memory_region、またはoptional/required_region_ptrを使用する;
+   これによりエラーチェックが改良される(DEVICE_SELFはソース内の可視性を上げるため、
+   device.hに移動)
+ * required/optional_region_ptrで、見つかったリージョンに一致する必要のある特定の長さ
+   を指定できるように改良
+ * finder_base::finder_tag()ゲッタを診断用に実装
+ * メモリ領域ファインダで、自動的にパスするのではなくバリディティチェックを実施
+ * device_memory_interface::m_addrspaceをプライベート化
+
+- Magic 10ドライバr: 転句に軽ノートとPLD吸い出し追加。[f205v]
+
+- nl.luaにm62(kidniki)を追加。並列一次方程式の解決のテスト開始。このコードは無効にし
+  てある。kidnikiのオーディオパフォーマンス修正。[Couriersud]
+
+- plugins/timer: ゲームタイマ用のサンプルプラグイン追加。[Carl]
+
+- info.cpp: -lxでデバイスが保持する入力が常にプレイヤー1となる長年の問題を修正するた
+  めの第一歩。[Fabio Priuli]
+
+- plugins/cheatfind: luaチートファインダライブラリ開始。[Carl]
+
+- apple2: PCトランスポーターの追加作業。[Peter Ferrie, R. Belmont]
+
+- libuvベースの基本的なTCPサーバ。[Inaki Baz Castillo,Miodrag Milanovic]
+
+- intv: コントローラ入力をスロットデバイスに変更。[Fabio Priuli]
+
+- intvecs: ハンドコントローラ、キーボード、シンセをデバイスにコンバート。これらのキー
+  ボードで必要となる、同じデバイスを2つの別なスロットに接続できない問題については一時
+  的なハックで対応。[Fabio Priuli]
+
+- ユニバーサルなwindows main appクラスのスケルトン実装。[Brad Hughes]
+
+- 中国語(繁体/簡体)の翻訳。[YuiFAN]
+
+- diimage.cpp: 固定(ユーザ設定不可な)ソフトウェアでイメージデバイスを設定可能。またこ
+  のような可能性を考慮してオプションとメニューを更新。[Fabio Priuli]
+
+- macs.cpp: 固定のソフト設定による汎用カセットスロットを使うように変更。結果としてド
+  ライバ内のロードとバンキングシステムのクリーンアップ。[Fabio Priuli]
+
+- 1ストップビットが動作するように、追加ビットをバイト間のディレイとして追加。
+  [Joakim Larsson]
+
+- apple2: PC Transporterがさらに動作。V30が起動。[Peter Ferrie, R. Belmont]
+
+- mips3: インタプリタとDRCモードの両方でDMULTとDMULTUを修正。[marathonman]
+
+- ng_aes.cpp: AESコントローラがスロットデバイス経由で動作するように変更。また、ベース
+  ユニットによってCDコンポーネントをより明確に分離。[Fabio Priuli]
+
+- am9517: PC Transporter ASICのスタンダードじゃないマスク動作をするクローンを追加。
+  [Carl, R. Belmont]
+
+- apple2: PCトランスポーターで、別なDMACエミュレーションとV30の固定クロックを使うよう
+  に更新。[Peter Ferrie, R. Belmont]
+
+- apple2: PCトランスポーターr: V30を起動時に正しく停止、8ビットISAのXT、6502 CGAフレ
+  ームバッファ書き込み改良。[R. Belmont]
+
+- screen: アルファ処理修正でcdkongが直った模様。[O. Galibert]
+
+- bgfx: データ駆動のレンダターゲットクリア追加。[Ryan Holtz]
+
+- 速度の大幅な改善: 
+ * 圧縮rowフォーマットを使った新型ソルバー追加
+ * ソートの修正
+  この結果、kidnikiのnetlistのパフォーマンスはほぼ2倍に改善。パフォーマンスの改善は主
+  に、kidnikiマトリックスのガウス消去に必要な命令数を7800以上から707までに減らしたこ
+  とによる。さらに、圧縮rowフォーマットによりL1の使用量も改善。[Couriersud]
+
+- 型安全でない昔の機能であるdevice_t::static_configを削除。[AJR]
+
+ * MCFG_DEVICE_CONFIGとそのエイリアス2つのインスタンスを書き直し、または削除。コメン
+   トやデッドコード内を含む
+
+ * Z80/Z180のデイジーチェーンを既存インタフェースとインタフェースできるようインタ
+   フェース化。Z8000もこれに実装(p8000_16はこれを設定)。ただし今のところ動作はしてい
+   ない
+
+- mips3: BADCOP例外がfaultingオペオードを2回実行してしまうインタプリタのバグを修正。
+  [Ryan Holtz]
+
+- string.poを更新。[aviloria]
+
+- ドイツ語のGUI翻訳を更新。[rootfather]
+
+- ImGuiベースのデバッガを追加。[Barry Rodewald]
+
+- apple2e: C800内部ROM読み込みを修正。[R. Belmont]
+
+- 新しいPlaychoice-10のBIOS(シングル画面、フリープレイの修正、新型?)。[Firehawke]
+
+- apple2: テキスト描画の反転を修正。[R. Belmont]
+
+- HQ2x、HQ3x、HQ4xシェーダを追加。[MooglyGuy,Jules Blok,Cameron Zemek,Maxim Stepin]
+
+- ソフトはハードであり、ハードはソフトである。2つは1つで、1つは2つ。OpenGLが無効の場
+  合に"-video accel"のパフォーマンスがいまいちなのも無理はない。[Couriersud]
+
+- これらのinitコールは全てfalseを返す。このケースでは値を返す必要はない。[Couriersud]
+
+- デバイスをC++11スタイルで反復処理: [AJR]
+
+  古いdevice_iteratorを機能的にこれと同じクラスを持つ専用版に置き換え。ループ用の
+  range-basedによりこれらを名前付きの変数に保存する必要はなくなったが、サブクラスで
+  ループステートを管理するようになったので同時に再利用もできる。
+  device_t::subdevice_listにゲッタをいくつか追加
+
+- bgfx: SuperEagleシェーダを追加。[Ryan Holtz]
+
+- ディストーションパスのリファクタリング: [ImJezze]
+ * 画面の曲面パラメータをdistortion、cubic_distortion、distort_cornerに分割
+ * distortionとcubic_distortionは相殺できるようにマイナス値を設定可能
+ * distort_cornerはイメージの曲面から独立して設定される
+
+- neogeo: 入力系をスロットデバイスインタフェースを経由するように改造。これにより
+  -crtl1と-ctrl2オプションを使いneogeoマルチカセットドライバの15ピンポートを設定可能。
+  で、もし「雀神伝説」を麻雀コンパネで起動したい場合は、-edge "" -ctrl1 mahjong と
+  指定し、それに応じてDIPスイッチを設定する(最初のオプションはエッジコネクタの入力を
+  無効にする)。
+  シングルゲームドライバ(mslugやkof94とか)を起動する場合は固有のコントローラが使われ
+  るので変更はできない。janshinのドライバは既に専用の設定済。[Fabio Priuli]
+
+- OSDウィンドウのリファクタリング: [Brad Hughes]
+  * osd_windowのレンダラをstd::unique_ptrとして統合
+  * ウィンドウを全てstd::shared_ptr<window_type>化
+  * ウィンドウリストをstd::list<std::shared_ptr<window_type>>化
+  * OSD SDL worker_paramがmallocを使わないように更新(スマートポインタと互換性がない)
+  * ウィンドウへのレンダラポインタを弱い参照に変更。ウィンドウのデストラクト中には利
+    用できない可能性あり
+
+- Alta Tensione: テクニカルノート、ゲームステータス追加。ブートプロテクトにパッチ。
+  [Roberto Fresca]
+
+- UIとフロントエンド部をコアから分離。[Miodrag Milanovic]
+
+- プリコンパイルされたソルバーコードの動的読み込みを実装。[Couriersud]
+
+- saturn.cpp: コントローラをスロットデバイス経由で動作するよう変更。関連するコードの
+  クリーンアップ。[Fabio Priuli]
+
+- saturn.cpp: SegaTapアダプタ(4コントローラ)、Sega Multitapアダプタ(6コントローラ)を
+  サポート。Saturn Bombermanのマルチプレイが可能。[Fabio Priuli]
+
+- softlist.cpp: "rom_ignore"をサポート。[Fabio Priuli]
+
+- itgambl2.cppドライバ: テクニカルノートの追加とクリーンアップ。[Roberto Fresca]
+
+- apple2: Apple II J-Plusテキスト描画修正。ノートの更新。[R. Belmont]
+
+- r9751: フロッピーデバッグの追加とDMAマスキングの修正。[Brandon Munger]
+
+- ioport.cpp: プレイヤーを最大10人までサポートするようにコア入力を拡張。
+  [Fabio Priuli]
+
+- Dreamcast BIOS MPR-21933を吸い出し。MPR-21931と一致することを確認。[CoolMod]
+
+- sf.c: COIN3は無い。sfjのプロテクトMCUはi8751。[Yu]
+
+- cgenie.cpp: Geniousエミュレータが出力した.casもロードできるよう拡張。
+  [Fabio Priuli]
+
+- チェーン入力サンプラに"selection"パラメータ追加 [ImJezze]
+ * 指定したテクスチャの同一ディレクトリ内の全部のテクスチャ(.png)が指定されていれば、
+   UIのスライダで選択可能
+ * HLSLチェーンに"シャドウマスクタイルモード"のスライダ追加
+
+- bgfx: Ported xBR shaders from libretro. [Ryan Holtz, Hyllian]
+
+- アーカイブ処理の改良 [Vas Crabb]
+ * 7zipファイルのI/Oコードにおけるエラー処理を改善
+ * LP32/LLP64ターゲットでの4GB以上の7zip読み込みを修正
+ * LZMA SDKを15.14に更新。新しい7zip機能をサポート
+ * LZMA SDKのローカルハックへの依存を解消
+ * ディレクトリ圧縮以外のZIP64の機能をサポート
+ * ZIPアーカイブのLZMA圧縮ファイルをサポート
+ * Info-ZIP UTF-8ファイル名フィールドをサポート
+ * アーカイブをブラウズ中の実在しないファイルやディレクトリを修正
+ * アーカイブ処理エラーを報告
+
+- セキュリティとバグ修正のため、expat 2.1.1に更新。[Vas Crabb]
+
+- xbox\chihiro: USBが部分的に使用可能 [Samuele Zannoli]
+ * control、bulk、interrupt transfersが動作
+ * ChihiroベースボードでのUSBデバイスをHLEシミュレーション開始
+ * XBOXゲームコントローラの実装開始
+ * Chihiro BIOSでシステム設定を表示可能
+
+- hp9845: オプションROMの読み込み機能追加。[F. Ulivi]
+
+- ti99: コードの変更: [Michael Zapf]
+ * クロック入力ライン付きのGROMとタイミング動作の改良
+ * 指定時にTMS9928AがGROMCLKを出力
+ * TI-99/8メインボード: 低レベルエミュレーションのためにカスタムチップを実装
+   (vaquerro, mofetta, amigo)
+ * TMS9995のHOLD機能を修正
+ * v9938をコンソールからEVPCに移動。videowrpをドロップ
+ * page37xカートリッジの問題を修正
+ * Horizon Ramdiskの問題を修正
+
+- n64: SI DMAをディレイ前でなく後に転送。[Happy]
+
+- tourvis.cpp: ソフトウェアリストを使用するように変更。全てのROMを正しいサイズにトリ
+  ム。大半がPCEのROMと完全に一致することを確認。異なるのは3本で、「ゴモラスピード」は
+  別バージョンの可能性、「R-タイプ パートII」はハック版、「ビーボール」は1バイト異な
+  るが理由は不明。[David Haywood]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+New 2001 (Italy, Ver. 2.00N) [f205v]
+Ultraman Monster Battle [hap, Kevin Horton, Rik]
+Crystals Colours (Ver 1.02) [Roberto Fresca, f205v]
+Android (newer build?) [Chris Hardy]
+Fidelity Sensory Chess Challenger 9 [hap, Berger]
+Dragon's Heaven (development board) [Brian Hargrove]
+Tiny Toon Adventures (prototype) (PlayChoice-10) [Tony Swann]
+Tiger Copy Cat (2 versions) [hap, Sean Riddle]
+Sushi Bar [colour thief, Ryan Holtz, Smitdogg, JordanRom, Mucci, F. Marsaud,
+  King Hanco, Sonic, B. Munger, R. Gatto, Bigster, Dullaron, Brizzo, Shoutime,
+  MetalliC, The Dumping Union]
+Touch & Go (Korea, unprotected) [system11]
+ポコニャン (Japan 940322) [sylphia]
+Last Hope (bootleg AES to MVS conversion, no coin support)
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+オペレーションウルフ (Japan, prototype) [caius]
+MJ-12 ＜マジェスティックトウェルブ＞ (US)
+  [Artemio Urbina, The Dumping Union]
+Kamikaze (Potomac Games) [Blair Quinney]
+メジャータイトル2 (World, set 2) [Porchy]
+アトミックロボキッド (set 2) [Alex Cmaylo]
+ビーストバスターズ (Japan, Version 2) [ShouTime]
+ミスティックウォリアーズ -怒りの忍者- (ver AAB) [Bill D / The Dumping Union]
+雷電DX (Japan, set 2) [Alex Cmaylo]
+VS. エキサイトバイク (set EB4-3 E) [Matt Osborn]
+Spelling B (1979 version) [hap, Sean Riddle]
+ドラゴンセイバー (World, DO2) [Layer from jammaplus]
+1945k III (older, OPCX1 PCB) [system11]
+Bestri (Korea, set 2) [system11]
+怒首領蜂 大往生 (2002.10.07 Black Ver., bootleg Knights of Valour Super Heroes conversion)
+ケツイ -絆地獄たち- (2003/01/01. Master Ver., bootleg cartridge conversion)
+エスプガルーダ (2003/10/15 Master Ver, bootleg cartridge conversion)
+Champion Number (V0.67) [Roberto Fresca, f205v]
+Unitron 1024 [Felipe Sanches]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Konami Gradius (ハンドヘルド)[hap, Sean Riddle]
+Luna Park (ver. 1.2) [Roberto Fresca, f205v]
+Jungle (VI3.02) [f205v]
+Konami Lone Ranger (ハンドヘルド)[hap, Sean Riddle]
+Sonik Fighter (encrypted) [Roberto Fresca, Ioannis Bampoulas]
+Fidelity Phantom [hap, Lord Nightmare]
+Alta Tensione (ver. 2.01a) [Roberto Fresca, f205v]
+Euro Double Star Record (ver.1.2) [Roberto Fresca, f205v]
+Nu, pogodi! [hap, Igor]
+プリント倶楽部2 2000サマー [Bill D, The Dumping Union]
+プリント倶楽部2 神戸ルミナリエ'99 (Print Club Custom 3) (J 991203 V1.000) [Ryan Holtz, Bill D, The Dumping Union]
+プリント倶楽部2 Vol.6 ウィンター (J 970121 V1.200) [Ryan Holtz, Bill D, The Dumping Union]
+プリント倶楽部2 Vol.8 サマー (J 970616 V1.100) [Ryan Holtz, Bill D, The Dumping Union]
+プリント倶楽部2 Vol.9 オータム (J V1.100) [Ryan Holtz, Bill D, The Dumping Union]
+プリント倶楽部 くまのプーさん Vol.2 (J 971218 V1.000) [Ryan Holtz, Bill D, The Dumping Union]
+プリント倶楽部 くまのプーさん Vol.3 (J 980406 V1.000) [Ryan Holtz, Bill D, The Dumping Union]
+Various Aristocrat MK5 and MK6 sets
+Polaroid Instant Memories [Alex Cmaylo]
+
+
+新規追加された未動作クローン
+----------------------------
+ワンダーボーイ (system 2, set 2, 315-5176) [Silvio Grazini]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+coco_flop: Donkey Kong Remix [Sock Master]
+megadriv.xml: F1 - World Championship Edition (US, Prototype) [oliverthepig]
+neogeo.xml: ラストホープ
+lynx.xml: Zaku
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+pce_tourvision.xml: ドラゴンセイバー [system11]
+pce_tourvision.xml: ブルファイト リングの覇者 [system11]
+pce_tourvision.xml: パラソルスター

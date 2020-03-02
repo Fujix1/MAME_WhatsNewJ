@@ -1,0 +1,161 @@
+0.145u8
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04774: [クラッシュ/フリーズ] (naomi.c) Most sets in naomi.c: 起動直後にクラッシュ。
+         (R. Belmont)
+- 04794: [グラフィック] (bombjack.c) bombjack & clone: スプライトが表示されない。
+         (Phil Bennett)
+- 04786: [実機資料] (cps2.c) vhunt2d: セルフテストで、Program Rom 04のエラーが起こる。
+- 04788: [実機資料] (cps2.c) vsav2d: 一部のROMがセルフテストを通らない。
+- 04787: [サウンド] (epos.c) dealer: 音が出ない。
+- 04785: [コンパイル] デフォルトのtinyビルドが出来ない。(micko)
+- 04771: [速度] (hyprduel.c) magerror: 起動後の警告画面から速度が大幅に落ちる。
+         (Phil Bennett)
+- 04777: [クラッシュ/フリーズ] (scramble.c) 800fath, ad2083, knockout, mariner, 
+         triplep: 起動直後にクラッシュ。(Tafoid)
+- 04778: [クラッシュ/フリーズ] (subsino2.c) bishjan, mtrain, wtrnymph: 起動直後にク
+         ラッシュ。(Tafoid)
+- 04779: [クラッシュ/フリーズ] (scobra.c) billiard, hustler, hustlerb2, hustlerd: 
+         起動直後にクラッシュする。(Tafoid)
+- 04772: [クラッシュ/フリーズ] (midtunit.c) jdreddp: 起動直後にクラッシュ。
+         (Phil Bennett)
+- 04768: [グラフィック] (nova2001.c) ninjakun: 背景やキャラクタのグラフィック不具合多
+         数。(Phil Bennett)
+- 04766: [グラフィック] (mario.c) mario and clones: タイルマップ、スプライトなどが表
+         示されない。(Phil Bennett)
+- 01232: [サウンド] (aliens.c) aliens: 実機と比べるとMAMEのBGMはテンポが遅い。
+         クロックなどは全て正しいのを確認したので、そのほかの原因だろう。(Mamesick)
+- 04784: [ドキュメント] (mpu5.c) m5doshpk: 正しいゲーム名は
+         'Do$h 'n' Pecks (Barcrest) (MPU5)'。
+- 04783: [ドキュメント] (bfm_sc4.c) sc4jjunc and clones: 正しい製造年は2002年。
+- 04782: [ドキュメント] (bfm_sc4.c) sc4slc and clones: 正しい製造年は2003年。
+- 04781: [ドキュメント] (bfm_sc5.c) sc5potp and clone: 正しい製造年は2005年。
+- 04775: [クラッシュ/フリーズ] (pgm.c) ddpdoj, ddpdoja, ddpdojb, espgal, ket, keta, 
+         ketb: 起動直後にクラッシュ。(mahlemiut)
+- 00413: [サウンド] (crimfght.c) crimfght: BGMの速度が少し遅い。(Mamesick)
+- 04769: [クラッシュ/フリーズ] (flower.c) All sets in flower.c: 黒画面のみ。(hap)
+- 04745: [インターフェイス] ゲーム選択UIでカーソルキーを使うと固まる。(couriersud)
+
+
+ソースの変更点
+--------------
+- スクロールするリール表示のサポート開始。現在はテキストのみですが、グラフィックの追
+  加や回転方向の逆転も簡単です。sc4のコードでこれらの新しい型を使用。[David Haywood]
+
+-「Stepper」ディスプレイ出力の修正。[James Wallace]
+
+- Amatic Multi Game Systemドライバの改善: [Roberto Fresca]
+ * スロットゲームは「Super Stars」と判明
+ * am_uslotをsuprstarに改名
+ * 入力系を全て作り直し
+ * 出力のサポート: ランプとカウンタ
+ * ボタンランプのレイアウト追加
+ * ゲームを動作可能ステータスに変更
+ * テクニカルノート追加
+
+- Amatic AMA-8000の改良: [Roberto Fresca]
+ * AMA8000-2システム動作するのでamaticmg3をamaticmg2に改名
+ * ホッパーモーター信号を発見。ホッパーの払い出しパルスをQキーに割り当て。これにより
+   マニュアルでの払い出しが可能でホッパーエンプティやタイムアウトでのハングを回避
+
+- Williamsゲームのビデオカウンターレポートを修正(リセットするまでは最大値をキープ)。
+  [Sean Riddle]
+
+- drwhoの外部アートファイルを新しいリールストラクチャに追加できるように改良。
+  [David Haywood]
+
+-「Scorpion 4/5」に110本ロムセット追加。[Brian Griffin]
+
+- Hikaru: 技術的な新発見いくつか。[Stefano Teso]
+
+- ギャップ情報が無い古いスタイルのCDの残りについて全てBAD_DUMPに設定。これらは動作は
+  しますが、完全に正確する(さらに、Bemani系ゲームのオーディオトラックのタイミングを合
+  わせる)には再リッピングする必要があります  [R. Belmont, Firewave]
+
+-「ゼロチーム」のゲーム中にクラッシュが起きていたのを修正。[Angelo Salese]
+
+- device_rtc_interfaceにクロックカウンタのチェーン処理とその他の共通関数を追加。RTCの
+  実装で重複していたコードを削除。MESSのIDE64で必要な機能をDallas DS1302に追加する形
+  で書き直し。[Curt Coder]
+
+- Clang氏が指摘していたneogeoドライバでのISO Cシンタックスを修正。
+  [Balrog, R. Belmont]
+
+- PowerPC OS Xでのコンパイルを修正。[R. Belmont]
+
+- i386: bt?命令の修正。[Carl]
+
+- zaxxon.c:「Congo Bongo」のROMラベルとUの配置修正。正しいPBROMを使った3枚基板バー
+  ジョンを追加。2枚基板版と3枚基板版についてのドキュメント追加。
+  [Kevin Eshbach, The Dumping Union]
+
+- 大量のスロットゲームで新型のリール機能を利用するようにレイアウトの更新。
+  [James Wallace]
+
+- Nichibutsu Mahjongドライバのサウンドクリーンアップとボリュームバランス修正。
+  [Takahiro Nogi]
+
+- niyanpai.c: グラフィックの描画速度を修正。[Takahiro Nogi]
+
+- cps2.c: vhunt2dとvsav2dのROMロードを修正。[Pythagoras]
+
+- gei.c:「Trivia」(Questions Series 12)の正しい問題ROMが判明。[Brian Troha]
+
+-「Chance 32」で使用するpaletteram_xGGGGGRRRRRBBBBB_byte_le_w()関数を実装。
+  [Angelo Salese]
+
+-「ロックオン」のスプライト不足やHUD不具合を修正。[Phil Bennett]
+
+- 6551acia.c: m_status_registerが正しく初期化されなかったのを修正。[Robbbert]
+
+-「スターフォース」のROMラベル、配置をbonky0013氏提供の基板写真を元に更新。[Tafoid]
+
+- i386: Big pmode update. [Carl]
+
+- Rev"H"のUSA版NaomiBIOS追加。[Brian Troha, The Dumping Union]
+
+- naomi:「あずまんが大王パズルボブル」GD-ROMを再吸い出し。[Team Japump!]
+
+-「Battle Emporer」の基本プロテクトシミュレーション追加で、最後までゲームプレイ可能。
+  [David Haywood]
+
+- avhuffの解凍時に出てたエラー修正。コンバートしたcubeqastのCHDがチェックをパス可能。
+  [Aaron Giles]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Super Stars [Roberto Fresca, Angelo Salese, Andreas Naive]
+ファンキューブ5 [Luca Elia, Yohji, Tormod, The Dumping Union]
+ダンジョンエクスプローラー (Tourvision PCE 海賊版) [Charles MacDonald, AUMAP,
+   ClawGrip]
+スーパーバレーボール (Tourvision PCE 海賊版) [Charles MacDonald, AUMAP, ClawGrip]
+Jue Zhan Tian Huang/Battle Emporer 
+  [Yohji, Mr. CAST, B. Stahl, Smitdogg, The Dumping Union, David Haywood]
+
+
+新しく追加されたクローンセット
+------------------------------
+Top Racer (Driving Force海賊版) [Team Europe]
+ガルフストーム (set 2) [Bonkey0013]
+Erotictac/Tactic (ver 01) [Bonky0013]
+スペースファイアーバード (rev. 02-a) [Andy Welburn]
+Congo Bongo (3 board stack) [Kevin Eshbach, The Dumping Union]
+ま〜じゃん 吉本劇場 [BET] [Takahiro Nogi]
+続 麻雀放送局 [Takahiro Nogi]
+ムークレスタ (Nichibutsu UK, unencrypted) [Andy Welburn]
+Red Fox War Planes II (China) [B. St?\195?\165hl, Smitdogg, The Dumping Union]
+Sharpshooter (Rev 1.9) [Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Multi Game III (V.Ger 3.64) [Roberto Fresca, Andreas Naive, Team Europe]
+Chance Thirty Two [Team Europe, Marcus Jendroska,Y~K, The Dumping Union, Smitdogg]
+びっくりカード [Yohji, Mr. CAST, Tormod, CptGuapo, Smitdogg, The Dumping Union]
+麻雀花札 コスプレ天国5 [Yohji, Mr. CAST, Smitdogg, The Dumping Union]
+Battle Emporer [Yohji, Mr. CAST, B. Stahl, Smitdogg, The Dumping Union]
+Golden Arrow (Standard G8-03) [hap, dox, DHS]

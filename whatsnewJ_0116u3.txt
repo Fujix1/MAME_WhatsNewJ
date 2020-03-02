@@ -1,0 +1,102 @@
+0.116u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+
+
+ソースの変更点
+--------------
+- CPS3の復号化を簡略化。[Nicola Salmoria]
+
+- PNGコードでダブルフリーが起こる可能性があったのを修正。[Nathan Woods]
+
+- 新しいgccコンパイラで警告が出るのを修正。[R. Belmont]
+
+- 全般的なドライバのクリーンアップ: [Zsolt Vasvari]
+ - グローバルな"Machine"をさらにローカル"machine"に変更
+ - 関数名"draw_sprites"の統一
+ - 古くなった形式的なコメントを削除
+
+- FMエミュレータで、doubleに替えてmame_timeを使うように更新。neogeo用のFMコード
+  にあったハックは、もう必要ないと思われるので削除。[Zsolt Vasvari]
+
+- 全てのサウンドコアで、doubleに替えてmame_timeを使うように更新。[Zsolt Vasvari]
+
+- gussun用にIrem CPUの命令を更に追加。[robiza]
+
+- CPS3のコードがビッグエンディアンのシステムでも動くように修正。[R. Belmont]
+
+- code_to_token()でバッファオーバーフローが起こる可能性があったのを修正。
+  [Atari Ace]
+
+- 動作してないdynablsbとdriveyesのドライバがクラッシュするのを修正。[Atari Ace]
+
+- 全てのCPUコアと、まだtimer_alloc()を使っていた残りのコアファイルで内部タイマーを
+  mame_timer*関数に変更。これにより、emuディレクトリ以下のファイルで、旧式のタイ
+  ミングコードを使っているものは無くなりました。[Zsolt Vasvari]
+
+- Haze氏がブログで書いたCPS3のいろいろな更新。[David Haywood]
+
+- n64ビデオコードのBLENDER2_32関数のタイプ修正。[Christophe Jaillet]
+
+- カラーPROMや、PCBのコンポーネント値からパレットを導くため、新しいレジスタネッ
+  トワークインターフェイスを作成。これまでの実装に見られた問題を修正。
+  [couriersud]
+
+-「ドンキーコング」ドライバの更新: [couriersud]
+ - 回路図を元に、スプライトRAMバンク切り替え追加
+ - メモリマップの結合
+ - m58815デコードの最初の試み
+ -「レーダースコープ」trs01ハードウェア用にradarsc1ドライバ追加
+ - 全ドライバでVIDEO_RAWを使うよう変更
+ - カクテルモードの問題修正
+ - IOとサウンドメモリマップを統合
+ - dkongドライバ全てで、背景の処理を実装（PROM /CSラインを無効にする）
+
+- flt_rcフィルタでハイパスフィルタをサポートするように拡張。また、ローパスフィル
+  タがきちんとローパスフィルタとして動作するように修正。「キング＆バルーン」にこ
+  のフィルタを実装。他のドライバでも新インターフェイスを使うように更新。
+  [couriersud]
+
+- メインのmakefileでプロファイリングをサポート。PROFILE=1で有効になります。
+  [Christophe Jaillet]
+
+- djboyドライバをほぼプレイ可能な状態まで更新。[Phil Stroffolino]
+
+- 入力処理コードを一時的に0.116まで巻き戻し。これ以上の解析と、予定していた入力
+  処理についてのOSDレイヤー簡素化を目的にしたコア変更は保留。[Aaron Giles]
+
+- Windows OSDコードで、多くのstderrのfprintfをそれぞれに適するように、
+  mame_printf_warningとmame_printf_errorに変更。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+大大革命 (Japan) [Hau, Team Japump!]
+CPS3ゲーム: [David Haywood, Andreas Naive, ElSemi]
+  ストリートファイターIII - ニュージェネレーション
+  ストリートファイターIII 2ndインパクト - ジャイアントアタック
+  ストリートファイターIII 3rdストライク - ファイトフォーザフューチャー
+  ジョジョの奇妙な冒険 / JoJo's Venture
+  ジョジョの奇妙な冒険 - 未来への遺産 / JoJo's Bizarre Adventure: Heritage for the Future
+  レッドアース / Warzard
+
+
+
+新規クローンセット
+------------------
+The Tin Star (set 2) [David Haywood]
+Car 2 (bootleg of Head On 2) [David Haywood]
+レーダースコープ (TRS01) [couriersud]
+Crouching Tiger Hidden Dragon 2003 Super Plus alternate [JohnBoy]
+ポップフレーマー (ノーティーボーイ基板の海賊版) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Missile Combat (Videotron bootleg) [David Haywood]
+Aladdin (メガドライブ用国内版の海賊版) [David Haywood]

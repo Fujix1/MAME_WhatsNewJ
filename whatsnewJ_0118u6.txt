@@ -1,0 +1,99 @@
+0.118u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+cave0118u5red [Aaron Giles]
+radikalb0118u5red [Aaron Giles]
+chdrewrite0118u5red [smf]
+pacland0118u5yel [Aaron Giles]
+sspaceat0118u1red [Aaron Giles]
+yamato0118u5red [Aaron Giles]
+ym2203_0118u1yel [Aaron Giles]
+profiler0116u2yel (maybe) [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- TMS5220コアで、パラメータ補完に分割ではなくシフトを使うよう更新。また、内部DACを
+  使うときは内部で8ビット出力をサポート。[Lord Nightmare]
+
+- CHDゲームで、CHDが無いときにクラッシュルしていたのを修正。また、CHDへの書き込
+  みが必要になっていたのも修正。[smf]
+
+- CHDの検索パスを、親のサブディレクトリを見るように再修正。[Aaron Giles]
+
+-「ギターフリークス 3rd MIX (GE949 VER.JAB)」のセキュリティカセットの内容を修正。
+  [smf]
+
+- 関数的な視点から、core_vfprintf()を取り出し、mame_vfprintf()を実装。[
+  Nathan Woods]
+
+- Wheels + Fireドライバの改良。まだ不完全。[David Haywood]
+
+- scsicdとscsihdにSCSIOP_GET_INQUIRY_BUFFERを追加。[smf]
+
+- MB86233コアの変更: [ElSemi]
+ * double move命令を修正
+ * これまで不明だったdouble move命令を追加
+
+- MAMEのオプション処理方法を内部的に変更。mame_options_init()がcore_optionsオブ
+  ジェクトを返すように変更して、mame_execute()に渡すようにしました。
+  mame_options()をmame.cに移動して、エミュレーション動作中だけ有効にしました。
+  ROMチェックはcore_optionsパラメータを取るようになってます。[Nathan Woods]
+
+- HD6309を更に修正: [Tim Lindner]
+ * SEXW命令がオーバーフローフラグをクリアしないよう修正
+ * TFMに無効なレジスタが指定された場合、不正命令トラップの世代付け
+
+- WindowsのメッセージフィルタリングをMAMEのゲームウィンドウのみに適用するよう変
+  更。[Nathan Woods]
+
+- srmp6ドライバのグラフィック改良とクリーンアップ。
+  [David Haywood, Tomasz Slanina]
+
+- 新しいx86emit.hコードエミッタのクリーンアップ。メモリ参照法の変更と、マクロを
+  インライン関数に置き換え。[Aaron Giles]
+
+- MIPSとPowerPC DRCコアで新エミッタを使うように更新。x86drc.hにあった古いマクロ
+  ベースのものは削除。[Aaron Giles]
+
+- paclandにセーブステート追加。[Aaron Giles]
+
+- -autoframeskipが-speed設定を考慮するよう変更。[Aaron Giles]
+
+- install_mem_handler()のスタックバッファオーバーランを修正。gcc 4.2.1で
+  Hyperstoneベースのゲームが壊れていたのを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Yukon [Al Kossow, Aaron Giles]
+Mega Man - The Power Battle / ロックマン [Nicola Salmoria, David Haywood]
+
+
+
+新規クローンセット
+------------------
+Hard Times (set 2) [David Haywood]
+Scorpion (set 3) [David Haywood]
+サタンオブサターン (set 2) [David Haywood]
+Street Fighter Alpha 3 (Euro 980904) / ストリートファイターZero3 [David Haywood]
+Dimahoo (Euro 000121) / グレート魔法大作戦 [David Haywood]
+クラッシュローラー (海賊版) [David Haywood]
+クラッシュローラー (Sidam 海賊版) [David Haywood]
+Moon War (ムーンクレスタ海賊版) [David Haywood]
+ポートマン (ムーンクレスタ基板海賊版) [David Haywood]
+ターピン (スクランブル基板海賊版) [David Haywood]
+オペレーションウルフ (World, set 2) [David Haywood]
+スターフォース (encrypted, 海賊版) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Astropal [David Haywood]
+Come On Baby [MooglyGuy]

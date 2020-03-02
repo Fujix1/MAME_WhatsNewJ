@@ -1,0 +1,263 @@
+0.86
+----
+
+今回のリリースで、新たに動作するようになったゲームはありませんが、新しいPPCコア
+やHyperstoneと37710の修正などをメインに、技術的には注目できるものになってます。
+また、一連の入力関係も一段落ついてかなり安定しているはずです。
+
+
+ドライバの改良点：
+------------------
+
+M37710、NamcoSS22、C352の改良。[R.Belmont]
+    M37710の変更:
+    - データバスは実は8ではなく16ビット
+    - 割り込み時のレジスタステータスセーブを修正
+    - PHB、PHT、PLT、ANDB命令修正
+    - XAB、PLB、ROLB命令追加
+    - IRQディスパッチエラー修正
+    - get_infoの修正いろいろ
+
+    NamcoSS22の変更 (s22.diff):
+    - 全CPUの周波数をGuru氏が調べた値に変更
+    - M37710バス幅変更
+    - 一時的に共有RAMを切り離し。68020の共有RAMテストが37710のワーク変数を消
+      してしまいクラッシュする問題があります。おそらく、37710を停止かリセッ
+      トさせるレジスタがあるかも。(注：「プロップサイクル」はPOSTを使ってな
+      いのでこの問題は起きません。これ以外は全部だめです）
+
+    C352の変更 (c352.diff):
+    - デバッグ用のprintfが間違って残っていたのを削除
+
+SPIの改善。[Ville Linde]
+    - タイルマップ解読の改良（ただしまだ不完全）
+    - スプライトプライオリティの予備サポート
+
+PowerPC 403コア [Ville Linde, Bart Trzynadlowski, Stefano Teso]
+    これはSuperModel（Sega Model 3エミュ）のPPCコアからFPUと6XXシリーズ用の
+    命令をはずしたものです（これはまだMAMEに移植されてません）。また、PPC用
+    に用意した厳しいテストも全部パスしたのでPPC403ベースハードなら非常に安定
+    動作するはずです。
+    
+「バーチャレーシング」の改善。[Olivier Galibert, Andrew Gardner]
+
+Hyperstone CPU コアの改良。[Tomasz Slanina, Pierpaolo Prazzoli]
+    Tomasz Slanina 
+    - 命令後とフレーム前の割り込みを禁止
+    - FCRレジスタのエミュレート
+    - 浮動小数点命令（予備サポート）
+    - RET/FRAME命令のスタックアドレッシングを修正
+    - SET_RSマクロのバグ修正
+    - リターン命令（Sフラグ）のバグ修正
+    - add/adc/addi/adds/addsiとシフト命令C/Nフラグ演算を追加
+    - ROLにライトバック追加
+    - ROL/SAR/SARD/SHR/SHRD/SHL/SHLD命令のデコードを修正(Local/Global regs)
+    - RET命令のIとTフラグ修正
+    - XX/XM命令修正
+    - RD=PCのときのMOV命令の修正
+    - execute_trap()を修正
+    - RS=SRのときのST命令の修正
+    - 割り込み追加
+    - I/Oアドレッシングを修正
+
+    Pierpaolo Prazzoli
+    - フェッチ修正
+    - e132xs_xm命令のデコード修正
+    - FRAME/RET命令の7ビット相違ナンバーを修正（？）
+    - デバッガの修正
+    - 汎用レジスタデコード機能追加
+    - その他細かな修正
+
+Jaleco麻雀ドライバのアップデート。[Angelo Salese]
+    いくつかは*ほぼ*プレイ可能。ただしまだプロテクト関係の問題あり。
+
+「Top Speed」の音量調整
+
+
+メインプログラムの変更点：
+--------------------------
+
+修正いろいろ [Nathan Woods]
+    src/inptport.c:
+    src/inptport.h:
+    - input_port_allocate()内でラストのIPT_ENDが追加されるようにして
+      PORT_INCLUDEを修正
+    - MESS用のデフォルト設定追加
+    - IPT_BILLデフォルトのスペル修正
+
+Win32マルチセッションバグを修正。[Chris Kirmse]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+なし
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+フィールドゴール (different) [Andy Welburn]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+KonamiのPPCベースゲームいろいろ [Ville Linde]
+    gticlub, gradius4, sscope, sscope2, racingj, racingj2, thrilld
+    midnrun, windheat
+
+    これはPPCコアの動作をデモするためのものなので、エミュレーション自体はと
+    ても初歩的な段階です。最初のテスト画面が表示される以外は動きません
+
+クールライダーズ [David Haywood]
+    スケルトンドライバ。将来のために
+Pit Boss
+    meritドライバに追加。詳しいチェックはまだ
+戦え！ビッグファイター [Tomasz Slanina]
+     プロテクトきつめ
+Cool Mini
+    Hyperstoneベースのゲーム。不完全セット
+
+
+
+0.85u3
+------
+
+ドライバの改良点：
+------------------
+
+- suprnovaゲームの表示パフォーマンス改良。[Carlos Santillan]
+
+- nyanpani、citybomb、topspeedのサウンドバランス改良。
+
+- hanaawasの表示エリアと操作修正。[Pierpaolo Prazzoli]
+
+- 入力ポートを更にクリーンアップ。[El Condor]
+
+-「タッパー」のサウンドボードエラー修正。[B.S.Ruggeri]
+
+-「Return of Lady Frog」の問題がかなりあったのを修正。[Pierpaolo Prazzoli]
+
+-「Return of Lady Frog」でサウンドの予備サポート。[R. Belmont]
+
+- usclssicの色修正。[David Haywood]
+
+- athenaのBGMテンポ修正。[unzu]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- zlibのオフィシャルディストリビューションに新しく含まれているコードを追加。
+  [smf]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+フィールドゴール [Stefan Jokisch]
+ロボレス2001 [Tomasz Slanina]
+Jumping Pop [David Haywood, Guru, R. Belmont]
+
+
+
+0.85u2
+------
+
+ドライバの改良点：
+------------------
+
+- warlords、sbrkout、destroyrの自動センタリングをデフォルトでオフに変更。これ以
+  外にもオフにする必要があるゲームがあると思いますので、www.mametesters.orgまで
+  お知らせを。[Aaron Giles]
+
+- 最近の入力ポート定義の導入によりエラーがたくさん起きていたのを修正。
+  [El Condor]
+
+- jalmah.cドライバをいろいろ修正。suchipiの起動、表示改善、操作系の実装など。
+  [Angelo Salese]
+
+- Namco Super System 22ドライバでM37710コアの初期版を使うように更新。ただし、今
+  のところこれといった働きはなし。[R. Belmont]
+
+- snowbrosにコインエイジの条件分け追加。[Inigo Luja]
+
+- ckongの操作修正。[Inigo Luja]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- PORT_CENTERを実際の動作に即してPORT_RESETに改称。また、自動センタリングの動
+  作をコントロールするためのPORT_CENTERDELTA(x)を追加。[Aaron Giles]
+
+- M7700シリーズCPUコアのWIP版を追加。M37710用。[R. Belmont]
+
+- ゲームカウントをランタイムで取得することで、static MAX_DATAFILE_ENTRIESの定義
+　削除。[Rene Single]
+
+- 全部のサウンドチャンネルを変更しないとミキサー設定がロードされないバグを修正。
+  [Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+The Return of Lady Frog [David Haywood]
+バーチャファイター [Andrew Gardner, Olivier Galibert]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Twin Cobra 2 / 究極タイガーII (World) (2 sets) [Brian Troha]
+カウンターラン (海賊版 set 1) [Tomasz Slanina]
+
+
+
+0.85u1
+------
+
+ドライバの改良点：
+------------------
+
+- megasys1の入力ポート定義エラーを修正。[Mamesick]
+
+- tnzsの入力ポート定義エラーを修正。[Inigo Luja]
+
+- taitosjとgalaxianの入力ポート定義エラーを修正。[Aaron Giles]
+
+-「720」の操作について、ダイアルではなくアナログジョイスティックを使うように変更。
+  オリジナルのコントローラの動きの再現のため。ロジックについてはMAME Analog+に感
+  謝。[Aaron Giles]
+
+- Status trivaゲームの色修正。[Stefan Jokisch]
+
+- rallyx、macatadv、galpanicで条件付きDIPスイッチメニュー対応。[Inigo Luja]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- ctrlrファイルがきちんと読み込まれるように修正。[Aaron Giles]
+
+- 光線銃の設定変更が保存されないバグを修正。[Aaron Giles]
+
+- 混乱があったので、アナログマッピングのデフォルト設定を全部“keyboard”に戻しま
+  した。[Aaron Giles]
+
+- アナログ軸がOSDレイヤーからの値として“invalid”を返す機能を追加しました。これ
+  により動的にこれらの軸入力を無効にできます。この機能により、Windows版ではアナ
+  ログ軸とデジタル軸の両方がある場合、たとえばユーザーがデジタル入力軸を使ってい
+  ると判断すればアナログの方を自動で無効にします。ゲームパッドが“切り替え可能”
+  な場合でも動作するようになってます。[Aaron Giles]
+
+- i960コアでF10を使うとデバッガがクラッシュするのを修正。[R. Belmont]
+
+- #ifdef MESSのクリーンアップと、my_stricmpの定義が二つあったのを統合。
+  [Rene Single]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Party Time: Gonta the Diver II / がんばれ！ゴンタ!!2 - パーティータイム [Brian Troha]
+ヴァーサスネットサッカー (ver JAB) [Brian Troha]
+Phraze Craze [Pierpaolo Prazzoli]
+Tic Tac Trivia [Pierpaolo Prazzoli]
+Trivia Whiz [Pierpaolo Prazzoli]
+Trivia Whiz II [Pierpaolo Prazzoli]

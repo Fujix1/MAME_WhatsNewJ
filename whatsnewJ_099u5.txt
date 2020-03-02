@@ -1,0 +1,144 @@
+0.99u5
+------
+
+
+MAMETestersの修正バグ
+---------------------
+docastle093u2ora [Corrado Tomaselli]
+sindbadm37b2gre [Pierpaolo Prazzoli]
+mgakuen094u1gra [Roberto Fresca]
+tdfeverj087u4gra [Roberto Fresca]
+
+
+
+ソースの変更点
+--------------
+コアストラクチャのリネーム完了。一番多い変更は"struct tilemap"が
+"tilemap"になったものです。[Aaron Giles]
+
+Cinematronicsベクターゲームでステートセーブをサポート。[Buddabing]
+
+psikyosh.cに、別なタイルマップでのブレンド追加。「ソルディバイド」の最終ボス修正。
+  [David Haywood]
+
+Witch/Pinball Champ '95ドライバの改良: [Sebasten Hegon]
+ * グラフィックが一部表示されるようになりました（パレットはOKの模様）。BGMと効果
+   音も再生されてます
+ * 操作系はまだ完全に把握してないので、DIPスイッチにマップしてます
+ *「Witch」は初回起動時にNVRAMリセットが必要（DIPスイッチ経由）。「Pinball Champ」
+   の方は自動的にやるもよう
+ * サウンド部分についてはsound/es8712.cにパッチが必要。ハードコードされた
+   ループを切って、オフセット0x06(cfパッチ)の書き込み時にサウンドをスタートして
+   ます。vmetalには影響がないようです
+ * ゲームプレイについては、ボールがフリーズします（ゲームモードとデモモードで）。
+   原因は不明。表示ハードの解析が不完全なのでたぶんこれが原因です
+ * コインの入出機能の作業が必要
+
+「Jolly Card」の改良: [Roberto Fresca]
+ * ハード情報追加（ピンアウトとDIP）
+ *「Jolly Card」に正しいDIPスイッチを追加。ホッパーとポイントパルスはドライバが
+   予備ステートなのでテストしてません。残りは正しく動作します。変更をチェックす
+   るためにはnvramを削除するのを忘れずに
+ *「Magic Card II」(Bulgaria)とほとんど同じDIPスイッチ追加
+
+セーブステートシステムの大幅変更: [Aaron Giles]
+ * 整数またはポインタの引数をとるプリロード・ポストロードの代替関数追加。サウン
+   ドコアの一部とその他のファイルでこれを利用するように更新
+ * Made state handler registrations track like other scoped resources
+    (timers, memory) so that registrations can occur as late as 
+    MACHINE_INIT time.
+ * MACHINE_INIT後のレジストレーションを検知して、その場合セーブをしないようにす
+   るロジックを追加
+ * セーブ・ロード対象のCPUかサウンドチップが未登録の状態を検知するロジックを追加。
+   この場合情報はerror.logに出力され、セーブ・ロードはされません
+ * タイマーがサーブステートの一部として自動的に保存・リストアされるように割り当
+   て。グローバルタイムは大量のCPU実行ステートと同様にリストアされるようになり、
+   リストア精度が向上しました
+ * 全ての無名タイマーがクリアされるまでセーブを保留する機能を追加。ドライバで多
+   くの無名タイマーを使っている場合、セーブはまず成功しません。1秒後にタイムアウ
+   トになります
+ * リストア前にマシンをリセットするようにしました。ロード時の環境が以前より安定
+   します
+ * YM2151のセーブステートを再有効化
+ * オールドNamcoサウンドシステムにセーブステート追加
+ * サンプルサウンドシステムにセーブステート追加
+ * machine/scramble.cから無名タイマを削除
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Muroge Monaco [David Haywood]
+The First Funky Fighter [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+SAR - サーチアンドレスキュー (Japan) [Pierpaolo Prazzoli]
+American Poker II (set 4) [Roberto Fresca]
+
+
+
+0.99u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+quarth37b1gre [Pierpaolo Prazzoli]
+devilw36b10yel [Pierpaolo Prazzoli]
+vulcan137b1gre, part 7 [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* システムにメモリカードとチートメニューを復活。[Aaron Giles]
+
+* u3でMNGレコーディングの問題が出ていたのを修正。[Aaron Giles]
+
+* u3でベクターゲームがクラッシュしていたのを修正。[Aaron Giles]
+
+* コアコードでのコーディング規格について特定のルール化を進めるため、コアストラク
+  チャの一部で、ネーミングのクリーンアップと規格化:
+
+  struct InputPortDefinition   -> input_port_default_entry
+  struct InputPort             -> input_port_entry
+  struct RegionInfo            -> region_info
+  struct RunningMachine        -> running_machine
+  struct GameOptions           -> global_options
+  struct GameDriver            -> game_driver
+  struct InternalMachineDriver -> machine_config
+  struct MachineCPU            -> cpu_config
+  struct MachineSoundRoute     -> sound_route
+  struct MachineSound          -> sound_config
+  struct MachineSpeaker        -> speaker_config
+  struct RomModule             -> rom_entry
+  struct SystemBios            -> bios_entry
+  struct GfxLayout             -> gfx_layout
+  struct GfxElement            -> gfx_element
+  struct GfxDecodeInfo         -> gfx_decode
+
+  さらにその他多くでも同じルール適用。この作業はまだ終わってないので注 意してく
+  ださい。またもっと広範囲な構造体(mame_bitmap, rectangle)は非diffリリース
+  (0.100)までそのままにしておきます。[Aaron Giles]
+
+* 最初の実行後は自動的になくなるので-skip_disclaimerを削除。[Aaron Giles]
+
+* NMK112 ROMバンキングモジュールを新規作成、これを使用するドライバと接続。影響の
+  あるゲームはcave.c, nmk16.c, powerins.c, quizpani.c, toaplan2.c。
+  [Alex W. Jackson]
+
+*「Showdown」で不足していたボタン追加。[David Widel]
+
+* 6309逆アセンブラのPULUW命令修正。[Nathan Woods]
+
+* 初期化失敗時にマルチセッションポートでの保存ステートの再生を改善。
+  [Tim Lindner]
+
+
+
+新規クローンセット
+------------------
+Plotting / フリップル (US) [David Haywood]

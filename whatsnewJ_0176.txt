@@ -1,0 +1,309 @@
+0.176
+-
+
+MAMETestersの修正バグ
+---------------------
+- 06281: [クラッシュ/フリーズ] astrocde [280zzap]: 280Zzzap/Dodgemカートリッジがリセットする。(Duke)
+- 06324: [クラッシュ/フリーズ] (funkball.c) funkball: スタート時に致命的エラー。(Osso)
+- 06323: [デバッガ] (psikyosh.c) gunbird2, s1945iii: チートを使おうとするとクラッシュする。(AJR)
+- 06313: [クラッシュ/フリーズ] (victor9k.c) victor9k: 525ssqdオプションと-fdc:5d:0、-fdc:5d:1スロットを使用するとクラッシュする。(Pernod)
+- 06312: [クラッシュ/フリーズ] (osborne1.c) osborne1: 525sssdオプションと-mb8877:0、-mb8877:1スロットを使うとクラッシュする。(Pernod)
+- 06311: [クラッシュ/フリーズ] (myb3k.c) myb3k: 525sssdオプションと-fdc:0、-fdc:1スロットを使用するとクラッシュする。(Pernod)
+- 06305: [クラッシュ/フリーズ] (atpci.c) at586, at586x3, ficvt503: -kbdスロットオプションの3270pxまたはpcatを使うとクラッシュする。(crazyc)
+- 06304: [クラッシュ/フリーズ] (mac.c) macse30: -pds030のスロットオプションを使用するとクラッシュする。(Osso)
+- 06309: [クラッシュ/フリーズ] (mac.c) macsefd: -pdsスロットを使って終了時にクラッシュする。(Osso)
+- 06288: [インターフェイス] UI:: お気に入り表示時にカテゴリを選択すると例外が発生する。(cuavas)
+- 06291: [インターフェイス] (carpolo.c) carpolo: -video bgfx/-windowで出力した動画が再生できない。(Jezze)
+- 06286: [その他] (segaorun.c) shangon: 出力した動画が音しか鳴らない。(Angelo Salese)
+- 06263: [インターフェイス] データを含まないフィルタを選択すると復旧できなくなる。(dankan1890)
+- 06280: [インターフェイス] PLUGINS: plugin.iniファイルがiniパスでなくカレントフォルダに作成される。(crazyc)
+- 06279: [インターフェイス] PLUGINS: pluginspath で$HOMEが展開されない。(crazyc)
+- 06285: [ゲームプレイ] (vendetta.c) esckids, esckidsj: レース中にスローダウンする。(Osso)
+- 06284: [インターフェイス] ウォッチドッグダイアログがキャプチャできない。(cuavas)
+- 05534: [クラッシュ/フリーズ] (pc8001.c) All sets in pc8001.c: OK画面後クラッシュ。(Robbbert)
+- 06246: [グラフィック] (legionna.c) cupsocsb, cupsocsb2: 黒画面しか表示されない。(Angelo Salese)
+- 06268: [クラッシュ/フリーズ] 言語を切り替えるとMAMEがクラッシュする。(cuavas)
+- 06266: [DIP/入力] (seta.c) metafox: ボーナスライフのDIP設定値とラベルが間違っている。(Tafoid)
+- 06262: [クラッシュ/フリーズ] All sets using SHARC drc: DRCを走らせるとクラッシュする。
+
+
+ソースの変更点
+--------------
+- Scorpion4: 7セグディスプレイをほとんど修正。[John Parker]
+
+-「Touchmaster 2000-8000」のコインエイジ修正。[MASH]
+
+- z80scc: sun4_75の文字抜けと、sun3/sun4が正しいSCCクロックでキーボードやhk67v10を認
+  識できることがデータシートの推奨では無視されているのを修正。
+  [Joakim Larsson Edstrom]
+
+- pc9801: マウスボタン修正。[rzero9]
+
+- coco3の改良: [milliluk]
+ * パレット改善と別なコンポジットモードをサポート
+ * レガシーグラフィックモードのスキャンライン用にGIME修正
+
+- m6809: 6809/6309 CPUのデバッグ改良。[milliluk]
+
+- GNU/kFreeBSDのサポート。[stevenc99]
+
+- Linux alphaとmips64el用にarch定義追加。[Jordi Mallach]
+
+- pkg-configパスが定義されている場合は、envから取り出し。[Bernhard Frauendienst]
+
+- Neo-Geo AES、NeoGeo CD、FM Towns Martyのボタンに名称追加。[Shideravan]
+
+- *nix manページを更新。[Cesare Falco]
+
+- poisk1: "Memory fun"後にアンブレーク。B623サウンドカード(スケルトン)追加。
+  [shattered]
+
+- r9751: セーブステートサポート。進捗状況のドキュメント化とクリーンアップ、PROMバー
+  ジョン4.2追加。[Brandon Munger]
+
+- ym2151, ym2413: 分離、オブジェクト化、統合。[O. Galibert]
+
+- Net-DIMM 3.03ファームウェア追加。
+  [letoram, gamerfan, Mark F., Smitdogg, The Dumping Union]
+
+- Netlistの改良: [Couriersud]
+ * netlistに渡される-Ddefine=valueをnltoolで受け入れ
+ * オプション処理の改良と、グルーピングやヘルプ出力例を追加する"ダミー"オプション追加
+ * --cmd=listdeivces出力を改良
+ * 動的タイムステッピング修正。これは遅延デバイスの代わりに本物のコンデンサモデリング
+  を使うbreakoutで動作。非常に遅いがタイミングの算出に大変役立つ
+ * 遅延デバイスのとんでもないバグを修正
+ * clang 3.8に切り替えと、警告モードを引き上げてコードをコンパイル。これにより、暗黙
+   的なコンストラクタにあった深刻な問題を発見
+ * トランポリン (OUTLOGIC、 INPLOGICとその仲間たち) を削除
+ * doxygenコメントとドキュメントスタイルを使用開始。documentationフォルダにdoxygen
+   ファイルを追加
+ * doxygen出力により動くコードを整理
+ * 内部とサポート用クラスを名前空間詳細に移動
+ * パーサの非順序マップ使用
+ * pstringにイテレータ追加
+ * マクロ二つを移動。RAIIをさらに追加、例外の改良。パーサコードのバグ修正
+ * パーサコードのバグと割り込み処理を大量修正
+
+- Forte Card: ver 110 (spanish)が新しいバージョンなので親に設定。ドライバの整理も。
+  [Roberto Fresca]
+
+- レンダーモジュールの改良: [Giuseppe Gorgoglione]
+ * Direct3D HLSL: AVI動画の録画にaviwriteを使用
+ * Direct3Dレンダラーのパッチをクリーンアップ
+ * BGFX: bgfxエフェクトフォルダが無いときのクラッシュを修正
+
+-「レジオネア」「ヒーテッドバレル」「電神魔傀」「ゴジラ」のプライオリティ問題修正。
+  [Angelo Salese]
+
+- opwolf.cpp: C-chipプロテクトシミュレーションの改良により、ゲームプレイの問題を全て
+  修正。[Bryan McPhail] 
+
+- いろいろなモダン化: [Nathan Woods]
+ * ファイル生成とフォーマットのリファクタリング。名称/パスバリデーションの改良
+   (Vas CrabbさんのPOSIX改良を使用)
+ * core_file静的関数、メニューアイテム、strconv関数、画像デバイス拡張、softlistクラス
+   で文字列オブジェクト使用。
+ * create_option_guide()のデフォルト実装を統合
+ * Fileselのクリーンアップ
+ * ソフトリストのコードをsimple_listからstd::listに変更
+
+- アパチャーグリル/シャドウマスクパターンを含むbgfx用のcrt-geomとcrt-geom-deluxe
+  シェーダを追加 (RGBサブピクセルオーダ用にデザイン)。[Jeremy Green]
+
+- 利用可能リストからROM無しマシンを削除するオプション追加。[Maurizio Petrarota]
+
+- sun4の更新:
+ * SPARCStation 1+、4/110、4/4x0 ROM追加 [Al Kossow]
+ * SPARC CPUコアの修正 [Ryan Holtz, Vas Crabb]
+ * カウンタ/タイマの予備サポート [R. Belmont]
+ * sun4とsun4cの分離、sun4独自のオリジナル機能を実装開始 [R. Belmont]
+ * sun4c archのコンテキスト変数8と16を両方サポート [R. Belmont]
+ * オリジナル版sun4アーキテクチャを改良 [R. Belmont]
+ * FDCの初期実装 [Ryan Holtz]
+ * タイマとログ出力の改良 - sun4_40でFORTHプログラムがOKプロンプトで動作
+   [Ryan Holtz]
+
+- Sun type 3/4/5/6キーボードのハイレベルエミュレーション: [Vas Crabb]
+ * Type 5のUS版、UK版、スウェーデン版、日本版レイアウトを追加
+ * Type 4とType 5のレイアウト設定選択追加
+ * Type 4の識別選択
+ * レベルトランスレータとしてRS-232に接続するアダプタ追加
+ * sun3、sun4、sun4cへ実装
+
+- zeroteam: スプライト/スプライトプライオリティ改善。[AJR]
+
+- feversoc.cpp: EEPROMを実装; ボタンの再マップ、ランプ、シリアルRTCを実装。[AJR]
+
+- denjinmk: ROMパッチなしで動作するようにsound commをハック。[AJR]
+
+- vt100.cpp: vt102/vt131 ROMセットをvt131ドライバに別BIOSセットとして追加。
+  [Lord Nightmare, Al Kossow]
+
+- 麻雀ゲームのDIPスイッチと設定を修正: [system11]
+ * 修正: 麻雀フォーカス, のぞきめぐり 麻雀ピープショウ、麻雀ファンタジックラブ、
+   お嬢さん
+ * ビデオシステムの麻雀DIPスイッチをいろいろ修正
+
+- HP TACOドライバの最終的な改善。[fulivi]
+
+- IRQパススルーをさらにクリーンアップ: [AJR]
+ * M6502、M6800、M6809、S2600からirq_lineメソッドを削除し、DEVCB_INPUTLINEに置き換え
+ * spiders.cppからIRQパススルーを削除
+ * M6800_IRQ_LINEのエイリアスを追加
+
+- uismall.bdfのカバー範囲を拡張: [Vas Crabb]
+ * ラテン拡張-Aとラテン拡張-Bの大半をカバー完了
+ * モノトニックギリシャ文字
+ * ISO-8859-5キリル文字、その他のキリル文字
+ * 半角カタカナ
+ * IPA拡張
+
+- UIのリファクタリング: [Vas Crabb]
+ * メインの起動メニュー部分をベースメニュークラスから移動
+ * selgameとselsoftからの共通コードをselmenuに移動
+ * ui::menu内の使いにくい静的メンバを削除
+ * 静的メンバ関数を一部削除
+ * パレットメニュー描画コードをベースからパレットメニュークラスに移動
+ * std::bindを使用。nullptrな参照は受けない。また必要に応じてconst化
+ * クラスメンバのカプセル化推進
+ * 監査コード内の重複したstring割り当てを削減
+ * Don't play so fast and loose with integer types
+ * vectors/mapsの処理の重いディープコピーを削除
+ * ヘッダではないモノは.h→.ippに
+ * オペレーションに関連したライフサイクルを持つメンバを削除
+
+- DPS1: システム起動、動作可能。[Robbbert]
+
+- bankdev: 次に来るスペース引数から、デバッガフラグをパススルー。[R. Belmont]
+
+- Apolloの変更: [Hans Ostermeyer]
+ * 現在のMAMEに合うようにキーボードマッピングの調整
+ * 画面RAWパラメータを固定
+ * カラーディスプレイ用にdisp.dex Test 20に固定(Video SYNC Gen. Add. Test)
+
+- 3c505: イーサネットフレームチェックシーケンスを送信データに付加。[Hans Ostermeyer]
+
+- input_common: 0.172で発生した非USキーボードでの不具合を修正。[Hans Ostermeyer]
+
+- デバッガのステートビューでスクロールしたときの項目のハイライト表示を修正。
+  [Vas Crabb]
+
+- RGBユーティリティに妥当性チェック追加とバグの修正: [Vas Crabb]
+ * GCC 5によるLinux ppc64とppc64leターゲットにおけるrgbvmxを修正
+ * rgbgenの不足機能追加
+ * rgbgenの論理右シフト修正
+ * rdptpipeのsraをsra_immに修正
+ * rgbsseのSSE4.1向け最適化を追加
+ * rgbsse、rgbvmx、rgbgenをより論理的な順番に並び替え
+ * 修飾オペレータの返り値型を修正
+ * 参照パラメータをさらにconst化
+ * ボディが宣言に存在するとき、多くのメソッドからインライン修飾を削除
+ * 一部コンストラクタをexplicitにマーク
+
+- null_modem: stsctsフロー制御 + i8251の関係する修正。[shattered]
+
+- tourvis.cppのIDとゲームリストに関連する新情報に基づきドライバを更新。
+  [system11, Tafoid]
+
+- archimedesのディスクフォーマットを修正。[O. Galibert]
+
+- apple2: デバッガでスロット切り替えを起こせないように変更。[Peter Ferrie]
+
+- tiamc1:「Kot-Rybolov」のサウンド実装。ドキュメントの更新。[MetalliC]
+
+- Tia-MC1ドライバ: KR580VV55Aパラレル周辺機器インタフェース(i8255クローン)をサポート。
+  一部ポートの謎な動作についてテクニカルノート追加。「Kot-Rybolov」ハードウェアのス
+  ペックをリスト化。#defineで全てのクロック追加。[Roberto Fresca]
+
+- amstrad: 未ドキュメントなmode 3を修正。[Barry Rodewald]
+
+- bbc: モニタ設定(カラー、白黒、グリーン、アンバー)と拡張スロット追加。[Nigel Barnes]
+
+-「Flaming 7」のオリジナルカスタムハードの改善: [Roberto Fresca]
+ * シリアル番号のリクエストを迂回するようにプロテクトをリバースエンジニアリング。
+   iButtonデバイスはまだ実装が必要。これらのゲームを動作可能に昇格
+ * テクニカルノート、コメント、初回起動方法などを追加
+
+-「Flaming 7」台湾版ハード: [Roberto Fresca]
+ * シリアル番号のリクエストを迂回するようにプロテクトをリバースエンジニアリング。
+   iButtonデバイスはまだ実装が必要。これらのゲームを動作可能に昇格
+ * テクニカルノートを追加
+
+- hiscore.dat: 更新。[Leezer]
+
+- alto2: カーソルが震えるバグの解析。[Juergen Buchmueller]
+
+- chihiro: 837-13551 JVS入力デバイスを追加。JVSデバイスのUSB経由通信が完成。
+  [Samuele Zannoli]
+
+- chihiro: crtaxihr「クレイジータクシー ハイローラー」(Rev B)も起動可能。
+  [Samuele Zannoli]
+
+
+
+翻訳追加、または変更:
+---------------------
+中国語 (簡体字/繁体字) [YuiFAN]
+ギリシャ語 [BraiNKilleRGR]
+日本語 [Vas Crabb]
+ポルトガル語 (ブラジル) [Ashura-X]
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+Swing Gal [BET] [system11]
+Player's Choice (M4C1) [Blair Quinney, The Dumping Union]
+Gorodki [shiru8bit, IgorR76, '15kop' arcade museum]
+Kot Rybolov [MetalliC, shiru8bit, IgorR76, '15kop' arcade museum]
+Flaming 7 (Custom Hardware, Main, 50 Bonus) [Roberto Fresca]
+Flaming 7 (Custom Hardware, Main, 500 Bonus) [Roberto Fresca]
+Flaming 7 (Custom Hardware, Main, 2000 Bonus) [Roberto Fresca]
+Flaming 7 (Custom Hardware, Egyptian Gold, 2000 Bonus) [Roberto Fresca]
+Flaming 7 (Taiwanese Hardware, unknown version) [Roberto Fresca]
+TeleVideo 990 [R. Belmont, Al Kossow, Carl]
+TeleVideo 995-65 [R. Belmont, Al Kossow, Carl]
+Rainbow-100B [Bavarese]
+MBC200 [Robbbert]
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+Beastie Feastie (Epos Tristar 9000 hardware) [The Iron Goat]
+ライデンファイターズ2 -オペレーションヘルダイブ- (Japan set 3) [IronGiant]
+LTM Portable (B+) [Nigel Barnes]
+LTM Portable (Master) [Nigel Barnes]
+バブルトラブル -ゴーリーゴースト2- (World, Rev B) [Alex Cmaylo, The Dumping Union]
+Sensory Chess Challenger 9 (set 2) [anonymous]
+オペレーションサンダーボルト (World, rev 1) [Muddymusic, The Dumping Union]
+Digital Equipment Corporation VT240 [Carl]
+Elektronika MC7105 [Shattered]
+Intergirl [f205v]
+
+
+新規追加された未動作マシン
+--------------------------
+ジョイホビーコンピューター Prin-C [TeamEurope]
+Datamax 8000 [Robbbert]
+
+
+
+新規追加された未動作クローン
+----------------------------
+BT Merlin M2105  [Nigel Barnes]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+pc98_cd.xml: Final batch of additions [rzero9]
+pce_tourvision.xml: Added a number of new dumps (15) [system11, Tafoid]
+poisk1_flop.xml: Added basic softlist [shattered]
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+gamate.xml: Volcano Panic [Juan Felix Mateos and Mr. Postman]
+gamate.xml: Hot Hero; Baseball [Peter Wilhelmsen]
+gba_ereader.xml: Starting work doing the GBA e-reader software-list [Shideravan]
+

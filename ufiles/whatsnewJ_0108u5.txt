@@ -1,0 +1,102 @@
+0.108u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mf_bdash0108u4gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+
+- galivanとdanger（とクローン版）のプライオリティ修正。galivan.c全ゲー
+  ムにセーブステート追加。DACオーディオのセーブステートのポータビリ
+  ティの問題修正。[Vas Crabb]
+
+- 低解像度のターゲットが正しくサポートされなかったソフトウェアレンダラ
+  のバグ修正。[smf]
+
+- Atariベクター生成器を、回路図と実際のステートマシンのPROMを使い書き
+  直し。ステートマシンがエミュレートされたため、タイミングがかなり実機
+  に近くなったはずです。bzoneなどのクリッピングハード部を以前の決め打
+  ちから、エミュレーションに変更。また、クロックの正確さの改善とその他
+  いろいろなクリーンアップ。[Mathis Rosenhauer]
+
+- getrivia、findout、meritドライバをさらにクリーンアップ: [wolf676]
+ - ボタンとランプの順序を修正
+ - ボタンからimpulse(2)を削除。ボタンの反応改善
+ -「Selection」「Trivia」にコイン2追加
+ -「Poker」「Sexual Trivia」にコイン2が無かったので独自の入力定義追加
+ - 可能な場所でPORT_INCLUDE()とPORT_MODIFY()を使用
+ - アートワーク使用時用に出力を接続
+
+- Nintendo 64ベースドライバを大幅アップデート。[Ville Linde]
+
+- pmpokerドライバをさらに改良: [Roberto Fresca]
+ - グラフィックバンクの確認（完全なダンプがきました）
+ - テクニカルノートの改良と基板写真を元に部品配置追加
+ -「Big Boy」のグラフィックの3番目のビットプレーンの発見と修正
+ -「Big Boy」を「Golden Poker Double Up」に改名
+ -「Joker Poker」（「Golden Poker」のダブルアップなし版）追加
+ -「Jack Pottern's Poker」（「Joker Poker」と同じだが、ジャックの代わ
+   りに"Aces or better"のバージョン）追加
+ - カラーPROMが出てくるまで、全セットの色をシミュレート
+ - 全セットの入力を修正（DIPスイッチは除く）
+
+- shangha3のサウンドクロックを元通りに変更。[Canim]
+
+- gmgalaxのポート条件を改善。ゲーム中には関係したDIPスイッチのみが表示
+  されます。[Canim]
+
+- チートエンジンの大修正。[ShimaPong]
+
+- TN2A03 CPUが正しいサイクルタイミングに合うように更新。また、Blargg氏
+  のNESチップテストで判明した未サポートの命令を追加。[Wilbert Pol]
+
+- ST-Vドライバの大幅更新: [Mariusz Wojcieszek]
+ - scsp: リセット割り込み改善。diehard、dhmtdeka、vfkids
+ - colmns97: サウンド出力
+ - vdp1: スプライト用のメッシュエフェクト追加
+ - vdp1: ポリライン追加
+ - vdp2: RGBレンダリングを最適化
+ - stv:  dnmtdekaとdiehardのスピードアップ追加
+ - stv:  セット名、ゲーム名の訂正
+
+- Windowsコードで、サウンドバッファを確保できないときにクラッシュする
+  のを修正。[Nathan Woods]
+
+-「ターボ」のスプライトが大きすぎたバグを修正。[Aaron Giles]
+
+- Grand Championドライバの書き直し開始。まだ当たり判定やレーダー、その
+  他の不具合について作業が必要です。[Aaron Giles]
+
+- 新しい出力ツール追加: output_set_led_value(), 
+  output_set_digit_value(), output_set_lamp_value()
+  これらはインデックス付きの汎用データタイプをセットするのに使用します。
+  TurboとMax-a-Flexの数字出力にoutput_set_digit_value()を使うよう変更
+  しました。[Aaron Giles]
+
+- PNGのレンダリング/セーブコードを書き直し。エラーレポートの改良と、コー
+  ドがかなりシンプルになりました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ポケットレーサー [smf, Guru]
+PlayMan Poker (Germany) [Roberto Fresca]
+Killer Instinct (SNES bootleg) [Tomasz Slanina]
+Real Fun (Version 7.01) [Brian Troha]
+
+
+
+新規クローンセット
+------------------
+ワールドクラスボウリング (v1.5) [Brian Troha]
+Gryzor (Set 2) / 魂斗羅 [Stefan Lindberg]
+パワードリフト (World) [Stefan Lindberg]
+ストライカーズ 1945 (Korea) [Stefan Lindberg]
+10ヤードファイト (World) [Brian Troha]
+ファイナルラップ R (Japan Rev. C) [Arzeno Fabrice]

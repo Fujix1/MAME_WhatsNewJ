@@ -1,0 +1,54 @@
+0.95u4
+------
+
+Aaron Giles氏による変更点
+-------------------------
+* CPU_16BIT_PORTハックを削除; 全部のZ80ドライバで明示的に
+  ADDRESS_MAP_FLAGS(AMEF_ABITS(8)を使ってI/Oアドレス空間を8ビットで指定する必
+  要があります
+* CPU_AUDIO_CPUを削除; これの意味はなくなりました。全部のゲームできちんと使われ
+  ていたわけではなかったので、ドキュメントの代わりにしかなってませんでいた。
+* mame.exeだけを簡単に作成できるようにmakefileに'emulator'ターゲットを追加しまし
+  た
+* メインのmakefileから古いターゲットを削除しました
+* makefileにPentium-M最適化ターゲット追加
+
+
+
+その他の変更
+------------
+gswordの説明修正と8741のドキュメント追加。[Nicola Salmoria]
+
+Namco製ゲームのC140のサウンドルーティング修正。[Mamesick]
+
+「G-Loc」に正しいスプライトROM追加。[Mike Coates]
+
+msliderのゲームロジックバグ修正。[Phil B, Dox, David Haywood]
+
+srmp7用にV60のハック追加。いずれきちんとした修正が必要。[David Haywood]
+
+「サバイバルアーツ」「ダイナギア」のDIPスイッチ修正。[Brian Troha]
+
+MESSからTMS9900の改良などを追加。[Raphael Nabet]
+
+「Nitro Ball / ガンボール」の背景修正。[Pierpaolo Prazzoli]
+
+Deco 102ゲームの復号化初期版追加。[Nicola Salmoria]
+
+「ポケットギャルDX」「キャプテンアメリカ」のDIPスイッチ修正。[Brian Troha]
+
+デバッガのクラッシュ対応を改良。[Nathan Woods]
+
+
+
+新規クローンセット
+------------------
+スペースインベーダー (Model Racing) [David Haywood]
+ポケットギャルDX (Euro v3.00) (not working) [Corrado Tomaselli]
+テクモワールドカップ '94 (set 2) (not working) [Corrado Tomaselli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Dream World [David Haywood]
+Choky Choky [David Haywood]

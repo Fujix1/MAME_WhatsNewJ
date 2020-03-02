@@ -1,0 +1,74 @@
+0.102u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+f1en097u1gre2 [Anonymous]
+ozmawars055gre [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+* System32ドライバのマイナーなクリーンアップ。「エアレスキュー」「F-1エキゾース
+  トノート」で複数基板フェイクロジックを共有。[Anonymous]
+
+*「Thief」「NATO Defense」「Shark Attack」のテープサンプル音を正しく実装。サンプ
+  ルのポーズが可能。[Bart Tobalske]
+
+* VCコンパイラにより見つかった、初期化されない変数、文字列比較の間違い、一貫性の
+  無い変数宣言を修正。[Oshah]
+
+* 16bit i386逆アセンブラで現状のセグメントにとどまるように修正。[Nathan Woods]
+
+*「Turbo Sub」のマイナーな変更: [Philip Bennett]
+ * 記載事項追加
+ * 回路図に基づいてハード機能を訂正
+
+* 68000逆アセンブラで、F-lineトラップをはっきり表示させるように改良。また、関連
+  するブランチのジャンプターゲットをわかりやすく変更。[Alex Jackson]
+
+* Voodooエミュレーションコードをオリジナルに正確になるよう書き直し:
+ * マルチボードのサポート（「サイレントスコープ」）
+ * ピクセルパイプラインフレームバッファ動作可能
+ * アルファバッファ命令サポート
+ * トリプルバッファサポート
+ * メモリ配置を正しくして、設定ベースで操作
+ * FIFO処理を訂正。低・高ウォーターマークとストールを含む
+ * フィルレートスペックをベースにタイミング計算を近似
+ * 詳細テクスチャ実装
+ * 全ての演算を固定小数点に変更
+ * ポリゴンのエッジ部分の演算を訂正（「グラディウスIV」の星表示）
+ * 固有ラスタライザの追加が超簡単に変更
+
+  これはまだ作業中です; 一部間違ってるものもまだあります。Voodoo2エミュレーショ
+　ンは全く動作しません。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ラブリーポップ麻雀 雀々しましょ 2 [Guru]
+
+
+
+新規クローンセット
+------------------
+Trivia Master (set 2) [Pierpaolo Prazzoli]
+Tech Romancer / 超鋼戦紀キカイオー (EURO 980914) [Arzeno Fabrice]
+スプラッターハウス (World) [Arzeno Fabrice]
+ストライダー飛竜 2 (USA 991213) [Brian Troha]
+Touch & Go (World) [Stefan Lindberg]
+ワンダーボーイ (system 2) [David Widel]
+火激 (World?, hack) [David Haywood]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ファイティングバイパーズ 2 [Ville Linde]
+Tang Tang [David Haywood]
+Spectrum 2000 [David Haywood]
+スパイクアウト [Ville Linde]
+スパイクアウト Final Edition [Ville Linde]

@@ -1,0 +1,317 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.128u6</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.128u6.txt</div>
+	<div class="main">
+<div class="wn">
+0.128u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02728: [Crash/Freeze] galpani3: ROMチェック後に'Illegal Instruction'エラーが出る。 (R. Belmont)
+- 02739: [Sound] skysoldr: BGMが1オクターブ高い。(Phil Bennett)
+- 02718: [Crash/Freeze] zigzag, zigzag2: 正しく起動しない。(Aaron Giles)
+- 02730: [Crash/Freeze] fiveside: ROMチェックで固まる。(Aaron Giles)
+- 02740: [Debugger] デバッグウィンドウをリサイズしても、テキストが元の領域に描画される。(Aaron Giles)
+- 02721: [Crash/Freeze] All Sets in arcadia.c: 白い画面のままリセットを繰り返す。(Aaron Giles)
+- 02661: [Gameplay] f1gpstr2: ゲーム開始直前に固まる。(Mamesick)
+- 02708: [Crash/Freeze] wildplt: ゲーム開始時に固まる。(Mamesick)
+- 02724: [DIP/Input] elgrande, jjpoker, ssipkr24: 入力ポートSW2を指定できない。(Roberto Fresca)
+- 02677: [Graphics] eprom, eprom2: ブライトネスエフェクトが実装されていない。(Nicola Salmoria)
+
+
+
+ソースの変更点
+--------------
+- 以下のCPUコアをポインタ化:
+ - DSP32 [Aaron Giles]
+ - m6805 [Andrew Gardner]
+ - MIPS 3 [Aaron Giles]
+ - PowerPC [Aaron Giles]
+ - Konami [Aaron Giles]
+ - ARM [Andrew Gardner]
+ - SHARC [Atari Ace]
+ - V60 [Aaron Giles]
+ - Z8000 [Aaron Giles]
+ - Z180 [Aaron Giles]
+ - V810 [Aaron Giles]
+ - V30MZ [Aaron Giles]
+ - PDP1/TX0 [Wilbert Pol]
+ - H6280 [Andrew Gardner]
+ - F8 [Atari Ace]
+ - TLCS-90 [Atari Ace]
+ - Cube Quest CPUs [Aaron Giles]
+ - i86/i286 [Aaron Giles]
+ - i386 [Aaron Giles]
+ - ALPHA-8201 [Aaron Giles]
+ - i8085 [Aaron Giles]
+ - APEXC [Aaron Giles]
+ - RSP [Aaron Giles]
+ - MB88 [Aaron Giles]
+ - MB86233 [Aaron Giles]
+ - TMS7000 [Aaron Giles]
+ - SH2 [Aaron Giles]
+ - SH4 [Aaron Giles]
+ - uPD7810 [Aaron Giles]
+ - TMS32051 [Aaron Giles]
+ - MC68HC11 [Aaron Giles]
+ - CP1610 [Aaron Giles]
+ - LH5801 [Aaron Giles]
+ - LR35902 [Aaron Giles]
+ - PDP1 [Aaron Giles]
+ - Saturn [Aaron Giles]
+ - SC61860 [Aaron Giles]
+ - TMS32010 [Quench]
+ - PIC16C5x [Quench]
+ - TMS99xx [Aaron Giles]
+ - TMS32025 [Quench]
+ - dsp56k [Quench]
+
+- 全てのCPUコアと派生版を有効化。その結果判明したコンパイルの問題を修正。
+  [Aaron Giles]
+
+- konamiチップのsetlinesコールバックでデバイスを渡すように変更。関係する全てのドライ
+  バを更新。[Aaron Giles, Atari Ace]
+
+- wb90b2とjjsqawbの"bad dump"なROMについて、現状で知りうるベストなCRCを追加。[robiza]
+
+- PCIバスをデバイスに変更。バスはmachine設定で宣言され、そこでアタッチするデバイスを
+  列挙します。いずれ、PCI設定のリード、ライト関数はデバイス内のウェルノウンな関数に移
+  動する必要がありますが、今のところはまだ分かれたままです。[Aaron Giles]
+
+- arkgcblに正確なPROMを追加。[robiza]
+
+- グローバルなMachineを参照している多くの箇所を、machineやdevice->machineなどを使うよ
+  うに変更。[Atari Ace]
+
+- megadriv.cについて、I/Oコールバックにrunning_machineを渡すように変更。また、その他
+  のMESS用変更。[R. Belmont]
+
+- f3853コアをMESSに再シンクロ。[Nathan Woods]
+
+- 関数マクロ、SAMPLES_START、CUSTOM_{START,STOP,RESET}、ANTIC_RENDERERを追加。
+  running_machine * が、これらの関数を通じて処理されるように変更。その他の箇所につい
+  ては、依存性を分離するため、関数の先頭に"running_machine *machine = Machine"を追加。
+  [Atari Ace]
+
+- 内部のビュー更新とは別にOSDデバッガの更新を検出するロジックを追加。OSDを更新を取得
+  するには、新関数、debug_view_flush_updates()を呼び出します。現時点これは、
+  osd_wait_for_debugger()の前に、実行時の周期的な更新をしている間に自動的に呼び出され
+  ます。その他の状況(例えば、Windowsコードがライブスクロールを行うために、スクロール
+  バーの移動を追跡するときに、明示的にに呼び出すときなど)では、OSDコードから呼び出す
+  必要があります。[Aaron Giles]
+
+- gradius2で、正しいgfx2ROMを使うように更新(vulcanと値は同じだが、バイトスワップして
+  いる)。[robiza]
+
+- 入力ラインについて、NMIとRESET以外はPULSE_LINEを使えなく設定。PULSE_LINEをまだ直接
+  呼び出していた一部のドライバ用に、シングルサイクルでのアサート、逆アサートを行うた
+  めのヘルパ関数、generic_pulse_irq_line()を追加。[Aaron Giles]
+
+- z8000のテーブルを、最新の情報に合わせて更新。[Juergen Buchmueller]
+
+- konamiic、taitoic、deco16ic、segaic16ビデオコアで、グローバルなMachineを参照しない
+  ように修正。[Atari Ace]
+
+- ADSP21xxコールバック用ラッパを追加。これらにデバイスパラメータを追加。IRQセッタで、
+  generic_pulse_irq_line()を使うように更新。[Aaron Giles]
+
+- 以下のマクロを追加: [Wilbert Pol]
+  MDRV_PIC8259_ADD, MDRV_PIT8353_ADD, MDRV_PIT8254_ADD, MDRV_DMA8237_ADD
+
+- streams.cからのグローバルなMachineへの参照を削除するため、stream_createに渡す引数に、
+  サウンドデバイスを追加。[Atari Ace]
+
+-「Millennium 4000」ドライバを改良: [Roberto Fresca]
+ - 通常の入力と出力が完成
+ - ボタンランプの演算追加
+ - ボタンランプのレイアウト追加
+ - PCB RAMのドキュメント追加
+ - PCBの写真を元にNVRAMのサイズを修正(バッテリそばに、CY62256L-70PCが2個)
+ - 本物のポーカーカードを表示させる方法をノートに追加
+ - OKI6295の周波数修正。音がまともに鳴るようになりました
+ - CPUクロックを12MHz(メインクリスタル)に訂正
+
+- adpドライバを更新: fashiongで少し表示の改善。[robiza]
+
+- グローバルなMachineへの参照をさらに削除できるように、machine initインターフェイスで
+  machine引数を渡すように拡張。いずれ、これらのほとんどもデバイスに変換する必要があり
+  ます。[Atari Ace]
+
+- OKI 6295コマンドのバリディティチェック強度を低下。[Nicola Salmoria]
+
+- 新関数、cpuexec_describe_context(machine)を追加。これは logerror()や、その他の
+  printfスタイルな関数で使用可能で、現在のCPUとPCの詳細を返します。activecpuを直接調
+  べていた数十箇所をこの関数に置き換え。[Aaron Giles]
+
+- システムよりその他のactivecpuの使用部を全て削除。間違って使われないようにmachine構
+  造体からactivecpuを削除。[Aaron Giles]
+
+- cpu_push_context()とcpu_pop_context()、及びそれらの呼び出し元を全て削除。
+  [Aaron Giles]
+
+- サイクルの取得先や、FIFOが満杯でストールするときを知るため、Voodooデバイスの定義時
+  にCPUが必要になりました。voodoo使用箇所全てでこれを指定するように更新。
+  [Aaron Giles]
+
+- どのCPUレジスタからフェッチするかを知るため、CPD1869デバイスの定義設定にCPUが必要な
+  ように変更。cdp1869の使用箇所でこれを指定するように更新。[Aaron Giles]
+
+- get context、set contextコールをCPUインタフェースから完全に削除。[Aaron Giles]
+
+- safe_cpu_get_pc()の意味が無くなったので削除。[Aaron Giles]
+
+- cpu_execute()をインライン関数に移動。[Aaron Giles]
+
+- pit8253タイマーコントロールワードについて、常時タイマーを再スタートするよう変更。
+  [Wilbert Pol]
+
+- focmpress APIで、圧縮レベルを指定できるように更新。[Aaron Giles]
+
+- ステートセーブタグの考え方を廃止。これは、マルチコアCPUコアでセーブステートを動作さ
+  せるためのハックでした。この結果、ステートセーブ機能のシンプル化、シングルパスでの
+  処理、大量のメモリ割り当てが不要になりました。また、最小限の圧縮を有効にしています。
+  [Aaron Giles]
+
+- machine_configをrendlay.cに配置することで、mameコアからMachineの使用部をさらに削除。
+  [Atari Ace]
+
+- 新しいGCCでのAltivec RGBプリミティブを修正。[budge, Vas Crabb]
+
+- 共用のverboselogでmachineパラメータを取るように変更。[Atari Ace]
+
+- CPUとサウンドコアに残っていたdeprecat.hの参照部を削除。[Atari Ace]
+
+- i8085: INTE命令と、ステートワードコールバック追加。[Curt Coder]
+
+- n8080.cの変更: [Curt Coder]
+ - 回路図を元に割り込み処理を書き直し
+ - 割り込み認証を追加
+
+- クラッシュを修正するため、SCSPの初期化を再整理。[R. Belmont]
+
+- ソースファイルを表示するためのregrepを改良。[Aaron Giles]
+
+- cpuexecサイクルとアト秒を変換する関数をUINT64sで扱うように拡張。[Aaron Giles]
+
+- alpha68k.cのYM2413クロックを8MHzから3.579545MHzに変更。[Philip Bennett]
+
+- attotime_to_ticks、ticks_to_attotimeについて、UINTを使うように変更。また必要に応じ
+  て、eminline関数も使うよう変更。[Aaron Giles]
+
+- 6522 VIAの実装方法をデバイスに変更。[Nathan Woods]
+
+- Cal Omega System 905マシンドライバからACIA6850を削除。これによりSW2が無かったのを修
+  正。[Roberto Fresca]
+
+- 8080/85コアで、Z80のようにシャドウを持つようにEI処理を修正。[Miodrag Milanovic]
+
+- tms34010.h、pc16552.h、tms34061.hの各インターフェイスからグローバルなMachine変数を
+  削除。さらにdeprecat.hのインクルード6箇所を削除。[Atari Ace]
+
+- tilemap.cから#include "deprecat.h"を完全に削除。tilemap_createの呼び出しに、machine
+  ポインタが必要になるのが主な変更点です。このポインタをタイルマップにアタッチして、
+  tilemap.c内部で使用されます。[Atari Ace]
+
+- drawgfx.hから#include "deprecat.h"を完全に削除。上のtilemap用パッチと同様に、
+  machineポインタをgfx_elementに追加し、allocgfxでmachineを取るように変更、また必要に
+  応じて内部でmachineフィールドを使うように調整。[Atari Ace]
+
+- i960: nor命令修正と、notor命令を追加。[robiza]
+
+- nbbatmanのV33プリフェッチタイミングを変更してラスタエフェクトを修正(ドキュメントが
+  見つからないので推測)。[couriersud]
+
+- 逆アセンブリビューから不要なアドレスマスクを削除。コンソールのサブビュー演算は、レ
+  ジスタ部分を固定したままにするよう変更。[Aaron Giles]
+
+- mcs51のシリアルコールバック設定からハックを削除。micro3dで新関数を使うように更新。
+  [Aaron Giles]
+
+- goldstar.cとcmaster.cドライバを統合。リールの表示をタイルマップにコンバート。
+  [David Haywood]
+
+-「Gridiron Fight」にLED用のアートワーク追加。[David Haywood]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Super Pool 99 [David Haywood, Angelo Salese]
+Bra$il / Fashion [Angelo Salese]
+Pesadelo [Mariusz Wojcieszek, hap]
+Super Free Kick [Tomasz Slanina]
+雀豪 [David Haywood, Angelo Salese, Phil Bennett]
+雀豪レディ [David Haywood, Angelo Salese, Phil Bennett]
+
+
+
+新規クローンセット
+------------------
+Europa 2002 Space (Ver 3.0) [Roberto Fresca]
+Triv Two (Vertical) [David Haywood]
+スーパーハイインパクト (prototype, rev 6.0 09/23/91) [Smittdogg]
+Giga Man 2: The Power Fighters / ロックマン2 [David Haywood, Arzeno Fabrice]
+CarnEvil (v1.0.3) [Brian Troha]
+(New?) Cherry Bonus III (not working) [David Haywood]
+Cherry Bonus III (not working) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cherry Bonus 2001 [David Haywood, robiza]
+Four Roses (encrypted, 2 sets) [Roberto Fresca]
+Queen [David Haywood]
+Cherry Master (Corsica, v8.01) [David Haywood]
+Cherry Master 91? [David Haywood]
+Jackie [David Haywood]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

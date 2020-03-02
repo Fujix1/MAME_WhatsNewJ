@@ -1,0 +1,121 @@
+0.72u2
+
+ソース全般の変更：
+------------------
+
+■Megaplayを少し改善。BIOS画面が出るようになったものの、ゲームはまだ動作しません。
+  [Barry Rodewald]
+	src/drivers/segac2.c
+	src/includes/segac2.h
+	src/vidhrdw/segac2.c
+
+■ST-Vの改善をいろいろ。「花組対戦コラムス」でタイトルが一部表示（まだ有効にしてい
+  ないので、確認したい場合は自分で有効にしてください）。[Angelo Salese]
+	src/drivers/stv.c
+
+■DCSのスピードアップを削除。
+	src/sndhrdw/dcs.c
+
+■68000 CコアのSBCD命令のバグを修正。[Acho A/ Tang]
+	モトローラによると、SBCD、ABCD、NVCD命令後の負符号(N)とオーバーフロー(V)フラグの
+	状態は“不定”とのこと。CコアではVフラグをランダムに設定し、Nフラグを符号付き命令
+	のように設定します。
+
+	viofightではSBCD命令後にこの2つのフラグに対して行列的な結果を要求するため、そうで
+	ない場合はループにはまります。そこで、Vフラグはゼロを返し、NフラグはASMコアと同じ
+	桁上げをするようにしました。
+	src/cpu/m68000/m68k_in.c
+
+■「Mustache Boy」のコンティニュー画面修正と、速度改善。[Tomasz Slanina]
+	src/drivers/mustache.c
+
+■Konami関係の修正。[Acho A. Tang]
+	tmnt.c:
+	- qgakumonのリセットと画面が暗くなる問題
+	- tmnt2のステートロード/セーブ(まだ不完全)
+	- ssridersの斜め移動時のぶれ(要テスト)
+
+	konamiic.c:
+	- 境界条件とK007420のバグ修正
+
+	rockrage.c:
+	- 不良スプライトの修正
+
+	kncljoe.c:
+	- スクロール、クリッピング、スプライトの修正
+
+■Fuuki製ゲームの改善(プライオリティとBG色)。[Paul Priest]
+	src/drivers/fuukifg2.c
+	src/vidhrdw/fuukifg2.c
+	src/drivers/fuukifg3.c
+	src/vidhrdw/fuukifg3.c
+
+■OP_ROM/OP_RAMのオーバーフロー対策。[Nathan Woods]
+	このパッチはOP_ROM/OP_RAMのオーバーフローを防ぐ機能を追加します。
+	OP_ROM/OP_RAMが使っている有効なアドレスの範囲を調べるための変数、OP_MEM_MINと
+	OP_MEM_MAXを新しく追加しています。
+
+	memory.hの条件付きコンパイルでこの機能を有効にします。3つのモードがあります:
+
+	CPUREADOP_SAFETY_NONE    - そのままを維持。範囲チェックはしません
+	CPUREADOP_SAFETY_PARTIAL - 最大アドレスに対してのみ範囲チェックをします
+	CPUREADOP_SAFETY_FULL    - 最大・最小の両アドレスに対して範囲チェックをします
+
+	このパッチでは、CPUREADOP_SAFETY_FULL設定時にMAME_DEBUGが定義されていなければ、
+	MAMEがCPUREADOP_SAFETY_NONEを使うようになっているので、リリース版のMAMEには影響は
+	ないはずです。
+	また、MAMEデバッガ使用時にバンクの境界に近いコードを安全に逆アセンブル出来るよう
+	にすることは、非常に便利だと思われます。
+
+	なお、この機能を有効にすると、若干パフォーマンスが上がります。
+
+■DIPスイッチの修正:
+	「1941」、バンク3の一番目 [Fabrizio Pedrazzini]
+	src/drivers/cps1.c
+
+	「テトリスプラス2」(MS32版) [Sonikos]
+	src/drivers/ms32.c
+
+	その他、いくつか
+
+■「熱血高校ドッジボール部」で、別な日本版の海賊版のPROMを使うようにしました。
+多分、色関係の問題が修正されるはずです。
+	src/drivers/nkdodgeb.c
+
+■MESSより8080コアのアップデートを取り込み。
+	src/cpu/i8085/*
+
+■Hyperstoneコアの初期版追加。まだ、何かを動作させるまでにはなってません。
+  [Pierpaolo Prazzoli]
+
+■「ドラゴンブレイズ」で正しいサウンドROM使用。
+	src/drivers/psikyosh.c
+
+
+新規サポートクローン：
+----------------------
+
+ハードダンク (World)
+	src/drivers/multi32.c
+
+Super Bike (DK Conversion) [Pierpaolo Prazzoli]
+	src/drivers/dkong.c
+
+CPSクローン数本 [Razoola]
+	src/drivers/cps2.c
+
+
+新規サポートゲーム：
+--------------------
+
+モグラデッセ (筐体テスト用) [David Haywood]
+	サウンド無し (ディスクリート)
+	src/drivers/mogura.c
+
+スピードアタック [Angelo Salese, Pierpaolo Prazzoli]
+	色不良
+	src/drivers/speedatk.c
+	src/vidhrdw/speedatk.c
+
+MegaTech用セット数本 (ほとんどはまだ動作せず)
+	src/drivers/segac2.c

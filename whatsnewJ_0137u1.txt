@@ -1,0 +1,302 @@
+0.137u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03793: [コンパイル] G4 (altivec)のビルドが壊れている。
+- 03792: [コンパイル] kFreeBSDのサポート。
+- 03371: [サウンド] yiear, yiear2: BGMの音程が低くなった。(Tafoid)
+- 03550: [DIP/ 入力] moonwar: 配線図にある4つめのボタンが実装されていない。
+         (Lord Nightmare)
+- 00304: [グラフィック] All sets in toaplan1.c: toaplan1.cゲームで、カクテルモードの
+         プレイヤー2画面が正しく回転していない。(Quench)
+- 03775: [インターフェイス] primglex: 本来は4ボタンゲームだが2つしか実装されていない。
+         (R. Belmont)
+- 03762: [DIP/ 入力] tekken and clones: キックボタンが効かない。(R. Belmont)
+
+
+
+ソースの変更点
+--------------
+- ST-VドライバにデフォルトのNVRAMを追加。[David Haywood]
+
+- LE2のテキストレイヤー改良: [David Haywood]
+ * ディスプレイイネーブルをデフォルトでONに設定。LE2はテスト画面が過ぎるまでこれをON
+   にしませんが、レジスタはデフォルトでONであることを示唆しているものと思われます。そ
+   うしないと全く表示がされなくなるためです
+ * LE2のテキストレイヤーで正しいパレットを使用するための対策。確認はしてませんが、も
+   しかしたら、これがゲーム内で変更操作がないミキサーチップの内部デフォルト設定に関係
+   しているかもしれません
+
+ これにより起動時のRAM/ROMテストはとりあえず表示されます。
+
+- 680x0 FPU の更新: [R. Belmont]
+ * 移植性のないネイティブ浮動小数点演算の代わりにSoftFloatをつかうよう書き直し
+ * Motorola 96-bit拡張floatをサポート
+ * アドレッシングモードとコンディションをさらにサポート
+
+- toaplan1.cドライバの更新: [Quench]
+ * toaplan1ゲーム全ての画面反転を修正
+ *「鮫！鮫！鮫！」「Fire Shark」「ヴィマナ」に最小限のZ180プレースホルダを追加
+
+- 500gpのタイトル画面の年代に合わせドライバを変更。[Guru]
+
+- namcos23: 3DコマンドDMAを実装。[O. Galibert]
+
+-「究極タイガー/Twincobra」「ワードナーの森」ドライバの更新: [Quench]
+ twincobr.c
+ * 6845 CRTCインタフェース追加
+ * fsharkbtの正しいDSP ROMロードとPROMをリストア
+ wardner.c
+ * 6845 CRTCインタフェース追加
+ * クロック速度訂正
+
+- namcos23のメンテ: 発売月をmamedrivに移動「500 GP」の名称修正。[Guru]
+
+- taitojc: landgearのクラッシュ修正。アトラクトモードまで動作。[R. Belmont]
+
+- 65816: デシマルモードのADC/SBC動作を修正。[blargg, byuu, R. Belmont]
+
+- Funworldドライバの改良。[Roberto Fresca]
+ * ROMロード部のハックを全て削除。実ハードウェアと同じ正しい方法でロード
+ * グラフィックデコードルーチンの決め打ちしていた値を、正しいRGN_FRACの演算処理に置き
+   換え
+ * グラフィックビットプレーンを修正
+ * ハードウェア情報、テクニカル情報の追加
+ * mongolnwのマシンドライバを起動可能なように改良
+ * Funwolrd製「Multi Win」を追加。このセットは暗号化され、カスタムCPUを使用。
+  「Joker Card」と似たハードウェアの模様
+ *「Fun World Quiz」追加。正しいバンキング、グラフィック、バイポーラPROMの再吸い出し
+   が必要
+
+- 680x0 FPUの更新: [R. Belmont]
+ * FMOVECRを実装
+ * load extended PC relative indexedをサポート
+ * コードの重複を整理
+
+-「Fun World Quiz」の復号化とハードウェア情報追加。[Roberto Fresca]
+
+- Funworldドライバをさらに改良: [Roberto Fresca, David Haywood]
+ *「Fun World Quiz」の入力改良
+ * クイズ問題のハンドラとバンキング修正
+ * royalcdc、multiwinの部分的な復号化
+ *「Fun World Quiz」の完全なDIPスイッチとDIP配置追加 
+ *「Fun World Quiz」の動作可能ステートに昇格
+ *「Fun World Quiz」のブックキーピングについて記述を追加
+
+- Namco FLとNamco System 2にデフォルトNVRAM追加。[David Haywood]
+
+-「ウイニングスパイク」のプレイヤー2入力バッファプロテクト実装。[Angelo Salese]
+
+-「パステルギャル」ドライバのIRQ ACK実装。「Three Dealers Casino House」のグラフィッ
+  クROMリードバックを実装。[Angelo Salese]
+
+- Funworldドライバをまたまた改良: [Roberto Fresca]
+ * 各ゲーム毎のボタンとランプのレイアウトを再構成。コードのクリーンアップ
+ * bigdealゲーム専用のボタンとランプレイアウトを追加
+ * royalcrdとjolycdit専用のボタンランプレイアウトを追加。ただし、ダブルアップの選択コー
+   ドに間違ったランプを点灯させるバグあり。これはjollycrdのルーチンから残っているもの
+ * vegasfteをGAME_NOT_WORKINGに指定。コインもリモートクレジットも受け付けないため
+
+- hng64 : ライティングの演算精度を向上。[Andrew Gardner]
+
+- 以下のドライバにドライバデータクラスとセーブステート追加: [Fabio Priuli]
+  paradise.c, pasha2.c, pbaction.c
+
+- pass.cのセーブステート有効化(すでに全てセーブされていたため)。[Fabio Priuli]
+
+- snes.c: OAM描画ルーチンの再構成。領域オーバーとタイムオーバーフラグ(スプライト制限)を
+  正しく実装。FirstSpirteプライオリティを実装。[Fabio Priuli]
+
+- snes.c: コードのクリーンアップと再構成、変数をさらにドライバデータクラスへ移動。
+  [Fabio Priuli]
+
+- NamcoS21のクリーンアップ: [David Haywood]
+ *「サイバースレッド」にデフォルトNVRAM追加
+ *「サイバースレッド」のアナログ入力領域制限追加(ゲームの不具合で、最大か最小値になる
+   と逆に移動してしまう)
+ *「サイバースレッド」のデフォルトキーマッピングを他のデュアルジョイスティック系戦車
+   スタイルゲーム(アサルトなど)と同じように設定
+ * 入力ポートについて、共通入力を複製するのではなく、共通ベースをインクルードするよう
+   に変更
+ * aircombuをaircombに改名して日本版から親移し
+
+- Caveのクリーンアップ: [David Haywood]
+ *「セーラームーン」「アクウギャレット / Air Gallet」「マジンガーZ」で、リセット時に
+   EEPROMのリージョンバイトを変更するためのフェイクなリージョンDIPスイッチを削除
+ * この代わりに、それぞれ異なったデフォルトEEPROMを持つクローン版として分割。各EEPROM
+   は各リージョン向けの工場出荷設定状態になるよう設定(このほうが、より簡潔で実機を正
+   確に再現する方法です)
+
+- dynax.c, ddenlovr.c: ドライバデータクラスを追加。[Fabio Priuli]
+
+- tlcs90.c: セーブステート追加。[Fabio Priuli]
+
+- ddenlovr.c, dynax.c: memory_set_bankptrをmemory_set_bankpに置き換えと、セーブステー
+  トサポート。[Fabio Priuli]
+
+- spc700.c: セーブステート追加。[Fabio Priuli]
+
+- snes.c: snesサウンドデバイスで、構造体内のデバイスハンドラを使用。内部変数を構造体
+  内で保持し保存するため。[Fabio Priuli]
+
+- i386: 非整列メモリアクセスと命令コードフェッチがページ境界を超える場合について修正。
+  以前は、もしページがRAMに連続せず並んでいて、非整列読み込みか書き込みを行うと、部分
+  的に間違ったデータが読み込まれたり、間違ったページにデータが書き込まれていました。
+  [Barry Rodewald]
+
+- png2bdc.c: 使用方法を出力するとき、名称が"png2bdc"ではなく"png2bedf"だったのを修正;
+  この変更により、ランタイム時に実行ファイルから名前を取得するため常に正しくなります。  [Christophe Jaillet]
+
+- cppcheckとVS2008のコード解析を元にいくつかクリーンアップ。[Oliver Stoeneberg]
+
+- split.c: "split"が0ではなく実際の結果を返すように変更。[Oliver Stoeneberg]
+
+- clifront.c: -lsitdevicesでのCPUデバイスに対するidentationを他のものと同じように変更。
+  [Oliver Stoeneberg]
+
+- i386.c: gave some fatalerror() calls in the i386 proper messages
+[Oliver Stoeneberg]
+
+- ssem.c: SSEMコアでSSEM_DISASM_ON_UNIMPLのときのコンパイルを修正。
+  [Oliver Stoeneberg]
+
+- sdl/window.c: sdlwindow_video_window_create()でメモリリークが起こる可能性があったの
+  修正。[Oliver Stoeneberg]
+
+- metro.c: ドライバデータクラス追加。[Fabio Priuli]
+
+- vmetal: ドライバデータクラスとセーブステート追加。[Fabio Priuli]
+
+-「スーパー魂斗羅」の全てのクロックとVSYNCを実機で検証。[Corrado Tomaselli]
+
+-「Uncle Poo」のVRAMカラーバンク選択を実装。[Angelo Salese, Iq_132]
+
+-「サイバーコマンドー」のデフォルトNVRAM追加と、デフォルトの操作割り当てを改良。
+  [David Haywood]
+
+-「Three Dealers Casino House」のPALバンク実装。[Angelo Salese]
+
+- Stephh氏の記述を元にDIPの更新と、ロケーションステータスを修正。画面反転が実装される
+  まで、GAME_NO_COCKTAILフラグを追加。[Tafoid]
+
+- moonwarのスピナー入力修正と、スピナー基板についてノート追加、ゲームを動作可能に設定。
+  [Lord Nightmare]
+
+- moonwarのプロトタイプ版スピナーと同じものを「Moon War 2」に移植; 以前よりかなりスムー
+  ズに動作。[Lord Nightmare]
+
+- moonwar/moonwara/moonwarpで、IPT_DIALの値が0x00と0xFFの境界をまたぐときにまれに起こ
+  る不具合を修正。moonwarにコンディショナルなHyperflipボタン追加。これはアップライト
+   モードだけで使用か? (カクテルモードでは同じボタンがプレイヤー2用の別なボタンで使用
+   されている) [Lord Nightmare]
+
+- moonwarpのDIPスイッチをたくさん実装。frenzyにカラーテストモードを再追加; moonwarpの
+  カクテルモードとアップライトの切り替えについては、何回か偶然成功したもののどれかは
+  まだ不明。実際の動作関係はコード解析が必要。プレイヤー2の操作をカクテルモードで分離。
+  [Lord Nightmare]
+
+-「Three Dealers Casino House」の透過処理問題を修正。[Angelo Salese]
+
+- snes.c: 内部整理、新デバッグ関数追加、mode7の修正。[Fabio Priuli]
+
+- PIC8259のデフォルト初期ステートをSTATE_READYに変更。[Miodrag Milanovic]
+
+- metro.cドライバのビデオシステム再構成、手始め。[David Haywood]
+
+-「イーアルカンフー」のスペルミス修正、クロックレートの確認、実機録音に合わせてテンポ
+  の改良。[Corrado Tomaselli, Tafoid]
+
+- metro.cドライバのビデオシステム再構成の仕上げ段階。ビデオコードをカスタム描画関数に
+  置き換え。[David Haywood]
+
+- funworld.cドライバの改良。[Roberto Fresca]
+ * デュアルステートパレット追加(PLD経由でアドレス可能)。これにより、どちらのパレット
+   がアドレスされた状態にするか選択できます
+ * 両方のパレットステートをカバーするため、メインマシンドライバを分割
+ * vegasslw、vegasfst、vegasfteで入力とDIPスイッチの再構成
+ *「Royal Vegas Joker Card」用のデフォルトNVRAM作成。これらは、有効なNVRAMとして設定
+   が必要です。これにより、vegasfteでのリモートクレジット受取りが可能になり、3セット
+   全てで有効な最小、最大ベット数とペイアウトが設定されました
+ * vegasfteから動作不可フラグを削除
+ *「Big Deal」の色改善
+ *「Royal Vegas Joker Card」セットの正確な色
+
+-「ファイブアサイドサッカー」のデフォルトNVRAMを実装。[David Haywood]
+
+- MN10200の更新: [R. Belmont]
+ * IRQ生成部の改良とMAME IRQシステムへの実装
+ * プレスケーラーとIRQを含む、初期版の8-bitタイマー実装
+ * デバッガでレジスタが正しく表示されないのを修正
+
+- metro.c: セーブステート追加。[David Haywood, Fabio Priuli]
+
+- snes.c: DSP1、DSP2、DSP3、DSP4、OBC1、SRTC、ST010の各アドオンチップで各変数を構造体
+  で保持しセーブするように更新。[Fabio Priuli]
+
+- funworld.cドライバをさらに改良: [Roberto Fresca]
+ *「Jolly Card Professional」の2つめセットを追加。コードの違いをドキュメントに追加
+ *「Royal Vegas Joker Card」の別セットを追加。Mile氏より。これらのセットはコインでの
+   動作は想定しておらず、リモートクレジットのみ使用できます。最大4台まで管理できる外
+   部モジュールがあり、それでクレジットの追加、削除、監視を行います
+ * 上記のセットにデフォルトNVRAMを追加
+ * vegasmilに正しい入力とDIPスイッチを追加
+ * jolyc980のデフォルトNVRAMを完全にクリーンなものと置き換え。一時メーターと合計メー
+   ターをゼロにクリア
+
+- Z80-DMAのLoadとContinueコマンドを修正。[Curt Coder]
+
+- namcos23: ROMの再構成。[O. Galibert]
+
+- MC68HC11: SUBD DIRとSUBD EXT命令実装。[Angelo Salese]
+
+- snes.cの更新: [Fabio Priuli]
+ * 正しいスプライトプライオリティ
+ * 疑似ハイレゾエフェクト
+
+-「Puzzlet」のレイヤー消去の初期バージョン。[Angelo Salese]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Mr. Dig [Kevin Eshback, Brian Troha, David Haywood, The Dumping Union]
+Mouse Shooter GoGo [Stefan Lindberg, Luca Elia, The Dumping Union]
+Fun World Quiz (austrian) [Roberto Fresca, David Haywood]
+Crusher Makochan
+  [tormod, R. Gatto, S. Rietscha, krick, jeremymtc, Smitdogg, The Dumping Union]
+Video Quiz [f205v, Mariusz Wojcieszek]
+飛び越せ!ジャンプマン
+  [tormod, R. Howard, K. Svensson, D. Beneke, Smitdogg, Luca Elia, The Dumping Union]
+Spider-Man vs The Kingpin (Mega-Tech)
+  [Tormod, Smitdogg, The Dumping Union]
+Moon War (Frenzy基板のプロトタイプ)
+  [Team Europe, Volker Hann, David Haywood, Lord Nightmare]
+
+
+新しく追加されたクローンセット
+------------------------------
+雷電DX (US, Fabtek license) [tormod, Smitdogg, The Dumping Union] (動作せず)
+Berzerk (Germany) [Team Europe, Volker Hann, David Haywood]
+ファイナルラップ3 (World, set 2) 
+  [Charles MacDonald, hap, Smitdogg, The Dumping Union]
+スターグラディエイター (JAPAN 960627)
+  [tormod, W. Belk, ranger_lennier, R. Howard, R. Mucciarelli, Smitdogg, 
+   The Dumping Union]
+バーチャストライカー2 '99 (Revision A) [The Dumping Union]
+Hot Shocker [The Dumping Union]
+Knights of Valour 2 / 三国戦記2 (ver. 107) [XingXing]
+Knights of Valour 2 / 三国戦記2 (ver. 103) [XingXing]
+Knights of Valour 2 / 三国戦記2 (ver. 102) [XingXing]
+Jolly Card Professional 2.0 (MZS Tech) [Roberto Fresca]
+Royal Vegas Joker Card (fast deal, Mile) [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Downhill Bikers (DH3 Ver. A) [Guru]
+Multi Win (Ver.0167, encrypted) [Roberto Fresca]
+ラピッドリバー (RD2 Ver. C) [Guru]
+Crisis Zone (CSZO3 Ver. B) [Guru]

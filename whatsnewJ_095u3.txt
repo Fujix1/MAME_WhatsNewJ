@@ -1,0 +1,106 @@
+0.95u3
+------
+
+Nathan Woods氏による変更点
+--------------------------
+* 6502コードを使ったNESゲームのクラッシュ修正
+* 最近のM6502変更に合わせてM6502の変数をアップデート
+* 8255PPIモード2機能をマージ
+
+
+smf氏による変更点
+-----------------
+* src\state.cのMAX_INSTANCESを増加
+* src\machine\intelfsh.hのFLASH_CHIPS_MAXを増加
+* 8bitと16bitのintelflash nvramハンドラをマージ。引数はチップ番号で渡す
+* ADC0831/ADC0832/ADC0834/ADC0838のシリアルのアナログからデジタル変換精度を向上
+* konamigx.cにadc083x.cを実装
+* timekpr.cのログエラーをコメントアウト
+* 表示領域変更後のアートワークリサイズ処理の初期版をartwork.cに追加
+
+
+R. Belmont氏による変更点
+------------------------
+*「グラディウス3」の表示領域をシンメトリカルに変更
+* K052109にdx/dyセッティング追加。156とそれ以降のチップにあるようにK052109に
+  dx/dyセッティング追加。
+* gradius3のレイヤー2のX軸オフセット修正
+
+
+Aaron Giles氏による変更点
+-------------------------
+Williamsドライバの書き直し
+* 回路図から全てのアドレッシングを導入
+* バンキングメカニズムをクリーンアップ
+* 後期のゲームのサウンドCPUクロックを修正
+* blitterコードを大幅に簡略化
+* blitterにタイミング追加（今のところは推測）
+* クリッピング回路を正しく実装
+* パレットハンドリングをかなり簡略化
+* 最近のゲームについてビデオシステムをタイルマップを使うように書き換え
+
+
+その他の変更
+------------
+ghoshunt/tutstombのDIPスイッチ修正。[Sonikos]
+
+「ラスタンサーガ」のROM名修正。[Bryan McPhail]
+
+入力ポートの読み込みを高速化。[wpcmame]
+
+68000命令のいくつかについてサイクルカウントを修正。[Andrew Seed]
+
+「フェニックス」のトーンサウンドでディスクリートシステムを使うように更新。
+  [Derrick Renaud]
+
+「Battlezone」「Vindicators Part II」からフェイクのハックポート削除。
+  [Aaron Giles]
+
+M90ゲームのDIPスイッチをクリーンアップ。[Brian Troha]
+
+panicrにグラフィックデコード追加。[Nicola Salmoria]
+
+atarijsa.cとmarineb.cのerror.logメッセージと、サウンドチップ情報の表示をクリーン
+アップ。[Sebastien Volpe]
+
+「プレアデス」から「フェニックス」のサウンド削除。[Derrick Renaud]
+
+「ポケットギャルDX」のDIP修正。[Sonikos]
+
+「Vs. Sky Kid」のDIPスイッチ修正。[chaneman]
+
+gswordのスプライトパレット修正。[Nicola Salmoria]
+
+Speed SpinドライバのOKIバンキング追加。[Pierpaolo Prazzoli]
+
+crimfghtのクロックスピードとリフレッシュレート修正。[Mamesick]
+
+「歌舞伎Z」に再ダンプしたCPU3用ROMからサンプル追加と起動時の色化け修正。
+[Pierpaolo Prazzoli]
+
+HD6309の固定インデックスアドレスモードの逆アセ修正。[Tim Lindner]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Flying Tiger [David Haywood]
+サンダードラゴン [Angelo Salese, Nicola Salmoria]
+ハチャメチャファイター [Angelo Salese]
+World Beach Ball Championship 1997 [Pierpaolo Prazzoli]
+
+
+新規クローンセット
+------------------
+オペレーションウルフ (World) [Bryan McPhail]
+グレートソードマン (World?) [Nicola Salmoria, Corrado Tomaselli]
+Sharpshooter (Rev 1.2) [Brian Troha]
+Cascade (Avalanche 海賊版) [David Haywood]
+Catt / マジカルキャットアドベンチャー (Japan) [Pierpaolo Prazzoli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Hollywood Action [David Haywood]
+Power Spikes / スーパーバレー'91 (海賊版) [Pierpaolo Prazzoli]
+Aero Fighters / ソニックウイングス (海賊版) [Pierpaolo Prazzoli]

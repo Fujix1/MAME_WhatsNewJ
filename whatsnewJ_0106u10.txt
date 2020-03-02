@@ -1,0 +1,62 @@
+0.106u10
+--------
+
+
+MAMETestersの修正バグ
+---------------------
+coininputs0106u6gra [Canim]
+champbwl0106u9gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- デュアルスクリーン対応：Dynax製ゲーム、TX1、RockMS、Nichibutsu麻雀ゲーム、「サブズ」
+  [David Haywood]
+
+-「ペアーズラブ」のDIPスイッチを完全に。[Roberto Fresca]
+
+- Taito JCシステムのバグ修正をいろいろ。[Ville Linde]
+
+- スクリーンショット用コードをクリーンアップ。デバッガコマンドと再接続。
+  [Nathan Woods]
+
+- centipedドライバにステートセーブ追加。minivadr、zaxxonドライバでステートセーブ可能
+  に。[Buddabing, Aaron Giles]
+
+- Atari computerドライバのPIAアドレッシングリグレッション修正。[Nathan Woods]
+
+- ROMロードとグラフィック復号化時中に、黒画面の代わりに簡単なプログレス表示追加。
+  [Aaron Giles]
+
+- 選択したビュー、回転、アートワークの状態をゲームのcfgファイルに保存する機能追加。
+  [Aaron Giles]
+
+- レンダラが初期化以前にUIエレメントを表示しないように変更。[Aaron Giles]
+
+- キーボードLEDが再び動作するように修正。[Aaron Giles]
+
+- フルスクリーンブライトネス調整のバックサポート追加。[Aaron Giles]
+
+- パレットビューで+/-キーをサポート。パレットやグラフィックが大量にあるときに、列・行
+  のヘッダを示すチェックマークを追加。[Aaron Giles]
+
+- グラフィック・パレットビューアでのUIキーをユーザ設定できるように変更。[Aaron Giles]
+
+- 親セットとのアートワーク共有を修正。[Aaron Giles]
+
+- dotron、skydiver、spacewar、gorf、atarifb、sspeedr、gollygho、spyhuntの各ドライバで
+  新アートワークシステムをサポート。[Aaron Giles]
+
+- 完全に単一色のオーバーレイをピースとして簡単に再利用できるように改良。[Aaron Giles]
+
+- 全ての内部レイアウト設定を.layファイルにコンバート。残りの全ドライバも新レイアウト
+  に移行。[Aaron Giles]
+
+- -listxmlにマルチスクリーンの情報を出力するように更新。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+クルージンワールド (version 2.4) [Aaron Giles]

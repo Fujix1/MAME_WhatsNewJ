@@ -1,0 +1,107 @@
+0.127u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01187: [Graphics] gseeker: アトラクトモードでステルス機が格納庫から出てくるところでプライオリティ不具合あり。(couriersud)
+- 02381: [DIP/Input] peke1012: オプションにライトペンがマッピングされていない。(Fabio Priuli)
+- 02191: [Sound] wseries, basebal2, dblplay, strkzone: ボイスの音質。(couriersud)
+- 02322: [Core] All Drivers using 8080 CPU: スコア、クレジットカウント、その他に問題。(Miodrag Milanovic)
+- 02254: [DIP/Input] All Sets in namcond1.c: コインが入らない。(Fabio Priuli)
+- 02156: [Color/Palette] naughtyb: コンポーネント緑のRESNET演算間違い。(couriersud)
+- 02280: [Misc.] any set with multiple CPUs: CPU 0以外でRunすると逆アセンブラがフリーズする。(Aaron Giles)
+- 02259: [Misc.] tinklpit: 終了時にデバッグメッセージが出る。(Phil Bennett)
+- 02258: [Crash/Freeze] srmp6: 黒画面しか表示されない。(Fabio Priuli)
+
+
+
+ソースの変更点
+--------------
+- 最新のNaomi 2 BIOSを追加。[Brian Troha]
+
+- 全てのCMC50セットのNeoGeo M1復号化を修正。[Andreas Naive]
+
+- Motorola DSP56k逆アセンブラを書き直し。[Andrew Gardner]
+ * フラットデコードモデルのため、独自の命令コードグループ化を削除
+ * 不明な命令についての問題を修正
+ * 最後のALU並列ムーブ命令を追加
+ * ブランチ相対オフセットデコーディングを修正
+
+- NB1/NB2: デフォルトのDIP設定を修正。DIP配置追加。最新のイディオム使用。
+  重要: cfgとnvは全て削除してください
+  [R. Belmont]
+
+- firefoxのスプライト対タイルのプライオリティ削除。この処理は存在していません。[smf]
+
+- System 23の更新: [R. Belmont]
+ * テキストレイヤーが表示されるように修正 (色違いあり)
+ * Gorgonシステムのサポート準備
+ *「ラピッドリバー」のreadme追加
+ * GorgonシステムのMIPSクロックをreadmeを元に133MHzに調整
+ *「GP500」を「500GP」に改名
+ * サウンドCPUの共有RAMを修正。コムはまだ不正確
+
+- 65816/377xx: BRLの逆アセンブリ修正。[ShimaPong]
+
+- mcs48のAF演算修正。[Aaron Giles]
+
+- Leland ay8910/12出力の合成処理を修正。[couriersud]
+
+- rescale_notifier()について、スキャンラインを使用しないドライバでの再スケーリングを
+  許可。[Wilbert Pol]
+
+- 22VP931エミュレーション追加。ほぼ動作。コミュニケーション動作は良好、基本的なサーチ、
+  再生、スキップも動作可能。まだ少し不具合あり。[Aaron Giles]
+
+-「ファイヤーフォックス」の改良: [Aaron Giles]
+ - 回路図を元にメモリマップを完成
+ - 実際のレーザーディスク実装に伴って、レーザーディスク用ハックを削除
+ - CPUとサウンドクロックを全て修正
+ - deprecat.hを不要なように更新
+
+- 汎用のタイマーデバイスを追加。これは、タイマーを割り当てますが始動させません。タイ
+  マーの割り当て方法はこれが優先されますが、いずれはこのメカニズムのみになるかもしれ
+  ません。[Aaron Giles]
+
+- geebeegのROMセット設定でのコピペな間違いを修正。[David Haywood]
+
+- dkongのmemory_region呼び出しを初期化ルーチンに移動。[couriersud]
+
+- -listromでデバイス専用ROMを考慮するように修正。[Aaron Giles]
+
+- ここ数ヶ月でMAMEに追加されたコードのほぼ全部について、static関数がきちんとstaticかを
+  再チェック。修正個所はいつも通り多く、enum定義が宣言されないように変更、デッドコー
+  ドやデッド宣言に#if...#endif追加、必要な箇所にstaticを追加など。また、
+  UNUSED_FUNCTONシンボルの綴り修正も多数。[Atari Ace]
+
+- system1.cの入力系をさらにクリーンアップ。[Sonikos]
+
+- Naomiの更新: [Samuele Zannoli]
+ * 3Dアクセラレータが使われていない場合は、フレームバッファの内容が表示されます。
+   これにより、Atomiswaveのロゴとメッセージが表示されます(時間がかかります)
+ * mapleのバグを削除 (cvs2gdの変なメッセージはもう出ません)
+ * コミュニケーションレジスタのDIMMボードについてドキュメントを更新
+ * DEBUG_VERTICESが1のときには、バーテックスをタイルアクセラレータに送り、セグメントを
+   接続してワイヤーフレーム風のシーンとして描画するように変更
+
+- 非ゼロな塗りつぶしが行われるときのfillbitmapを少し最適化。[Christophe Jaillet]
+
+- memory_region()の呼び出し(動作遅)をneogeo用レンダラのコアスプライトループから削除。
+  これにより大幅に速度向上。[Christophe Jaillet]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+TX-1 (Atari/Namco/Taito license) [Phil Bennett, Guru]
+Chanbara [Tomasz Slanina, David Haywood]
+Paradise Deluxe 2 [Chris Hardy]
+
+
+
+追加された未動作ゲーム
+----------------------
+ラピッドリバー (RD3 Ver. C) [Guru, R. Belmont]
+タイムクライシス2 (TSS2 Ver. B) [Guru]
+GameCristal (version 2.613) [ANY, f205v]

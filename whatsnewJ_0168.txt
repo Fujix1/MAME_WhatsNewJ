@@ -1,0 +1,247 @@
+0.168
+-
+
+謝辞
+----
+MAMEのコードの問題解決にともなう一時的なライセンスの提供をしてくれたPVS-Studioのオー
+ナー諸氏、及びMAMEの改善にためにReSharperとCLionプロジェクトのライセンスを提供してく
+れたJetBrains社に感謝の意を表します。
+
+
+MAMETestersの修正バグ
+---------------------
+- 06083: [システムコア] cpu/z8000/z8000tbl.inc - asmflagが間違っている。(Olivier Galibert)
+- 05958: [グラフィック] (cclimber.c) toprollr: スプライトが一部表示されない。(Osso)
+- 06075: [グラフィック] (malzak.c) malzak, malzak2:タイトルに黒い線が出る。(Pernod)
+- 06071: [ドキュメント] (shadfrce.c) shadfrcej: このバージョンは日本語版ではなく英語版。(David Haywood)
+- 06070: [DIP/入力] (psikyosh.c) mjgtaste: ジョイスティックモードがきちんと動かない。(David Haywood)
+- 06060: [DIP/入力] (a7800.c) a7800 [1on1u]: One-On-One Basketballをスタートできない。(David Haywood)
+- 05817: [その他] (mz700.c) mz700, mz700j: BASICロード後速度が大きく落ちる。(Robbbert)
+- 06056: [ゲームプレイ] (osborne1.c) osborne1: ROMバンキングが正しく動作していない。(Vas Crabb)
+
+
+ソースの変更
+------------
+
+- zx: ハードウェアに忠実に書き直し開始。[O. Galibert]
+
+- Aristocrat MKVドライバ: ドキュメントをさらに正確なものに改善。テクニカルノート追加。
+  [Roberto Fresca]
+
+- osborne1の改良: [Vas Crabb]
+ * 回路図よりlow 16kをバンクし、メモリテストをパス
+ * 回路図より、メモリにマップされたI/Oアドレスを処理
+ * IEEE488割り込みのベクタリング修正
+ * シリアルポートエミュレーション追加
+ * ビーバーの周波数とタイミング修正
+ * 通常モードとSCREEN-PACモードのスクロール動作修正
+ * RESETキー実装(NMIを生成、デフォルトでF12に割り当て)
+ * F4タイルマップビューアでビデオメモリの内容表示
+ * バンキング設定とセーブステートをサポート
+
+- Osborne Vixen: 画面修正(Z80でM1をサポートしてくれたOGさんに感謝)。その他修正もあり
+  動作可能。[Robbbert]
+
+- n64: RDRAM初期化のスキップからCPUサイクルのシミュレーション。[Happy]
+  後期のSI初期化で、システムのアップ時間についてより期待値に近いものが得られる。
+
+- machineとdeviceクラスのlogerror部を作成。[Miodrag Milanovic]
+  メッセージログを持つデバイスのタグを表示する
+
+- naomi/triforceのドキュメント更新。[f205v]
+
+- peplus.c: 新しく発見したPSR(Program Summary Report)に基づき、ドキュメントを更新。
+  [Kevin N, BrianT]
+
+- TMS5xxx: ノイズを起こす原因だったラティスフィルタ処理を修正。実機とは異なる実装なの
+  で最適な修正ではないが、以前のものよりも動作は良好。[Lord Nightmare]
+
+- Genie (ICP-1, set 2)について、改良版メモリマップ、ROMロードの再マップ、正しい入力系
+  を追加し新しいマシンを派生。テクニカルノートや発見事項も追加。[Roberto Fresca]
+
+- Goldnpkr.cドライバ: ゲームとテクニカルノート追加。クリーンアップ。[Roberto Fresca]
+
+- PVS-Studio警告V578 "An odd bitwise operation detected. Consider verifying it"の全イ
+  ンスタンスを修正。[MooglyGuy]
+
+- Sharp MZシリーズ:
+ * MZ-700: bankdevを使用しベーシックの速度改善(MT06058); [Robbbert]
+ * MZ-700: シフト、コントロール、ファンクションキーを修正;
+ * MZ-800: RAMディスクアクセス時のクラッシュを修正;
+ * MZ1500: 起動とプログラムの動作が可能;
+ * MZ-800、MZ-80K、MZ-80Aでmzfテープをロード可能
+
+- PVS-Studioの警告V501 "There are identical sub-expressions to the left and to the 
+  right of an operator"のインスタンスを一部修正。[MooglyGuy]
+
+- hdc92x4: PSV-Stuidoでフラグ付けされた?:オペレータの曖昧性を修正。[MooglyGuy]
+
+- Jack Potten's Poker (NGold, set 3)の改良: 間違った入力/専用入力のコインライン修正。
+  グラフィックも修正。[Roberto Fresca]
+
+- imds2にシリアルポート追加。[F. Ulivi]
+
+- PVS-Studioの警告V562"It's odd to compare a bool type value with a value of 0/1" 
+  を修正。[MooglyGuy]
+
+- PVS-Studioの警告V564"The &/| operator is applied to bool type value. You've 
+  probably forgotten to include parentheses."を修正。 [MooglyGuy]
+
+- goldnpkr.cドライバの改良。[Roberto Fresca]
+
+- cmpacman: DIPスイッチ2つ修正。[Vas Crabb]
+
+- ICP1ドーターボードゲームの部分的な復号化追加(いまのところpokerducセットのみ)。ただ
+  し一部分だけなのでコードはコメントアウトしてある。[Roberto Fresca]
+
+- Golden Pokerの第2コインスロットにポートインパルス追加。royaleセットと両方で必要。
+  [Roberto Fresca]
+
+- amstad: TranstapeのWIPサポート。[Barry Rodewald]
+
+- a7800.c - ハードウェアのドキュメントとテストを元に、'0x02XX'マップをより正確に反映。
+  [Mike Saarna, Robert Tuccitto]
+
+- TMS5220とTMS5110: DEBUG_LATTICEの冗長性追加。[Lord Nightmare]
+
+- namcos23: GPU commの処理改良。[O. Galibert]
+
+- OSD/SDL: NetBSDでのビルドを修正するための不足ヘッダ追加。[Thomas Klausner]
+  このファイルは他のgmake.*/genie.makeファイルから外されていた。build/gmake.*ファイル
+  はアップストリームに対して存在しないので、これは完全にローカルな問題。
+
+- namcos23: ポートB bit 6も入力なのでよしなに処理。多分JVS。[O. Galibert]
+
+- mc6845: インタレースモードでのhd6845ラスタを修正: [Nigel Barnes]
+ * bbcが正しいhd6845を使用
+ * saa5050が20本の全スキャンライン出力
+
+- a6809: ハックの削除とsaa5050の変更より上の表示を修正。[Robbbert]
+
+- bbc: ソフトリストの追加や変更: [Nigel Barnes]
+ * 多くの項目にpart_id追加
+ * プロテクトされたオリジナルフロッピー(FSD)追加
+
+- bbc: FSDフォーマットの実験的サポート。[Nigel Barnes]
+
+- naomi.c: "NAOMI Development BIOS v1.10"を追加。[Andy Geezer, MetalliC]
+
+- Aristocrat MKIVドライバ: Fever Pitchについて、ギャンブル性やダブルアップ機能がない
+  と見られるため入力スキームとアートワークレイアウト変更。[Roberto Fresca]
+
+- Aristocrat MKIVドライバ: Fever Pitchのサービス入力は予備の機能だったのでそれに合わ
+  せてアートワークレイアウトを変更。[Roberto Fresca]
+
+- HLSL [ImJezze]
+ * プレスケールフィールドの重複を削除
+ * HLSLオプションの見え具合いを画面タイプによるように変更
+ * LCD画面タイプのスキャンラインを無効化。HLSL設定のリセット修正
+ * 画面サイズが変更されるとHLSL設定がリセットされるのを修正
+ * ハードコードしていたHLSLのプリセットを削除
+ * HLSLのリードミーファイル更新
+ * D3DとHLSLリソースの生成順序を修正
+ * スライダの表示切り替え可能
+ * 画面調整(拡縮、オフセット)をそれぞれのレンダラAPI自身で処理できるように変更(デフォ
+   ルトは以前のまま)
+ * D3Dがシェーダ内自身で画面調整を処理。これにより、画面拡縮とオフセットを使ったとき
+   の角丸などのエフェクトが修正
+ * ウィンドウとフルスクリーンモードを切り替えるとHLSL設定がリセットされるバグ修正
+ * マルチ画面での画面調整を修正
+ * ベクターレンダラが、固定強度のベクタを検知してダイナミックなビーム幅の計算をオフに
+   するような試み
+ * MAMEをドライバパラメータ無しで起動したときは、＜カスタム＞.iniからHLSL設定を読み込
+   まないように修正
+ * HLSLスライダのデフォルト値を削除。デフォルトは、エフェクトが無くなるようなnull的な
+   値に指定
+ * デフォルトのHLSL設定を少し変更
+ * ウィンドウとフルスクリーンモードを切り替えるとシャドウマスクが無くなるのを修正
+
+- z800x: 逆アセンブリ修正。[Oliver Lehmann]
+
+- ap2_dsk.c: 36トラックのApple II NIBイメージをサポート。[Peter Ferrie]
+
+- wozfdc: ワープ4だスコット(CPU使用率が大幅低減)。[O. Galibert]
+
+- vrender0: 512x240を超える解像度が使用可能。[Luca Elia]
+
+- GEnieとMAMEのOS/2サポートを更新。[KO Myung-Hun]
+
+- mcatadv.c:「ノストラダムス」のエミュレーション改善: [David Haywood]
+ * スプライトマスキングエフェクトをサポート(6面ボス)
+ * タイルマップイネーブルをサポート(7面ボスの点滅する影)
+ * プライオリティ0のスプライト表示(最終ボスの腕)
+ * 背景色を改良(フェードイン／アウト、イントロとエンディング)
+
+- se3208: make sure the low bits of the stack pointer are always 0 [Luca Elia]
+
+- se3208.c: アライメントの揃っていないdwordのリードライトを不許可。これにより、
+ 「Donggul Donggul Haerong」が動作。ただしこれが本当に正しい修正なのかは不明。
+  [David Haywood]
+
+- EmscriptenによるJavaScriptへのコンパイルがそのままで可能。[Justin Kerk]
+ EmscriptenのemmakeツールでMAMEがビルド可能。設定例:
+ emmake make SUBTARGET=pacman SOURCES=src/mame/drivers/pacman.cpp
+ これによりHTMLフロントエンド用の.jsファイルを出力する
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+Fever Pitch? (2VXEC534, NSW, 90.36%) [Roberto Fresca, Matt B]
+Trivia R Us (v1.07) [J. Mathevet, Smitdogg, The Dumping Union, Luca Elia]
+Micro Engenho (Brazilian Apple 2 clone) [Felipe Sanches]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+Forgotten Worlds / ロストワールド (World, newer) [Bill D, The Dumping Union]
+Fighter's History (World ver 43-09, DE-0395-1 PCB) [coolmod, rtw, The Dumping Union]
+Genie (ICP-1, set 2) [Roberto Fresca, Matt B]
+Genie (ICP-1, set 2) [Roberto Fresca]
+Karate Blazers / 闘神ブレイザーズ (World, set 2) [caius]
+Jack Potten's Poker (set 8, Australian) [Roberto Fresca, Matt B]
+Jack Potten's Poker (set 9, 'just 4 fun') [Roberto Fresca, Matt B]
+Player's Edge Plus (PP0045) 10's or Better (Las Vegas Rio) [BrianT]
+Player's Edge Plus (PP0104) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0197) Standard Draw Poker (set 5) [BrianT]
+Player's Edge Plus (PP0197) Standard Draw Poker (Cruise) [BrianT]
+Player's Edge Plus (PP0203) 4 of a Kind Bonus Poker (set 5) [BrianT]
+Player's Edge Plus (PP0221) Standard Draw Poker (set 2) [BrianT]
+Player's Edge Plus (PP0423) Standard Draw Poker (set 4) [BrianT]
+Player's Edge Plus (PP0454) Bonus Poker Deluxe (set 2) [BrianT]
+Player's Edge Plus (PP0550) Joker Poker (Two Pair or Better, set 2) [BrianT]
+Player's Edge Plus (X002178P+XP000119) Double Bonus Poker [BrianT]
+戦国エース (Japan, set 2) [Alex Cmaylo]
+Bonne Chance! (Golden Poker prequel HW, set 2) [Roberto Fresca, ANY]
+ファイナルファイトリベンジ (JUET 990930 V1.100) [coolmod]
+Ripper Ribbit (Version 3.5) [coolmod, Ryan Holtz, The Dumping Union]
+1943 -ミッドウェイ海戦- (US) [caius, The Dumping Union]
+ローリングサンダー (rev 3, hack) [caius]
+Super Galaxians (Silver Systems) [Robbbert]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Cherry Master '99 [hsialin,Vas Crabb]
+Chicken (RHG0730, Export, 92.588%) [Roberto Fresca]
+Enchanted Forest (MV4033, Export, 94.97%) [Roberto Fresca]
+クラブカート for CYCRAFT (GDS-0029A) [Guru, R. Belmont]
+頭文字D アーケードステージ Ver.3 for CYCRAFT (Rev. A) (GDS-0039A) [Guru, R. Belmont]
+Koala Mint (MV4137, Export) [Roberto Fresca]
+Magic Garden (AHG1211, Export, 88.26%) [Roberto Fresca]
+Sweet Hearts II (PHG0742, Export, 92.252%) [Roberto Fresca]
+Party Gras (MV4115/3, Export, touch) [Roberto Fresca]
+The Gambler (EHG0916, Export, 92.268%) [Roberto Fresca]
+Tropical Delight (PHG0625-02, Export, 92.25%) [Roberto Fresca]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Super Treasure Island (Italy, v1.6) [Any]
+ザ・タイピング・オブ・ザ・デッド [twistedsymphony]
+Super 98 (ICP-1) [Roberto Fresca, Matt B]
+Golden Pyramids (AHG1206-99, NSW/ACT, 87.928%) [Roberto Fresca]
+Margarita Magic (EHG1559, NSW/ACT) [Roberto Fresca]

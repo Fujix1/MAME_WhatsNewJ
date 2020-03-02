@@ -1,0 +1,110 @@
+0.119u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+model2c_crx0119u1red [R. Belmont]
+
+
+
+ソースの変更点
+--------------
+- gfx_decode構造体について、直接指定するのでなく、マクロを使って抽象的に定義され
+  るよう変更。gfx_decode情報を設定する新マクロ、GFXDECODE_START、GFXDECODE_ENTRY、
+  GFXDECODE_ENDを追加。全てのドライバで新マクロを使うようにコンバート。
+  [Atari Ace]
+
+- h6280 CPUコアのNMI処理修正。[Wilbert Pol]
+
+- vaportraで割り込み信号にPULSE_LINEからASSERT/CLEARを使うように修正。
+  [Wilbert Pol]
+
+- sg1000a.cの入力ポートをクリーンアップ。dokidokiのコイン用DIPスイッチと、サービ
+  ススイッチを追加。psychic5の画面反転用DIPスイッチ追加。[sonikos]
+
+- macrossp.cドライバの入力ポートクリーンアップと、DIP位置追加。[Brian Troha]
+
+-「ビッグイベントゴルフ」のDIP配置追加と、日本版用のPORT_MODIFY追加。
+  [Brian Troha]
+
+- ディスクリートサウンドインタフェースの定義をクリーンアップするマクロを追加。ま
+  た同時に、これら全てをconstに設定。[Atari Ace]
+
+- megatchドライバのいろいろな変更。[David Haywood]
+
+- srmp6を更に改良。[686]
+
+- Model2の修正2つ: [Ernesto Corvi]
+ - トライアングルパーサの修正; 全オブジェクトについて構造的には正確なはず
+ - 標準変換でトランスレーションベクターを使わないように修正
+
+- 可能なところではコードとデータを静的にするようクリーンアップと、古いコードの削
+  除。[Atari Ace]
+
+- SCSPの改良: [R. Belmont, ElSemi]
+ - アクティブなボイスを、逆方向または双方向ループに設定したとき、音程を変えると
+   起こる不具合を修正
+ - フェイクのリバーブを削除
+ - 内部DSPが正しく動作するよう修正
+ - タイマと割り込み処理を書き直し
+ - SCSPが2つあるときの動作を修正
+
+- SCSPを搭載したModel 2ゲームのサウンドをほとんど修正。[R. Belmont]
+
+- Model 3ゲームにサウンドハード追加とサウンドROMのロードを修正。[R. Belmont]
+
+- options_output_diff_in_file() APIを作成。これは、options_output_ini_file()に似
+  ていますが、これは元になるcore_optionsと違うオプションだけを出力します。INI出
+  力（とそれに伴って-ccオプション）で、オプションを含まないヘッダをを省くように
+  変更しました。[Nathan Woods]
+
+- discoboyにサウンド実装。[Tomasz Slanina]
+
+- 古いgfx_decode構造体をgfx_decode_entryに改名。新マクロを使っていない残りのドラ
+  イバを把握するため。[Aaron Giles]
+
+- プロファイラがデバッグビルドとは独立して選択できるように変更。非デバッグビルド
+  でMAME_PROFILER=1と指定してビルドすれば、プロファイラを有効にできます。
+  [Aaron Giles]
+
+- MIPS3逆アセンブラのj/jal命令を修正。[Aaron Giles]
+
+- MIPS3の64ビットDRCを、レジスタ割り当てとマッピングについてより強力な新システム
+  へ移行。残念ながら、目に見えるパフォーマンスの向上はほとんどないものの、コード
+  の構成は改良されました。[Aaron Giles]
+
+- 64ビットシステムでの16ビットの命令に関係したx86emitのバグを修正。[Aaron Giles]
+
+- 新しい汎用のx86/x64ログシステム、x86logを作成。MIPS3 DRCで使うように更新。
+  [Aaron Giles]
+
+- 新しい汎用DRCフロントエンド処理を作成。将来的に、MIPS3のフロントエンドはこの新
+  アーキテクチャを中心に再構成していきます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Loverboy [David Haywood]
+麻雀蜃気楼 (Japan) [Luca Elia]
+Final Godori (Korea, version 2.20.5915) [Pierpaolo Prazzoli]
+自分を磨くカルチャースクール麻雀編 [Pierpaolo Prazzoli]
+麻雀ファンタジックラブ (Japan) [Luca Elia]
+Domino Block [Tomasz Slanina, David Haywood]
+
+
+
+新規クローンセット
+------------------
+ファイターズヒストリー (Japan ver 42-03) [Team Japump!]
+雀友・パート2 (ver 7.03, July 1 1983) [Team Japump!]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀王 [Luca Elia]
+麻雀ベガス (Japan) [Luca Elia]
+エシューズオルンミラ [Andrew Gardner]
+ミラージュ妖獣麻雀伝 (Japan) [Team Japump!]

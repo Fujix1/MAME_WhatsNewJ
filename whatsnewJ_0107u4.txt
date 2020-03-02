@@ -1,0 +1,107 @@
+0.107u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mngrecording0107u1ora [Aaron Giles]
+vectorsnapshot0107u1red [Aaron Giles]
+tdfever087u4gra [Canim]
+quizmeku087u4gra [Canim]
+
+
+
+ソースの変更点
+--------------
+-「アパッチ3」と「ダークミスト」のDIP修正。[Brian Troha]
+
+- clownsとmaze用のビルトインオーバーレイ追加。[Mr. Do!]
+
+-「ファイナルロマンス2」をデュアルスクリーンにコンバート。[David Haywood]
+
+- BFMゲームのVFDディスプレイについて、メイン画面に無理に表示させずに、セカンドス
+  クリーンを使うようにコンバート。[El Condor]
+
+- ポーズ中の左右のモディファイアキー入力検知を修正。また、最近追加されたキーがポー
+  ズ中検知をサポート。[Ben Rudiak-Gould]
+
+- render_target_alloc()がフラグのビットマスクをとるように変更。単一ファイルを読
+  み込むのに加えて、ターゲットを“隠された”状態に指定できます。また、アートワー
+  クではないビューのみの表示も可能です。[Aaron Giles]
+
+- 画面のオーバーレイを無効にするために、レンダターゲットレイヤーの設定フラグを新
+  しく追加。[Aaron Giles]
+
+- スナップショット作成コードで、一時的なレンダターゲットへ特定の画面を描画するよ
+  うに変更。これにより、ベクタゲームのスナップショットが撮れるようになりました。
+  [Aaron Giles]
+
+- video.cの関数名を標準化。特に重要なものは以下の通り: [Aaron Giles]
+
+   force_partial_update -> video_screen_update_partial
+   configure_screen -> video_screen_configure
+   set_visible_area -> video_screen_set_visarea
+
+- 表示パラメータをベースにして、画面毎に正確なタイミングにする新関数追加: 
+  [Aaron Giles]
+
+   video_screen_get_hpos
+   video_screen_get_vpos
+   video_screen_get_hblank
+   video_screen_get_vblank
+   video_screen_get_time_until_pos
+
+- デバッガでVIDEO_EOFが繰り返し呼び出されるのを修正。[Aaron Giles]
+
+- コアをさらに組織化しておくため、render.cをrendutil.c、rendlay.c、render.cに分
+  割。[Aaron Giles]
+
+- 出力系の概念を抽象化しました。新モジュール output.cが出力を全て操作します。出
+  力にはそれぞれ名前が付きます; これらの名前はいずれ標準化が必要ですが、今のとこ
+  ろは完全にオープンです。OSDレイヤーは、出力変更時に通知されるようoutput.cで登
+  録が可能です。その通知によりOSDレイヤーが何をするかは自由です。LEDは“led0”、
+  “led1”などの名前を持つ出力にコンバートされています。[Aaron Giles]
+
+- Windows OSDシステムの出力状況で、外部クライアントの変更を通知できるようにしま
+  した。windows/output.hに、外部クライアントが受信登録できるメッセージのリストが
+  あります。Windows OSDレイヤーにあったハックっぽいLEDサポートは削除しました。
+  サンプルプログラム ledutil.exeを作成しました。これは、“led0”、“led1”、
+  “led2”出力を以前のようにキーボードのLEDに出力します。LEDサポートを希望する場
+  合は、ledutil.exeをスタートアップフォルダにコピーして、バックグラウンドで動作
+  させてください。[Aaron Giles]
+
+-「Qバート」ドライバで、ノッカー発信時に“knoker0”を出力するように改良。
+  [Aaron Giles]
+
+- レイアウト内でMAMEのビルトインフォントを使ってテキスト描画をするための新エレメ
+  ント“text”を追加。基本的なランプやビルトインレイアウトで使用できます。
+  使用例はmaxaflex.cを参照してください。[Aaron Giles]
+
+- レイアウト内で7セグメントLEDを構成する新エレメント“led7seg”を追加。主にスコ
+  アやタイマーの外部表示に使用します。使用例はmaxaflex.cを参照してください。
+  [Aaron Giles]
+
+-「ターボ」「サブロック3D」「Buck Rogers / ズーム909」「アタリフットボール」
+ 「スーパースピードレース」に新プリミティブを使ったビルトインレイアウトを追加。
+  [Aaron Giles]
+
+- S2650コアのオーバーフロー演算を修正。[Aaron Giles]
+
+- Sega G-80ラスタをさらにクリーンアップ: [Aaron Giles]
+ * ビデオハードの実装を集約
+ * カクテルモードの表示と制御を全ゲームで修正
+ *「モンスターバッシュ (2 board version)」の表示修正
+ *「シンドバッドミステリー」の復旧とサウンドチップ周波数の訂正
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Trivia Quest [Pierpaolo Prazzoli]
+SunA Quiz 6000 Academy [David Haywood]
+
+
+
+新規クローンセット
+------------------
+Zero (set 2) [David Haywood]

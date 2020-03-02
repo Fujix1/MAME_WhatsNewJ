@@ -1,0 +1,98 @@
+0.122u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+pestplce0122red [couriersud]
+hunchbkd0122red [couriersud]
+radarscp0122yel [couriersud]
+mwalk0122red [couriersud]
+qtheater0122u1ora [Philip Bennett]
+
+
+
+ソースの変更点
+--------------
+- M65C02の最適化を修正。[Peter Trauner]
+
+- TMS51xx、M58817スピーチチップの更新: [couriersud]
+ - radarsc1でTMS5110スピーチシンセを使用
+ - cvsゲーム: PCBInfoによるとスピーチチップはTMS5100。
+    TMS5100を使うようにドライバを修正。"game system operational"ボイスが自然にな
+    りました
+ - sound/m58817.*を削除
+ - TMS5110.*で、複数の係数マップをサポート
+ - ドキュメントよりTMS5100とM58817の係数マップをtms5110.cに追加
+ - 補間係数を修正 (理由についてはtms5110r.cを参照)
+ - ラティス演算の精度を9bitに変更
+ - READBITとLOADADDRESSコマンドをtmc5110.cに追加
+ - いろいろなパテントに合わせてさらに変更
+ - TRS-02、TKG-02/03ボイスインターフェースのドキュメント化
+
+- MAMEシンボルで明示的なエクスポートがされていないもの全てについて、staticチェッ
+  クの追加を完了。[Atari Ace]
+
+- input_seq_typeの名前付けと、数カ所で明示的に使用。[Nathan Woods]
+
+- tx1とtx1aのコインエイジDIPスイッチ割り当てを修正。buggyboy/buggybjrの
+  'Game Time'設定を反転。[Philip Bennett]
+
+- TMS3203xコアの更新: [Aaron Giles]
+ * 割り込み処理の修正
+ * '32で、エッジトリガ割り込みをサポート
+ * '32用に割り込みを拡張
+ * TMS3203xコアを使うドライバで、割り込みをディアサートするように更新
+ * '3xの浮動小数点フォー0マットをコンバートするための、外部からアクセス可能な関
+    数を追加
+ * gaelco3dドライバで新関数を使うように更新
+
+- Zeus2 (とその仲間)の更新: [Aaron Giles]
+ * DCSゲームのセーブステート修正
+ * Zeus2のwaveram処理をクリーンアップ
+ * Zeus2でセーブステートをサポート
+ * Zeus2で、初期版のモデルとクアッドレンダリングをサポート
+ * timekprでZeus2で使われているZPRAMをサポート
+ * Zeus2ゲームのZPRAMを実装
+ * Zeus2ゲームの操作実装
+ * polyh.cで、ステートセーブ前にアイドル状態になるように更新
+ * crusnexoがフルスクリーンになるように、仮想のZオフセット値-2を追加
+
+- tekken2/tekken2a/tekken2bの'tes1wave.8k'ROMを、バイトスワップしていない正しい
+  物に置き換え。[Philip Bennett]
+
+- ディスクリート 74LS624(56789)の実装を追加。[couriersud]
+ - DISCRETE_74LS624はdkongjrのVCOに必要
+ - Logic、Energy、Count出力のサポート
+
+- dkong系の更新: [couriersud]
+ - dkongjrにディスクリートサウンド追加
+ - dkongjrにZ80・I8035間の正しいインターフェース追加
+ - ディスクリートサウンド出力係数を変更
+ - dkongjrからサンプルサポートを削除
+ - 表面的な変更
+ - radarscpサウンドがおかしくなっていたのを修正
+ - dkong3bにDIPスイッチ配置追加
+
+- seta.cのドキュメントとクロック周波数の改良: [Brian Troha]
+ - TundercadeについてのGuru氏にるreadme情報を追加
+ - ThunderのROM名訂正
+ - OSCの周波数を分周式に変更。例: 16000000/2 /* 8MHz */
+ -「Orbs」のクロックを16MHzに変更
+ -「メタフォックス」のx0-006 (65c02)をThundercadeと同じものに変更
+ -「ウルトラ闘魂伝説」のYM3438クロックを、6MHzから1600000/4 /* 4MHz */に変更
+   PCBに6MHzという記載は無いため
+
+- 実機から多くのクロック周波数を取得。[Corrado Tomaselli, Zsolt Vasvari]
+
+- SCSI CDエミュレーションに関係するメモリリークを修正。[Oliver Stoneberg]
+
+- Z80のIX/IY系(FD xxまたはDD xx)の各命令から、Rレジスタの加算を削除。ドキュメントやAmstrad CPCドライバの動作を見ると、こちらが正しい。[Barry Rodewald]
+
+- SH4コアにFPUサポート追加。[Samuele Zannoli]
+
+- MAMEの条件付きログ出力のほとんどについて、
+  "do { if (VERBOSE) logerror x; } while (0)"のイディオムを使うよう調整。
+  これにより、コンパイラがこの部分が削除される場合でもログの構文チェックを行える
+  という利点があります。実際のところ、多くのケースでこの原因のためにコンパイルの
+  調整が必要となっていました。[Atari Ace]

@@ -1,0 +1,76 @@
+0.84u3
+------
+
+ドライバの改良点：
+------------------
+
+-「ファイナルラップ」のグラフィック、パレット、スプライト、ネットワーク
+  レジスタ修正。[R. Belmont]
+
+- Seibu SPIシステムの修正。[Ville Linde]
+    * サウンド用ハックを全部削除
+    * i386の命令コード追加
+    * YMF271で外部リード/ライトハンドラサポート
+     （SPIフラッシュROM更新モードで必要）
+    * 新しいYMF271サポート経由でフラッシュROMを実装
+    * rf2_us、rf2_2k, rf2_eurのクラッシュを修正
+
+-「ダービークイズマイドリームホース」が起動するようにDMAへの対応。[R. Belmont]
+
+- Portraitsドライバを全体的に書き直し。[Pierpaolo Prazzoli]
+   - スクロール修正
+   - 画面解像度修正
+   - NVRAM追加
+   - ハイスコアを出したときのフェイク写真追加
+   - サービススイッチとコインの修正
+   - 足りなかったROMと2番目のセット追加
+
+- m62とmnightドライバのステートセーブ修正。[Andrew Gardner]
+
+- PSX SIOタイマーで、送信データがあるときのみ動作して、1カウント毎に1ビット
+  だけ処理するように修正。[smf]
+
+- DCSサウンドモジュールのクリーンアップと再構成。DCSを使う全ゲームでROMの
+  ロード方法の変更が必要でした。[Aaron Giles]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- u2の変更でMIPSコアがクラッシュするようになったのを修正。[Aaron Giles]
+
+- -listxmlの"driver.status"エントリを変更して、全ステータスをまとめたものに
+  変更。フロントエンドで他のフラグを全部チェックする必要がないように。
+  [Andrea Mazzoleni]
+
+- generic_fopen()関数を使うときにROMのCRCがあるかどうか確認するように修正。
+  こうしないとNO_DUMPのROMのサーチに初期化してない文字列が使われることが
+  あったため。[Andrea Mazzoleni]
+
+- -cheat有効時リフレッシュレートの微調整機能追加。SHIFTで0.1fps毎、CONTROLで
+  0.01fps毎、ALTキーで0.001fps毎の調整ができます。[Aaron Giles]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Digger (CVS) [Mike Coates]
+Trivia Genius [Pierpaolo Prazzoli]
+婆娑羅 2 (2 sets)
+ガンバリッチ
+モンスターファームジャンプ
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Portraits (set 2) [Pierpaolo Prazzoli]
+Twin Falcons [Brian Troha]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+サイバーボッツ フルメタルマッドネス (Euro 950424) [Razoola]
+Mortal Kombat 4 [Aaron Giles]
+Invasion [Aaron Giles]
+Cruisin' Exotica [Aaron Giles]
+The Grid [Aaron Giles]
+

@@ -1,0 +1,150 @@
+0.111u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+bitmapalloccore0111u4red [Aaron Giles]
+8080bw0111u4red [Zsolt Vasvari]
+sidvoice0111u4ora [Nathan Woods]
+pyramid0111u4red [James Wallace]
+dragngun0111u3gra [Canim]
+mitchelc0111u3gra [Luigi30]
+lockload0111u3gra [Canim]
+cobracom0111u3ora [Canim]
+
+
+
+ソースの変更点
+--------------
+- 6502レジスタ名のバグと、SC61860逆アセンブラのサイズバグ修正。[Nathan Woods]
+
+-「Crash」用のビルトインオーバーレイ追加。[Mr. Do]
+
+-「ジャイラス」にセーブステート追加。[Buddabing]
+
+- MESSサウンドコアの統合から無くなっていたサウンドインターフェース修正。
+  [Nathan Woods]
+
+- ダブっていたグローバル変数を修正、参照されていないアイテムをヘッダファイルから
+  削除、一部のドライバ用のヘッダファイル追加。[Atari Ace]
+
+- デバッグコンソールのコードについて、auto_mallocを使って初期化後のコールバック
+  登録をしようとするのを検出するように変更。[Nathan Woods]
+
+- kof2003海賊版のコードをビッグエンディアンのシステムで動作するように修正。
+  [R. Belmont]
+
+- 共通なWindows用ユーティリティルーチンを、新モジュールwinutil.cに集中。
+  [Nathan Woods]
+
+- input_port_dword_*_rを使うドライバをクリーンアップ。[smf]
+
+- MPU4とBFMドライバのメモリマップをクリーンアップ。DRIVER_INITで、生成するCHRの
+  参照テーブルについてのROMアドレスしか必要ないようにMPU4コードを再設計。
+  [James Wallace]
+
+- ビルトインのExpatコードをバージョン2.0に更新。[Atari Ace]
+
+-「インディアンバトル」のサウンドサンプル修正。[Zsolt Vasvari]
+
+- mhavocにステートセーブ追加。また、光るベクターのスローダウンの修正と、ベクター
+  リストのオーバーフローが予想できるように修正。[Mathis Rosenhauer]
+
+- ほとんどのCPS2ゲームからXORを削除して、正確な暗号処理エミュレーションと置き換
+  え。[Nicola Salmoria]
+
+- 入力読み込みのコールバックが定義されている場合に、pia_set_input_[a|b]()が使え
+  ないようにするアサーションを追加。[Nathan Woods]
+
+- contra.cドライバの画面反転スイッチの修正と、COIN3をSERVICE1に変更。[Canim]
+
+- nmg5ドライバのDIPスイッチと入力のクリーンアップおよび修正。[stephh]
+
+- Z80のEI後の割り込みシグナルのバグを回避するため、割り込み処理を書き直し。
+  [Aaron Giles]
+
+- esd16、afega、cave、unico、vamphalf、yunsun16ドライバのドキュメント追加。
+  [Brian Troha]
+
+- chdmanで0セクタサイズをデフォルトとするように変更。[Aaron Giles]
+
+- ビデオドライバ(amiga、n64、ppu2c0x、psx、stvvdp2、tia、v9938)で、line[]配列に
+  代えて新しいBITMAP_ADDR*マクロを使うように更新。[Nathan Woods]
+
+- Midway 8080 B&Wドライバの修正: [Zsolt Vasvari]
+ - 必要な場所にPORT_CONDITION追加
+ - 野球ゲーム3つとインベーダーにPORT_CONFNAMEを追加
+ - 全ゲームでセーブステートサポート
+ -「シーウルフ」のランプの綴り違いとバグ修正
+
+- s14000aのサウンドクリッピング修正。[Lord Nightmare]
+
+- TMS5110/5220コードのPRNGノイズ修正と、信号のラッピング追加。[Lord Nightmare]
+
+- auto_bitmap_alloc()の処理をクリーンアップ。確実にfailしなくなりました。
+  [Aaron Giles, Atari Ace]
+
+- Berzerkドライバに効果音のエミュレーション追加。[Aaron Giles]
+
+- 1:1の解像度ではないときのフォントアスペクト比修正。[Aaron Giles]
+
+- BDFフォントの読み込み速度改善のため、バイナリフォーマットでキャッシュを保存す
+  る機能追加。また、サイズが大きいBDFフォントを読み込んでいるときの進捗具合の表
+  示を追加。[Aaron Giles]
+
+- TMS9928aの設定を、よりスタンダードな方法に置き換え。これに合わせてCliffhanger
+  とsg1000aドライバを更新。[Aaron Giles]
+
+- LD-V1000エミュレーションで、Badlandsのカスタムコマンドサポート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Dream World [David Haywood, Guru]
+
+
+
+新規クローンセット
+------------------
+Multi 5 / New Multi Game 5 (Earlier) [Brian Troha]
+バブルボブル (bootleg with 68705) [David Haywood]
+スーパーストリートファイターII (World 930911) [Nicola Salmoria]
+スーパーストリートファイターII (Japan 930911) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: タワーオブドゥーム (Euro 940113) [Nicola Salmoria]
+スーパーストリートファイターIIターボ (USA 940323) [Nicola Salmoria]
+Armored Warriors (Euro 941024) / パワードギア [Nicola Salmoria]
+エイリアンVSプレデター (Hispanic 940520) [Nicola Salmoria]
+サイバーボッツ: フルメタルマッドネス (Euro 950424) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Euro 951024) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Japan 951117) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Brazil 951117) [Nicola Salmoria]
+ヴァンパイアハンター: ダークストーカーズリベンジ (Japan 950307) [Nicola Salmoria]
+Street Fighter Alpha: Warriors' Dreams (Euro 950627) / ストリートファイターZERO [Nicola Salmoria]
+19XX: The War Against Destiny (Japan 951225) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: シャドーオーバーミスタラ (Euro 960223) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: シャドーオーバーミスタラ (Euro 960208) [Nicola Salmoria]
+エックスメンVSストリートファイター (Euro 961004) [Nicola Salmoria]
+カプコンスポーツクラブ (Hispanic 970722) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Euro 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Japan 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Hispanic 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Brazil 970827) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Brazil 970625) [Nicola Salmoria]
+ヴァンパイアハンター2 (Japan 970929) [Nicola Salmoria]
+ヴァンパイアセイヴァー (Hispanic 970519) [Nicola Salmoria]
+マーヴルVSカプコン (Euro 980112) [Nicola Salmoria]
+マーヴルVSカプコン (Asia 980123) [Nicola Salmoria]
+マーヴルVSカプコン (Hispanic 980123) [Nicola Salmoria]
+マーヴルVSカプコン (Brazil 980123) [Nicola Salmoria]
+Street Fighter Alpha 3 (Brazil 980629) / ストリートファイターZERO 3 [Nicola Salmoria]
+ストリートファイターZERO 3 (Asia 980904) [Nicola Salmoria]
+VS スーパーマリオ (alt) [Lord Nightmare]
+
+
+
+追加された未動作ゲーム
+----------------------
+Two Minute Drill [David Haywood]
+スーパードンキホーテ [Ernesto Corvi]

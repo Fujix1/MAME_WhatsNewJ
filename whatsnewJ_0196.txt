@@ -1,0 +1,582 @@
+0.196
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06921: [サウンド] (vigilant.cpp) All sets in vigilant.cpp: 音が出ない。(AJR)
+- 06287: [グラフィック] (spectrum.cpp) spectrum, spec128, specpl3e: Comando Tracerのスプライトが移動するときに点滅する。
+- 00377: [クラッシュ/フリーズ] (asuka.cpp) bonzeadv: 3面よりあとでやられると、間違った場所から再スタートになりゲームが固まる。(David Haywood)
+- 06908: [速度] (iteagle.cpp) bbhcotw, bbh2sp: 一部の面でMAMEの速度が100%でもスピードが遅くなる。(tedgreen)
+- 06425: [グラフィック] (spec128.cpp) specpl3e: 2面と6面でスプライトがちらつく。
+- 06917: [サウンド] (artmagic.cpp) cheesech: nvramを初期化すうとゲーム開始時のボイスが壊れる。(AJR)
+- 06894: [クラッシュ/フリーズ] (taito_f3.cpp) ridingf, ringrage and clones: ロゴ表示後に例外発生。
+- 00205: [クラッシュ/フリーズ] (asuka.cpp) bonzeadv: 1面の裏ルートでやられると、真っ黒なところから再スタートしてはまる。(David Haywood)
+- 06900: [グラフィック] (holeland.cpp) holeland, holeland2: ボス面で表示プライオリティがおかしい。(Angelo Salese)
+- 06869: [プラグイン] Lua Cheat Plugin: デバッガ経由でコマンドが正しくパースされない。(crazyc)
+- 06895: [グラフィック] (rohga.cpp) Many sets in rohga.cpp: 画面に縦縞が出る。
+
+
+新規動作可能マシン
+------------------
+Big Buck Hunter (v1.00.14) [coolmod]
+Casio RZ-1 [Arashikage, Dirk Best, R. Belmont]
+Dennis the Menace (Tiger handheld) [hap, Sean Riddle]
+ダブルドラゴン3 -ザ・ロゼッタストーン- (Tiger handheld) [hap, Sean Riddle]
+Jurassic Park (Tiger handheld) [hap, Sean Riddle]
+Spider-Man (Tiger handheld) [hap, Sean Riddle]
+The Addams Family (Tiger handheld) [hap, Sean Riddle]
+The Flash (Tiger handheld) [hap, Sean Riddle]
+笑いの華天使 [yukaritamura]
+X-Men - Project X (Tiger handheld) [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+Acorn Electron (64K Master RAM Board) [Nigel Barnes]
+Big Buck Hunter II - Sportsman's Paradise (v2.02.08) [Ted Green]
+Big Buck Hunter II - Sportsman's Paradise (v2.02.09) [Ted Green]
+Dragon 64 (HD6309E CPU) [David Ladd]
+ゴークス (joystick, older) [caius]
+Irion [Robbbert, mcp]
+Master Boy (Spanish, PCB Rev A) [ARPA, Recreativas.org]
+オパオパ (Rev A, unprotected) [ShouTime, Charles MacDonald, Smitdogg, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォーリアー- (Thunder Edition, bootleg, set 2) [coolmod, The Dumping Union]
+ストリートファイターIII 3rdストライク -ファイトフォーザフューチャー- (Japan 990512) [Guru]
+ストリートファイターIII 3rdストライク -ファイトフォーザフューチャー- (Japan 990608) [Guru]
+スーパーコブラ (bootleg, set 2) [Belike]
+Tano Dragon 64 (NTSC; HD6309E CPU) [David Ladd]
+The Real Broadway (9131-20-00 R0C) [Brian Troha, The Dumping Union]
+TI-73 Explorer (bootleg) [Julian Lachniet, critor]
+
+
+動作可能に昇格したマシン
+------------------------
+グンペイ (Japan) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood]
+Mephisto Amsterdam [Sandro Ronco]
+モーターレイド ツイン [Angelo Salese, R. Belmont, O. Galibert, ElSemi]
+バーチャファイター2 (Version 2.1) [Angelo Salese, R. Belmont, O. Galibert, ElSemi]
+WAR ファイナルアサルト (EPROM 1.9 Mar 25 1999, GUTS 1.3 Apr 20 1999, GAME Apr 20 1999) [Ted Green]
+
+
+動作可能に昇格したクローン
+--------------------------
+Eyes (Italy) [Corrado Tomaselli, The Dumping Union]
+Mephisto Dallas [Sandro Ronco]
+Mephisto Dallas 16 Bit [Sandro Ronco]
+Mephisto Dallas 32 Bit [Sandro Ronco]
+Mephisto Roma [Sandro Ronco]
+Mephisto Roma 32 Bit [Sandro Ronco]
+バーチャファイター2 [Angelo Salese, R. Belmont, O. Galibert, ElSemi]
+バーチャファイター2 (Revision A) [Angelo Salese, R. Belmont, O. Galibert, ElSemi]
+バーチャファイター2 (Revision B) [Angelo Salese, R. Belmont, O. Galibert, ElSemi]
+WAR ファイナルアサルト (EPROM 1.3 Apr 7 1999, GUTS 1.3 Apr 7 1999, GAME Apr 7 1999) [Ted Green]
+WAR ファイナルアサルト (EPROM 1.6 Jan 14 1999, GUTS 1.1 Mar 16 1999, GAME Mar 16 1999) [Ted Green]
+WAR ファイナルアサルト (EPROM 1.91 Apr 13 1999, GUTS 1.3 Apr 7 1999, GAME Apr 7 1999) [Ted Green]
+
+
+
+新規追加された未動作マシン
+--------------------------
+バッドランズ (Konami, set 1) [Angelo Salese]
+Casio CZ-101 [Dirk Best]
+Casio HT-6000 [Dirk Best]
+CIT-101 [Doug Crawford]
+Diablo HyType II Series 1300 CPU [Edstrom]
+e-kara (US?) [Sean Riddle, Peter Wilhelmsen]
+e-kara Volume 1 (US?) [Sean Riddle, Peter Wilhelmsen]
+e-kara Volume 2 (US?) [Sean Riddle, Peter Wilhelmsen]
+EA Sports Madden Football (NTSC) [Sean Riddle, Peter Wilhelmsen]
+エキサイトフィッシングDX (Japan) [Sean Riddle, Peter Wilhelmsen]
+Let's! TVプレイCLASSIC ナムコノスタルジア1 [Sean Riddle, Mr. Do]
+Let's! TVプレイCLASSIC ナムコノスタルジア2 [Sean Riddle, Peter Wilhelmsen]
+Let's! TVプレイCLASSIC タイトーノスタルジア2 [Sean Riddle, Mr. Do]
+Lord Of The Rings - Warrior of Middle-Earth [Sean Riddle, Peter Wilhelmsen]
+Lucky Draw (Pinball) [PinMAME]
+Milton Bradley Electronic Milton [Sean Riddle]
+MX Dirt Rebel [Sean Riddle, Peter Wilhelmsen]
+Photo Play 2004 [Asure, The Dumping Union]
+Play TV Football (NTSC) [Sean Riddle, Peter Wilhelmsen]
+Play TV Rescue Heroes [Sean Riddle, Peter Wilhelmsen]
+Play TV Snowboarder (Blue) (NTSC) [Sean Riddle, Peter Wilhelmsen]
+Poly Proteus (Standalone) [Nigel Barnes, Andrew Trotman]
+TV Wild Adventure Mini Golf [Sean Riddle, Peter Wilhelmsen]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Arbiter Discmonitor A-01 [Nigel Barnes]
+バッドランズ (Konami, set 2) [Angelo Salese]
+ConnecTV Snowboarder (Blue) (PAL) [Sean Riddle, Peter Wilhelmsen]
+デイトナUSA (GTX 2004 Edition) [anonymous]
+Earthshaker (Prototype) (PA-4) [PinMAME]
+Game King (EZ Pay, v4.0) [unknown]
+Strange Science (Rev C) [Gerald (COY), The Dumping Union]
+Super Seven [caius, The Dumping Union]
+TI-83 Plus (bootleg) [Julian Lachniet, critor]
+TI-84 Plus (Boot Code 1.02) [Julian Lachniet, critor]
+TI-84 Plus (Boot Code 1.03) [Julian Lachniet]
+TI-84 Plus (bootleg) [Julian Lachniet, critor]
+TI-84 Plus Color Edition (Boot Code 5.00) [Julian Lachniet, critor]
+TI-84 Plus Color Edition (Boot Code 5.15) [Julian Lachniet]
+TI-84 Plus Color Edition (Boot Code 5.30) [Julian Lachniet]
+TI-84 Plus Orion (Boot Code 1.02) [Julian Lachniet]
+TI-84 Plus Orion (Boot Code 1.03) [Julian Lachniet]
+TI-84 Plus Orion (bootleg) [Julian Lachniet]
+TI-84 Plus Silver Edition (Boot Code 1.03) [Julian Lachniet]
+TI-84 Plus Color Silver Edition (Boot Code 4.0) [Julian Lachniet]
+TI-84 Plus Silver Edition (bootleg) [Julian Lachniet, critor]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+archimedes: 3D Construction Kit [Nigel Barnes]
+camplynx_flop:
+  BASIC-80 Rev.5.2, BASIC-E Compiler v2.0, Battleships, C/80 Compiler 3.1, CalcStar v1.0, CP/M ver 2.2 BIOS 1.00,
+  CP/M ver 2.2 BIOS 1.02, DataStar v1.4, dBASE II, Delta Wing, fig-FORTH 1.1A, FORTRAN-80, Gomoku, Hangman,
+  Introductory Tape (128K), LogiChess 2.2, Lynx JM Utilities Disk v1.0, Lynx Revival Group - Volume 1, Micro-COBOL v2.1,
+  Monster Mine, PeachCalc v1.01, ReportStar v1.00, Roader, Slot Machine, Treasure Island, TURBO Pascal v2.00A, WordMaster v1.20,
+  WordStar v3.00 [Nigel Barnes]
+ibm5150:
+  Blockout, Secret Agent, SimCity (3.5", v1.02), SimCity (3.5", v1.07), SimCity (5.25", v1.02), SimCity (5.25", v1.07),
+  Speedball (re-release), Stunts (3.5") (USA), Stunts (5.25") (USA) [ArcadeShadow]
+  DeluxePaint II-PC (French), HP Terminal Program HP24597A, Links - The Challenge of Golf (v1.45), Lombard RAC Rally [breiztiger]
+  Bodyworks - An Adventure in Anatomy [Dan Tootill]
+  Banner Blue Movie Guide, Dungeon of Pun III (Gemini Shareware), Roger Ebert's Deluxe Movie Home Companion - 1986-1992 Editions,
+  Video Companion: The Software (Spring '92 Edition) [Foone Turing]
+ibm5170:
+  Crystal Caves, Hocus Pocus, Monster Bash!  [ArcadeShadow]
+  Links - Championship Course - Firestone Country Club, Microsoft Macro Assembler 5.1 (MS OS/2 Tools) [breiztiger]
+  AudioClips Digital Sounds for Windows 3.1 - Star Trek: The Next Generation - "Encounter at Farpoint",
+  Business Clip Art PicturePak 1, Programming Examples for Advanced Programmer's Guide to SuperVGAs [Foone Turing]
+  Alone in the Dark, Alone in the Dark (French), Home Repair Encyclopedia [Justin Kerk]
+megadriv: LEGO Batman (Rus) [VedsaGolfer]
+snread: A Ghost in the House, The Third Circle [David Viens]
+snspell: Les Mots Difficiles (Module No. 2) [David Viens]
+x1_flop: Donkey Kong 3 - Dai Gyakushuu [famicomical]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+3do_m2: Shooter 2D [incog]
+dc:
+  4x4 Evo (Euro, Prototype 20010109), ボコ夢の達人 (Jpn), カード・オブ・デスティニー -光と闇の統合者- 限定版 (Jpn),
+  キャッスルファンタジア 聖魔大戦 (Jpn), カオスフィールド (Jpn, Sega Direct), カオスフィールド (Jpn, Sega Direct, Rev. 1),
+  クリスマスシーマン -想いを伝えるもうひとつの方法- Message Kit (Jpn),
+  クリスマスシーマン -想いを伝えるもうひとつの方法- Present Disc (Jpn), こみっくパーティー (Jpn), コンフィデンシャルミッション (Jpn),
+  クルクルトゥーン (Jpn), CR必殺仕事人 パチってちょんまげ @VP@CHI (Jpn), Dave Mirra Freestyle BMX (World, Prototype 20000907), 
+  Dave Mirra Freestyle BMX (World, Prototype 20001016), デイトナUSA2001 (Euro, Prototype 20010227), デッドオアアライブ2 (Euro), 
+  デッドオアアライブ2 (Euro, Prototype 20000611), デッドオアアライブ2/Fur Fighters (Euro), デッドオアアライブ2 (Jpn), 
+  デッドオアアライブ2 - 初回限定版 (Jpn), デッドオアアライブ2 (USA), デスクリムゾン2 -メラニートの祭壇- (Jpn),
+  デスクリムゾンOX (USA), Deep Fighter (Euro), Deep Fighter (Fra), Deep Fighter (Fra, Prototype 20000505), Deep Fighter (Ger),
+  Deep Fighter (USA), でじこのまいブラ (Jpn), Demolition Racer: No Exit - Demo Version (USA), Demolition Racer: No Exit (USA),
+  電幻天使対戦麻雀シャングリラ (Jpn), 電波少年的懸賞生活 -なすびの部屋- (Jpn), 電車でGO!2 高速編 3000番台 (Jpn),
+  ダビつく2 (Jpn), ダビつく -ダービー馬をつくろう!- (Jpn), デスピリア (Jpn),デ・ジ・キャラット ファンタジー (Jpn),
+  デ・ジ・キャラット ファンタジー 初回限定版 (Jpn), デジタル競馬新聞マイトラックマン (Jpn), ディノクライシス (Euro),
+  ディノクライシス (Fra), ディノクライシス (Ger), ディノクライシス (Ita), ディノクライシス (Jpn), ディノクライシス (USA),
+  Disney Les 102 Dalmatiens a la rescousse ! (Fra, Ger, Ita, Spa), Disney/Pixar Buzz Lightyear of Star Command (Euro),
+  Disney/Pixar Buzz Lightyear of Star Command (USA), Disney/Pixar Captain Buzz Lightyear: Star Command (Ger),
+  Disney/Pixar Les aventures de Buzz l'Eclair (Fra), Disney/Pixar Toy Story 2: Buzz l'Eclair a la rescousse ! (Fra),
+  Disney/Pixar Toy Story 2: Buzz Lightyear eilt zur Hilfe! (Ger), Disney/Pixar Toy Story 2: Buzz Lightyear to the Rescue! (Euro),
+  Disney/Pixar Toy Story 2: Buzz Lightyear to the Rescue! (USA), Disney's 102 Dalmatians: Puppies to the Rescue (Euro),
+  Disney's 102 Dalmatians: Puppies to the Rescue (Euro, Prototype 20000110), Disney's 102 Dalmatians: Puppies to the Rescue (USA),
+  Disney's Dinosaur (Euro), Disney's Dinosaur (USA), Disney's Donald Duck "Goin' Qu@ckers" (USA),
+  Disney's Donald Duck "Qu@ck Att@ck"?*! (Euro), ドグウ戦紀 覇王 (Jpn), どきどきアイドルスターシーカーRemix (Jpn),
+  ドリマガGD Vol.10 (Jpn), ドリマガGD Vol.11 (Jpn), ドリマガGD Vol.12 (Jpn), ドリマガGD Vol.1 (Jpn), ドリマガGD Vol.2 (Jpn),
+  ドリマガGD Vol.3 (Jpn), ドリマガGD Vol.4 (Jpn), ドリマガGD Vol.5 (Jpn), ドリマガGD Vol.6 (Jpn), ドリマガGD Vol.7 (Jpn),
+  ドリマガGD Vol.8 (Jpn), ドリマガGD Vol.9 (Jpn), 同窓会2 again & refrain (Jpn), Draconus: Cult of the Wyrm (USA),
+  Draconus: Cult of the Wyrm (World, Prototype 20000127), DragonRiders: Chronicles of Pern (Euro),
+  DragonRiders: Chronicles of Pern (USA), Dragons Blood (Euro), ドリームキャストエクスプレスエクストラ (Jpn),
+  ドリームキャストエクスプレス Vol.1 (Jpn), ドリームキャストエクスプレス Vol.2 (Jpn), ドリームキャストエクスプレス Vol.3 (Jpn),
+  ドリームキャストエクスプレス Vol.4 (Jpn), ドリームキャストエクスプレス Vol.5 (Jpn), ドリームキャストエクスプレス Vol.6 (Jpn),
+  ドリームキャストエクスプレス Vol.7 (Jpn), Dreamcast Middleware Conference Demo Disc Part 2 (World),
+  Dreamcast System-Disc 2 (World), Dreamcast Visual Memory Data Issue (Jpn), ドリームフライヤー (Jpn), DreamKey 3.0 (Euro), 
+  DreamKey (Euro), DreamKey (Euro, Rev. 1), DreamKey Version 1.5 (Euro), DreamKey Version 1.5 (Fra),
+  DreamKey Version 2.0 (Bel, Fin, Ned, Swe, Swi), DreamOn Collection 2 (Euro), DreamOn Collection 3 (Euro),
+  DreamOn Collection 4 (Euro), DreamOn Volume 10 (Euro), DreamOn Volume 10 (Ger), DreamOn Volume 11 (Euro),
+  DreamOn Volume 12 (Euro), DreamOn Volume 13 (Euro), DreamOn Volume 14 (Euro), DreamOn Volume 15 (Euro),
+  DreamOn Volume 16 (Euro), DreamOn Volume 17 (Euro), DreamOn Volume 18 (Euro), DreamOn Volume 19 (Euro),
+  DreamOn Volume 1 (Euro), DreamOn Volume 20 (Euro), DreamOn Volume 21 (Euro), DreamOn Volume 22 (Euro), DreamOn Volume 2 (Euro),
+  DreamOn Volume 3 (Euro), DreamOn Volume 4 (Euro), DreamOn Volume 5 (Euro), DreamOn Volume 6 (Euro), DreamOn Volume 7 (Euro),
+  DreamOn Volume 8 (Euro), DreamOn Volume 9 (Euro), ドリームパスポート 2 for LAN (Jpn), ドリームパスポート2 (Jpn),
+  ドリームパスポート2 (Jpn, Rev. 1), ドリームパスポート3 (Jpn), ドリームパスポート3 (Jpn, Alt), ドリームパスポート3 (Jpn, Alt 2),
+  ドリームパスポート3: アーバンスタイル (Jpn), ドリームパスポート (Jpn), ドリームパスポートプレミア (Jpn), 
+  ドリームパスポート Ver.1.01 (Jpn), ドリームプレビュー Vol. 8 (Jpn), ドリームスタジオ -3D Adventure Construction- (Jpn),
+  Ducati World (Euro), Ducati World Racing Challenge (USA), D+Vine [Luv] - Shokai Genteiban (Jpn), Dynamite Cop (Euro),
+  Dynamite Cop! (USA), ダイナマイト刑事2 (Jpn), ダイナマイト刑事2 - 体験版 (Jpn), Ecco 3D (World, Prototype 19990506),
+  Ecco II: Sentinels of the Universe (World, Prototype 20010219), Ecco the Dolphin: Defender of the Future (Euro),
+  Ecco the Dolphin: Defender of the Future (Euro, Prototype 20000417 2PM),
+  Ecco the Dolphin: Defender of the Future (Euro, Prototype 20000417 7AM),
+  Ecco the Dolphin: Defender of the Future (Euro, Prototype 20000419),
+  Ecco the Dolphin: Defender of the Future (Euro, Prototype 20000421), エコー・ザ・ドルフィン: Defender of the Future (Jpn),
+  Ecco the Dolphin: Defender of the Future (USA), Ecco the Dolphin: Defender of the Future (USA, Prototype 20000606),
+  Ecco the Dolphin: E3 Demo (USA, Prototype 19990508), ECW Anarchy Rulz (Euro), ECW Anarchy Rulz (USA),
+  ECW Hardcore Revolution (Euro), ECW Hardcore Revolution (USA), 永世名人III -ゲームクリエイター吉村信弘の頭脳- (Jpn),
+  エルドラドゲート第1巻 (Jpn), エルドラドゲート第2巻 (Jpn), エルドラドゲート第3巻 (Jpn), エルドラドゲート第4巻 (Jpn),
+  エルドラドゲート第5巻 (Jpn), エルドラドゲート第6巻 (Jpn), エレメンタルギミックギア (Jpn), エレメンタルギミックギア (USA),
+  ELYSION -永遠のサンクチュアリ- (Jpn), E.O.S.: Exhibition of Speed (Euro), ESPN International Track & Field (Euro),
+  ESPN International Track & Field (USA), ESPN NBA 2Night (USA), European Super League (Euro),
+  EVE ZERO 完全版 ark of the matter - 初回限定パック (Jpn), Evil Dead: Hail to the King (Euro),
+  Evil Dead: Hail to the King (Fra), Evil Dead: Hail to the King (USA), Evil Twin: Cyprien's Chronicles (Euro),
+  Evolution 2: Far Off Promise (Euro), Evolution 2: Far Off Promise (USA), Evolution: The World of Sacred Device (Euro),
+  Evolution: The World of Sacred Device (USA), Exodus Guilty Neos (Jpn), Expendable (USA), F1 Racing Championship (Euro),
+  F1 World Grand Prix for Dreamcast (Euro), F1 World Grand Prix for Dreamcast (Euro, Prototype 19990903),
+  F1 World Grand Prix for Dreamcast (Jpn), F1 World Grand Prix II for Dreamcast (Euro),
+  F1 World Grand Prix II for Dreamcast (Euro, Prototype 20000728), F1 World Grand Prix II for Dreamcast (Jpn),
+  F1 World Grand Prix (USA), F355チャレンジ (Jpn), F355 Challenge: Passione Rossa (Euro), F355 Challenge: Passione Rossa (USA),
+  F355 Challenge: Passione Rossa (USA, Alt), F355 Challenge: Passione Rossa (USA, Prototype 20000501),
+  F355 Challenge: Passione Rossa (USA, Prototype 20000821), Fatal Fury: Mark of the Wolves (USA), Fighting Force 2 (Euro),
+  Fighting Force 2 (Euro, Prototype 19991202), Fighting Force 2 (Ger), Fighting Force 2 (USA), Fighting Force 2 (USA, Alt),
+  Fighting Force 2 (USA, Alt 2), ファイティングバイパーズ2 (Euro), ファイティングバイパーズ2 (Euro, Prototype 20001226), 
+  ファイティングバイパーズ2 (Jpn), Flag to Flag (USA), Floigan Bros. - Episode 1 (Euro), Floigan Bros. - Episode 1 (USA),
+  フォーシンフォニー: With All One's Heart (Jpn), フレームグライド (Jpn), フレームグライド - Test Operation Disc (Jpn),
+  Frogger 2: Swampy's Revenge (USA), Fur Fighters (Euro), Fur Fighters (Euro, Demo), Fur Fighters (Euro, Prototype 20000602),
+  Fur Fighters (Euro, Prototype 20000612), Fur Fighters (USA), 不思議のダンジョン 風来のシレン外伝 女剣士アスカ見参! (Jpn), 
+  ガイアマスター 決戦! 世紀王伝説 (Jpn), 学級王ヤマザキ -ヤマザキ王国大フン争- (Jpn), がんばれ!ニッポン!オリンピック2000 (Jpn),
+  餓狼 MARK OF THE WOLVES (Jpn), Gauntlet Legends (Euro), Gauntlet Legends (USA), Generator Vol. 1 (USA), 
+  Generator Vol. 1 (USA, Alt), Generator Vol. 1 (USA, Alt 2), Generator Vol. 1 (USA, Alt 3), Generator Vol. 1 (USA, Alt 4),
+  Generator Vol. 2 (USA), Generator Vol. 2 (USA, Alt), Generator Vol. 2 (USA, Alt 2), GET!! コロニーズ (Jpn),
+  ジャイアントグラム2000 -全日本プロレス3 栄光の勇者達- (Jpn), ジャイアントグラム2000 -全日本プロレス3 栄光の勇者達- (Jpn, Alt), 
+  ジャイアントグラム -全日本プロレス2 IN 日本武道館- (Jpn), ギガウイング2 (Jpn), ギガウイング2 (USA), ギガウイング (Euro),
+  ギガウイング (Jpn), ギガウイング (USA), GK: Giant Killers (Euro), GK: Giant Killers (Euro, Prototype 20010109),
+  ゴジラ・ジェネレーションズ マキシマム・インパクト (Jpn), ゴルフしようよ2 新たなる挑戦 (Jpn),
+  ゴルフしようよ コースデータ集 アドベンチャー編 (Jpn), ゴルフしようよ (Jpn), グランディアII (Euro), グランディアII (Jpn),
+  グランディアII - スペシャルパッケージ (Jpn), グランディアII - 店頭用デモ (Jpn), グランディアII (USA), Grand Theft Auto 2 (USA), 
+  GTA 2 (Euro), GTA 2 (Fra), ギルティギアX (Jpn), ギルティギアX - 体験版 (Jpn), ガンバード2 (Euro),ガンバード2 (Jpn),
+  ガンバード2 (USA), ガンダムバトルオンライン (Jpn), ガンダムバトルオンライン - トライアル版 (Jpn),
+  ガンダムサイドストーリー 0079 コロニーの落ちた地で - プレミアムディスク (Jpn),
+  ガンダムサイドストーリー 0079 コロニーの落ちた地で (USA),
+  ガンスパイク (Jpn), ぐるぐる温泉2 (Jpn), ぐるぐる温泉3 (Jpn), Half-Life (Video) (World),
+  HAPPY☆LESSON -ファーストレッスン- (Jpn), HAPPY☆LESSON (Jpn), 春雨曜日 (Jpn), Headhunter (Euro), Heavy Metal: Geomatrix (Euro),
+  Heavy Metal: Geomatrix (USA),
+  ハローキティのドリームパスポート2 (Jpn), ハローキティのガーデンパニック (Jpn), ハローキティのラブリーフルーツパーク (Jpn),
+  ハローキティのマジカルブロック (Jpn), ハローキティの「音なる」メール (Jpn), Hidden & Dangerous (Euro), Hidden & Dangerous (USA),
+  Hoyle Casino (USA), ハンドレッドソード (Jpn), Hydro Thunder (Euro), Hydro Thunder (Euro, Prototype 19990908),
+  Hydro Thunder (USA), Hydro Thunder (USA, Rev. 1), Hydro Thunder (World, Prototype 19990616),
+  機動戦士ガンダム外伝 コロニーの落ちた地で… (Jpn), Millennium Soldier: Expendable (Euro),
+  Millennium Soldier: Expendable (Euro, Prototype 19990715), プロモーションディスク (Jpn), Resident Evil: Code: Veronica (Spa),
+  神機世界エヴォリューション2 -遠い約束- (Jpn), 神機世界エヴォリューション (Jpn), スーパースピード・レーシング (Jpn),
+  Tee Off (Euro), Tee Off (USA), Tee Off (USA, Alt), The Flintstones: Viva Rock Vegas (Euro) [FakeShemp]
+ibm5170: Alien Legacy (v1.00) [Justin Kerk]
+interpro: Diagnostic Floppies, Intergraph System Software, Rebuild Floppies [Patrick Mackinlay]
+leapster:
+  Cars (Spa), Disney Fairies (Spa), Disney Princesa - La Magia De Aprender (Spa), Dora the Explorer - Camping Adventure (USA),
+  Dora the Explorer - Pinata Party! (USA), Spongebob Squarepants - Through The Wormhole (USA), Star Wars - Matematicas Jedi (Spa),
+  The Batman - El Poder De Los Numeros (Spa), Up (Spa), Wall-E (Spa) [Connie, Clawgrip, TeamEurope]
+  1st Grade (US), Dora the Explorer - Wildlife Rescue (USA, L-MAX), Letters on the Loose (USA, L-MAX), Madagascar (USA, L-MAX),
+  NASCAR (USA, L-MAX), Scholastic OutWit! (US), Spider-Man - The Case of the Sinister Speller (USA, L-MAX),
+  Spongebob Squarepants - Saves the Day (USA, L-MAX), Talking WORDS Factory (US) [TeamEurope, HardcoreHubz]
+poly_flop:
+  Proteus 6809 FLEX Operating System (Version 2.8:3 - 1.1:2), Proteus Z80 CP/M Operating System (CP/M 2.2, BIOS 3.3)
+  [Andrew Trotman]
+vsmile_cart:
+  ABC Land Aventure (Fra), Disney Winnie l'Ourson - La Chasse au miel de Winnie (Fra, Rev. 2),
+  Le Monde d'ELMO - Les Grandes Decouvertes D'Elmo (Fra), Oui-Oui - Detective d'un Jour (Fra),
+  Roi Lion - Simba Decouvre la Jungle (Fra), Thomas er ses Amis - Les locomotives s'entraident (Fra)
+  [TeamEurope, Buddybenj]
+
+
+追加・更新された翻訳
+--------------------
+Chinese (Simplified) [YuiFAN]
+Chinese (Traditional) [YuiFAN]
+Dutch [Jos van Mourik]
+French [noxx09]
+Portuguese (Brazil) [Wellington Uemura]
+Spanish [A. Viloria]
+
+
+ソースの変更点
+--------------
+- fidlstix, rndrndqs: MCUとLCDコントローラインタフェース修正と7セグ表示追加。[AJR]
+
+- tms9927: ドットクロックからキャラクタクロックを使用するように設定。[AJR]
+
+- pit8253: サブデバイスへのカウンタに変更。[AJR]
+
+- sega_315_5195: コミュニケーションラッチの内部化 - fpointblaでサウンドが動作可能。[AJR]
+
+- sol20: RS-232ポートの追加。[AJR]
+
+- mcb216, cb308: UARTをTMS5501で置き換え。[AJR]
+
+- hnayayoi.cpp: HD6845 CRTCをビデオに使用; 画面パラメータの改善。[AJR]
+
+- vt100_kbd: UARTベースのシリアルデバイスに書き換え。[AJR]
+
+- vt100: 画面最下部の線を再現。[AJR]
+
+- vt100, la120: ER1400不揮発ストレージが実際に動作するよう改良。[AJR]
+
+- debugger: デバッグビュー、wplist出力、ウォッチポイントビューの範囲及び、アドレスシフトされたメモリ空間のコマンド検索を修正。
+  [AJR]
+
+- ins8250: ボーレートが変更されたとき、トランスミッタをリセットするハックを追加。[AJR]
+
+- trs80.cpp: ほぼすべてのクロックを実際のクリスタルから分周。画面のRAWパラメータも含む。[AJR]
+
+- d9final: NVRAM追加。[AJR]
+
+- qtsbc: SBC-800の回路図をもとに書き直し。[AJR]
+
+- ay31015: 次のスタートビットが早く到着したときにレシーバの同期がとれなくなるのを修正。スタートビットで同期。[AJR]
+
+- unkitpkr: ブックキーピングモードでカードグラフィックを無効にするスイッチ追加。[AJR]
+
+- TLCS-90の外部IRQラインステートを内部リクエストレジスタから分離 - tenkaiのスローダウンを修正。[AJR]
+
+- artmagic.cpp: NVRAMを並列EEPROMと置き換え。ADPCMバンク改良。[AJR]
+
+- DEC 12-15336-00 RS232ループバックコネクタタイプを追加 (VT102モデム制御のセルフテストで必要)。[AJR]
+
+- rainbow: ビットレートジェネレータのクロックとタイプを訂正。[AJR]
+
+- g65816: プログラム、データ、オペコード、ベクタで離れたアドレス空間を使用可能。[AJR]
+
+- scn2674: SCN2672の派生版のサポート。[AJR]
+
+- vgmplay: 不要な場合はPOKEYとQSoundを無効化。[AJR]
+
+- メディアイメージのロード失敗のエラーメッセージに、オプションとファイル名の出力を追加。[AJR]
+
+- model2.cppの更新: [Angelo Salese]
+ * ジオメトライザーの逆アセンブリとトライアングルリストをダンプするカスタムデバッガコマンド追加
+ * FIFOでのld rN, (rN)リードの対策 - 複数のクラッシュが修正
+ * ジオメトリモード2/3での各トライアングと長方形に対するnormalをスキップ - 複数の表示不具合修正
+ * テクスチャのないパスの色修正(「モーターレイド」「デイトナUSA」で使用）
+ * ダイレクトフレームバッファの描画追加 (「ラストブロンクス」のタイトル画面で使用)
+
+- sharc: Model 2ゲームで使用する追加の命令を実装。[Angelo Salese]
+ * Rn = Rn FDEP Rx BY <bit6>:<len6> 命令の追加(「ラストブロンクス」の体力用ジオメトライザーで使用)
+ * fmul abs multi命令追加 (「ガンブレードNY」で使用)
+ * SET_UREG case $67の追加 (「ゼロガンナー」2Bで使用)
+ * LSFHITネガティブオペレーションが結果に指数拡張しないのを修正(「ラストブロンクス」のフレーム点滅修正)
+
+- segaic24.cpp: xhouとxvoutレジスタコールバック追加(Model2の3Dビューポート位置修正)。[Angelo Salese]
+
+- TGPx4インタプリタコアの予備的な追加。[Angelo Salese]
+
+- i960.cpp: 書き込みのバーストストールをサポート。[Angelo Salese]
+
+- ddayjlc.cpp: 雲の表示順とタイトル画面の色修正。画面反転追加。[Angelo Salese]
+
+- amstrad: 無効なPSGレジスタ選択を無視 - Monty on the RunとAirborne Rangerの入力問題修正。[Barry Rodewald]
+
+- metro.cpp: daitorid*でボタン2を有効化 - 牌の向きを変えるのに使用。[cam900]
+
+- hyprduel.cpp: クリーンアップとimagetek_i4220_deviceを使うように変更。サウンド出力をモノラルに変更。[cam900]
+
+- imagetek_i4220.cpp: 四角いクリッピング領域の中だけのタイルマップを描画(パフォーマンスの向上)。[cam900]
+
+- sknsspr: device_rom_interfaceにコンバート。起動時にデコードバッファを割り当て。[cam900]
+
+- galpani3.cpp: コードの整理。ノートの追加。起動時にバッファを割り当て。アルファブレンディングの改良。スプライトと背景のプライオリ
+  ティ、背景間のプライオリティ改良。コードの重複を低減。[cam900]
+
+- jchan.cpp: スプライト同士のプライオリティを少し改良。[cam900]
+
+- rohga.cpp: グラフィックデコーディング修正。[cam900]
+
+- segapcm: クロックスピードの変更をサポート。コードの整理。[cam900]
+
+- vgmplayの更新: [cam900]
+ * Sega PCMインタフェースレジスタを改良
+ * QSoundのピッチをDSPクロック入力の周波数に変更
+
+- eolith.cpp:「Iron Fortress」の中華版のタイトルと製造元を提供元を訂正。[cam900, Vas Crabb]
+
+- kaneko16.cpp: OKIバンク切り替えとサウンドラッチ処理を整理。[cam900]
+
+- es5510/taito_enの更新: [cam900]
+ * es5510: DRAMのリードライト修正。バッファの割り当てを起動時に移動
+ * taito_en:「ガンバスター」の回路図より、ESP入力クロックと出力チャンネルを検証。ランタイムでのタグマップルックアップを削減
+ * esqpump.cpp: ES5506をインタフェースから分離
+ * esqkt.cpp: ES5510インタフェースにesqpump追加。カンパニータグ修正
+
+- kaneko_grap2: device_rom_interfaceにコンバート。デバイスアドレスマップ追加。内部パレット追加。明るさコントロール実装。[cam900]
+
+- mcatadv.cpp: コードの重複を削減。ROMリージョン名の改良。モノラル音声出力に変更。[cam900]
+
+- wecleman.cpp: ノート追加。コードの整理。ROMリージョン名の追加。ステレオ音声出力に変更。[cam900]
+
+- ES8712: OKI MSM520/6585と74157用のコントローラなのでサウンド出力を削除。[cam900]
+
+- gcpinball.cpp, metro.cpp, lastbank.cpp, witch: ノート追加。コードの整理。ランタイム時のタグマップ参照を削減。[cam900]
+
+- blzntrnd: 基板タイプに応じてステレオとモノ出力の訂正。サウンドバンク切り替え修正。ノート追加。[cam900]
+
+- lastbank: サウンドコミュニケーションの汎用ラッチデバイスを使用。[cam900]
+
+- gcpinball.cpp: ROMリージョン名改良。[cam900]
+
+- qs1000.cpp: set_irqをWRITE_LINE_MEMBERに変更。[cam900]
+
+- eolith.cpp, eolith16.cpp, vegaeo.cpp: VRAM処理と描画の整理。[cam900]
+
+- eolith.cpp, ghosteo.cpp, limenko.cpp, vamphalf.cpp, vegaeo.cpp: サウンドラッチのモダン化。ランタイム時のタグマップ参照を削減。
+  ROMリージョン名を改良。[cam900]
+
+- hidctch3: ドライバinitをmachine configに置き換え。[cam900]
+
+- mastboy.cpp: コードの整理。バンクRAM処理をaddress_map_bank_deviceに移動。RAMエラーの修正。ノート追加。ROMリージョン名改良。
+  [cam900]
+
+- xexex.cpp: コードの整理。ランタイム時のタグマップ参照を削減。ノート追加。MACHINE_IMPERFECT_GRAPHICSフラグ追加。[cam900]
+
+- tecmosys.cpp: 背景色修正。バンク切り替えの整理。コード重複削減。ランタイムタグ参照削減。ノート追加。MACHINE_IMPERFECT_GRAPHICS
+  フラグ追加(ラインスクロールとミキシングが不完全)。MACHINE_NO_COCKTAILフラグ追加(画面反転時タイルマップのスクロールがおかしい)。
+  [cam900]
+
+- ultraman.cpp, chqflag.cpp: コードのクリーンアップ。[cam900]
+
+- k051649.cpp: ドライバのメモリマップの重複を減らすためscc_mapを使用。[cam900]
+
+- divebomb.cpp: CPUの通信にgeneric_latch_8_deviceを、割り込みにinput_merger_any_high_deviceを使用。タグの改良。[cam900]
+
+- ddragon.cpp: CPUタイプが判明。[cam900]
+
+- x68k: ADPCMのパン処理実装とADPCMタイマーの訂正。[cam900]
+
+- gstream.cpp: X2222の計算済みRGBパレットを追加。コードの重複解消。不要なパラメータを削除。[cam900]
+
+-「ヴォルフィード」「スーパーマン」「地獄めぐり」「レインボーアイランド」のCチップEPROMデータを抽出して追加。シミュレーションを削
+  除。[Caps0ff]
+
+- plugins/portname: 改訂されたフォーマットについて解説。[Carl]
+
+-「レインボーアイランドエキストラ」の手作りCチップEPROM追加。これによりシミュレーションを削除。[David Haywood]
+
+- XaviX: IRQソースレジスタについてノート追加。[David Haywood]
+
+- Color Computer 1/2用にHDB-DOSデバイス追加。[David Ladd]
+
+- Casio RZ-1で使用されているuPD934Gパーカッションジェネレータデバイス追加。[Dirk Best]
+
+- hp64k: HPIBバスのサポート。PHIエミュレーションの大幅改良(BISTのパス可能)。[F.Ulivi]
+
+- ソケット接続に対するプロセス間のIEEE-408をトンネルするスロットデバイスを追加。[F.Ulivi]
+
+- Intellivisionキーボード6502のクロックレートを訂正(2倍だった)。[Frank Palazzolo]
+
+- spectrum: 一部のゲームでスプライトがちらつき、グラフィックが表示されない問題を修正。[geecab, R. Belmont]
+
+- emscripten: netlistを使うドライバが動作しない問題を修正。現在未サポートのマルチスレッディングを無効化。[Justin Kerk]
+
+- notetaker.cpp: EmulatorCPU 8086の実装開始。[Lord Nightmare]
+
+- naomi.cpp: ROMボードとBIOSドキュメントの更新。[MetalliC]
+
+- Dreamcastとその仲間: SH-4リコンパイラをデフォルトで有効化。[MetalliC, Ryan Holtz]
+
+- lynx96k: BIOSオプションにScorpionとDanish ROMを追加。[Nigel Barnes]
+
+- kr2376: キーボードマトリックスコールバック追加。[Nigel Barnes]
+
+- bbc: カセットリレーサンプル追加。[Nigel Barnes]
+
+- bbc: Master/B+のシャドウRAM不具合とModel BのRAMアクセス修正。[Nigel Barnes]
+
+- electron: ROM/RAMアクセスをもとに、CPUクロックを2MHz/1MHzに設定。[Nigel Barnes]
+
+- model2.cpp:「ゼロガンナー」の背景プライオリティ修正。[O. Galibert]
+
+- nes_apu: クロック入力からフレームカウンタを算出。[O. Galibert]
+
+- アドレスマップからマクロを削除。[O. Galibert]
+
+- interpro: いろいろな改善。"blue screen"リビルトフロッピーがブート。[Patrick Mackinlay]
+ * CLIXがほぼブート - ファイルシステムのマウント時にハング
+ * CPU/MMUメモリアクセスをリファクタリング。アライメント失敗追加。DMA仮想アドレッシングサポート
+ * C400命令をほとんど実装。wati命令を修正
+ * 壊れていた強制割り込み処理を削除
+
+- gunpey: 解凍したスプライトデータを抽出し、圧縮方式が解析されるまではグラフィックに使用。
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard]
+
+- midvunit.cpp: 入出力のクリーンアップ。モーション入力の改善。メインボタンの分類。[Risugami]
+
+- seattle.cpp: 出力のクリーンアップ。[Risugami]
+
+- エミュレーションのセッション中にAVI保存をスタート・ストップできる機能追加。複数画面システムでネイティブ比率のスクリーンショット
+  処理を改良。[Ryan Holtz, Vas Crabb]
+
+- M1COMM, M2COMM, S32COMM: シミュレーションの改良: [SailorSat]
+ * 部分的なフレーム読み込みの修正とVSYNCパケットの追加
+ * stccで使用するリレーモードを追加。通信ロスを検出・対応。同期の改善
+ * emu_fileからosd_fileを使うように変換
+ * インスタンスを強制同期させるcomm_framesyncオプション追加
+ * MB89374エミュレーション追加 -「バーチャレーシング」「バーチャフォーミュラ」で本物のファームウェアを使ってリングが動作
+ * デフォルトのmodel1設定からm1commを削除。一部のゲームでしか使用しないため
+
+- glasgow.cppでチェスボードI/Oにmmboardデバイスを使用するよう変更。[Sandro Ronco]
+
+- MK48T12タイムキーパーRAMのサイズ修正。[smf]
+
+- validity check: count_leading_zeros()とcount_leading_ones()で取りうる33の結果全てをテスト。[smf]
+
+- ドンキーコング: -norotateがダイレクトフィードレコーディングに合うよう、画面向きを変更。[smf]
+
+- CP/M-80システム(Altos 5, Aussie Byte II, Decision Mate V, Kaypro, QX-10, Xerox 820)のQuikLoadオプション追加。[Stefano]
+
+- c352.cpp: mul-lawアルゴリズムをNamocのWii VCエミュレータに一致するよう変更。「鉄拳3」のバトル間に出るノイズ修正。フェーズ反転
+  フラグの順序修正。[superctr]
+
+- rgbsse: 負の値に対するスケーリング関数を修正 - warfaでの表示不具合修正。[Ted Green]
+
+- kayproii: ボーレートジェネレータの接続を修正(シリアルポートとキーボードは保持)。[Vas Crabb]
+
+- 廃止予定の宣言に対する警告を非致命的な設定にビルドオプションを変更し、デフォルトで有効化。[Vas Crabb]
+
+- パフォーマンスの低い出力システムAPIの廃止作業開始。[Vas Crabb]
+
+- running_machine::first_screenの廃止。使用箇所を全て削除。[Vas Crabb, Ryan Holtz, AJR, R. Belmont, Nigel Barnes]
+
+- dsp16: インタプリタと逆アセンブラを書き直し。[Vas Crabb]
+ * インタプリタはほぼ全ての機能を実装。マシンサイクルでの正確さと粒度あり
+ * マルチプレクスモードを除くPIOとSIO出力のサブセットを実装
+ * 逆アセンブラのシンタックスをアセンブラのものとほぼ共通化。前提とされる命令にはライブコメントを表示
+
+- qsound: DSPプログラムの低レベルエミュレーションを追加(パフォーマンスの都合でvgmplayでのみ有効)。[Vas Crabb]
+
+- qsoundhle: DSPにより近くなるようサンプルレートと再生動作を変更。[Vas Crabb]
+
+- ROM名をプリント可能な文字をASCIIのシェルフレンドリーなサブセットに限定。[Vas Crabb]
+
+- ポインタを直接触れないようにネームスペース使用と、CPUコアのリコンパイルでプリプロセッサを使用。[Vas Crabb]
+
+- ほとんどのマシン設定ヘルパを非staticメンバ関数に変更し、マクロが一致するように調整。[Wilbert Pol]
+
+- crospang.cpp: オシレータと基板情報よりクロックスピードを訂正。[Brian Troha]
+
+- gameboy.xml, gbcolor.xml, leapster.xml, vsmile_cart.xml, vsmile_cd.xml, vsmilem_cart.xml: スペイン語版のタイトル訂正。[ClawGrip]
+
+- sauro.cpp:「サウロ」のクロックを検証。[Corrado Tomaselli, The Dumping Union]
+
+- sf2b: 製造元の検証。[f205v]
+
+- atetris.cpp: atetrisb2とatetrisb3のドキュメント更新。[f205v]
+
+- CBM plus4ファミリからPLAを吸出し。[Guru]
+
+- spaceg: PROMの吸出し。[Guru]
+
+- opwolf.cpp: 実機でCチップクロックの計測。[Guru]
+
+- shuttlei: メインのCPUクロック分周器の訂正と基板の説明追加。[Guru]
+
+- ti85.cpp: OS v4.0をti84pcseのBIOSオプションとして追加。[Julian Lachniet]
+
+- leland.cpp:「Pig Out: Dine Like a Swine!」の未吸い出しPALをドキュメント化とROMラベルの訂正。[Kevin Eshbach, The Dumping Union]
+
+- leland.cpp:「Ataxx」のリビジョン5のROM名訂正。[Kevin Eshbach, The Dumping Union]
+
+- 最近の変更合わせてhiscore.datを更新。[Leezer]
+
+- alphatro.cpp: ROM名の改良。BICOMグラフィック拡張付きマシンの本当のROMを追加。[rfka01]
+
+-「San Francisco Rush: The Rock」の年代を修正。[sjy96525]
+
+- argus.cpp: valtricのPROMを吸出し。[system11, The Dumping Union]

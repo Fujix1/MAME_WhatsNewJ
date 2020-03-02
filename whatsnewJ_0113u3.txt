@@ -1,0 +1,126 @@
+0.113u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+eprom0113u2gre [Zsolt Vasvari]
+
+
+
+ソースの変更点
+--------------
+- MC8123の正確な復号コードを追加。同チップを使うゲームに実装して、多くがプレイ可
+  能になっています。[Nicola Salmoria]
+
+- SHARCの命令コードについて、コンディションに関わらずデータ送信していた部分を修
+  正。これにより、Model 2Bゲームのジオメトリが逆さまになる問題など、多くを修正。
+  また、「グラディウスIV」のクリッピングも恐らく全て直ってるはずです。とりあえず、
+  イントロ部分の星がズームアウトする部分は動作するようになってます。
+  [Ville Linde]
+
+- Model 2ドライバにZ軸のクリッピング追加。[Ville Linde]
+
+- 旧Sega System EドライバをHazeMDベースのものに置き換え。[David Haywood]
+
+- Sega System EゲームのDIPスイッチを大量修正。[Brian Troha]
+
+- SCSPエミュレーションのクラッシュ修正。[David Haywood]
+
+- ES5503の改良: [R. Belmont]
+ - サンプルの終わり部分の不要なクリック音を修正
+ - タイミング処理の改良。MESSのApple IIgsのアプリやゲームのサウンドテンポ修正。
+
+- TMS340x0逆アセンブラのwordとlongのオペランド表示修正。[Philip Bennett]
+
+-「ウルトラタンク」で汎用エミュレーションからコンポーネント値のコードに更新。ま
+  た「スプリント4」の音追加。[Derrick Renaud]
+
+- gaelco3dドライバにセーブステート追加。tms32031.cとdmadac.cにも追加。
+  [couriersud]
+
+- ベクターゲームの一部に、疑似VBLANKタイミングを追加して、操作系をとりあえず“修
+  正”。[Derrick Renaud]
+
+- TmS340x0コアのack時にHSTCTLH NMIビットをクリアするように変更。[Philip Bennett]
+
+- MESS用に、CDP1869のカラービット処理をコールバック関数に切り出し。[Curt Coder]
+
+- オプション処理を、新しく追加したユーティリティモジュールoption.cに再構成。
+  MAMEコアオプションを、新モジュールemuopts.cに移動。[Nathan Woods]
+
+- マイナーなNeoGeoセットの更新。[Johnboy]
+
+- cybertnkドライバの更新: [PS]
+ - CPU間のコミュニケーション
+ - 入力 (ほぼ完成)
+ - サウンド
+ - 吸い出し不良のプログラムROM
+ - マッピングされていないリード
+
+- 新ビデオタイミング用にさらにドライバを更新。[Zsolt Vasvari]
+
+- VIC Dualドライバをゼロから完全に書き直し。[Zsolt Vasvari]
+
+- 初期版のMB86233CPUコア追加。Sega Model 2ドライバへの実装はまだ。
+  [Ernesto Corvi]
+
+- SHARCコアの割り込み遅延スロット問題を修正。[Ville Linde]
+
+- K001005のポリゴンレンダリング改良。[Ville Linde]
+
+- video_screen_exists()を追加。これは、与えられたスクリーンの存在を調べます。
+  デバッガを更新して、スクリーンが存在しないときにクラッシュしないように更新。
+  [Nathan Woods]
+
+- 前回の更新でneogeoドライバに不具合が出たのを修正。[Aaron Giles]
+
+- FD1094の完全な（だけどWIP版の）デバッグツールを追加。キーのブルートフォース検
+  索用。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+オパオパ [Nicola Salmoria, David Haywood]
+ファンタジーゾーンII [Nicola Salmoria, David Haywood]
+がんばれ珍さん！大勝負 [Nicola Salmoria, David Haywood]
+ブロックギャル [Nicola Salmoria, David Haywood]
+Master Boy [David Haywood, Charles MacDonald, Clawgrip]
+7 Ordi [Brian Troha, stephh]
+恋来パート2 [Tomasz Slanina]
+Heuk Sua Baek Sa [David Haywood, Brian Troha]
+Bestri [David Haywood, Brian Troha]
+ギターフリークス2nd MIX Ver 1.01 [smf]
+SD Fighter (韓) [David Haywood, Brian Troha]
+
+
+
+新規クローンセット
+------------------
+Funny Bubble (In Chang Electronic Co) [Brian Troha]
+Twin Adventure (Korea) [Brian Troha]
+One + Two (earlier) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+聖誕無限 [Xing Xing]
+超級斗地主 [Xing Xing]
+達坂城 [Xing Xing]
+斗地主 [Xing Xing]
+麻将 龍虎争霸 2 [Xing Xing]
+麻将 満貫財神 [Xing Xing]
+麻将 双龍搶珠 2 [Xing Xing]
+麻将 超級大満貫 2 [Xing Xing]
+麻将 天将神兵 [Xing Xing]
+Big D2 [David Haywood]
+Good (Korea) [David Haywood, Brian Troha]
+龍虎争霸 3 [Xing Xing]
+龍虎争霸 4 [Xing Xing]
+快楽西游記 [Xing Xing]
+満貫福星 [Xing Xing]
+WonderLeague Star [David Haywood, Brian Troha]
+ダンスマニアックス [smf]
+ギターフリークス 3rd MIX [smf]

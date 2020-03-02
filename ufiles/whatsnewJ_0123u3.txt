@@ -1,0 +1,190 @@
+0.123u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+connect4_0123u2red [Aaron Giles]
+multiscreeninfo0123u2gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- megasys1.c基板のクロック速度訂正。実際のゲームもこれくらい遅いのです。
+  [Brian Troha]
+
+- Makefileとビルドシステムの更新: [couriersud]
+ * verinfo: 新構文採用。次のようになります:
+     verinfo.exe -b windows|winui|mess
+   コンパイル時の定義には依存しなくなりました
+ * makefileは、src/osd/$(CROSS_BUILD_OSD)/build.makがある場合はインクルードしま
+   す。これはwinui用のクロスビルドに必要です
+
+-「クローク&ダガー」のビデオコードをクリーンアップ: [Zsolt Vasvari]
+ - resnetへコンバート。1K pull-upのため、表示色の彩度が落ちています。主人公のコー
+   トや空の色などでよくわかります
+ - 128Hラインベースのビットマップパレット選択追加。実際のゲームでどこで使われて
+   いるかは不明
+
+- 多くのドライバで使われていた、不要なmachine->pens[]のルックアップを削除。
+  [Zsolt Vasvari]
+
+-「スペースタクティクス」にビルトインレイアウト追加。ドライバのクリーンアップ及
+  び再構成。[Mr. Do!, Zsolt Vasvari]
+
+- funworldのカラーデコードルーチンで、resnetコードを使うよう変更。
+  [Roberto Fresca]
+
+- MACHINE_RESETでのnvram割り当てによって起きた、namcos2とnamcos21のクラッシュを
+  修正。MACHINE_STARTを作成してそこに割り当て処理を移動。[couriersud]
+
+- -listxmlで、info.cがビデオパラメータの生情報を出力するよう更新 (pixclock、
+  htotal、hbend、hbstart、vtotal、vbend、vbstart)。[couriersud]
+
+- osdレイヤーから、deprecat.hのインクルードを一部削除: [couriersud]
+ * osd_updateとosd_update_audio_streamにmachineを引数として追加
+ * Machineをmachineに変更。deprecat.hのincludeを削除
+
+- VS2008でのコンパイルをシームレスにするため、vconv.cにルールを追加。
+  [Aaron Giles]
+
+- bionicc.c: [couriersud]
+ * 回路図を元にCPUクロックを追加
+ * z80 NMI生成についてコメント追加
+
+-「X The Ball」のDACサウンド修正。[Zsolt Vasvari, Mamesick]
+
+-「バーチャストライカーII 2000」で、吸い出し不良を確認したものを削除。
+  [Brian Troha]
+
+-「雷牙」のクラッシュ修正。[Zsolt Vasvari, David Haywood]
+
+- drawgfx.cの改良: [Zsolt Vasvari]
+ - drawgfxとdrawgfxzoomにアサート追加
+ - 変数が実際に使用されるときにだけ見えるように定義を移動
+
+- drawgfxより8bppビットマップのサポートを削除。[Zsolt Vasvari]
+
+- ベクターゲームからMDRV_PALETTE_LENGTHを削除。これはemupal.cでアサートを発生さ
+  せるものでした(デバッグビルド)。[couriersud]
+
+- 新モジュール、tokenize.hを追加。これは、データ構造のトークン化動作をまとめるも
+  ので、現在の入力ポートで使われているものと同様です。入力ポートについても、コン
+  パクト化を進めて、さらに新しいマクロを使用するためトークン化を再度行っています。
+  C99とGCCビルドで型安全を確保するため、イニシャライザの指定をサポート。
+  [Aaron Giles]
+
+- NSSドライバの偽DIPを削除。[R. Belmont]
+
+- グローバルな"flip_screen"マクロと変数を改良: [couriersud]
+ * flip_screenの定義に関係した問題を修正
+ * int flip_screen_get(void)を追加
+ * コリジョンの起きていたドライバをクリーンアップ
+ * flip_screenマクロを削除
+ * flip_screen_xとflip_screen_yをstaticに変更
+ * flip_screen_x_get()とflip_screen_y_get()を追加
+ * flip_screen_set_no_update()によるflip_screen_xへの書き込みを変更
+ * flip_screen_xとflip_screen_yにセーブステート用コールを追加
+
+- MACHINE_DRIVERの定義を関数のコンストラクタからトークン化したリストへコンバート。
+  MDRV_WATCHDOG_TIME_INITを使うドライバ以外にとっては、特に大きな変化ではありま
+  せん。アトタイムのトークン化を行えるように、新マクロUINT64_ATTOTIME_IN_x()を
+  定義。これはATTOTIME_IN_x()と同じパターンを取りますが、トークン化を簡単に行え
+  るように、アトタイムを64ビットの単一値としてパック化します。マシンコンフィグの
+  トークン化コードの追加チェックのときに見つかったマシンドライバのエラーを修正し
+  ました。[Aaron Giles]
+
+- MDRV_DEVICE_CONFIG_DATAを32ビット版と64ビット版に分離。また、解像度の指定が可
+  能な浮動小数点版も追加。[Aaron Giles]
+
+- スピーカーをデバイスにコンバート。Machine->configでスピーカーは保持しません。
+  代わりとして、sound.hで定義される新マクロ、speaker_output_first()と
+  speaker_output_next()の反復を使用します。関係する全てのコードを更新しました。
+  [Aaron Giles]
+
+- driver.hの先頭部分に、全てのマシン設定コールバック関数のtypedefを追加。
+  [Aaron Giles]
+
+- Cal Omegaドライバの大幅変更: [Roberto Fresca]
+ - ドライバ名をcalomega.cに変更
+ - 他のCal Omegaシステムを全てサポートするようにドライバを拡張
+ - XTAL定義を使うように変更
+ - 公式の配線図を元に、CPUとサウンドのクロックを修正
+ - 実ハードに合うようAY-8910をAY-8912と置き換え
+ - メモリマップを一部統合
+ - マシンをsys903とsys905に分割
+ - sys905のメモリマップオフセットを修正
+ - 公式・非公式ゲームのリストとそのステータスを追加
+ - カラーPROMの領域を拡張したときに起きたバグを修正
+ - 技術資料を更新
+
+- 数字、または"a"で始まるドライバについてメモリマップを統合。[Aaron Giles]
+
+-「クレイジークライマー」のビデオドライバをクリーンアップ。主にタイルマップへの
+  変換。これにより「クレイジーコング」でコングのスプライト位置と、プラットフォー
+  ムと足の間の隙間が修正されます。「ヤマト」ドライバと「クレイジークライマー」を
+  統合。[Zsolt Vasvari]
+
+-「XXミッション」をタイルマップにコンバート。[Zsolt Vasvari]
+
+- VIDEO_START(generic)を削除。[Zsolt Vasvari]
+
+- PGM.c EEPROM/ハイスコアセーブ追加。[Creamymami]
+
+-「オメガレース」のオリジナルステートPROMサポート。[Mathis Rosenhauer]
+
+- カーソル用のMC6845エミュレーションサポート。4つのブリンクモード全てをサポート。
+  [Zsolt Vasvari]
+
+- Rockwell 6545を実装中。[Nathan Woods]
+
+- NEC uPD7801、uPD78C05、uPD78C06 CPUを、uPD7810コアで基本サポート。
+  [Wilbert Pol]
+
+- 6850 ACIA CTPピンチェックロジックとMPU4 ACIAクロックロジックの改良。
+  [James Wallace]
+
+-「Risky Challenge / ぐっすんおよよ」の命令コード追加で、スプライトバグ修正。ま
+  たドライバの注釈を整理。[robiza]
+
+- 次のものにDIP配置追加: astinvad, bonzeadv, cadash, asuka, mofflott, galmedes, 
+   atarifb, atarifb4, abaseb, soccer
+  次のものにDIP配置追加と改良: seawolf2, wow, gorf, robby, profpac
+  [RansAckeR]
+
+- z80pioの一行修正。(割り込みが有効で)割り込み制御ワードが送信されたとき、割り込
+  みが発生します。しかし実際は、割り込みマスクバイトが送信されるまで、割り込みは
+  無効になっています。[Robert]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Jolly Joker [Roberto Fresca]
+Cal Omega - Game 7.6 (Arcade Poker) [Roberto Fresca]
+Cal Omega - Game 7.9 (Arcade Poker) [Roberto Fresca]
+Cal Omega - Game 12.8 (Arcade Game) [Roberto Fresca]
+Cal Omega - Game 17.51 (Gaming Draw Poker) [Roberto Fresca]
+Cal Omega - Game 23.9 (Gaming Draw Poker) [Roberto Fresca]
+El Grande - 5 Card Draw (New) [Roberto Fresca]
+Jackpot Joker Poker (5 sets) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+コズミックスマッシュ (JPN, USA, EXP, KOR, AUS) (original) [icronnya77]
+Jolly Card (Evona Electronic) [Roberto Fresca]
+Jolly Card (croatian, set 2) [Roberto Fresca]
+Super Joly 2000 - 3x [Roberto Fresca]
+Royal Vegas Joker Card (fast deal, english gfx) [Roberto Fresca]
+ダンジョンズ & ドラゴンズ タワーオブドゥーム (Japan 940412) [Razoola]
+Real Bout Fatal Fury / リアルバウト餓狼伝説 (バグ修正版) [Razoola]
+Metal Slug 5 (AES Cart) [Razoola]
+
+
+
+追加された未動作ゲーム
+----------------------
+A large number of Cal Omega games [Roberto Fresca]

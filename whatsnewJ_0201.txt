@@ -1,0 +1,519 @@
+0.201
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06001: [クラッシュ/フリーズ] (nes.cpp) nes: iNES Mapper 31が1MB以外のサイズのROMでクラッシュする。(rainwarrior)
+- 07069: [チートシステム] ”AutoFire Status"画面でONとOFFの色が間違っている。(AJR)
+- 07073: [DIP/入力] (neogeo.cpp) popbounc: スタートボタンが動かない。(AJR)
+- 00867: [サウンド] (seta.cpp) twineagl: BGMが途切れる。
+- 07068: [サウンド] (exidy.cpp) targ, spectar: 新しいスペクターのサンプル音。(Robbbert)
+- 07067: [サウンド] (exidy.cpp) targ, spectar: ターグとスペクターはサウンドボードが微妙に異なる。スペクターの長い爆発音も必要。(Robbbert)
+- 07058: [ゲームプレイ] (tx1.cpp) buggyboy, buggyboyjr: アートワークのギア表示が動作しない。(Tafoid)
+- 07059: [サウンド] (tx1.cpp) All machines in tx1.cpp: エンジン音がしない。(Osso)
+- 07053: [クラッシュ/フリーズ] (osbexec.cpp) osbexec: PERFORMING SELF TESTで止まってしまう。(AJR)
+- 06653: [ドキュメント] (tmnt.cpp) qgakumon: ゲーム名のバージョンが合っていない。
+- 06192: [ドキュメント] (playch10.cpp) pc_rrngr: 製造元が異なる。
+
+
+新規動作可能マシン
+------------------
+A Day In Space (31/03/87) [Miguel Bragado, Recreativas.org, ArcadeHacker, David Haywood]
+The Burning Cavern (31/03/87) [Miguel Bragado, Recreativas.org, ArcadeHacker, David Haywood]
+Night Mare (Spain) [Tomasz Slanina, Roberto Fresca, Jordi Beltran, Paco Ortiz, Recreativas.org]
+
+
+新規動作可能クローン
+--------------------
+アストロブラスター (version 2b) [Joe Magiera, The Dumping Union]
+Basis 108 [Robbbert]
+Biomechanical Toy (Ver. 1.0.1870) [Jorge Casares, Ruben Casana]
+Crash (alt) [Joe Magiera, Toby Bermann]
+餓流禍 / Devastators (ver. 2) [The Onion Knight, Corrado Tomaselli, The Dumping Union]
+Dog Fight (Orca, prototype) [ShouTime, Dane Biegert, Smitdogg, The Dumping Union]
+フリッキー (64k Version, on Up'n Down boardset) [Jon H., The Dumping Union]
+ゴルフィンググレイツ (US, version K) [Kevin Eshbach, The Dumping Union]
+ハチャメチャファイター (19th Sep. 1991, protected, set 2) [SpinalFeyd, The Dumping Union]
+ハレーズコメット (Japan, prototype) [Joe Magiera, The Dumping Union]
+怒III (World, Rotary Joystick) [ClawGrip, Roberto Fresca, Recreativas.org, Dumping Union]
+怒 / Ikari Warriors (US, set 2) [Joe Magiera, The Dumping Union]
+マリオブラザーズ (bootleg on Ambush Hardware, set 2) [Corrado Tomaselli, The Dumping Union, smf]
+Master Boy (1987, Z80 hardware, set 1) [Roberto Fresca, ClawGrip, recreativas.org]
+Orel BK-08 [Robbbert]
+Pool 10 (Italian, set 9) [f205v]
+雷電II (Korea) [Jorge Silva]
+Signal Sintez 2 [Robbbert]
+スーパー上海 ドラゴンズアイ (World) [Fabrice Arzeno, The Dumping Union]
+テクモワールドカップ'90 (Euro set 3) [coolmod, The Dumping Union]
+War Mission (WM 09/04/87) [Miguel Bragado, Recreativas.org, ArcadeHacker, David Haywood]
+ワールドカップバレーボール'95 (Asia v1.0) [Fabrice Arzeno, The Dumping Union]
+WWFレッスルフェスト (US) [SpinalFeyd, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+Gammatron Datum [Robbbert]
+
+
+動作可能に昇格したクローン
+--------------------------
+Apple //c Plus [R. Belmont, M. Guidero, Leon Bottou]
+サイキックフォースEX [Ekorz]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Akai / Roger Linn MPC-3000 [R. Belmont, King Honey and The Darlington Pair]
+Alcatel Terminal 7100 [Robbbert]
+Alcatel Terminatel 258 [Robbbert]
+Ampex 210+ [Robbbert]
+Apple eMate 300 [Ryan Holtz]
+Brother LW-700i [R. Belmont, rfka01]
+Catherine Wheel [f205v, Ryan Holtz]
+Creator IKT-5A [Robbbert]
+F-Zero AX Monster Ride [anonymous, Ordyne, MetalliC]
+Facit Terminal 4440 (30M-F1) [Robbbert]
+Humantechnik Textel Compact A1010-0 [Robbbert]
+ITT Courier 9216-X [Robbbert]
+Joker Lady [f205v]
+Lady Gum [f205v]
+Loewe Multicom 715L [Robbbert]
+Loewe Multitel D [Robbbert]
+Loewe/Televerket Teleguide [Robbbert]
+Mera-Elzab 7951om [Robbbert]
+Mera-Elzab EC-7915 (EC-7950) [Robbbert]
+Mera-Elzab VDM 79322/CM 7233 [Robbbert]
+Microterm ACT-5A [Robbbert]
+Nutting Associates ICEBOX [Robbbert, Al Kossow]
+Paradar [f205v]
+Sharp FontWriter FW-600 [R. Belmont, rfka01]
+Siemens Bitel T3210 [Robbbert]
+Siemens Multitel Fe Ap 90-1.1 [Robbbert]
+Winner [f205v]
+World Grand Prix (World) [hammy, The Dumping Union]
+Wyse Technology WY-100 [Al Kossow]
+Zenith Data Systems Z-29 [Al Kossow]
+
+
+
+新規追加された未動作クローン
+----------------------------
+18ホイーラーズ (deluxe) [Ordyne, MetalliC]
+18ホイーラーズ (deluxe) (Rev T) [Ordyne, MetalliC]
+ダイナマイト刑事EX -アジアンダイナマイト- (older) [brizzo, MetalliC, rtw]
+クラブカート -ヨーロピアンセッション- (Rev C) [Ordyne, MetalliC]
+ザ・ハウス・オブ・ザ・デッド2 (Export) [Ordyne, MetalliC]
+ザ・キング・オブ・ファイターズ2002 アンリミテッドマッチ (Japan) [CoolFox, brizzo]
+Night Fever [PinMAME]
+Ring Out 4x4 [Ordyne, MetalliC]
+Third World [PinMAME]
+Unknown portable computer [MCbx]
+バーチャストライカー2 ver. 2000 [Ordyne, MetalliC]
+Wyse Technology WY-120 [Robbbert]
+ゾンビリベンジ (Export) [Ordyne, MetalliC]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+ibm5150:
+  Murders in Space (CGA), Murders in Space (EGA), Murders in Space (VGA), Netherworld [ArcadeShadow]
+  Math Blaster, Writer Rabbit [darksabre76]
+  VTERM II (V2.00, newer), VTERM II (V2.00, older) [SomeGuy]
+ibm5170:
+  Compaq Portable Diagnostic Disk (SP0308), Intel 486 SX Microprocessor Demo [Foone Turing]
+  ABS Self Running Demo, The All In One Boot Floppy 0.9, The All In One Boot Floppy 0.9 (FreeDOS only),
+  The All In One Boot Floppy 0.9 (Lite Version), The All In One Boot Floppy 1.0, Disney's The Lion King,
+  Disney's The Lion King (Playable Demo), Microsoft Productivity Pack for Windows, Microsoft Works 3.0b, NETCOM NetCruiser
+  [Justin Kerk]
+pc98:
+  A Ressha de Ikou 4 ~ Take the A-Train IV - Map Construction + Power Up Kit (Cracked), A Ressha de Ikou III HD - Hard Disk Only,
+  Akiko - Premium Version, Albatross, Albatross - Expert Course, Albatross - Meimon Course I - Oak Hills, Albatross - Visual Course,
+  Albatross - World Course, Alone in the Dark 2, Alvaleak Boukenki, Amaranth II, Amaranth II (Alt System Disk), Ambition,
+  Ancient Dragon, Angel Army, Animahjong X Perfect File, Animahjong X Perfect File (Alt), Animation Editor 'da Vinci-98',
+  Art of War, Art of War - Kaisenban, Art of War Scenario Shuu, Assist Art - Paint Master, Dragons of Flame [Neo Kobe Collection]
+sorcerer_cass: The Count, Debug, Flight Simulator, Grotnik Wars, Nike II [Robbbert]
+uzebox:
+  Air Hockey, Columns, Fireman Rescue, Flight of a Dragon, Flight of a Dragon (demo), Ghosty Ghost, Pipes, Stormforce [ArcadeShadow]
+
+
+Software list items promoted to working
+---------------------------------------
+pc98:
+  3x3 Eyes - Sanjiyan Henjou, 3x3 Eyes - Sanjiyan Henjou (Alt Disk 1), 5 Jikanme no Venus, ASCII Otanoshimi Disk Vol. 13,
+  ASCII Otanoshimi Disk Vol. 18, ASCII Otanoshimi Disk Vol. 6, ASCII Otanoshimi Disk Vol. 7, ASCII Otanoshimi Disk Vol. 8,
+  ASCII Otanoshimi Disk Vol. 9, Ace of Spades, Advanced Power Dolls 2, Ai Shimai - Futari no Kajitsu,
+  Akazukin Cha Cha - CG Works ver 1.00, Akumu - Aoi Kajitsu no Sanka, Alaskan Malamute G.C., Alice no Yakata II,
+  Alice no Yakata III, Alien Zukan, Alone in the Dark, Amaranth III - Phantasie RPG, Amaranth IV - Abenteuerroman in Langsam,
+  AmbivalenZ - Niritsu Haihan, Angel Halo, Angel Night - Yamiyo o Kakeru Tenshi-tachi no Monogatari, Animahjong X, Arcus,
+  Art Action, Ash., Assist Calc, Assist Card (Demo), Astroguide 1994, Fifth Element - Tamashii no Genso, U-Jin Presents - Angel
+  [Carl, r09]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+dc:
+  Idol Janshi o Tsukucchaou (Jpn), Illbleed (Jpn), Incoming: Jinrui Saishuu Kessen (Jpn, Rev. 1), Inoue Ryouko: Last Scene (Jpn),
+  Interlude (Jpn), Iris (Jpn), J.League Pro Soccer Club o Tsukurou! (Jpn), JRA PAT for Dreamcast (Jpn, V40L11),
+  JRA PAT for Dreamcast (Jpn, V50L10), Jahmong (Jpn), Jet Coaster Dream 2 (Jpn), Jet Set Radio (Jpn),
+  Kaen Seibo: The Virgin on Megiddo (Jpn), Kanon (Jpn), Kaze no Uta (Jpn), Kidou Senkan Nadesico: Nadesico the Mission (Jpn),
+  Kidou Senshi Gundam: Giren no Yabou - Zeon no Keifu (Jpn), Kimi ga Nozomu Eien (Jpn), Kita e. White Illumination (Jpn),
+  L.O.L.: Lack of Love (Jpn), Le Mans 24 Hours (Euro), Le Mans 24 Hours (Jpn), Le Mans 24 Hours (World, Prototype 20000820),
+  Legacy of Kain: Soul Reaver (Euro), Legacy of Kain: Soul Reaver (Euro, Prototype 20000118), Legacy of Kain: Soul Reaver (Ger),
+  Legacy of Kain: Soul Reaver (USA), Looney Tunes: Space Race (Euro), Looney Tunes: Space Race (USA),
+  Looney Tunes: Space Race (World, Prototype 19991014), Looney Tunes: Space Race (World, Prototype 20000731),
+  Love Hina: Smile Again (Jpn), Love Hina: Totsuzen no Engage Happening (Jpn), MDK 2 (Euro), MDK 2 (USA),
+  MDK 2 (World, Prototype 20000126 5PM), MDK 2 (World, Prototype 20000126 7PM), MSR: Metropolis Street Racer (Euro),
+  MSR: Metropolis Street Racer (Euro, Rev. B), MSR: Metropolis Street Racer (USA),
+  MSR: Metropolis Street Racer (World, Prototype 20000509), MSR: Metropolis Street Racer - Special Version (Euro),
+  MTV Sports: Skateboarding featuring Andy MacDonald (Euro), MTV Sports: Skateboarding featuring Andy MacDonald (USA),
+  Maboroshi Tsukiyo (Jpn), Macross M3 (Jpn), Magforce Racing (Euro), Magforce Racing (USA),
+  Magforce Racing (World, Prototype 20000524), Mahjong Taikai II Special (Jpn), Maken X (Euro), Maken X (Jpn), Maken X (USA),
+  Marionette Company (Jpn), Marionette Company 2 (Jpn), Marionette Handler (Jpn), Mars Matrix (USA), Marvel vs. Capcom 2 (USA),
+  Marvel vs. Capcom 2: New Age of Heroes (Euro), Marvel vs. Capcom 2: New Age of Heroes (Jpn),
+  Marvel vs. Capcom: Clash of Super Heroes (Euro), Marvel vs. Capcom: Clash of Super Heroes (Jpn),
+  Marvel vs. Capcom: Clash of Super Heroes (USA), Mat Hoffman's Pro BMX (USA), Max Steel: Covert Missions (USA), Maximum Pool (USA),
+  Memories Off 2nd (Jpn), Memories Off Complete (Jpn), Mercurius Pretty: End of the Century (Jpn),
+  Microsoft WebTV Setsuzoku Kit (Jpn), Midway's Greatest Arcade Hits Volume 1 (Euro), Midway's Greatest Arcade Hits Volume 1 (USA),
+  Midway's Greatest Arcade Hits Volume 2 (USA), Millennium Racer: Y2K Fighters (World, Prototype 20010604), Miss Moonlight (Jpn),
+  Missing Parts 2: The Tantei Stories (Jpn), Missing Parts: The Tantei Stories (Jpn), Mizu Iro (Jpn), MoHo (Euro),
+  Monaco Grand Prix (USA), Monaco Grand Prix: Racing Simulation 2 (Euro), Monaco Grand Prix: Racing Simulation 2 (Jpn),
+  Monaco Grand Prix: Racing Simulation 2 (Jpn, Prototype 19990106), Morita no Saikyou Reversi (Jpn), Morita no Saikyou Shougi (Jpn),
+  Mortal Kombat Gold (Euro), Mortal Kombat Gold (Euro, Prototype 19990828), Mortal Kombat Gold (USA),
+  Mortal Kombat Gold (USA, Rev. 1), Motto Pro Yakyu Team wo Tsukurou! (Jpn), Mr. Driller (Euro),
+  Mr. Driller (Euro, Prototype 20000918), Mr. Driller (USA), Ms. Pac-Man: Maze Madness (USA), NBA 2K (Euro), NBA 2K (Jpn),
+  NBA 2K (USA), NBA 2K (USA, Prototype 19990922), NBA 2K (World, Prototype 19991221), NBA 2K1 (USA), NBA 2K2 (Euro), NBA 2K2 (USA),
+  NBA Hoopz (Euro), NBA Hoopz (USA), NBA Showtime: NBA on NBC (Euro), NBA Showtime: NBA on NBC (USA),
+  NCAA College Football 2K2: Road to the Rose Bowl (USA), NFL 2K (Jpn), NFL 2K (USA), NFL 2K (USA, Alt 1), NFL 2K (USA, Alt 2),
+  NFL 2K (USA, Alt 3), NFL 2K1 (Jpn), NFL 2K1 (USA), NFL 2K2 (USA), NFL Blitz 2000 (Euro),
+  NFL Blitz 2000 (Euro, Prototype 19990908), NFL Blitz 2000 (USA), NFL Blitz 2000 (USA, Rev. 1), NFL Blitz 2001 (USA),
+  NFL QB Club 2001 (USA), NFL Quarterback Club 2000 (Euro), NFL Quarterback Club 2000 (USA), NHL 2K (Euro),
+  NHL 2K (Euro, Prototype 20000321), NHL 2K (USA), NHL 2K (USA, Prototype 20000131), NHL 2K (USA, Prototype 20000131, Alt),
+  NHL 2K2 (USA), Nakoruru: Ano Hito kara no Okurimono (Jpn), Namco Museum (USA), Napple Tale: Arsia in Daydream (Jpn),
+  Neppachi II @ VP@CHI: CR Harenchi Gakuen (Jpn), Neppachi III @ VP@CHI: CR Dokonjou Gaeru 2 - CR Dokonjou Gaeru H (Jpn),
+  Neppachi IV @ VP@CHI: CR Aa! Hana no Ouendan 3 (Jpn), Neppachi V @ VP@CHI: CR Monster House (Jpn),
+  Neppachi VI @ VP@CHI: CR Otakara Tankentai (Jpn), Net Versus: Chess (Jpn), Net Versus: Gomoku Narabe to Renju (Jpn),
+  Net Versus: Hanafuda (Jpn), Net Versus: Mahjong (Jpn), Net Versus: Reversi (Jpn), Net Versus: Shougi (Jpn),
+  Net de Para: Nekosogi Paradise (Jpn), Nettou Golf (Jpn), Never 7: The End of Infinity (Jpn), Nightmare Creatures II (Euro),
+  Nightmare Creatures II (Euro, Prototype 20000721), Nightmare Creatures II (USA), Nightmare Creatures II (USA, Prototype 20000509),
+  Nobunaga no Yabou: Shouseiroku with Power-Up Kit (Jpn), Sega Mega Drive (World, Prototype 20010115), Test Drive Le Mans (USA)
+  [FakeShemp]
+ibm5170: Mitsumi IDE CD-ROM Driver [Justin Kerk]
+pc98: A Ressha de Ikou 4 ~ Take the A-Train IV - Map Construction + Power Up Kit, Ami - Kaze Tachinu [Neo Kobe Collection]
+
+
+追加・更新された翻訳
+--------------------
+Norwegian [DandelionSprout]
+
+
+ソースの変更点
+--------------
+- m6809: 逆アセンブリの改善。[AJR]
+ * 不正なオペコードを表すためにFCBディレクティブを使用。オペランドの無い命令の後ろに空白が出ないように変更
+
+- osbexec: セルフテストで不具合が出るため、誤ったライン反転を削除。[AJR]
+
+- デバッガビューの動作を改良: [AJR]
+ * 逆アセンブリビューでのアドレスエクスプレッションをマスク
+ * 論理的限界を超える物理アドレスを使用するとき、メモリビューでアドレスエクスプレッションを正しくマスク
+ * アドレスエクスプレッションが適用されたとき、メモリビューのスクロール不具合を修正
+
+-imd_dsk.cpp: ジオメトリのサニティチェックを追加。[AJR]
+
+- funkball: 解析出力にUARTとRS-232ポートを追加。[AJR]
+
+- prose2k: RS-232ポートとボークロックを追加。ターミナルをシリアルデバイス化。[AJR]
+
+- ms9540: ROMのロードを修正。[AJR]
+
+- f3853: 割り込み処理の改善。[AJR]
+ * 有効時に外部割り込みを自動的に行わない。一度あった割り込みリクエストをクリア
+
+- elwro800: TV EPROM追加とクロックの修正。[AJR]
+
+- BRKXAとRETXA命令を含むV33/V53拡張アドレスモードサポート。[AJR]
+
+- sol20: CPUスピードとフィールドレートの設定オプション追加。[AJR]
+
+- f8: 無効な命令に対する逆アセンブリのフォーマット不具合を修正。[AJR]
+
+- meritum: NMIキーの追加。より実機に対して正確にキーをマッピング。[AJR]
+
+- screen.h: have_screen_updateアクセサを修正。has_screen_updateに改名。[AJR]
+ * CDP1861、CDP1864、TMS922x VDPを持ち、カスタムアップデートを使用するgrannyとその他ドライバで起きていた不具合修正
+
+- address_space_configの定義をdimemory.cppからemumem.cppに移動(宣言はすでにemumum.hにあった)。[AJR]
+
+- z80sio: SDLCモードでないとき、Send Abortコマンドを無視 - これによりjadeの起動可能。[AJR]
+
+- psx.cpp: 画面出力をdevice_palette_interfaceにコンバートし、24ビット出力をサポート。[cam900]
+
+- X1-010: device_rom_interfaceにコンバート。また、seta.cppとseta2.cppで、メモリマッピングを正しいメモリバンクに変更。[cam900]
+
+- seta.cppの更新: [cam900]
+ * calibr50にNVRAMとPCMのミュート制御追加。説明文にリビジョン追加
+ * BGMのタイミングを改善するためtwineaglのフレームレートを低減
+
+- vgmplayの更新: [cam900]
+ * X1-010をサポート
+ * C6280とES5503のアドレスを修正
+
+- aica.cpp: MONO/MVOL、EXTSのミキシング、クロック変更の改良。[cam900]
+ * DreamcastのAICAルーティングも修正。Hikaruに正しい数のAICAを追加
+
+- ymf262.cpp: クロックの変更をサポート。[cam900]
+
+- y2.cpp, ggconnie.cpp, crshrace.cpp: メタデータの改良。[cam900]
+
+- h6280: 内部PSG追加。[cam900]
+
+- dec0.cpp, actfancr.cpp: コードの重複を削減。[cam900]
+
+- policetr.cpp: コードのクリーンアップ。セーブステートサポート。タグ参照削減。描画バッファをビットマップに変更。[cam900]
+
+- l7a1045_l6028_dsp_a.cpp: セーブステートをサポート。[cam900]
+
+- deco32.cpp, deco_zoomspr.cpp: dragngunの背景色修正とノートの追加。[cam900]
+
+- dcheese.cpp: パレットサイズの修正。タグ参照削減。名称の改良。[cam900]
+
+- pcfx.cpp: Hudson HuC6230 SoundBoxエミュレーション追加（ADPCM再生によるPSG)。[cam900]
+ * HuC6272にADPCM転送とセーブステートサポート
+
+- taotaido.cpp: コードのクリーンアップ。タグ参照削減。セーブステートをサポート。[cam900]
+
+- nmk16.cpp: tharrierのCPUとクリスタルが判明。[cam900]
+
+- taito_zm: コードのクリーンアップ。出力系の接続。TMS57002のクロック訂正。[cam900]
+
+- vis: 256色モードの表示を修正。コントローラのボタン1と2を追加。[Carl]
+
+- tlcs870: エミュレーションのほとんどを書き直し。[David Haywood]
+ * 割り込みの実装。I/Oポートの追加(データディレクションは未実装)。タイマーベースのシリアル通信追加
+
+- hng64: アップデートとリファクタリング。[David Haywood]
+ * TLCS-870 MCUの通信と割り込みを実装。MCUにI/Oポートを接続
+ * MCUエミュレーションで不要になったハックやHLEレンダを削除
+ * レースゲームがクラッシュしないようにハックを追加
+
+- nightmare: デフォルトEEPROMコンテンツ追加。[David Haywood]
+
+- decathlt: 315-5838の圧縮と復号化を実装。[Peter Wilhelmsen, Morten Shearman Kirkegaard, Samuel Neves, David Haywood]
+ 
+- discrete: DISCRETE_555_MSTABLEのDISC_555_TRIGGER_DISCHARGES_CAPオプションを修正。[Derrick Renaud]
+ *「アメイジングメイズ」で30秒後でも正しくサウンドが出るように修正
+ * Windowsでデバッグのログファイル名がまずいのを修正
+
+- 315_5124.cppのバグ修正: [Enik Land]
+ * 315-5124/315-5313のスプライトズーム限界におけるオフバイワンバグを修正
+ * 最左カラムの315-5214タイルと行番号を修正
+ * 315-5313の同一行でスプライトの当たり判定が二回フラグ付けされるのを回避
+
+- hp_ipc: HP-1LL3 GPUエミュレーションを改良。[F.Ulivi]
+ * 描画の改良、VRAMサイズを変更可能に改良、診断で使用するコマンドの実装、RDWIN/WRWINビットオフセットを実装
+
+- imgtool: 列挙した値のあるオプションのパースを修正。[Fabrice Bellet]
+
+- atarittl.cpp: gtrak10(「グラントラック10」)について大部分のnetlistを追加 - まだ動作せず。[Felipe Sanches]
+
+- mc68681.cpp: Exar XR68C681をサポート。MISRレジスタと拡張ボーレートを含む。[Joseph Zatarski]
+
+- ti99の更新: [Michael Zapf]
+ * 16セクタTDFディスクイメージをサポート
+ * CRCをF7F7に固定することでTDFイメージをPC99互換化
+ * Hexbus/IBCエミュレーションを改良。HexbusフロッピードライブがTi-99/2で動作可能
+ * TMS9995デクリメンタのローバイト読み込みを修正 - TI-99/2のカセットローディングを修正
+ * マシン設定のモダン化
+
+- upd765: 書き込みコマンドがセクタを発見できない場合にプッシュされた書き込みFIFOデータを破棄。[Michael Zapf]
+
+- hdc92x4: フロッピーのスピンアップを相殺するため、最低限のヘッドロード時間を追加。[Michael Zapf]
+
+- tms99xx: devcb3の変更。9900、9901、9980A、9995用のMCFGマクロを削除。[Michael Zapf]
+
+- cassette: オーディオ出力ストリームを追加。waveデバイスは不要。[Michael Zapf]
+
+- i386: 共通のCPU検出機能が、386を誤って486と認識するバグを修正。[MoochMcGee]
+
+- indigo: ROMローディング修正。[O. Galibert]
+
+- 短縮化されたリード・ライトハンドラシグネチャと、参照によるインスタンスへのオブジェクトファインダのバインディングをサポート。
+ [O. Galibert]
+
+- wd_fdc: APIのシンプル化。[O. Galibert]
+
+- tms57002: コンパイラのメモリ使用量を削除するためアグレッシブなインライン化を抑制。[O. Galibert]
+
+- WindowsでTAP/TUNネットワークプロバイダをサポート。[Patrick Mackinlay]
+
+- z80scc: シリアル制御信号の動作を修正。[Patrick Mackinlay]
+ * 極性の訂正、リングインジケータ入力削除、"all sent"の処理修正、同期割り込み実装
+
+- interpro: エミュレーションの改良。ヘッドレス設定を使用可能。[Patrick Mackinlay]
+ * シリアルDMAの修正。不足していた制御ライン追加
+ * 60x0 CLIXルートフロッピーをソフトリストに追加
+
+- h8: H8/3003をサポート。[R. Belmont]
+
+- apple2の更新: [R. Belmont]
+ * スキャンライン単位の低解像度レンダリングをサポート - KFest18 2K Rasterbar Demoで使用
+ * TransWarpスロットDIPスイッチのリバースロジックによりディスク起動ができなかったのを修正
+
+- apple2: Apple //c Plus MIGとフロッピーエミュレーションを改良。1つ目の3.5インチドライブ付きでシステムを使用可能。
+  [R. Belmont, M. Guidero, Leon Bottou]
+
+- pc98の更新: [r09]
+ * blink属性修正
+ * ソフトウェアリストのタイトルとディスクラベルを改善。DOSの必要なソフトウェアの使い方について追加
+ * ソフトウェアリストにあるソフトでは提供されていないユーザディスクを削除
+ * albatvisのハッシュを修正。ユーザセーブデータのみが異なるディスクを削除
+
+- dp8390: AppleTalkのサブネットブロードキャストのL2マルチキャストアドレス(09:00:07:ff:ff:ff)をイーサネットブロードキャストとして処
+  理。[rakslice]
+ * マルチキャストフィルタが未実装のための対策
+
+- super80: ソフトウェアリストを32カラムと80カラム版に分割。[Robbbert]
+
+- slicer: フロッピー密度の選択を修正。[Robbbert]
+
+- fccpu20: ターミナル表示の修正。[Robbbert]
+
+- minitel2: BIOS bv9を追加。[Robbbert]
+
+- cdc721: Graphics Firmware ROMを追加。[Robbbert]
+
+- Z80SCC: Z-BUSアクセスの修正。[Robbbert]
+
+- c900: ターミナルを、Z80SCを使用するシリアルデバイスにコンバート。[Robbbert]
+
+- sorcerer: ビデオ・ディスクアクセサリで、ツインフロッピーをテストサポート。[Robbbert]
+
+- cvs.cpp: huncholy、superbik、heroで、ROMのパッチをプロテクトのシミュレートに置き換え。[iq_132, Robbbert]
+
+- mastboyo.cpp: 入力の改良。残りのDIPスイッチ追加。コードのクリーンアップ。[Roberto Fresca]
+
+- マシン設定、またはデバイスやシステムのモダン化。[Ryan Holtz]
+ * 以下のシステム: bebox, indy_indigo2, mac128, macpci, nsg6890 oric, pet, prodigy, rmnimbus, ssystem3, swtpc09, swyft, sym1,
+    trvquest, tv950, vectrex, vic20, victor9k, wicat
+
+- pcf8583: PCF8593デバイスをもとにした、原始的なPhilips PCF8583 RTCエミュレーション。[Ryan Holtz]
+
+- st62xx: STmicro ST6シリーズマイコンのスケルトンデバイス追加。[Ryan Holtz]
+ * 逆アセンブラ、バンクデータRAM、ROM、名前付きレジスタ、未テストのGPIOを含む
+
+- i386のアップデート: [Samuele Zannoli]
+ * Athlon XPプロセッサ追加
+ * XADDコンディションコード修正 - 加算の結果をもとにする必要あり
+ * CPUIDの特徴情報ビットを記述する列挙値を追加
+
+- vgmplayの更新: [smf]
+ * ソフトウェアリストのサポート
+ * 新しい曲をロードするときに再初期化
+ * 新規サポート: ES5503, SAA1099, SCSP, VSU, WonderSwan audio, Y8950, YM2610, YMF262, YMF278B, uPD7759
+ * 修正: K054539, YM2610
+ * クロック変更サポート: ES5503, ES5506, SAA1099, uPD7756/uPD7759, Virtual Boy
+ * Oki M6258データストリーム追加と、クロック・分周の変更
+
+- WonderSwanオーディオ: device_rom_interfaceへコンバートし、クロック変更をサポート。[smf]
+
+- Namco C140: device_rom_interfaceへコンバートしクロック変更をサポート。[smf]
+
+- uPD7759: device_rom_interfaceへのコンバートとmaster/slave選択入力を追加。[smf]
+ * bayrouteb1、eswatbl、goldnaxeb1、passshtbへの実装完了
+
+- SCSP: device_rom_interfaceにコンバート。クロック変更のサポート。クロック周波数の訂正。[smf]
+
+- セーブステートエントリの順序をより最適化することでエミュレーション起動時のパフォーマンスを改善。[smf]
+
+- powervr2.cpp: ピクセル単位のブランチをポリゴン単位のブランチにすることでパフォーマンスを改良。[snickerbockers]
+
+- Taito ZSG2のサウンド改良: [superctr]
+ * ゲイン関数とランプアルゴリズム調整。サンプルの補完処理追加。強調フィルタ、ローパスフィルタ追加
+ * TMS57002 DSP有効化
+
+- TMS57002エミュレーションの改良。[superctr]
+ * 乗算/累積パイプラインをエミュレート
+ * ALU飽和フラグ追加
+ * CMEM UPLOADとPLOADの問題を修正
+
+- konamigx: 経験則をもとに、3番目と4番目のTMS57002出力を実装。[superctr]
+
+- qsoundhle: バックポートしたDSPプログラムと実装を置き換え。[superctr, ValleyBell]
+
+- m6502: マイクロコントローラのサポート、MOS 6500/1のデバイスとしての実装。[Vas Crabb, O. Galibert]
+
+- 画面方向、ジオメトリ、自動レイアウト生成の改良: [Vas Crabb]
+ * 画面デバイスに画面方向と物理比率プロパティ追加
+ * 1画面システムのビューを自動生成
+ * レイアウトファイルフォーマットと自動生成ビューのドキュメント追加
+
+- ネストされたC言語配列とstd::arrayについて、何階層でもセーブステートをサポート。[Vas Crabb]
+
+- amiga.cpp: キーボードエミュレーションのオーバーホール: [Vas Crabb]
+ * MitsumiキーボードエミュレーションをMOS 6500/1デバイスを使って再実装
+ * Amiga 1000、Amiga 600、Amiga 2000/3000/4000/CDTV Mitsumiキーボードをサポート
+ * Cherry G80 Amiga 200キーボードをサポート(EPROMあり8039バージョン)
+ * 外部キーボードのあるシステムでホストするため、キーボードからリセットラインを削除
+ * Amiga 1000、Amiga 2000、Amiga CDTVのキーボードリセット回路をエミュレート
+ * Amiga 1200キーボードプログラムでサポートするコンパクトモード用設定追加
+
+- sshangha.cpp:「スーパー上海 ドラゴンズアイ」の基板レイアウト追加。オシレータ周波数を分周して設定。[Brian Troha]
+
+- megaphx.cpp: megaphxのPALに吸出し不良フラグ追加。[caius]
+
+- toaplan1.cpp:「アウトゾーン」(Harder)のプログラムROM名を訂正。その他「アウトゾーン」のマスクROM名も修正。
+  [caius, The Dumping Union]
+
+-「オペレーションウルフ」のC-Chip EPROM吸出し。シミュレーションと置き換え。[Caps0ff, Bryan McPhail]
+
+- dec8.cpp: makyosenのMCUを腑分け。[Caps0ff, Game Preservation Society, The Dumping Union]
+
+- taito_f3.cpp: 古くなっていたコメントを削除。[Chromaryu]
+
+- citicona, dduxbl: PROMとPLDを追加。[ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+- twincobr.cpp:「究極タイガー / Twin Cobra」のオシレータ周波数を確認。[Corrado Tomaselli]
+
+- mainevt.cpp: 正しい画面パラメータ追加。ノートの更新。[Corrado Tomaselli]
+
+- sorcerer_cass.xml: 2タイトルについて、販売元と開発元を訂正。[exidyboy]
+
+- gameboy.xml: No-Introより、ROMラベルとタイプの更新。[FakeShemp]
+
+- 代表的なROMセット構成スキームについて明確化。[Firehawke]
+
+- Amiga 2000キーボード吸出し(Cherry G80、外部EPROMありの8039)。[Gerrit Heitsch]
+
+- z180: シリアル不明とカウンタエミュレーション用の対策。これにより一部ソフトがさらに動作可能。[Grull Osgo]
+
+- cosmic.cpp: devzoneのROMラベル訂正とROMタイプの検証。[Guru]
+
+- goldstar.cpp:「フィーバーチャンス」の基板がオリジナルのWing W-6ハードだと判明。[Ioannis Bampoulas]
+
+- zoar: ROM吸出しが正しいことを検証。[Joe Magiera]
+
+- apollo.h: デバイスファインダで不完全な型とMSVCの相性が悪いので対策。[justindarc]
+
+- eyesb: 色修正のためPROMにパッチ。[MASH]
+
+- hikaru.cpp: 開発・プロトタイプBIOSの v.074吸出し。[Ordyne]
+
+- naomi.cpp:「クラブカート for CYCRAFT」のモーションPCソフト吸出し。[Ordyne]
+
+- naomi.cpp: 追加のBIOSとファームウェアのバージョンを吸出し。[Ordyne, MetalliC]
+ * NAOMI開発・テスターBIOS (Nov 1998), フェラーリF355チャレンジDXプロトタイプ, 輸出版BIOS, NAOMI Rev F 輸出版BIOX
+ * フェラーリF355チャレンジDXプロトタイプ モーター基板ファームウェア
+
+- play_1.cpp:「Third World」「Night Fever」が「Big Town」などと同じROMを使うことを確認。[PinMAME]
+
+- dotrikun.cpp:「ドッ取り君」(old version)のROMラベル訂正。[Porchy]
+
+- info.cpp: 文章構成をより反映するためDTDを調整。[pxdnbluesoul]
+
+- segas32.cpp:「F-1エキゾーストノート」の2個目のスタートボタンをマッピング。[sjy96525]
+
+- vgmplay: 全てのメジャーパッケージ(VGMRips、SMSPower、Project2612)のタイトルを含むソフトリスト追加。[Tafoid]

@@ -1,0 +1,45 @@
+0.121u1
+-------
+
+
+ソースの変更点
+--------------
+- 現在のamiga_machine_interfaceのアクセスするAPIを追加。[Nathan Woods]
+
+- コアファイルをさらにstatic化。[Atari Ace]
+
+- mexico86のクロックスピードを修正。[Brian Troha]
+
+- mallocのトラッキングを実行時にuse_malloc_tracking()関数で決定するように変更。
+  これにより、1個のファイルを再コンパイルするだけで機能のON/OFFができるようにな
+  ります。[Nathan Woods]
+
+- MSVC用のインラインアセンブラ関数をMSVC専用のヘッダへ分離。また、MSVCだけで使用
+  していたWindowsのインライン条件ファイル、osinline.hを削除。[Nathan Woods]
+
+- hyperstoneコアを最適化。ほとんどのゲームで最大50%高速化しました。クロックのプ
+  リスケーリングの実装と、割り込み優先順の修正。ほとんどのゲームについて、クロッ
+  ク速度の修正と、かなり多く使われていた速度アップハックを削除。[Aaron Giles]
+
+- makefileにCore2のサポート追加(CORE2=1)。gcc 4.2.0はCore2をサポートしていないの
+  で、Pentium Mと-sse3を有効にしたものと同じになるので注意してください。また、
+  Core2でのネイティブコンパイルは、ネイティブがPrescott(P4系ハード)としてみなす
+  ため思っているものとは異なるのでこれも注意してください。[Aaron Giles]
+
+- namcos22ドライバのrgbint値について、32bit GCCで正しいアライメント処理が無いた
+  め、処理を変更。[Aaron Giles]
+
+- attotimeルーチンで、unsignedの積算と除算を使うように修正。これにより、ファクタ
+  として間違って-1を渡してしまうゲームでの問題が修正。新しい動作はオリジナルと同
+  じになります。[Aaron Giles]
+
+- colortableをcolortalble_tに改名。グローバルなカラーテーブルを使用するゲーム用
+  に、これを保持するMachine->colortableエントリを追加。ハックなカラーテーブルを
+  使っていたドライバをさらにいくつか直接パレットを使うように更新。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ファイティングサッカー (version 4) [Corrado Tomaselli]
+スタジアムクロス (US) [Arzeno Fabrice]

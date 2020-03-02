@@ -1,0 +1,268 @@
+0.174
+-
+MAMETestersの修正バグ
+---------------------
+- 03753: [クラッシュ/フリーズ] (psikyosh.c) daraku: [デバッグ限定] デバッグビルドでのアサート。(Tourniquet)
+- 06209: [システムコア] Direct3DでフルスクリーンからALT+ENTERで窓モードにしても常に手前に表示される。(Jezze)
+- 06218: [サウンド] (holeland.c) holeland: 音声合成チップが無い。(system11)
+- 06190: [色/パレット] (iteagle.c) Most sets in iteagle.c: MIPS DRCのマシンを使うとパレットが変わる。(crazyc)
+- 05932: [インターフェイス] PPJOYドライバを使うジョイスティックが動作しなくなった。(Quench)
+- 01617: [グラフィック] (segag80v.c) elim2, zektor: 画面左側の境界線が表示されない。(Olivier Galibert)
+- 06169: [DIP/入力] (ninjaw.c) ninjawu: コインスロット2のクレジットカウントが間違っている。(Osso)
+- 05871: [クラッシュ/フリーズ] (pacman.c) puckman: Double-free starting up puckman when using -mt (Robbbert)
+- 05831: [クラッシュ/フリーズ] all: -mtを指定するとヒープエラーが起こる。(Robbbert)
+- 06206: [クラッシュ/フリーズ] (astrafr.c) Most sets in astrafr.c: 初期化時にクラッシュ。(Robbbert)
+- 04935: [画面反転/カクテルモード] (jailbrek.c) jailbrek and clones: 画面反転すると表示が半分ずれる。(Osso)
+- 04920: [画面反転/カクテルモード] (esd16.c) multchmp, multchmpk: 面反転してもキャラクタが反転しない。(Osso)
+- 04912: [画面反転/カクテルモード] (dblewing.c) dblewing: 画面反転すると表示がずれてスプライトがおかしくなる。(Osso)
+- 06190: [色/パレット] (iteagle.c) Most sets in iteagle.c: MIPS DRCのマシンを使うとパレットが変わる。(Carl)
+- 06188: [ドキュメント] (1942.c) 1942h: 年代は1991。(Tafoid)
+- 06198: [クラッシュ/フリーズ] (advision.c) advision: カートリッジイメージなしで起動するとクラッシュする。(AJR)
+- 06189: [その他] (trs80.c) All sets in trs80.cpp: 	現在のディスクメニューがSSSDしかサポートしない。(Robbbert)
+
+
+ソースの変更点
+--------------
+- chdman.cpp: nullの可能性があるポインタへの参照を解除できるようにコードを修正。
+  [Vas Crabb]
+
+- Atomiswave BIOSの再吸い出し。吸い出し良好と確認。情報追加。[Brizzo, MetalliC]
+
+- screen: svgシェープの事前計算追加。[O. Galibert]
+
+- plugins/layout: レイアウトがスクリプトヘルパープラグインを内蔵。[Carl]
+
+- h8: dtc、dma、ウォッチドッグ追加(WIP)。[O. Galibert] 
+
+- h8: 修正いっぱい。[O. Galibert] 
+
+- cybiko: さらに少し動作するように改良。v1フラッシュ追加。[O. Galibert]
+
+- a5200: フルパスからヘッダレスカートリッジを読み込んだときの不具合修正。
+  [Fabio Priuli]
+
+- neogeo.cpp: スロットデバイスの利用を進めるため、カセットスロットコードを大幅に
+  整理: [Fabio Priuli]
+  * カセット専用コンポーネントをカセット自体に移動し、メインシステムにあったフェイク
+    のプロテクトデバイスを削除
+  * 新しいカセットを挿入したときのハックっぽいROMリージョンデストラクトとコンストラク
+    トを削除し、カセットへの正しいバンクポインタに置き換え。ただし、YMデバイスのモダ
+    ン化が必要なため、ymsndとymsnd.deltatリージョンを除く
+  * 海賊版ボードのエミュレーションを再整理開始。複数のプロテクトデバイスのある一つの
+    カセットに全てを突っ込まなくてもよくするにはまだ作業が必要
+
+- neopcb.cpp: JAMMA基板版のneogeoゲーム用エミュレーションソースを分離。これらはカセッ
+  トスロットを持たないため。[Fabio Priuli]
+
+- neogeo.xml: ソフトウェアリストに日本語タイトルやリリース日の情報を追加し、ドライバ
+  と同期。[Fabio Priuli]
+
+- cybiko: RAMミラー削除。コードのフェイル時には隠蔽。[O.Galibert]
+
+- vector: avgdvgにクリッピングを移動。[O. Galibert]
+
+- nes.cpp: スプライト数制限の強制と、上下8ラインの描画をオフにするオプションを削除:
+  これらの実装部は0.106以前に削除されており、オプションは機能していなかったため。
+  [Fabio Priuli]
+
+-「Gigas」 (MC-8123, 317-5002)のプログラムROMを吸い出し。動作可能。
+  [Corrado Tomaselli]
+
+- ウォッチドッグタイマを単独デバイス化。[AJR]
+
+- A800ソフトウェアリストに追加。[K1W1]
+
+- megadrive: NBA JamのカセットにカスタムX24C02エミュレーション追加で、終了時の記録
+  セーブが可能。これによりコアエミュレーションの問題の洗い出しに繋がることを期待。
+  [Fabio Priuli]
+
+- Sonik Fighter (encrypted): プログラムを復号化。ゲーム名にバージョン追加。年代の修正。
+  [Roberto Fresca]
+
+- megatech: 修正したスロット設定を使うように更新。[Fabio Priuli]
+
+- skns: 韓国用modbios追加。[system11]
+
+-「湾岸ミッドナイトマキシマムチューン1/2」のカードリーダー・プリンタのファームウェア
+  吸い出し。[winteriscoming]
+
+-「頭文字D」のカードリーダー・プリンタファームウェアを吸い出し。[Smitdogg]
+
+- NetBSDの修正。プルリクエスト#852より。[Thomas Klausner]
+
+- sv8000.cpp: IPT_KEYPADとしてより妥当な入力。[Fabio Priuli]
+
+- model1.cpp: モダン化とクリーンアップ。[Ryan Holtz]
+
+- LZMA 16.0に更新。[Vas Crabb]
+
+- metlfrzrの暗号化はcschooter.cppのものと同じ。[Peter Wilhelmsen]
+
+- metlfrzr.cpp [Angelo Salese]
+ * IRQ、ROMバンキング、ベースカラーの追加
+ * 復号化したオペコード実装の修正
+ * T5182の試験的な実装
+ * ベーススプライト追加
+ * サウンドコム修正、コインとサウンドが完全動作
+ * DIPの動作はまだ不完全。ただしゲームの動作やプレイは良好
+
+-「ニューラッキー8ライン/ New Super 8 Lines」の改善: [Roberto Fresca]
+ * 入力の修正とDIPスイッチ: コインAの設定、キーインデフォルト(W-4 / Witch Bonus)
+ * プレイヤー2: サポートしていない (W-4 / Witch Bonus)
+ * 1人プレイ用の新レイアウト追加 (set 3, W-4 / Witch Bonus)
+ * セットの親子関係修正 (all sets)
+
+- IGS製「Champion League」セットにゲームバージョン追加。[Roberto Fresca]
+
+-「Flaming 7」の改良: [Roberto Fresca]
+  * より詳しいノートと起動方法を追加
+  * ワイヤハックとDS2401シリコンシリアルナンバーデバイスのドキュメント追加
+  * 改名。2個のカスタムグラフィックなセットの名前を変更
+  * 正しいマシンドライバとメモリマップ追加
+  * ダブルアップ、テイク、ベット、スタート、メインドアスイッチ、論理ドアスイッチ、
+    キャッシュドアスイッチ、コインA〜C、リセット、スタット/セットアップ、グラフィック
+    選択DIPスイッチを追加
+  * スタット/セットアップはPORT_TOGGLEが必要
+  * 最大BET、リール速度、ペイアウトタイプ、コインインタイムアウトDIPスイッチ追加
+  * キーイン入力
+  * ボタンロックアウト入力、全ホールド、ビッグ、ローが判明
+  * コインイン、チェンジライン、WT RXD & COUT RTSラインが判明。その他アクティブライン
+    追加
+  * $d801ポートラインを不明にマーク。未使用な模様
+  * $d802ポートラインも不明にマーク
+  * 全デバイス入力を標準化
+  * DIPスイッチの第一バンク用にPORT_DIPLOCATION追加
+  * 第2DIPスイッチバンク: コインAのコインエイジ、コインBのコインエイジ、札のクレジッ
+    ト、DIP配置
+  * 第3DIPスイッチバンク: デノミ、プログレッシブサイン、DIP配置
+  * 第4DIPスイッチバンク: ボタンロックアウト、ロックアウト極性、プリンタタイプ、DIP配
+    置。アクティブライン一つについて記述追加
+  * 不明なDIPスイッチとDIP配置
+
+- オブジェクトの初期化をスタートからコンストラクタに移動作業継続中。family_tを削除。
+  これらの全てはオブジェクトからもランタイムで決定できる。この一環として、デバイスを
+  書く"テンプレート"も変更。多くのデバイスで新テンプレートを使うようにコンバート。
+  [Couriersud]
+
+- 全てのnetlistデバイスtで新シンタックスを採用。デッドコードを削除。サブデバイス全て
+  をコンストラクタで強制初期化するように変更。デバイスの設定は現在全てコンストラクタ
+  で完了する。スタートコールを削除。[Couriersud]
+
+- apple2cの更新: [R. Belmont]
+ * VBLDISへの書き込みで同時にVBL IRQがアクティブ時にLOW設定を行う
+ * French Touchさんのリクエストにより"Mockingboard4C"アドオンをサポート
+
+- SMS/GGマスタクロックをサービスマニュアルに合わせて修正。[Enik]
+ 
+- Charlesさんの発見をもとにSMSJのTH処理とオーディオ制御を修正。[Enik]
+
+- ti99: チップ毎の新システムROM; gromenuとmbx catridgeタイプを修正、マルチカート拡張
+  器でエミュレータのリセット無しにカートリッジ切り替え可能。[Michael Zapf]
+
+- holeland.zipのROMファイル名修正。SPO256を有効にしてボイス復活、クロックを全て検証。
+  トップのコメントを更新。プライオリティの問題ままだあり。バグ#06218を修正。
+  [system11, Osso]
+
+- unixpc: bankdevに切り替え。スケルトンへの書き入れ開始。[R. Belmont]
+
+- gamecom: 2本以外のゲームが全て動作。[Robbbert]
+
+- pockchal: 日本語版Wikipediaに基づきゲーム名を修正。ソフトウェアリストも合わせて修正。
+  [Fabio Priuli]
+
+- zyrobsさんが2013/2014年に吸い出したSaturn Video CDカセットを保存するため、ソフトリ
+  スト追加。カセットはドライバからはまだ使用できないが、吸い出しは失われないと思われ
+  る。[Fabio Priuli]
+
+- aristmk6.cpp: ほとんどのセットのゲーム名を修正、一部重複していたセットを削除。
+  [Heihachi_73]
+
+- pockchalw.xml: さらに吸い出し追加。[TeamEurope]
+
+- pockchalw.xml: 正しい情報とPCBドキュメント追加(後者はTeamEuropeさんが画像提供)。
+  [Fabio Priuli]
+
+- gameking.xml: 新しく6本の吸い出し追加。[TeamEurope]
+
+- spc1500.cpp: Anna Wuさんの提供のカセットソフトリストとイメージを追加。
+  [Fabio Priuli]
+
+- ソフトリストに大量のThomsomソフトウェアを追加。[Reagan Roush]
+
+- apple2: 2015年9月時点の4am clean crack A-Lを含むソフトウェアリストに更新。
+  [R. Belmont, B2K24]
+
+- gameboy.xml: Game Boy基板のドキュメント化開始。Tauwasserさんのピクチャをベース。
+  [Fabio Priuli]
+
+- gba.cpp: 64MBビデオカセットで使用している3D Matrix Memory Controllerを試験的にサ
+  ポート。Disney Collection 2が動作。その他の吸い出しはまだ動作せず(おそらくマッパエ
+  ミュレーションとは違う原因…)。[Fabio Priuli]
+
+- emumem: install_*の返値を削除。[O. Galibert]
+
+- UML: TZCNT命令追加(ゼロカウントトレーリング)。[Ville Linde]
+
+- ti99_cart: チップ毎のダンプに対しソフトリストを更新; 不良吸い出しを削除。
+  [Michael Zapf]
+
+- r9751.xml: CBX 9005.2.79ソフトウェア追加。[Brandon Munger]
+
+- r9751: PDCデバイスの競合を修正。マルチディスクロードが可能。[Brandon Munger]
+
+- DirectInput8: DirectInput7でしか動作しないような古いジョイスティック向けにポーリン
+  グメソッドを修正。[Quench]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+メタルフリーザー [Arcade Addict, Smitdogg, The Dumping Union, Angelo Salese]
+Crossed Swords 2 (bootleg of CD version) [David Haywood]
+Math Marvel [hap, Sean Riddle]
+Iowa Premium Player (2131-21, U5-1) [Brian Troha, The Dumping Union]
+対戦アイドル麻雀 ファイナルロマンス2 (bootleg of CD version) [Robbbert]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+エックスメンVSストリートファイター (Japan 961023)
+エクスターミネーション (US, Romstar) [farzeno]
+ザ・Jリーグ1994 (Japan, Rev A) [Alex Cmaylo]
+ピットファイター Rev 2  [R. Coltrane, Lord Nightmare, Sean Sutton, Smitdogg, The Dumping Union]
+Triki Triki (Lover Boy bootleg)  [Rafael Alonso (from ARCADE VINTAGE)]
+Street Fight (Germany - Benelux)  [caius]
+Mercenario (Commando bootleg)  [Rockman]
+ハイパーストリートファイターII (Japan 040202)  [ShouTime]
+Champion League (v220I, dual program, set 1) [Roberto Fresca, f205v]
+Champion League (v220I, dual program, set 2) [Roberto Fresca, f205v]
+ホールランド (set 2) [AUMAP]
+ニューラッキーエイトライン / New Super 8 Lines (W-4, Lucky97 HW) [Roberto Fresca, Ioannis Bampoulas]
+富士山バスター / Shogun Warriors (Korea?) [TeamEurope, Ryan Holtz, The Dumping Union]
+レイジ・オブ・ザ・ドラゴンズ (NGH-2640?)
+
+
+
+新規追加された未動作マシン
+--------------------------
+Force Computers ISCSI-1 VME board [Joakim Larsson Edstrom]
+マスターズゴルフ [MooglyGuy, ShouTime]
+Microbee Premium Plus [Robbbert]
+IBM3153 Terminal  [Robbbert]
+ロードバーナーズ (ver 1.04)  [ShouTime]
+Flaming 7 - Hollywood Nights [Roberto Fresca, Ioannis Bampoulas]
+Sharp PC-G815 [Robbbert]
+Electronic Battleship [hap, Sean Riddle]
+ザ・ハウス・オブ・ザ・デッド4 (Export) (Rev B)  [Layer]
+
+
+Notable 
+新規追加された動作可能ソフトリスト
+------------------------------------------
+pce_tourvision.xml: サイバーコア, ダウンロード, ビジランテ [system11]
+nes.xml: Venice Beach Volleyball (Gluk Video) [sewave]
+nes.xml: Happily Ever After [Sean McGee, NintendoPlayer]
+megadriv.xml: セガチャンネル (Jpn), two revisions [Kiddo Cabbusses, RetroJunkie]
+m5_cart.xml: Dream Shopper [Ola Andersson]
+

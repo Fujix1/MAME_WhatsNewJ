@@ -1,0 +1,594 @@
+0.182
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06216: [サウンド] (ptcsol.cpp) sol20: オーディオサポートについて。(Robbbert)
+- 06460: [サウンド] (stlforce.cpp) stlforce: OKI6295の速度が遅すぎる。(system11)
+- 06467: [ゲームプレイ] (hh_tms1k.cpp) elecdet: どの容疑者もアリバイが同じになる。(hap)
+- 06464: [インターフェイス] Every system with softlists using the "requirement" sharedfeat: requirementを含むソフトリストの項目が動作しない。(AJR)
+- 06468: [DIP/入力] (gladiatr.cpp) gladiatr ogonsiro gcastle: MCUシミュレーションを使うセットでコインエイジのDIPスイッチが効かない。
+- 06461: [DIP/入力] (pacman.cpp) eeekk: プレイヤー2のスタートボタンがマッピングされていない。(Tafoid)
+- 05313: [DIP/入力] (namcos21.cpp) winrun, winrun91, winrungp,driveyes: アクセルがAD Stick Yに割り当てられている。(Angelo Salese)
+- 06422: [グラフィック] (rohga.cpp) wolffang: アトラクトモードのテキストが欠けている。(David Haywood)
+- 04907: [画面反転/カクテルモード] (combatsc.cpp) combatsc, combatscj, combatsct, bootcamp: スコア部分が正しく反転しない。(Angelo Salese)
+- 05392: [ドキュメント] (royalmah.cpp) janputer: これはジャンピューターではなくロイヤルマージャンの海賊版。(Angelo Salese)
+
+
+新規動作可能マシン
+------------------
+Conic Electronic Basktetball [hap, Sean Riddle]
+Conic Multisport/Tandy Sports Arena [hap, Sean Riddle]
+えんま大王 (Japan) [rtw, Ryan Holtz, Dullaron, Firebricks, redk9258, W. Perez, Anonymous from Switzerland, Darksoft, Smitdogg,
+  David Haywood, ShouTime, Andy Welburn, The Dumping Union]
+学研インベーダー1000/Tandy Cosmic 1000 Fire Away [hap, Sean Riddle, Kevin Horton]
+ハンゾー (Japan, prototype)
+  [ShouTime, Smitdogg, David Haywood, Imhotep, Ryan Holtz, hap, Zhivko Dimitrov, spogghi, ANY, Arjen Hoekman, Arcade Addict, krick,
+  Dullaron, Eddie, f205v, rtw, Rod_Wod, Fabien Marsaud, InsertMoreCoins, Jan Stuhler, trap15, Macaw, Team Japump, Brandon Munger,
+  Juan Manuel Gutierrez, abelardator2, Jordi Bosch Creus, haynor666, Nestor Acebo Jimenez, Carl Perry, Jeremy McElroy,
+  Steven Boswell, JJaVMeTaL, Steven LeMaire, Matthew Shultz, Mark Riley has no toaster, Carlos Gutierrez, Bjorn Stahl,
+  Aldo Vittorio De Luca, Bruno Celsi, Philip Zumbrun, cornishdavey, Stefano De Dionigi, motoschifo, Mamesick, Daniel Hitchcock,
+  Patrick Wheeler, bisus, desodeso, Swos, Don Zaucker, Tox Nox Fox, Zak0077, giuppo, Moket, Frankie, robindan77, biasini, Dr_Zero,
+  motoschifo, Mameremember, John Wilke, Sean Sutton, Renato Mucciarelli, Berlioux Julien, Lior Aouate, The Dumping Union]
+Mattel Dalla$ (J.R. handheld) [hap, Sean Riddle]
+Mattel Thoroughbred Horse Race Analyzer [hap, Sean Riddle]
+Motorola MC68705P5 Programmer [Vas Crabb]
+Poly-Play (ZRE-PP) [SailorSat]
+Tiger 7 in 1 Sports Stadium [hap, Sean Riddle]
+
+
+新規動作可能クローンセット
+--------------------------
+Atari PC1 [rfka01]
+ダイナマイトデューク (Japan, 25JUL89) [Corrado Tomaselli, The Dumping Union]
+Fidelity Elite Avant Garde (model 6114-2/3/4, set 2) [Berger]
+ファイティングファンタジー (Japan revision ?) [Hammy, The Dumping Union]
+キング・オブ・ザ・モンスターズ2 -ザ・ネクストシング- (older) [NeoSD]
+Motorola MC68705P3 Programmer [Vas Crabb]
+Motorola MC68705R3 Programmer [Vas Crabb]
+Motorola MC68705U3 Programmer [Vas Crabb]
+Poly-Play (ZRE-PP - Czech) [SailorSat]
+Research Machines RM-380Z, COS 3.4D [zx70]
+Research Machines RM-380Z, COS 3.4E [zx70]
+ロボアーミー (NGM-032 ~ NGH-032)  [JacKc]
+真サムライスピリッツ -覇王丸地獄変- / Saulabi Spirits / 眞 Saulabi Tu Hon (Korean release of Samurai Shodown II, set 2)  [JacKc]
+スカルファング -空牙外伝- (Asia) [coolmod, The Dumping Union]
+Star Fighter (bootleg of Astro Fighter) [f205v]
+
+
+動作可能に昇格したマシン
+------------------------
+Novag Diablo 68000 [hap]
+Novag Super Expert (several versions) [hap, Berger]
+Novag Super Forte (several versions) [hap, Berger]
+Future Flash [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen, Tomasz Slanina]
+Force SYS68K/CPU-20 [Joakim Larsson Edstrom]
+Otrona Attache [zx70]
+ロボアーミー (NGM-032 ~ NGH-032)  [JacKc]
+戦え！ビッグファイター / Sky Robo [CAPS0ff, Angelo Salese]
+
+
+動作可能に昇格したクローンセット
+--------------------------------
+Laser Base (set 1) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen, Tomasz Slanina]
+Laser Base (set 2) [Morten Shearman Kirkegaard, Samuel Neves, Peter Wilhelmsen, Tomasz Slanina]
+戦え！ビッグファイター (Japan) [CAPS0ff, Angelo Salese]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Ator (Videodens) [AJR, Gonzalo]
+Bloody Roller (Playbar) [AJR, Akiles500]
+Compugraphic MCS PowerView 10 [Carl, Al Kossow]
+Cobra (Playbar) [AJR, Iso Tropia]
+Happy Fish (V2 PCB, 302-in-1) [The Dumping Union]
+LINK RM-480Z (set 1) [Robbbert]
+LINK RM-480Z (set 2) [Robbbert]
+Mega Bonus Star II (Euro, Millennium Edition) [Roberto Fresca, Team Europe]
+miniFORCE VME Chassis [Joakim Larsson Edstrom]
+Slalom Code 0.3 (Stargame) [AJR, Akiles500]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Eight Ball Champ (Spain, Z-Pinball hardware) [AJR, Iso Tropia]
+MotorDome (German) [PinMAME]
+スターホースプログレス (backup data) [any, Lord-Nightmare, MetalliC, rtw, ShouTime]
+スターホースプログレス (live, Rev A) [any, Lord-Nightmare, MetalliC, rtw, ShouTime]
+スターホースプログレス (main screens, Rev B) [any, Lord-Nightmare, MetalliC, rtw, ShouTime]
+スターホースプログレス (sound & backup, Rev A) [any, Lord-Nightmare, MetalliC, rtw, ShouTime]
+ワールドキックス (Japan, WK1 Ver.A) [rtw]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+-archimedes.xml: ゲーム30本以上(一部プロテクトあり)とアプリ多数 [Nigel Barnes]
+-atom_cass.xml: Backgammon, Cylon Attack, Early Warning, Minefield, Tangled [Nigel Barnes]
+-atom_flop.xml: Galaxians (Aardvark) [Nigel Barnes]
+-ibmpcjr_cart.xml: Fraction Fever [Anna Wu, Justin Kerk]
+-t1000.xml:
+ MS-DOS (Verson 3.20, Tandy version 03.20.21) (Tandy 1000 TX), DeskMate (Tandy 1000), DeskMate II (Tandy 3000), Personal DeskMate,
+ Personal DeskMate 2 (Tandy 1000 HX), Personal DeskMate 2 (Tandy 1000 HX, Alt), Personal DeskMate 2 (Tandy 1000 TX),
+ King's Quest (Tandy), Transylvania (Tandy) [Justin Kerk]
+-x1_cass.xml: 198X年, 3Dゴルフシミュレーション, 不思議の国のアリス, 暗黒城, 団地妻の誘惑, インテリ雀士 四人麻雀,
+  ウルトラストーリー, ザナドゥ [r09]
+
+
+ソースの変更点
+--------------
+- Namco C148(割り込みコントローラ)とC193(SCI)デバイスを書き直し。[Angelo Salese]
+ *「ウイニングラン」「ウイニングラン'91」「ウイニングラン鈴鹿GP」用のPOS割り込み修正
+ *「ウイニングラン」のタコメーターの描画を修正
+
+- deco32.cpp: nslasherとfghthistの全体音量調整を追加。[Angelo Salese]
+
+- Namco6速ギアボックス用のデバイスコアを作成。[Angelo Salese]
+ *「ドライバーズアイズ」「リッジレーサーDX」「エースドライバー」で使用
+
+- PC-9821の256色バンクカラーモード追加。[Angelo Salese]
+
+- naomi.cpp:「マーズTV」の入力追加。[Angelo Salese]
+
+-「戦え！ビッグファイター / Sky Robo」のi8751 MCUを吸い出し。これが動作するように基本的な実装。[CAPS0ff, Angelo Salese]
+
+- punkywil: CPU ROMの超不完全な吸い出しを追加。[AJR, Akiles500]
+
+- Z80デイジーチェーンの改良: [AJR]
+ * 外部IRQ用にスタンダードベクタ使用。以前はチェーンの最後のデバイスからの偽ベクタを使用
+ * Cedar MagnetサウンドボードのZ80デイジーチェーンを有効化(フェイクのIRQはまだ必要だが、ベクタは正確)
+ * Zilog社のデータシートとは正反対のIM 2動作についてソースノートに追加
+
+- ナチュラルキーボードのトグルキーの処理を修正。[AJR]
+
+- break86: サービスマニュアルのDIP設定が意味をなすように努力。[AJR]
+
+- サービスモードのDIPスイッチの調整: [AJR]
+ * マシンが使用しない限り、トグルじゃないサービスモード/テストスイッチでデフォルトシーケンスを使用
+ * DIPと設定スイッチをトグルフィールドに自動定義(割り当て入力コードを簡単に)
+
+- XML出力で2GBを超えるROMのサイズを正しくレポート出力。[AJR]
+
+- Cedar Magnet/EFO ZSUの改善: [AJR]
+ * Cedar MagnetサウンドシステムのフェイクなIRQを削除
+ * Cedar Magnetボードをベースデバイスクラスからミックスインインタフェースに変更
+ * EFO ZSUをCedar Magnetサウンドボードのメイン改良型としてエミュレート
+ * Skill FlightとPhantom ShipでZSU1を実装
+ * ZSUサウンドラッチ/IRQメカニズムをモダン化
+
+- DACの解析とサウンド関係: [AJR]
+ *「Legion」と「アルゴスの戦士 / Rygar」でYM3812からYM3526に変更(他のNichibutsuゲームも要チェック)
+ * MidwayとWilliams製ゲームのほとんどで使用されているDACが判明
+ *「ゼクター」は8910ではなくAY-3-8912を使用
+ * Turbo Cheap Squeakボードの名前を訂正
+ *「F-14 Tomcat」の名前にハイフン追加
+ * Color ComputerのDACタイプ修正とシングルビットサウンドを分離
+
+- polepos.cpp: 海賊版のサウンドを改善: [AJR]
+ * polepos2biとpolepos2bsのスペイン語/イタリア語ボイスが動作
+ * topracern、polepos2bi、polepos2bsの車追い抜き音用DAC追加
+ * これら海賊版では爆発音がまだないかも
+
+- skyarmy: 改良いろいろ: [AJR]
+ * カクテルモードでの画面反転を修正
+ * 爆発音を鳴らすための2個目のAY-3-8910Aを再追加
+ * コインカウンタ追加
+
+- bagmanf: 入力修正と表示色改良のためPROMを入れ替え(ゲームはまだクラッシュがち)。[AJR]
+
+- kangaroob: ROMラベル修正と配置追加。[AJR]
+
+- newbrainの改良: [Curt Coder]
+ * キャラクタROM追加とビデオ出力の改良
+ * キーボード修正
+ * VFDビットストリームをデコードと、同期ビデオ・VFDディスプレイ追加
+ * CPUクロックと割り込みロジック修正、VFD無しモデルのレイアウト追加、電源オンでタイマーのリセット強制
+
+- cop400の改善: [Curt Coder]
+ * jump命令の逆アセンブリ修正とLDD/XADで小数使用
+ * 割り込みタイミングとタイムベースカウンタ修正
+ * COP444の逆アセンブリ修正
+ * COP444CとCOP444Lを正しく分離
+
+- advision: CPUクロック修正; turtlesのBGMが修正。[Curt Coder]
+
+- OS X Cocoaデバッガ: ログウィンドウの自動スクロール、ビューのスクロール動作改良。[Curt Coder]
+
+- 74153: エミュレーションの書き直し。レベル変更時にステートを出力するのみ。[Dirk Best]
+
+- apricot: シリアルクロックセレクタで74153を使用。[Dirk Best]
+
+- gen_latchの更新:
+ * ラッチの読み書きとしってラインを自動的に増減するMCFG_GENERIC_LATCH_DATA_PENDING_CBを追加 [AJR]
+   - サウンドIRQのデリバーを簡単にし、ドライバでのHOLD_LINEの発生率を減少
+ * ロジックの反転(latch_read -> latch_writter)、スタート後の初期コールバックを修正 [Dirk Best]
+
+- ashnojoe, crospang, crshrace, dcheese: ラッチのクリーンアップ。[Dirk Best]
+
+- ddenlovr, expro02, f1gp feversoc, fuukifg2, gaelco: ACCESSING_BITSのクリーンアップ。[Dirk Best]
+
+- z80ne: ダイレクトアップデートハンドラを削除。[Dirk Best]
+
+- chdman: ハードディスクテンプレートのサポートと初期設定を追加。[Dirk Best]
+
+- A1200キーボードのスケルトンデバイス追加(MC68HC05Cxのサポートが必要)。[Dirk Best]
+
+- HLCD0515/0569 LCDドライバデバイスを追加。[hap]
+
+- TMS0970: DDIGラインの問題を修正。MB Comp IVがプレイできなかったバグ。[hap]
+
+- hh_tms1k: Codename Sectorのボタンマッピング修正。[hap]
+
+- VMEバスの改良: [Joakim Larsson Edstrom]
+ * 新型VMEスレーブボード追加: mzr8300
+ * A16:D8、A16:D16、A24:D8、A24:D16のデバイスインストーラ追加
+ * mzr8300: 7201を正しく実装しRS232を追加。mzr8105をVMEバス経由でサポート
+ * mvme350ボードドライバをすろっとデバイスにコンバート
+ * Force Computers: fcisio1とfcscsi1ボードをスロットデバイスにコンバートし、VMEインタフェースをfccpu30に追加
+ * Force Computers: fccpu1、fccpu20、hk68v10にVMEインタフェース追加
+ * miniFORCE 2P21シャシー追加
+ * hd63450: トップノードがCPUを持っていない場合にオーナーCPUを検索するデバイスを修正。VMEシャシーと同じようなケース
+ * fccpu20: ターミナルをデフォルトでRS232デバイスに設定。クリスタルの値を9600ボーになるよう変更
+   - ターミナルは動作するが7bitにセットする必要あり
+ * fccpu30: 割り込みについてのドキュメント
+ * miniFORCE: アドレスマップの情報と、3モデルの機能リスト追加
+ * fccpu20: PCBレイアウト追加と、Rxパートの実装、ターミナルが動作可能
+ * MiniforceにMVEカードとしてfccpu20を追加
+ * fccpu20: 全コードとドキュメントをスロットデバイスに移動。動作可能ドライバに昇格
+
+- MC68153バス割り込みモジュールデバイスを追加。[Joakim Larsson Edstrom]
+
+- MPCCの改良: [Joakim Larsson Edstrom]
+ * ロバスト化。LOGメッセージとピンアウトの追加
+ * Tx、Rx、シリアルインタフェースのハンドシェイクをサポート
+
+- サードパーティーライブラリとしてJuliaLang utf8procを追加。[Nathan Woods]
+
+- imgtoolの改善: [Nathan Woods]
+ * charconvをenumrationからインタフェースに変更:
+   - シンプルなシングルバイトエンコーディング用にテーブルベースの実装を追加
+   - ISO-8859-1 Latin 1とMac Romanをサポート
+ * Unicodeコンソールのサポートのため、wcount/wcerrを使用
+ * アトリビュートリストで起きていたバグを修正
+ * CoCo/RS-DOS: クリーンアップいろいろとC++化
+
+- CoCo: DMKイメージの生成で最近発生していたバグを修正。[Nathan Woods]
+
+- デバッガコマンド'tracesym'追加: [Nathan Woods]
+ * ショートハンド tracelog はデフォルトフォーマットの文字列を使用
+
+- logerror出力をトレースでキャプチャできる機能を追加。[Nathan Woods]
+ * デバッガへの第3引数 trace はこの機能のサポートのためパイプでリスト化
+
+- Acorn Archimedesの更新: [Nigel Barnes]
+ * aa310に診断テストROM追加
+ * Archimedes 3000をBBC A3000に改名
+ * デフォルトでFDDを1台設置。ほかのベイには通常HDDが設置される
+ * テープ制御入力ポートを削除
+ * apd_dsk追加: 新フロッピーフォーマット Archimedes Protected Disk を追加
+
+- mc68681: SC28C94 QUARTのサポート。チャンネルC/Dトランスミッションの修正。[R. Belmont]
+
+- gba, vcs80: 不要になっていたダイレクトアップデートハンドラを削除。[R. Belmont]
+
+- 68230pitの更新: [R. Belmont]
+ * DDR変更時に外部制御ラインステータスが失われないよう変更
+ * ラインステータスがプルでなくプッシュされたときに正しいポート値を返すよう変更
+
+- ぴょんぴょんジャンプ: ボード 7908Bのピンアウトと#1/#2 DIPスイッチのドキュメント化。[Roberto Fresca]
+
+- Gran Premio F1 (「ポールポジションII」スペイン版海賊版)の更新: [Arcade Hacker, Rockman, Roberto Fresca]
+ * 不具合のあったデバイスの再吸い出し(スピーチROMのbit6が修正)
+ * バイポーラPROMを正しく吸い出し
+ * A/B/Cボードのエッジコネクタについてドキュメント化
+
+- Mega Bonus Star II (Euro, Millennium Edition)の新ドライバ: [Roberto Fresca]
+ * マシンの派生と正しいメモリマップにより、アトラクトモードまで動作
+ * 実際のゲーム名に合わせROMセット名の変更
+ * ビデオリールの修正のためビデオハードウェアの作業
+ * 入力系をゼロから作成
+ * Z86C15 MCUへの参照を追加
+
+- Mega Bonus Star II (Euro, Millennium Edition)のノート: [Roberto Fresca, Team Eurpoe]
+ * ドキュメント、技術情報追加。将来的な検証や保存のため、M48T12タイムキーパーの吸い出しを追加、analysis.
+
+- Mega Bonus Star II (Euro, Millennium Edition): GAL吸い出し追加。[Team Europe]
+ * 不明なZilog DIP40 ICダイアグラム追加。Z8ファミリーMCUか？
+
+- オリジナルのquizardにデキャップしたMCU吸い出し追加。[TeamEurope]
+
+- aristmk5: SPIとホッパーエミュレーション追加。非USゲームも起動可能。[Sandro Ronco]
+
+- midzeus: waveramビューアでVキーがゲーム操作とコンフリクトしていたので変更。[Ted Green]
+
+- quizard4セットのデキャップしたd8751吸い出しを追加(実装はまだ)。[Team Europe, David Haywood]
+ * quizard3と4でコインを入れたところから動かないものの修正済みフラグを修正
+
+- Taito 68705のリファクタリング: [David Haywood]
+ * buggychl_mcu_device(machine/buggychl.cpp)をtaito68705interface.cppに改名。多くのドライバで使用しているため
+ * ビルトイン周辺機器のある新しい68705を使うようにデバイスをリファクタリング
+ * その他これを使用するドライバのリファクタリング。tokio、daikaiju、flstory、lkage、nycaptor、lsasquat
+ * 68705タイマーロジックをarkanoidドライバから68705コアに移動
+
+- stv.cpp: コメント、BAD_DUMPフラグのクリーンアップ、「プリント倶楽部2」セット名の再吸い出しを元に名称修正、正常吸い出しセットに
+  デフォルトのNVRAM追加。[David Haywood]
+
+- esd16.cppのtantanにデフォルトNVRAM追加。間違った設定では動作しないため。[David Haywood]
+
+- HNG64 TMP87PH40AN I/Oチップの一つを吸い出し。[CAPS0ff]
+ * これはサンプルのOTPチップからのもので、テストと解析のために購入したもので、実際のNHG64ユニットから取ったチップではない
+ * チップにはプロテクトがなく、問題なくリードアウトできた
+ * これがドライビング、シューティング、対戦格闘のどのMCUタイプなのかは不明
+
+- stuntcycロジックエミュレーション: [Ryan Holtz]
+ * netlist追加
+ * NANDとなるべきNORゲート修正。プレイフィールドの修正
+
+- netlistの改善: [Couriersud]
+ * ROMはnetlistでsoure_t実装からのデータ読み出しを行う識別子を指定する
+ * ROMファイルを含むフォルダへのパスをnltoolが渡す-rオプション追加
+ * setup_tはnetlist_t配下; 複雑になりすぎないように
+ * gnd()メソッドを削除、さらにシンプル化
+ * OPENMPなど、ほとんど使われていない条件ビルドオプションを修正
+ * タイミングキューコードの可読性向上
+ * connect_lateをconnectに拡張
+ * netを生成した箇所で登録
+ * デバイスのインクルードファイルを自動生成するための準備作業
+   - nltoolで出荷時定義より全デバイスの定義を生成可能
+ * レールターミナルにのみ接続するデバイスを削除するコードを追加
+ * 逆ポーランド記法評価器を独自ソースファイルにリファクタリング
+ * 電流と電圧ソースVSとCSに引数追加(例: サイン波生成など)
+ * デバイスが動的かタイムステッピングのどちらとして扱うかを選択できるようコードを変更
+ * 警告や致命的なログメッセージを定数化
+ * netlistコードでは文字列リテラルはUTF8として扱う
+
+- mario: Luigiの歩く音をnetlistのサウンドで実装: [Couriersud]
+ * これまでのディスクリート実装から、netlistによる実装にドライバを変更
+ * 以前のエミュレーションはドキュメントが多くあるのでまだ削除せず
+
+- netlist: LM747、LM747A、2N2565を追加。[Vas Crabb]
+
+- gsword.cppの更新: [Vas Crabb]
+ * gswordとjosvollyの機能をベースドライバからクラスに分離
+ * josvollyの"AA 007"チップが、CAPS0ffさんのダイ写真により入力ポート読み込み用のNECD8255Aと判明
+ * josvollyのCPU間コミュニケーション用MCUを実装。テストモードの動作が改善
+ * josvollyのテストモードを元にDIP配置追加
+ * メインRAMの制御を行う不明DIP設定を配置より名前追加
+ * josvollyの筐体タイプDIPスイッチが判明
+ * 不要になったjosvollyのMCUシミュレーションを削除
+
+- gladiatr.cppの改善: [Vas Crabb]
+ * gladiatrとppkingのステートクラスを分離
+ * gladiatrの4つ全てのMCUを実装。コインエイジ設定が反映されるように修正
+ * 入力読み込みでのタグマップの検索を削除
+ * gladiatr全セットの海賊版MCU吸い出しをBAD_DUMPに設定。MCUシミュレーション削除、ノートの更新
+
+- m6805: リファクタリングと改善: [Vas Crabb]
+ * 68705デバイスを独自ファイルに移動。P3、P5、R3、U3派生版を作成し、ブートストラップROMをロードするように指定
+ * MC68705R3のブートストラップROMはU3のものと同じと考えられるが、確認のため吸い出しが必要
+ * EPROM操作を改善(NVRAMメカニズムに内容をセーブ)
+ * I/Oポートの処理の違いを実装
+ * タイマー/カウンタの再実装 - MOR制御モードサポート、カウントの方向修正、スタート/リセットステート訂正
+ * リセット時に入力ラインのステートが失われるのを修正
+ * 逆アセンブリでI/Oレジスタにわかりやすい名前を使用
+ * ステートインタフェースを使い、内部レジスタをさらにアクセス可能化 - メモリとして読み込めないレジスタの内容も表示
+ * 命令コードハンドラのテンプレート化とディスパッチテーブルとスイッチステートメントの入れ替えにより大量の無駄な箇所を削除
+ * 多くのマクロをスコープダウンするためにインラインメソッド化
+ * 一部命令のためのタイミング修正と、CMOS命令タイミングによるテーブル追加
+ * 命令コードハンドラのコメントで、影響されるフラグを修正(実際のコードは正しい)
+ * 不要なフラグ演算テーブルを削除
+ * オンボードMC68705周辺機器のデバッグ用に、コンパイル時切り替えのログ出力機能追加
+ * 68705-without-peripheralsクラスを完全に削除
+ * bub68705、changela、maxaflex、mexico86、qix.cpp、taitosj.cpp、tstrike/ddungeon/darktowrでMC68705P3コアを使用。同期ラッチのシミュレートが改善
+ * pipelineでMC68705R3コアを使用
+ * pitnrunでMC68705P5コアを使用
+ * quizpunでMC68705P5コアを使用。MCUがタイマー割り込みを正しくゲット(でもまだ動作せず)
+
+- taito68705interfaceの改良: [Vas Crabb]
+ * arkanoid/puzznic用のラッチロジックによる抽象ベースクラスを追加
+ * わかりにくいmcu_status_rとsemaphore_rメンバを削除し、ドライバへ移動(システムによって変化する)
+ * bigevglfの不要なハックを削除。特別なことはいらない
+ *「スラップファイト」の機能を共通デバイスクラス化
+ * maniach、maniach2、renegade、retofiv、xsleenaで共通デバイスを使用
+ * arkanoid/puzzicのMCU設定用デバイス追加。arkanoidとpuzznicでの置き換え
+ * ドライバステートクラスに残っていたゴミを削除
+
+- hotsmash, pbillian: クリーンアップ: [Vas Crabb]
+ * supwerqix_stateからhotsmash/pbillianを解放するための最低限の作業
+ * ドライバ内周辺機器からM68705P5コアへミグレート
+ * タグマップのルックアップを低減
+
+- stfight.cpp: ADPCM操作を修正。[Vas Crabb]
+ * ドライバ内周辺機器の代わりにMC68705P5コアを使用
+ * ADPCMカウンタを正しいエッジに接続
+ * 未使用メンバを削除、関数staticを撤廃、セーブステートの登録修正
+ * ランタイム時のタグマップルックアップを低減
+
+- tigeroad.cpp: クリーンアップとモダン化: [Vas Crabb]
+ * bballsとpushmanのステートクラスを分離
+ * 新しいMC68705R3コアをpushmanで使用。ホストCPUとのコミュニケーションを改善
+ * initメンバでハンドラのインストールではなく派生したメモリマップを使用
+ * bballsのプロテクトMCUシミュレーションをpushmanの実装を参考にシンプル化
+
+- a2bus/mouse.cpp: シンプル化とクリーンアップ: [Vas Crabb]
+ * 新しいMC68705P3コアを使用し古くなったglueを削除
+ * コメントスタイルの統一、デイバスタイマの完全な削除、X軸とY軸の更新で重複していたコードを統合
+ * カードは変更の前後で動作するが、デフォルト軸はホストマウスではなくinc/decキーのみに割り当て
+
+-taito_l.cpp: Split giant state class up into family tree, reduced tagmap lookups. [Vas Crabb]
+
+- i8251: レシーブの信頼性向上、クリーンアップ少々。[Vas Crabb]
+
+- zorbaの改良: [Vas Crabb]
+ * MC68705P3コアを使用したキーボードデバイスのエミュレーション
+   - 96個のマトリックスキーのうち88個、8個のDIPスイッチのうち6個、6個の出力のうち3個が判明
+ * IEEE-488、RS232とセントロニクスポートに接続
+ * 全IRQソースの実装と、PITをUSARTに接続
+
+- m6805evs: コメント内に正しいメモリマップを追加し、68HC705ファミリをサポートするときにCPUコアで必要であることを記載。[Vas Crabb]
+
+- Edstromのログマクロを参考にlogmacro.hを追加。[Vas Crabb]
+ * 他のヘッダの後に#include、VERBOSEの#define化が必要。使用例はz80scc.cppとm68705.cppを参照
+
+- arkanoid: MCUのリセットでセマフォフラグもリセットするのを確認。[Lord Nightmare, Vas Crabb]
+
+- デバッガ: 8進数数値にプリフィクス0oを使用。基数の文字には大文字も使用可能。[shattered, Vas Crabb]
+
+- superqix.cpp: オリジナルの日本/海外版「スーパーQIX」8751 MCUのプロテクト解除。予想通りB03 // 03 MCUの吸い出しが正確だったことを
+  確認。[Lord Nightmare]
+
+- arkanoid.cpp: 基板のトレースにマッチするようにウォッチドッグを修正。コメントの更新。[Lord Nightmare]
+
+- Zorbaキーボード: ナチュラルキーボードモードでのF4を修正。[Robbbert]
+
+- rm300z34dとrm380z34eを有効化。[Robbbert]
+
+- RM380Zで初期のCOSバージョンをサポート。[zx70]
+ * 初期版は40行ディスプレイでカセットテープインタフェース
+
+- RTCチップがAussie Byteで反応するよう変更。[zx70]
+
+- TMS9927ファミリーのscrollup修正。[zx70]
+ * カーソルの形が変更されるときにCRTCパラメータを全て再調整しなくてもよく改良。これはスクロールカウンタをリセットしていたもの
+ * Otrona Attacheのscrollup修正
+
+- pc_dsk: 512バイトヘッダの360Kイメージをサポート。ソフトリストのエントリで発見。[Justin Kerk]
+ * 1024バイトフッタの1.43MBイメージもサポート
+
+- pc_dsk: 400Kのディスクイメージがロードできるようにギャップサイズの想定を縮小。[Justin Kerk]
+ * 例えばibm5150ソフトリストのikariやmarbleが修正
+
+- tandy1t: 90キーのTandyとスタンダードな101キーの"拡張版"ATキーボードレイアウトを区別。[Justin Kerk]
+ * 90キーレイアウトからデフォルトでHOLDキーのマッピング解除。UIモードの切り替え時にシステムがフリーズするため
+
+- atvtrackの改良 - ゲームコードが意図通りに動作: [MetalliC]
+ * CPU初期ブートをFPGAビットストリームから抽出
+ * NANDフラッシュ消去とプログラムコマンドを実装
+ * GPU IRQ制御を実装
+ * ゲーム初期化のスピードアップのため、GPUの内部CPUの基本シミュレーションを追加
+ * IOポートの多重化についてドキュメント化
+
+- naomiのドキュメント更新: [MetalliC]
+ *「デッドオアアライブ2ミレニアム」をDoA2の親に設定
+ *「スターホース」の名前をほかに合わせて変更
+
+- NAOMI ROMボードタイプ171-7885Aマスタ/スレーブ機能について解析とドキュメント化。[rtw, MetalliC]
+
+- IBM 6580 Displaywriterの非スケルトン化。[shattered]
+
+- i8255: read_pc()で、出力ラッチからもデータを返す。[shattered]
+
+- ImageDiskローダー: データの無いトラックでクラッシュするのを修正。[shattered]
+
+- TeleDiskローダー: 8インチ SSSDディスクで生成されたイメージを受け付け。[shattered]
+
+- imagedev/floppy: dskchg_writableプロパティ追加(Sony Microfloppyドライブ用)。[shattered]
+
+- imagedev/floppy: has_trk00プロパティ追加。IBM 6360 8インチドライブ用。[shattered]
+
+- imagedev/floppy: ドライブがスピンアップするまで読み込みを抑制。[Michael Zapf]
+ * この変更はREADYラインを使用しないドライバやコントローラに影響する
+ * まだ超簡略化した方法; 正しいスピンアップの加速の付き方を実装する必要あり
+ * 実ドライブの確証が取れるまで、スピンアップ中のステッピングを許可
+
+- formats/wd177x_dsk: nec765_dskと同様に、build_sector_descriptionのオーバーライド可能に。[shattered]
+
+- polyplay: polyplayとチェコ版ROMをベースとするZRE-PPのドイツ版追加。[SailorSat]
+ * polyplayドライバのモダン化とデバイス化
+ * ハードウェアの違いについてドキュメント追加
+ * より新型のZRE-PPボードを追加(SIOは未実装)
+ * 新メニューつきのチェコ輸出版を追加
+ * ドキュメントにないZ80 CTCオンザフライモードスイッチを修正; 内部タイマーが停止していなかった
+ * polyuplay2セット追加; ゲーム10本つきのドイツ版(6本新規)
+ * polyplay2cのチェコ版を改名し、polyplay2のクローン版に設定
+
+- harddriv: リンクを可能にするため、RS232デバイスを最初のシリアルポートとして実装。[SailorSat]
+ * これにより、null-modemとbitbanger (38400 8E1)を使用する2つの「レースドライビン」のリンクが可能
+
+- HP9895 デュアルフロッピードライブ進捗: [F.Ulivi]
+ * HP9895フロッピードライブのドラフト版追加、PHIがPOSTをパス
+ * 9895がieee488経由でトーク
+ * 9895関連ソースファイルの整理
+
+- gaelco:「バイオメカニカルトイ (Ver. 1.0.1884)」のサウンドROM吸い出し。このバージョンのサウンド修正。[ShouTime]
+
+-「プランプポップ」が「エクスターミネーション」「Dr.トッペル探検隊」と同じM-Chipを使用していることを確認; ラベル訂正と追加、
+  ROM/PROMの配置やチップタイプ追加、実際の基板写真を元にノートの更新。[ShouTime]
+
+- segae.cpp:「オパオパ」のROMラベル訂正。[ShouTime]
+
+- PortAudioライブラリを更新、オーディオ出力モジュール追加。[inte alls]
+ * Windows 7以降とLinuxで低レイテンシオーディオ出力が可能
+
+- ppcdrc.cpp: ブランチターゲットアドレスのLSB2つをクリア。[maximumspatium]
+ * Power Macintosh 6100が起動しなかったのを解決
+
+- x1.cpp: カナ入力サポート。[r09]
+ * カナとカナ+シフトキーの全組み合わせ追加
+ * カナキーを実機に合わせトグルに変更
+ * 実際のX1キーボードにある不足キーを追加
+
+- taito_f3: ステートロードでグラフィックが消えるのを修正。[moralrecordings]
+
+- upd765のターミナルカウントラインにラインライトメンバを追加。[Patrick Mackinlay]
+
+- retofinv.cpp: 開発者についてのコメント追加(TCRFさんとGDRIさんに感謝)。[Stiletto]
+
+- Sonic 3プロトのロックオンチップを、関連したSonic 3プロトセットに追加。[einstein95]
+
+- cvs.cpp: VERBOSEが指定されたとき、不明な書き込みでメッセージをポップアップ。[system11]
+
+- a78_slot: 胡椒していた144k + POKEY@450エミュレーションを修正。[Mike Saarna, trebor]
+ * Bentley BearのCrystal QuestとDonkey Kong PK-XMのクラッシュ修正
+
+- DEC Rainbow 100の更新: [Bavarese]
+ * Corvusドライバを有効化(パッチしたCP/M 1.xのみ、MaslinアーカイブよりDRCDUTIL.TRD0ドライバディスクが必要)
+   - パッチ方法についてはCORVUS HARD DISKの章を参照
+   - DOS 2.xとCP/M 2.2はかつてサポートされていたが、ドライバが失われた模様
+ * 6MBと20MBのCorvusドライバと、CP/M 1.xでのフォーマットと使用法情報追加
+
+- aztarac.cpp: ROMラベルと配置の検証と修正、新規吸い出しされたビデオボードPROMを追加。[Andrew Welburn, Tafoid]
+
+- ms32.cpp:「ベストバウトボクシング」のROM名訂正。[Corrado Tomaselli, The Dumping Union]
+
+- pse.cpp: bazookabrを再吸い出し。[f205v]
+
+-「スタジアムヒーロー」のタイルマップ色を修正。[Bryan McPhail, Guru]
+
+- armedf.cpp:「戦え！ビッグファイター / Sky Robo」のクロック検証と訂正。[Guru]
+
+- hng64: I/O CPUクロックについてドキュメント化。[Guru]
+
+- pacman.cpp: Number Crashのreadme追加。[Guru]
+
+- jollyjgr.cpp: readmeの更新とJolly Joggerのクロック訂正。[Guru]
+
+- hiscore.dat: 更新。[Leezer]
+
+- ROMファイル名の相違を調べる便利スクリプト追加。[Zoe Blade]
+ * 親とクローンセットで名前が異なるがROMが同じものを探す
+
+- V.Smileソフトリスト更新: [Fake Shemp]
+ * 3本のリストに分割: 普通のV.Smile、V.Smile Motion、V.Smile Baby (MotionとBabyのリストは未実装)
+ * 新規カセットの大量更新と、未吸い出しカセット情報を更新
+ * カセットの内部をより細かくドキュメント化 - PCBタイプやチップ配置、ラベルなど
+ * 以前ミスっていた吸い出し追加。タイポの修正
+
+- 新規吸い出しに伴い、ソフトリストのドキュメント更新。[Fake Shemp]
+ * a2600、megadriv、n64、snesでTeamEuropeが最近吸い出し直したもの; ソフトリストに新規情報を追加
+ * syvalionp2はsyvalionpの吸い出し不良のものだったので削除
+
+- pc.cppの更新: [rfka01]
+ * Atari PC1追加とAtari PC3の名称を修正
+ * スタンダードなpccga5スロットを設定。コンボカードのあるマシンでハードディスクも使用可能
+ * MCFGとROMエントリをファイル最後のマシンリストに合わせて順序替え
+ * NCR PC4iの設定をVGA PCから派生し、スロット数を修正
+ * ラップトップで720Kドライブを標準に設定
+ * Zenith Supersport、Bondwell Pro28、Atari PCの情報追加
+ * 既にエミュレート済みのシステムの情報をヘッダに追加
+ * 以下の詳細な情報を追加: Data General One, Commodore PC-1, Commodere PC10-III and PC20-III, Zenith SuperSport,
+    Siemens Sicomp PC16-05, NCR PC4i, Olivetti M15, Sharp PC-7000, Sanyo MBC-16, Atari PC-3, Eagle 1600, VTech Laser Turbo XT
+    XT/3

@@ -1,0 +1,1191 @@
+0.143
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04380: [クラッシュ/フリーズ] sfish2, sfish2j: OK画面後にクラッシュ。(R. Belmont)
+- 04384: [クラッシュ/フリーズ] cottonbm: イントロ画面が真っ黒になる。(Angelo Salese)
+- 04347: [クラッシュ/フリーズ] mach3, cobram3, usvsthem: 起動時のディスク開始メッセー
+         ジから前に進まない。(smf)
+- 04342: [クラッシュ/フリーズ] cubeqst, cubeqsta: OK後にクラッシュ・アサート。(smf)
+- 04340: [クラッシュ/フリーズ] firefox, firefoxa: OK直後にクラッシュする。(smf)
+- 04341: [クラッシュ/フリーズ] All playable sets in deco_ld.c, dlair.c, esh.c,
+         gpworld.c, istellar.c, lpg.c, segald.c, superdq.c: OK後にクラッシュする。
+         (smf)
+- 04349: [クラッシュ/フリーズ] All sets in cliffhgr.c: 起動時に"Please Standby"の画面
+         から進まない。(smf)
+- 04343: [クラッシュ/フリーズ] All sets in baraduke.c, namcos1.c, namcos86.c, 
+         skykid.c: -debugオプションを指定すると即クラッシュする。(Wilbert Pol)
+- 04388: [ドキュメント] specfrce: CHDのSHA1チェックサムがCHDバージョン3のままになって
+         いる。(Tafoid)
+
+
+ソースの変更点
+--------------
+-「Warp Speed」にサイクル描画のテスト版追加。[Mariusz Wojcieszek]
+
+-「Warp Speed」のアナログ操作追加。[Mariusz Wojcieszek]
+
+- フロッピードライブのインデックスとレディラインの読み込み関数追加。[Curt Coder]
+
+- メモリバンキングにデバイス関係の関数追加。[Curt Coder]
+
+- MC6845にDE、CURSOR、HSYNC、VSYNCライン読み込みメンバ追加。[Curt Coder]
+
+- SH4: いろいろなクリーンアップ。VERSIONレジスタのサポート。Naomi rev H BIOSが起動可
+  能。[O. Galibert, Deunan Knute, R. Belmont]
+
+- eeprom: eepromの冗長性にタグ名追加。[O. Galibert]
+
+-「クルージンUSA」のreadmeを「オフロードチャレンジ」が含むものに置き換え。[Guru]
+
+- cdrom: リクエスト時にはMode 1 Form 1セクタをMode 1 rawにコンバート。[R. Belmont]
+
+- byuu氏のコスレッドライブラリをラッパクラスと共に追加。各実行デバイスに対して一つの
+  コスレッドを使うよう変更。この機能はきわめて内部的なもので、スケジューリング動作に
+  は影響は与えないようになっています。しかし、machine().scheduler().make_active()を呼
+  び出すことで、命令の途中でデバイス実行が終了する可能性があります。割り込みや他の状
+  況チェックのために実行ループを回すコアでは、レジューム時にチェックがスキップされて
+  危険なため、このような早期終了は極めて試験的なものにとどめてください。
+  [Aaron Giles, Miodrag Milanovic, byuu]
+
+  (注意: 現状で、コスレッドはコンパイル時定義から外してあります。次の開発サイクルで再
+         有効化する予定です)
+
+- Namco C352をモダンC++デバイス化。[R. Belmont]
+
+- Z80 CPUコアにBUSRQとWAIT入力ラインを追加。[Curt Coder]
+
+- マルチレベルスロットデバイスをサポート。[Miodrag Milanovic]
+
+- pss62(スーパーファミコンボックス)のROM修正。[Y~K, MESSfan] 
+
+- sfcboxのテスト版エミュレーションを少し改善。[Y~K, MESSfan]
+
+- 'Line Zero'割り込み条件を無効にする「Mating Game」用の一時的な対策。[J. Wallace]
+
+- OKIM6376のステート保存を修正(たぶん)。[J. Wallace]
+
+- Dolbeck Systemsのフライヤーを元に、「Connect 4」のビルトインレイアウトの色を訂正。
+  [J. Wallace]
+
+- MPU4 HWゲームのラインゼロIRQ条件の修正と同期更新を設定。[J. Wallace]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Warp Speed (プロトタイプ) [Mariusz Wojcieszek]
+
+
+新しく追加されたクローンセット
+------------------------------
+テラフォース (Japan) [ShouTime]
+オフロードチャレンジ (v1.50) (動作せず) [Guru]
+ストリートファイターII -ザ・ワールドウォリアー- (USA 910306)
+  [Brian Troha, The Dumping Union]
+ファイナルファイト (USA, set 2) [Brian Troha, The Dumping Union]
+Leader Board (Arcadia, set 3) [Team Europe & Alexander F.]
+OnePlay Version 2.20 bios [Team Europe & Alexander F.]
+
+
+追加された未動作ゲーム
+----------------------
+スーパーマリオカート / スーパーマリオコレクション / スターフォックス
+  (Super Famicom Box) [Y~K, MESSfan]
+ワイアラエの奇蹟 / スーパー麻雀2 -本格4人打ち- (Super Famicom Box) [Y~K, MESSfan]
+スーパードンキーコング / スーパーテトリス2 + ボンブリス (Super Famicom Box)
+  [Y~K, MESSfan]
+スーパードンキーコング / スーパーボンバーマン2 (Super Famicom Box) [Y~K, MESSfan]
+
+
+
+0.142u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04377: [グラフィック] All sets in fuukifg2.c: グラフィックレイヤーが表示されない。
+         (Tafoid)
+- 04376: [その他] lib/util/opresolv.cのタイポ。
+- 04375: [グラフィック] ojankohs: 牌の影に別なグラフィックが現れる。(Angelo Salese)
+- 00765: [クラッシュ/フリーズ] tekken3aa, tekken3ua: アトラクトモードでのグラフィック
+         がおかしい。また、デモが一回終わるとフリーズする。
+- 04373: [サウンド] All sets in polepos.c: プレイ中にタイヤの滑る音が断続的に聞こえる。
+         (Alex Jackson)
+- 04298: [インターフェイス] mame -h で説明される使用法のファイル名が古い。(Tafoid)
+- 04329: [ドキュメント] mexico: ゲーム名が少し違う。(Tafoid)
+
+
+ソースの変更点
+--------------
+- chdman: GCC 4.6でのビルドを修正。[R. Belmont]
+
+- HLSLの更新: [Ryan Holtz, Bat Country Entertainment, austere]
+ * デフォルトのシャドウマスク設定を再調整。虹色のライン発生を解消して、参考写真により
+   近くなるように改良
+ * 色の強さをシャドウマスク後に移動。蛍光体の反応な非線形であるのをシミュレートするた
+   め
+ - NTSCポストプロセスのYチャンネルに様々な幅のノッチフィルタを追加。これにより、Coco 
+   2やApple IIでの輝度ジャンプが解消
+
+- i286 - Phar LapとBorland 16-bit DPMIサーバ向け修正。[Carl]
+
+- Sega ST-V / Saturnハードの変更多数。[Angelo Salese] 
+
+- 286 - Lotus 123r3に付属するDOS/16M DOS拡張を修正。[Carl]
+
+- デバッガでイメージデバイスをサポート。[Miodrag Milanovic]
+
+- デバッガにイメージデバイスのメニュー追加(今のところWindowsのみ)。
+  [Miodrag Milanovic]
+
+- sdlsocket: tcp/ipソケットアドレス検出の問題に一時的な対策。[Michael Zapf]
+
+- goldstar:「Kknot No Li」の韓国語ローマ字表記を修正。[30yr]
+
+- info.c: -lxのスロット情報の基本ディスプレイを追加。[Fabio Priuli]
+
+- inptport: 一時的にデフォルトのシーケンス認証処理を無効化。[O. Galibert]
+
+- memory: 超よくできているpopulate_range_mirroredコードをmap_rangeで呼び出すように変
+  更。大抵の場合はこれ。[O. Galibert]
+
+- polepos.c: MCFG_SCREEN_RAW_PARAMS、及びスキャンラインベースのIRQタイミングに変更。
+  [Alex Jackson, O. Galibert]
+
+- ins8250 - pcドライバのマウスサポート改良版を有効にする修正。[Carl]
+
+- i286 - PUSHとPOP命令でのSSのリミットチェック。[Carl]
+
+- TMS5220: OLDPとOLDEが、IP=0 PC=0のAサブサイクルでのみ更新されるように固定; 出力に対
+  しては影響はないく、チップ動作のドキュメント性の改良が目的。[Lord Nightmare] 
+
+- TMS5220: 特許より回路412をエミュレート。これは、補間抑制されたフレーム推移で、擬似
+  的なクリックが起こるのを防ぐとされるもの; これにより、starwarsのTIEファイター音や、
+  EPROM/EPROMAのクリッキングが改善されたはず。[Lord Nightmare]
+
+- naomi/jvs: coin add/subコマンドを追加(subは「クレイジータクシー」で使用)。
+  [O. Galibert]
+
+-「Warp Speed」のアップデート: [Mariusz Wojcieszek]
+ * vblank割り込み修正とROMパッチの削除
+ * コイン入力追加
+ - 星空背景エミュレーションのテスト版
+
+- HLSLの更新: [Ryan Holtz, Bat Country Entertainment]
+ * MAMEではINIファイルが無いゲームの初回起動時にHLSL INIファイルを書き出し
+ * HLSL INIファイルのパラメータ順序は保存時のままにする必要があります
+ * HLSLモードで、斜めに折り目が入ったようになるのを修正
+
+-「デカスリート」の圧縮テクスチャプロテクトを改良。[David Haywood]
+
+- INS8250割り込みラインでdevcbを使うように改良。[Curt Coder]
+
+- memory.c: デバッグメモリビューアの物理アドレス表示を修正。[Wilbert Pol]
+
+- マウントするイメージデバイスをマーキングせずに、ソフトリストアイテムを直接開始する
+  機能をサポート。ソフトアイテムがある場合、インタフェース定義が必要な最初のイメージ
+  デバイスとしてロードされます。[Miodrag Milanovic]
+
+- Aristocrat MK5の画面オフセットを修正。[Palindrome]
+
+- dmdtouchとgeishanzでSRAMをサポート。[Palindrome]
+
+- arstmk4.cの変更: [Heihachi_73]
+ * ボタンパネルのアートワーク追加。全ゲームの入力について改名と再マッピング
+ * cgold2のPROMをより互換性の高いバージョンに置き換え
+
+- aristmk5.cの変更いろいろ: [Heihachi_73]
+ *「Dolphin Treasure」の親子関係を変更(後期版を親に)
+ * セットのチップROMにUSクリアチップを追加
+ * セットチップを使用しないゲームからセットチップのロードを削除
+ * aristmk4.cのフォーマットに合わせてROM名を整理
+
+- OKIM6376のチャンネル2を正しくサポート。またログ出力も追加。[J.Wallace]
+
+- OKIM6376のディバイダ動作を訂正。完成するにはROMの解析が必要。ただし、サポートしてい
+  るプログラムは全てデフォルトモードのみを使用。[J.Wallace]
+
+- High Videoゲームのクロック周波数を、正しいOKIチップ周波数になるように変更。これらは、
+  基板上でよく見られる値ですが、基板のスキャンを見てもクロック信号が見つからないので、
+  正確かどうか確認が必要かもしれません。[J.Wallace]
+
+- MSM6376とPIA、PTMを組み合わせ、ループするADPCMサンプルに対し、ダイナミックに音程変
+  化をさせるMPU4サンプルサウンドハードを追加。[J.Wallace]
+
+- INCPATHのインクルードが重複していたのを削除。[Oliver Stoneberg]
+
+- メモリリークの可能性がある箇所とNULLポインタ参照の削除、重複したチェックの削除。
+  [Oliver Stoneberg]
+
+- i286 - フォールトリスタートを修正。[Carl]
+
+- -listclonesで、BIOSを使う親セットが子セットとして出力されるのを修正。[Tafoid]
+
+- i386: タスクゲート、コールゲート、タスクステートセグメントを実装(286と386)。トリプ
+  ルフォールトCPUリセットも実装(OS/2で使用)。
+  x87: FSTENVの基本実装(OS/2で使用)。[Barry Rodewald]
+
+- NAOMIのM4復号化を管理するコード追加。[Andreas Naive]
+
+- Midway Zeusの改良: [Phil Bennett]
+ * mk4bで使用する別のFIFOコマンドを追加
+ * ショートフォーマットドローコマンドを実装(mk4のライフバーと影の描画に使用)
+ * 別の4/8ビットテクスチャフォーマットを追加(mk4で使用)
+
+- dec8.c:「Ghost Busters / 迷宮ハンターG」のROM名訂正とPCB配置を追加。
+  [The Dumping Union]
+
+- OKIM6576のNARタイミングをデータシートに合わせて修正。[J. Wallace]
+
+- OKIM6376で各チャンネルのプレイ中にサンプルがラッチされる動作(New Magic Card 'Skill 
+  Game'の最初のループで勝った音が鳴らないのが解消)と、MPU4のサウンドテストを修正。
+  [J. Wallace]
+
+- MPU4のオーディオインタフェース修正。[J. Wallace]
+
+- MPU4のsmall extender用修正。[J. Wallace]
+
+- MPU4で、分割LEDセグメントのアクセスをサポート(mpu4ledXXXとしてインデックス化)。最初
+  のディスプレイユニットが0-7、2番目が8-15…という順序)。[J. Wallace]
+
+- JPM IMPACTとMaygay M1用にAWPドライバを更新。[J. Wallace]
+
+-「The Mating Game」が起動と動作ができるように様々な変更。ただしまだタイミングの問題
+  あり。[J. Wallace]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Mortal Kombat 4 (version 1.0) [Phil Bennett]
+
+
+新しく追加されたクローンセット
+------------------------------
+ヒーテッドバレル (Electronic Devices license)
+  [Hurray Banana, Tormod, hotaru, Dna Disturber, F. Marsaud, N. Francfort, Smitdogg, 
+   The Dumping Union]
+Albatross (スーパークラウンズゴルフ US clone)
+  [Antonio Gonzalez Jr., Smitdogg, The Dumping Union] (動作せず)
+鉄拳3 (Japan, TET1/VER.A) [Yohji, Smitdogg, The Dumping Union]
+鉄拳3 (Asia, TET2/VER.E1) [Tormod, Smitdogg, The Dumping Union]
+The Real Ghostbusters / 迷宮ハンターG (US 2 Players, revision 2) 
+  [JF, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Special Forces Elite Training [Guru, R. Belmont]
+Donggul Donggul Haerong [Guru]
+Warp Speed (プロトタイプ) [TrevEB, Siftware, Mariusz Wojcieszek]
+
+
+
+0.142u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04356: [クラッシュ/フリーズ] Some games using MC6845: 黒画面でハングする。(wilbert)
+- 04363: [クラッシュ/フリーズ] rsgun: "-bios jp"を設定するとクラッシュする。
+- 04311: [ステート保存/再生] kov2, martmast: セーブステートを2回続けてロードするとフ
+         リーズする。(Aaron Giles)
+- 04360: [DIP/入力] upscope + others: 入力ポートのPORT_CENTERDELTA設定が、
+         PORT_KEYDELTAの値を上書きしてしまう。(galibert)
+- 04330: [ステート保存/再生] btime and clones: セーブステートの読み込みに不具合がある。
+         (Aaron Giles)
+- 04359: [インターフェイス] All sets with PORT_DIPLOCATIONs: DIP配置設定が全ておかし
+         くなっている。(galibert)
+- 04331: [ステート保存/再生] digdug and clones: セーブステートが正しく読み込まれない。
+         (Aaron Giles)
+- 04327: [ステート保存/再生] galaxian, frogger, many others: セーブステートのロード直
+         後にリセットがかかる。(Aaron Giles)
+- 04333: [ステート保存/再生] Many games in m92.c: ラスタ割り込みが有効なときに保存し
+         たセーブステートが正しく動作しない。(Aaron Giles)
+- 04305: [クラッシュ/フリーズ] vmetal, vmetaln: OK直後にクラッシュする。
+         (Angelo Salese)
+- 03948: [クラッシュ/フリーズ] mvsc: 親セットのみ、エンディングのスタッフロールでゲー
+         ムがリセットする。(Alex Jackson)
+- 04361: [HLSL] HLSLを使うと画面がずれる。(MooglyGuy)
+- 04357: [システムコア] arcwins, eforest, fhunter, fhuntera and all sets in 
+         twincobr.c: -strで時間指定しても、実際とは異なる時間動作する。(wilbert)
+- 04339: [ゲームプレイ] All sets in segahang.c: グラフィック不具合や音が出ないなど。
+         (Aaron Giles)
+- 03445: [クラッシュ/フリーズ] znpwfv: ゲーリー・オブライトを選んでゲームを始めようと
+         するとクラッシュする。(Angelo Salese)
+- 03872: [クラッシュ/フリーズ] vmahjong: ゲームの選択画面でクラッシュする。
+         (Angelo Salese)
+- 03205: [クラッシュ/フリーズ] pblbeach, fhboxers: イントロシーンでハングする。BGMは
+         鳴り続けていて、クレジットも投入できる。(Angelo Salese)
+- 04352: [クラッシュ/フリーズ] xexex: マスクROMテスト中にクラッシュする。(MooglyGuy)
+
+
+ソースの変更点
+--------------
+-「ファイナルアーチ」のIC13テストが失敗するのを修正。[Angelo Salese]
+
+-「ファイナルアーチ」「サンドアール」でマルチカートリッジを修正。[Angelo Salese]
+
+- HLSLのクリーンアップ。aux texcoordの削除、ハードウェアバーテックス処理が出来ない
+  ローエンドカード向けにソフトウェアによるバーテックス処理を復活、不要な
+  tristrip->trilist分割を削除。チップセット内蔵型と機能的にぎりぎりのカードでのD3D機
+  能の復元。[Ryan Holtz, Ashura-X]
+
+-「Gigaman 2 / ロックマン2」のグラフィックとサウンドROMを吸い出し。
+  [f205v, Smitdogg, The Dumping Union]
+
+- PlayStation GPUをデバイス化。[smf]
+
+- Atari System 1とAtari G1ドライバで、ボタンの実際の使用目的を示すため、PORT_NAMEを追
+  加。[Tafoid]
+
+- inptport.c - キーボードキャラクタの初期化修正。[Tom Clayton]
+
+- konicdevなど: 053250をモダンデバイス化。[O. Galibert]
+
+- Sega Saturn / ST-Vのピクセルクロックをより正確なものに改良。[Angelo Salese]
+
+- メインIRQ関数へのSCSPを外部書込みライン関数へ移動。「グルーブオンファイト」
+ 「イントロDonDon」のサウンド不具合修正。[Angelo Salese]
+
+- ダブルインタレースモード時のST-Vでのウインドウエフェクトを修正。「バーチャル麻雀」
+  のグラフィックが修正。[Angelo Salese]
+
+- Sega Saturn / ST-Vの一部環境で起きていた起動時のクラッシュを修正。
+  [Oliver Stoneberg]
+
+- build/verinfo.cの未解放なバグ修正。[Oliver Stoneberg]
+
+- megatech.c: 確認済みラベルの追加。[ElBarto]
+
+- PlayStation GPUで、4点ポリゴンをトライアングルへ分割処理。[smf]
+
+- Naomiのドキュメント更新。[f205v]
+
+- 4rosesと4rosesaで、MC6845関連のクラッシュがあったのを修正。[Roberto Fresca]
+
+- TMS52xx: 実機がおそらく動作していると思われる方法に近づけるため、パルス励起コードを
+  デフォルトで無効化。またコメントの更新。[Lord Nightmare, Neill Corlett]
+
+- HLSLのアップデート: [Ryan Holtz, Bat Country Entertainment]
+ * 意図しないピクセルのスミアを防ぐため、シェーダチェーンでのポイントサンプリングに切
+   り替え
+ - これにより、シャドウマスクとスキャンラインのアライメントなどが修正され、オーバーサ
+   ンプリングされない解像度で出ていた虹色の縞模様がかなり低減されます。
+
+- SCU DSPのexecuteフラグにあったうっかりバグを修正。[Angelo Salese]
+
+- タイマー内のSMPC intbackコマンドを移動し、SMPCマスクIRQ用のパッチを削除。
+  [Angelo Salese]
+
+- Sega Master SystemとMegadrive/Genesisで使っているsn76489の派生版の名称について、
+  SMSIIIから技術的に正確なSEGAPSGに改名。このPSGはmark 3では使われていないため。
+  [Lord Nightmare]
+
+- Sega Saturn / ST-Vハードウェアでの、hblank間隔を訂正。
+  [Angelo Salese, Corrado Tomaselli, Charles MacDonald]
+
+- ertictac/poizone: 音関係を超改良(まだ不完全)。[R. Belmont, Heihachi_73]
+
+- SEGA System Eで、SEGAPSG sn764xxに切り替え。このシステムでは、SEGAPSGを内蔵する、
+  SEGA 315-5124 VDPを使用しているため。これにより音が少し改善。[Lord Nightmare]
+
+- Sega System Eの改善。xtal.hに切り替え、mc8123のコメント修正、PCBダイアグラム分類、
+  z80bのxtal検証。[Lord Nightmare, Charles MacDonald]
+
+- i286 - タッピングによる287エミュレーションを有効化。[Carl]
+
+- idectrl - ドライバ初期化時のエラーステータスをクリア。[Carl]
+
+- mc6854.cにHD6345 CRTC-IIの派生版を追加。[Curt Coder]
+
+- idectrl - verify no retryコマンドを実装。[Carl] 
+
+- i86 - imul命令を修正。[Carl]
+
+- ローレベル入力のアップグレード。input_codes、input_items、input_devices、input_seqs
+  用の各クラスを作成。新たに、マシンのグローバルステートを保持し、machine.input()経由
+  でアクセスするためのinput_managerクラスを作成。また、デバイスのインデックスを0-16か
+  ら0-255に拡大。以前の動作毎にデバイスのインデックスが変わる状態に対して、OSDから明
+  示的にデバイスのインデックスを指定可能。[Aaron Giles]
+
+- HLSLのアップデート: [Ryan Holtz, Bat Country Entertainment, austere, SoltanGris42]
+ * 任意の解像度でスクリーンショットを描画する機能を追加
+ * 任意の解像度でAVIビデオ出力する機能を追加(音は無し)
+ * 43タップ幅のFIRベースなNTSCフィルタを追加。Y、I、Q周波数レスポンスの調整可能
+ * 現在の画面高さ比をもとにしたスキャンラインの他に、ピクセルの高さ比をもとにした調整
+   可能なスキャンライン機能追加
+  - ダイナミックな解像度変更をするドライバで動作中にVRAMのメモリリークによりメモリ不
+    足が起きていたのを修正
+
+- mc146818 RTCのIRQコールバックを実装。[Carl]
+
+- UNSP CPUコアのリセットを修正。[Robbbert]
+
+- V20コアのPOP、POPF、PUSHFとフラグを修正。[Carl, Alex Jackson]
+
+- memory: レガシーオブジェクトとハンドラを同一構造体に保持。[O. Galibert]
+
+- memory: レガシーオブジェクトとハンドラをset_delegateパラメータとしてパス。
+  [O. Galibert]
+
+- memory: 幅変換関数を同じソース幅のものと統合。[O. Galibert]
+
+- memory: 取り得る全てのデリゲートサイズを網羅した構造体を作成。[O. Galibert]
+
+- memory: メインアクセスとサブアクセスからデリゲートを分離。[O. Galibert]
+
+- memory: アブアクセスのデリゲート化情報をスロット毎に分割。[O. Galibert]
+
+- memory: memdumpファイルが各サブネットの情報を含むように変更。[O. Galibert]
+
+- memory: 衝突しているサブユニットマスクの整理と残っているマスクがないかをテストする
+  ツールメソッドを追加。[O. Galibert]
+
+- memory: map_rangeとhandler_read/write()を一つに統合。[O. Galibert]
+
+- memory: ハンドラ追加時の、エントリアクセスをプロキシ化。[O. Galibert]
+
+- memory: unitmaskをプロキシ化。[O. Galibert]
+
+- memory: map_range関数を、エントリマッピングが固定されたものと、動的に割り当てするも
+  のの2つに分割。[O. Galibert]
+
+- memory: プロキシ管理を、独自のものからハンドラのリストに変更。[O. Galibert]
+
+- memory: サブユニットのみのハンドラだけで動作するハンドラコピー関数追加。
+  [O. Galibert]
+
+- memory: 同一アドレスでの異なるサブユニットにおける別々のハンドラが使用可能。
+  [O. Galibert]
+
+- memory: depopulate_unused()を実装。[O. Galibert]
+
+- pic8259 - エッジトリガと非特定EOIを修正。[Carl, Miodrag Milanovic]
+
+- uPD7801/uPd7810 CPUコアのSKIT_F0命令を追加。[Angelo Salese]
+
+- HLSLコードを単独ファイルのd3dhlsl.c/.hに分離。drawd3d.cもヘッダ2つへ分割。
+  [Ryan Holtz, Bat Country Entertainment]
+
+- nec逆アセンブラ - 解釈が曖昧な場合は"byte/word ptr"のみを表示(i386の逆アセンブラと
+  同様)。[Alex Jackson]
+
+-「セガツーリングカーチャンピオンシップ」にモータードライブ基板のROMを追加。
+  [RetroRepair]
+
+-「スーパークラウンズゴルフ」にPPI8255を2つ実装。[Angelo Salese]
+
+- emuopts: confirm_quitオプションを追加(デフォルトはオフ)。オンのときは、ESCを押すと
+  直接終了せずに確認が画面に出ます。[MamePlus Team, Mamesick, Fabio Priuli]
+
+- i86: リセット時の初期CSを修正。[Alex Jackson]
+
+- memory: 速度的な理由から、gcをrefcounterに変更。[O. Galibert]
+
+- セーブステート前の匿名タイマチェックが逆だったのを修正。また、永続的な匿名タイマ無
+  視してしまうバグを修正。タイマのログ取得コードを追加し、ステートのリストア時と、
+  セーブ時の両方でタイマログ取得。これにより、最近発生していたセーブステートの不具合
+  はほとんど直ったはず。[Aaron Giles]
+
+- Neogeo ROM名の整理開始。ほとんどはチップラベルとソケットラベルの方法にもとづいて、
+  .bin拡張子の削除。[Johnboy]
+
+- OkiM6376サウンドチップにエコーエミュレーション追加。[J. Wallace]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Baryon Future Assault [Corrado Tomaselli, f205v, The Dumping Union, David Haywood] 
+Reality Tennis [Tomasz Slanina, Antonio 'Peluko' Carrillo, Smitdogg, 
+  The Dumping Union]
+Fruit Bonus '06 - 10th anniversary [Brian Troha, Smitdogg, The Dumping Union]
+Super Ball (Version 1.3) [David Haywood, Brian Troha, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Dream Crown (Set 2) [Yohji, Smitdogg, The Dumping Union]
+ハーレーダビッドソン＆L.A.ライダーズ (Rev.B) [Gerald (COY), Smitdogg,
+  The Dumping Union]
+モトクロスゴー！ (MG2 Ver.A) [Gerald (COY), Smitdogg, The Dumping Union]
+脳力向上委員会 (プロトタイプ) [Yohji, Smitdogg, The Dumping  Union]
+Pit Boss Superstar (9221-10-00A) [Siftware]
+Arctic Thunder v1.002 [J. Wilke, ranger_lennier, gamerfan, Smitdogg,
+  The Dumping Union] (NOT WORKING)
+
+
+追加された未動作ゲーム
+----------------------
+パニクルパネクル [dopefishjustin, Smitdogg, The Dumping Union]
+New Hi-Lo Poker [Smitdogg, The Dumping Union]
+
+
+
+0.142u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04354: [クラッシュ/フリーズ] bigappg, casino5, dodge, slither, slithera, ssingles: 
+         VS2010 RTCでヒープコラプトが検出される。(R. Belmont)
+- 04350: [グラフィック] buggyboy, buggyboyjr: グラフィックの不具合多数。
+         (Alex Jackson)
+- 04346: [グラフィック] dangar, galivan and clones: 背景がいろいろな場所でおかしく
+         なっている。(Angelo Salese)
+
+
+ソースの変更点
+--------------
+- 以下のドライバでdeprecat.hを使用しないように更新: [Angelo Salese]
+ - galpanic.c, gradius3.c, halleys.c, hexion.c
+
+-「Champion Poker」(v100)の入力系をゼロから作成。[Roberto Fresca]
+
+-「Yam yam!?」のプロテクトシミュレーションを整理。[Angelo Salese]
+
+- Konami k053252デバイスエミュレーションのほぼ完全版を実装。90年代中盤のKonami製ゲー
+  ムに対して、正確なリフレッシュレートタイミングとIRQ ACKを追加。
+  [Angelo Salese, O.Galibert]
+
+- PSX HWの変更: [smf]
+ - 内部メモリマップをモダン化
+ - MDECをPlayStation CPUの内部デバイス化
+ - ルートカウンタとシリアルI/Oを内部CPUデバイス化
+ - PlayStation IRQコードをCPUのサブデバイスに移動
+
+- 入力ポートについて、トークンではなく関数ベースのコンストラクタを使うように切り替え。
+  以前のトークン化用ヘルパを削除。第一段階として、ポート、フィールド、設定、DIP配置用
+  の基本クラスを追加。これらは今後整理する予定です。必要なインダイレクトを隠すため、
+  フィールドにmachine()メソッドを追加。カスタムハンドラと変更されたハンドラを汎用の
+  リードライトハンドラに変更し、これらをデバイスのリード・ライトラインへコンバートす
+  るためのラッパを追加。[Aaron Giles]
+
+- 入力のリード・ライトと照準のコールバックをデリゲートへ変更。コールバックへのシグネ
+  チャでポインタに代えてinput_field_configを取るように変更。[Aaron Giles]
+
+- eeprom_deviceから古くなったトランポリン関数を削除し、デリゲートをサポートする新型入
+  力ポートを利用。[Aaron Giles]
+
+- mc6845.c: C++にコンバート。[Wilbert Pol]
+
+- i386とNEC逆アセンブラで、"mov ax, mem"命令(オペコードA0-A3)の逆アセンブリを修正。
+  引数(メモリアドレス)が符号付き数字として表示されていたが、全く意味がなかった。
+  [Alex Jackson]
+
+- デバッガのhex dumpコマンドのバグ修正: ASCII文字として出力可能な範囲は32～127ではな
+  く126。[Alex Jackson]
+
+-「レーシングフォース」に出ていた入力不具合修正。再び起動可能。[Angelo Salese]
+
+- Midway T-Unit、Wolf、Y-Unit、CPS1、CPS3のゲームにラベル追加。[Joe Caporale]
+
+- Direct3D 9ターゲットで、HLSLポストプロセス効果を試験的に実装: 
+  [Ryan Holtz, Bat Country Entertainment]
+ * 5パスのポストプロセス: アップスケール、ポストプロセス、直前フレームの保存、
+                          デフォーカス1、デフォーカス2
+ * 多くのエフェクト: スキャンライン、フォーカスずらし、線形コンバージェンスずらし、
+     YIQ色空間畳み込み、彩度、ドットクロールシミュレーション、彩度のサブマッピング
+     シミュレーション、アパーチャマスク、その他
+ * 機能を有効にするにはShader Model 3.0をサポートする高性能なGPUが必要です。パイプラ
+   インは全体で約30テクセルフェッチ、約230の演算命令で構成されています
+ * フレームバッファはXとYの両方向に最大9倍スーパーサンプリングできますが、これでは現
+   存するGPUでもパワー不足のため、Radeon 5000クラスなら3倍、Radeon 4000クラスなら1.5
+   倍程度としてください
+ * デフォルト設定では特に効果はありません。ユーザ側で好みに合わせて設定する必要があり
+   ます
+
+  当然ながら、Direct3D 8ではサポートされません。
+
+- 非最適化ビルドで、Visual Studioの基本ランタイムチェックを有効化。[Oliver Stoneberg]
+
+- 出力がリダイレクトされたときにデータが実際に書き込まれるようにstderrをクリア。
+  [Oliver Stoneberg]
+
+- i286 - 286 LOADALLとトリプルフォールトリセットを追加。[Carl]
+
+- i286 - セグメント特権用に16ビットプロテクトモードをサポート。[Carl] 
+
+- i86 - shift命令を修正。正しいCPUの検出に必要。[Miodrag Milanovic]
+
+- i86 - 0x60-0x6fセクションの無効命令の処理を修正。[Miodrag Milanovic]
+
+- Sega ST-V / Saturnドライバの大幅な整理とstate machineへ転換。[Angelo Salese]
+
+- HLSLの更新。[Ryan Holtz, Bat Country Entertainment]
+ * GPUがラインへ書き出しすることを考えて、カラーコンボリューションとコンバージェンス
+   ずらしを別シェーダに分割
+ * カラーコンボリューションシェーダのヘビーなバリエーションとライトを追加。以前のYIQ
+   カラースペースは削除
+ * 実際のモニタと同じように、フォーカスずらしをシャドーマスクの前に適用するよう変更
+ * "pincushion"を"Pincushion"と"Screen Curvature"に分割。前者は表示画像のみに、また後
+   者はシャドーマスクのみに影響します
+ * CVBSシミュレーションの修正。特に彩度の向上
+ * シェーダユニフォーム経由で、磁石によるコンバージェンスのずれを追加
+ * phosphorescence(燐光)効果を改良
+ * YIQコーデックを改良
+ * YIQプロセスモードに調整可能なカラーキャリアを追加
+ * 解像度変更時のクラッシュや、低スペックカードで-nohlslとしたときのパフォーマンス低
+   下を修正
+ * OS専用のスライダコントロールを可能にするOSD関数、osd_get_slider_listを追加
+
+- HLSLポストプロセス効果の更新: [Ryan Holtz, Bat Country Entertainment, cgwg]
+ * defocus_xとdefocus_yがゼロのときはピンぼけをオフにするよう変更。細かな粒子状効果の
+   調整が可能
+ * YIQコンボリューション効果をメインのカラー畳み込みシェーダから削除して、完全なエン
+   コード/デコードパスの組み合わせと置き換え。これは速度的には遅くなりますが、古いTV
+   風の表示が可能で、オフにすることもできます。
+ * さらに実物に基づくNTSCドットクロールと帯域制限
+
+- i86 - 8086専用のPOP CSとMOV CS,reg命令を実装。[Miodrag Milanovic]
+
+- ST-Vドライバでマルチカセットをサポート。[Angelo Salese, Tafoid]
+
+- BFMゲーム用のウォッチドック修正の中で、マルチプレクサ/ステートマシンをエミュレート。
+  [J. Wallace]
+
+-「Lucky Lady」(Wing)のバイポーラPROMの吸い出しを追加。[Team Europe]
+
+- pic8259 - よりドキュメントにあわせた更新。[Carl]
+
+- アートワーク用の更新に備えてフレームワークを追加。[Mr. Do]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ドラえもんのえあわせモンタージュ (プロトタイプ)
+  [dopefishjustin, Smitdogg, Luca Elia, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Champion Poker (v100) [Roberto Fresca, Team Europe]
+ガンバァール (Japan, GNB4/VER.A) [The Dumping Union]
+アミダー (Konami/1982)  [Patrik Styrnell]
+
+
+追加された未動作ゲーム
+----------------------
+Baryon Future Assault [Corrado Tomaselli, f205v, The Dumping Union]
+Brixian [ Corrado Tomaselli, f205v, The Dumping Union]
+Orbatak (プロトタイプ)
+ポパイ (20p/8 GBP Token) [J. Wallace]
+
+
+
+0.142u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04320: [クラッシュ/フリーズ] Many sets in mpu4drvr.c: Divide by Zeroエラーでクラッ
+         シュする。
+- 01893: [クラッシュ/フリーズ] mk4: デモモードで5戦するとハングする。(Phil Bennett)
+- 04334: [グラフィック] wiz: スプライトが表示されずゲームがプレイできない。
+         (Angelo Salese)
+- 04326: [グラフィック] Many games in cave.c: グラフィックが大きく乱れている。
+         (Alex Jackson)
+- 03103: [色/パレット] all sets in mrdo.c: 4面の色が異なる。
+- 04325: [ドキュメント] madrace: 製造年が間違っている。
+- 04304: [グラフィック] captaven: 海面の表示色がおかしくなっている。(David Haywood)
+
+
+ソースの変更点
+--------------
+- 以下のドライバで、deprecat.hを不要にしてIRQを更新: [Angelo Salese]
+
+    8080bw.c airbustr.c albazg.c argus.c aristmk4.c armedf.c atarifb.c avalnche.c 
+    battlex.c bigevglf.c bionicc.c bionicc.c bishi.c bladestl.c blockout.c 
+    blueprnt.c bmcbowl.c bogeyman.c bottom9.c bsktball.c bublbobl.c buggychl.c 
+    bwing.c changela.c chqflag.c circus.c cischeat.c cloak.c commando.c cosmic.c 
+    cshooter.c darkmist.c dbz.c deadang.c destroyr.c discoboy.c djmain.c docastle.c 
+    dogfgt.c dogfgt.c dooyong.c dorachan.c dragrace.c enigma2.c equites.c esd16.c 
+    espial.c exedexes.c exidy.c expro02.c fastfred.c finalizr.c firetrap.c flower.c 
+    flstory.c gberet.c gng.c goindol.c gsword.c gunsmoke.c itech32.c jack.c jack.c
+    kyugo.c ladyfrog.c liberatr.c m72.c matmania.c megaplay.c meijinsn.c metlclsh.c 
+    mirax.c mjsister.c mlanding.c mouser.c namcos2.c namcos21.c naughtyb.c 
+    nbmj8688.c nbmj8891.c nova2001.c overdriv.c pacman.c paradise.c photon2.c 
+    polepos.c popper.c retofinv.c rollrace.c route16.c sbugger.c segag80r.c 
+    segas18.c seta.c shisen.c slapfght.c snk6502.c solomon.c sonson.c speedbal.c 
+    srmp2.c srmp2.c srumbler.c sstrangr.c strnskil.c suna8.c suprloco.c tagteam.c 
+    taito_l.c tomcat.c tsamurai.c tunhunt.c vastar.c vigilant.c vulgus.c wecleman.c
+    wheelfir.c wiz.c xxmissio.c zn.c zodiack.c
+
+- expro02.cのスプライト不具合修正。[Angelo Salese]
+
+- Taito_LドライバでAM_SHAREマクロを使うように更新。[Angelo Salese] 
+
+-「Evil Stone」のサウンドハックを削除。レベル1のボスでやられるとサウンド不具合が出る
+  のを修正。[Angelo Salese]
+
+- intelfsh.c: Fujitsu 29DL16Xをサポート。[Sandro Ronco]
+
+- bs666さんが報告した「Xenix」の起動時についてのバグレポートにより、
+  i86/i386のPOP SPとPOP ESPをを修正。[Miodrag Milanovic]
+
+- device_configとdevice_tを一つのクラスに統合。既存のモダンデバイス全てと、レガシー
+  ラッパがこの環境で動くように更新。これによりモダンデバイスを書くのが大幅に簡素化。
+  [Aaron Giles]
+
+- psx.c: ロックアップを防ぐため、MDECのタイミングを調整。ほとんどのFMVでビデオがなめ
+  らか表示可能。[R. Belmont]
+
+- Z80STIの割り込みを修正。[Curt Coder]
+
+- I8255の割り込みイネーブルを修正。[Curt Coder]
+
+- RP5C01とRP5C15のリセットレジスタビットマスクを修正。[Curt Coder]
+
+- 3.5" EDフロッピードライブ型を追加。[Curt Coder]
+
+- Naomi / Triforce / Chihiroのドキュメントを更新。[f205v]
+
+- k051733演算チップのプロテクトリードバックレジスタ0c07と0x0e/0x0fを修正で
+  「チェッカーフラグ」のプレイ中の問題が解決。[Angelo Salese]
+
+- konamigv: ドキュメントの更新。[Guru]
+
+- diimage.c: Valgrind氏が発見した初期化されていない変数を修正。[R. Belmont]
+
+- mc146818: Valgrind氏が発見した初期化されていない変数を修正。[R. Belmont]
+
+-「シスコヒート」ドライバの入力修正とデジタルハックを削除。[Angelo Salese]
+
+- MCC1850 RTCエミュレーションを追加。[Curt Coder]
+
+-「シスコヒート」ドライバにシフト表示を追加。[Angelo Salese] 
+
+-「F-1グランプリスターII」のIRQコミュニケーションにあったあやしいハックを削除。
+  [Angelo Salese]
+
+- SEIBU_ADPCMを使うゲームでの2つ目のADPCMプレイヤーを修正。[R. Belmont]
+
+- k051733 RNGを加算器と動作するように変更。「ファストレーン」の疑似ランダムイベントが
+  改良。[Angelo Salese]
+
+-「ホットチェイス」のゲーム速度の一時的なテスト。ただしまだ不完全(特に音とのかねあい)。
+  [Angelo Salese]
+
+- devcbをデリゲートとクラスを使って再実装。ターゲットの特定ロジック統合とコードの整理。
+  [Aaron Giles]
+
+- naomi: mapleとjvsインタフェースをデバイスのセットへと抽出。
+  [O. Galibert, MetalliC, Tormod, D. Knute]
+
+- setax001/x002チップのスプライト実装を統合開始。[David Haywood]
+
+- drcbex64: op_debugを修正。[O. Galibert]
+
+-「パズニック」のMCU追加と、PALをNO_DUMPに設定。MCUはまだ正しい実装が必要。
+  [Smitdogg, The Dumping Union, Lord Nightmare]
+
+- naomi: jvs コマンド 0x32を追加。「クレイジータクシー」
+ 「Virtua Tennis 2 / パワースマッシュ2」の起動が改善。[O. Galibert]
+
+- Midway T-Unitドライバの入力ボタン名ラベル追加。[Joe Caporale]
+
+- NB1414M4ルーチンを非"state"化。また、関連する「アームドF」のタイルマップを8ビットに
+  コンバート。[Angelo Salese]
+
+- NB1414M4を「妖魔忍法帖 / Ninja Emaki」に実装。グラフィックが大幅に改善。
+  [Angelo Salese]
+
+-「妖魔忍法帖」海賊版にシリアルタイプのスクロールを実装。[Angelo Salese]
+
+- ダイナミックデバイスをコアでサポート: [Miodrag Milanovic]
+ * スロットとスロットカードインタフェースを追加
+ * デバイス追加を単純化するため、SLOT_INTERFACEマクロを追加
+ * 新メニューオプション"Slot Devices"追加と、ランタイムでのデバイス変更をサポート
+ * スロットカードのコマンド設定をサポートするため、emuoptを更新
+
+- clifrontを更新して、使用可能なスロットを表示するためのlistslotsオプションとそれぞれ
+  のデバイスオプションを追加。[Miodrag Milanovic]
+
+- mpu4.c: Crystal Gamingプログラムカードと、パラメータ設定のためのリンクキーをサポー
+  ト開始。[J Wallace]
+
+- 6840ptm.c: set_gate()のモードチェックを修正。[J Wallace]
+
+- srcclean.c: srccleanでクリーニングするファイルを、XMLではないソースファイルのみにす
+  るよう改良(ソフトリストにはUTF-8キャラクタが含まれているので)。[Fabio Priuli]
+
+-「コンバットスクール」海賊版で正しいサウンドプログラムを実装。[Angelo Salese]
+
+- フォーマット処理と、全てのフォーマットを別のライブラリに移動。[Miodrag Milanovic]
+
+- PlayStation DMAをCPUコアの内部デバイスにコンバート。外部デバイスへのDMAはmachine 
+  configで設定できます。コードのコンバートが完了するまで、古いコードはそのまま残して
+  あります。[smf]
+
+- MCCS1850でデフォルトのNVRAMをサポート。[Curt Coder]
+
+- Irem M92/M107の修正: [Alex Jackson]
+ * サウンドCPUの割り込みを正しく実装。ドライバでベクタ生成する方法をやめ、V35組み込み
+   の割り込みコントローラを使用
+ * ROMミラーリングを整理。DRIVER_INITでmemcpy()を使いまくる方法をやめて、AM_REGIONマ
+   クロを使用
+ * バンク切り替えを設定済みバンクを使うように切り替え。ゲームでバンク切り替えを使うも
+   ののみ、バンク設定とWRITE_HANDLERインストールを行う(プログラムROMが満杯のものなど)。
+   この変更と上の変更により、ドライバがかなり見やすくなったはず
+ * 両ドライバでスキャンラインタイマデバイスを使うよう変更
+ * m92.cでセーブステートをサポート。必要なものは既に全て保存されていたものの、タグの
+   追加が必要でした。ただ、おそらくコアのemu_timerの故障(MT 4330、4331)のため、今のと
+   ころセーブステートは動作しません。このことはMT #4333として報告済みです
+ * wpksocとクローンセットにGAME_MECHANICALタグを追加
+
+-「銀河任侠伝」で6840 PTMデバイスを使うように変更。[Angelo Salese]
+
+- Wizドライバのスプライトが表示されないバグを修正。[Angelo Salese]
+
+- chdman: .nrgファイルでトラックタイプ6を処理。[R. Belmont]
+
+- kFreeBSDでのコンパイルを修正。[Christian Marillat]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+チェッカーフラグ [Angelo Salese]
+Super Wing [Tomasz Slanina, Wulfman]
+
+
+新しく追加されたクローンセット
+------------------------------
+Witch Card (German, WC3050, 27-4-94) [Roberto Fresca, Team Europe]
+
+
+追加された未動作ゲーム
+----------------------
+Quizard Rainbow 4.0  [Team Europe]
+Frank 'n' Stein (unencrypted) [J Wallace]
+ハイレートDVDシリーズ7 麻雀マニア 快楽館へようこそ [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ11 ザ・ナンパ [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ13 コスプレ天国7 -スーパーコギャルグランプリ-
+  [alien_mame, The Dumping Union]
+ハイレートDVDシリーズ15 ふーどる [alien_mame, The Dumping Union]
+
+
+
+0.142u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03552: [ドキュメント] kodure: ゲーム名がKodureになっているが、漫画や映画に合わせて
+         Kozureにした方がよいのでは。(Angelo Salese)
+- 04314: [ドキュメント] lca, lca2: ゲーム名は正しくは"Lights... Camera... Action!"。
+- 04191: [サウンド] dynablstb: 起動時のノイズ以外、サウンドが全く出ない。
+         (Alex Jackson)
+- 02087: [サウンド] qbert, qbertqub and clones: 起動時の"Hello. I'm turned on."のボイ
+         スがまた鳴らなくなっている。(Robbbert)
+- 04307: [ドキュメント] jokrz_l6, jokrz_l3: ゲーム名は正しくは「Jokerz!」
+- 02072: [グラフィック] mooncmw, spcdraga, mooncrgx: 3面と4面でグラフィックがおかしく
+         なる。(Robbbert)
+
+
+ソースの変更点
+--------------
+-「アームドF」基板ゲームにIRQ ACKメカニズムを追加。[Angelo Salese]
+
+-「テラフォース」海賊版のbit-rotビットを手修正。アトラクトモードのクラッシュが解消。
+  [Angelo Salese]
+
+-「テラフォース」海賊版セットのもう一つのZ80エミュレーションを修正(プロテクト用のリプ
+  レースとして使用)。動作可能に昇格。[Angelo Salese]
+
+- terrafu / terrafaのMCUシミュレーションを実装。[Angelo Salese]
+
+-「子連れ狼」のテキストプロテクトシミュレートを実装。ゲーム中のスコアやコピーライト画
+  面が表示可能。[Angelo Salese]
+
+-「子連れ狼」のFGスクロールラッチを実装。ゲームのイントロシーンでのレイヤーオフセット
+  を修正。[Angelo Salese]
+
+- taito_b.c - qzshowbyにPLDの吸いだし追加。[Tafoid]
+
+-「超時迷宮レジオン」に1414M4エミュレーションを追加。[Angelo Salese]
+
+-「クレイジークライマー2」の1414Mエミュレーションを実装。[Angelo Salese]
+
+- ドライバの開始時にRTCを特定の日付時刻で初期化を行うため、device_rtc_interfaceを追加。
+  不具合テストで便利。ほとんどのRTCデバイスにこのインタフェースを実装。
+  注: コマンドラインにはまだ実装していません。[Curt Coder]
+
+- Namco System 11のクローンセットを国コードとバージョンを元に改名。[smf]
+
+- SDL: バックワードテクスチャレクトアングルオプションを修正。[AWJ]
+
+- NB1414M4プライオリティビットを実装。「アームドF」ドライバ全ゲームのテキストプライオ
+  リティが修正。[Angelo Salese]
+
+-「86 Lions」をAristocrat Mk-4ドライバに統合。[Angelo Salese]
+
+- m90ドライバの改良: [AWJ] 
+ * MTバグ4191(dynablstb: 音出ない)の修正
+ * bbmanwとクローンのサンプル再生を実装し、GAME_IMPERFECT_SOUNDを削除(bbmanwjでははじ
+   めから動作していたので、フラグがついていたのはおかしかった)
+ * V35の割り込み生成に、前に自分がやったdeprecat.hを使ったアホな方法から、
+   generic_pulse_irq_line()を使う方法に変更
+ * cb2001.cにも同様の修正
+ * 入力系のスペルミスを修正
+ * quizf1を、モダンバンクスイッチにコンバート
+ * R.Belmont氏の協力で、quizf1とbomblordをエンディアンセーフに変更
+ * セーブステートをサポート
+
+- m90ドライバでdeprecat.hを使わないように更新。[Angelo Salese]
+
+-「アームドF」ドライバのRAMベースなスプライトパレットを実装。この基板の全ゲームで色の
+  サイクルエフェクトに使用。[Angelo Salese]
+
+-「エイリアン・ザ・アーケード -メダルエディション」のコンパクトフラッシュを吸い出し。
+  [Smitdogg, The Dumping Union]
+
+-「Buster」の修正をいろいろ。ゲームの起動とプレイが可能。[Angelo Salese]
+
+-「戦え！ビッグファイター」を「アームドF」ドライバに統合。[Angelo Salese]
+
+- terrafbのビットロットしてたROMを再吸い出し。[Bill D., The Dumping Union]
+
+- astring: toupper()がマクロのところで、NetBSDや他のシステムでビルドできない問題を修
+  正。[Thomas Klausner]
+
+-「コップ01」「マイティガイ」にIRQ ACKメカニズム実装とCPUクロックスピードの修正。
+ 「マイティガイ」のクラッシュが解消。[Angelo Salese]
+
+- es5503: オシレータイネーブルビットの設定時に正しくマスク。[R.Belmont]
+
+-「コップ01」の音程を実機資料を元にして調整。[Tafoid]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+マイティガイ [Angelo Salese]
+
+
+新しく追加されたクローンセット
+------------------------------
+鉄拳2 (TES3 VER.D) [atchoo, Smitdogg, The Dumping Union, smf]
+ソウルエッジ (SO2/VER.A) [f205v, Smitdogg, The Dumping Union, smf]
+ソウルキャリバー (SOC13 VER.C) [f205v, Smitdogg, The Dumping Union, smf]
+鉄拳タッグトーナメント (TEG2 VER.C1) [f205v, Smitdogg, The Dumping Union, smf]
+リベログランデ (LG1 VER.A)
+  [B. Munger, S. Ruiz, Smitdogg, The Dumping Union] (動作せず)
+天聖龍 (set 2) [Tirino73] (not working)
+
+
+追加された未動作ゲーム
+----------------------
+
+
+
+0.142u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03368: [グラフィック] shienryu: タイトル画面前のコピーライトやゲームID、パテントな
+         どが表示されない。
+- 01994: [クラッシュ/フリーズ] birdtry: 第1ホール終了後にゲームがフリーズする。
+         (Angelo Salese)
+
+
+ソースの変更点
+--------------
+- dec0ドライバにscreen rawパラメータとirq ackを追加。「バーディトライ」の1番ホールで
+  のハング修正と、「バルダーダッシュ」のフェードイン・アウトエフェクトが改善。
+  [Angelo Salese]
+
+- Funworldドライバのアップデート: [Roberto Fresca]
+ * Video Klein製の「Witch Royal」を完全サポート
+ * ホールドボタンが真ん中になるようにボタンのランプレイアウトを作り直し
+
+- AM_BASEマクロが生まれる原因をなくすため、atarimoビデオコアから外部変数を削除。
+  [Atari Ace]
+
+- astrocde/kaneko16/namcos23/suprnovaをdriver_deviceにコンバート。[Atari Ace]
+
+- Taito F3のビデオチップ(TC0630FDP)を16ビット並列に変更。[Angelo Salese]
+
+-「2 Minutes Drill」ドライバでTaito F3ビデオチップに変更してグラフィックが大幅改善。
+  [Angelo Salese]
+
+-「2 Minutes Drill」用に、IRQ ACKの追加とサウンドチップタイプをYM2610Bへ変更。
+  [Angelo Salese]
+
+- bikinikoのDVDイメージを吸いだし。[alien_mame, The Dumping Union]
+
+- Taito F3のサッカーゲーム(「Taito Cup Finals / ハットトリックヒーロー'93 / 
+  International Cup '94 / Taito Power Goal / ハットトリックヒーロー'95」)の観客のグラ
+  フィックについて、もっとよい情報が見つかるまで一時的な対応。[David Haywood]
+
+- softlist: ソフトウェアリストの処理を内蔵UIから単独ソースに移動して、コードをFile 
+  Managerの処理コードと同じように変更。[Fabio Priuli]
+
+- CPS-3のアップデート: [Team CPS-1]
+ *「ストリートファイターIII -ニュージェネレーション」Hispanic BIOS ROM CD版を追加
+ * 新しいカートリッジリージョンやCDリビジョンを判断するのに必要となる、既知の全リリー
+   スの詳細リストを追加
+ * 新しいカタログ番号を使ってCHDを改名
+
+- uiswlist.c: 内蔵UIのソフトリストエントリについて、ZIP名順かゲーム名順かの切り替えを
+  追加。また、ソート対象に応じてキー入力マッチングを切り替え。[Fabio Priuli]
+
+- sc61860 cpu - クラッシュとクリーンアップの修正。将来的なコアデバッグに備えて、内部
+  RAMアクセスを関数呼び出しに置き換え。[Atari Ace]
+
+- cartslot.c/chd_cd.c: ソフトリストのsharedfeat(例: 'compatibility')をテストするコー
+  ルバック関数と、警告メッセージ表示をサポート。cdi.cを使用例として更新。
+  [Fabio Priuli]
+
+-「3 Super 8」のプログラムROMを復号化。[Lord Nightmare, Kevtris]
+
+- cassette.c/flopdrv.c: ディスプレイ情報のコールバック関数をサポート。
+  [Miodrag Milanovic]
+
+- corona/galaxian/namcos21/namcos22/namcos23/psikyosh/quizo/sigmab98をdriver_deviceに
+  コンバート。[Atari Ace]
+
+- scramble/galaxoldをdriver_deviceにコンバート。[Atari Ace]
+
+- オーディオデバイスの追加:  [Atari Ace]
+ * exidy440/m72/segasndをレガシーデバイスにコンバート
+ * cage/dcs/williamsの変数をデバイス同様にするため内部で再構成。今後のデバイスコン
+   バートのため。AM_BASEマクロも削除
+ * taito_en has minor changes to eliminate an AM_BASE macro.
+
+-「3 Super 8」のエミュレーションを大改良。NMIのアクナレッジメカニズムを「Super Poker」
+  ドライバに実装。[Angelo Salese]
+
+- i286 - プロテクトモードのバウンダリーチェックを修正。[Miodrag Milanovic]
+
+- naomibd: NetBSDでのシステムマクロと衝突するのを修正。[Thomas Klausner]
+
+-「4 En Raya」のPAL風PROMリードバックを実装。[Angelo Salese]
+
+-「ぷるるん」の音程とテンポを実機ビデオに合わせて修正。[Tafoid]
+
+- tms5220.c: コメントの更新とスタンダードでない特徴の定義。[Lord Nightmare]
+
+- 8237dma - カスケードモードをサポート。[Wilbert Pol]
+
+- pic8259 - カスケードモードをサポート。全デバイスのインタフェースを更新。
+  [Miodrag Milanovic]
+
+- upd7725.c: p0とp1出力ビットをデバイスラインとして実装; INT入力ラインのテスト実装。
+  [Lord Nightmare]
+
+- mamedriv.cを、ビルドツールで生成される新しいドライバリストメカニズムに置き換え。こ
+  れにより、エミュレータコア側でドライバ名を各行に羅列した
+  src/$(TARGET)/$(SUBTARGET).lst ファイルを必要とします。CとC++のコメントは使えます。
+  新しいmakelistビルドツールがこのファイルを解析してドライバ名を抽出、ソートして
+  コアが使用するdrivlist.cというファイルを生成します。[Aaron Giles]
+
+- osdコア関数osd_malloc_array()を追加。これは、osd_malloc()と同一ですが、配列用のもの
+  です。全ての呼び出し元を適切な形に更新しました。Windowsのアロケータが、配列スタイル
+  の割り当てに対しては、ガードページのみを使うように変更。これにより、デバッグビルド
+  で、もう一度有効にすることができます。[Aaron Giles]
+
+- 有効なドライバリストへのアクセスをラップする静的クラス、driver_listを追加。makelist
+  側であらかじめソートしてあるためドライバの検索が高速化。[Aaron Giles]
+
+- ドライバリストのイテレーション用ヘルパークラス、driver_enumeratorを追加。このクラス
+  では、基本的なフィルタリングとイテレーションをサポートし、 machine_configsの一時
+  キャッシュも提供します。[Aaron Giles]
+
+- clifront.cのCLI処理コードを全てラップするcli_frontendオブジェクトを作成。全てのコー
+  ドでdriver_enumeratorを利用するように更新、またはシンプル化。[Aaron Giles]
+
+- audit.cのチェック関数を全てラップするmedia_auditorオブジェクトを追加。全ての使用箇
+  所を新インタフェースに更新。新チェック機構は、デバイスが保持するROMを見つけるという
+  意味から、romloadコードからは少し遅れています。そのため、新しいROMロードコードがで
+  きるまでは、一部の事柄について間違った報告をする可能性があります。[Aaron Giles]
+
+- ドライバ単位のsearchpathコンセプトを追加。ほとんどデバイスのsearchpathはデバイス名
+  を縮めたものです。driver_devicesについては、searchpathはdriver[;parent[;bios]]とな
+  ります。このsearchpathはROMローダーがROMを見つけるのに使用される予定です。今のとこ
+  ろメディアのオーディット用だけに使っています。[Aaron Giles]
+
+- 情報生成関数を全てラップするinfo_xml_creatorオブジェクトをinfo.cに作成。ファイルを
+  C++にコンバートして入力処理コードをクリーンアップ。[Aaron Giles]
+
+- model2.c:「トップスケーター」(USA)のリビジョンレベルを訂正。[The Dumping Union]
+
+- Konami Viperドライバの改良いろいろ。[Ville Linde]
+
+- midqslvr: ハードウェアの情報を追加。[O. Galibert]
+
+- ステッパーモーターのシミュレーションでリバーススピンをサポート。[James Wallace]
+
+- mpu4.c: MOD 4 OKIプログラムカードROMバンキングのドキュメント化と、BwBキャラクタライ
+  ザエミュレーションを改良。[James Wallace]
+
+- Intel 8257 DMA命令のI/Oアドレスを修正。[Curt Coder]
+
+- OS Xでの非ネイティブSDLビルドを修正。[Paulo Cabral]
+
+- Added "Mandatory artwork is missing" error [Oliver Stöneberg]
+
+- 16ビットデバイスのコールバックを実装。[Curt Coder]
+
+- MacOSXでのフォント読込みを修正。[Couriersud]
+
+- デリゲート2.0の実装。デリゲートをよりフレキシブルでシンプルに使えるように再デザイン。
+  NULLオブジェクトと結びついたデリゲートへの移行のため、proto_delegatesを全て削除。
+  自然なシンタックスをサポートするフロントエンドテンプレートの追加と、オブジェクト型
+  へのポインタに代えて、参照パラメータを取る静的関数をサポート。システム全体の使用箇
+  所をこの新シンタックスに更新。[Aaron Giles]
+
+- DIRECT_UPDATE_HANDLERで、システム内の他のものと同様にmachineへの参照を取るように変
+  更。呼び出し元を全て更新。[Aaron Giles]
+
+- FUNC()マクロで、渡される項目の前に自動で&を追加するように変更。これは透過的に行われ
+  ますが、一方で関数名ではなく変数を渡しているケースを補足できるという効果もあります。
+  名前が正しく提供されるように、このようなケースを修正しました。また、FUNC(NULL)が動
+  作しなくなったため、FUNC_NULLマクロを追加しました。[Aaron Giles]
+
+- tms5220.c: 完全補間ハックを部分的に修正。デフォルトでは無効。[Lord Nightmare]
+
+- segas24: Atari Aceが残したヴォゴン人の詩を整理開始。cgfm氏の解析に基づいた新しい
+  タイミング処理の実装。「ゲイングランド」がフリープレイモードでスタック。
+  [O. Galibert]
+
+- tms5220.c: 完全補間ハックの残りを修正。0.140以前のように動作。[Lord Nightmare]
+
+- tms5220.c: 完全補間ハックを少し改良して、阻止フレーム後のノイズが減少。
+  [Lord Nightmare]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Major Poker (v2.0) [Roberto Fresca, Tomasz Slanina, Rob Ragon]
+Witch Royal (Export version 2.1) [Roberto Fresca, Team Europe]
+Water-Nymph (Ver. 1.4) [Team Europe, Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+サイレントスコープ (ver xxC, Ver 1.30)  (not working) [Alex Romero]
+ストリートファイターIII - ニュージェネレーション (Hispanic 970204)
+ [Bill D., The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Racing Jam: Chapter 2 (EAE) [RetroRepair]
+スリルドライブ (EAA) [RetroRepair]
+エイリアン・ザ・アーケード メダルエディション
+  [Yohji, Tormod, Smitdogg, The Dumping Union]
+Home Run Classic [Mariusz Wojcieszek]
+Country Club Classic [Mariusz Wojcieszek]
+Trap Shoot Classic [Mariusz Wojcieszek]
+ファミコンボックス [Kevin Horton]
+MPU3 Unit Test (Program 5) [James Wallace]
+Hyper Viper [James Wallace]
+

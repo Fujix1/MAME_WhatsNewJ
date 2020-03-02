@@ -1,0 +1,165 @@
+0.131u2
+-------
+
+
+MAMETesters Bugs Fixed
+----------------------
+- 03173: [サウンド] Many sets using atarijsa.c: サンプルサウンドの音程がおかしい。(Phil Bennett)
+- 03171: [クラッシュ/フリーズ] pang, spang, pompingw, pkladies: 起動チェックで、RAMエラーが起こる。(Pierpaolo Prazzoli)
+- 03170: [サウンド] mtrap and clones: 効果音が繰り返される。(Fabio Priuli)
+- 03169: [クラッシュ/フリーズ] All sets in hvyunit.c: Access Violationエラー。(Angelo Salese)
+- 03168: [サウンド] All sets in halleys.c: 音がまったくでない。(Fabio Priuli)
+- 03167: [色/パレット] fromancr, fromanc4: 2つ目の画面の色がおかしい。(Fabio Priuli)
+- 03166: [グラフィック] tattass, tattassa: グラフィックが表示されない。(Fabio Priuli)
+- 03153: [クラッシュ/フリーズ] penbros: Access Violationエラー。(Mamesick)
+- 03163: [グラフィック] sailormn, sailormo: 背景グラフィックが消えたり、ずれたりしている。(Mamesick)
+- 03150: [クラッシュ/フリーズ] metmqstr, nmaster: Access Violationエラー。(Mamesick)
+- 03162: [サウンド] baddudes, hbarrel, birdtry, robocop, hippodrm, ffantasa: サウンドが鳴らない。(Angelo Salese)
+- 03147: [その他] shtngmst: IC74のSHA1値が間違っている。(nicolasa)
+- 03160: [クラッシュ/フリーズ] tubepb: Access Violationエラー。(Fabio Priuli)
+- 03152: [クラッシュ/フリーズ] All Sets in nss.c: Access Violationエラー。(Fabio Priuli)
+- 03151: [クラッシュ/フリーズ] jajamaru, mightybj, topgun, vsgshoe: Access Violationエラー。(Fabio Priuli)
+- 03154: [クラッシュ/フリーズ] All sets in pooyan.c: Access Violationエラー。(Fabio Priuli)
+- 03157: [クラッシュ/フリーズ] All Sets in policetr.c: Access Violationエラー。(Fabio Priuli)
+- 03159: [クラッシュ/フリーズ] superchs: Access Violationエラー。(Fabio Priuli)
+- 03148: [クラッシュ/フリーズ] All sets in konamigx.c: Access Violationエラー。(Fabio Priuli)
+- 03146: [コンパイル] cpu\vtlb.c 64 bit warning: [64bit限定] 64bitでのコンパイル警告。(smf)
+
+
+
+ソースの変更点
+--------------
+- MCUのデキャップが必要なものを具体的にドライバへ記載。[Angelo Salese]
+
+- Naomiレンダラ: 全64のブレンドモード追加と、位置の精度向上。[Olivier Galibert]
+
+- Irem M14ハードウェアをタイルマップにコンバート、ドライバの整理。[Angelo Salese]
+
+- yumefuda.c/hanaroku.cをalbazg.c/albazc.cに改名。[Angelo Salese]
+
+-「グランドストライカー」ドライバをMCU未吸い出し追加。[Angelo Salese]
+
+-「エイリアンコマンド」の背景色を修正。[Angelo Salese]
+
+- naomiにプロファイルマーカを追加。CPUの使用パーセントを見るためのもの。
+  [David Haywood]
+
+- adpドライバのAY-8910音量を低減。[Angelo Salese]
+
+-「ストリートファイターZero3アッパー」が完全にプレイ可能になるような修正。
+  [Angelo Salese]
+
+- 最近ダンプされたたMega-Tech2本についての情報を更新: [Brian Troha]
+   Shadow Dancer, Streets of Rage
+
+- 以下のドライバのメモリマップ統合とコメントの整理: [MooglyGuy]
+  homedata.c, intrscti.c, inufuku.c, irobot.c, jack.c, kaneko16.c, naughtyb.c, 
+  scobra.c, scramble.c, slapfght.c, spaceg.c.
+
+- Naomiのダイレーションのバグ修正。shikgam2のキャラグラフィックが修正。
+  [David Haywood]
+
+- MDRV_CPU_PROGRAM_MAP、MDRV_CPU_DATA_MAP、MDRV_CPU_IO_MAPから第二引数を削除。マルチ
+  アドレスマップを使う残りのドライバについては、ベースマップをインポートするのに
+  AM_IMPORT_FROMを使うようにコンバート。[Aaron Giles]
+
+- Naomiのビデオエミュレーションにバイリニアフィルタリング追加。ただし、常時最低のMIP
+ レベルを使っているため、テクスチャ表示はまだ少しフニャフニャ。
+ [MooglyGuy, Aaron Giles]
+
+- Naomiで、テクスチャ無しのレンダリングを短絡化。不良グラフィックが大幅改善。
+ [David Haywood]
+
+- tubepbでの不具合を修正。[Fabio Priuli]
+
+- gigasにMC-8123キーを追加。プログラムROMがないので、ゲームは動作せず。
+  [Nicola Salmoria]
+
+- Naomi専用のテクスチャモードルールを適用。[David Haywood]
+
+-「テトリス極道」が起動するよう、SH-4のUART FIFOリードオンリーステータスレジスタを応
+  急処置。ただし、「La キーボードュ」と同様すぐにクラッシュする(未マップアドレスへジャ
+  ンプ)。[Angelo Salese]
+
+- Naomiのベースレジスタが書き込まれた時に、YUV割り込みが発生するようにハック追加。
+  [David Haywood]
+
+- namcos2.c、nyanpai.c、nbmj9195.cで、マクロからAM_IMPORT_FROMを使うようにコンバート。
+  [Angelo Salese]
+
+- mitchell.cのゲームで起きていた不具合を修正。[Pierpaolo Prazzoli]
+
+-「エアバスター」にMCU未吸い出しを追加。[Angelo Salese]
+
+-「ストリートファイターZero3アッパー」のBGMがでない原因だった、ACIAのIRQをコメントア
+  ウト。[Angelo Salese]
+
+- Naomi Wave DMAハンドラのデバッグを改良。[Angelo Salese]
+
+-「DJボーイ」のメモリマップを現在の方法にコンバート。[Angelo Salese]
+
+- pipedrmのタグの問題修正。[Fabio Priuli]
+
+- ninjakd2のDIPSWとノートを修正。[kanikani]
+
+- メモリマップを統合で起きたcave.cとseta2.cのバグを修正。[Fabio Priuli]
+
+- MCS-51の修正: [Aaron Giles]
+ * int0のときにjb int0,<self> ループを解除
+ * 外部クロック制御されたカウンタのみをカウント
+ * アウトオブバウンドなアクセス時に、内部RAMのラッピングを廃止
+
+- System 1の変更: [Aaron Giles]
+ * 8751のプライオリティ実装
+ * 8751のハック削除
+ *「シューティングマスター」のセットを入れ替え
+
+- tattassでのメモリマップ統合による不具合を修正。[Fabio Priuli]
+
+- fromancr、fromanc4のP2パレット書き込みハンドラを修正。[Fabio Priuli]
+
+- helleys.cのサウンド修正: ay8910の書き込みハンドらを2バイトで動作。[Fabio Priuli]
+
+- polystar、hellngt、totlviceのCHDを不良に指定。入れ替え予定。[Guru]
+
+- evilngt/hellngtにYMZ280B ROMを追加。[Guru]
+
+- homedata.cドライバに出ていたバグを修正。[Angelo Salese]
+
+-「Legend of Makai / 魔魁伝説」で出ていたバグを修正。[Angelo Salese]
+
+-「Red Baron」AVG BPROMから"BAD_DUMP"を削除。Dumping Unionにより、内容とラベルが正し
+  いものと確認。[Smitdogg]
+
+-「キック&ラン / Mexico 86」のシングルボード4Pモードを改良。大体動作するが、2Pモード
+  がおかしくなるので、いまのところ無効化。[Angelo Salese]
+
+-「奇々怪界」の例外処理を修正。[Angelo Salese]
+
+-「ダイナミックゴルフ」のIOボードROMを吸い出し。[Guru]
+
+-「King Derby」のスプライトラップ処理と横反転位置を修正。[Angelo Salese]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+PTリーチマージャン [Angelo Salese]
+おてなみ拝見 (V2.04J) [Joerg Hartenberger, Guru]
+上海 -三國牌闘儀- (Ver 2.01J) [Joerg Hartenberger, Guru]
+チョップリフター (8751 315-5151) [The Decapping Project, Aaron Giles]
+シューティングマスター (EVG, 8751 315-5159a) [The Decapping Project, Aaron Giles]
+のぼらんか [The Decapping Project, Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+侍日本一(set 3, harder) [f205v]
+ハットリス (US) [Andrew Welburn]
+
+
+
+追加された未動作ゲーム
+----------------------
+IQ Pipe [SoftwareThis]

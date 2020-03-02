@@ -1,0 +1,43 @@
+0.94u4
+------
+
+■FMサウンドチップを使うゲームでステートロード時にクラッシュするのを修正。[BUT]
+
+■FD1094のステート変更動作を「ゲイングランド」用に少し変更。[Nicola Salmoria]
+
+■NMK004シミュレーション改良と「ブラックハート」のハング修正。[Nicola Salmoria]
+
+■playmark.cのスプライト色修正。[Pierpaolo Prazzoli]
+
+■「デッドアイ」の銃を実装。[smf]
+
+■デバッガで、アドレス値が高い場合のメモリダンプの問題を修正。[Ville Linde]
+
+■PSXのテクスチャウィンドウバグを修正(libero grandeのピッチと「アクアラッシュ」
+  のプレイフィールド部分)[smf]
+
+■「ペンゴ」のROMローディングを修正。[shimapong]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Buccaneers [David Haywood]
+カロリー君VSモグラニアン [David Haywood, Pierpaolo Prazzoli]
+    (海賊版のみ動作、オリジナルは暗号化)
+ゲイングランド [David Haywood]
+リベログランデ [smf]
+Pipeline [Tomasz Slanina]
+    (サウンド無し)
+
+
+新規クローンセット：
+--------------------
+Crazy Rally (Gecas license) [Manuel Assoni]
+パッシングショット (Japan, FD1094 317-0070) [Chack'n]
+ワンダーボーイIII (Japan, FD1094 317-0087) [Chack'n]
+鉄拳 (TE2/VERC) [smf]
+
+
+GAME_NOT_WORKINGステータスになったゲーム：
+------------------------------------------
+Snapper [David Haywood]

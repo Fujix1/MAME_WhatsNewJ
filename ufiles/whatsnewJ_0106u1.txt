@@ -1,0 +1,78 @@
+0.106u1
+-------
+
+重要なお知らせ: システムでビデオ関係の大幅な変更を開始しました。既存のビデオコードの
+大部分は動作すると思いますが、作業が終了するまで一部の機能は動作しなかったり、動いて
+も正常ではなくなるかもしれません。このリリースでは特に、Direct3D blitをしない場合の
+RGBエフェクトが壊れています。当座は、ビデオシステムについての問題は報告しないでくださ
+い。安定したMAMEが希望の場合はリリース0.106を使ってください。以上お知らせしておきます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+gladiatr0105u4gra [Don Maeby]
+
+
+
+ソースの変更点
+--------------
+- taito_xドライバのアップデート: [AWJ]
+ - twinhawkのサウンド修正
+ - 最近追加されたDIPスイッチの間違いを訂正
+ - supermanとtwinhawkにPORT_DIPLOCATIONSを追加
+
+- MSVCコンパイラサポートの改良: [Nathan Woods]
+ - vconvがバージョン情報に基づいて複数バージョンのMSVCをサポートするように改良
+ - パラメータトランスレーションをさらに追加
+ - vconvでビルドするときに、makefileがコンパイル中とリンク中のメッセージを表示するよ
+   うに改良
+
+- WindowsのblitterでDRCエンジンを使うようにコンバート。この変更によりRGBエフェクトは
+  公式的に動作不可。[Nathan Woods]
+
+- 無効なファイルネームで-debugscriptコマンドラインオプションを使ったときにクラッシュ
+  するバグを修正。[Nathan Woods]
+
+- DIP_PORTLOCATION()マクロのオーダリングが一定になるように訂正。マルチビットDIPスイッ
+  チは、一次LSBで定義してください。inptport.hにこれについてのコメント追加。
+  [AWJ, Aaron Giles]
+
+- デコカセゲームの背景色修正。[Nicola Salmoria]
+
+- micro3dドライバがクラッシュする可能性があったのを修正。[MamePlus!]
+
+- CHD-CDサポートの改良: [R. Belmont]
+ - RAW CDセクタ変換サポートをさらに追加。例えば、ゲーム側から、RAW CHD-CDより2048バイ
+   トのデータセクタをリクエストしても正確なデータが得られます
+- CHDMANのエラーメッセージを逆に入れ換え。非RAW CHD-CDは廃止予定になりました。
+- susumeで、オリジナルのKonamiディスクからRAW CHD-CDを直接読み込むようにしました。
+
+- Polygonet Commanderドライバの改良: [Andrew Gardner]
+ - dsp56コアにchange_PC()コール追加
+ - ハックっぽいdsp56kの初期化、有効化、無効化を削除
+ -「Polygonet Commanders」のdsp56kに関連付けたバンキングハードを予備的に実装
+
+- 6840エミュレータのMSBアクセスとラッチリーディングを修正。[El Condor]
+
+- N64オーディオ出力の改良: [R. Belmont]
+ - オーディオインタフェースをステレオDMADAC（実際のもの）に書き換えにより、コードがか
+   なりシンプルになりました
+ - AI割り込みの意味づけを修正
+
+- 誤ってIPT_LIGHTGUNを使っていたゲームを大量にIP_AD_STICKに変更。[Aaron Giles]
+
+- きちんとしたマルチスクリーンサポートのための準備。Machine構造体のvisible_areaと
+  refresh_rateの値は配列として定義するように変更（1つにつき1画面）。machine_configも
+  同様の入れ換えで、以下のフィールドを削除:
+
+   frames_per_second
+   aspect_x, aspect_y
+   screen_width, screen_height
+   default_visible_area
+   vblank_duration
+
+- これらは全て、新しいscreen_config構造体に保存します。[Aaron Giles]
+
+- 新レンダーシステムのサポートを改良するため、ユーザインタフェースコードを再構成。
+  [Aaron Giles]

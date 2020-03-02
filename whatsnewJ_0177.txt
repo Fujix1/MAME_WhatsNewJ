@@ -1,0 +1,675 @@
+0.177
+-
+
+MAMETestersの修正バグ
+---------------------
+- 06292: [クラッシュ/フリーズ] (victor9k.c) victor9k [cpm86]: cmp86ディスクでフリーズする。(Robbbert)
+- 05813: [クラッシュ/フリーズ] (abc1600.c) abc1600: [デバッグ限定] OK画面前にアサート。(Ryan Holtz)
+- 06317: [クラッシュ/フリーズ] (pc1512.c) pc1512, pc1512dd, pc1512hd10: 3c503スロットオプションを使うとクラッシュする。(Ryan Holtz)
+- 06316: [クラッシュ/フリーズ] (pc1512.c) pc1512, pc1512dd, pc1512hd10: ibm_mfcスロットオプションを使うと致命的エラー。(Ryan Holtz)
+- 06315: [クラッシュ/フリーズ] SLOTS:: c4023、c1526、mps802デバイスを使う全セットで致命的エラー。(Ryan Holtz)
+- 06314: [クラッシュ/フリーズ] SLOTS:: -centronics p72スロット/オプションを使う全セットで致命的エラー。(Ryan Holtz)
+- 05823: [システムコア] (coco12.c) coco cocoe coco2 coco2b: -ramsize設定が効かない。(npwoods)
+- 01455: [DIP/入力] (segas18.c) lghost, lghostu: 照準がかなりずれている。
+- 06356: [グラフィック] (ajax.c) ajax and clones: 表示エリアが実機に比べると狭い。(Duke)
+- 06269: [デバッガ] デバッグを使用するとチートが使えない。(MooglyGuy)
+- 00550: [グラフィック] (atarisy2.c) apb: パトカーをスタートさせる所の四角い部分にグラフィック不具合がある。(crazyc)
+- 06352: [クラッシュ/フリーズ] (cps1.c) mbombrd, mbombrdj: デモモードでクラッシュする。(Osso)
+- 06349: [ゲームプレイ] brapboys: ゲーム終了時にMAMEがクラッシュする。(Olivier Galibert)
+- 06185: [DIP/入力] LIGHTGUNS: Aimtrak Dual Lightgunが正しく認識されない。
+- 06343: [DIP/入力] (taito_l.c) plottingu: コインエイジのDIPスイッチ設定が間違っている。(Tafoid)
+- 06342: [クラッシュ/フリーズ] pc (pccga): ロード中にクラッシュする。(crazyc)
+- 05584: [ゲームプレイ] (konamigx.c) rungun2, slamdnk2: 動作中に不明なプロテクトについてのメッセージが表示される。(Tafoid)
+- 06335: [インターフェイス] UI:: Input (general) メニューが正しく表示されない。(cuavas)
+- 06326: [クラッシュ/フリーズ] (megadriv.c) megadriv, 32x and clones, some segac2.c sets: ソフトリストからゲームやマシンを選択すると例外・クラッシュする。(Osso)
+- 06332: [グラフィック] (galaga.c) digdug and clones: タイルマップ0のグラフィックが表示されない。(Osso)
+- 06331: [クラッシュ/フリーズ] (apollo.c) dn3500_19i, dsp3000, dsp3500, dsp5500: 起動時にクラッシュ・例外発生。(Osso)
+- 06330: [クラッシュ/フリーズ] (altos5.c) altos5: 起動時にクラッシュ・例外発生。(crazyc)
+- 06328: [クラッシュ/フリーズ] Various ISA using machines: 初期化時にクラッシュ・例外発生。(crazyc)
+
+
+ソースの変更点
+--------------
+- maygay1b: [David Haywood]
+ * ランプの第二セット修正
+ * MCUの実装を部分的に調査
+
+- apple2gs.cpp: ROM03 Apple IIGS用の841-0748 FE-FF ROMを再ダンプ。341-0748と341-0749
+  のROMが同一であることを確認。[Brian Troha]
+
+- mpu4.cpp: DRIVER_INITの全拡張をフラグメントとして追加。これにより、セット毎の設定が
+  できゲームがプレイ可能になる。[James Wallace]
+
+- naomi.cpp: 既知のSega DIMMボードファームウェア吸い出しを全て追加。[TylerDurden67]
+
+- amstrad.cpp: GX4000にポーズボタン追加。[Barry Rodewald]
+
+- debugimgui: イメージメニュー、生イメージ生成ダイアログ追加。[Barry Rodewald]
+
+- ALTOS5: バンキング修正。全ディスク起動可能。[Robbbert]
+
+- アーケードの"sun"プロジェクトがMESSの"sun"プロジェクトと名前が同じなので改名。
+  [Robbbert]
+
+- Playmatic Pinball: MPU-1ゲームが全て動作。その他WIP。[Robbbert]
+
+- MK14: [Robbbert]
+ * メモリバグ修正
+ * ペーストファシリティ、カセット、サウンド、ノート追加
+
+- Pro-80: デバイス追加。[Robbbert]
+
+- LDP-1450レーザーディスクプレイヤを独自デバイス化。[James Wallace]
+
+- MFME2MAMEの変換をベースに、Aで始まるゲームのMPU4レイアウトをサポート。CHRプロテクト
+  データは多くのセットで未実装なので、ランプ動作は不正確。[James Wallace]
+
+-「フェラーリF355」日本版BIOS吸い出し。[ShouTime]
+
+- TNZSのROM配置とラベルを修正。[Brian A. Troha, Lord Nightmare]
+
+- hiscore.dat: 更新。[Leezer]
+
+- netlistの修正いろいろ:  [couriersud]
+ * インクルードのマイナーな整理
+ * アサインオペレータで起きていたメモリホールを修正
+ * さらにC++
+ * netlistコードで必要に応じてnoexceptを使用
+
+- abc80x: ABC-838ディスクイメージのセルサイズを修正。[Curt Coder]
+
+- c64: 1541 bitのリード・ライト関数について、これといった速度向上もない程度の最適化。
+  2個のCIAがボトルネックになっているため。[Curt Coder]
+
+- compisの改良: [Curt Coder]
+ * グラフィックカードスロット用バスを生成
+ * キーボード修正
+ * ドライバを動作可能に昇格
+ * RTCが24時間モードを使うように修正
+
+- victor9kの改良: [Curt Coder]
+ * トラックステップ後にフロッピーのRPMをセット
+ * hiresグラフィックを実装
+ * ディスプレイの明るさ調整を実装
+ * キーボードラインY12を修正
+ * SCPコミュニケーション実装
+ * CP/MとMS-DOSへ起動可能 - ドライバを動作可能に昇格
+
+- pofoの改良: [Curt Coder]
+ * A: クレジットカードメモリを実装
+ * RTC修正
+ * メモリカードスロットインタフェースとROM/RAMカードを追加
+
+- im6402: データフレーム変更後にレシーブ/トランスミットレジスタをリセット
+ [Curt Coder]
+
+- wangpcの改良: [Curt Coder]
+ * 割り込み処理修正 - DOSで起動可能
+ * POST時のキーボードエラー修正
+
+- DEVICE_SELFが使われるとリージョンレポートが無くなるのを修正。[O. Galibert]
+
+- dirom: ROM/メモリマップどちらかのサウンドチップ用device_rom_interface [O. Galibert]
+ * オーバーサイズROM用にロバスト化
+
+- dirom, okim6295: バンキングサポートを追加/修正。[O. Galibert]
+
+- VGMプレイヤー(vgmplay)の準備版。[O. Galibert]
+
+- kaneko_calc3: メモリの破棄を停止。[O. Galibert]
+
+- Fairlight CMI IIxドライバ: [Ryan Holtz]
+ * PhilさんのCMI IIxドライバをモダン化
+ * シリアルコールバック実装で、アルファベットキーボードが動作
+ * FDC DMAを修正し、QDOSが起動可能
+ * MSM5832 RTCの実装を修正
+ * 2個目のフロッピー実装
+
+- vgmplay.cppの拡張: [Ryan Holtz]
+ * 以下を追加: HuC6280, NES APU, Gameboy DMG, YM2203, YM3812, YM3526, AY-3-8910, 
+   Namco C352, Sega MultiPCM, Konami K053260, Atari POKEY, Oki M6295
+ * ループをサポート
+ * AY-3-8910、YM2203、MultiPCM、POKEYのデュアルチップをサポート
+
+- tv990/995: セーブステートサポートとLPTポート追加。[R. Belmont]
+
+- tv950: 再吸い出し、スケルトンからの実装開始、何かを描画するにはCRTCの達人が必要。
+  [R. Belmont, Al Kossow]
+
+- ti99の改良: [Michael Zapf]
+ * TMS9902のスタックしたINTラインを修正
+ * ログ出力の改良
+ * CTSシグナル、外部へのRTS、内部へのDTRを追加
+ * RS232ラインマッピング修正
+ * カートリッジへのデバッガアクセスを修正
+ * ROM_REGIONSの代わりに正しいRAMデバイスを使用
+ * フォーマットしたディスクイメージが期待するファイルサイズに合わない問題を修正
+ * ダブルステッピングの問題を修正
+
+- ti99_dsk: FMでデータマスク削除に絡む問題を修正。[Michael Zapf]
+
+- hdc92x4: 9224エミュレーション追加。[Michael Zapf]
+
+- PC-ATモード追加(未テスト)。9224エミュレーションの準備。[Michael Zapf]
+
+- フロッピー: フロッピーサウンドエミュレーションを新しいサンプルにして改良。
+  [Michael Zapf]
+
+- Funworldドライバ: Inter Games ポーカーにテクニカルノート追加。[Roberto Fresca]
+
+- Jolly Card (Austrian, set 2):
+ * スペック追加 [Roberto Fresca, Team Europe]
+ * GAL16V8Sダンプ追加 [Team Europe, caius]
+
+- Jolly Joker (Apple Time): テクニカルノート追加。[Roberto Fresca]
+
+- Amatic multigames: テクニカルノート修正。[Roberto Fresca]
+
+- alto2の改良: [Juergen Buchmueller]:
+ * スピーカーサウンド追加
+ * さらにクリーンアップとcruft削除
+ * フェイクのステータスディスプレイ削除。マウス配置コードをリファクタリング
+ * 追加のスクリーンバッファ削除
+ * ビットマップの即時更新により偶数/奇数フレームスキャンラインのコピーをセーブ
+ * I/Oメモリリードの修正
+ * フレームレート減少 (毎秒30フレームの60フィールド)
+ * デコードしたMIRビットフィールドの置き換え
+ * メンバ関数ポインタを削除
+ * ビデオタイミングのリファクタリング。attoseconds_tを使用
+
+- apricotの改良: [Dirk Best]
+ * 拡張バスを自身のディレクトリに移動
+ * キーボードインタフェース用にバスインタフェースを作成
+ * HLEキーボードエミュレーションをバスデバイス化
+ * HLEキーボードエミュレーションでFIFOの重複や実装を減らすため、
+   device_buffered_serial_interfaceとdevice_matrix_keyboard_interfaceを使用
+ * キーボードでRTCをサポート
+
+- キーボード/ターミナルの改良: [Vas Crabb]
+ * HLEマトリックスキーボードとRS232バッファデバイス用のベースクラス追加
+ * 汎用キーボード/ターミナルをより広く使えるように改良: 
+   設定可能でタイプマチックなディレイ/レート、選択可能なJIS/ANSIレイアウト、より直感
+   的なキー同時押下処理、ハイビットの設定にメタを使用、CRでの自動LFやLF時の自動CRの
+   設定、ローカルecho、audibleなベル
+
+ * generic_keyboardからOlivetti M20キーボードを生成。ノート追加、物理レイアウト使用
+ * generic_keyboardからRM Nimbusキーボードを生成。-naturalを固定
+ * generic_keyboardからx68kキーボードを生成。キー名改良、デフォルトマッピングと
+   typematicな動作
+ * generic_keyboardからQX-10キーボードを生成
+ * NGENキーボードをかろうじて動作保持
+
+- srccleanをUTF-8、C++14、Luaで書き直し。[Vas Crabb]
+
+- UTF-16のエンコードを修正、Windowsの文字描画処理にUTF-16を送出。[Vas Crabb]
+
+- use-after-freeを固定するため、path_iteratorが検索パスをコピー。[Vas Crabb]
+
+- devfindの改良: [Vas Crabb]
+ * オブジェクトファインダの動作をポインタハイブリッド風(ポインタ/参照/ベクタでない)に
+   変更
+ * デフォルトの引数値と危険なアクセサを削除
+ * オブジェクト配列ファインダ用に単一のユニフォームクラスを使用。混乱を防ぐため本物の
+   配列を使用
+ * オブジェクト配列ファインダで、よりフレキシブルなタグ名を使えるようにフォーマット文
+   字列を使用
+ * bolerplateコードを大幅に減らすためtypedefのテンプレートを使用
+ * テンプレートのインスタンス化を統合しビルドのスピードアップ
+ * Doxygenコメントを多数のキークラスに追加
+
+- cosmic.cppとmpu4.cppゲームで、I/Oポート配列ファインダに渡すタグが少なすぎるものを修
+  正。[Vas Crabb]
+
+- dooyong.cpp: 表示系の改良: [Vas Crabb]
+ * popbingoで、2つの4bppタイルマップを8bppとしてミックス
+ * ROMタイルマップジェネレータをデバイス化。処理関係を全てvideo startから
+   machine configに移動し、トランポリンを削除
+ * タイル/スプライトROM領域を実機に合わせて16ビット化
+ * Z80ゲームの16ビットテキストレイヤーをデバイス化
+ * ステートクラスを分割し、machine configから派生
+
+- 壊れ修正: smsでIPT_STARTを使うとMAMEがジョイパッド1が占有されていたと考え、ジョイ
+  パッド1と2ではなく、ジョイパッド2と3に追加されてしまう。[hap]
+
+- dotrikunの改善: [hap]
+ * ビデオタイミング大幅改良。ただしccovellのROMの不具合はまだあり
+ * eat_cyclesを0に固定し、adjust_icountが本来の動作
+ * ビデオタイミングに別な方法をお試し
+
+- gx4000: コンソールのポーズボタンにIPT_KEYBOARDを使わないよう変更。[hap]
+
+- al520ex: tvordiy znakの正しいキー名を使用。[hap]
+
+- hh_tms1k: ゲームリストのノート更新。[hap]
+
+- hh_hmcs40: sagの内部アートワーク追加(外部アートワークがまだお勧め)。[hap]
+
+- tlcs90: ナンセンスなチェックを修正。[hap]
+
+- chessmst: リセットと一時停止ボタン追加。[hap]
+
+- champbasjb: MCUデバイスの不足についてMAMEがエラーを出すのを修正。romlabel訂正。
+  [hap]
+
+- lghost: ガンオフセット補正を無効にできるよう変更。[hap]
+
+- tiamc1: タイルマップビットレイヤー無効化制御。[MetalliC]
+
+- i8080: スタック中とIOアクセス中のステータスコールバックを修正。[MetalliC]
+
+- vector06: 改良: [MetalliC]
+  * RAM拡張をエミュレート。MicroDOSとソフトウェアが動作可能
+  * ROMカートリッジアドレスのデコードを修正。起動可能
+  * KR1818VG93 FDCを使うように変更
+  * "Sound Tracker"と"R-Sound" AY8910サウンド追加
+  * pit8253サウンド追加
+  * vblank割り込み生成修正
+
+- cv1k.cpp:「ピンクスゥイーツ」のU2グラフィックROMの不良ビットを発見し修正。
+  吸い出し済みの4バージョンの比較による。[MetalliC, rtw]
+
+- aica: ADPCM diff値をエンコーダのリサーチに基づき固定。[kode54, MetalliC]
+
+- hp9845: 正しいキャラクタ生成ROM追加。[fulivi, A.Kueckes]
+
+- emumem.h定義を使用。[Giuseppe Gorgoglione]
+
+- gba: コードの利ワークとシンプル化。[Giuseppe Gorgoglione]
+
+- gba: コードのリファクタリング第一弾: [Giuseppe Gorgoglione]
+  * C++の機能を使いコードのモダン化
+
+- iniファイルでハイスコアのパスを設定可能に改良。.hiファイルパスの解決を固定化。
+  [stengun]
+
+- MAME #618でGun#2が動作しないのを修正。[Pitou]
+
+- kaneko_calc3.cppのリードケース修正と、kaneko_toybox.cppをセーフ化。[David Haywood]
+
+- Seibuのリファクタリング: [David Haywood]
+  *「クロスシューター / Air Raid」、「エンパイアシティ1931 / Street Fight」、
+   「ダークミスト」は全て同じようなビデオシステムを持つ; 共通実装まではあと数ステップ
+  *「エンパイアシティ1931 / Street Fight」「クロスシューター」は共通のメインボードで、
+    ビデオボードが異なる; ビデオボードをデバイス化
+
+- BFM Sc2/4のDM01マトリックスボードCPUをデバイス内に配置。[David Haywood]
+
+- Maygay M1A, MCU bones, コミュニケーションは未実装。[David Haywood]
+
+- MPU4セットの説明文を修正: [David Haywood]
+ * 種類判定とハックのマーキング
+ * 正しいゲームとのセット割り当て
+ *「Casino Bar-gain」「Bar-gain」を別ゲームに指定
+
+- Sc2 DMDを画面扱い。タグルックアップを回避、正しいDMD ROMを一部セットに追加。
+  [David Haywood]
+
+- Maygay M1A/Bのランプマッピングを一部修正: [John Parker]
+  * マトリックス中の手前半分のランプマッピングを修正
+  * タイポ修正とマトリックス後半を処理する関数にコメント追加
+
+- Maygayドライバにレイアウト追加: [John Parker]
+ * これらは自動生成されたもので、MFME2MAMEコンバータが改良されたときに更新予定。
+   リールは転写したもの
+ *  m1albsqp, m1apollo2, m1bargnc, m1bghou, m1bigdel, m1calypsa,
+    m1casclb, m1casroy1, m1chain, m1cik51o, m1clbfvr, m1cluecb1,
+    m1cluedo4, m1cluessf, m1coro21n, m1dkong91n, m1dxmono51o,
+    m1eastndl, m1eastqv3, m1fantfbb, m1fightb , m1frexplc, m1gladg,
+    m1grescb, m1hotpoth, m1htclb, m1imclb, m1infern, m1inwinc,
+    m1itjobc, m1itskob, m1jpmult, m1lucknon, m1luxorb, m1manhat,
+    m1monclb, m1mongam, m1monmon, m1monou, m1nhp, m1nudbnke, m1omega,
+    m1onbusa, m1przeeb, m1retpp, m1search, m1sptlgtc, m1startr,
+    m1taknot, m1thatlfc, m1topstr, m1triviax, m1trtr, m1ttcash,
+    m1wldzner, m1wotwa
+
+- Scorpion 1の新レイアウト: [John Parker]
+  *  sc1barcd, sc1bartk, sc1cl65, sc1clbtma, sc1cwcl, sc1dblch, sc1pwrl,
+     sc1sirb, sc1spct, sc1str4
+
+- Scorpion 2: 12個の内部レイアウト追加: [John Parker]
+  *  sc2ptytm1, sc2cpe, sc2casr2, sc2majes, sc2eggs1, sc2prom, sc2cpg,
+     sc2copcl7, sc2town2, sc2suprz1, sc2heypr, sc2prem2
+
+- Scorpion 4: 35個のレイアウト追加。[John Parker]
+
+- Scorpion 4: 73個のレイアウト追加: [John Parker]
+  *  sc4jack, sc4kalei, sc4knokb, sc4lirb, sc4lined, sc4lockb, sc4lkbcl,
+     sc4mmmg, sc4mgr, sc4mtbb, sc4mtbclb, sc4monoba, sc4mondxe,
+     sc4mr2rc, sc4motor, sc4mou, sc4nmtj, sc4nudita, sc4pacqpa,
+     sc4paccl, sc4pstata, sc4pgold, sc4po8, sc4ppclb, sc4pipe, sc4plumb,
+     sc4polic, sc4pony, sc4potsha, sc4pwrbq, sc4pwrsg, sc4pen1c,
+     sc4qmodo, sc4quidrb, sc4rhxcsa, sc4rhxcl, sc4redsq, sc4rotc,
+     sc4revod, sc4richl, sc4rttt, sc4roksc, sc4rogds, sc4rmo, sc4rtc,
+     sc4srrca, sc4smk7, sc4slci, sc4solgl, sc4slihd, sc4sparkd,
+     sc4sbust, sc4starpk, sc4strk, sc4sahed, sc4susk, sc4suscl, sc4s6cd,
+     sc4taekw, sc4takcl, sc4tempt, sc4lions, sc4tic2, sc4tbana,
+     sc4tload, sc4tpshta, sc4trail, sc4ttomb, sc4tridn, sc4tfclb,
+     sc4vrgclb, sc4wldjkc, sc4xmarka
+
+- JPM IMPACT: 58個のレイアウト追加。[John Parker]
+  * j6aceclb, j6acehi, j6amdrm, j6arcadee, j6big50, j6bigbukc,
+     j6bigtopa, j6bnkrcl, j6bnza, j6btbwd, j6camelt, j6casclaf,
+     j6cascze, j6colcsh, j6cpal, j6crack, j6drdogh, j6euphor, j6ewn,
+     j6fastfr, j6ffce, j6frtpot, j6gidogh, j6gldclb, j6gogold,
+     j6goldgla, j6guabc, j6guabcl, j6hapyhrb, j6impulsc, j6indyi, j6kfc,
+     j6kungfud, j6megbck, j6mono60, j6monst, j6montlkb, j6oxobin,
+     j6quick, j6ra, j6redarwf, j6reelmn, j6rh6cld, j6rhchil, j6rico,
+     j6rollerd, j6slagng, j6snakes, j6stards, j6swpdrp, j6tombc,
+     j6topflg, j6twst, j6untch, j6vindal, j6vivark, j6wizardd, j6wldkng
+
+- MPU3: 39個のレイアウト追加。[John Parker]
+  * m3acech, m3autort, m3biggam, m3bigsht, m3blkhle, m3cabreta, m3chase,
+     m3circle, m3cskill, m3cunlim, m3fortun, m3gcrown, m3gmine,
+     m3lineup, m3loony, m3nnice, m3oddson, m3online, m3oxo, m3ratrce,
+     m3razdaza, m3replay, m3rockpl, m3rollem, m3rxchng, m3sexcu,
+     m3slight, m3snaphp, m3spoof, m3supadr, m3supnud, m3supspo,
+     m3supwin, m3sweep, m3tfair, m3toplin, m3winagnb, m3winstr, m3xchngg
+
+- Scorpion 4: 7セグ表示をほぼ修正。[John Parker]
+
+- Maygay: 入力ストロボオーダーバグ修正。[John Parker]
+
+- 再生成したMaygayレイアウトを修正; 全て初期化可能。[John Parker]
+  * コンバータのバグ修正伴う更新
+
+- Maygay: レイアウトの追加と更新: [John Parker]
+  * 新しく'MFME2MAME Debug View'を持つ
+  * 'coin slot buttons'用の修正
+  * 5本目のリールのランプを改良
+  * 新しいレイアウトを4つ追加
+
+- JPM MPS: 89このレイアウト追加: [John Parker]
+  * j2adnote, j2always, j2bankch, j2bigbnk, j2bigbox, j2blustr,
+     j2cashbn, j2cashrl, j2cashro, j2cashrv, j2cashtk, j2coinsh,
+     j2coppot, j2cprndx, j2criscr, j2crown, j2cshalm, j2cshcrd,
+     j2cshfil, j2cshnud, j2cshsmh, j2cvault, j2droplt, j2ewn, j2ews,
+     j2exec, j2fasttk, j2fiveal, j2fiveln, j2fqueen, j2frucnx,
+     j2fullhs, j2fws, j2ghostb, j2gldchy, j2goldbr, j2hilocl, j2hinote,
+     j2hiroll, j2hitmon, j2hotpot, j2hotsht, j2hypnot, j2jackbr,
+     j2kingcl, j2litean, j2litnot, j2lovshd, j2lovsht, j2luckar,
+     j2lucky2, j2maxima, j2missis, j2monblt, j2mongam, j2montrp,
+     j2nolimt, j2notesh, j2nudbnz, j2nudfev, j2nudmon, j2nudshf,
+     j2paypkt, j2penny, j2plsmnd, j2plsnud, j2pndrsh, j2rdclb,
+     j2reelbn, j2reelbo, j2reelcz, j2reelmc, j2reelmo, j2silvcl,
+     j2silvsh, j2sldgld, j2slvrgh, j2spcrsv, j2sstrea, j2stahed,
+     j2supfrc, j2suprsh, j2supsft, j2supstp, j2suptrk, j2swbank,
+     j2take2, j2trail, j2tstplt
+
+- JPM SYSTEM5: 21個のレイアウト追加: [John Parker]
+  * j5ar80cla, j5cira, j5fairp, j5firebl, j5hollyc, j5hotdoga,
+     j5indsum, j5intr, j5movie, j5nite, j5palma, j5popeye, j5sizl,
+     j5supbara, j5suphi, j5swop, j5term, j5topshp, j5trail, j5ujb,
+     j5wsc
+
+- BFM DMD: 実機により忠実に合うように色調整。[John Parker]
+
+-「テクノドライブ」の改良: [superctr]
+  * H8 ADC入力修正
+  * サブCPUはH8 SCIの何かの動作を想定していて、動作しない場合、数分で操作系が反応しな
+    くなる
+  * サブCPUプログラムにパッチすることで、起動時のCOIN ERRORをバイパス
+  * th1fl3l.12とth1fl3u.13を入れ替え、正しいメモリ位置(0x1800000)に配置。これにより、
+    Namcoロゴのクラッシュを修正
+
+- namconb1: 一部ゲームのサウンドタイミングを修正: [superctr]
+  * nebulray、gslugrsj、gslgr94uとクローンセット、vshootのテンポ修正
+
+- timecrisのサンプルROMをバイトスワップし、C352ゲームからMACHINE_IMPERFECT_SOUNDフラ
+  グを削除。[superctr]
+
+- Namco C352の改良: [superctr]
+  * C352コアをVGMPlayで使われている新しい物に置き換え(ノイズ生成とサンプル補完が修正)
+  * ND-1とSystem 12ドライバの比較を含むサウンドドライバの検証に基づき、System 12/23ド
+    ライバのサブCPUとサウンドチップの周波数を変更
+  * 2個目のSanyo LC78815MステレオDACが無いシステムのリアチャンネルを削除
+
+- kim1: RS & STキー、入力ポートの更新: [Dagarman]
+  * STキーの実装とRSキー関数の更新
+  * テンキー追加とペースト機能の改善のためINPUT_PORTSの更新
+  * kim1.hへ型定義を移動
+  * kim1.layの座標を単純化
+
+- Vii BIOSの診断メニューバグ3つについてドキュメント化。[PressStartandSelect]
+
+- デバッガでの'trace'/'traceover'コマンドの動作を修正: [Nathan Woods]
+  * 'trace'/'traceover'コマンドは3つの引数を取るように定義されていたが4つに修正
+
+- MC6847の低解像度ビデオモードを修正: [Nathan Woods]
+  * ビデオデータがサンプルされるときに低解像度ビデオモードでロードされるサンプル数が
+    多すぎるバグを修正
+  * CoCoで、Project Nebulaやその他ゲームで使用する低解像度ビデオモードを修正
+
+- CoCo 1/2: 定義可能RAMサイズを修正: [Nathan Woods]
+  * 6883 SAMの実装について、利用可能なスペースより小さいメモリバンク長はミラーされて
+    いない前提に変更
+
+- rom_entryを文字列のコピーを保持するクラスに設定: [Nathan Woods]
+  * POD tiny_rom_entryを静的ROM定義に導入
+  * rom_entry配列をイテレートするコードをC++化
+
+- diimageのリファクタリング: [Nathan Woods]
+  * device_image_interface::load()が画像とソフトリスト項目両方をロードしないよう変更
+  * もう使われていないhas_been_created() APIを削除
+  * エラーコードの翻訳を整理統合
+  * ほとんどのケースでCの文字列ではなくstd::stringを使用
+  * フォーマットリストのカプセル化を改良
+  * ファイル名拡張子抽出のカプセル化を改良
+
+- ソフトリストのリファクタリング: [Nathan Woods]
+  * ソフトウェアリストのデータ構造をランタイムデバイスから分離
+  * C文字列ではなくstd::stringを使用
+  * 様々なコンセプトに対する用語を統一
+
+- NULL終端文字列をstd::stringにコンバート: [Nathan Woods]
+  * zippathとemufileへのパラメータ
+  * menu_software_list::m_filename_buffer
+
+- CassetteLegacyWaveFiller.chunk_sample_calc()の返値をチェック(エラーチェックによりよ
+  い)。[Nathan Woods]
+
+- device_image_interface::determine_open_plan()について、
+  device_image_interface::create()が使われない限りイメージを生成しないように変更。
+  これによりゼロバイトの画像が生成されてしまう謎動作が解消。[Nathan Woods]
+
+- Win32のERROR_INVALID_NAMEをosd_file::error::NOT_FOUNDとしてレポート。[Nathan Woods]
+
+- メニューのラグ修正。[dankan1890]
+
+- マルチキーボード用にrequired_ioport_arrayを使用。[shattered]
+
+- ec1841: 新メモリシステムに対応。[shattered]
+
+- mc1502: BIOSのシリアルテストが動作するよう更新。[shattered]
+
+- poisk1, mc1502: マイナーな修正。[shattered]
+
+- vt240: フロー制御が有効な場合のホストCOMMを修正。[shattered]
+
+- dvk_ksm: ホストCOMM修正、そのキーボードにPORT_CHAR追加。[shattered]
+
+- dvk_ksm: dvk_ksm01の派生版を削除し、ROMセットをマージ; そのキーボードにtxを有効化。
+  [shattered]
+
+- ms7004: シリアルrx有効化とPORT_CHAR追加。[shattered]
+
+- keyboard: F16..F20キーを追加(DEC端末で使用)。[shattered]
+
+- isa_hdc: READSBUFFコマンドを実装(ec1841診断で使用)。[shattered]
+
+- OS Xで"P1 Mahjong Score"を/キーに再割り当て。[AJR]
+
+- 新コア入力タイプ: "Memory Reset": [AJR]
+  * 設定/ブックキーピングをシステム指定のデフォルトにリセットする
+  * デフォルトのキーバインディングはF1
+
+- 麻雀ゲームのメモリリセット入力をさらに規定。[AJR]
+
+- dynax.cpp: サービス入力のレギュラー化。[AJR]
+
+- -refreshspeedと-audio xaudio2で起こる音割れの修正試行。[Calamity]
+
+- 新しい拡大オプション(Jezzeさんのご提案): [Calamity]
+  * 新オプション -unevenstretchy (-unevenstretchxを補完する)
+  * 新オプション -autostretchy、ソースネイティブな画面方向に応じて-unevenstretchxか
+    -unevenstretchyを自動的に選択する
+
+- OSX SDL 2.0.4の相対マウス用ワープモード(githubの#1232を修正)。[bradhugh]
+
+- sengokmj: プログラムコードの調査を元に入力を改良: [AJR]
+  *  サービス入力は全てDIPトグルではなくモメンタリスイッチ
+  *  サービスモードに表示されている未使用のSW2 DIPを追加
+  *  サービスモードには表示されない微妙な入力を2つ追加
+
+- pwrkick, othldrby: 改良いろいろ: [AJR]
+  *「パワーキック」「オセロダービー」にNVRAM追加; 後者のリセットメカニズムのドキュメ
+    ント化
+  *「パワーキック」にチケットディスペンサ追加(ほとんど動作してる模様)
+  * たくさんあった偽DIPスイッチを削除
+  *「パワーキック」のコイン入力を完全に再構成。3つ全てにカウンタとロックアウトを追加
+  * プログラムコードを元に「パワーキック」のPayoutのDIPスイッチを意味の通る設定に変更
+
+- skylncr.cpp: ほぼ全てのゲームを改良: [AJR]
+  *「Sonik Fighter」以外の全ゲームでスタンダードな入力を使用
+  * 動作するホッパー出力とペイアウトボタン追加
+  * mbutrflyのプロテクトを解析し動作可能に昇格(コードは暗号化されていなかった)。
+    また関連するボタンランプを追加
+  * bdream97を復号化。グラフィック不具合と入力問題があるものの動作可能
+
+- kurukuru, ppj: 入出力の改良: [AJR]
+  * チケットディスペンサが動作
+  * 払い出しモードのDIPスイッチ訂正
+  *「ぴょんぴょんジャンプ」のDSW1設定訂正
+  * コイン入力とコイン関連DIPスイッチを改名し、デノミネーション順に並び替え
+  * 実際に使用されていない未使用入力を削除
+  *「くるくるぴょんぴょん」のフルキャラクタ名
+  * リセットボタンを"メモリーリセット"にマッピング
+  * プログラムコードよりノート追加
+
+- パレットビューアで色の値を表示: [AJR]
+  * マウスを色の上にホバーするとインデックスとRGB値を表示
+  * 間接ペンについては色に対応するインデックスも表示
+  * 通常のRAMベースパレットの色については、メモリ内の生の値も表示(バッファされた
+    パレットでは今のところ動作せず、PROMベースやRAMDACベースのパレットとも互換性なし)
+
+- バリディティチェックの改良: [AJR]
+  * クラッシュを検出するため、-validate -verboseで各ドライバ名をチェック前に出力
+  * ソフトリストのチェックを最初だけに変更
+  * アドレスマップがエントリ境界がグローバルマスク外のときエラー表示
+
+- Midway V-Unitの改良: [Risugami]
+ *「クルージンUSA」「Cruis'n World」「オフロードチャレンジ」のレイアウト追加
+ * ハンドルのフォースフィードバックの参照追加と、その他入力についてのノート追加
+ * Galilコマンドコミュニケーション実装完了
+ * モーションコントローラの実装完了
+
+-「リバーパトロール」(日本版)を復号化。ゲーム動作可能。[MASH]
+
+- DribblingのPROMを修正(異なるPROMのあるDribbling基板を吸い出し)。[f205v, MASH]
+
+-「グリーンベレー」(海賊版)の不足PAL吸い出し追加。[MASH]
+  * suprmribl、drhl、ddragon6809aでも同じPALを使用
+
+- Turkey ShootとMystic MarathonにビデオPROM追加。[MASH]
+
+- アーケードのみビルドを修正(cshooter.cppをairraid.cppに変更)。[MASH]
+
+- deluxe4uのSMT Flashを正しく吸い出したもの追加。[system11]
+
+- dynax.cpp:「Intergirl」のカラーPROM吸い出し。[f205v]
+
+- arkanoid.cpp: コメントの整理; どのMCUが使われているかについてノートを更新。
+  [Lord Nightmare]
+
+- PinMAMEと同期し、新ピンボールセット多数追加。[Osso]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+Alto-II [Juergen Buchmueller]
+TeleNova Compis [Curt Coder]
+Atari Portfolio [Curt Coder]
+Victor 9000 [Curt Coder]
+Wang Professional Computer [Curt Coder]
+Vector 06c [MetalliC]
+Intergirl [f205v]
+Magical Butterfly (version U350C, protected) [AJR]
+リバーパトロール (Japan) [MASH]
+テクノドライブ (Japan, TD/VER.B) [superctr]
+Select-A-Game: Baseball 4 [hap, Kevin Horton]
+Select-A-Game: Pinball [hap, Kevin Horton]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+Compis II [Curt Coder]
+ザ・ニュージーランドストーリー (US, old version) (older PCB)
+  [CoolMod, The Dumping Union]
+メタモルフィックフォース (ver AAA) [Abelardo Vidal]
+バーチャコップ3 (Rev B) [ShouTime, rtw]
+Air Gallet / アクウギャレット (older) [Artemio Urbina]
+スーパーハングオン (Hang-On conversion, Japan, FD1094 317-0039)
+  [Charles MacDonald, ShouTime]
+Deluxe 4 U (ver. 0107, 07/01/2000) [caius]
+Dealer's Choice (E4A1) [Brian Troha, The Dumping Union]
+ターミネーター2 (rev LG1 11/04/91) [Bicycle Repairman]
+アウトラン2 スペシャルツアーズ (Japan) (Rev A) (GDX-0011A) [ShouTime, rtw]
+Casino Five (3315-02, U5-2B) [Brian Troha, The Dumping Union]
+湾岸ミッドナイトマキシマムチューン2 (Japan) (Rev A) [ShouTime, rtw]
+Jolly Card (Austrian, set 2) [Roberto Fresca, Team Europe]
+Golden Tee '98 Tournament (v3.02) [Brian Troha, The Dumping Union]
+ギャルズパニックS - Extra Edition (Europe, set 2) [Hammy, The Dumping Union]
+T.M.N.T. -スーパー亀忍者- (US 4 Players, version H) [The Iron Goat]
+ガルフストーム (Korea) [system11]
+チャンピオンベースボール (Japan set 3) [Siftware, MASH]
+Escape from Mars (bootleg of Lunar Rescue) [Siftware, MASH]
+ニューゼロチーム (V33 SYSTEM TYPE_B hardware) [caius]
+
+
+
+新規追加された未動作マシン
+--------------------------
+CMI IIx [Ryan Holtz]
+Quest of D [f205v]
+機動戦士ガンダム0079カードビルダー [any, f205v, ShouTime, soyandroid, rtw]
+機動戦士ガンダム0079カードビルダー Ver.2.02 [any, f205v, ShouTime, soyandroid, rtw]
+機動戦士ガンダム0083カードビルダー [f205v, soyandroid]
+機動戦士ガンダム0083カードビルダー チェックディスク [any, f205v, ShouTime, rtw]
+機動戦士ガンダム0083カードビルダー Ver.2.10 [any, f205v, ShouTime, soyandroid, rtw]
+Ring & Ball (?) [Hammy]
+アヴァロンの鍵 弐 -鍵聖戦- (server) (Rev B) [ShouTime, rtw]
+アヴァロンの鍵 弐 -鍵聖戦- (client) (Rev B) [ShouTime, rtw]
+Tandy/Memorex Video Information System MD-2500 [Carl, Sly DC]
+Select-A-Game: Space Invader 2 [hap, Kevin Horton]
+Unknown Inter Games poker [Roberto Fresca, Team Europe]
+Unknown Funworld A7-11 game 1 [Roberto Fresca, Team Europe]
+Unknown Funworld A0-1 game [Roberto Fresca, Team Europe]
+Multi Game I (unknown V2.4) [Roberto Fresca, Team Europe]
+
+
+新規追加された未動作クローン
+----------------------------
+Jolly Joker (Apple Time) [Roberto Fresca, Team Europe]
+ジャングラー (Subelectro, スクランブル基板海賊版) [Andrew Welburn]
+Unknown Funworld A7-11 game 2 [Roberto Fresca, Team Europe]
+湾岸ミッドナイトマキシマムチューン (Japan) (Rev B) [ShouTime, rtw]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+pc98_cd.xml: ディスクとFM Townsハイブリッド追加 [rzero9]
+fmtowns_cd.xml: 新規吸い出し [rzero9]
+coco_cart.xml: cclimbraをcclimberに変更 [Nathan Woods]
+pofo.xml: ファイルマネージャ/チュートリアルカード吸い出し [Curt Coder]
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+gba_ereader.xml: Animal Crossing Series 2 / どうぶつの森2 [Shideravan]
+
+
+翻訳追加・変更
+--------------
+Catalan [Jordi Mallach]
+Spanish [A.Viloria]

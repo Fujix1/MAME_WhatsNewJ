@@ -1,0 +1,787 @@
+0.141
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 04161: [クラッシュ/フリーズ] nibbler and clones: OKを押した後クラッシュする。
+         (Aaron Giles)
+- 00859: [色/パレット] blandia, blandiap: アトラクトモードでストーリーが表示される画
+         面には背景が描画されなければいけない。カラーコードにかかわらずタイルマップが
+         64色を使うようにするレジスタがあるはず。(Pierpaolo Prazzoli)
+- 00860: [色/パレット] blandia, blandiap: 0.103からキャラクタの色がおかしくなっている。
+         (Pierpaolo Prazzoli)
+- 04120: [その他] Windows上で、SDLMAMEがウィンドウモード以外では動作しない。
+         (couriersud)
+- 04156: [クラッシュ/フリーズ] cabal, cabala, cabalbl2, cabalus, cabalus2, tharrier, 
+         tharrierj: エラーメッセージ"memory_set_bank called for unknown bank 'bank1'"
+         でMAMEが終了する。(hap)
+- 04153: [その他] hydrthnd: CHDのsha1の値が間違っている。(David Haywood)
+- 03916: [グラフィック] arabian: 実機では1面の船の上側に鳥が飛んでいる。
+         (Phil Bennett)
+
+
+
+ソースの変更点
+--------------
+-「X Se Dae Quiz」のスプライトROMを再ダンプ。[Guru]
+
+-「第3惑星メテオ」のテスト版ディスクリートサウンドを追加(デフォルトはOFF)。
+  [Derrick Renaud, Andy Welburn]
+
+- LegionnaireハードウェアにDMAスロットを追加。「ゴジラ」の不具合が修正。
+  [Angelo Salese]
+
+-「バレット」のキーをオリジナル基板から吸い出したものに巻き戻し。[Aaron Giles]
+
+-「ゴジラ」のスプライトグラフィックROM順を改良。[Angelo Salese]
+
+- AY-3-8910のレジスタ内未使用ビットを0に。[hap]
+
+-「セイブカップサッカー」のセイブロゴタイルマップを修正。[Angelo Salese]
+
+- s3c24xx.c: LinuxとMacOSXでのコンパイルを修正。[qmc2]
+
+- MB88xxの割り込みソースをユニークなベクタに割り当て。「アラビアン」の MCUプログラム
+  で必要。[Phil Bennett]
+
+-「アラビアン」のMB8841 MCU実装と、不要になったシミュレーションコードの削除。
+  [Phil Bennett]
+
+- goindol.cの実機ビデオにより、YM2203のクロック速度修正とXTALの追加。
+  [Tafoid, Rogerio]
+
+- ics2115サウンドコアをモダンデバイス化。「西游釈厄伝 / Oriental Legend」
+  「The Killing Blade」やその他PGMタイトルのサウンドが改善。[austere, nimitz, trap15]
+
+- 「レジオネア」ハードウェアのスプライトルーチン用にpdrawgfxを実装。また320ピクセル以
+  下の水平領域についてラップラウンド処理を追加。「レジオネア」「ヒーテッドバレル」の
+  左端にあるスプライト表示を修正。[David Haywood]
+
+- Seibu COPルーチンのソートDMA初期版を実装。「セイブカップサッカー」のスプライトプラ
+  イオリティが修正。[Angelo Salese]
+
+- z80dart.c: [Wilbert Pol]
+ * 割り込みベクタによるチャンネルBの変更後直ちにアクセス可能
+ * 0以外のリードレジスタからの読み込みでもレジスタインデックスをマスク
+
+- Seibu DMA COPコマンド 0x116のRAMフィルを修正。これにより「ゴジラ」が起動可能。
+  [Angelo Salese]
+
+- Neo-Geoの更新: [Johnboy]
+ * burningfh - p1をhp1に改名
+ * gowcaizr - 正しいC8 ROMを追加
+ * 8man - MVSとAESのタグ付け
+ * jockeygpa - 別版jockeygpを追加
+ * mslug5h - チップラベルを訂正
+
+-「Maze Invaders」のカクテルモードと両プレイヤー用の操作系を追加。各ボタンに動作を示
+  す名称を追加。[sxevious, Tafoid]
+
+- ARM CPUコアのLDM命令レジスタの書き戻しを修正。[Tim Schuerewegen]
+
+- cybertnk.cの64-bitビルドにおける全般的な安定性の問題を修正。[David Haywood]
+
+- Seibu COPゲームに、パレットDMA明るさ設定アルゴリズムモード5を実装。
+ 「セイブカップサッカー」「ゴジラ」「SDガンダムレインボー大陸戦記」「レジオネア」の
+  フェード処理で使用。[Angelo Salese]
+
+- hvyunit.c:「マーメイド」のプロテクトMCUを実装し、不要なシミュレーションコードを削除。
+  またドライバをstateクラスを使うように更新。
+  [Phil Bennett, Dr. Decapitator, Andrew Gardner]
+
+-「サイバータンク」の道路エミュレーション初期版を追加。[David Haywood]
+
+- ilpag.cをblitz68k.cに改名し、ゲームを何本か追加。[Luca Elia]
+
+- sdlmameで"-fontpath"のフォントを参照するように更新。また、フォント設定関連を
+  search_font_config関数に移動。Windows版のsdlmameビルドでもttfのサポート予定。
+  [couriersud]
+
+- ARM CPUコアであらかじめインデックスされたアドレッシング命令のバグを修正。これにより
+  「Poizone」の起動が修正。[Tim Schuerewegen]
+
+-　SDL_TTFのバージョンチェックが怪しかったの修正。未サポートの打ち消し線を指定した場
+  合に警告を出すように更新。[Couriersud]
+
+- Seibu COPのscatter-gatherなスプライトDMAを再実装。「SDガンダムレインボー大陸戦記」
+  で使用。また同機能の改善。[Angelo Salese]
+
+- ertictac.cの入力とDIPスイッチの大幅改善。[Tafoid]
+
+-「セイブカップサッカー」のグラウンド色を修正。[David Haywood]
+
+- SDLMAMEの*BSDコンピレーションを修正。[ElBarto]
+
+-「超時迷宮レジオン」の効果音を修正。[Tomasz Slanina]
+
+- Seibu COPのマクロコマンド0xdde5を実装。「セイブカップサッカー」のX/Yレーダー位置表
+  示に使用。[Angelo Salese]
+
+-「雷電II」ハードウェアのROMバンキングをサポート。「雷電II」「ゼロチーム」の動作修正。
+  [O.Galibert]
+
+- plygonet.c : セーブステートとデバイスハンドラに不具合が出ていたのを修正。
+  [Andrew Gardner]
+
+- Golden Pokerドライバ: 新セット追加と、ipc-1ドーターボードの復号化についてノートを追
+  加。[Roberto Fresca]
+
+-「超時迷宮レジオン」のテキストレイヤープロテクトをシミュレート。[Tomasz Slanina]
+
+- ICS2115をさらに改良。[austere, nimitz, trap15]
+
+- mpu4drvr.c: 45度傾いたトラックボールマウントについて解説追加。[James Wallace]
+
+-「Wonder League Star」と「Wonder League '96」の87C52 MCUデキャップを追加。
+  [Dr. Decapitator]
+
+- superchs.c - 画面フリーズ動作をするボタン6の割り当てをDIPスイッチ側に移動。その他
+  ポート名を追加。[Tafoid]
+
+- RSPとRDPをビット単位、ピクセル単位で正確になるよう更新。[angrylion, Harmony]
+
+- N64 RDP機能のアルファ比較を修正。[Harmony]
+
+-「Golden Poker」ドライバのクリーンアップ。セットの親子関係の整理、参照情報の追加、新
+  セットの追加。[Roberto Fresca]
+
+- Seibu COPマクロ0x905の実装。「レジオネア」「ゼロチーム」でノックダウン時のarkの動き
+  に使用。[Angelo Salese]
+
+- ARM7+の更新: [Tim Schuerewegen]
+ * MMUでページフォールトをサポート
+ * 26-bitモードの仮サポート
+ * R15のSフラグ命令のバグ修正
+ * R15関係のSTRHを修正
+ * ARMモデル7500と920Tをサポート
+
+- ダイレクトメモリアクセスにdirectxorパラメータを追加。手作業でXORしたアドレスを渡し
+  ていた箇所を置き換え。これにより、オリジナルのXORされていないアドレスがわかり、通常
+  のリード・ライトハンドラを正しく把握できるため、ダイレクトアクセサが非RAM領域に達し
+  たときや、ウォッチポイントを使うときの動作が改善されます。また、リードウォッチポイ
+  ントを有効にしたときの逆アセンブリがおかしかったも修正されます。[Aaron Giles]
+
+- s3c24xx: 改良と修正。[Tim Schuerewegen]
+
+- パブリック関数decodecharを削除。[Aaron Giles]
+
+- MIPSIIIインタプリタの書き込みを修正。[MooglyGuy]
+
+- ソース全般に渡って、ネーミングの整理: [Aaron Giles]
+ 1. MDRV_* -> MCFG_*
+ 2. running_device -> device_t
+ 3. mame_rand() -> machine->rand()
+ 4. memory_region() -> machine->region()->base()
+ 5. memory_region_length() -> machine->region()->bytes()
+ 6. region_info -> memory_region
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ヘビーユニット [Phil Bennett, Dr. Decapitator, Andrew Gardner]
+Poizone [Tim Schuerewegen]
+Silver Game [Roberto Fresca, Team Europe & HAL9K]
+Jack Potten's Poker (NGold) (3 sets) [Roberto Fresca, Darran]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Multi Champ Deluxe (ver. 1114, 14/11/1999) [caius] (not working)
+Gran Tesoro? / Play 2000 (v4.0) (Italy)
+  [Corrado Tomaselli] (not working)
+雷電 (US, set 2)  [Smitdogg, The Dumping Union]
+Golden Tee Golf (Trackball, v2.0)  [Smitdogg, The Dumping Union]
+リリーフピッチャー (set 2, 26 Apr 1992 / 08 Apr 1992) 
+  [Smitdogg, The Dumping Union]
+G.I.ジョー (World, EB8, prototype?) [caius]
+スペースファイアーバード (2 sets) [Andrew Welburn]
+
+
+
+追加された未動作ゲーム
+----------------------
+Bank Robbery (Ver. 2.00)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Bank Robbery (Ver. 3.32)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Deuces Wild 2 - American Heritage (Ver. 2.02F)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Maxi Double Poker (Ver. 1.10)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Mega Double Poker (Ver. 1.63 Espagnol)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Mega Double Poker Jackpot (Ver. 1.26)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+Poker 52 (Ver. 1.2) [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+The Hermit (Ver. 1.14)
+  [ChrisQC, Smitdogg, Luca Elia, The Dumping Union]
+マンボ・ア・ゴーゴー (GQA40 VER. JAB)
+  [Kevin Eshbach, Tormod, gatt9, Smitdogg, The Dumping Union, smf]
+"詳細不明なフランス製のポーカーゲーム" [Roberto Fresca, Team Europe & HAL9K]
+"詳細不明な暗号化されたポーカーゲーム" [Roberto Fresca, Team Europe & HAL9K]
+
+
+
+0.140u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03791: [サウンド] pandoras: BGMの音程などがおかしい。(Phil Bennett)
+- 04074: [クラッシュ/フリーズ] raidndxa2: OK後にSIGSEGVエラーで落ちる。
+         (Angelo Salese)
+- 04073: [クラッシュ/フリーズ] nzerotea: OK後にSIGSEGVエラーで落ちる。(Angelo Salese)
+- 04150: [ドキュメント] shrike: 年代は1986。(Tafoid)
+- 04142: [インターフェイス] 内蔵UI使用時、ESCを2回押せばMAMEが終了する必要がある。
+         (Miodrag Milanovic)
+- 03467: [グラフィック] firebarr: タイルマップとスプライトの広範囲な問題あり。
+         (Angelo Salese)
+- 03723: [ゲームプレイ] schaser: 画面がさかさま。(hap)
+- 04144: [DIP/入力] mazeinv: ボタンの数が間違っている。(Tafoid)
+- 04051: [サウンド] hunchbks: 音が出なくなっている。(hap)
+- 04126: [サウンド] minefld, rescue, aponow: サウンドが鳴らない。(hap)
+- 04145: [ドキュメント] strtheat: ゲーム名は「Street Heat」だけでよい。(M.A.S.H.)
+- 04137: [色/パレット] rpatrol, rpatrolb: スプライトの色が違う。0.53で発生。
+         (M.A.S.H.)
+- 04103: [ステート保存/再生] pesadelo: セーブステートから復帰すると背景が変になる。
+         (hap)
+- 02942: [クラッシュ/フリーズ] wpksoc: リサイクルの画面後にフリーズする。
+         (Angelo Salese)
+- 04121: [デバッガ] デバッガで8ビットレジスタをdoコマンドで設定できない。(Robbbert)
+- 04130: [デバッガ] デバッガのprintコマンドがヘルプの内容通りに動作しない。(Robbbert)
+- 04131: [デバッガ] デバッガのsymlistコマンドでクラッシュする。(Robbbert)
+
+
+ソースの変更点
+--------------
+- MC6850で、クロック変更時のレシーブ/トランスミットタイマー周期を調整。[Curt Coder]
+
+- PGMのspritelistメーカーの終わりを修正(?)。[David Haywood]
+
+- 訂正いろいろ: [Corrado Tomaselli]
+ * pacmaniaのROMラベルを正しいものに修正
+ * chaknpopのクロックを基板で確認したものに変更
+ * tankbustのクロックを基板で確認したものに変更
+ * kyrosのクロックを海賊版基板に合わせて変更
+ * mshuttlej (Japan - Set 1)のサンプルROM MY06はUS版と同じ
+
+- Naomi/Naomi2 M2/M3復号化を更新。[Andreas Naive]
+
+- vf4cartのキーを追加。[Andreas Naive]
+
+- デバッグコマンドsymlistを修正 (bug #4131)。 [Robbbert]
+
+- Pastel GalドライバのZ80クロック分周率を手動で調整。galdsの正確なサンプル音程が必要。
+  [Angelo Salese]
+
+- PGMゲームの正しいリフレッシュレートを追加。[Zakk]
+
+-「戦え！ビッグファイター」のサービスモードを修正。[Angelo Salese]
+
+-「戦え！ビッグファイター」のROMパッチを削除。[Angelo Salese]
+
+- Irem M107ドライバのリセットライントリガーをメインCPUからサウンドCPUに移動。
+ 「ファイヤーバレル」のサウンドが修正。[Angelo Salese]
+
+- Irem M107ハードウェアのロースクロールエフェクト初期版を実装。「ファイヤーバレル」の
+  ステージ2と6、「ワールドPKサッカー」のゴールスクロールで使用。[Angelo Salese]
+
+-「ドリームサッカー '94」(M107版)のゲーム速度が変になっていたのを修正。
+  [Angelo Salese]
+
+- Irem M107に、ローセレクトエフェクトの初期版を追加。「ファイヤーバレル」オープニング
+  のシーン切り替えを修正。[Angelo Salese, David Haywood]
+
+- Synertek SY6845Eサブタイプをmc6845.cに追加。[Curt Coder]
+
+- Irem M107のローセレクトを他のタイルマップ全てにも移植してバグを修正。
+ 「ファイヤーバレル」1面と8面の終わりでのグラフィックを拡大する処理が修正。
+  [Angelo Salese]
+
+-「ワールドPKサッカー」のタイトル画面色不具合を修正。[Angelo Salese]
+
+- forte2.c, pengadvb.c: セーブステートを修正。[ShimaPong]
+
+- cb2001: 命令コードを2つ修正。[Roberto Zandona']
+
+-「ファイヤーバレル」のロースクロールを修正。[David Haywood]
+
+- SDL: 解像度の変更時にクリアとフリップを2回から3回に変更。一部のOpenGLドライバで使用。
+  [Chris Kennedy]
+
+- FMサウンドコアの静的変数を削除。[Atari Ace]
+
+- Irem M107ハードのスプライトラップラウンドを修正。[Angelo Salese]
+
+-「ギャルズパニック2」のクロックについてのドキュメントを実機(galpani2i)を元に修正。
+  [Corrado Tomaselli]
+
+-「ファイヤーバレル」のスプライト位置不具合を修正。[Angelo Salese]
+
+-「ファイヤーバレル」のスプライト間プライオリティと、ゲームオーバー画面でスプライトが
+  張り付いたままになるバグを修正。[Angelo Salese, David Haywood]
+
+-「Maze Invaders」の入力を修正とノートの追加(MT#4144を修正)。centiped.cドライバで、サー
+  ビスモードのDIPスイッチ表示に合わせてDIP配置を修正。[Tafoid]
+
+- Seibu Audioドライバのバンクスイッチが初期化されない問題を修正。「電神魔傀」のサウン
+  ドがなんとか動作。[Angelo Salese]
+
+- missile.c:「Missile Attack」のROM配置修正、また「Super Missle Attack」にPROM追加。
+  [Kevin Eshbach]
+
+- scobra.c: 「スーパーコブラ」「Lost Tomb」のDIPスイッチ配置を追加。[Kevin Eshbach]
+
+- Seibu Audio HWの偽irq ackをコメントアウトし、「電神魔傀」のサウンド修正、また
+ 「電神魔傀」「SDガンダムサイコサラマンダーの脅威」にあったうさんくさい箇所を削除。
+  [Angelo Salese]
+
+- H8: csplayh5用に、ldc #imm、ccr、rotr.w Rxを実装。[R. Belmont]
+
+- チートエンジンに'changed by'検索を追加。[Pugsy]
+
+- ics2115: タイマ修正。[O. Galibert]
+
+- raiden2: copモードがわずかに前進。[O. Galibert]
+
+- scptourのキーダンプ追加。[Guru]
+
+- i8085 CPUで、デバッガのDOコマンドから、reg Aをロードするのを修正。[Robbbert]
+
+- DEVICE_SELF_OWNERを追加。これによりアドレスマップ側から、保持するデバイスを参照する
+  ことができます。CPUの一部がデバイスの場合に、CPUアドレスマップハンドラに対して役立
+  ちます。[Aaron Giles]
+
+-「雷電2」のサウンド通信を追加。これによりサウンドが動作。[Angelo Salese]
+
+- MESSの汎用ターミナルエミュレーション用に、MC6850 ACIAのレシーブバイト関数を追加。
+  [Curt Coder]
+
+-「ぷよぷよ」「ブロクシード」で吸い出しが必要なPALを更新。[Kevin Eshbach]
+
+- vsnes.c:「VS. スーパーマリオブラザーズ」(alt)のセット名訂正と「VS. Castlevania」の
+  ROMロケーション追加。[Kevin Eshbach]
+
+- Z80DARTの変更: [Curt Coder]
+ * 非同期トランスミットモードを修正
+ * チャンネルA割り込みベクタを修正
+ * ログ取りを改良
+
+- multfish.cの更新: [MetalliC]
+ * セーブステートを完全サポート
+ * mvram+カスタムコードの代わりに、タイムキーパーデバイスを使うように変更
+ * タイムキーパーをZ80のバンクRAMとして使用(実機で確認。これにより実機同様電源のオン
+   とオフのトキにゲームステートが全て保存)
+ * Irgrosoftのハッシュリストに基づいてグラフィックROMの名前付け規則を変更
+ *「Roll Fruit」でのコインロックが解けないバグを修正
+ * 不足ROMの追加: Fruit Cocktail 030623
+    fcockt_3 Lucky Haunter 030804  lhaunt_2 Resident 040415      
+    resdnt
+ * 既知のハッシュを全て追加(エンターテインメント、ロッタリーなど)
+ * いろいろなクリーンアップ
+
+-「セイブカップサッカー」海賊版セットのグラフィックROMをデコード。[David Haywood]
+
+-「レジオネア」ドライバに初期版のDMAを追加。「レジオネア」「電神魔傀」の色が修正。
+  [Angelo Salese]
+
+-「レジオネア」のBK3ビットプレーンの順序を修正。マップ画面の色が修正。[Angelo Salese]
+
+- Naomiのアップデート:
+ * Added Rev. C Naomi 2 Export BIOS [The Dumping Union]
+ * Fixed some rom filenames that didn't fit MAME standard [Cah4e3]
+
+- dai3wksiのクロック周波数を基板で確認した値に訂正。[Guru]
+
+- seicop.cのDMAモード0x0eを追加。「セイブカップサッカー」「ゴジラ」「SDガンダム」で使
+  用。[Angelo Salese]
+
+-「セイブカップサッカー」のサウンド通信部を修正。[Angelo Salese]
+
+- Ghost Eolithドライバにアイドルスキップを追加。[David Haywood]
+
+-「ゼロチーム」「X Se Dae」が起動するように修正。[Angelo Salese]
+
+- V25/V35 CPUコアの初期版を実装。[Alex Jackson]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+バレット [Aaron Giles, Charles MacDonald, Chris Hardy]
+ルンバランバ [Corrado Tomaselli, David Haywood, Angelo Salese]
+Deluxe Trivia ? Whiz (Edition 5)
+  [Mariusz Wojcieszek, Smitdogg, The Dumping Union]
+電神魔傀 [Angelo Salese, David Haywood, Tomasz Slanina]
+Balloon & Balloon (BnB Arcade) [Tim Schuerewegen]
+Happy Tour [Tim Schuerewegen]
+第3惑星メテオ [Hau, Chack'n]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+World Class Bowling v1.4 [Brian Troha, The Dumping Union]
+アタックス (Europe) [Corrado Tomaselli]
+Gals Ds - Three Dealers Casino House (海賊版?) [Team Europe & catSushi]
+ジャイラス (海賊版) [Darran]
+パロディウスだ！ (World, set 2) [Corrado Tomaselli, The Dumping Union]
+ギャルズパニック2 (Italy) [Corrado Tomaselli]
+クエスター スペシャルエディション (Japan) [taka-e]
+Tic Tac Trivia (Vertical) [Smitdogg, The Dumping Union]
+雷電II (set 7, US Fabtek) [Smitdogg, The Dumping Union] (not working)
+
+
+
+追加された未動作ゲーム
+----------------------
+レースオン！ (RO2 Ver. A) [Guru]
+クライシスゾーン (CSZ04 Ver. B) [Guru]
+ハイドロサンダー [Mr. Do]
+Offroad Thunder [Tom, gamerfan, Smitdogg, The Dumping Union]
+ダービーオーナーズクラブワールドエディション (Rev. D) [f205v, Cah4e3]
+
+
+
+0.140u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04027: [クラッシュ/フリーズ] All sets in 20pacgal.c: 起動中に固まる。(Aaron Giles)
+- 04111: [DIP/入力] timesold, timesold1, btlfield: コインの動作が調子悪い(MCUの問題)。
+         (stephh)
+- 03879: [クラッシュ/フリーズ] pbst30, pbst30b, pitbossm, pitbossma: エラーが表示され
+         ゲームが起動しない。(Mariusz Wojcieszek)
+
+
+ソースの変更点
+--------------
+- i2cmemの問題を修正。Cubo CD32ゲームでステートのセーブとロードが正常動作。
+  [Mariusz Wojcieszek]
+
+- 多くのドライバでの重複した入力定義やその他の修正。[Tafoid]
+
+- SDL: Linux/BSDビルドで任意のTrueTypeフォントを使用する-uifontをサポート。パラメータ
+  にはフォントへのフルパス・ファイル名を指定します。文字スタイルはWindowsと同じく[b]
+  でボールド、[i]でイタリック、[s]で取消線、[u]でアンダーラインになります。文字は120
+  ポイントで描画され、コア側で縮小するので、高解像度でもきれいな表示がされます(最近の
+  ディストリビューションではLiberation Sansが一番きれいに見えます)。[R. Belmont]
+
+   注意: Linux/BSDビルドでSDL_ttf 2.xが必要になりました。Fedraで必要なパッケージ名は
+         "SDL_ttf"と"SDL_ttf_devel"です。
+
+- tms7000: 2つの命令コードを訂正: inv_bのタイポ、JPZがオフィシャルのTI社ドキュメント
+  で間違っているもの。[Gilles Fetis]
+
+- SDL: -uifontでWindows同様、システムフォントファミリーをルックアップ。[R. Belmont]
+
+- 複数のドライバをカバーするdriver_deviceクラスについて、それぞれが独自の
+  driver_deviceクラスを持つように分割。複数ドライバ間でオーディオとMCUコードが共有さ
+  れていたため、ドライバの構成が絡み合うケースが多発していました: [Atari Ace]
+
+ * espial/marineb/zodiak
+       - 共有コードの複製
+ * m52/m57/m58/m62/travrusa
+       - audio/irem.cに共有コード
+ * junofrst/pooyan/rallyx/rocnrope/timeplt/tutankm
+       - audio/timeplt.cに共有コード
+ * hyperspt/sbasketb/trackfld/yiear
+       - audio/trackfldとaudio/hyprolyb.cに共有コード
+ * 40love/bking/buggychl/msisaac
+       - machine/buggychl.cに共有コード
+
+- SDL: OS Xで-uifontをサポート。[Tim Lindner]
+
+- SDL: Ubuntu向けのビルド修正。-uifont、非ASCIIレンダリング修正。
+  [R. Belmont, Barry Rodewald]
+
+- SDL: Mac用のコンパイル警告を修正。[Wilbert Pol]
+
+- V810 CPUでIRQを最小限度サポート。[Miodrag Milanovic]
+
+- NaomiのM2/M3復号化を更新。「バーチャストライカーIII」のオンザフライ復号化が可能。
+  [Andreas Naive]
+
+- V810コアの割り込み処理を修正。PCWでのフラグ位置。[Miodrag Milanovic]
+
+- SDL: ptty(*IX/OS X)とsockets(全SDLビルド)機能をサポート。[Tim Lindner, R. Belmont]
+
+- オリジナルの「イーアルカンフー」基板にボタン3を追加。マニュアルには無いものの、この
+  ボタン向けの機能があるため。デフォルトでは未マップ。[Tafoid]
+
+- CPS-1の更新: [Team CPS-1]
+ *「ザ・キング・オブ・ドラゴンズ」(World 910805)を追加し親セットに指定
+ * マイナーなクリーンアップと修正
+ *「ロックマン/Mega Man: The Power Battle」(CPS1, USA 951006)を追加して親セットに指定
+ * slammast、slammastuのラベルを修正。DボードのPALと基板情報追加
+ * mercs -> mercsr1, mercsua -> mercs
+ *「ストリートファイターII -ザ・ワールドウォーリアー」(World 910228)追加
+ * megamanのROMソケットについて記述を追加
+ * forgottnua、willowje、cawinguのBボード番号を確認。間違っていたラベル修正と
+   video\cps1.cに基板情報追加
+ * ffightj、ffightj1、ffightj2、cawingjの間違った親子関係を修正
+ * マイナーなクリーンアップと修正
+
+- smgolfbを正しい吸い出しに置き換え。
+  [D. Beneke, M. David, Smitdogg, The Dumping Union]
+
+- MESS用の修正: [Miodrag Milanovic]
+ * イメージエンプティスロットの問題を修正
+ * MESS用にwriteconfigのデフォルトを0に変更
+ * ハードリセット時のマウント済みデバイス処理を修正
+ * emuoptsコードを統合しifdefを削除
+
+- Sega System32ドライバのROM名を一部修正。主に「スパイダーマン」
+  「ゴールデンアックスII」USセット。[The Dumping Union]
+
+-「ルージュアン」のMSM5205サンプル再生ルーチンを実装。サンプルスタート書き込みハンド
+  ラがまだ不明のため、デフォルトでは無効化。[Angelo Salese]
+
+- Naomi/Naomi2 M2/M3暗号処理を更新。[Andreas Naive]
+
+- F4ショートカットで、アドレスを明示的に"0x"で始まる番号とするように修正。これにより
+  F4が正しく動作します。たとえば、68000でアドレスa6までのステップ動作が、レジスタ名で
+  も起こるようになります。[Aaron Giles]
+
+- Naomi/Naomi2 M2/M3復号化処理をさらに更新。[Andreas Naive]
+
+-「ルージュアン」のサンプル再生を修正。[Andrew Welburn, Angelo Salese]
+
+- スクリーンデバイスを別モジュールに分割。グローバルビデオルーチンをvideo_managerに
+  コンバート。ビデオマネージャの初期化をスタートアップの始めの方に移動。[Aaron Giles]
+
+- ソフトウェアリストの<dataarea>サイズ、<rom>サイズ、<rom>オフセットで、10進数と16進
+  数の両方を使えるように更新。[Curt Coder]
+
+- GCC 4.5.xで見つかった配列の領域問題を修正。[qmc2, R. Belmont]
+
+- BSDのコンパイル修正。[ElBarto]
+
+- m680x0: FPUとPMMUの修正と改良。[Hans Ostermeyer]
+
+- 修正と改良をいろいろ: [Hans Ostermeyer]
+ * mc146818: UTCモード追加、その他改良と修正
+ * 68681: ループバックモードを修正
+ * 6840ptm: ステータスレジスタの更新を修正
+ * pic8259: IRQのセマンティック修正
+ * 8237dma: メモリ間転送を追加
+
+- CPS-3の更新: [Team CPS-1]
+ *「ジョジョの奇妙な冒険 / JoJo's Ventrue」USA版BIOS ROM CD版追加
+ * mamedriv.cのリリース日を元に一部CPSセットを並べ直し
+ * マイナーなクリーンアップと修正
+
+-「スペースストレンジャー」のオーバーレイレイアウトにアップライト版を追加。カクテル版
+  とは違うもの。[M.A.S.H.]
+
+- Karatecoの「Super Double」をgoldnpkrドライバに追加。[Gerrit Volkenborn]
+
+- PGMのビデオRAMミラーリングを改良。[David Haywood]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pac-Slot [Bicycle Repair Man, Luca Elia]
+Super Double (French) [Gerrit Volkenborn]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+ザ・キング・オブ・ドラゴンズ (World 910805) [cacis, Smitdogg, The Dumping Union]
+ロックマン・ザ・パワーバトル / Mega Man - The Power Battle (CPS1, USA 951006) 
+  [john666, gamerfan, Smitdogg, The Dumping Union]
+ストリートファイターII -ザ・ワールドウォリアー- (World 910228) 
+  [Layne, Smitdogg, The Dumping Union]
+MJ-12 / Super Space Invaders '91 [Irongiant]
+Megatouch III (9255-20-06 ROD, California version)
+  [f205v, Smitdogg, The Dumping Union]
+Megatouch IV (9255-40-01 ROB, Standard version)
+  [Kevin Eshbach, Smitdogg, The Dumping Union]
+Super Megatouch IV (9255-41-01 ROG, Standard version)
+  [N. Francfort, Smitdogg, The Dumping Union]
+モータルコンバット (プロトタイプ, rev 4.0 07/14/92) [xDisciplex]
+モータルコンバットII (rev L1.1) [TerryMasters]
+Buccaneer [Gerald (COY), Smitdogg, The Dumping Union]
+Jungle Boy [Andrew Welburn]
+怒首領蜂II / Bee Storm - DoDonpachi II (ver 101) [JackC] (not working)
+Sunset Riders 2 (海賊版) [f205v, Smitdogg, The Dumping Union]
+ズーム909 / Buck Rogers: Planet of Zoom (not encrypted, set 2)
+  [Smitdogg, The Dumping Union]
+Time Killers (v1.21) [Gnoppi, Smitdogg, The Dumping Union]
+ドギューン (ロケテスト版) [Andrew Welburn]
+Pit Boss Megatouch II 9255-10-01 R0E [Smitdogg, The Dumping Union]
+ジョジョの奇妙な冒険 / JoJo's Ventrue (USA 990108)
+  [Layne, Smitdogg, The Dumping Union]
+ジョジョの奇妙な冒険 / JoJo's Ventrue (USA 981202)
+  [Layne, Smitdogg, The Dumping Union]
+ムーンシャトル (US? set 2) [robcfg]
+
+
+
+追加された未動作ゲーム
+----------------------
+電脳戦機バーチャロン -オラトリオ・タングラム- M.S.B.S. Ver5.66 2000エディション
+  [Anonymous] 
+リングアウト 4×4 [Anonymous] 
+犬のおさんぽ [Anonymous] 
+ザ・キング・オブ・ルート66 [Anonymous]
+Barroom Baseball (プロトタイプ) [Mariusz Wojcieszek]
+サンバDEアミーゴ 2000 [Anonymous]
+ダービーオーナーズクラブ 2000 [Anonymous, f205v]
+シュートアウトプール [Anonymous]
+Dream Crown [Charles MacDonald, Smitdogg, The Dumping Union]
+X Tom 3D [Guru]
+ネオプリントV1 [ANY]
+ワールドキックス [The Dumping Union]
+シャカっとタンバリン！超PowerUpチュッ！[The Dumping Union]
+Dirty Pigskin Football [Cah4e3]
+Outrun 2 Special Tours [Heywood Floyd, The Dumping Union]
+クレイジータクシー3 ハイローラー [The Dumping Union]
+リッジレーサーV -アーケードバトル- [Guru]
+スマッシュコート プロトーナメント [Guru]
+Funny Fruit (Version 1.13) [Luca Elia, Smitdogg, The Dumping Union]
+中国龍II / Dragon World II (ver. 100X, Export) [Arzeno Fabrice, zozo]
+
+
+
+0.140u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04096: [DIP/入力] sjryuko: 入力がほとんど動作しない。(Angelo Salese)
+- 02561: [インターフェイス] UIフォント名オプションの追加についてのご提案。
+         (Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- OSDコールバックを保持するosd_interfaceクラスを追加。デフォルトの空実装用osdepend.cを
+  追加。mame_execute()とcli_execute()で呼び出し元から与えられるosd_interfaceへの参照を
+  受け付けるように変更。[Aaron Giles]
+
+- SDLとWindows OSDでosd_interfaceの派生クラスを生成し、そのOSDコールバックをメンバに
+  移動。[Aaron Giles]
+
+- osdminiがビルドできなかったのを修正。[Aaron Giles]
+
+- ディスクリートサウンド - DISCRETE_XTIME_xxxロジックモジュールを追加。これにより、
+  x_time倍のアンチエイリアスを使うノードのロジック処理ができます。つまり、オシレータ
+  に対して、x_timeをカウンタへ渡すことで、カウンタビットがデコードされ、新ロジックモ
+  ジュールへ渡され、同時にx_timeをエネルギー/アンチエイリアス済み電圧にコンバートさせ
+  ます。「ドンキーコングJr.」で新モジュールを使用しています。[Derrick Renaud]
+
+- rendfontをC++にコンバート。[Aaron Giles]
+
+- [SDL Debugger] 不要なアサートを削除して、起動時にメインデバッガウィンドウにフォーカ
+  スが来るように変更。[Andrew Gardner]
+
+- OSD生成フォントをサポート。OSDは最初に指定されてフォントがあるかを調べます(名前ベー
+  ス)。もしあれば、OSD側で使用する文字のビットマップをオンザフライで生成する必要があ
+  ります。[Aaron Giles]
+
+- UIフォントを指定する新オプション-uifontを追加。これにファイル名を指定すると、BDF
+  フォントが読み込まれます。また、(OSD側のサポートがある場合は)フォント名を指定するこ
+  も可能です。デフォルト値は'default'で、OSDに対してデフォルトのフォント名でこれを置
+  き換えさせる、または以前のui.bdfを使うようにさせることになります。どちらにしても、
+  この指定が失敗したときには内蔵のデフォルトが使用されます。[Aaron Giles]
+
+  注: WindowsではOSDのデフォルトフォント名はTahomaです。また、Windowsのフォント名は
+      [b]でボールド、[i]でイタリックとして指定できます。
+
+  アートワーク要素についても'default'を使用。UIの背景を少し透明化。OSDコードにNULLな
+  ファイル名を渡したときのクラッシュを修正。[Aaron Giles]
+
+- system16.cドライバで管理されているSystem 18海賊版の入力をDIPスイッチについてテスト
+  モードで確認と修正。[Tafoid]
+
+- ディスクリートの更新: [Derrick Renaud] 
+ * DISCRETE_74LS624のコードを削除して、新しく74LS629ベースのコードに置き換え。
+   「マリオブラザーズ」で新しいDISCRETE_74LS624とDISCRETE_XTIME_logicモジュールを使う
+   よう更新
+
+- チートエンジンのC++化。[Aaron Giles]
+
+- Naomiの更新:
+ *「Kick 4 Cash」を再吸い出し [f205v] 
+ *「ネオジオバトルコロシアム」の吸い出し完了 [Guru]
+
+- i286.c: i80286_urinitの呼び出しをCPU_INITに移動。デバッガのPC表示が修正。
+  [Wilbert Pol]
+
+- M6805: 68HC05EGの超超初期版を追加。[R. Belmont]
+
+- i80186/i80286: セグメントでプリフィクスしたときの境界命令のリスタートを修正。
+  [Wilbert Pol]
+
+- i286.c: プロテクトモードを部分実装。verw、verr、lar、lsl、arpl命令を修正。
+  [Wilbert Pol]
+
+-「コップスアンドロバーズ」の更新: [Derrick Renaud]
+ * 操作系を位置タイプに切り替え
+ * ディスクリートサウンド実装開始(モーター2と3、クラッシュ音を実装)
+ * モーター0と1、弾の音。弾の音は、弾とショット音が見つかるまで未実装
+
+- DISCRETE_DAC_R1の速度を最適化。[Derrick Renaud]
+
+- エクスプレッションエンジンをC++にコンバートとクリーンアップ。[Aaron Giles]
+
+- Neo Geoの変更: [Johnboy] 
+ * maglord/maglordh - CRCのミックスアップと修正
+ * flipshot - 正確なp1追加
+ * kotm2 - MVS AND AES VERSIONのタグ付け
+ * miexchng - 正確なc3/c4を追加
+ * ゲーム基板情報を更新
+ * マスクROMタイプのドキュメント作業中
+
+- cubocd32/akikoのクラッシュ修正。[Mariusz Wojcieszek]
+
+-「コップスアンドロバーズ」の更新。[Derrick Renaud] 
+
+- DISCRETE_COUNTER_7492の動作修正。[Derrick Renaud]
+
+- kofxi: TSOP70アダプタエラーのため、マスクROMを再吸い出し。[Cah4e3]
+
+- カーソルキー矢印用のUTF-8定数を追加。また、スウェーデン語とフィンランド語キーボード
+  用のアクセントキャラクタも追加。[Curt Coder]
+
+-「DJボーイ」でdeprecat.cが不要なように更新とIRQルーチンの書き直し。[Angelo Salese]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pit Boss Megatouch II
+  [Mariusz Wojcieszek, f205v, Smitdogg, The Dumping Union]
+Royal Card (TAB original) [Roberto Fresca]
+ジャンピュータースペシャル
+  [gamerfan, ranger_lennier, Smitdogg, The Dumping Union]
+Bygone
+  [Cananas, Mr. Do, S. Brown, J. Bijl,ranger_lennier, F. Xerri, Gor, 
+   Kevin Eshbach, Smitdogg, Tormod, Guru, Tomasz Slanina, 
+   The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Mega Double Poker (conversion kit, set 2) [Roberto Fresca]
+まーじゃん ねるとん牌鯨団 (Japan, Rev. A?)
+  [Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Odeon Twister 2 [XoreX, Mariusz Wojcieszek]
+ザ・キング・オブ・ファイターズXI (Cah4e3) [rbelmont]
+Shooting Star [Tomasz Slanina]
+ゼロガンナー2 [The Dumping Union]

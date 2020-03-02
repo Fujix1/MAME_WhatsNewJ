@@ -1,0 +1,301 @@
+0.138u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03910: [サウンド] All sets using stereo sound: 左より右チャンネルの方が音量が大きい。
+         (hap)
+- 03913: [グラフィック] arcadecl: 背景とキャラクタが左側に少しずれている。(hap)
+- 03912: [サウンド] kyros, kyrosj: パンチを打つとホワイトノイズが鳴り出して止まらなく
+         なる。(hap)
+- 02572: [既知事項 /未実装] All Sets in xain.c: 68705 MCUは未吸い出し。動作はパッチ処
+         理。(Phil Bennett)
+- 02462: [既知事項 /未実装] storming: このセットはMCU無しの海賊版だと思われる。(hap)
+- 03899: [サウンド] All sets in cloak.c: 実機よりも音程が高い。(Tafoid)
+- 03888: [DIP/ 入力] mstadium: 3つめのボタンが割り当てられていない。(Tafoid)
+
+
+ソースの変更点
+--------------
+- staticとconstのqualifierを不足箇所に追加。また、konamiic.cのデッドコードを無効化。
+  [Atari Ace]
+
+-「プレミアサッカー」「ゴルフィンググレイツ」の68000クロック速度(16MHz)を周波数計で確
+  認。[Fabrizio Vasile]
+
+- expatライブラリを最新リリース版(2.0.1)に更新。[Oliver Stoneberg]
+
+- ナチュラルキーボードの変更時にステータスを保存するよう変更。[Robbbert]
+
+-「ピン桐8」のビデオエミュレーションを改良。[David Haywood]
+
+-「龍雀」「ピン桐8」のDIPスイッチと入力系の実装。[Angelo Salese]
+
+-「ピン桐8」ハードウェアのVRAMアクセスをシンプル化。[David Haywood]
+
+- Philips CD-iベースアーケードシリーズ「Quizard」のスケルトンドライバ追加。[Harmony]
+
+- MESSよりソフトリスト機能を導入: [Miodrag Milanovic]
+ * MESSのイメージ関係のUIをコアに導入
+ * ファイル名関連のイメージデバイスコールを再実装
+
+- MESSより-listsoftwareコマンドラインオプションを導入。XML出力にsoftlistを追加。
+  [Miodrag Milanovic]
+
+- TMS52xxの音生成用に、正しいIP/PC/Subcycleカウントを使用。[Lord Nightmare]
+
+- video/cclimber.c: cclimber/ckongのスプライトをX軸方向に1ピクセル移動。[hap]
+
+-「Little Robin」のビデオエミュレーションでデバイスシステムを使うように書き換え。
+  [David Haywood]
+
+-「ダブルドラゴン」のイタリア版海賊版のキャラクタROMを復号化。[Angelo Salese]
+
+-「Super Game III」: MMC1への2連続書き込み処理を追加して「Snow Bros」がプレイ可能。
+  [Mariusz Wojcieszek, Fabio Pruli]
+
+- MESSからioprocの実装部を導入。[Miodrag Milanovic]
+
+- カセット音声の再生を修正。[Robbbert]
+
+-「Super Game III」: 「Tom & Jerry」を修正。[Mariusz Wojcieszek]
+
+-「レジェンドオブヒーロー トンマ」(日本版)にi8751H MCUの正しいダンプを追加。
+  [Dr. Decapitator]
+
+- デバッガ表示のC++化。各ビュータイプを個々のファイルに分割。呼び出し元の更新。
+  [Aaron Giles]
+
+- emuallocで、古いオブジェクトが割り当てたリソースを安全にクリーンアップできるように
+  するため、リソースプールの解放を一番古いものから最新のものに変更。[Aaron Giles]
+
+- デバイス名をオーバーライド可能な関数から、device_configコンストラクタに渡される引数
+  に変更。コンストラクト時に正しい名前が不明の場合は、一般的な名称を割り当て、設定が
+  完了したときにそれをオーバーライドできます。[Aaron Giles]
+
+-「実戦麻将王 加強版 / Real Battle Mahjong King」の89C51 MCUをデキャップ。
+  [Dr. Decapitator, Guru]
+
+- metro.c:「パズLET」MCUの内部ROMを追加。Zilog Z8 8-bitファミリMCU用に新しくCPUコアの
+  作成が必要。[Dr. Decapitator]
+
+-「Renegade / 熱血硬派くにおくん」の68705 MCUを実装。[Phil Bennett, Dr. Decapitator]
+
+- redufo Artic版を親セットに、海賊版をクローンセットに設定。[hap]
+
+-「ザインドスリーナ / Solar-Warrior」の68705 MCUを実装。
+  [Phil Bennett, Dr. Decapitator]
+
+-「大怪獣の逆襲」に68705 MCU実装、及びMCUシミュレーションの削除。
+  [Phil Bennett, Dr. Decapitator]
+
+- xain.cにDIP配置追加。[Tafoid]
+
+- aristmk4: 改良いろいろ: [FrasheR, Palindrome]
+ * VIAを完全に修正。5010 - 501F
+ * プッシュボタン入力を実装
+ * PML 2852 U3用ポートを実装
+ * コイン入力実装
+ * ランプ出力とボタンレイアウト追加
+ * NVRAMバックアップ
+ * 背景色マップ選択用のSW7を接続
+ * LK13追加。3MHzと1.5MHzのCPU速度選択
+ * メカニカルメーターパルス用のサウンドサンプル追加
+ * MC146818をカスタムRTCコードで置き換え
+
+- naomi.c: 一部のゲーム名とカートリッジ番号を修正。[f205v]
+
+- neodrvr.cの更新: [Johnboy]
+ * kof2003hにAES VERSIONのタグ追加
+ * 次のゲームにMVSとAES VERSIONタグ追加: aodk, lbowling
+ * sengoku3のP1の名称を正しいチップラベルに訂正
+ * strhoopのv2をBAD_DUMPに設定
+ * flipshotのP1をBAD_DUMPに設定
+ * kof98nはAES版と判明したのでkof98hに改名
+
+-「バツグン」のv25ログ出力処理を改良。[David Haywood]
+
+- igs011.cの更新: [Luca Elia]
+ * IGS011プロテクトをエミュレート
+ * IGS012プロテクトをエミュレート
+ * 149 ROMのパッチを削除
+
+-「スラップファイト/Alcon」の68705 MCUを実装。[Phil Bennett, Dr. Decapitator]
+
+-「タフターフ」(US)、「レッスルウォー」のMCUを実装; 「レッスルウォー」のMCUシミュレー
+  ションを削除。[Aaron Giles, Dr. Decapitator]
+
+- cps2.c:「エックスメン -チルドレン・オブ・ジ・アトム-」(Hispanic)セットのリリース日を
+  訂正。[gregf]
+
+- machine_configをきちんとしたオブジェクトに変更。マシン初期設定後に新しいデバイスを
+  追加する場合、複数回呼び出しができるように、detokenizeメソッドを追加。新しい命名規
+  則に合わせて、メンバ変数名を更新。[Aaron Giles]
+
+- running_machineのコンストラクタで、他のものと同様に、専用のものをこしらえるのではな
+  く、コンストラクト済みのmachine_configオブジェクトを取るように変更。また、
+  machine->config->m_total_colorsのショートカットとしてmachine->total_colors()を追加。
+  [Aaron Giles]
+
+- firetrap.c: 基板についてのドキュメント追加。ROM名とクロックの訂正。[Guru]
+
+- idsoccer: DIP配置改良、MSM5205クロックの確認。[Kevin Eshbach]
+
+-「ブギーマナー」のタイトル画面色を修正。[Angelo Salese, Stefan Lindberg]
+
+- unidasmコンパイルが通るようにdevice_type定数の定義方法を変更。[Miodrag Milanovic]
+
+- autmoon (aristmk4)のロムロードを正しいCRC/SHAハッシュに変更。既存のROMセットには
+  32kbのもの(u87.bin)が含まれていたが、実際には8kのオーバーダンプとみられる。[Tafoid]
+
+- slapfght.c:「スラップファイト」のROM名訂正と手元にあるセットの基板配置図追加。
+ 「スラップファイト」のDIP配置追加。基板情報をROMセットに合わせて変更。
+  [Brian Troha, Guru]
+
+- mame.cをmame.cとmachine.cに分割。後者には、running_machineとその実装部が含まれます。
+  [Aaron Giles]
+
+- グローバルなマシンレベル命令とアクセサをrunning_machineクラスのメソッドに移動。以下
+  のわずかなケースを除いてドライバには影響しません: [Aaron Giles]
+
+  mame_get_phase() == machine->phase() 
+  add_reset_callback() == machine->add_notifier(MACHINE_NOTIFY_RESET, ...) 
+  add_exit_callback() == machine->add_notifier(MACHINE_NOTIFY_EXIT, ...)
+  mame_get_base_datetime() == machine->base_datetime()
+  mame_get_current_datetime() == machine->current_datetime()
+
+- region_infoクラスをクリーンアップ。memory_region()とmemory_region_length()を除くほ
+  とんどのグローバルなリージョンアクセサを削除。これもドライバには特に影響しません。
+  [Aaron Giles]
+
+- 以前のサンプリングプロファイラを復活させ、使いやすく改良: [Aaron Giles]
+ * いつでも使えるようになりました。-profile <n>と指定します
+ * コールチェーンの一意な識別を行うスタックウォークをサポート; パラメータ<n>で
+   -profileオプションの深度を指定します
+ * 速度制限とマルチスレッドは自動でOFFに指定し、プロセッサ数も1に設定します(メインス
+   レッドのみをサンプリングするため)
+ * 出力には汎用のシンボルルックアップを使用。MSVCビルドではPDB、gccビルドではsymファ
+   イルを使用します
+ * トップ30のユニークなコールチェーンも出力
+
+- PowerPCゲームのパフォーマンス低下を修正。タイミング処理で、現在は動作の遅い
+  cpu_get_total_cycles()を頻繁に使用したのが原因です。そこで、legacy_cpu_deviceの直接
+  呼び出し、及び、汎用デバイスから実行インタフェース検出を行うdynamic_castが不要な
+  device->total_cycles()を使っています。[Aaron Giles]
+
+- cycles_to_attotime()とattotime_to_cycles()を追加(サイクルは分周/乗算後の内部クロッ
+  クなのに対し、クロックは生の入力クロックであるため、attotime_to_cycles()がより使わ
+  れる)。[Aaron Giles]
+
+- cpu_get_total_cyclesの他のインスタンスをほとんど削除。[Aaron Giles]
+
+- 以下の関数を削除: [Aaron Giles]
+  cpu_get_total_cycles()   == cpudevice->total_cycles()
+  cpu_clocks_to_attotime() == cpudevice->cycles_to_attotime()
+  cpu_attotime_to_clocks() == cpudevice->attotime_to_cycles()
+
+-「ワールドラリー」のDIP配置順をサービスメニューにあるDIP表示に合わせて訂正。
+  [Brian Troha]
+
+- namcos22.c: ridgerac、raveracw、acedrvrwでシフトにDIPスイッチではなくキーを使うよう
+  更新。[Fabio Priuli]
+
+- COPXのROMロードが無いものに追加し、仮定が確認されるまでBAD_DUMPを追加。[hap]
+
+- Winmainのクリーンアップ: [Aaron Giles]
+ * dynamic_bind<>テンプレートクラス作成。追加サポート関数を動的にバインド処理するため
+ * スタックウォークコードをクラスにラッピング
+ * シンボルルックアップコードをクラスにラッピング
+ * objdump生成のシンボルダンプで非グローバル関数を含むものについてパースをサポート。
+   スタックダンプの改良とgccビルドでのプロファイリングのため
+
+- win32ターゲットのmakefileで、SYMBOLSが有効なときは自動的にobjdumpを実行し.symファイ
+  ルを作成するように改良。[Aaron Giles]
+
+- チートロード処理でイメージデバイスをサポート(MESSより)。最初に見つかったイメージの
+  CRCのみ使用。[Miodrag Milanovic]
+
+- cpu_get_sp()を削除。[Aaron Giles]
+
+- execute、memory、stateインタフェースのフェッチを行うオーバーライド追加。これは、汎
+  用のレガシー操作を加速するため、dynamic_cast<>を行いません。[Aaron Giles]
+
+- 全てのCPUについて、新マクロDECLARE_LEGACY_CPU_DEVICEとDEFINE_LEGACY_CPU_DEVICEを使
+  用して、CPU専用のデバイス型を作成。これまでCPUは、共通のCPU型に特殊な内部サブ型を追
+  加したものでしたが、それぞれ独自のデバイス型に変更しました。この作業の一環として、
+  全部大文字のデバイス名から接頭辞CPU_を削除しました。たとえば、CPU_Z80はただのZ80で
+  す。このため、8080などの一部名称は最初にアルファベットが来る必要があるため、I8080に
+  変更しています。[Aaron Giles]
+
+-「ヘビーバレル」のI8751 MCUを実装。[Bryan McPhail, Dr. Decapitator] 
+
+- [cb2001] 2つの新規命令を追加。[robiza]
+
+-「Gondomania / 魔境戦士」のI8751 MCUを実装。[Bryan McPhail, Dr. Decapitator]
+
+-「迷宮ハンターG」のI8751 MCUを回路図に基づいて再実装。[Bryan McPhail]
+
+- ソフトウェアリストの更新: [Wilbert Pol]
+ - ソフトウェアリストXMLファイルは、親子セットがあるかなど全ての情報を含みます
+ - 親セットの存在について妥当性チェックを追加
+
+- イメージ関係のツールをMESSから/lib/util/に導入。[Miodrag Milanovic]
+
+- cb2001のビデオエミュレーションを改良。[David Haywood]
+
+- Sega 317-5000の復号化(315-5177と同様)をサポート。復号コード部を再構成。
+  [Nicola Salmoria]
+
+- デバッグ用構造体をCPUのみから、全てのデバイスにアタッチ。デバッガは、各デバイス毎に
+  構造体を生成します。C++化したデバッガ処理のほとんどをデバッグ用クラス配下に移動し、
+  呼び出し元を更新。[Aaron Giles]
+
+- cpu_count、cpu_first、cpu_nextなどが動作しなくなっていたので削除。さらに、
+  cpu_is_executing、cpu_is_suspended、cpu_get_local_time、cpu_abort_timesliceも削除。
+  [Aaron Giles]
+
+- ソフトウェアリストの改良: [Miodrag Milanovic]
+ - ドライバ毎のマルチソフトリストをサポート
+ - 互換性のあるソフトウェアリストを追加するためのMDRV_SOFTWARE_LIST_COMPATIBLE_ADDを
+   追加(ドキュメント作成用) [Miodrag Milanovic]
+ - -listsoftwareオプションはオリジナルのソフトリストのみを返します
+ - デバイス毎のソフトウェア項目をマウント可能なようにUIを更新
+ - UIの互換ソフトリストを分離
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+スラップファイト (set 1) [Phil Bennett, Dr. Decapitator]
+Alcon / スラップファイト [Phil Bennett, Dr. Decapitator]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+ザ・キング・オブ・ファイターズ'98 (韓国用基板2) [Johnboy]
+Looping (Video Games GMBH) [Andrew Welburn]
+Defend the Terra Attack on the Red UFO (Artic) / レッドUFO [The Dumping Union]
+クレイジーコング (Falcon?) [Fred O.]
+Exciting Animal Land Jr. (USA) / ワイワイアニマルランドJr. 
+    [Smitdogg, The Dumping Union]
+American Soccer [Kevin Eshbach]
+バーチャストライカー2 '99 (Revision B) [Guru]
+ファイヤートラップ (Japan) [Guru]
+マーヴル VS. カプコン (USA 971222) [Razoola]
+雷電DX (UK) [Irongiant]
+Boggy'84 / ボギー'83 (original Kaneko) [Klaus Sommer, Team Europe, The Dumping Union]
+エクセライザー (Japan) [N. Francfort, blib, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Quizard (1.7) [ANY, The Dumping Union, Harmony]
+Quizard (2.2) [ANY, The Dumping Union, Harmony]
+Quizard (3.2) [ANY, The Dumping Union, Harmony]
+Quizard Rainbow (4.1) [ANY, The Dumping Union, Harmony]
+Model Racing Shooting Game (タイトル不明)
+    [Luigi, Volker Hann, Team Europe]
+アウトラン2 (Rev. A) [GDX-0004A]  [Team Europe, The Dumping Union, Alex]

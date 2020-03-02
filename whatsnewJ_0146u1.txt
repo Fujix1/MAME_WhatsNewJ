@@ -1,0 +1,228 @@
+0.146u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02339: [画面反転/カクテルモード] (metro.c) mouja: 表示領域が非対称なので、画面反転
+         がうまく動作しない。(hap)
+- 03990: [ステート保存/再生] (bfm_sc2.c) sc2drwho + clones: ステートを読み込むとLCDが
+         一時的に表示されなくなる。(JWallace)
+- 04893: [サウンド] ym2413.c - 条件式の中に成立しない物がある。
+- 04890: [クラッシュ/フリーズ] (nemesis.c) rf2: カウントダウン後にハングする。(hap)
+- 04884: [クラッシュ/フリーズ] (ms32.c) tp2m32: "unhandled priority type e0"エラーが
+         起きてクラッシュする。(hap)
+- 04882: [グラフィック] (rabbit.c) rabbit: 体力バーが真っ黒。(hap)
+- 04561: [グラフィック] (metro.c) Most games in metro.c: 画面のずれやグラフィックのず
+         れがある。(hap)
+- 04703: [DIP/入力] (metro.c) karatour: スタートボタンが動作しない。(hap)
+- 04770: [クラッシュ/フリーズ] (metro.c) 3kokushi, karatour, ladykill, moegonta: 黒画
+         面または白画面しか表示されない。(hap)
+- 04862: [クラッシュ/フリーズ] (midyunit.c) smashtv, strkforc, trog and clones: ゲー
+         ム開始後しばらくするとクラッシュする。(Phil Bennett)
+- 04861: [クラッシュ/フリーズ] (taitojc.c) dendego, dendegoox, dendego2, dendego23k: 
+         起動チェック後にクラッシュする。(hap)
+- 04873: [グラフィック] (mitchell.c) mgakuen2: イントロシーンのフィルム風の描画が変に
+         なっている。(M.A.S.H.)
+- 00653: [DIP/入力] (topspeed.c) topspeed: アナログ入力モードで、左に曲がることができ
+         ない。(hap)
+- 04871: [DIP/入力] (topspeed.c) topspeed: PORT_TOGGLEが設定されていない。またビルト
+         インレイアウトが間違っている。(M.A.S.H.)
+- 04591: [インターフェイス] DIPスイッチの配置が実装されていないドライバで、GUIのDIPス
+         イッチ表示をすると、下側に空白が表示される。(Fabio Priuli)
+- 04854: [速度] (turbo.c) All sets in turbo.c: 大幅な速度低下。(hap)
+- 04870: [クラッシュ/フリーズ] (centiped.c) caterplr, magworm: 起動直後にクラッシュす
+         る。(couriersud)
+- 04868: [クラッシュ/フリーズ] (williams.c) joust2: OK後にクラッシュする。(M.A.S.H.)
+- 04866: [クラッシュ/フリーズ] (nova2001.c) raiders5: RAMテストにパスしない。
+         (M.A.S.H.)
+- 04863: [グラフィック] (tehkanwc.c) gridiron: アスペクト比がおかしい。(hap)
+- 04864: [その他] CHDMANでv4からv5のコンバートが出来ない。
+- 04853: [サウンド] (bzone.c) redbaron: POKEYによる背景ノイズ音が大きすぎる。
+         (couriersud)
+- 04855: [サウンド] (scramble.c) 800fath, knockout, mariner, triplep: サウンド出ない。
+         (hap)
+
+
+ソースの変更点
+--------------
+- Naomi/Chihiroのドキュメントを更新。[f205v]
+
+- seta.c:「Magic Speed」の基板レイアウトとDIPスイッチ配置を追加。[Brian Troha]
+
+- DM01ボードの一部ハンドラをbfm_sc4に移動。このハードのゲームがもっと確認された場合は
+  メインドライバにする予定。[James Wallace]
+
+- CPS-1の更新: [Team CPS-1]
+  * cawingjのCA22B.1A PAL吸い出し、及び追加 (Kold666)
+
+-「DSテレジャン」の入力系実装。[Angelo Salese]
+
+- xain.c:「ザインドスリーナ / Solar-Warrior」のROMラベルを訂正。
+  [Smitdogg, The Dumping Union]
+
+- DMD01を使うゲームをさらに発見して実装。また実装インタフェースの整理。「Scorpion 4」
+  のセットを整理。[David Haywood]
+
+- z800x: ベクター割り込みを正しく処理。[Christian Grsler]
+
+- m72.c: imgfightjでmcuを実装。[David Haywood]
+
+- バグID04862の修正。[Phil Bennett]
+
+- libflac/libflac/md5.cのメモリリーク修正(chdmanのメモリの問題が解決)。
+  [Oliver Steberg]
+
+- PokeyデバイスにCycle-exactなポテンショメータ追加とキーボードのサポート。
+  [Couriersud].
+
+-「びっくりカード」「チャンス君」のスプライト色を修正。[Smitdogg, Angelo Salese]
+
+- megatech.c: 新しいリビジョンのBIOS追加。[iGREKKESS, ElBarto]
+
+- hng64.cである程度サウンドコードが動作するようにV53(V33コア)にビットを追加。まだサウ
+  ンドは出ず、バンキングメカニズムの実装が必要ですが、初期バンクは正しいはずです。
+  [David Haywood]
+
+- vsnes.c: ドキュメントの更新とROM名の修正。わかる範囲でゲーム名にセット情報を追加。
+  コピーライトよりリージョン情報を修正。[Mark F., Brian Troha, The Dumping Union]
+
+- yiear.c: Correct rom labels [Smitdogg, The Dumping Union]
+
+- flipjack.c:「Flipper Jack」について、マニュアルを元にDIPスイッチとピンアウトのド
+  キュメント追加。[Brian Troha]
+
+- mediagx.c:「Area 51 Site 4」のリビジョンとビルド日についてドキュメントを追加。
+  [Troy Gratton]
+
+- SDL: OS/2のコンパイルを修正。[K.O. Myung-Hun]
+
+- ssv.c:「機動戦士ガンダムファイナルシューティング」のDIP配置追加。[Brian Troha]
+
+- bzone.c: -01リビジョンのベクター生成ボードと関連PROMについての情報をドキュメントに
+  追加。「レッドバロン」の基板ROM配置の訂正及び追加。「バトルゾーン」2セットにリビ
+  ジョン追加。また新しい方(rev 2)を親セットに設定。[Andrew Welburn, Brian Troha]
+
+- shootout.c:「Shootout」にDIP配置追加。[Brian Troha]
+
+- es5505/6: 実際にはADCポートリードコールバック使用だった。[R. Belmont]
+
+- topspeed.cの更新:
+   * ピンアウトのドキュメントとDIP配置追加。[kanikani]
+   * アナログ操作の問題を修正。[hap]
+   * 意味のある実装になるように2個目のADPCMチップを追加。[hap]
+
+- "アナログ"Pokeyの更新: [Couriersud]
+  * Pokeyのキュメントから内部抵抗を計算。これはGNDに対する4-bitの並列抵抗(High-Z mos
+    の"デバイス")ネットワークで、非線形の抵抗になります
+  * pokeyドライバでオペアンプ/レジスタステージの追加と、ローパスフィルタのサポート。
+    これは完全なディスクリートエミュレーションほどは良くないものの、以前の線形近似に
+    比べるとかなりましです
+  * ドライバ2本で新しい出力音量計算を使用するように更新
+  * デバイス設定マクロ追加して、全ドライバで使用するように更新
+
+- i8008 CPUコアをモダン化。[Lukasz Markowski]
+
+- さらにゲーム2本にPOKEYフィルタステージ追加。[Couriersud]
+
+- SDL: Haiku OSをテストサポート。[PulkoMandy]
+
+-「Tunnel Hunt」にPOKEYフィルタステージ追加。[Couriersud]
+
+- Z8001を改良。[Christian Grsler]
+
+- quantumドライバに完全なディスクリートフィルタ追加。[Couriersud]
+
+- レイアウトインタフェースに関連して、リールモーターとリールの配置を改良。
+  [James Wallace]
+
+- segas32.c: ドキュメントの更新。「エイリアン3」「F-1エキゾーストノート」
+ 「アウトランナーズ」「ラッドモビール」「ラッドラリー」」のSegaゲームIDコードと基板番
+  号を更新。未吸い出しな「ラッドモビール」のアップライト版のバージョン番号を追加。
+  [Brian Troha]
+
+- SDL: OS/2向けの修正。[K.O. Myung-Hun]
+
+-「War of the Worlds (color)」[wotwc]で別のサンプルが必要なのはコードの重複が原因
+  だったのでそれを削除。これによりにwotwのサンプルで両方OK。[Tafoid]
+
+- bwidowとgravitarにディスクリートサウンド追加。[Couriersud]
+ * ccastles(音量)とcentiped(ローパスフィルタ)のマイナーな変更
+ * pokey.cで不要になったクラスメンバを削除
+
+- 68681.c: カウンタ・タイマーの実装を修正。[Phil Bennett]
+
+- taito_en.cの改良: [Phil Bennett]
+  * 汎用68681 DUARTを使用
+  * MB87078音量調整を実装
+
+- model3.c: ドキュメントの更新。何本かのゲームのSega ID、ROMボード、セキュリティボー
+  ドの情報を追加。「スカッドレーサー」のどのセットがツインかデラックスかや、未吸い出
+  しのオーストラリアDX版についても追加。[Brian Troha]
+
+-「大大革命」の入力系完成。不明なビットや追加の設定を確認。[Tafoid]
+
+- eolith.c: ドライバ内の全ゲームにDIP配置追加。入力ポート定義の整理。「Linky Pipe」の
+  スピードアップ追加と、どの辺でゲームがハングするかを注意書き追加。[Brian Troha]
+
+- taito_z.cの更新: [hap]
+  * フェイクのデジタルハンドルハックを削除
+  * chasehpとcontcircのアナログ操作を改善
+  * racingbの問題を修正してプレイ可能
+
+- ASCII PCBのレイアウト、新しい発見事項、テクニカルノートをlucky 74ドライバに追加。
+  [Roberto Fresca]
+
+- MIEの問題の試験的、かつ少しキモイ修正。[O. Galibert]
+
+- 正しい制御ライン処理とウェイトステート生成を行う新型のTMS9900とTMS9995を実装。旧型
+  は * l.{c.h} に改名し、既存ドライバが新型に対応するまでそちらを使うように変更。
+  [Michael Zapf]
+
+-「Destiny - The Fortuneteller」のブザー音を実装。[Angelo Salese]
+
+- bzone.c:「レッドバロン」のアドレスデコードPROM追加。今のところエミュレートでは未使
+  用だが一応追加。[The Dumping Union]
+
+- bankp.cとgyruss.cのクロック改善。[Corrado Tomaselli]
+
+- bfm_bd1マシンのステートセーブが正しくできるようにして、バグ3990も修正。
+  [James Wallace]
+
+- naomi: illveloとおそらく他のものについても起動可能なように修正。[O. Galibert]
+
+- model2.c: Sega製ゲームのROMボードID番号を更新。「マンクスTT」のサウンドCPUとサウン
+  ドROMをマニュアルで確認しながら修正。また未吸い出しな「マンクスTTデラックス」のセッ
+  トについても記述追加。[Brian Troha]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Magical Speed [NoVArcade]
+Dragon World 2001 [David Haywood, Smitdogg]
+Dragon World Pretty Chance [David Haywood, Smitdogg]
+ファンキューブ [Guru, Yasuhiro Ogawa, Luca Elia]
+Linky Pipe [Gerald (COY), The Dumping Union]
+レーシングビート [hap]
+
+新しく追加されたクローンセット
+------------------------------
+Space Ranger [Marcello Mancini]
+Express Raider / ウエスタンエクスプレス (Italy) [Tirino73]
+ダイナマイトデューク (Euro) [Tirino73]
+バトランティス (program code F) [Paul Canham]
+バーチャファイター2 (Step 1.5, older) [Mr. CAST, Yohji, Smitdogg, The Dumping Union]
+ハイパーオリンピックインナガノ(GX720 JAA)
+  [Yohji, Mr. CAST, Smitdogg, The Dumping Union, smf]
+クライシスゾーン (CSZO3 Ver. A) [Mr. CAST, Smitdogg, The Dumping Union]
+Red Barron [Andrew Welburn, The Dumping Union]
+Bulls Eye Darts (Galaxian conversion) [Mariusz Wojcieszek, Paul Swan]
+オーバーレブ (Model 2B, Revision B) [Brian Troha, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Flipper Jack [Yohji, Mr. CAST, Smitdogg, The Dumping Union, hap, Angelo Salese]
+Konami Test Board GX800 [Yohji, Tormod, Smitdogg, The Dumping Union, Angelo Salese]
+Exciting Black Jack [Mr.CAST, Smitdogg, The Dumping Union, Roberto Fresca]
+Pong (Rev E) [Couriersud]

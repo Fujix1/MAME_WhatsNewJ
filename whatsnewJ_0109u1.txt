@@ -1,0 +1,85 @@
+0.109u1
+-------
+
+OSD開発者向けの重要情報: ファイルI/Oインターフェースが大幅に変更され、かなりシン
+プルになりました。新しいOSD関数の動作についての詳細はosdepend.hを参照してくださ
+い。また、今回より検索パスの指定にはoptions.cを使用する必要があります。通常のコ
+マンドラインオプションとINIファイルを解析する場合、動作は比較的単純です。そうで
+ないときは、使用しているオプション対してoptions_set_string()をマニュアルで呼び出
+し、検索パスをそれぞれ設定できます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+silentd0108u5yel [Mamesick]
+gradius30104u3gre [Mamesick]
+spelunk2099u6gre [robzia]
+twinactn0105u2gre [robzia]
+czeroize0108u2yel [David Haywood]
+listrom0109red [Aaron Giles]
+chdbaddump0109ora [Aaron Giles]
+ddrawcoloroverlay0109yel [Aaron Giles]
+new_debugger0109ora [Aaron Giles]
+ronnamelength0109ora [krick]
+shtngmst0108u4ora [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- findout.c/getrivia.cをさらに改良: [wolf676]
+ -「Trivia/Sexual Trivia」にチケットディスペンサ追加
+ -「Selection/Poker」の最後の不明DIPスイッチが判明
+ - "ペイアウト"ボタンが無かったので追加; ハード構成は不明
+ - "プレイ / レイズ"ボタンとこれのランプ9を追加
+ - 選択用の"Button 12 ?"を追加。機能は不明
+ - 2つ以上のボタンが押されたときのためにPORT_IMPULSE(2)をポーカーゲームに再追加
+   trivia系ゲームはこれがなくても良く反応します
+ - 2コインスロット用にcoin_lockout_globalをcoin_lockout_w(0)とcoin_lockout_w(1)
+   に変更
+ - ランプ11（コインスロット2）、12と13（不明）を選択用に追加
+
+- MPU4ドライバのクラッシュ修正。[El Condor]
+
+- kovshのARM ROMを実装したもののまだ動作せず。[ElSemi]
+
+- 8080bwドライバの修正: [Robert]
+ - 正しいサンプルを使うように修正: lrescue, lrescuem, grescue, desterth
+ - DIPスイッチの修正: superinv, invadrmr, sinvemag, spceking, spacewr3
+ - indianbtでの余計なビープノイズ音を削除
+
+- toaplan2.cについて、外部ステレオコネクタの無いJAMMA基板なので、全てのゲームを
+  モノラルにコンバート。[Corrado Tomaselli]
+
+- qsoundドライバにバウンドチェック追加。[David Haywood]
+
+- OSDファイルI/Oインターフェースをよりシンプルでわかりやすいように再デザイン。ま
+  た、コアのファイルI/Oルーチンの単純化と、これまでOSDにレイヤーに残っていた機能を
+  追加。[Aaron Giles]
+
+- unzip.cで、以前よりも詳細なエラーを返すように書き直し。[Aaron Giles]
+
+- audit.cのコード簡略化と旧ファイルI/Oシステムの関数に依存しないように書き直し。
+  [Aaron Giles]
+
+- 68000コア生成ロジックで、ファイルを一つしか作成しないように簡略化。これにより、
+  コアのビルド関係の問題が直るかも。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Five a Side Soccer [Ville Linde]
+スーパーストリートファイターII - ザ・ニューチャレンジャー [David Haywood, stephh]
+ダイナミックシュート競争 [Tomasz Slanina, Guru]
+ドキドキペンギンランド [Tomasz Slanina, Guru]
+Shooting Gallery [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+エドワードランディ (World) [Patrik Styrnell]
+ダブルドラゴン3 (Japan) [Corrado Tomaselli]
+Twin Brats (set 2) [Patrik Styrnell]

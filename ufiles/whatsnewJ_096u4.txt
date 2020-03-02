@@ -1,0 +1,48 @@
+0.96u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+peggle096u2gre
+exidyc096u3gre
+spiders096u3red
+renegade096u2gre
+
+
+
+ソースの変更点
+--------------
+プレイヤーの違いがわかるように照準のスタイルを4種類追加。[Aaron Giles]
+
+vidhrdw/wecleman.cのコードをわかりやすく書き直し。[Aaron Giles]
+
+タイマーの時間切れで「ギャラクシアン」がリセットするのを修正。[Aaron Giles]
+
+coolpool.cのNVRAMにスラッシュプロテクトのエミュレーション追加。[Aaron Giles]
+
+Windows用のメモリデバッグで、配置されているファイル・行番号のトラッキングを改良。
+これによりコアのmakefileに2カ所変更が必要です。[Aaron Giles]
+
+新しいデバッガコードと、アートワークシステムでメモリリークが残っていたのを修正。
+[Aaron Giles]
+
+ビットマップとメモリに自動メモリ配置関数を使ってなかったビデオドライバ何本かをク
+リーンアップ。[Aaron Giles]
+
+RF5C68サウンドエミュレータをスペックより書き直し。System18ゲームのサウンド改善。
+[Aaron Giles]
+
+osd_die()コールへのlogerror()/exit()、printf()/exit()、fprintf()/exit()の各組み
+合わせを一部置き換え。[Firewave]
+
+新デバッガにlogerrorとmemdumpコマンド追加。[Nathan Woods]
+
+PowerPCコアで、SMI入力ラインの実装とTLBISYNC入力ラインのプレイスホルダ追加（まだ
+動作せず）。また、603のTBUスペシャル変数実装。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+スーパービシバシチャンプ [David Haywood]

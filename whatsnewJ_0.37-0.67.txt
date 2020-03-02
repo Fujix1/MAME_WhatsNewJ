@@ -1,0 +1,3651 @@
+0.67
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+rocnrope37b7ora [Nicola Salmoria]
+m62sound066yel
+bladstle065gra   [Jake Stookey]
+poundfor37b14gra (2つ目の項目だけ) [Jake Stookey]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- M72ゲームのサンプル再生修正。[Nicola Salmoria]
+
+-「Battle Rangers」に音楽追加。[Charles MacDonald]
+
+
+その他ドライバの変更：
+----------------------
+
+- ゲーム名・フラグの訂正を数十本。[Toby Broyad]
+
+- 「V'BALL」でいろいろ改善。[Steve Ellenoff]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 新オプション-autoror/-autorol追加。これは縦画面ゲームのときだけ画面を
+  回転します。回転型液晶モニタで便利です。[Paul Priest]
+
+
+ソース：
+--------
+
+- MIPS 3/4 x86ダイナミックリコンパイルコア。[Aaron Giles]
+
+- PIC16C5x CPUコア。 [Quench]
+
+- Sega 315-5560 "マルチPCM"サウンドチップエミュレーション。[R. Belmont]
+
+- HuC6280サウンドエミュレーション。[Charles MacDonald]
+
+
+新規サポートゲーム：
+--------------------
+
+ミスティックウォリアーズ [R. Belmont, Phil Stroffolino]
+ガイアポリス [R. Belmont, Phil Stroffolino]
+メタモルフィックフォース [R. Belmont, Phil Stroffolino]
+究極戦隊ダダンダーン [R. Belmont, Phil Stroffolino, Acho A. Tang]
+バイオレントストーム [R. Belmont, Phil Stroffolino, Acho A. Tang]
+ツインビーヤッホー! [R. Belmont, Phil Stroffolino, Acho A. Tang]
+マーシャルチャンピオン [R. Belmont, Phil Stroffolino, Acho A. Tang]
+リーサルエンフォーサーズ2 [R. Belmont, Phil Stroffolino, Olivier Galibert]
+対戦ぱずるだま [R. Belmont, Phil Stroffolino, Olivier Galibert]
+極上パロディウス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+セクシーパロディウス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+だい好キッス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+対戦とっかえだま [R. Belmont, Phil Stroffolino, Olivier Galibert, David Haywood]
+ガーディアンズ / Denjin Makai II [Luca Elia]
+ドラゴンガン [Bryan McPhail]
+タトゥーアサシン [Bryan McPhail]
+Locked'n Loaded / ガンハード [Bryan McPhail]
+Dead Angle / リードアングル [Bryan McPhail, David Haywood]
+Dragon Master [David Haywood, Quench]
+Las Vegas Girl (Girl '94) [David Haywood]
+ハードダンク 3 on 3 [Jason Lo, R. Belmont, David Haywood]
+アウトランナーズ [Jason Lo, R. Belmont, David Haywood]
+テクモボウル [David Haywood, Tomasz Slanina]
+Complex X [Brian Crowe]
+
+
+==========================================================================
+
+
+0.66
+
+コードネーム "FR-34"
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+galpanib062gre   [Paul Priest]
+usclssic065red   [Kale]
+pang3065gre
+housemn2065gra   [Nomax]
+myangel065gre    [Nicola Salmoria]
+88games062yel    [Nicola Salmoria]
+glfgreat061gre   (以前に修正されました)
+robocop2064gre   [Bryan McPhail]
+dassault061gre2  [Bryan McPhail]
+jdredd060gra     [Smitdogg]
+ringdest062gra   [Smitdogg]
+spbactn061gra    [Smitdogg]
+term2064gra      [Smitdogg]
+xmen062ora       [Smitdogg]
+sotsugyo061red   [Bryan McPhail]
+tmnt065gre       [Acho A. Tang]
+astdelux059gre   [Derrick Renaud]
+gunforc2058gre_2 [Angelo Salese]
+gunforc2058gre_3 [Bryan McPhail]
+
+
+MAME Testersの要チェック項目：
+------------------------------
+
+mrheli37b2gre   - 以前に修正されたと思われます
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「パチンコセクシーリアクション」のサンプル音修正。[Suppi-Chan]
+
+- Namco NAサウンドエミュレーションの大幅改善。[cync]
+
+-「IQ Block」にサウンド追加。[David Haywood]
+
+-「Exterminator」のドラム音修正。[Steve Ellenoff, Jim Hernandez]
+
+
+その他ドライバの変更：
+----------------------
+
+- Namco NAドライバをいろいろ改善。[Phil Stroffolino]
+
+- Nintendo VSとPlaychoiceドライバの改善とゲーム追加。[Pierpaolo Prazzoli]
+
+-「スーパーリアルダーウィン」の修正をいくつか。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 新オプション-high_priority追加。これは他のプログラムと一緒にMAMEが動作する
+  場合に、スレッド優先度を上げて動作を改善します。ONにするとCPUをかなり占有する
+  ため、デフォルトではOFFです。
+
+- ディスクリートサウンドシステムが大幅に更新されました。UIからのパラメータ調整や、
+  既存ゲームの修正、canyon、polaris、sprint、ultratnkでの新規サポートなど。
+  [Derrick Renaud & Keith Wilkins]
+
+- I86/NEC CPUエミュレーションのバグを修正しました。「ジオストーム」のラスタエフェ
+  クトや「サンダーブラスター / Lethal Thunder」でクレジットが99になる問題などに
+  対応しています。[Bryan McPhail]
+
+
+ソース：
+--------
+
+- GCC 3.2.2でコンパイルをするようにしました。GCC 3.2のバグに対応するパッチは削除
+  しました。
+
+- YMF262エミュレータの初版。[Jarek Burczynski]
+
+
+新規サポートゲーム：
+--------------------
+
+Fantasy '95 [Brian A. Troha]
+華の舞 [Nicola Salmoria]
+麻雀フライデー [Nicola Salmoria]
+麻雀ダイヤルQ2 [Nicola Salmoria]
+ドンデン麻雀 [Nicola Salmoria]
+わたしはすずめちゃん [Nicola Salmoria]
+麻雀スタジオ101 [Nicola Salmoria]
+マージャンデリンジャー [Nicola Salmoria]
+華弥生 [Nicola Salmoria]
+アンタッチャブル [Nicola Salmoria]
+Rong Rong [Nicola Salmoria]
+ドンデンラバー / Vol. 1 [Nicola Salmoria]
+クイズ・チャンネルクエスチョン [Nicola Salmoria]
+Mad Donna [David Haywood]
+Dorodon [Frank Palazzolo]
+べんべろべえ [Phil Stroffolino, Acho A. Tang]
+ハレーズコメット [Phil Stroffolino, Acho A. Tang]
+Triv Quiz [MooglyGuy]
+ギガス [Tomasz Slanina]
+ギガスMK-II [Tomasz Slanina]
+マッドシャーク [Luca Elia]
+ウルトラ闘魂伝説 [Luca Elia]
+
+
+新規サポートクローン：
+----------------------
+
+セカンドアース グラティア (set 1)
+ミステリアスストーンズ (set 1)
+Cosmic Cop (= ギャロップ)
+
+
+==========================================================================
+
+
+0.65
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+arbalest060gre    [Nicola Salmoria]
+arbalest37b1gre   [Nicola Salmoria] (要チェック)
+calibr50062gre    [Nicola Salmoria]
+downtown062gre    [Nicola Salmoria]
+oisipuzl061gre    [Nicola Salmoria]
+galpanic064gre    [Nicola Salmoria]
+mitchellc063gre   [Smitdogg]
+avengers061gre    [Acho A. Tang]
+avengers37b16gre  [Acho A. Tang]
+lwingsc37b7gre    [Acho A. Tang]
+pow37b5yel        [Acho A. Tang] (最初の部分だけ)
+powj36rc2gre      [Acho A. Tang]
+sidearms060red    [Acho A. Tang]
+sidearms055gre    [Acho A. Tang]
+turtship37b5yel   [Acho A. Tang]
+roadblst35b10yel  [Aaron Giles]
+kinst063red       [Aaron Giles]
+
+
+MAME Testersの要チェック項目：
+------------------------------
+
+krzybowl058gre  - まだ起きてますか？チェックお願いします。
+seta2c060yel    - まだ起きてますか？チェックお願いします。
+myangel056gre   - これは多分、2つ位前のリリースで直ってるはず。チェックお願いします。
+avengers061gre2 - US版の実機上で確認したでしょうか？オリジナルのバグのような感じです。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- CPS2のラスタエフェクト修正。[Shiriru]
+
+- 「サイドアーム」の星空表示初期版。[Acho A. Tang]
+
+- Nichibutsu麻雀ゲームのクリーンアップと、「対家麻濡感」「美女っ子夢物語」に液晶サポート
+  追加。[Nicola Salmoria]
+
+- Jaleco Mega System 32ゲームを大幅に改良。[Nicola Salmoria]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 「ファイアートラック」「Super Bug」「モンテカルロ」のサウンド修正。[Derrick Renaud]
+
+- uPD7759の問題修正（「TMNT」「88 Games」「P.O.W.」）。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- V60/V70のメモリアクセス最適化。[Aaron Giles]
+
+- X1-010エミュレーターにステレオサポート追加と、きちんとしたサウンドコアへと変更。
+  [Nicola Salmoria]
+
+
+新規サポートゲーム：
+--------------------
+
+オレンジ倶楽部 - マル秘課外授業 [Nicola Salmoria]
+麻雀好きの懲りない面々 [Nicola Salmoria]
+アイドルの秘密 [Nicola Salmoria]
+金津園のおんな [Nicola Salmoria]
+ペアーズ [MooglyGuy]
+タオ体道 [David Haywood, Stephane Humbert]
+Perestroika Girls [David Haywood]
+流星雀士キララ★スター [Malice]
+早押しクイズ王座決定戦 [Malice]
+マウサー [Frank Palazzolo]
+Ribbit! [Aaron Giles]
+
+
+==========================================================================
+
+0.64
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+spaceint061red [Stefan Jokish]
+robocop2056gre [Bryan McPhail]
+stoneage060gre [Bryan McPhail]
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- 「スカル＆クロスボーンズ」のプライオリティ修正。[Aaron Giles]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 「霊界導士」にサウンド追加。[Nicola Salmoria]
+
+
+その他ドライバの変更：
+----------------------
+
+- 「ファイヤートラップ」の8751プロテクトのシミュレート。[Bryan McPhail]
+
+
+新規サポートゲーム：
+--------------------
+
+Tickee Tickats [Aaron Giles]
+クラウンズゴルフ [Aaron Giles]
+Ultimate Tennis [Aaron Giles, Nicola Salmoria]
+Stone Ball [Aaron Giles, Nicola Salmoria]
+Cheese Chase [Aaron Giles, Nicola Salmoria]
+麻雀 個人教授 (Private Teacher) [Nicola Salmoria]
+マージャンビタミンC [Nicola Salmoria]
+麻雀用語の基礎体力 [Nicola Salmoria]
+麻雀　禁じられたあそび - イケイケ教師の欲望 [Nicola Salmoria]
+麻雀レモンエンジェル [Nicola Salmoria]
+麻雀女学園 [Nicola Salmoria]
+麻雀いかがですか [Nicola Salmoria]
+雷牙 - Strato Fighter
+エドワードランディ [Bryan McPhail]
+Mutant Fighter / デスブレイド [Bryan McPhail]
+Wizard Fire / ダークシールII [Bryan McPhail]
+Zombie Raid [David Haywood]
+エンフォース
+Shot Rider [Tomasz Slanina]
+
+
+新規サポートクローン：
+----------------------
+
+Shadow Warriors / 忍者龍剣伝 (set 2)
+Carrier Air Wing / USネイビー(US)
+七対子 (= 麻雀学園)
+麻雀ナンパストーリー (Ura)
+
+
+==========================================================================
+
+
+0.63
+
+暫定リリースのため、この2ヶ月間に寄せられたものの多くは含まれていません。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「サブロック3D」「ターボ」「Buck Rogers / ズーム909」で、LEDカウンタの表示にアート
+  ワークを使用するようになりました。[Stefan Jokish]
+
+-「ダイナミックスキー」の色修正。[Stefan Jokish]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「サブロック3D」にサンプルサポート追加。[Dave France]
+
+- Exidy製ゲームのノイズ周波数修正。[Jim Hernandez]
+
+- Namco NAサウンド、初期版追加。[Phil Stroffolino]
+
+
+その他ドライバの変更：
+----------------------
+
+-「バーディトライ」のプロテクトを一部シミュレート。[Angelo Salese]
+
+-「クイズF-1 ワンツーフィニッシュ」の解読を改善。ただし、まだ不完全。[Angelo Salese]
+
+-「ゴルフィンググレイツ」のボール位置検知を修正。[Olivier Galibert]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 起動画面をOFFにするオプション「-nodisclaimer」と「-nogameinfo」追加。
+  エミュレーションが不十分な場合の警告は表示されます。[Aaron Giles]
+
+- RDTSCをQueryPerfomanceCounterに置き換えました。これにより、SpeedStep系のノートでの
+  問題が修正されるはずです。しかし、他のマシンで問題が起こる場合があるようなので、
+  「-rdtsc」オプションで以前の方法に戻すこともできます。[smf]
+
+
+ソース：
+--------
+
+- コンパイラがMinGW 2.0/GCC 3.2になりました。新コンパイラのせいで起こるバグがあったら
+  一報ください。
+
+- YM2413エミュレーションを全面入れ替えで、クオリティ大幅向上。[Jarek Burczynski]
+
+- YM2608エミュレーションにドラムサポート追加。（「スーパーフォーミュラ」など）
+  [Jarek Burczynski]
+
+- ファイルI/Oの大部分をOS依存コードからコアへ移動しました。新しくmame_fileとosd_fileも
+  追加されています。これはタイプチェックをシステム全体で改善します（また、両者が混乱
+  するのも防ぎます）。osd_fopen、osd_fread、osd_fwriteなどを呼び出していたところは、
+  新しくmame_fopen、mame_fread、mame_fwriteなどとして下さい。osd_*系はコアにリザーブ
+  されています。
+  ZIP処理は全てmame_file関数内で行われるので、移植版でも同様に引き継ぐことができます。
+  [Aaron Giles]
+
+- [Win32] diff、snap、cfg、nvramなどのディレクトリは、MAMEがそれぞれに最初にファイルを
+  保存する際に自動的に作成されるようになりました。[Aaron Giles]
+
+- MIPS III/IV CPUコア追加。[Aaron Giles]
+
+- ADSP-2115 CPUサポート追加。[Aaron Giles]
+
+- TMS32025 CPUコア追加。[Quench]
+
+- YMF278Bエミュレーション修正。[R.Belmont]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+galaga37b8gre [Satoshi Suzuki]
+galaga37b16gre [Satoshi Suzuki]
+cutieq37b2gre [Stephane Humbert]
+crusn062gre [Aaron Giles]
+totcarn062gre [Aaron Giles]
+commsega062gra [Stephane Humbert]
+wiping062red [Stefan Jokish]
+heartatk062red [Stefan Jokish]
+polyplay060red [Stefan Jokish]
+
+
+新規サポートゲーム：
+--------------------
+
+Off Road Challenge [Aaron Giles]
+Shrike Avenger [Aaron Giles]
+War Gods [Aaron Giles]
+Grudge Match [Aaron Giles]
+Sharpshooter [Aaron Giles]
+Killer Instinct [Aaron Giles, Bryan McPhail]
+Killer Instinct 2 [Aaron Giles, Bryan McPhail]
+ドクターミクロ [Uki]
+Run & Gun / スラムダンク [R.Belmont]
+ホロシアム [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Super Visual Football / ザ・Jリーグ1994 [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+バーニングライバル [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ラッドモビール [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ラッドラリー [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+F-1エキゾーストノート [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+エイリアン3 ザ・ガン [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ソニック・ザ・ヘッジホッグ [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Golden Axe 2 / ゴールデンアックス -デスアダーの復讐 [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+スパイダーマン [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+アラビアンファイト [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Gumbo [David Haywood]
+ゴーリーゴースト [Phil Stroffolino]
+ムーンシャトル [Zsolt Vasvari]
+SF-X (スペースファイターX） [Zsolt Vasvari]
+Mighty Monkey [Zsolt Vasvari]
+Triv Two [David Haywood]
+Pirates [David Haywood, Nicola Salmoria, Paul Priest]
+フリーキック [Tomasz Slanina]
+パーフェクトビリヤード [Nicola Salmoria]
+若草物語麻雀四姉妹 [Nicola Salmoria]
+Got-cha [Nicola Salmoria]
+F-1グランプリPart II [Nicola Salmoria]
+リアル麻雀牌牌 [Nicola Salmoria]
+リアル麻雀牌牌 -人事異動編 [Nicola Salmoria]
+リアル麻雀牌牌 -成長編 [Nicola Salmoria]
+麻雀狂時代 [Nicola Salmoria]
+ザ・麻雀 [Uki]
+麻雀放浪記 PART1 -青春編 [Nicola Salmoria]
+麻雀放浪記 外伝 [Nicola Salmoria]
+麻雀放浪記 掟 [Nicola Salmoria]
+麻雀クリニック [Nicola Salmoria]
+マージャン鹿鳴館 [Nicola Salmoria]
+Tugboat [MooglyGuy, Nicola Salmoria]
+Super Triv II [MooglyGuy]
+ペンギンブラザーズ [Nicola Salmoria]
+Target Hits [Manuel Abadia]
+TH Strikes Back [Manuel Abadia]
+Alligator Hunt [Manuel Abadia]
+World Rally 2: Twin Racing [Manuel Abadia]
+Maniac Squares [Manuel Abadia]
+Snow Board Championship [Manuel Abadia]
+Bang! / ガンガバチョ [Manuel Abadia]
+Boomer Rang'r / ジェネシス [Bryan McPhail]
+Kamikaze Cabbie / イエローキャブ [Bryan McPhail]
+リバレーション [Bryan McPhail]
+P-47 Aces
+
+
+新規サポートクローン：
+----------------------
+
+ノストラダムス (Korea)
+クルージンワールド (rev L2.0)
+ターミネーター2 (LA2)
+スーパーハイインパクト (prototype)
+Mr Kougar (set 2)
+Donkey Kong Jr (bootleg on Galaxians hardware)
+Police Trainer (older)
+北派少林 飛龍の拳 (=Shanghai Kid)
+
+
+==========================================================================
+
+
+0.62
+
+ライセンス変更についての注意：
+プロジェクト全体についてはGPL、CPUやサウンドコアのいくつかについてはLGPLへ、
+配布ライセンスの変更を検討しています。
+もし、あなたがMAMEにコードを提供していて、この変更に反対の場合は、今のうちに
+お知らせ下さい。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- CPS2ゲームのラスタエフェクト改善。[Barry Rodewald]
+
+- Atari製ゲームいくつかでプライオリティ修正。[Aaron Giles]
+
+- Taito F3ゲームでの、スプライトアルファブレンディング。[Shiriru]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「アステロイド」のサウンド改善。[Ken Reneris]
+
+-「バルキューブ」「バンバンボール」、彩京ゲームにサウンド追加。[Olivier Galibert]
+
+- セタ製ゲームのサウンドサポートを書き直し。[Manbow-J]
+
+-「ブレイジングトルネード」にサウンド追加。[R.Belmont]
+
+-「バトルバクレイド」のサウンド修正。[R.Belmont]
+
+- NeoGeoゲームの一部で音がおかしくなっていたのを修正。特にkof99の“How to play”の
+  ループや、shocktroのデモ終了時の音が鳴っていなかったのなど。[ElSemi]
+
+-「ハードドライビン」にサウンド追加。[Aaron Giles]
+
+
+その他ドライバの変更：
+----------------------
+
+- ナムコ製ゲームのCusKeyシミュレーション追加。[John Wil]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- プログラム終了時に、キーボードLEDが変になるのを修正。[Paul Priest]
+
+- -romidentと-isknownの検索対象にTESTDRIVERも追加。[Nicola Salmoria]
+
+
+ソース：
+--------
+
+- 画面回転は、完全にOSレイヤーによるblit時に処理されるようになりました。コア側
+  では、ビットマップをあらかじめ回転させることはありません。[Aaron Giles]
+
+- 初期版YMF278Bエミュレーション（FM無し）。[R.Belmont]
+
+- SH7604内部タイマの実装。これにより、「ソルディバイド」とSuper Kaneko Nova 
+  Systemゲームにサウンド追加。[R.Belmont]
+
+- V70 CPUサポート。[Olivier Galibert]
+
+- DSP32 CPUエミュレーション。[Aaron Giles]
+
+- TMS32013 CPUエミュレーション。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+bjourney061gre
+doubledr36rc1gre [ElSemi]
+crosshairs061yel [Robin Merrill]
+tnzs36b16yel （要追加テスト）[Kale]
+deco8061red [Paul Priest]
+blstroidc061gra
+bking236b14yel [Stefan Jokish]
+bking237b14gre [Stefan Jokish]
+fround37b16gre [Bryan McPhail]
+vulcan37b13gre [Bryan McPhail]
+vulcan237b1gre [Bryan McPhail]
+vulcan137b1gre [Bryan McPhail]
+
+
+新規サポートゲーム：
+--------------------
+
+Fantasia II [Nicola Salmoria]
+Golden Fire II [Nicola Salmoria]
+Bouncing Balls [ElSemi]
+Dragon World II [David Haywood, ElSemi]
+Tengai / 戦国ブレード [Paul Priest]
+マジカルキャットアドベンチャー [Paul Priest, David Haywood]
+ノストラダムス [Paul Priest, David Haywood]
+ストライカーズ1945 [Olivier Galibert, R.Belmont]
+IPMインベーダー
+グリーンベレー
+エスケープキッズ [Ohsaki Masayuki]
+ソルバルウ [Phil Stroffolino]
+スターブレード [Phil Stroffolino]
+プロップサイクル [Phil Stroffolino]
+ラッキー＆ワイルド [Phil Stroffolino]
+スーパーワールドスタジアム'95 [Phil Stroffolino]
+メタルホーク [Phil Stroffolino]
+スティールガンナー2 [Phil Stroffolino]
+Amazon / アマテラス [Phil Stroffolino]
+キッドのホレホレ大作戦 [Phil Stroffolino, Stephane Humbert]
+超時迷宮レジオン [David Haywood, Phil Stroffolino]
+ドラゴンボールZ 2 -スーパーバトル- [David Haywood]
+大王 [David Haywood]
+サイヴァーン [Sylvain Glaize, David Haywood]
+線脳 [Sylvain Glaize, David Haywood]
+ギャルズパニック4 [Sylvain Glaize, David Haywood]
+ギャルズパニックS [Sylvain Glaize, David Haywood]
+ギャルズパニックS2 [Sylvain Glaize, David Haywood]
+パニックストリート [Sylvain Glaize, David Haywood]
+パズループ [Sylvain Glaize, David Haywood]
+ジャンジャンパラダイス [Sylvain Glaize, David Haywood]
+ジャンジャンパラダイス2 [Sylvain Glaize, David Haywood]
+VS麻雀 乙女繚乱 [Sylvain Glaize, David Haywood]
+TEL雀 [Sylvain Glaize, David Haywood]
+閃激ストライカー [Sylvain Glaize, David Haywood]
+Speed Ball [Aaron Giles]
+レースドライビン [Aaron Giles]
+スティールタロンズ [Aaron Giles]
+Asylum [Aaron Giles]
+Cruis'n USA [Aaron Giles]
+クルージンワールド [Aaron Giles]
+エリア51 [Aaron Giles]
+マキシマムフォース [Aaron Giles]
+Vicious Circle [Aaron Giles]
+スカイライダー [Stefan Jokish]
+Starship 1 [Frank Palazzolo, Stefan Jokish]
+Desert War / 湾岸戦争 [David Haywood, Paul Priest, Stephane Humbert]
+セカンドアース グラティア [David Haywood, Paul Priest, Stephane Humbert]
+ゲーム天国 - ザ・ゲームパラダイス- [David Haywood, Paul Priest, Stephane Humbert]
+One Shot One Kill [David Haywood, Paul Priest, Stephane Humbert]
+テトリスプラス [David Haywood, Paul Priest, Stephane Humbert]
+ベストバウトボクシング [David Haywood, Paul Priest, Stephane Humbert]
+Super Slam [David Haywood]
+アクアリウム [David Haywood]
+S.S. Mission [David Haywood]
+Fit of Fighting [David Haywood]
+The History of Martial Arts [David Haywood]
+インドアサッカー [David Haywood]
+Diver Boy [David Haywood]
+Speed Spin [David Haywood]
+仮面ライダー倶楽部 バトルレーサー [David Haywood, Stephane Humbert]
+花六 [David Haywood, Stephane Humbert]
+Fancy World - Earth of Crisis [David Haywood, Stephane Humbert]
+フラワー [InsideOutBoy, David Haywood, Stephane Humbert]
+Ace [Jarek Burczynski]
+N.Y.キャプター [Tomasz Slanina]
+ビームインベーダー [Zsolt Vasvari]
+Zarya Vostoka [Zsolt Vasvari]
+Megadon [Mike Haaland]
+Catapult [Mike Haaland]
+4 En Raya [Tomasz Slanina]
+スカイスキッパー
+五目並べ連珠 [Takahiro Nogi]
+
+
+新規サポートクローン：
+----------------------
+
+三輪サンちゃん (= Spatter)
+ニューラリーX (縦画面、海賊版)
+ロードランナー -ザ・ディグファイト- (ver. A)
+Samurai Aces (= 戦国エース)
+ビッグストライカー (海賊版)
+X-Men (US 2 Players)
+MatchIt (= 四川省 Sichuan II)
+スーパーバスケットボール (version G)
+サンダークロスII (Asia)
+Alpha Fighter / ヘッドオン
+ドンキーコング (US set 2)
+Triple Fun (= おいしいパズルはいりませんか)
+ブランディア
+センチピード (1 player, タイマー制)
+雷電 [Taiwan]
+ゴインドル (World and Japan)
+スーパーバレーボール (US)
+ストライカーズ1945 (Japan, unprotected)
+
+
+==========================================================================
+
+
+0.61
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「卒業証書」のタイルマップ修正。[Nicola Salmoria]
+
+-「ピンボ」のグラフィック修正。[Zsolt Vasvari]
+
+- NeoGeoゲームのラスタエフェクト改善。[Razoola]
+
+-「ハル21」のグラフィックス改善。[Acho A. Tang]
+
+- CPS2ゲームでのラスタエフェクトサポート初期型追加。[Barry Rodewald]
+
+- Psikyo製ゲームにアルファブレンディング追加。[Paul Priest]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- SNKゲームでYM3812/YM3526とY8950のコンフリクトを修正。
+  [Jarek Burczynski]
+
+-「スパイナルブレーカーズ」のサウンド修正。[Nicola Salmoria]
+
+-「ハル21」にサウンド追加。[Acho A. Tang]
+
+
+その他ドライバの変更：
+----------------------
+
+-「アウトラン」と「スペースハリアー」の操作、表示修正。[Bryan McPhail]
+
+-「S.P.Y.」のプロテクトのシミュレート。[Acho A. Tang]
+
+-「Rip Cord」修正。[Acho A. Tang]
+
+-「ラビリンスランナー」「ファストレーン」の当たり判定修正。[Acho A. Tang]
+
+-「ファンキージェット」のプロテクト修正。[Bryan mcPhail, Stephane Humbert]
+
+- F3の修正。[Shiriru, Bryan McPhail]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 光線銃サポート。[Bryan McPhail]
+
+
+ソース：
+--------
+
+- 移植用重要情報：表示更新用のOSインターフェースの大幅な変更がされています。
+  - 削除：VIDEO_SUPPORTS_DIRTYフラグ
+  - 削除：osd_mark_dirty()
+  - osd_create_display()に引数rgb_components追加
+  - 削除：osd_set_visible_area()
+  - 削除：osd_allocate_colors()
+  - 削除：osd_modify_pen()
+  - osd_update_video_and_audio()にポインタmame_display追加
+  - 削除：osd_debugger_focus()
+  - 削除：osd_set/get_gamma()
+  - 削除：osd_set/get_brightness()
+  [Aaron Giles]
+
+- アートワークを完全に再デザインされました。どんなゲームでもアートワークが使えるよ
+  うになり、個々のドライバ内でサポートする必要はありません。設定は外部の.artファイ
+  ルで行います。[Aaron Giles]
+  -[no]artcrop -- 本来のゲーム表示部分のみ表示します
+  -[no]backdrop -- 背景部分を有効/無効にします
+  -[no]overlay -- オーバーレイ部分を有効/無効にします
+  -[no]bezel -- ベゼル部分の表示を有効/無効にします
+
+- Windows版での画面回転は、今までのようにコア側ではなく、blit時に行うよになりました。
+  古いのより、こちらの方がまず速いのと、コアを大幅にシンプルにできるため、次のリリー
+  スからはblit時の回転が必須になると思われます。移植時には今の時点で実装することを
+  おすすめします。[Aaron Giles]
+
+- 新型YM-2413エミュレータ。[Fabio R. Schmidlin, Charles Mac Donald]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+mk3060gre
+ozmawars055gra
+alpine057gra     [Stephane Humbert]
+elevator057gra   [Stephane Humbert]
+tinstar36b4gra   [Stephane Humbert]
+kof94057gre      [RYO]
+tokib059red      [David Graves]
+dogyuun058yel    [Quench]
+battleg37B10gre  [Quench]
+batrider058gre   [Quench]
+cchasm1059red    [Paul Priest]
+dspirit37b6gre   [Acho A. Tang]
+rompers36rc2gre  [Acho A. Tang]
+rompers37b4gre   [Acho A. Tang]
+splatter336b6gre [Acho A. Tang]
+splatter336b9yel [Acho A. Tang]
+splatter137b5gre [Acho A. Tang]
+splatter237b5gre [Acho A. Tang]
+splatter057gre   [Acho A. Tang]
+dangseed060yel (needs checking)
+bjourney37b16gre [Acho A. Tang]
+ncombat36b3yel   [Acho A. Tang]
+ncommand37b2gre  [Acho A. Tang]
+overtop37b13red
+sdodgeb37b13yel (needs checking)
+iganinju37b14yel [Kale]
+iganinju37b1yel  [Kale]
+iganinju055yel   [Kale]
+scudhamm058gre   [Mike Herrin]
+adstick37b16gre  [Robin Merrill]
+pedal055yel      [Robin Merrill]
+toobin058yel     [Robin Merrill]
+
+
+新規サポートゲーム：
+--------------------
+
+スーパースラムズ [David Haywood]
+マクロスプラス [David Haywood]
+クイズ!! 美少女戦士セーラームーン -知力・体力・時の運 [David Haywood]
+Jump Kids [David Haywood]
+Toffy [David Haywood]
+Super Toffy [David Haywood]
+バトルクロス [David Haywood]
+ガルフウォーII [David Haywood]
+Bubble 2000 [David Haywood]
+4 Fun in 1 [David Haywood]
+Kick Goal [David Haywood, Nicola Salmoria]
+U.S. Games collections [David Haywood, Nicola Salmoria]
+ワイリータワー [Nicola Salmoria]
+Lethal Crash Race / 爆裂クラッシュレース [Nicola Salmoria]
+F-1グランプリ [Nicola Salmoria]
+Dog-Fight / バッテンオハラのスチャラカ空中戦 [Nicola Salmoria]
+Find Out [Nicola Salmoria]
+ゴルフィンググレイツ [Nicola Salmoria]
+三刻志 [Nicola Salmoria]
+スーパー上海 ドラゴンズアイ [Bryan McPhail]
+メカナイズドアタック [Bryan McPhail]
+ビーストバスターズ [Bryan McPhail]
+サンダーゾーン / Desert Assault [Bryan McPhail]
+The Next Space [Bryan McPhail, Acho A. Tang]
+爆突機銃艇 [Acho A. Tang]
+エクイテス [Acho A. Tang]
+ブルファイター [Acho A. Tang]
+ザ・高校野球 [Acho A. Tang]
+スプレンダーブラスト [Acho A. Tang]
+ハイボルテージ [Acho A. Tang]
+Red Robin [Zsolt Vasvari]
+Net Wars [Zsolt Vasvari]
+Clay Shoot [Zsolt Vasvari]
+Mr. Kougar [Zsolt Vasvari]
+Car Polo [Zsolt Vasvari]
+ディンゴ [M*A*S*H, Zsolt Vasvari]
+バーディーキング [M*A*S*H]
+Inferno [Juergen Buchmueller, Aaron Giles]
+Dribbling [Aaron Giles]
+Triple Hunt [Stefan Jokish]
+オービット [Stefan Jokish]
+モンテカルロ [Stefan Jokish]
+チューブパニック [Jarek Burczynski]
+Roller Jammer [Jarek Burczynski]
+危機一髪真由美ちゃん [Uki]
+Knights of Valour / 三国戦記 [ElSemi]
+バトルバクレイド [Quench]
+
+
+新規サポートクローン：
+----------------------
+
+エスプレイド (International Ver 1998 4/22)
+エスプレイド (Japan Ver 1998 4/21)
+アウトフォクシーズ (Japan)
+タクティシャン (set 2)
+バトルス (=ゼビウス)
+Power Spikes / スーパーバレー'91 (World)
+Condor (= フェニックス)
+Grind Stormer / V・V (set 2)
+バトルガレッガ (set 2)
+ヘルファイヤー (1 player)
+鮫！鮫！鮫！ (2 players)
+グラビター (prototype)
+Lunar Battle (= グラビター)
+スーパーコブラ (Sega)
+S.P.Y. (World)
+エアバスター (English)
+バラデューク (set 2)
+メトロクロス (set 2)
+Red Hawk (= ステッガーI)
+バッグマン (bootleg on Galaxian hardware)
+
+
+==========================================================================
+
+
+0.60
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「バツグン」の後半の面で敵が消えるのを修正。[Kale]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- M92ゲームで使用するIrem GA20エミュレーションの改善。[Acho A. Tang]
+
+
+その他ドライバの変更：
+----------------------
+
+-「奇々怪界」の問題をいろいろ修正。[Acho A. Tang]
+
+-「ウェック・ル・マン24」の色と、「ホットチェイス」のグラフィック化け修正。
+  [Acho A. Tang]
+
+- 彩京製ゲームをいろいろ修正。[Paul Priest, David Haywood]
+
+- nemesis.cに様々な修正。[Hau]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- 特別なコントローラ用の外部設定ファイルをサポートしました。"-hotrod"と"-hotrodse"
+  はこれで置き換えできます。詳しくは“ctrl.txt”ファイルを見て下さい。[Ron Fries]
+
+- チートエンジンを完全に書き換え。[Ian Patterson]
+
+
+ソース：
+--------
+
+- 新関数memory_set_unmap_value()追加。これは未マップのメモリアドレスが読み込まれた
+  ときの値を定義します。[Aaron Giles]
+
+- Y8950サンプル再生を修正。[Acho A. Tang]
+
+- 本物チップを検証したYM3812/YM3526/Y8950エミュレーションの書き換え完了。
+  [Jarek Burczynski]
+
+- osd_opl_control()とosd_opl_write()を削除：SoundBlaster OPLチップへの直接アクセスは
+  もういらないと思われます。
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+blmbycar059red
+uopoko059red
+gcpinbal059red
+jitsupro059red
+metroc059red
+phelios059red
+paclandc059red
+ncv1058red
+av2mj059red
+fromancec058red
+neogeoc37b15gre
+fround056red
+bioatack37b6gre
+crush057gre
+driverc056ora
+batsugun37b6gre
+
+
+新規サポートゲーム：
+--------------------
+
+Judge Dredd [Aaron Giles]
+Primal Rage [Aaron Giles]
+Road Riot's Revenge [Aaron Giles]
+World Class Bowling [Aaron Giles]
+タクティシャン [Nicola Salmoria, Stephane Humbert]
+The Masters of Kin [Nicola Salmoria]
+IQ Block [Nicola Salmoria, Ernesto Corvi]
+タクシードライバー [Nicola Salmoria]
+ブロックギャル [Angelo Salese]
+Drag Race [Stefan Jokisch]
+Pool Shark [Stefan Jokisch]
+アウトフォクシーズ [Phil Stroffolino]
+Oriental Legend [ElSemi, David Haywood]
+News [David Haywood]
+シャドーフォース -変身忍者 [David Haywood]
+The Legend of Silk Road [David Haywood, Stephane Humbert, R.Belmont]
+Miss Bubble 2 [David Haywood]
+ブラックハート [from Raine]
+US AAF ムスタング [from Raine]
+Many Bloc [David Haywood, Stephan Humbert]
+Xyonix [David Haywood, Stephan Humbert, Nicola Salmoria]
+Hyper Pacman [David Haywood, Stephan Humbert]
+グレート1000マイルズラリー2 [David Haywood, Stephan Humbert]
+フォーメーションZ [Acho A. Tang]
+タンクバスターズ [Jarek Burczynski]
+ハイパーデュエル [E. Watanabe]
+
+
+新規サポートクローン：
+----------------------
+
+ペンゴ (bootleg)
+Bone Crusher (= ナックルジョー)
+Fighter & Attacker (= F/A)
+ナックルヘッズ (World)
+Hero in the Castle of Doom (Donkey Kong conversion)
+Blood Storm (v1.10)
+ファイティングゴルフ (set 2)
+Clowns (rev 1)
+Magic Worm (= センチピード)
+Hot Shots Tennis (V1.0)
+Strata Bowling (V1)
+Pirate Pete (= ジャングルキング)
+ストリートファイター (prototype)
+ネビュラスレイ (World)
+ガンバード (World)
+バブルシンフォニー (Europe)
+Space Invaders '95 (US)
+C.O.W. Boys of Moo Mesa (World)
+Rタイプ LEO (World)
+ドラゴンパンチ (= Sports Match)
+
+
+==========================================================================
+
+
+0.59
+
+
+その他ドライバの変更：
+----------------------
+
+- いろんなドライバでのinput port等の修正を大量。[Stephane Humbert]
+
+-「レインボーアイランド」と「レインボーアイランドエキストラ」のc-chipエミュレーション
+  修正。[Robert Gallagher, Tormod Tjaberg]
+
+-「スーパースティングレイ」「カイロスの館」と「ゴールドメダリスト」のほとんどの問題を
+  修正。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [Windows] 必要の無い場合にCPUタイムの使用率を減らすように変更。
+  -nosleepオプションでゲーム中のこの機能を無効に出来ます。[Aaron Giles]
+
+- [Windows] タイルマップ描画コードにMMXを実装。ゲームによっては5〜10%の速度改善。
+  [Andrea Mazzoleni]
+
+
+ソース：
+--------
+
+- UPD7759エミュレータ(「TMNT」などで使用)を書き直し。[Olivier Galibert]
+
+- 圧縮ハードディスクイメージをサポート。[Aaron Giles]
+
+- tilemap_mark_all_tiles_dirty()を使わずにグローバルなパレットオフセットを設定
+  できる新関数tilemap_set_palette_offset()を追加。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+eto37b9gre
+captaven058gre_2
+captaven058gre_5
+thndrx2058red
+punchoutc37b15gre
+skyadvnt136b8gre
+gangwars37b15gre
+
+
+新規サポートゲーム：
+--------------------
+
+Police Trainer [Aaron Giles]
+Pass [David Haywood, Stephan Humbert]
+スーパーピンボールアクション [David Haywood, Stephan Humbert]
+ソルディバイド [David Haywood]
+ストライカーズ1945 II [David Haywood]
+スペースボンバー [David Haywood]
+堕落天使 - THE FALLEN ANGELS- [David Haywood]
+ガンバード2 [David Haywood]
+麻雀シスターズ [Uki]
+クイズ学園パラダイス [Uki]
+クイズDNAの反乱 [Uki]
+クイズ激烈すくらんぶる(学園パラダイス2) [Uki]
+Wild West C.O.W.boys of Moo Mesa [Olivier Galibert, R.Belmont]
+バッキーオヘア [Olivier Galibert, R.Belmont]
+Super Bug [Stefan Jokisch]
+パドルマニア [Acho A. Tang]
+Scorpion [Stephane Humbert]
+
+
+新規サポートクローン：
+---------------------
+
+Dynasty Wars (World)
+キャプテンアメリカ (Japan)
+グラディウス3 (World?)
+マジカルクリスタルズ (World)
+クリスタルキャッスル (version 4)
+ムーンクレスタ (Nichibutsu set 2)
+ギャラクシアン (Midway, old rev)
+Pisces (original)
+悪魔城ドラキュラ (Japan version N)
+超絶倫人ベラボーマン (Japan version B)
+
+
+==========================================================================
+
+
+0.58
+
+
+その他ドライバの変更：
+----------------------
+
+-「サンダークロス」の当たり判定を修正? [Eddie Edwards]
+
+- VLM5030エミュレーションの修正(「パンチアウト」「ハイパーオリンピック」
+  「イーアルカンフー」など)。[Tatsuyuki Satoh]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [windows] blitエフェクト「-effect sharp」追加。デフォルトよりもシャープな
+  表示ができます。[Aaron Giles]
+
+
+ソース：
+--------
+
+- 共通コールバック関数定義とネーミング規則の強制用に以下のマクロが追加されました。
+  新マクロへのコンバートは全てのドライバで完了しています。
+
+      void init_drivername()            -> DRIVER_INIT( name )
+      int generate_int()                -> INTERRUPT_GEN( func )
+      void name_init_machine()          -> MACHINE_INIT( name )
+      void nvram_handler()              -> NVRAM_HANDLER( name )
+      void name_vh_convert_color_prom() -> PALETTE_INIT( name )
+      int name_vh_start()               -> VIDEO_START( name )
+      void name_vh_stop()               -> VIDEO_STOP( name )
+      void name_vh_eof()                -> VIDEO_EOF( name )
+      void name_vh_screenrefresh()      -> VIDEO_UPDATE( name )
+
+- マシンドライバの定義について大幅な変更がされました。マシンドライバ構築系のマクロ
+  (定義はdriver.h)が使用できます。マシンドライバ内での項目順序付けは自由ですが、CPU
+  固有のデータについては直近に参照されたCPUに結びついてるため除きます。新フォーマッ
+  トによりプリミティブな継承メカニズムが提供されるため、マシンドライバを他のものの
+  変更により構築することが可能です。新フォーマットの例については各ドライバを、また
+  複雑な継承の例としてはmcr.cを参照してください。
+
+- 新関数auto_bitmap_alloc()とauto_bitmap_alloc_depth()が追加されました。これにより
+  自動管理されるビットマップを生成できます。auto_malloc()との組み合わせにより、ほと
+  んどのケースでvideo_stop関数の必要がなくなりました。全ての既存ドライバで、この機
+  能の利点を生かすように更新されています。
+
+- 旧式の割り込みシステムは廃止となりました。cpu_cause_interrupt()は今後使用できま
+  せん。代わりにcpu_set_irq_line()、またはcpu_set_irq_line_and_vector()を使います。
+  これに伴い、旧式で名称が重複していた定数も削除されました。また割り込み発生用の
+  CPUコールバックもIRQラインやベクターを返さなくなっています。この代わりとして、
+  割り込みコールバックについては、cpu_set_irq_line()を使って動的に割り込み発生をさ
+  せる必要があります。全既存ドライバで、この変更に伴う更新がされています。
+
+- 新型割り込みコールバック関数、nmi_line_pulse()、nmi_line_assert()、
+  irqn_line_hold()、irqn_line_pulse()、irqn_line_assert()が追加されました。この関数
+  は、以前のコールバック関数interrupt()とnmi_interrupt()に代わるもので、直接割り込み
+  コールバックとして使うことができます。
+
+- tilemap_set_clip()関数は削除されました。これを置き換えるものとして、tilemap_
+  draw()関数に変数'cliprect'が追加されています。全既存ドライバで、この変更に伴う
+  更新がされています。
+
+- 画面の部分更新サポートに備えて、video_updateへのパラメータが変更され、新しく
+  'cliprect'が追加されています。将来的にはこれが描画面のサブセットを指定する予定で
+  す。今のところ、このパラメータはMachine->visible_areaのみの指定です。また、
+  'full_refresh'パラメータも削除されています。update系関数は書き換え要求のあった
+  ビットマップ部分について、必ず再描画する必要があります。一部ドライバはcliprectを
+  完全にサポートするように更新されていますが、まだ更新する必要があるものも残ってい
+  ます。
+
+- タイマーシステムに新関数を2つ追加しました。timer_create()は新規に“parmanet”な
+  タイマーを生成し、timer_adjust()でそのスケジューリングを調整します。現在、タイ
+  マーを動的に操作する方法はこれだけです。以前のtimer_set()とtimer_pulse()関数も
+  残っていますが、生成したタイマーへのハンドルは返さなくなっています。
+  timer_create()では、動的ではなく、初期化時にタイマーの生成をするようにしてくだ
+  さい。また、タイマーが自動リソーストラッキングに追加されたので、明示的な処理は
+  必要ありません。既存ドライバについては、この変更に伴う更新がされています。
+
+- 基本的な汎用NVRAMハンドラを追加しました。多くのゲームでグローバル変数'generic_
+  nvram'と'generic_nvram_size'に対してNVRAM領域の位置とサイズを指定するのみで十分
+  です。またマシンドライバで汎用NVRAMハンドラのリクエストとして、'generic_0fill'、
+  または'negeric1fill'の指定ができます。両者は.nvファイルが無い場合のメモリ初期化
+  方法について示すものです。
+
+- 以下の古い関数とマクロについては廃止の方向です：
+
+     cpu_get_pc()           -> activecpu_get_pc()
+     cpu_get_sp()           -> activecpu_get_sp()
+     cpu_getpreviouspc()    -> activecpu_get_previouspc()
+     cpu_get_reg()          -> activecpu_get_reg()
+     cpu_set_reg()          -> activecpu_set_reg()
+     cpu_set_op_base()      -> activecpu_set_op_base()
+     cpu_get_pc_byte()      -> activecpu_get_pc_byte()
+     READ_WORD              -> (no equivalent)
+     WRITE_WORD             -> (no equivalent)
+
+- 新関数、force_partial_update()追加。これは指定されたスキャンラインまでを強制的に
+  部分更新します。[Aaron Giles]
+
+- ARM CPUエミュレーション [Bryan McPhail, Phil Stroffolino]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+rampart057yel
+artwork057gre
+mrgoemon36b16gre
+pigout37b4gre
+
+
+新規サポートゲーム：
+--------------------
+
+Gun Force 2 / ジオストーム [Chris Hardy]
+エンゼルキッズ [David Haywood]
+のぼらんか [Stephane Humbert]
+Steel Force [David Haywood, Stephan Humbert]
+Mug Smashers [David Haywood, Stephan Humbert]
+キャプテンアメリカ -ジ・アベンジャーズ- [Bryan McPhail]
+Lemmings [Bryan McPhail]
+Flyball [Stefan Jokisch]
+Grand Cross [David Graves]
+
+
+新規サポートクローン：
+---------------------
+
+Mayday (set 3)
+Alpha One (「メイジャーハヴォック」のプロトタイプ版)
+Blaster (kit)
+Buck Rogers (encrypted)
+
+
+
+0.57
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「Quantum」の表示色修正。[Aaron Giles]
+
+- Taito F3システムにいろいろな修正。[Bryan McPhail]
+
+-「バトルシティー」「VS. Tetris」、その他vsnesドライバの表示色修正。[Kale]
+
+-「バンバンカー」の背景色修正。[Nicola Salmoria]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 054539にリバーブ追加。「ゼクセクス」「ツインビーヤッホー」のサウンド改善。
+  [Olivier Galibert]
+
+-「フェアリーランドストーリー」と「バギーチャレンジ」でMSM5232のサポート。
+  [Jarek Burczynski]
+
+-「ツインビー」で鳴っていなかったボイスを修正。[Uki]
+
+-「きらめきスターロード」のサウンド修正。[Uki]
+
+
+その他ドライバの変更：
+----------------------
+
+-「Bonze Adventure / 地獄めぐり」のC-Chipシミュレーションを改善。
+  [Stefan Jokisch, Ruben Panossian]
+
+-「ポップフレーマー」のプロテクトをシミュレート。[Paul Priest]
+
+
+ソース：
+--------
+
+- 新関数get_black_pen()追加。fillbitmap()により、パレットエントリに依存せずに
+  背景を黒くすることができます。
+
+- MSM5232サウンドエミュレータ。[Jarek Burczynski, Hiromitsu Shioya]
+
+- BSMT2000サウンドエミュレータ。[Aaron Giles]
+
+- YM2203に、SSG EGタイプのサポートを追加(YM2203はこれで完成)。
+  これにより、「ヘビーバレル」1面スタート時のサウンドや、その他のゲーム(「ダー
+  クシール」など)でのSEが修正されました。[Jarek Burczynski]
+
+- Z180エミュレータ。[Juergen Buchmueller]
+
+- NEC V30逆アセンブラのバグを修正。[Bart]
+
+- I86エミュレーションでのOUTSB/OUTSWバグを修正。[Julien Frelat]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+gameplan055red
+wwfmaniab13gre
+dariusg053gre
+taitof3c053yel
+ridingf053gre
+elvactr37b15gre
+asukac37b16gre1.
+paperboy055yel
+alleymas055yel
+alpha68k055red
+brkthruc055red
+ajax056red
+champbas056gre
+msword056gre
+cvs056gre
+ironhors056gre
+gunbird056red (to be checked)
+snowbros056gre
+razmataz056yel
+exterm055red
+harddriv055red
+captcomm36b11yel
+ghouls37b11gra
+rbibb37b11red
+excitbkj37b15gre
+truxton2055gra
+
+
+新規サポートゲーム：
+-------------------
+
+クイズココロジー2 [Luca Elia]
+アクウギャレット / Air Gallet [Luca Elia]
+ドラマチックアドベンチャークイズ キース&ルーシィ [Luca Elia]
+サバイバルアーツ [Luca Elia]
+ドリフトアウト '94 - The Hard Order [Luca Elia]
+ラブリーポップ麻雀 雀々しましょ [Luca Elia]
+メオシスマジック [Luca Elia]
+麻雀ハイパーリアクション2 [Luca Elia]
+モンスタースライダー [Luca Elia]
+グルメバトルクイズ 料理王クッキング [Luca Elia]
+パチンコ セクシーリアクション [Luca Elia]
+ウィッツ [Luca Elia]
+SDガンダム -サイコサラマンダーの脅威- [Bryan McPhail]
+サブロック3D [Aaron Giles]
+Buck Rogers: Planet of Zoom [Aaron Giles]
+Revolution X [Aaron Giles]
+Battle Toads [Aaron Giles]
+Playball! [Aaron Giles]
+アクロバットミッション [Bryan McPhail]
+デストロイヤー [Stefan Jokisch]
+女三四郎 / Typhoon Gal [Uki]
+40-0　(フォーティラブ) [Uki]
+ザ・運動会 [Uki]
+ウェルトリス [David Haywood]
+ウルトラ(秘)マージャン [Takahiro Nogi]
+麻雀恋愛倶楽部 [Takahiro Nogi]
+クリスタルギャル [Takahiro Nogi]
+宇宙より愛をこめて [Takahiro Nogi]
+AV2麻雀No.2 ルージュの香り [Takahiro Nogi]
+列島縦断 熱局雀士 -東日本編- [Takahiro Nogi]
+勝ち抜き麻雀戦 お雀子館 [Takahiro Nogi]
+勝ち抜き麻雀戦 お雀子館 2番館 [Takahiro Nogi]
+チャイニーズカジノ [Takahiro Nogi]
+お雀子ハイスクール [Takahiro Nogi]
+対戦アイドル麻雀 ファイナルロマンス2 [Takahiro Nogi, Uki]
+対戦麻雀 ファイナルロマンスR [Takahiro Nogi, Uki]
+対戦麻雀 ファイナルロマンス4 [Takahiro Nogi, Uki]
+麻雀ポン珍かん [Takahiro Nogi, Uki]
+モザイク [Nicola Salmoria]
+スカイベース [inside out boy]
+カージャンボリー [inside out boy]
+ポッパー [inside out boy]
+スーパークロスII [inside out boy]
+霊界導士 -チャイニーズエクソシスト- [Phil Stroffolino]
+F/A [Phil Stroffolino]
+ニューマンアスレチックス [Phil Stroffolino]
+
+
+新規サポートクローン：
+---------------------
+
+Road Blasters (set 2)
+ブロックアウト (Japan)
+マージャン クラブ90's (set 2)
+ポップフレーマー (protected)
+ガンバード (Korea)
+ホラーストーリー / Demon's World (set 2)
+美少女戦士セーラームーン (set 2)
+Space Echo (= スピーク&レスキュー)
+ヴォルフィード (US & World)
+首領蜂 (Korea)
+Catch-22 (= Combat)
+
+
+==========================================================================
+
+
+0.56
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「ぐるりん」を修正。[Miguel Angel Horna]
+
+- Kaneko16ゲームのラスタスクロール。[Luca Elia]
+
+-「Demon」のオーバーレイ。[Pete Ashdown]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ベンチャー」他、Exidy製ゲームのサウンド修正。[Aaron Giles]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- チートエンジンをアップデート。[Ian Patterson]
+
+
+ソース：
+--------
+
+- V60 CPUコア。[Farfetch'd, R.Belmont]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+quizkof37b4gre
+speedfrk055yel
+vectorsshot055gre
+chasehq055gre
+blazstar37b16gre
+mazinger053gre
+block37b14yel
+spacfury36finalgre
+
+
+新規サポートゲーム：
+--------------------
+
+ウォーターマッチ [Nicola Salmoria]
+Spatter / 三輪サンちゃん [Nicola Salmoria]
+ラフレシア [Chack'n]
+子育てクイズ マイエンジェル [Luca Elia]
+子育てクイズ マイエンジェル2 [Luca Elia]
+パズルDEボーリング [Luca Elia]
+カメレオン [Luca Elia]
+わい・ワイジョッキー ゲート・イン！ [Luca Elia]
+Metamoqester / 隠忍 -ザ・ニンジャマスター [Luca Elia]
+Star Guards [Aaron Giles]
+
+
+==========================================================================
+
+
+0.55
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- Taito Zシステムのゲームでの初期版道路表示サポート。[David Graves]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- AY8910とYM2203の同時使用をサポート。これで「シティコネクション」のサウンド
+  が修正。[Tatsuyuki Satoh]
+
+-「Money Money」「Jack Rabbit」にサウンド追加。[Nicola Salmoria]
+
+
+ソース：
+--------
+
+- ベクターゲームでダイレクトRGBモードを使うように変更。[Mathis Rosenhauer]
+
+- 新データタイプpen_t追加。ペンとカラーテーブルを扱う際にUNIT32の代りに使用。
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+3wonders054gre
+artwork054gre
+bssoccer054gre
+bublbobl054red
+cps2c054ora
+drtoppel054gre
+galaxian053gre
+ghostb054yel
+holeland37b10gre
+konami054red
+madmotor054gre
+mrgoemon37b9gre
+offroad054gre
+sharkatt37b15red
+stfight054red
+tailg054gre
+ym2151_054yel
+
+
+新規サポートゲーム：
+--------------------
+
+Ninja Baseball Batman / 野球格闘リーグマン [Bryan McPhail]
+Sports Match / ドラゴンパンチ [Sports Match]
+ゼロアワー [David Haywood]
+スカイスマッシャー [David Graves]
+ニューヨークニューヨーク [Darren Olafson]
+Crazy Rally [Mathis Rosenhauer]
+Space Fortress [Mike Coates]
+ウルトラマン倶楽部〜戦え！ウルトラマン兄弟!!〜 [Luca Elia]
+
+
+新規サポートクローン：
+---------------------
+
+ドリームサッカー'94 (Japan)
+スペースインベーダーDX (Japan v2.0)
+Typhoon (= A-JAX)
+ランボーIII (Europe set 2)
+スペースインベーダーDX (US)
+The Hand (=Got-Ya)
+Ms. Pacman Champion Edition / Super Zola Pac Gal
+功里金団 (Japan, US)
+Blomby Car (encrypted)
+
+
+==========================================================================
+
+
+0.54
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「フルスロットル / Top Speed」の道路ライン修正。[David Graves]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ドリームサッカー'94」のサウンドCPUを解読。[Bryan McPhail, Nicola Salmoria]
+
+-「プレミアサッカー」の歓声を修正。[Zsolt Vasvari]
+
+
+ソース：
+--------
+
+- YM2610とYM2151エミュレーションを修正。実チップで検証。
+  [Jarek Burczynski]
+
+- 新コア関数palette_get_pen()追加。削除したosd_get_pen()に置き換わるものです。
+  また、palette_change_color()の名称をpalette_set_color()に変更しました。
+
+- CPUインターフェースに大幅な変更。このため一部のゲームが一時的に動作しません。
+  特にCPS2など。[Aaron Giles]
+
+- machine_init時にauto_mallocが出来るように、またリセット時にメモリを解放する
+  ようにauto_mallocを改善。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+sidepckt37b16yel
+tumblepb37b16red
+strahl37b16ora
+rtype37b1gre
+poundfou37b1gre
+tp8437b7gre
+bloodbroc053red
+terraf37b13gre/terraf053gre
+cinemat053red
+dotrone053gre
+relief053yel
+pbancho053red
+goindolc053gre
+namcona1c053red
+hellfire053yel
+
+
+新規サポートゲーム：
+--------------------
+
+ファイヤーバレル [Bryan McPhail, Nicola Salmoria]
+タイムリミット [Ernesto Corvi]
+妖獣伝 [Nicola Salmoria]
+ガルフストーム [Nicola Salmoria]
+Minesweeper [Frank Palazzolo]
+
+
+新規サポートクローン：
+---------------------
+
+Space Force (= Meteoroids)
+ラストミッション (Japan)
+ガンディーラー'94 (= Primella)
+ブルーホーク (NTC)
+
+
+==========================================================================
+
+
+0.53
+
+意味が無くなってきていた「ベータ」を使った番号付けは廃止することにしました。
+0.36(最後のファイナル版)+0.16(0.37でのベータ数)=0.52となるので、このリリースの
+バージョンは、0.53となります。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「Bioship Paladin / 宇宙戦艦ゴモラ」の背景修正。[Nicola Salmoria]
+
+- TaitoBシステムでの問題をいくつか修正。[Nicola Salmoria]
+
+- Konami製ゲーム(「ハイパースポーツスペシャル」「チェッカーフラグ」「X-MEN」
+ 「アステリクス」「サプライズアタック」「サンセットライダーズ」など)で、
+　正確な影の描画をサポート。[Nicola Salmoria]
+
+- SNK製ゲーム(「怒」「怒号層圏」など)での正確な影の描画。[David Haywood]
+
+-「シスコヒート」「グランプリスター」での正確な影の描画。[Luca Elia]
+
+-「サンセットライダーズ」でのプロテクト絡みの問題を修正。[Nicola Salmoria]
+
+-「メジャータイトル2」の色修正。[Nicola Salmoria]
+
+-「ベルリンの壁」の色修正。[Nicola Salmoria]
+
+-「Aztarac」のレーダー表示修正。[Mathis Rosenhauer]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ガンフォース」「Blade Master / クロスブレイズ」「Lethal Thunder / サンダー
+  ブラスター」「アンダーカバーコップス」「Mystic Rinders / ガンホーキ」「メジャー
+  タイトル2」「フック」「R-TYPE LEO」「In the Hunt / 海底大戦争」「パーフェクト
+  ソルジャーズ」のサウンドCPUを解読。[Bryan McPhail, Nicola Salmoria]
+
+- TaitoF3とIncredible Technology製ゲームのサウンドがきちんと鳴らなかったEX550xの
+  バグを修正。[Aaron Giles]
+
+
+その他ドライバの変更：
+----------------------
+
+- Slapsticエミュレーションに残っていた問題を修正：
+  -「ピットファイター」が最後まで動作
+  -「ランパート」も最後まで動作
+  -「テトリス(Atari)」をSlapsticコードを使うように変更
+  [Aaron Giles]
+
+-「ロボコップ」オリジナル版のプロテクトを修正。[Bryan McPhail]
+
+-「ポパイ」オリジナル版の解読。[Nicola Salmoria]
+
+-「ギャラガ」のフリープレイモードを修正。[Scott Brasington]
+
+-「マッハ3」にレーザーディスクから取り出したターゲットデータのサポートを追加。
+  [Fabrice Frances]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- Windows版が「MAMEW」から「MAME」という名称になります。DOS版は「DMAME」とします。
+
+- [Windows版] コマンドラインインターフェースの改善：
+  * steadkey用のコンフィグオプション（デフォルト：OFF）
+  * デバッグビルドでのdebug.iniファイルの参照
+  * mamew \anywhere\roms\pacman.zipが動作
+  * -logオプションを改良
+  * mame.iniのかわりにargv[0].iniを参照
+    例：mameの実行ファイル名が「m37b17.exe」ならmame.iniではなく、m37b17.iniを
+        読み込みます
+  [Paul Priest, Bernd Wiebelt]
+
+- [DOS版] DB9またはTurbografixインタフェース経由接続のC64/Atari/Sinclairジョイス
+  ティックのサポート。[Aley Keprt]
+
+
+ソース：
+--------
+
+- パレットシステムに大幅な変更をしました。8-bitモードは廃止し、16-bitのみとなり
+  ます。8-bitサポートはOS依存コード部からも削除される予定で、コアからも8-bit色数
+  画面を利用しないようにする予定です。ただし、まだ一部残っているかもしれません。
+
+- パレット圧縮を削除しました。palette_recalc()、palette_transparent_pen、
+  palette_used_colors[]は今後使いません。透過処理でPALLETE_COLOR_TRANSPARENTを
+  使っているドライバでは実装部分の変更が必要です。この結果、Taito TC0480SCPビデオ
+  チップを使っているゲーム全て、またTaito F3ゲームの全部がこのリリースでは動作
+  しません。
+
+- tilemap_update()を削除しました。tilemap_draw()で全て処理されます。
+
+- 移植関係者向け重要変更項目：
+  OS依存コード部では、16bitパレットモードでのMachine->pens[i] == iについて動作を
+  確実にする必要があります。osd_allocate_colors()への“ペン”の引数はNULLになる
+  でしょう。実際にはダイレクトRGBモードだけが引数を渡すので、
+  これは“rgb_components”と名称が変更されています。
+
+- VIDEO_MODIFIES_PALETTEと、osd_allocate_colors()から“モディファイ可能”なパラ
+  メータを削除しました。
+
+- 新フラグVIDEO_HAS_SHADOWS、VIDEO_HAS_HIGHLIGHTS：影を扱う場合などのために、
+  暗い(明るい)パレットを自動的に生成するように拡張します。
+  palette_set_shadow_factor()と、palette_set_highlight_factor()で適用度合いを
+  指定します(影部分を1.0より大きい値にしてハイライト指定に使うことや、ハイライ
+  ト部分を1.0より小さい値にして影指定に使うことも可能です。関数名は便宜的なもの
+  です)。[Nicola Salmoria]
+
+- 新関数palette_set_brightness()：パレットRAMの内容とは独立して、パレットの明るさ
+  をコントロールできます。[Nicola Salmoria]
+
+- MachineDriver.color_table_lenに0を設定できるようになりました。このとき、カラー
+  テーブルとパレットが一対一の対応という意味になります。この機能は
+  TRANSPARENCY_COLORを使っているときには使用できないので注意して下さい。ただ、
+  TRANSPARENCY_COLORを使う場合、当然カラーテーブルは一対一ではないでしょう。
+
+- 新関数tilemap_draw_roz() [Phil Stroffolino]
+
+- 新関数auto_malloc()：malloc()と同じものですが、ドライバ終了時に自動的にメモリが
+  解放されます。[Aaron Giles]
+
+- osd_bitmap.lineの型を混乱を防ぐためにvoid **にしました。
+
+
+新規サポートゲーム：
+-------------------
+
+マジンガーZ [Luca Elia, Nicola Salmoria]
+美少女戦士 セーラームーン [Luca Elia, Nicola Salmoria]
+そこぬけ対戦ゲーム [Luca Elia]
+麻雀 同級生 [Luca Elia]
+麻雀 同級生スペシャル [Luca Elia]
+ビッグラン [Luca Elia]
+マジカルクリスタル [Luca Elia]
+サンドスコーピオン [Luca Elia]
+コンチネンタルサーカス [David Graves]
+チェイスHQ [David Graves]
+バトルシャーク [David Graves]
+S.C.I ＜Special Criminal Investigation＞ [David Graves]
+ナイトストライカー [David Graves]
+アクアジャック [David Graves]
+パワーホイールズ / Double Axle [David Graves]
+WGP2 [David Graves]
+スーパーリアル麻雀Part3 [Takahiro Nogi]
+麻雀遊技 / 麻雀遊戯 [Takahiro Nogi]
+ファンキージェット [Bryan McPhail, Nicola Salmoria]
+卒業証書 [Bryan McPhail, Nicola Salmoria]
+覇沙夢 [Bryan McPhail, Nicola Salmoria]
+剣豪 [Bryan McPhail, Nicola Salmoria]
+ダートフォックス
+マイティガイ [Victor Trucco]
+ウルトラタンク [Phil Stroffolino]
+
+
+新規サポートクローン：
+---------------------
+
+アストロフラッシュ (= Transformer)
+Twin Hawk (World) (= 大旋風)
+Omega (= The End)
+銀河帝国の逆襲 (海賊版, set 2)
+Point Blank (= ガンバレット)
+ロボコップ2 (World, Japan)
+ドンドコドン (US)
+サンダーフォックス (World)
+キャメルトライ (US, alt sound)
+ロボコップ (World rev 4)
+チェルノブ (World)
+スイマー (set 3)
+バルダーダッシュ (Japan)
+ロボコップ (Japan)
+グレート1000マイルズラリー (USA)
+スーパーリアルダーウィン (World)
+ピットファイター (海賊版)
+クラックス (2 prototypes)
+アップンダウン (encrypted)
+
+
+削除：
+------
+
+スピーク＆レスキュー海賊版（コピーライトをはずしたスピーク＆レスキューと同じもの）
+
+
+
+0.37 BETA 16
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「アラビアン」の色、その他修正。[Aaron Giles]
+
+-「忍者くん-魔城の冒険-」の色、その他修正。[Uki]
+
+- CPS2ゲームでのスプライトプライオリティ修正。[Shiriru]
+
+-「World Tennis / プロテニス」の色修正。[Nicola Salmoria]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「メタルブラック」などTaito F2ゲームの、一発目のクレジット音が途切れ不具合、
+  また「地獄めぐり」のショット音修正。[Stefan Jokisch]
+
+- SeibuサウンドCPUの解析により、「雷電(alt)」「ダイナマイトデューク」
+ 「JuJu伝説 / Toki(オリジナル版)」にサウンド追加。[Nicola Salmoria]
+
+
+その他のドライバの変更：
+-----------------------
+
+-「ギャラクシアン」のPCBドライバを書きなおし。[Zsolt Vasvari]
+
+-「必殺！無頼拳 / Avengers」でのプロテクトを一部シミュレート。[Phil Stroffolino]
+
+-「JuJu伝説 / Toki」オリジナル版を修正。[David Graves, Bryan McPhail]
+
+-「カベール」オリジナル版を修正。[Nicola Salmoria]
+
+-「ウィズ」のプロテクト系の問題を修正。[Stefan Jokish]
+
+-「ミズパックマン」オリジナル版を解読。[David Widel]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [Windows版] 新コマンドラインパラメータ：-effect <string>
+    -effect none:   blitterエフェクト無し
+    -effect scan25: 25% スキャンライン
+    -effect scan50: 50% スキャンライン
+    -effect scan75: 75% スキャンライン
+	-effect rgb3
+	-effect rgb4
+	-effect rgb6
+	-effect rgb16
+	-effect rgbtiny
+	-effect rgb4v
+	-effect scan75v
+  [Aaron Giles]
+
+
+ソース：
+-------
+
+- 各ドライバ専用のヘッダファイル用サブディレクトリ「includes」追加。
+
+- タイルマップサブシステムに新規フラグTILE_SWAXYとTILE_4BPP、さらにtile_info.skipも
+  追加。また、SET_TILE_INFO()に3つ目の引数(フラグ)、tilemap_set_transmask()を追加。
+  これは、前後のレイヤーに対して独立して透過マスクを設定するもの。tilemap_draw()は
+  NULLのタイルマップで呼び出しができます。(この場合、プライオリティビットマップのみ
+  更新されます) [Phil Stroffolino]
+
+- GfxLayoutでGFX_RAWをサポート(drawgfx.hを参照)。[Nicola Salmoria]
+
+
+新規サポートゲーム：
+-------------------
+
+Gridlee [Aaron Giles]
+Slither [Aaron Giles]
+エクストリームダウンヒル [Luca Elia]
+Burglar X [Luca Elia]
+Zero Point [Luca Elia]
+銃弾嵐 [Luca Elia]
+スタッガーI [Luca Elia]
+戦神 - Guardian Storm [Luca Elia]
+Multi Champ [Luca Elia]
+麻雀学園祭 [Luca Elia]
+麻雀学園祭2 [Luca Elia]
+アンダーファイア [David Graves]
+ヴォルフィード [Stefan Jokish]
+プレミアサッカー [Nicola Salmoria]
+ライダース5 [Uki]
+マーカム [Uki]
+ザ・ギネス / Strength & Skill [Uki]
+ぺったんピュー [Uki]
+いっき [Uki]
+ナムコ クラシックコレクション Vol.1 [Mark McDougall]
+ハングオンJr. [David Haywood]
+Transformer [David Haywood]
+ピタゴラスの謎 / Riddle of Pythagoras [David Haywood]
+WWFスーパースターズ [David Haywood]
+WWFレッスルフェスト [David Haywood]
+西遊降魔録 / China Gate [Paul Hampson]
+ネビュラスレイ [Phil Stroffolino]
+ガンバレット [Phil Stroffolino]
+グレートスラッガ−ズ'94 [Phil Stroffolino]
+スーパーワールドスタジアム'96 [Phil Stroffolino]
+スーパーワールドスタジアム'97 [Phil Stroffolino]
+レッドクラッシュ [inkling]
+イグジーザス [Yochizo]
+地獄めぐり / Bonze's Adventure [Yochizo, Stefan Jokisch]
+スーパーリアル麻雀 Part2 [Yochizo, Takahiro Nogi]
+アイドル麻雀放送局 [Takahiro Nogi]
+麻雀夏物語 [Takahiro Nogi]
+麻雀ファンクラブ -アイドル最前線- [Takahiro Nogi]
+麻雀大予言 -このギャル占い師につき- [Takahiro Nogi]
+熱血麻雀宣言！AFTER 5 [Takahiro Nogi]
+アイドル麻雀 ファイナルロマンス [Takahiro Nogi]
+
+
+新規サポートクローン：
+---------------------
+
+メインスタジアム (= Bottom of the Ninth)
+コズモギャング・ザ・パズル (US)
+All American Football (rev C)
+ワンダーボーイ (set 1, new encryption)
+Stinger (set 1)
+Bull Fight (English) / ザ・闘牛
+ディスコナンバーワン (rev F) 
+パフォーマン (US)
+World Cup '90 (set 2)
+ミズパックマン (original)
+Ms. Pac Attack
+Lady Killer (Mitchell) / 燃えよ!!ゴンタ
+
+
+==========================================================================
+
+
+0.37 BETA 15
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「トップシークレット」のスクロールを修正。[Ian Patterson]
+
+- Taito F3ゲームでの特殊効果とピクセルレイヤーカラーを改善。[Bryan McPhail]
+
+-「WGP」のスプライト修正。[David Graves]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「Atari BasketBall」のサウンド修正。[Stefan Jokisch]
+
+
+その他のドライバの変更：
+-----------------------
+
+-「アルカノイド」の“最後の面で即死”バグ修正。[Frotz]
+
+-「Dark Planet」のスピナー修正。[Zsolt Vasvari]
+
+-「Slick Shot」のコントロールをシミュレート。[Aaron Giles]
+
+-「雷電」のスローダウンを起こしていたNEC CPUのバグ修正。[Bryan McPhail]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- Taito F3ゲームが動かなくなっていた、68020エミュレーションのバグを修正。
+  [Bryan McPhail]
+
+- チートエンジンを書換え。[Ian Patterson]
+
+
+ソース：
+-------
+
+- MAMEのメインバイナリ配布は、完全にwin32コンソール移植版になりました。
+  これにより、フルスクリーンハードストレッチ（ビデオカードが対応してる場合）、
+  コマンドライン/オプションのファイルパーシングの大幅改良（xmameより移植）など
+  の利点があります。
+  設定ファイル「mame.ini」を起動時に作成するには、「-createconfig」オプションを
+  指定します。「-showusage」で利用可能な全オプションを表示することができます。
+  [Aaron Giles, Bernd Wiebelt]
+
+
+新規サポートゲーム：
+-------------------
+
+Power Play [Aaron Giles]
+Neck & Neck [Aaron Giles]
+Shuffleshot [Aaron Giles]
+エレベーターアクションリターンズ [Bryan McPhail]
+ダライアス外伝 [Bryan McPhail]
+パズルボブル4 [Bryan McPhail]
+ランドメーカー [Bryan McPhail]
+ツインクイックス [Bryan McPhail]
+逆鱗弾 [Bryan McPhail]
+Magic Bubble [Luca Elia]
+J.J.スコーカーズ [Luca Elia]
+ススメ！マイルスマイル / Go Go! Mile Smile [Luca Elia]
+バンバンボール [Luca Elia]
+実力!!プロ野球 [Luca Elia]
+クラッシュロード [Luca Elia]
+Dommy [David Haywood]
+Ixion [David Haywood]
+バンダイク [David Haywood]
+Tunnel Hunt [Phil Stroffolino, Owen Rubin]
+
+
+新規サポートクローン：
+---------------------
+
+Wheel of Fortune (set 2)
+Rim Rockin' Basketball (v1.6)
+マーブルマッドネス (set 1)
+ビンジケーターズ (4/26/88)
+Slick Shot (V2.2)
+Jungle Hunt (ブラジル版) / ジャングルキング
+Shingen Samurai-Fighter (= 武田信玄)
+ダブルドラゴンII (World)
+ストリートファイター・ザ・ムービー (v1.12)
+TMNT (Japan 4 Players)
+鋼鉄要塞シュトラール (set 2)
+
+
+==========================================================================
+
+
+0.37 BETA 14
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「破兆！」のスプライトプライオリティ改善。[Nicola Salmoria]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「Looping」のサウンド。[Mathis Rosenhauer]
+
+-「ダブルドリブル」のボイス。[Tatsuyuki Satoh]
+
+- ninjawとdarius2dでのサブウーファーサウンドを改善。[Andrea Mazzoleni]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [DOS] 前のベータ版で導入したキーボード用の新機能(2つ、3つボタンの同時押し)
+  を使用するかどうか、選択できるようにしました。デフォルトではオフです。
+  オンにするには「-steadykey」オプションを使って下さい。[Mike Coates]
+
+- 8方向ジョイスティック使用時の4方向エミュレーションを“スティッキー”モードに
+  変更しました。「レディバグ」などの4方向ゲームがさらにプレイしやすくなります。
+  詳しい説明はこちら：http://www.rentrondesign.homestead.com/JoyPrimer.html
+  [Jeoff Krontz]
+
+
+ソース：
+-------
+
+- Taito Bシステムで使用するMB87078エミュレーション追加。[Jarek Burczynski]
+
+- 新規ヘルパーマクロBITSWAP8()、BITSWAP16()、BITSWAP24()追加。
+
+
+新規サポートゲーム：
+-------------------
+
+ヘクシオン [Nicola Salmoria]
+もうぢゃ [Nicola Salmoria]
+Rough Ranger [Luca Elia, Phil Stroffolino]
+ハードヘッド [Luca Elia, Phil Stroffolino]
+逆転!!パズル番長 [Luca Elia]
+北派少林 飛龍の拳 / Shanghai Kid [Phil Stroffolino]
+ダイナミックスキー [Phil Stroffolino]
+爆裂クイズ魔Q大冒険 [Phil Stroffolino]
+エクスバニア [Phil Stroffolino]
+ナックルヘッズ [Phil Stroffolino]
+熱闘！激闘！クイズ島!! [Phil Stroffolino]
+スーパーワールドコート [Phil Stroffolino]
+クイズ学問ノススメ [Uki]
+XXミッション [Uki]
+ワンダープラネット [Bryan McPhail]
+龍神 [Jarek Burczynski]
+サンダードラゴン2 [David Haywood]
+Cyby Bop [David Haywood]
+Bigfoot Bonkers [Juergen Buchmueller]
+IGMO [Zsolt Vasvari]
+
+
+新規サポートクローン：
+---------------------
+
+Trick Trap (= ラビリンスランナー)
+ファイティングファンタジー (Japan revision 2)
+スーパーワールドスタジアム'92 -激突版-
+Boxy Boy (= 倉庫番デラックス)
+リムロッキン バスケットボール (V1.2)
+ブロックブロック (World 911106)
+妖精物語 ロッドランド (Japan original)
+スカイアドベンチャー (Japan)
+タントアール (Puzzle & Action) (Japan) (bootleg set 2)
+ぷよぷよ (English) (bootleg)
+パンクショット (Japan)
+The Glob (dedicated)
+Super Glob
+Tube-It (= カチャット)
+ハードパンチャー / Final Round (version M)
+ギャプラス / Galaga 3 (set 1)
+
+==========================================================================
+
+
+0.37 BETA 13
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「メタルブラック」でのラスタタイプエフェクトを修正。[Bryan McPhail, David Graves]
+
+- NeoGeoラスタエフェクト修正：
+  パルスター(2面ボス)、龍虎の拳(タイトル画面)、
+  ダブルドラゴン(水の面)、痛快ガンガン行進曲(100メガショックのロゴ-合ってるかな?)
+  8マン(タイトル画面)、くにおの熱血闘球伝説(デモ画面の炎部分)、
+  トップハンター(ボーナス面に入るところの波部分) [Nicola Salmoria]
+
+- Taito Bシステムドライバでのラインスクロール修正。[Jarek Burczynski]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「チャンピオンレスラー」にボイス追加。[Nicola Salmoria]
+
+
+その他のドライバの変更：
+-----------------------
+
+-「陸海空-最前線-」のクラッシュ修正。[inside out boy]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [DOS] 反応が遅いPCキーボードインターフェースについての対策追加。これにより、
+  同時に2つ、3つのキーを押す必要がある技などなどが出しやすくなりました。
+  ただし、最低でも1フレームの遅れが生じます。
+  この変更は、ゲームポート、またはUSBポートに接続したジョイスティックやキーパッド
+  には影響しません。[Nicola Salmoria]
+
+
+ソース：
+-------
+
+- 16bitと32bitのリードメモリハンドラに、ライトハンドラ同様に引数mem_maskを追加。
+
+- drawgfx()用のTRANSPARENCY_THROUGHモード削除。
+
+- NECμPD7810CPUエミュレーション。[Juergen Buchmueller]
+
+
+新規サポートゲーム：
+-------------------
+
+DECOカセットシステム [Juergen Buchmueller]
+サダリ [Nicola Salmoria]
+Hot Dog Storm [Nicola Salmoria]
+オセロダービー [Nicola Salmoria]
+燃えよゴンタ!!!! (Lady Killer) [Nicola Salmoria]
+ぱづり [Nicola Salmoria]
+ブレイジングトルネード [Nicola Salmoria]
+Over Drive [Nicola Salmoria]
+チェッカーフラグ [Manuel Abadia]
+ガンバスター [Bryan McPhail, David Graves]
+スーパーチェイス [Bryan McPhail, David Graves]
+宇宙戦艦ゴモラ / Bioship Paladin [Bryan McPhail]
+Pairs [Aaron Giles]
+G.I.ジョー [Olivier Galibert]
+アステリクス [Olivier Galibert]
+ザ・バウンティ [Zsolt Vasvari]
+テトリスプラス2 [Luca Elia]
+ソニックブラストマン [Jarek Burczynski]
+ガンネイル [David Haywood]
+サンダードラゴン [David Haywood]
+Gladiator 1984 [Phil Stroffolino]
+モモコ120% [Uki]
+
+
+新規サポートクローン：
+---------------------
+
+ソンソン (Japan)
+3 Wonders (World)
+沙羅曼蛇 (version J)
+Vendetta (4 players)
+
+
+削除：
+------
+
+Moon Ranger (コード変更なしのグラフィックハック版)
+
+
+==========================================================================
+
+
+0.37 BETA 12
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「ウィズ」の色修正。[Nicola Salmoria]
+
+-「ファニーマウス」の色修正。[Nicola Salmoria]
+
+- NeoGeoゲームのオートアニメーション速度修正。[Ralf Willenbacher]
+
+-「将棋の達人」(タイトル画面)と「ビューポイント」（Sammyのロゴ部分)にラスタエフェ
+  クト追加。[Nicola Salmoria]
+
+-「ジャイラス」(または6809スレーブをエミュレートするもの)、「タイムパイロット」で
+  のスプライトマルチプレクシングを正確に。[Nicola Salmoria]
+
+- CAVE製ゲームの修正。[Shiriru]
+
+-「バトルレーン」の音楽テンポと色の修正。[Nicola Salmoria]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「アフターバーナー」のエンジン音修正。[Shica]
+
+
+ソース：
+-------
+
+-「X-Men」「ゼクセクス」「GIジョー」での054539サウンドエミュレーション追加。
+  [Olivier Galibert]
+
+- アルファブレンディングサポート用の新関数セット追加。「ゼクセクス」で使用。
+  移植者へ：15bitまたは32bitのダイレクトマップビデオモードのサポートが必要です。
+  それからold_alloc_bitmap()の更新もお忘れなく！osdepend.hでosd_create_display()
+  とosd_allocate_colors()の変更を確認できます。[Olivier Galibert]
+
+- draw_crosshair()追加。[Nicola Salmoria]
+
+- GAME_IMPERFECT_GRAPHICSフラグをゲームドライバに追加。
+
+- スタンドアローンのYM2413エミュレータ追加。「パン」などでサウンドが大幅改良。
+  [Mitsutaka Okazaki, Sean Young]
+
+- [DOS] Allegro WIP 3.9.34でコンパイル。これによりサイドワインダー関係の問題が
+  解消。またコンパイルにはGNU Binutils 2.9.5.1も必要。
+
+- オーディオミキサーのフィルタリングコードを新しくしました。サウンドカードの
+  サンプルレートと生成されるされるサンプルレートが違うストリームで音質が向上
+  します。特に違いが出ているのは、「ファンタジー」「Poly Play」「ギャラクシアン」
+  (プレイ中のバック音)、「ニブラー」「バンガード」他、SETA製ゲーム全部。
+
+  [DOS] フィルタリングをオフにするために「resamplefilter」オプションが使えます。
+  [Andrea Mazzoleni]
+
+
+新規サポートゲーム：
+-------------------
+
+チャタンヤラクーシャンク -The Karete Tournament- [Luca Elia]
+ぽいっと！ [Luca Elia]
+牌砦II -仇討外伝- [Luca Elia]
+ぷるるん [Luca Elia]
+Cannon Ball [Luca Elia]
+Shocking [Luca Elia]
+S.T.G ＜ストライクガンナー＞ [Luca Elia]
+機動戦士ガンダム [Luca Elia]
+クイズ＆心理ゲーム クイズココロジー [Luca Elia]
+Ultra Balloon [Luca Elia]
+Blomby Car [Luca Elia]
+グランドチャンピオン [Ernesto Corvi, Phil Stroffolino]
+コズモギャング・ザ・パズル [Phil Stroffolino]
+エメラルディア [Phil Stroffolino]
+ティンクルピット [Phil Stroffolino]
+チャイニーズヒーロー [Phil Stroffolino]
+VS Gong Fight [Phil Stroffolino]
+Looping [Phil Stroffolino]
+Sky Bumper [Phil Stroffolino]
+Fire Truck [Phil Stroffolino]
+V'BALL [Paul Hampson]
+ニチブツ麻雀ゲームどっさり [Takahiro Nogi]
+Shoot the Bull [David Widel]
+ファイティングローラー [Ville Laitinen]
+ストリートファイター ザ・ムービー [Aaron Giles]
+バトルクルーザーM12 [Guru]
+スターラスター [Howie Cohen]
+VS. アイスクライマー [Howie Cohen]
+ダンジョンズ＆ドラゴンズ -タワーオブドゥーム- [Paul Leaman]
+ヴァンパイア -ザ・ナイトウォーリアーズ- [Paul Leaman]
+ストリートファイターZERO / Alpha: Warriors' Dreams [Paul Leaman]
+ヴァンパイアセイヴァー -ザ・ロードオブヴァンパイア- [Paul Leaman]
+エックスメン -チルドレンオブジアトム- [Paul Leaman]
+スーパーストリートファイターII -ザ・ニューチャレンジャーズ- [Paul Leaman]
+エイリアン VS プレデター [Paul Leaman]
+ストリートファイターZERO2 / Alpha2 [Paul Leaman]
+マーヴルスーパーヒーローズ [Paul Leaman]
+ロボコップ2 [Bryan McPhail]
+
+
+新規サポートクローン：
+---------------------
+
+スカイキッド (set 2)
+Pang Poms (Mitchell)
+NBA Hangtime
+スペランカー (Japan)
+Kitten Kaboodle (= にゃんにゃんパニック)
+クラックス (German)
+
+
+==========================================================================
+
+
+0.37 BETA 11
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+- Cave製ゲームでのスプライト拡大を修正。[Shiriru]
+
+
+その他のドライバの変更：
+-----------------------
+
+-「サンダークロス」の当たり判定修正。[Eddie Edwards]
+
+- YMZ280Bエミュレーションの修正をいくつか。[Shiriru]
+
+-「レインボーアイランド」のカスタムチップをさらに修正。秘密の部屋の動作とシーク
+  レットコードの表示がされるようになりました。[Stefan Jokisch]
+
+
+ソース：
+-------
+
+- ディスクリート回路によるサウンドエミュレーションサポート追加。[Keith Wilkins]
+
+- ES5505/ES5506エミュレーション追加。[Aaron Giles]
+
+
+新規サポートゲーム：
+-------------------
+
+スペースガン [David Graves]
+オペレーションウルフ [David Graves, Jarek Burczynski]
+オペレーションサンダーボルト [David Graves]
+ダライアス [David Graves, Jarek Burczynski]
+スラップショット [David Graves]
+ぶたさん [Yochizo]
+Jump Shot [David Widel]
+Strata Bowling [Aaron Giles]
+Arlington Horse Racing [Aaron Giles]
+Time Killers [Aaron Giles]
+Hard Yardage [Aaron Giles]
+Blood Storm [Aaron Giles]
+牌砦 [Luca Elia]
+パンポンズ [Luca Elia]
+スカイアラート [Luca Elia]
+だるま道場 [Luca Elia]
+大牌砦 [Luca Elia]
+バルキューブ [Luca Elia]
+ブロックカーニバル [Luca Elia]
+忍者くん / Ninja Kid [David Haywood]
+ブラックパンサー [Eisuke Watanabe]
+にゃんにゃんパニック [Eisuke Watanabe]
+シティボンバー [Eisuke Watanabe]
+上海 II [Nicola Salmoria]
+バトルシティー [Howie Cohen]
+VS Castlevania [Howie Cohen]
+クルクルランド [Howie Cohen]
+ドクターマリオ [Howie Cohen]
+ダックハント [Howie Cohen]
+エキサイトバイク [Howie Cohen]
+VS グーニーズ [Howie Cohen]
+ホーガンズアレー [Howie Cohen]
+アイスクライマー [Howie Cohen]
+Lady Golf [Howie Cohen]
+マッハライダー [Howie Cohen]
+Atari RBI Baseball [Howie Cohen]
+VS スーパーマリオブラザース [Howie Cohen]
+Super SkyKid [Howie Cohen]
+VS TKO Boxing [Howie Cohen]
+VS ゴルフ [Howie Cohen]
+ピンボール [Howie Cohen]
+VS Slalom [Howie Cohen]
+Unisystem Soccer [Howie Cohen]
+VS グラディウス [Howie Cohen]
+VS テトリス [Howie Cohen]
+Platoon [Howie Cohen]
+VS テニス [Howie Cohen]
+VS レッキングクルー [Howie Cohen]
+VS バルーンファイト  [Howie Cohen]
+VS 麻雀 [Howie Cohen]
+VS ベースボール [Howie Cohen]
+リングレイジ [Bryan McPhail]
+アラビアンマジック  [Bryan McPhail]
+ライディングファイト [Bryan McPhail]
+グリッドシーカー [Bryan McPhail]
+レイフォース / Gun Lock [Bryan McPhail]
+ハットトリックヒーロー'93 / Super Cup Finals [Bryan McPhail]
+トップランキングスターズ [Bryan McPhail]
+ライトブリンガー [Bryan McPhail]
+カイザーナックル [Bryan McPhail]
+バブルシンフォニー / Bubble Bobble II [Bryan McPhail]
+スペースインベーダーDX [Bryan McPhail]
+ハットトリックヒーロー'95/Power Goal [Bryan McPhail]
+クイズシアター -3つの物語- [Bryan McPhail]
+あっかんべぇだ〜 [Bryan McPhail]
+森口博子のクイズでヒューヒュー! [Bryan McPhail]
+パズルボブル2 [Bryan McPhail]
+究極タイガーII [Bryan McPhail]
+バブルメモリーズ [Bryan McPhail]
+クレオパトラフォーチュン  [Bryan McPhail]
+パズルボブル3  [Bryan McPhail]
+アルカノイドR  [Bryan McPhail]
+きらめきスターロード -イントロ倶楽部- [Bryan McPhail]
+プチカラット -ジェムストーン王国の世界- [Bryan McPhail]
+ぽっぷんぽっぷ [Bryan McPhail]
+
+
+新規サポートクローン：
+---------------------
+
+ニンジャウォーリアーズ (Japan)
+WGP (Joystick)
+ガンディーラー (Tecmo)
+Super Basketball (encrypted)
+
+
+==========================================================================
+
+
+0.37 BETA 10
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「パック&パル」のプライオリティ修正。[Aaron Giles]
+
+-「Mr. Do!」の色改善。[Nicola Salmoria]
+
+-「ゼクセクス」を修正。[Olivier Galibert]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「ワールドカップ'90」のサウンド改善。[John (and Philip) Bennett]
+
+- Cave製ゲームで音が正しく出ていなかったYMZ280Bのバグ修正。[Bernd Wiebelt]
+
+
+その他のドライバの変更：
+-----------------------
+
+-「レインボーアイランド」でのC-チップシミュレーションを改善して、隠し部屋を
+  修正。[Stefan Jokisch]
+
+-「サンダークロス」の当たり判定を改善。[Eddie Edwards]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- アナログジョイスティックへのパドルのマップをリニアに変更。
+
+
+ソース：
+-------
+
+- ビットマップ系ゲームでの回転表示と16bitモードサポート支援用関数、
+  draw_scanline8()とdraw_scanline16()を追加。多くのドライバを新システム対応に
+  変換。[Aaron Giles]
+
+
+新規サポートゲーム：
+-------------------
+
+Hole Land [Mathis Rosenhauer]
+American Speedway [Luca Elia]
+Cosmos [Mike Coates]
+Dark Warrior [Mike Coates]
+Video Eight Ball [Mike Coates]
+Logger [Mike Coates]
+Dazzler [Mike Coates]
+Wall Street [Mike Coates]
+Radar Zone [Mike Coates]
+Gold Bug [Mike Coates]
+Heart Attack [Mike Coates]
+Hunchback [Mike Coates]
+Superbike [Mike Coates]
+Hero [Mike Coates]
+Hunchback Olympic [Mike Coates]
+Beat Head (prototype) [Aaron Giles]
+Stompin' [Aaron Giles]
+Wheel Of Fortune [Aaron Giles]
+Golden Tee Golf [Aaron Giles]
+Slick Shot [Aaron Giles]
+Golden Tee Golf II [Aaron Giles]
+Peggle [Aaron Giles]
+Hot Shots Tennis [Aaron Giles]
+Rim Rockin' Basketball [Aaron Giles]
+Ninja Clowns [Aaron Giles]
+アトミックロボキッド [Yochizo]
+オメガファイター [Yochizo]
+サイバリオン [Yochizo]
+ゴーフォーザゴールド / Record Breaker [Yochizo]
+ダイナマイトリーグ [Yochizo]
+アーガス [Yochizo]
+バルトリック [Yochizo]
+Mr. F. Lea [Phil Stroffolino]
+WGP [David Graves]
+ダライアス2 [David Graves]
+ウォーリアーブレード [David Graves]
+フルスロットル [David Graves]
+ニンジャウォーリアーズ [David Graves]
+チャイナタウン [Bryan McPhail]
+パフォーマン [Quench]
+
+
+新規サポートクローン：
+---------------------
+
+Indiana Jones (German)
+Ghost Muncher (= Pac Man)
+バトルゾーン (cocktail)
+パイプドリーム (US)
+ポーカーレディース (Leprechaun)
+
+
+==========================================================================
+
+
+0.37 BETA 9
+
+
+まだわずかですが、新メモリAPIに変換されていないドライバがあります。
+そのため動作しません。起動時には以下のようなメッセージが出て終了します：
+
+        cpu # uses wrong data width memory handlers!
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「アクトフェンサー」の最後2面を修正。[Bryan McPhail]
+
+
+ソース：
+-------
+
+- メモリインターフェースを大幅に書き換えました。
+  システムへのインタフェースはほとんど変わっていませんが、コアは書き換えられてい
+  ます。入力ポートは、メモリアクセスのように扱われるようになりました。また入力
+  ポートは、使用するCPUのメモリと同じ幅です。例えば、16bitCPUは、16bitのメモリ
+  ハンドラと16bitのポートハンドラの両方が必要になりました。また16bitと32bitポー
+  トハンドラ用のインターフェースも追加されています。
+
+  メモリハンドラセットの生成と宣言用に新マクロが追加されています。これによって
+  新規アドレス空間の追加をとても簡単に行えます。"voodoo constants"、ABITS1_xx、
+  ABITS2_XX、ABITSMIN_XXなどはもう必要ありません。
+
+  バンクサポート数を24に拡張されています。memory_set_bankhandler_*関数に、メモ
+  リ空間への追加オフセットを渡す引数が加わりました。namcos1ドライバはこの機能を
+  利用するように改良されています。
+
+  メモリリード/ライト定義内にあるMEMPORT_SET_BITS()マクロを使うことで、アクティブ
+  なアドレスbit数を手動で制限することができるようになりました。rpunchドライバを例
+  として見てください(「ラビオレプス」は68000の24bitアドレス空間のうち下位20bitしか
+  マップしていません)。
+
+  新関数cpu_get_pc_byteは、現在のCPUのバイトオフセットを返します。ハーバード・アー
+  キテクチャCPUや、bitやwordレベルでPCを追跡するCPU向けに調整されています。
+
+  関数やマクロで名前が変更になったものがあります。使用するドライバについては全て
+  変更済みです：
+
+      cpu_setbankhandler_*  -> memory_set_bankhandler_*
+      cpu_setOPbaseoverride -> memory_set_opbase_handler
+      memoryswapcontext     -> memory_set_context
+      cpu_readport          -> cpu_readport16
+      cpu_writeport         -> cpu_writeport16
+      change_pc             -> changepc_16
+
+  [Aaron Giles]
+
+- ROMロードインターフェースを大幅に書き換えました。
+  以前のROM読みこみシステムには限界があって、バイトの順序付け関連でソースが混乱
+  していました。新システムはこれに対処するのが目的です。全ドライバは新システムを
+  利用するように完全にコンバートされています。旧マクロは廃止します。
+
+  ROM_REGIONマクロに、領域用の各種フラグを保持する3番目のパラメータが追加されて
+  います。このフラグは領域のデータ幅とバイト並び順(endianness)を指定できるように
+  拡張されています（関連CPUからあらかじめそれらを獲得するCPU領域は除きます）。
+  ここでの情報は、ターゲットとなるプラットフォーム独自のバイトの並び順に対して、
+  正しくデータのバイトスワップを行うため、領域のロードが終わってから使用します。
+
+  追加の領域フラグROMREGION_INVERTが利用できます：これは領域中の全てのデータを
+  ビット反転(NOT演算)します。またROMREGION_ERASEはROM読み込み前に特定のバイト値
+  で領域を初期化するのに利用します。
+
+  ROMの読み込みについては、以前のROM_LOAD_XXX_EVEN/ODD系マクロはもう使いません。
+  領域のそれぞれのバイトにROMをロードするには、新しいROM_LOAD16_BYTEマクロを使っ
+  て下さい。全てのデータは自然なアライメントと領域の並び順でロードされます。
+  ROMのロード後のみ、データはCPUが必要な形式に変換されます。
+
+  CPU用のデータを非CPU領域にロードする場合(例えば、68000コードをREGION_USER1など
+  にロードするなど)、その領域をCPUと同じものであると示す必要があります。68000コー
+  ドを含むユーザ領域については、その領域の宣言にROM_REGION16_BE()マクロを使って
+  下さい。ただし、ROMローダーは自動的にCPUインターフェースで必要な情報を割り出す
+  ので、REGION_CPUxxを使う必要は必ずしもありません。
+
+  古いドライバをコンバートする際には、これらの変更で99%のものに対応できます。
+  (オフセットフィールドを示す(0)また(1)は、偶数の(0)または奇数の(1)のアドレスと
+  します)：
+
+      ROM_LOAD_EVEN         -> ROM_LOAD16_BYTE(0)
+      ROM_LOAD_ODD          -> ROM_LOAD16_BYTE(1)
+      ROM_LOAD_WIDE         -> ROM_LOAD16_WORD
+      ROM_LOAD_WIDE_SWAP    -> ROM_LOAD16_WORD_SWAP
+
+      ROM_LOAD_GFX_EVEN     -> ROM_LOAD16_BYTE(0)
+      ROM_LOAD_GFX_ODD      -> ROM_LOAD16_BYTE(1)
+      ROM_LOAD_GFX_SWAP     -> ROM_LOAD16_WORD_SWAP
+
+      ROM_LOAD_V20_EVEN     -> ROM_LOAD16_BYTE(1)
+      ROM_LOAD_V20_ODD      -> ROM_LOAD16_BYTE(0)
+      ROM_LOAD_V20_WIDE     -> ROM_LOAD16_WORD
+
+  これらの新マクロは、さらに柔軟性が向上したROMロード命令系で構成されています。
+  ROMデータは1〜16バイトの"グループ"としてロードされ、それぞれ使用していない部分
+  には0〜15バイトのスペースが入ります。このデータは通常の並び順でロードすること
+  もできますし、逆順で読み込むことも可能です。また、ロードされたそれぞれのバイト
+  部分は既にロード済みのデータと区別できるようにマスク、シフトができます。
+
+  さらに、ほとんどのROM_RELOADとROM_CONTINUEは、ROMをロードする際に完全に同じ引数
+  を取っていたため、これらのマクロでは以前の命令での動作を継承するようにしました。
+  これにより、ROM_RELOAD_GFX_EVENやその他システムを散らかしていた古いマクロを全部
+  きれいさっぱり片付けました。例えば、データをロードするときにROM_LOAD16_BYTEを使い、
+　続けてROM_CONTINUEを使って、個別のオフセットで追加のデータを読み込めば、ROMロー
+  ダーが個々(訳注：一つおき?)のデータ読み込みを続けてくれます。
+
+  最後に、未使用、または複製されたROMデータを埋めるのに便利なエントリーを2つ追加
+  しました：
+
+      ROM_FILL( offset, length, byteval)
+      ROM_COPY( source_region, source_offset, offset, length )
+
+  ROM_FILLは単純に、特定のバイト値に領域ブロックをクリアします。
+  ROM_COPYは同一か、他の領域からあらかじめロードされているデータをコピーします。
+  [Aaron Giles]
+
+- 68EC020コアが32bitメモリハンドラを使用するようになりました。彩京ドライバはこの
+  新インターフェースを利用するようにアップデートされています。残念ながらこれはまだ
+  x86アセンブラ68000コアではサポートされていないため、このリリースでは再びx86ASM68k
+　コアを無効にしてあります。[Aaron Giles]
+
+- CCPUとTMS32C010コアが完全に16bitコアになりました。これらを使用しているドライバ
+  への変更は完了しています。これにより、Cinematronics製ゲームの入力ポートと東亜プ
+  ラン製ゲームのゲームプレイが修正されました。[Aaron Giles]
+
+
+新規サポートゲーム：
+-------------------
+
+Cavelon [Paul Swan]
+ミッション660 [Paul Swan]
+フェアリーランドストーリー []
+バルーンブラザーズ [Yochizo]
+ギガンデス [Yochizo]
+大旋風 [Yochizo]
+バトルガレッガ [Yochizo]
+アームドポリス バトライダー [Yochizo]
+アフターバーナー [Phil Stroffolino, Dave]
+アフターバーナーII [Phil Stroffolino, Dave]
+ブロクシード [David Haywood, Aaron Giles]
+コラムス [David Haywood, Aaron Giles]
+コラムスII - The Voyage Through Time [David Haywood, Aaron Giles]
+ボレンチ [David Haywood, Aaron Giles]
+サンダーフォース AC [David Haywood, Aaron Giles]
+タントアール (Puzzle & Action) [David Haywood, Aaron Giles]
+ぷよぷよ [David Haywood, Aaron Giles]
+スタックコラムス [David Haywood, Aaron Giles]
+ポトポト [David Haywood, Aaron Giles]
+ずんずん教の野望 [David Haywood, Aaron Giles]
+Hard Drivin' [Aaron Giles, Ernesto Corvi]
+サボテンボンバーズ [Mirko Buffoni]
+スカッドハンマー [Luca Elia]
+サンダー&ライトニング [Luca Elia]
+レゾン [Luca Elia]
+アテナのハテナ? [Luca Elia]
+おいしいパズルはいりませんか [Luca Elia]
+エイトフォース [Luca Elia]
+プロ麻雀 極 [Luca Elia]
+Krazy Bowl [Luca Elia]
+バトルクロード [Luca Elia]
+ななめでまじっく! [Nicola Salmoria]
+飛鳥&飛鳥 [David Graves, Brian Troha]
+メイズオブフロット [David Graves, Brian Troha]
+ガルメデス [David Graves, Brian Troha]
+アースジョーカー [David Graves, Brian Troha]
+古今東西干支物語 [David Graves, Brian Troha]
+カダッシュ [David Graves]
+
+
+
+新規サポートクローン：
+---------------------
+
+キング・オブ・ドランゴンズ (US)
+ストリートスマート (World version 1)
+Two Tigers (dedicated)
+マンハッタン24分署 (= Jail Break)
+
+
+==========================================================================
+
+
+0.37 BETA 8
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「Major Title」のスクロールと「大工の源さん」のプライオリティ修正。
+  [Nicola Salmoria]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「クロスブレイズ」「ガンフォース」「アンダーカバーコップス」「サンダーブラスター」
+  でサウンド予備サポート。[Bryan McPhail]
+
+
+ソース：
+-------
+
+- メモリインターフェースを大幅に変更しました。
+  ドライバでは新しいMEMORY_READ_STARTなどのマクロを使用する必要があります。また
+  16bitCPU用のAPIが完全に変更され、新しくREAD16_HANDLER、WRITE16_HANDLERファンク
+  ションタイプをメモリハンドラに使用します。READ_WORD()、WRITE_WORD()などのマクロ
+  は廃止されます。またハンドラは16bit幅の配列に直接アクセスしなければいけません
+  (今までのunsigneed char *の代わりにdata16_t *を使います)。8-bit幅のメモリアクセ
+  ス時に正しく配列にデータを保存するには、新しいCOMBINE_DATA()マクロを常に使うよう
+  にして下さい。アクセスされている特定のバイトを取得するにはACCESSING_MSBと
+  ACCESSING_LSBを使います(8bit幅の外部ハードで必要です)。
+  わずかなRAM領域に対してMRA_BANKxを使う必要はなく、8bitゲームではMRA_RAMで同様な
+  ことが可能です。
+
+  それから幾つかのドライバがまだ新APIに変換されていないため動作しません。起動時に
+  cpu # uses wrong data width memory handlers!
+  というエラーが表示されます。
+
+  16bitCPU用のチートシステムが動作しないかもしれません(未テスト)。
+  [Juergen Buchmueller]
+
+- タイルマップAPIへの変更項目です：
+  - tilemap_render()は廃止します。
+  - struct tilemapがprivateになりました - 直接のアクセスはできません。
+  - tilemap_set_transparent_pen()とtilemap_set_transmask()がタイルマップのダイレク
+    トpokingを置き換えています。
+  - tilemap_mark_all_pixels_dirty()は廃止しました(palette_recalc()から自動的に呼び
+    出されるtilemap_dirty_palette()に置き換わりました)。
+  - tilemap_draw()にプライオリティバッファに保存されるプライオリティバッファを指定
+    する引数を追加しました。[Phil Stroffolino]
+
+- 使用ドライバが無くなったためpalette_transparent_colorを削除しました。
+  [Nicola Salmoria]
+
+- osd_mark_dirty()から"ui"パラメータを削除しました。[Nicola Salmoria]
+
+- osd_clearbitmap()を削除しました。画面を真っ黒にする正しい方法は、今まで通り
+  fillbitmap()です。osd_alloc_bitmap()でビットマップをクリアする必要はありません
+  (ドライバ側でクリアされます)。
+  extern int need_to_clear_bitmapも同様に削除されています。代わりにschedule_full_
+  refresh()を使ってください。full_refreshが1のときはドライバで画面全体を描きかえる
+  必要があるため、ビットマップをクリアする必要はありません。[Nicola Salmoria]
+
+- NEC CPUコアを書きなおしました。暗号解読用に正確なタイミングで動作します。
+  [Bryan McPhail]
+
+- アイレムGA20サウンドエミュレーションの予備サポート。[Bryan McPhail]
+
+- プロファイラでもメモリのリード/ライトハンドラの監視をしています。これらは予めCPU
+  エミュレーションに統合されています。さらにデバッグ機能をはずした場合、プロファ
+  イラは無効になります。パフォーマンスにかなりの影響を与えていたためです。
+  [Nicola Salmoria]
+
+- x86用68000アセンブラコアで68020の限定サポート、彩京ゲームが動作するようになった
+  ため、再び有効にしました。[Darren Olafson]
+
+
+新規サポートゲーム：
+-------------------
+
+ニチブツ麻雀・クイズものどっさり [Takahiro Nogi]
+熱血高校ドッジボール部 / Super Dodge Ball [Paul Hampson, Nicola Salmoria]
+マクロス [Mirko Buffoni]
+マクロス II [Nicola Salmoria]
+脳力向上委員会 [Nicola Salmoria]
+鋼鉄要塞シュトラール [Bryan McPhail]
+プッシュマン [Bryan McPhail]
+ボンバーマン [Bryan McPhail]
+ボンバーマンワールド [Bryan McPhail]
+首領蜂 [Luca Elia]
+ブレイゾン [Luca Elia]
+Beezer [Mathis Rosenhauer]
+セルフィーナ [Jarek Burczynski]
+リブルラブル [Edgardo E. Contini Salvan]
+
+
+新規サポートクローン：
+---------------------
+
+必殺！無頼拳 (= Avengers)
+スカイアドベンチャー (日本版)
+ガンフォース (日本版)
+大工の源さん (日本版, M72)
+天地を喰らうII / Warriors of Fate (USA版)
+ストリートファイターII (USA版 revision I)
+
+
+==========================================================================
+
+
+0.37 BETA 7
+
+-- 初めにスポンサーからの言葉 --
+
+しばらく前に私（ニコラ）は「Lotto Fun」をギャンブルゲームと勘違いして削除してし
+まいました。その後よくよく調べてみると、これは普通の技を競うゲームだということが
+わかりました。そのためこれを復活させます。これは私のミスで本当にすいません。
+
+ついでに言うと、ギャンブルゲームをはずすかどうかは、モラルや法的な問題ではなく
+単に技術的なものです。ギャンブルマシンはビデオゲームではなく、MAMEが機械式のピ
+ンボールをサポートしないように(ただしソフトウェアのピンボールはサポートします)、
+ギャンブル機はサポートしません(ただしギャンブルをテーマにしたものはサポートし
+ます)。機械式のピンボールとギャンブル機はビデオゲームのある所では大抵同じ場所に
+置かれていますが、このことでこれらのゲームをひとくくりにするわけではありません。
+ギャンブル機とビデオゲームの線引きは何となく行っているのではないのです：
+大抵のギャンブル機はプレイするのに普通のゲームよりも金がかかります(例えば10コイ
+ンスタートなど)。また、ギャンブル機には払い出し率の設定があり、勝敗はプレイヤー
+のテクニックによるのではなく、完全にマシン次第なのです。
+
+-- それではいつものプログラミングにもどりましょう --
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「ストライダー飛竜」「ロストワールド」の星空を追加。
+  [Nicola Salmoria, Tim Lindquist]
+
+-「ブラックドラゴン」のスプライト/タイルプライオリティを修正。[Nicola Salmoria]
+
+-「バスター」の起動時の化けを修正。[Zsolt Vasvari]
+
+
+その他のドライバの変更：
+-----------------------
+
+- Pokeyエミュレーションを修正して、「テンペスト」のリセットバグを修正。こんどこそ
+  ホンモノ。[Juergen Buchmueller]
+
+
+ソース：
+-------
+
+- 移植者向け重要情報：描き替えマーキング(dirty marking)システムの変更があります。
+  以前は2種類の描き替えマーキングをサポートするのにblittingコードが必要でした。
+  ひとつはベクターゲーム用の「正確」なもので、現在のフレームでビデオカードにコ
+  ピーする描き替え部分だけを示すもの。もうひとつは「不正確」なもので、応急的な
+  方法に頼っています。この場合blitterが前のフレームのどの領域を描き替えるかを
+  記録しておく必要があり、同じようにコピーを行います。
+  OS依存コード中での描き替え処理を少し簡単にする「正確」な方だけを残しました。
+  さらにコードでどちらの描き替えマーキングかをチェックするのにVIDEO_TYPE_VECTORを
+  調べる必要がなくなり、ベクターゲーム用に設定されるVIDEO_SUPPORTS_DIRTYだけでよ
+  くなっています。
+
+- 移植者向け重要情報：CPUとサウンドエミュレーション用定数HAS_XXXが既に定義されて
+  いない場合、cpuintrf.hで定義されなくなりました。これらはmakefile(rules.mak)で
+  指定します。もし移植時に使用していない場合は、必ずどこかで定数を全て初期化して
+  下さい。
+
+-「osd_led_w()」を削除：この代わりとして、追加されたパラメータleds_statusが
+ 「osd_update_video_and_audio()」に渡されます。ドライバでは「set_led_status()」を
+  使う必要があります。
+
+- [DOS] makefileで内蔵のものではなくGNUのmkdirを使うようになりました。mkdirは以下
+  から入手できます：
+  http://www.simtel.net/pub/simtelnet/gnu/gnuish/gnufut21.zip
+
+- VIDEO_PIXEL_ASPECT_RATIO_2_1を追加。VIDEO_PIXEL_ASPECT_RATIO_1_2と同様に、OS依存
+  コードで扱わなければいけません。
+
+- 背景がオーバーレイのようにコア扱いになりました。ドライバ内で個々にサポートする
+  必要はありません。[Mathis Rosenhauer]
+
+
+新規サポートゲーム：
+-------------------
+
+PlayChoice-10ゲームどっさり [Ernesto Corvi]
+魔法大作戦 [Yochizo]
+疾風魔法大作戦 [Yochizo]
+Hot Pinball [Nicola Salmoria]
+Fantasia [Nicola Salmoria]
+New Fantasia [Nicola Salmoria]
+Miss World '96 Nude [Nicola Salmoria]
+Big Twin [Nicola Salmoria]
+World Beach Volley [Nicola Salmoria]
+ゼクセクス [Olivier Galibert]
+マグマックス [Takahiro Nogi, Jarek Burczynski]
+Thief [Phil Stroffolino]
+NATOディフェンス [Phil Stroffolino]
+Super Invader Attack [Mike Coates]
+バギーチャレンジ (予備サポート、求むフィードバック) [Ernesto Corvi, Nicola Salmoria]
+ナックルジョー [Ernesto Corvi]
+
+
+新規サポートクローン：
+---------------------
+
+Winter Bobble (= スノーブラザーズ) [David Haywood]
+
+
+==========================================================================
+
+
+0.37 BETA 6
+
+
+その他のドライバの変更：
+-----------------------
+
+- Taito Lシステムゲームの修正、改良(サウンド、プライオリティ、速度)。
+  [Nicola Salmoria, Jarek Burczynski]
+
+- あなたがアーカイブから未使用のPROMを捨てていないといいのですが…
+
+
+メインプログラムの変更：
+-----------------------
+
+- [DOS] ゲーム名指定のとき、コマンドラインで内部で持っているゲーム名に加えて、
+  zipファイル名を直接指定することができます。これはパスも指定可能で、
+  MAME G:\MyBoards\pacman.zip
+  と入力すれば
+  MAME pacman -rompath G:\MyBoards
+  と同じことになります。
+  [David Widel]
+
+
+ソース：
+-------
+
+- [DOS] makefile時、deltreeに代わってrmを使用するようになりました。rmがない場合は
+  以下からダウンロードできます：
+  http://www.simtel.net/pub/simtelnet/gnu/gnuish/gnufut21.zip
+
+- TMS5110エミュレータ追加。「バッグマン」で使用。[Jarek Burczynski]
+
+- DOS版でゲーム画面上に表示されるデバッガの動作に変更が加えられています。
+  今までのOS依存コードでキャラクタマップの表示をシミュレートする代わりに、通常の
+  ビットマップを使って完全にコアによってレンダリングされます。
+  移植時に影響があるものは以下の通り：
+
+  ・osd_set_display() ……… 削除
+  ・osd_set_screen_size() … 削除
+  ・osd_screen_update() …… 削除
+  ・osd_wait_keypress() …… 削除
+  ・osd_debugger_focus()  … 追加
+  ・osd_dbg.h ………………… 削除
+  ・osd_update_video_and_audio() … debug_bitmap引数追加
+  ・osd_allocate_colors() … デバッガパレット用の引数が必要
+  ・mamedbg.c ………………… clock_tとclock()不要
+
+  ゲームとデバッグのビットマップをどのように処理するかは完全にOS依存コードによる
+  ことになり、ユーザーが切り替えをしたときに交互に表示したり、別のウィンドウに分
+  けて同時に表示するようにも出来ます。「osd_debugger_focus()」はこの2つのビット
+  マップの表示リクエストを出すのに使うことができます。
+  DOS版ではF5キーを押せば、いつでもゲーム画面とデバッガの切り替えが出来ます。
+  [Juergen Buchmueller]
+
+-「osd_poll_joysticks()」を削除。ジョイスティックのポーリングが必要なポートは
+ 「osd_update_video_and_audio()」で可能です。
+
+- 正確なHD6309エミュレーション追加(M6809を使っていたのを置き換え)。[Tim Lindner].
+
+
+新規サポートゲーム：
+-------------------
+
+Mega Blast [Brad Oliver]
+メタルブラック [David Graves]
+ビッグカルナック [Manuel Abadia]
+Biomechanical Toy [Manuel Abadia]
+Back Street Soccer [Luca Elia]
+Sky Fox / Exerizer [Luca Elia]
+Space Beam [Peter Trauner]
+功里金団 [Nicola Salmoria]
+Play Girls [Nicola Salmoria]
+Play Girls 2 [Nicola Salmoria]
+Karian Cross [Nicola Salmoria]
+ロジックプロ [Nicola Salmoria]
+ロジックプロ2 [Nicola Salmoria]
+The Last Day [Nicola Salmoria]
+Pollux [Nicola Salmoria]
+Blue Hawk [Nicola Salmoria]
+Primella [Nicola Salmoria]
+R-Shark [Nicola Salmoria]
+Gals Pinball [Nicola Salmoria]
+Video Pinball [Sebastien Monassa]
+Truxton II / Tatsujin II / 達人王 [Yochizo]
+
+
+新規サポートクローン：
+---------------------
+
+ナイツオブザラウンド (US)
+マッスルボマー (US)
+バツグン (スペシャルバージョン)
+Pipi & Bibis (海賊版?)
+
+
+==========================================================================
+
+
+0.37 BETA 5
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「Carrier Air Wing」の黒い塊を修正。[Nicola Salmoria]
+
+-「Cops 'n Robbers」のビールトラックのマルチ化修正。[Colin Douglas Howell]
+
+
+その他のドライバの変更：
+-----------------------
+
+- 34010ドライバを完全に書き換え。[Aaron Giles]
+
+-「マッスルボマー」のプロテクトを修正。[Nicola Salmoria]
+
+- Taito F2ドライバの大幅改善。[David Graves]
+
+-「ターミネーター2」のクラッシュを修正。[Ernesto Corvi]
+
+
+ソース：
+-------
+
+- ビデオフラグVIDEO_NEEDS_6BITS_PER_GUNを新規追加。これはOS依存レイヤーがゲーム全体
+  のパレットを再現するのに16bitでは不十分なことを示すもので、24bitの方がよいことを
+　示す。
+
+- C140エミュレータで、圧縮PCMの再生をサポート。[CAB]
+
+- CAVE製ゲームでYMZ280Bサウンドエミュレーションを使用。[Aaron Giles]
+
+-「Mortal Kombat2」のサウンド用にADSP2105CPUエミュレーションを使用。[Ernesto Corvi]
+
+- cpuintrf.cに新関数追加：「cpu_get/set_cycle_table()」「cpu_set_irq_callback()」
+  [Juergen Buchmueller]
+
+- 新CPUコアと旧コアへの修正。[Juergen Buchmueller]
+
+- 新グラフィックプリミティブ「copyrozbitmap()」追加。これは特別な場合での
+ 「copybitmapzoom()」を置き換えるもの。精度が向上した副作用のおかげで「Punch Out」の
+  ハイスコア画面で、ボクサーの表示がかなり改善。[Nicola Salmoria]
+
+
+- Taito F2グラフィックチップエミュレーション部をvidhrdw/taitoic.cに集約(グラフィック
+  に関係ないチップもあり)。他のタイトー製ゲームでも多くでこのチップを使用。
+  [Nicola Salmoria]
+
+
+新規サポートゲーム：
+-------------------
+
+ファイナルスターフォース [E. Watanabe]
+がんばれギンくん [E. Watanabe]
+怒首領蜂 [Luca Elia]
+戦国エース [Luca Elia]
+ガンバード [Luca Elia]
+キャリバー50 [Luca Elia]
+Dragon Unit / キャッスルオブドラゴン [Luca Elia]
+ブランディア [Luca Elia]
+上海III [Nicola Salmoria]
+へべれけのぽぷーん [Nicola Salmoria]
+ぶろっけん [Nicola Salmoria]
+LSA Squad [Nicola Salmoria]
+Oli-Boo-Chu / パンチングキッド [Nicola Salmoria]
+T.Tマージャン [Takahiro Nogi, Pongkang]
+ロイヤルマージャン [Zsolt Vasvari]
+ガンフロンティア [David Graves, Nicola Salmoria]
+嗚呼栄光の甲子園 [David Graves, Nicola Salmoria]
+サンダーフォックス [David Graves, Nicola Salmoria]
+ニンジャキッズ [David Graves, Nicola Salmoria]
+Solitary Fighter [David Graves, Nicola Salmoria]
+ダイノレックス [David Graves, Nicola Salmoria]
+クイズ地球防衛軍 [David Graves, Nicola Salmoria]
+苦胃頭捕物帳 [David Graves, Nicola Salmoria]
+Quiz HQ [David Graves, Nicola Salmoria]
+ゆうゆのクイズでGO!GO! [David Graves, Nicola Salmoria]
+マージャンクエスト [David Graves, Nicola Salmoria]
+クイズクエスト - 姫と勇者の物語 [David Graves, Nicola Salmoria]
+ドンドコドン [David Graves, Nicola Salmoria]
+プリルラ [David Graves, Nicola Salmoria]
+デッドコネクション [David Graves, Nicola Salmoria]
+Football Champ / ハットトリックヒーロー [David Graves, Nicola Salmoria]
+ファイナルブロー [David Graves, Nicola Salmoria]
+ドリフトアウト [David Graves, Nicola Salmoria]
+キャメルトライ [David Graves, Nicola Salmoria]
+Yes/No心理ときめきチャート [David Graves, Nicola Salmoria]
+クイズ人生劇場 [David Graves, Nicola Salmoria]
+クイズクレヨンしんちゃん [David Graves, Nicola Salmoria]
+クイズクレヨンしんちゃん おらと遊ぼ [David Graves, Nicola Salmoria]
+Rambo III - Release 2 [Jarek Burczynski]
+スペースインベーダーDX [Jarek Burczynski]
+バイオレンスファイト [Jarek Burczynski]
+マスターオブウェポン [Jarek Burczynski]
+サイレントドラゴン [Jarek Burczynski]
+トイポップ [Edgardo E. Contini Salvan]
+Mortal Kombat 3 [Aaron Giles]
+Ultimate Mortal Kombat 3 [Aaron Giles]
+WWF: Wrestlemania [Aaron Giles]
+2 On 2 Open Ice Challenge [Aaron Giles]
+NBA Maximum Hangtime [Aaron Giles]
+Rampage: World Tour [Aaron Giles]
+Brute Force [Aaron Giles]
+
+
+新規サポートクローン：
+---------------------
+
+ブラステロイド (with heads)
+サイバーボール (version 2)
+Rack' em Up (= ザ・ハスラー)
+スーパーフォーミュラー (= Tail to Nose)
+特殊部隊UAG (= Thundercade)
+ダブルドラゴン (オリジナル版)
+Tournament Arkanoid
+TMNT (豪州版)
+影の伝説 (2 new bootlegs)
+ソニックウィングス (= Aero Fighters)
+
+
+==========================================================================
+
+
+0.37 BETA 4
+
+移植者へ：APIに変更があります。ソースの項目をよく読んでください。
+
+グラフィックの改善されたドライバ：
+---------------------------------------------
+
+-「Return of the Jedi」のバックグラウンドスムージング。[Nicola Salmoria]
+
+-「Star Fire/Fire One」の大幅な改良。[Aaron Giles]
+
+-「A-Jax」のエンディングでの花火表示。[Nicola Salmoria]
+
+
+サウンドの改善されたドライバ：
+-----------------------------------------
+
+- Exidy製ゲームのサウンドを修正。[Aaron Giles]
+
+- YM2413エミュレーション改善。[Paul Leaman]
+
+
+ソース：
+-------
+
+- [DOS] SEALのパッチがモノラルサウンドカードでバグを起こしていました。新しいものに
+  変更されています。
+
+-「save_screen_snapshot()」を修正して、正しいアスペクト比でVIDEO_PIXEL_ASPECT_
+  RATIO_1_2ゲームをセーブするようにしました。また、「save_screen_snapshot_as()」を
+  追加しました。移植する方はスクリーンショットの保存のときに、いままで個々の移植版
+  で使っていたものではなく、これらの関数のうちひとつを使用するようにお願いします。
+ 「osd_save_snapshot()」はビットマップの引数をとるようになったので、Machine->
+  scrbitmapを保存のにハード的に組み込まれる必要はありません。（こうしないと、オー
+  バーレイが保存されません)。[nathan]
+
+- 表示エリアのランタイム変更ができるようにいくつかの変更がされました。また、OS依存
+  コードを単純化するために、いくつかの機能をコアに移動しました。
+  - struct RunningMachineにvisible_areaを追加。ドライバではMachine->drv->visiblearea
+    に代わってMachine->visible_areaを使う必要があります。struct MachineDriver内の
+    フィールドはdefault_visible_areaに改名して、大抵の場合コアのみが使用するように
+    なりました。
+  - 新関数「set_visible_area()」はドライバがランタイムでアクティブな表示エリアを変更
+    できるようにします。
+  - 新関数「osd_set_visible_area()」は、OS依存コードに対して画面に描画しなければなら
+    ないビットマップの部分を設定します。これは実際のビットマップに対応した座標が渡さ
+    れるので、画面を回転させる必要のあるゲームでは、これ以上の処理は必要なくなります。
+    OS依存コードでは、もし必要な場合はビットマップのより小さい部分を表示することも可
+    能ですが、その逆にビットマップよりも大きい部分を指定するとゴミ部分が表示されてし
+    まうので注意してください。
+    この関数はまず、「set_ui_visarea()」を呼び出してコアに対して、ビットマップの実際
+    にどの部分が表示されるのかを設定する必要があります(これは恐らく必要なものよりも
+    小さくなるでしょう)。このため、ユーザーインターフェースはそれに応じて描画すること
+    が出来ます。
+  -「osd_update_video_and_audio()」はビットマップのパラメータをとるので、Macine->
+    scrbitmapを描画するのをハード組み込みにしてはいけません。
+  - struct GameOptionsにvector_widthとvector_heightフィールドを追加。
+    OS依存コードはベクターゲームで別な解像度を設定するために、これらを初期化する
+    必要があります。もし0にされた場合はデフォルトの640x480が使われます。
+  -「osd_create_display()」も画面にビットマップを生成せず、コアによって処理されます。
+    画面・ウィンドウの表示のみを生成して、成功時には0を返します。
+    このとき渡される横と縦のサイズのパラメータは、表示エリアのディメンションとなり、
+    以前のようなビットマップではないので注意してください。そのため、この関数は要求
+    されたサイズのスクリーン/ウィンドウのみを生成する必要があります。このとき別な
+    処理や、drv->visible_areaフィールドの参照は要りません。
+    これは「osd_set_display()」にも当てはまります。
+  -「osd_new_bitmap()」を変更して「osd_alloc_bitmap()」に改名。旧ドライバとの衝突
+    を避けるためです。この関数は以前と同じものですが、縦画面ゲーム時に縦横を交換
+    してはいけません。これはコアによって行われます。「osd_new_bitmap()」と「osd_
+    free_bitmap()」もドライバから呼び出してはいけません。これらはコアですでに予約
+    済です。ドライバから利用するには、同じものである「bitmap_alloc()」と「bitmap_
+    free()」を使ってください。これらは縦画面ゲームでの画面回転を処理します。
+  [Nicola Salmoria]
+
+-「vh_screenrefresh()」への引数full_refreshの意味が若干拡張されました。普通の場合
+ 「画面のビットマップを追加でアップデートせずに完全に描き換える」という意味ですが、
+  ドライバが「一時ビットマップを全部の描き換える」というのも必要です。
+  これは以下の関数を使うときに起きます。この方法だと、多くのmemset(dirtybuffer,1)
+  を扱うものを単純化して、vh_screenrefreshの一番最初にスケジュールすることができ
+  ます。
+- 画面反転処理用に若干機能拡張された関数をいくつか追加しました：
+ 「flip_screen_x_w()」「flip_screen_y_w()」「flip_screen_w()」はflip_screen bitを
+  設定して、3つの引数flip_screen_x、flip_screen_y、flip_screenでそれらの読み直しを
+  行います。
+  画面反転が変更されたときは、これらの関数はvh_screenrefreshが次に呼び出されるのに
+  そなえて、自動的にfull_refreshをtrueに設定します。
+  また「tilemap_flip(ALL_TILEMAPS)」も呼び出すのでTileMapsを使用するときにはこれ以
+  上の操作は必要ありません。
+  最後に、これらの関数は表示エリアと非対称時のミラーリングも調整します。例えば、
+  rockora.cがこれを利用しています。
+- この他に2つのヘルパー関数を追加しました：
+  - void set_vh_global_attribute( data_t *addr, data_t data )
+  これは変数へのポインタと値を引数にとり、その変数へ値を代入します。さらに、値が変
+  更されたときには、full_refreshをtrueにして次の関数を呼び出します。
+  - void schedule_full_refresh(void)
+  この関数は次の画面リフレッシュ用にfull_refreshをtrueに設定します。
+  vidhrdw/galaxian.cに、この関数とset_vh_global_attributeの使用例があります。
+  [Zsolt Vasvari]
+
+
+新規サポートゲーム：
+-------------------
+
+Victory [Aaron Giles]
+花合わせ [Zsolt Vasvari]
+ヒット・ジ・アイス [Jarek Burczynski]
+Rambo III [Jarek Burczynski]
+クイズ世界はSHOWbyショーバイ[Jarek Burczynski]
+
+
+新規サポートクローン：
+---------------------
+
+Rescue Raider (Stand-Alone)
+パン3 (Euro)
+三国志II (= 天地を喰らうII)
+阿修羅ブラスター (US)
+Exodus (= レッドUFO)
+
+
+==========================================================================
+
+
+0.37 BETA 3
+
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「ジョイフルロード」の色修正。[Phil Stroffolino]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「Jumping」のサウンド。[Jarek Burczynski]
+
+
+その他のドライバの変更：
+-----------------------
+
+- 8080bwゲームに大量の修正。[Zsolt Vasvari]
+
+- 多くのゲームでDIPスイッチ修正。[Gerardo Oporto]
+
+-「アサルト」の操作システムを変更。チートを有効にしたときのみ動作。
+　[Maurizio Zanello]
+
+
+ソース：
+-------
+
+- いくつかのCPUで多くの変更(特にi86)。またI186をサポート。[Peter Trauner,
+  Juergen Buchmueller, Aaron Giles]
+
+- MIPS CPUの予備サポート。[smf]
+
+- makefileを刷新。移植、マルチファイルにスプリットすることが容易に。
+  [Juergen Buchmueller]
+
+- drawgfx()の新モード追加：TRANSPARENCY_NONE_RAW、TRANSPARENCY_PEN_RAW、
+  TRANSPARENCY_PENS_RAW、TRANSPARENCY_THROUGH_RAW。
+  この目的は、「未処理(raw)」のカラースペース(再マップされていないペン)での操作を
+  可能にして、パレットが終端かどうかを調べるのに機能します。これは当たり判定を行っ
+  たり、前景と背景のブレンドをする多くのゲームで便利な機能です(例：パレットインデッ
+  クスが((fgpen << 4) | bgpen)の時など)。
+  このモードを使うときは、「color」パラメータはそれ以上パレットを参照しなくなりま
+  す。その代わり、パラメータには現在ドロー中のグラフィックでの未処理ペンの値が追加
+  されます。このように、もし背景レイヤーで0〜63番のペンを使っているときや、前景レイ
+  ヤーで、64〜127番のペンを使っている場合に、背景レイヤードロー時の0番の色、前景レ
+  イヤードロー時の64番の色を指定できます。
+  また、「copybitmap_remap()」と「copyscrollbitmap_remap()」も追加しました。
+  これらもオリジナルと同じ引数をとりますが、TRANSPARENCY_NONEがTRANSPARENCY_NONE_RAW
+  を意味するというような仮定をしません。
+  そのため、最後の最後までrawパレットのインデックスで全ての処理が出来ます。さらに、
+  「copybitmap_remap(TRANSPARENCY_NONE)」で結果のコピーと、終端での再マップステップ
+  を行います。
+  最後に「copybitmap()」内のみでサポートされる新規追加モード、TRANSPARENCY_BLEND
+  とTRANSPARENCY_BLEND_RAWについて。この2つのモードでは、ソースのビットマップが
+  「color」パラメータにより左へシフトされ、目的のビットマップへORブレンドされます。
+  この機能により、前景と背景のペンインデックスの重ね合わせによってパレットを参照する
+  ゲームで、パレットインデックスの算出や参照が可能です。[Aaron Giles]
+
+-「logerror()」をmame.cからOS依存コードに移動しました。またGameOptionsストラクチャ
+  から「errorlog」を削除しました。
+
+- アートワークサポートの大幅見直し。ドライバが呼び出す必要があるのは
+ 「overlay_create()」または「overlay_load()」のみです。あとはコアで扱われます。
+  また16bitモードでの透明度設定をサポートしました。例として「スペースインベーダー」
+  を見てみてください。色セロファンがついに黒い部分の裏に見えるようになりました。
+  [Mathis Rosenhauer, Zsolt Vasvari]
+
+- YM2608ADPCMサポートを修正。[Aaron Giles]
+
+
+新規サポートゲーム：
+-------------------
+
+オーマイガァー! [Nicola Salmoria]
+豪血寺一族 [Luca Elia]
+Magix [Luca Elia]
+ハットリス [Aaron Giles]
+Cerberus [Aaron Giles, Paul Leaman]
+Mayhem 2002 [Aaron Giles, Paul Leaman]
+World Series: The Season [Aaron Giles, Paul Leaman]
+Alley Master [Aaron Giles, Paul Leaman]
+Danger Zone [Aaron Giles, Paul Leaman]
+Baseball The Season II [Aaron Giles, Paul Leaman]
+Super Baseball Double Play Home Run Derby [Aaron Giles, Paul Leaman]
+Strike Zone [Aaron Giles, Paul Leaman]
+Redline Racer (2 players) [Aaron Giles, Paul Leaman]
+Quarterback [Aaron Giles, Paul Leaman]
+Viper [Aaron Giles, Paul Leaman]
+John Elway's Team Quarterback [Aaron Giles, Paul Leaman]
+All American Football (rev E) [Aaron Giles, Paul Leaman]
+Ironman Stewart's Super Off-Road [Aaron Giles, Paul Leaman]
+Ironman Stewart's Super Off-Road Track Pack [Aaron Giles, Paul Leaman]
+Pigout [Aaron Giles, Paul Leaman]
+Ataxx (set 1) [Aaron Giles, Paul Leaman]
+World Soccer Finals [Aaron Giles, Paul Leaman]
+Danny Sullivan's Indy Heat [Aaron Giles, Paul Leaman]
+Nastar / ラスタンサーガ2 [Jarek Burczynski]
+クライムシティ [Jarek Burczynski]
+阿修羅ブラスター [Jarek Burczynski]
+サファリラリー [Zsolt Vasvari]
+
+
+新規サポートクローン：
+---------------------
+
+パック&パル (older)
+テトリス (B-Ssytem)
+
+
+==========================================================================
+
+
+0.37 BETA 2
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+- MCR1、2ゲームでのスプライト描画を正確に(「Satan's Hollow」を参照)[Aaron Giles]
+
+-「マッドギア」「臥竜列伝」のスプライト、タイルプライオリティ修正。
+　[Bryan McPhail]
+
+-「Ghostbusters」の街のスクロール修正。[Bryan McPhail]
+
+-「ラッソ」の色を正確に。[Phil Stroffolino]
+
+-「リアクター」の色を修正。[Fabrice Frances]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+- K053260のADPCMデコードを修正。コナミ製ゲームで改善あり。[Ernesto Corvi]
+
+-「Demon」にサウンド追加。[Zsolt Vasvari]
+
+-「Warrior」にサンプル追加。[Mathis Rosenhauer]
+
+-「ラッソ」にサウンド追加。[Phil Stroffolino]
+
+
+その他のドライバの変更：
+-----------------------
+
+- 「Gang Warsオリジナル版」「Super Baseball」「Battlefield」「Time Solders rev 1」
+　を修正。[Bryan McPhail]
+
+
+メインプログラムの変更：
+----------------------
+
+- チートのインターフェースを大幅に書き換え。ただしまだ未完成。[Brad Oliver]
+
+- 外部言語ファイルを利用したマルチ言語サポートの第一段階。[Brad Oliver]
+
+- 内部フォントを、ラテン用文字(128〜255：ISO Latin-1)まで拡張。
+　[Juergen Buchmueller]
+
+-「トリオ・ザ・パンチ」で面飛びバグを起こしていたHu6280エミュレーションを修正。
+　[Bryan McPhail]
+
+
+ソース：
+-------
+
+- "if (errorlog) fprintf(errorlog,"のインスタンスを、新関数「logerror()」の呼び
+　出しに置き換え。
+
+- OS依存コードでサポートしなければならない新ファイルタイプ：
+
+  FILETYPE_HIGHSCORE_DB
+  FILETYPE_HISTORY
+  FILETYPE_CHEAT
+  FILETYPE_LANGUAGE
+
+  new functions:
+  osd_readkey_unicode
+  osd_fgetc
+  osd_ungetc
+  osd_fgets
+  osd_feof
+  osd_ftell
+
+  struct Gameoptions : language_fileに新しく追加されました。OS依存コードはトラ
+　ンスレートファイルを使用する場合これらを初期化する必要があります。
+　[Brad Oliver]
+
+- EEPROMインターフェースの終わりに新しいパラメータを追加。これにより、単一の
+　読みこみ命令の後に、複数の読みこみ発生を可能にします。NVRAMファイルが見つか
+　らないときに、EEPROMの内容を明らかに初期化できるようにEEPROM_set_data()ルー
+　チンを追加。
+
+新規サポートゲーム：
+-------------------
+
+パイプドリーム [Bryan McPhail, Aaron Giles]
+Tail to Nose [Nicola Salmoria]
+Poly-Play [Martin Buchholz]
+カイロスの館 [Bryan McPhail]
+スーパースティングレイ [Bryan McPhail]
+Battle Rangers / ならず者戦闘部隊ブラッディウルフ [Bryan McPhail]
+弾銃フィーバロン [Luca Elia]
+エスプレイド [Luca Elia]
+魚ぽこ [Luca Elia]
+Insector (prototype) [Fabrice Frances]
+Screw Loose (prototype) [Fabrice Frances]
+Mermaid [Zsolt Vasvari]
+
+
+新規サポートクローン：
+---------------------
+
+サイコニクスオスカー (2 Japanese sets)
+アストロブラスター (version 3)
+Grind Stormer (= V-Five)
+シェリフ (= Bandido)
+スーパーバーガータイム (World)
+Vapor Trail (World)
+In the Hunt (US)
+スペースチェイサー (CV)
+スペースアタック (older)
+800 Fathoms (= Mariner)
+スパイナルブレイカーズ (US)
+ボスコニアン (older)
+Juno First (Gottlieb)
+
+
+==========================================================================
+
+
+0.37 BETA 1
+
+グラフィックの改善されたドライバ：
+----------------------------------
+
+-「エクセリオン」に背景追加。[Aaron Giles]
+
+-「Space Encounters」でアートワークサポート。[Zsolt Vasvari]
+
+- MCR2ゲームでのスプライトカラーの修正。但し、オーバーラップするスプライトについては
+　まだ未完成です。[Aaron Giles]
+
+- Astrocadeゲーム(「Gorf」「Wizard of Wor」など)の表示色と星背景を修正。
+  [Nicola Salmoria]
+
+-「ターボフォース」のフロントレイヤーを修正。[Nicola Salmoria]
+
+-「ルパンIII世」の色を修正。[Zsolt Vasvari]
+
+
+サウンドの改善されたドライバ：
+------------------------------
+
+-「スペースインベーダー」でのUFOの音をエミュレート - この音のサンプルは必要ありません(但し、
+　他の音のものはまだ必要です)[Zsolt Vasvari]
+
+-「Splash」のサウンド完成。[Manuel Abadia]
+
+-「Got-Ya(ギャンブラー)」でサンプルサポート。[Zsolt Vasvari]
+
+-「ベルリンの壁」のサウンドサポート。[Luca Elia]
+
+
+メインプログラムの変更：
+----------------------
+
+- 24-bitアートワークのサポート。[Mathis Rosenhauer]
+
+
+ソース：
+-------
+
+- tilemap.cを更新してプライオリティバッファのサポートを追加。新関数「pdrawgfx()」で
+　スプライト描画に利用できます。これで、多くのタイル/スプライトの表示順位バグなどが
+　解決できます。例：「A-Jax」「トライゴン」「シンプソンズ」「クライムファイターズ2」
+ 「パンクショット」「グラディウスIII」など。[Phil Stroffolino, Nicola Salmoria]
+
+-「tilemap_mark_tile_dirty()」用のAPIとget_tile_infoのフックを変更して、今までの
+　(col,row)の代わりに、１個の引数tile_indexでよくなりました。「tilemap_create()」に
+　渡される関数は(col,row)->tile_indexのマッピングを行います。2つのスタンダード関数は
+　一般的な用途で提供されます。現在不調のnamcos2.c以外のドライバは全て、新しいAPIを
+　使用するように変換されました。[Phil Stroffolino]
+
+- GAME_UNEMULATED_PROTECTIONフラグを新規追加。
+
+- 6803/63701の外部ポートが、DDRレジスタの入力ビットとして、1を設定することがなくなり
+　ました。代わりに、そのポートから読み込まれ返された値が設定されます。
+　[Tatsuyuki Satoh]
+
+- 全てのメモリハンドラを、新しいREAD_HANDLER()/WRITE_HANDLER()マクロ宣言部にアップ
+　デートしました。古い「function(int offset,int data)」のスタイルはもう使いません。
+
+
+新規サポートゲーム：
+-------------------
+
+アイレム・エアデュエル [Nicola Salmoria]
+パウンドフォーパウンド [Nicola Salmoria]
+ラビオレプス / Rabbit Punch [Aaron Giles]
+スーパーバレーボール [Aaron Giles]
+ファンキーフィッシュ [Zsolt Vasvari]
+ミスタージャン / Crazy Blocks [Takahiro Nogi]
+闘神ブレイザーズ [Nicola Salmoria]
+スパイナルブレイカーズ [Nicola Salmoria]
+特殊部隊UAG [Luca Elia]
+ツインイーグル [Luca Elia]
+DownTown (目撃) [Luca Elia]
+U.S. クラシック [Luca Elia]
+アルバレスタ [Luca Elia]
+メタフォックス [Luca Elia]
+ジンジンジップ [Luca Elia]
+ウォーオブエアロ [Luca Elia]
+
+
+新規サポートクローン：
+---------------------
+
+忍者龍剣伝 (= Ninja Gaiden)
+Spy Hunter 2 (revision 2)
+R-Type (Japan)
+Dyger (set 2)
+
+
+
+
+日本語版について
+----------------
+MAME What's New v0.37b1 - v0.67
+訳：Fujix
+MAME E2J : http://www.e2j.net/

@@ -1,0 +1,137 @@
+0.94u5
+------
+
+Aaron Giles氏による修正：
+-------------------------
+segaxbd.c:
+* rachero/abcopにサウンド追加
+* loffireで高インタリーブが起きないように明示的な同期を使用
+* Nicola氏が修正するまで317-0136.keyを吸い出し不良にマーク
+* 除算チップが改良されたのでloffireを動作可能にマーク
+
+segaic16.c:
+* 除算チップの動作をいくつか修正。これによりloffireとgpriderが修正
+    - 0で割る場合は約数を返す（要チェック）
+    - mode 1 divideはunsigned
+    - A4セットの書き込みのみで除算を実行
+
+midvunit.c:
+* hotspotsのデバッグコードをオフ。V-unitゲームの動作速度が超改善（ガーン!）
+
+
+Angelo Salese氏による変更：
+---------------------------
+realbrk.c
+*「パチンコ銀玉勝負」（通常版とDX）のセット修正と操作追加。ゲームプレイできます
+  が、バックアップRAMはハックです。どうなってるかはわかりませんが、多分NVRAMエ
+  ミュレーションが無いと思われます
+* Reorganized a bit the memory map in the driver;
+
+2413intf
+* YM2413サウンドチップに関数2つ追加。
+  YM2413_register_port_0_msb_w()とYM2413_data_port_0_msb_w()で、pkgnshで使用
+
+splash.c
+*「Funny Strip」のスプライト修正
+
+jalmah.c
+*「麻雀大霊界」のMCUプロテクトコード改良とROMロード関係の問題をいろいろ修正。
+
+
+Derrick Renaud氏による変更：
+----------------------------
+■dominos - ディスクリートサウンドを新しいコンポーネント値に更新。
+
+■clowns - コインカウンタと正しいウォッチドッグ追加。BGMと風船の音用にディスク
+  リートエミュレーション追加。
+
+■clowns - 飛び板の音用にディスクリートエミュレーション追加。
+
+■clowns - DIPスイッチ修正。
+
+■firetrk, montecar, superbug - 新しい7492カウンタを使うように更新。周波数調整の
+  動作を高くなるように変更。
+
+
+Nathan Woods氏による変更：
+--------------------------
+src/cpu/m6502/6502dasm.c:
+    - DASMフラグ実装
+    - 少しクリーンアップ
+
+src/cpu/m6502/m6502.c:
+src/cpu/m6502/m6502.h:
+src/cpu/m6502/m65ce02.c:
+src/cpu/m6502/m65ce02.h:
+    - RUNTIME_LOADED削除
+
+
+Nicola Salmoria氏による変更：
+-----------------------------
+■FD1094のドキュメントを更新。
+
+■「四川省II」の表示エリアを訂正（狭すぎた）。
+
+
+Pierpaolo Prazzoli氏による変更：
+--------------------------------
+■「四川省II」のDIP修正。
+
+■「Buccaneers」の透過表示修正。
+
+
+Sebastien Volpe氏による変更：
+-----------------------------
+■SRMP6ドライバをマイナーアップデート。DIP追加とメモリマップの更新。このハード
+  ウェアのグラフィックフォーマットはまだ不明。ただし、使われているチップはST0016
+  系の模様。
+
+■「Blood Warrior」で正しいROMをロードするようにKanekoドライバを更新。
+
+
+その他の変更：
+--------------
+■Model 3の表示系アップデート。[Ville Linde]
+    improves rendering on all the games that currently run
+
+■「Risky Challenge / ぐっすんおよよ」、「プッシュマン」「Olibochu / パンチング
+  キッド」「Funny Strip」のDIPスイッチ修正。[Brian Troha]
+
+■「シャドーダンサー」セットのROM名修正。[Chack'n]
+
+■「スプリント1 / 2」- ディスクリートサウンドを新しいコンポーネント値に更新。
+  [Hans Andersson]
+
+■seibuspiのリンク警告を修正。[Lawrence Gold]
+
+■「ギャラガ」と「ボスコニアン」の星空背景を修正。[James Rowan]
+
+■サウンドアップデートで「Nemesis」のサウンドが変になったのを修正。[R.Belmont]
+
+■makefileを少し再構成。[Atari Ace]
+
+■「ゲイングランド」にプレイヤー3の操作追加とDIPの修正。[Unknown]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Cookie & Bibi [David Haywood]
+Search Eye [Pierpaolo Prazzoli]
+パチンコ銀玉勝負 [Angelo Salese]
+パチンコ銀玉勝負DX [Angelo Salese]
+Shrike Avenger [Peter Sealy]
+GPライダー [Aaron Giles]
+ラインオブファイヤー [Aaron Giles]
+
+
+新規追加クローンセット：
+------------------------
+ブルファイター (Segaライセンスなし) [Brian Troha, Mame Italia Forum]
+Best League (ビッグストライカーの海賊版) [Angelo Salese, David Haywood]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Mazin Wars (Mega Play)
+Grand Slam Tennis (Mega Play)
+    MegaPlay / Genesisエミュレーションの問題あり

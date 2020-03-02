@@ -1,0 +1,70 @@
+0.108u2
+-------
+
+
+MAMETestersの修正バグ
+----------------------
+loadstate0108u1red [Aaron Giles]
+dooyong0108u1red [Aaron Giles]
+deadang0108u1red [Aaron Giles]
+pang337b15gre [robiza]
+botanic080u1gra [robiza]
+
+
+
+ソースの変更点
+--------------
+- options_output_ini_file()とoptions_output_ini_mame_file()でスペースを含むオプ
+  ション文字列を正しく扱うように修正。[Nathan Woods]
+
+-「Trivia」(Version 1.03)、「Selection」「Poker」系ゲーム（getrivia.c）のDIPスイッ
+  チ修正。[wolf676]
+
+- PORT_DIPLOCATIONマクロ追加。調査を元に多くのドライバに追加。[Roberto Fresca]
+
+- ポーズとマルチスレッドコードの問題を修正。[Nathan Woods]
+
+- vacfdispモジュールで14と16セグメント表示のクリーンアップ。OKI MSC1937にセパレー
+  トキャラクタセット追加。Scorpion 2を新システムに変更。6840エミュレーションも少
+  し整頓。[El Condor]
+
+-「スペースオデッセイ」の不良ROMを以前のダンプデータを使って修正の試み。まだ、
+  BAD_DUMPになっています（実際のダンプを求めています）が、ゲームはプレイ可能にな
+ りました。[MASH]
+
+- 最近導入されたROM名の大文字小文字による区別を削除。[Buddabing]
+
+- -multithreading(-mt)オプションを追加。これは以前に追加したマルチスレッドコードを
+  有効にします。このコードは、特にXPより前のシステムで問題がありますので、実験的
+  なものと考えてください。もしこの問題のデバッグをしたい場合は、windows/window.c
+  のLOG_THREADSを有効にして、システム情報と問題の詳細をテスターに報告してくださ
+  い。ハイパースレッディングやデュアルコア、マルチCPUシステムでない場合は、フラ
+  グをONする必要はありません。[Aaron Giles]
+
+- led7segプリミティブの動作を変更しました。以前のステート値をやめて、0～255のス
+  テートを使用します。これにより、全7セグメントと小数点の制御を独立して行えます。
+  また、セグメントの順をスタンダードな方法にしました。Turboドライバをアップデー
+  トして、LS48デコーダを通して独自のBCDデコーディングを行いセグメントを直接操作
+  するようにしました。他のleg7segプリミティブを使うレイアウトはおかしくなってい
+  ます。[Aaron Giles]
+
+- turboドライバをさらにクリーンアップ。まだWIPです。[Aaron Giles]
+ * PROMとR/C値からスプライトスケーリングを抽出（まだ不完全）
+ * ビデオ・スプライト処理をほとんど書き直し
+ * 全PROMを確認、それぞれ正しい場所で使用するようにしました
+ * さらに完全な8279の実装
+ * 上に書いたように新7セグメントLEDへコンバート
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Carrera (Version 6.7) [David Haywood]
+Swinging Singles [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+リーサルエンフォーサーズ (4 sets) [Patrik Styrnell, David Haywood]
+Muroge Monaco (set 2) [Roberto Fresca]

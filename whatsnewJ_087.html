@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.87</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.87.txt</div>
+	<div class="main">
+<div class="wn">0.87
+
+全般的な改良点：
+----------------
+
+- Kanekoドライバを若干更新。[Sebastien Volpe]
+    - bonkadvのDIPスイッチ訂正
+    - galpanibのプロテクト部をmachine\kaneko16.cに移動。sandscrpで使用。
+    - galpanicの3セットでメモリのリード・ライトをマージ
+
+- ジョイスティックボタンのサポートを16個まで拡張。[Norix]
+
+- mappy.cのゲーム（「グロブダー」「モトス」「フォゾン」）の入力を8方向に訂正。
+  以前の更新で4方向に設定されていました。[anonymous]
+
+- 改善いろいろ。[Angelo Salese]
+    vamphalf.c
+    vamphalfの改良でほぼプレイ可能。実際には他の方からの改良によるものです
+    （下を参照）。
+
+    yumefuda.c
+    EEPROMチェックに一時的なパッチ適用。グラフィックバンクの切り替え及び、
+    「夢札」のサウンド追加用。操作系は未実装なのでプレイ不可。
+
+    acommand.c
+    「Alien Command」用の予備ドライバ。まだ動作しません。
+
+    gstriker.c
+    「テクモワールドカップ'94」に超初期版のMCUエミュレーション追加。
+    作業が不完全なのであちこちでハングします。
+
+- copsnrobのLED実装。[Stefan Jokisch]
+
+-「ストライクボーリング」でのres_net.h絡みのクラッシュ修正。[Jarek Burczynski]
+
+-「Paint and Puzzle」がほぼプレイ可能になるように改善。[Nicola Salmoria]
+
+- Taito F3の改良。[Bryan McPhail]
+    「リカルホーン」が通常にプレイ可能。このゲームで特殊なコマンドビットが設
+    定されている場合のスプライトレンダリングのバグがわかりました（例：現在の
+    スプライト処理が済む前ではなく後に、スプライトリストのジャンプコマンドが
+    起こることや、同一スプライトにバンクスイッチとグローバルな位置決めフラグ
+    を一緒に設定できることなど、ハードウェア側から考えれば意味が通じる事柄）。
+    この修正は実際にはtaito_f2と、同種のf3に適用するべきですが、見た目の違い
+    は出ないと思われます。
+    
+    「コマンドウォー」もプレイ可能ですが、戦闘のシーンでレイヤーが消えないよ
+    うです。移動シーンでも8ピクセル分オフセットされています。
+
+- Rohgaドライバの改良。[Bryan McPhail]
+    ウルフファング - プロテクトを調べるため、トロイの木馬作成にかなりの時間
+    を費やしたにもかかわらずまだ不完全です。ゲーム自体はレベル5の終わり部分
+    でハングします。decoprot.cを見てもらえればこのゲームがどれほど厄介なもの
+    かわかるはずです…グラフィックエミュレーションは完成しましたが、プライオ
+    リティレジスタが全然正しく書き込まれないので（プロテクト？）、一部間違っ
+    て表示されます。
+    
+    シュマイザーロボ - 完全には動作しません。グラフィックがプロテクトチップ
+    経由のため、ゲーム動作自体は正しいのですが、表示不具合があります。DECO
+    ゲーでは（多分）採用していないプロテクトチップの、謎のダブルバッファ機能
+    を使っています。
+
+- Truco Clementeドライバ。[Ernesto Corvi]
+    これくらいが自分のできる範囲です
+    問題点:
+    - 色違い
+    - 音が多分不完全
+    
+    基板は間違いなく他のゲームの物の流用です。一部のアドレス（ウォッチドッグ
+    など）が一致するので、パックマン系の基板だと思います。この系統の基板に
+    もっと詳しい人ならカラーPROMを使っているかどうかわかるかもしれません
+    （MsPacmanで試しましたが一致しませんでした）
+
+- SPIシステムの背景解読の改善。[Ville Linde] 
+
+- mrtntの色修正。[vernimark]
+
+- Hyperstoneコアの修正。[Tomasz Slanina, Pierpaolo Prazzoli]
+    Tomasz Slanina
+    - 左シフト命令に未定義のCフラグ追加
+
+    Pierpaolo Prazzoli
+    - 遅延命令用に割り込みブロック追加
+    - get_emu_code_addrを修正
+    - LDW.SとSTW.S命令を追加
+    - 浮動小数点命令を修正
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+スーパーパン (Japan) [Nicola Salmoria]
+    解読完了。ゲーム動作可能
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Wizz Quiz [Pierpaolo Prazzoli]
+Miss Bingo [Brian Troha]
+
+リカルホーン [Brian McPhail]
+    ハイスコア一覧画面でクラッシュ
+
+コマンドウォー [Brian McPhail]
+    クリッピングとレイヤーの問題あり
+
+Vamp 1/2 [Angelo Salese, Pierpaolo Prazzoli]
+    Hyperstoneベースのゲームで最初の動作
+
+Truco Clemente [Ernesto Corvi]
+    表示系問題あり (上を参照)
+
+
+新規未動作/クローンゲーム：
+---------------------------
+エイリアンコマンド [Angelo Salese]
+    ハードの一部が未エミュレート
+
+Schmeiser Robo [Bryan McPhail]
+    プロテクトによるもの
+
+
+
+
+0.86u5
+
+その他の改良：
+--------------
+
+- MESS関係のコードをクリーンアップ。[Nathan Woods]
+
+- rabbitの入力を改良。[deadscreem]
+
+- draktonのDIPスイッチ修正。[David Widel]
+
+-「エキサイティングサッカーII」のプロテクト処理を改良。[Pierpaolo Prazzoli]
+
+- rongrongのDIPスイッチ修正。[sonikos]
+
+- crospangのサウンド周波数調整。[Pierpaolo Prazzoli]
+
+- subsのDIPスイッチと、chelnovの入力修正。[I&ntilde;igo Luja]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+(New) Multi 5 [Pierpaolo Prazzoli]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+リカルホーン (プロトタイプ)
+コマンドウォー (プロトタイプ)
+    taito_f3ドライバに追加。まだ深刻な問題あり
+
+
+
+
+0.86u4
+
+CPU / サウンドコアの改良点：
+----------------------------
+
+- M37710のアップデート。[R.Belmont]
+    * 外部制御のタイマーサポート（「プロップサイクル」ペダル読み込み用）
+
+
+その他の改良：
+--------------
+
+- kaneko16.c系ドライバで、プロテクト関係のファイルが別々になっていたのを再構成と
+  クリーンアップ。[Sebastien Volpe]
+
+- NCV2のタイル反転。[Mark McDougall]
+
+- HNG64の背景ズーム初期版。[David Haywood]
+
+- 名前の変更をいろいろ。[Darren Hatton]
+
+-「Hydra」の操作を修正。[Pierpaolo Prazzoli]
+
+- 変更いろいろ。[Curt Coder]
+    *「ラブリーカード」
+    drivers/lvcards.c
+    vidhrdw/lvcards.c
+    - タイルマップにコンバート
+    - タイルレンダリングの修正。タイルROMの吸い出しは問題なくて、グラフィッ
+      クルーチンが間違ってました！
+    
+    *「アウトランナーズ」
+    drivers/multi32.c
+    - タイトル画面とフライヤーに合わせて「OutRunners」につづりを変更
+    
+    *「ソニック・ザ・ヘッジホッグ」
+    drivers/system32.c
+    drivers/segac2.c
+    - 「Sonic the Hedgehog」を「Sonic The Hedgehog」に変更しました。“The
+      Ultimate History of Video Games”のP428によると、“The”はソニックの
+      ミドルネームだそうです
+    - 「The Revenge Of Shinobi」を「The Revenge of Shinobi」に変更
+    - 「MegaPlay」を「Mega Play」に変更。system16.comを参考
+
+- rabbitドライバでEEPROMを実装。[R.Belmont]
+
+- rabbitドライバのtmmjprdsを改良。[David Haywood]
+
+- swaにサウンド追加。[R.Belmont]
+
+- SPIの解読を改良。[Ville Linde]
+
+-「ビーストバスターズ」のDIP修正。[I&ntilde;igo Luja]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+Hot Blocks - Tetrix II [David Haywood]
+    EEPROM未実装
+
+Fighting Basketball [Pierpaolo Prazzoli]
+    スプライトのちらつき、サウンド不完全など
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+
+テトリス (B-System, YM2203 sound) [Charles MacDonald]
+ストリートファイターII' ハイパーファイティング (World 921209) [smf]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Paint & Puzzle [David Haywood]
+    他のDEVが作業中
+
+
+
+
+0.86u3
+
+ドライバの改良点：
+------------------
+
+- CDイメージをいくつかCHDにコンバート。[R.Belmont]
+
+-「スターブレード」「ザ・シンプソンズ」を逆修正。[R.Belmont]
+    stabladのポリゴン描画を元に戻し
+    simpsonsの周波数修正
+
+- ozon1の黒タイル問題修正。[Pierpaolo Prazzoli]
+
+- 前回のアップデートのファイル名を一部修正。[Pierpaolo Prazzoli]
+
+-「ドンキーコング」サンプル改良。[Pete Rittwage, Derrick Renaud]
+
+-「ナムコクラシックコレクション」の改良。[R.Belmont]
+    - H8/3002 MCUとC352サウンドチップ追加。ncv1、ncv2の両方が音ありでプレイ
+      可能
+
+- Hyper Neogeo 64の改良。[David Haywood]
+    RAMをもっと購入するまで作業は再開しないので、あまり期待はしない方がいい
+    です。MIPSコアをいじる必要があるので、通常のビルドでは変更部分はあまりわ
+    からないと思います（コアのいじる部分についての詳細はソースに記載）。
+
+- Gottliebの入力変更。[B.S.Ruggeri]
+
+
+CPU / サウンドコアの改良点：
+----------------------------
+
+- H8/3002の修正。[R.Belmont]
+    - BTST #imm, @Rn命令を修正。ncv2のMCUプログラムのクラッシュを起こしてい
+      たもの
+
+- Namco C352のアップデート。[R.Belmont]
+    - Waveの開始・終了・バンク処理の大量修正とチェーンモードサポート。
+      VivaNonnoのcap氏に感謝。
+
+
+その他の改良：
+--------------
+
+- CHDMANの更新。[R.Belmont]
+    CDRDAOの.tocファイルの処理を改良しました。2パス動作にすれば大幅にクリー
+    ンになるのでそのうち書き直したいと思ってます。
+
+    それから、CloneCDとか他のよく使われてるイメージフォーマットのスペックを
+    提供してもらえれば、サポートできると思います。
+
+- 新コンフィグシステムで、キーマッピングがランダムになる問題を修正。
+  [Aaron Giles]
+
+- 入力ポートの修正。[Aaron Giles]
+    - 逆ペダルの動作修正（「ハードドライビン」のブレーキなど）
+    - ダイヤル、トラックボール、マウス操作のスケールを、ポートに割り当てられ
+      てるビット数に関係なく同じにしました
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+ナムコクラシックコレクション Vol.2 [R.Belmont]
+    クラシックパックマンとラリーXでタイル反転の問題あり
+    ディグダグクラシックでサウンドが固まる問題あり
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Zero (ディフェンダーの海賊版) [Pierpaolo Prazzoli]
+
+
+
+0.86u2
+
+大きな更新があったので早めですがアップデートします
+
+
+ドライバの改良点：
+------------------
+- アップデートをいろいろ。[R.Belmont]
+    m37710.diff:
+    - アナログとデジタルI/Oポートサポート
+    - LDBアブソリュートとDIVダイレクト命令追加
+    - RLA命令の書き直し。以前のものは動作結果、フラグ、サイクルカウントなど
+      ほとんどが間違ってました
+    - RLAの逆アセンブラ修正
+    
+    flash.diff:
+    - ワード幅のフラッシュROMサポート追加（Konamiの「Beat the Champ」基板上
+      で発見したSHARP LH28F400のID用）
+
+-「Boomer Rangr / ジェネシス」「タッチダウンフィーバー」のDIPスイッチ。
+   [Brian Troha]
+
+-「Dragon Bowl」新セットでスプライト色修正。[Pierpaolo Prazzoli]
+
+-「フィールドゴール」の色改善。[Stefan Jokisch]
+
+- 一部ゲームのオートセンタリングを解除。[Stefan Jokisch]
+
+- dblpointのボタンが足りなかったのを追加。[Pierpaolo Prazzoli]
+
+- HyperNeogeo64エミュレーションの改良。[ElSemi, David Haywood]
+
+
+Takahiro Nogi氏による麻雀ゲームの大幅更新
+ (Pierpaolo Prazzoli氏によりコンパイル用アップデート)
+-----------------------------------------------------
+
+drivers/gomoku.c - サウンドの改善
+vidhrdw/gomoku.c
+sndhrdw/gomoku.c
+
+drivers/pastelg.c - dipsw1と2追加（2人プレイは未実装）
+
+vidhrdw/pastelg.c - 描画ルーチンの書き直し
+
+machine/nb1413m3.c - プロセス追加
+machine/nb1413m3.h - 定義追加
+
+drivers/nbmj8688.c - 追加：mjsikakc, mjsikakd, mmsikaku, mcitylov, livegal, 
+                     kaguya2, korinaim, kyuhito, mjcamerb
+vidhrdw/nbmj8688.c - mmsikaku, livegalの修正
+
+drivers/nbmj8891.c - 追加：lovehous, mmaiko, mgion, omotesnd, taiwanmb (テストドライバ)
+vidhrdw/nbmj8891.c - 描画ルーチン変更。hanamomoにフォント処理ルーチン追加
+
+drivers/nbmj9195.c - 追加：sailorwa(sailorwsのクローン), jituroku, wcatcher, 
+                     yosimoto, janbari (mjanbariはjanbariのクローンに変更）
+vidhrdw/nbmj9195.c - 描画ルーチン変更（「お立ち台の掟」アトラクト画面のずれ修正）
+
+drivers/niyanpai.c - 追加：musobana, 4psimasy, mhhonban
+vidhrdw/niyanpai.c - 描画ルーチン変更。musobanaにハイカラー処理ルーチン追加
+
+drivers/hyhoo.c - キーマッピング変更
+vidhrdw/hyhoo.c - hyhoo2のタイトル画面修正
+
+pairsten - 入力修正
+
+machine/nb1413.c/.hを使うドライバの割り込みを調整したため、いくつかのゲームが
+動作しなくなっています
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+ストリートファイターEX2プラス (USA) [Brian Troha]
+D&D タワーオブドゥーム (alt Japan set) [Razoola]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Roads Edge / ラウンドトリップRV
+Samurai Shodown: Warrior's Rage / 侍魂
+Fatal Fury: Wild Ambition / 餓狼伝説 ワイルドアンビジョン
+    Hyper Neogeo 64ベース。まずMIPSコアのMMUエミュレーションをもっと進める
+    必要あり。ドライバはまだ予備段階
+
+
+
+0.86u1
+
+ドライバの改良点：
+------------------
+
+- M37710の修正。[R.Belmont]
+    - 以下の命令を追加：ROR B, LDB direct indexed, 
+      MPY stack relative, DIV direct
+
+- パッチいろいろ [Lawrence Gold]
+    - inunordered()をisnan()と置き換え。これはC99でのみ有効
+    - C89で、列挙型の終わり部分のカンマについて警告がでるので修正
+    - 外部コードを最新版の1.95.8に更新
+
+- Namco System 22の改良。[Phil Stroffolino]
+    - 入力ポートをほとんどゲームでマッピング
+    - DSPのRAMラッチモードのコミュニケーション実装; 多くのゲームでグラフィッ
+      ク修正
+    - 旧ハードのテクスチャバンキングを実装
+    - TMS32025エミュレーション用のパッチ（DSP演算バグ）
+    - ダイナミックライティングの初期版（ほんの一部で使用、プロップサイクルの
+      タイムとスコア部分）
+
+-「Imago」の改良。[Pierpaolo Prazzoli, Chris Hardy]
+    背景の星表示とタイルマップ実装と色修正。スプライトはまだ問題あり
+
+- h83002のエンディアンがらみの問題修正。[R.Belmont]
+
+- Gaelco 3dドライバにサウンド追加。[Aaron Giles]
+
+- 0.86で起きていたバグ修正。
+    チューブパニック、Namco S12、ゼロポイント、他 [various]
+
+- 入力系の修正。[B.S.Ruggeri]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Drakton [Pierpaolo Prazzoli]
+    音出ず
+System22のゲームいろいろ [Phil Stroffolino]
+    一部のゲームで操作できるようにすると不具合があるので注意
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+レイストーム (ver 2.06O) [Brian Troha]
+Rival Schools / 私立ジャスティス学園 (USA) [Brian Troha]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Diamond Derby [David Haywood]
+    ギャンブルゲームなので多分ドライバ完成時に削除する予定。
+    今のところ開発中なので一時的に追加。
+スーパーゴルフ [Tomasz Slanina]
+    非常に初期の段階。ROMテストをパスするために、グラフィックレイヤー、
+    ROMバンキングのみを実装
+ウイングウォー (World Set)
+    USセット (Recycle It Logo)
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

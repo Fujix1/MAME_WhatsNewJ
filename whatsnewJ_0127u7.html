@@ -1,0 +1,230 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.127u7</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.127u7.txt</div>
+	<div class="main">
+<div class="wn">
+0.127u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02482: [Graphics] bubblemj: デモ画面に問題がある。(Couriersud)
+- 02483: [Graphics] gunlock, rayforcj: タイトル画面の問題。(Couriersud)
+- 02498: [Graphics] lightbr: タイトル画面の問題。(Couriersud)
+- 02221: [Sound] blzntrnd: サウンドがほとんど壊れている。(Aaron Giles)
+- 02467: [Crash/Freeze] qsww: クラッシュする。(Olivier Galibert)
+- 02479: [Misc.] Various: メモリリーク。(Aaron Giles)
+- 02266: [Multisession] tceptor: マルチセッション時にクラッシュする。(Aaron Giles)
+- 02439: [Multisession] tx1: マルチセッション時にクラッシュする。(Aaron Giles)
+- 02488: [Multisession] All sets with using 2+ monitors: マルチセッション時にクラッシュする。(Aaron Giles)
+- 02321: [Crash/Freeze] mpu4utst, mpu4tst2, mpu4met0: 画面無しのシステムが表示系のコアの問題
+         でクラッシュする。(Aaron Giles)
+- 02476: [Misc.] some neodrvr.c sets: メモリリーク。
+- 02324: [Gameplay] dokyusei, dokyusp, gakusai, gakusai2: ゲームが起動しない。(Aaron Giles)
+- 02292: [Crash/Freeze] dcclubfd, gground, ggroundj, roughrac, sgmastc, sgmastj : 
+         ゲームが起動しない。(Olivier Galibert)
+- 02480: [Crash/Freeze] Various: CPU x: PULSE_LINE used with level-detected IRQ y (Aaron Giles)
+- 02489: [Color/Palette] All Sets in namcos22.c: 色とグラフィックの不具合。(Aaron Giles)
+- 02470: [Crash/Freeze] Various: Access Violation (Aaron Giles)
+- 02475: [Crash/Freeze] kf10thep: Access Violation  (Johnboy)
+- 02502: [Crash/Freeze] fax, hardhat, mtrap, pepper2, teetert, venture and clones: デバッガで
+         一部のメモリにアクセスするとクラッシュする。(Aaron Giles)
+- 00998: [Crash/Freeze] dcclubfd: Access Violationエラーでプレイするとハングする。(Olivier Galibert)
+- 02460: [DIP/Input] qrouka: Coin 1+2が動作しない。(David Haywood)
+- 00081: [Crash/Freeze] dcclub: ゲームがクラッシュ、または固まる。(Olivier Galibert)
+- 00989: [Graphics] qgh: 変身するとき画面が真っ黒になる。(David Haywood)
+- 02458: [Color/Palette] enforce: 道路のレイヤー色が間違っている。(M.A.S.H., Phil Bennett)
+- 02469: [Graphics] geebee and clones: 真ん中のゲートが表示されていない模様。(Couriersud)
+- 02477: [DIP/Input] most merit.c sets: 入力ポートIN3が配置できない。
+- 02468: [Compiling] 64 bitでのビルド不具合。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- 不要なUIキーの定数を削除。Inputメニューで変更できるように、UI_ON_SCREEN_DISPLAYを再
+  追加。[stephh]
+
+- gwarbのプレイヤー2で通常ジョイスティックが使えなくなっていたのを修正。[stephh]
+
+- 68000のIRQ変更で起きていた不具合を修正。[Aaron Giles]
+
+- デバイス関連タグをビルドするための新関数追加。machine設定ビルダでこれらの関数を使う
+  ように変更。また、レーザーディスクプレーヤーデバイスでもこれを使うよう変更。
+  Z80 CTC/SIOコードで、CPUに設定するクロックスピードはCTC/SIOが属するデバイスに関連す
+  ると見なすよう変更。また、メモリコードについても、メモリマップが参照する領域とデバ
+  イスは、これが結びつくCPUの属するデバイスに関連するものとします。[Aaron Giles]
+
+- Neo-Geoのクリーンアップ (作業中): [Johnboy]
+ - OEM / 海賊版セットの整理
+ - OEM / 海賊版ではないセットのROMの名前の付け方を統一
+ - 関数の改名
+ - コメントの追加
+
+- System 24のクリーンアップ: [Aaron Giles, Olivier Galibert]
+ * 両CPUのメモリマップを訂正
+ * RAMサイズを256kに削減
+ * ビデオタイミング訂正
+ * リージョンを改名
+ * 割り込み処理修正
+ * dcclubのmagic latchを修正
+
+- Z80のコード解析により、以下のsnk.cドライバの入力とDIPスイッチの検証: [stephh]
+ - ikari, ikaria, ikarinc, ikarijp, ikarijpb
+ - victroad, dogosoke, dogosokb
+ - bermudat, bermudaj
+ - worldwar, bermudaa
+ - psychos, psychosj
+
+- PR-8210エミュレーションに、正確なオーバーレイ配置、フォント、動作を追加。
+  [Aaron Giles, Warren Ondras]
+
+-「Sonic Blast Man 2 Special Turbo」(SNESの海賊版)の変更:
+  [Andreas Naive, Tomasz Slanina]
+ - ROMの復号化追加
+ - プロテクトチェックにパッチ
+ - 追加入力のマッピング
+
+- i8051コアのタイマー修正。[Grull Osgo]
+
+- i8051のAJMP命令で、3バイトではなく2バイトをとるように修正。[Grull Osgo]
+
+- ampoker2.cドライバの全ゲームについて、ボタンランプのレイアウトを改良。ボタンはより
+  本物に近くなっています。また「Lucky 74」のボタンランプレイアウトも同様に改良しまし
+  た。[Roberto Fresca]
+
+- InterFlip / Recreativos Francoドライバの改良: [Grull Osgo, Roberto Fresca]
+ -「Baby Poker」系ゲームを追加
+ -「Baby Poker」のサウンド追加
+ - カラールーチンの改修
+ -「Baby Dado」追加
+ - 新カラールーチン追加
+ - videocbaカラーPROMを再吸い出し
+ - カラースイッチ追加 (一部のゲームで背景色を切り替える)
+ - ホッパーフルスイッチをサポート (ディバータ関数用)
+ - ディバータ関数デコーダ追加
+ - 機械式カウンタデコードが完全動作
+ - 7セグメントデコーダと7桁カウンタ追加
+ - ボタンランプレイアウトと機械式カウンタシミュレーションをレイアウトに追加。
+   コインイン、コインアウト、ペイアウトするコイン数
+ - 機械式カウンタにNVRAMサポート追加
+ - Baby系ゲームに"Hand Pay"ボタンをマッピング
+ - ジャックポット数の機械式カウンタデコーダ追加
+ - レイアウトにタワーランプ追加
+ - レイアウトの作り直し
+
+- 以前にV30 CPUコアを16-bitにコンバートしたとき、「戦国麻雀」の操作が働かなくなってい
+  たバグを修正。特に、byte書き込みの代わりにword書き込みで多重アクセスする箇所。
+  [Angelo Salese]
+
+- Z80コードの検証により、以下のsnk.cドライバゲームについて入力とDIPスイッチの確認:
+  [stephh]
+ - gwar, gwarj, gwara, gwarb
+ - chopper, choppera, chopperb, legofair
+ - tdfever, tdfeverj, tdfever2
+ - fsoccer, fsoccerj, fsoccerb
+
+- lohtb2 (m72.c)のMCUプロテクトが動作。[Couriersud]
+ * 6751を実装
+ * プロテクトRAMの書き込みとタイマーコールバックを同期化
+ * NEC CPUエミュレーションのスピードハック削除。プロテクトコードが動作しないため
+
+- snes.c - vblank開始時のOAMアドレスリセット問題を修正。[Tomasz Slanina]
+
+- デイジーチェーンされたZ80デバイスが、相互のデバイスを認識するように更新。
+  [Aaron Giles]
+
+- LD-V1000エミュレーションの予備サポート。まだ完全に動作しません。[Aaron Giles]
+
+- 既存のレーザーディスクエミュレーション3つのクリーンアップとノーマライズ。またレーザー
+  ディスクコアから古いコードを削除。[Aaron Giles]
+
+- st0016 RAMのタイル動作でグラフィックデコードを最適化。これにより、一部の麻雀ゲーム
+  の速度が大幅アップ。[Aaron Giles]
+
+-「スペースデュエル」:P10と11のDIPスイッチ追加 (普通の8個ではなく4個のスイッチしかあ
+  りません)。[Franklin Bowen]
+
+- Sandii'製ゲーム改良 (snookr10、apple10、tenballs): [Roberto Fresca]
+ - ボタンランプのマトリックスシステムを改良
+ - 両方の出力ポートについてドキュメント化
+ - コインイン、キーイン、ペイアウトカウンタを接続
+ - ランプレイアウトをより本物らしく改良
+ - テクニカルノートを更新
+
+- NeoGeoのスプライトクリアコードにマイナーな最適化。[Christophe Jaillet]
+
+- SNESの特殊チップDSP-2とOBC-1のエミュレーション追加。[Fabio Priuli, byuu]
+ - snesdsp2.cとsnesobc1.cソースを追加
+ - MAMEからの特殊チップ検出を削除
+ - 新チップを考慮してメモリハンドラを改良
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Megatouch 5 (9255-60-07 RON, New Jersey version) [Brian Troha]
+Astropal (Sidam?) [Couriersud]
+Baby Poker [Grull Osgo, Roberto Fresca]
+Baby Dado [Grull Osgo, Roberto Fresca]
+Sonic Blast Man 2 Special Turbo (SNES bootleg) 
+  [Andreas Naive, Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Megatouch III (9255-20-07 ROG, New Jersey version) [Brian Troha]
+Super Megatouch IV (9255-41-07 ROG, New Jersey version) [Brian Troha] (Not Working)
+Armored Warriors / パワードギア (US 940920) [Razoola]
+Mortal Kombat 3 (rev 1 chip label p4.0) [Andrea Turci]
+デカスリート V1.001 [Andrea Turci]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

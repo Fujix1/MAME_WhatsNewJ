@@ -1,0 +1,151 @@
+0.145u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04741: [サウンド] xmen: FM音源とPCM音源とのバランスが悪い。(hap)
+- 02675: [サウンド] rdft, rdft2: ボスシーンのBGMテンポがオリジナルよりも遅い。
+- 04734: [クラッシュ/フリーズ] tylz: OK画面後にクラッシュする。(Pugsy)
+- 04743: [クラッシュ/フリーズ] pzloop2jr1: 黒画面しか表示されない。(Tafoid)
+- 04735: [クラッシュ/フリーズ] breywood, shackled: 黒画面しか表示されない。(stephh)
+- 04737: [実機資料] ckong: 「クレイジーコング」の正しい製造元名について。(Falcon?)
+
+
+ソースの変更点
+--------------
+- DirectInputのジョイスティック取得を独占的ではない方法に変更。[bdam]
+
+- toaplan2.c:「1945 Part-2」(バトルガレッガの中華ハック版)のビデオ(キャラクタレイヤー)
+  オフセットを修正。[Dave Haywood]
+
+- dc: mapleの実装とコントローラ修正、及びIRQの追加。[O. Galibert]
+
+- galaxia.c: cvsの星表示回路実装と色の改良。[hap]
+
+-「Baby Pac-Man」のビデオCPUにTMS9928とPIAデバイスを実装。サービススイッチを押したと
+  きのグラフィックが一部表示可能。[Angelo Salese]
+
+- pgm.c: 引き続きプロテクト部の書き直しとノートの改訂。コードを一部ステートへ移動し、
+  ステートもプロテクトタイプ毎に分割。[David Haywood]
+
+- mpu5.cドライバの正しいCPUを設定。また、リビジョン違いをクローンセットへ移動。
+  [David Haywood]
+
+- igs_m027.cの残りのギャンブルセットについても復号化。ただし、エミュレーション動作自
+  体の進展はなし。[iq132]
+
+- funcube2とfuncube3のサウンドROMを再吸い出し。[Guru, Yasuhiro Ogawa]
+
+-「Little Robin」のIRQを改良。テスト版のサウンド出力を追加。[Angelo Salese]
+
+- model2.c:「レールチェイス2」に I/OコントローラROM(Z80ベース)を追加。
+  [Brian Troha, The Dumping Union]
+
+- gamtor.cでVGAデバイスを使うように変更(ただし、バンキング関係の問題があるため動作せ
+  ず)。[Angelo Salese]
+
+- m68k: 68307と68340のオンボード機器をテスト的に追加。[David Haywood]
+
+- SDL: chdmanのmanページフォーマットを修正。[wallyweek]
+
+- libjpegとlibflacのインストールされているバージョンの互換性のあるシステムによるコン
+  パイルを有効化。[wallyweek, R. Belmont]
+
+-「雷電II」のスプライト復号化に残っていた問題を解決。[Andreas Naive]
+
+- 大規模なドライバのモダン化による変更: [Miodrag Milanovic]
+ * 全てのアドレスマップに第4のパラメータ追加
+ * 不足していたステートクラスを追加
+ * ADDRESS_MAP_MODERNの定義を削除
+
+- rastan.c:「ラスタンサーガ / Rastan」のセットにDIPスイッチ位置を追加。[Brian Troha]
+
+- namcos21.c:「ウイニングラン'91」にNamocゲームの接頭句を追加。System21Bボード2枚の重
+  ね合わせについてドキュメント追加。[Brian Troha]
+
+- nmk16.c: ビデオソースの問題修正とクリーンアップを少々。[trap15]
+
+- ymf271.cコアタイマーの精度を大幅に改良。[Sonikos]
+
+- BFM Scorpion 4ハードウェア:  [David Haywood]
+ * 68307のコードを具体化するための更新(ただし100%正しい実装ではなく、参考とするための
+   ログ出力の改善)
+ * SC4エミュレーションにいろいろなデバイス追加、VFDを表示するためのデフォルトレイアウ
+   ト追加で、初期のゲームで'Initializing'と描画可能。ただし、実際の初期化処理には、タ
+   イマーやその他のデバイスの実装が必要
+ * セットが大量にあってわかりにくくならないように、SC4ハードエミュレーション部分を
+   drivers/bfm_sc4h.c に移動(ソースのほとんど全部が定義で、スクロールするのが大変なの
+   よ)
+
+- mirax, miraxa (mirax.c) [stephh] :
+ * DIPスイッチと入力の修正
+
+-「Mirax」の画面反転をサポート。[Angelo Salese]
+
+- galdrvr.c:「モンスターゼロ」のプロテクトをテスト的にエミュレート。[hap]
+
+- 全てのドライバを、driver_device基底クラスで定義されるパレットラムヘルパを使うところ
+  へ移動。パレットベースは"paletteram"、または"paletteram2"のAM_SHAREにより定義されま
+  す。driver_device基底クラスは、これらのポインタを見つけ出し、
+  m_generic_paletteram_8/_16/_32とm_generic_paletteram2_8/_16/_32に配置します。
+  [Aaron Giles]
+
+- machine.generic.paletteram*とmachine.genericを完全に削除。
+  AM_BASE_GENERIC/AM_SIZE_GENERICも割り当てられないので削除。[Aaron Giles]
+
+- required_/optional_shared_ptrを、共有ポインタをマニュアルで設定するためのベースとサ
+  イズありのset_target、さらに動的割り当てを行う(そして、セーブステート用メモリを登録
+  する)新しい割り当てメソッドをサポートするように変更。[Aaron Giles]
+
+- memory_privateをmemory_managerに変更し、グローバルなメモリ操作をメソッド化。特殊な
+  ケースについてこれを使用するように変更。今のところ、バンク管理APIはグローバルのまま
+  です。[Aaron Giles]
+
+- 共有ポインタの幅が正しいかを確認する仕組みを導入。例えば、8ビットのメモリマップで
+  AM_SHARE("paletteram")を宣言する場合に、m_generic_paletteram_8のみがポピュレートさ
+  れ、m_generic_paletteram_16はNULLとなります。ただし、これは全ての
+  required_/optional_shared_ptrsに適用されるので、これらが正しい型か確かめる必要があ
+  ります。[Aaron Giles]
+
+- モード1/2セクタのECCコードを演算と検証するコードをcdrom.cに追加。[David Haywood]
+
+- CD圧縮用テンプレート追加。これは、セクタデータからサブコードデータを分割し、圧縮前
+  に冗長なECCデータを削除して、各パートで別々のコンプレッサを使用します。これを元に、
+  LZMAとZLibによるCDコンプレッサを定義して、CDのデフォルトとしました。[Aaron Giles]
+
+- lhzb2のスプライトROMを吸い出し直し。[Guru]
+
+- lhzbのスプライトを復号化。lhzb2とsiqz2のタイルとパレットを復号化。これらのゲームの
+  入力とメモリマップを追加。プロテクトシミュレーションは保留中。[Luca Elia]
+
+- ドライバのリスト化をdrivenum.c/.hに移動。game_driver定義と定数を新しいヘッダ
+  gamedrv.hに移動。[Aaron Giles]
+
+- wldarrow.c: サービス入力、テストモードでのバッテリーRAM初期化サポートでほぼプレイ可
+  能。[hap]
+
+- namcos10:「ミスタードリラー2」のバンキング修正。暗号部の最初のスタブ。[O. Galibert]
+
+- sc4/68307の更新＋周辺装置のテスト実装によりsc4のサウンドROMチェックがほとんど動作。
+  [David Haywood]
+
+- rastan.c: 親子セット関係を整理。ROM名訂正、情報とノートの追加。[Brian Troha]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Fun River [Sara S.]
+詳細不明な日本製の競馬ギャンブルゲーム (preliminary) [hap, Paul Swan]
+
+
+新しく追加されたクローンセット
+------------------------------
+Rastan / ラスタンサーガ (US) [Stefan Lindberg]
+
+
+追加された未動作ゲーム
+----------------------
+Quiz Show [hap, Siftware]
+Dragon World Pretty Chance [Smitdogg, Tjeerd Carter]

@@ -1,0 +1,248 @@
+0.137u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03813: [グラフィック] shadoww, shadowwa, gaiden, ryukendn, ryukendna: 実機では敵を
+         倒すと半透明に表示されるが、MAMEでは点滅している。(David Haywood)
+- 00803: [色/パレット] All vsnes.c games: 色がおかしい。
+- 00270: [グラフィック] cstlevna, vsgradus, suprmrio, goonies: 起動時の黒い画面が灰色
+         になっている。0.53より。
+- 00889: [色/パレット] pc_smb: 上画面のゲーム解説部分で、キャラクターの色が化けている。
+- 01097: [色/パレット] cstlevna: 一番最初に現れる敵の色が違っている。Playchoice10版や
+         NES版と比べても違うのがわかる。ただし、実機との比較が必要だろう。
+- 02457: [DIP/ 入力] tkoboxng: コイン入力、ゲームスタートがうまく動作しない。
+
+
+
+ソースの変更点
+--------------
+- SNESドライバで未初期化なDMA regのバグを修正。これにより、長い間残っていたnss_ssocで
+  のチーム画面が暗くなるバグが修正。[Angelo Salese]
+
+-「エアラインパイロット」(USA)用Naomi BIOS ROM追加。[The Dumping Union]
+
+- sauro, trckydoc, trckydoca (sauro.c)  [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+
+- ppu2c0x.c: オリジナルハードウェアから(数年前に)リバースエンジニアした外部パレットデー
+  タを使うため、ニセの"カラー再割り当てテーブル"を削除。各VSNESセット、及びplaych10の
+  BIOSでこのパレットデータが必要になりました。[Alex Jackson]
+
+- vsnes.cの改良: [Alex Jackson]
+ * PC2C05 PPUベースのプロテクトを、ドライバレベルでのハックから、PPU自体に移動
+ * 超完璧なテストの結果、パレットDIPスイッチが判明(実はPPUタイプの選択)。これを持つゲー
+   ムについてのノートを追加
+ * 色は完全に正確なハズなので、全ゲームからGAME_IMPERFECT_COLORSとGAME_WRONG_COLORSフ
+   ラグを削除
+ * tkoboxngのコイン入力修正。また、特に理由が無いのでIMPERFECT_GRAPHICSフラグを削除。
+   また、タイトル画面に合わせて製造元とゲーム名を修正
+ * コメントに見つかっていないセットについての情報を少し追加
+
+- exidy.cで6840ptmリードバックを部分的にサポート。[Lord Nightmare]
+
+- Atari System 1で新型のTMS5220インタフェースに切り替え。[Lord Nightmare]
+
+-「ロボットモンスターズ」を新型のTMS5220インタフェースに切り替え。[Lord Nightmare]
+
+- snes.c: ハイレゾモードでのクリップマスクを修正。[Fabio Priuli]
+
+- G65816 CPUコアでのRTL命令インバンク問題を修正。[Angelo Salese]
+
+- sm8500d.c: 拡張命令(1A, 1B, 4F)の逆アセンブリ修正。[Oliver Stoeneberg] 
+
+- lr35902.c: 有効なIRQチェック時に問題が起こる可能性があったのを修正。
+  [Oliver Stoeneberg]
+
+- rf5c68.c: サンプルコールバック発生ポイントと、返すチャンネルを修正。割り込みはマス
+  クされる、もしくは使用中の物理チャンネルではなくPCMメモリバンクに応じて有効化されま
+  す。[Barry Rodewald]
+
+- Atari System 2で新型のTMS5220インタフェースに切り替え。TMS5220を5220Cに切り替え。
+  [Lord Nightmare]
+
+- Atari JSAのスピーチとオーディオ変調をさらに改良。YM2151のリセットラインを実装。
+  [Lord Nightmare]
+
+- inptport.c: キーボード検出の修正(主にMESS用)。[Fabio Priuli]
+
+-「Treasure Island」(Subsino)で正しいPROM実装、グラフィックROM順修正、バンク選択、リー
+  ルの有効化。[David Haywood]
+
+-「スターウォーズ」のTMS5220とPOKEY用のクロックを正しいものに更新。[Lord Nightmare]
+
+- TMS5110とTMS5220コアの大規模な統合。今のところTMS5220側のみ。Jarek Burczynski氏のコー
+  ドをかなり取込み。ラティスフィルタ、乗算部、クリッピングを再作業。TMS5220Cのマルチ
+  レート機能を追加。TMS51xx同様に、共通のLPCテーブルファイル(とフォーマット。
+  couriersud氏が作成した通り)を使用。UnvoicedとVoicedの変換をパテントに合わせて調整。
+  コマンド処理も同様に再作業。
+  大幅な音質向上: TMS5200、TMS5220、TMS5220Cに別々のテーブルを実装。ただしいずれも実
+  ハードでの検証が必要。
+  修正:「ロボットモンスターズ」のCanal Mazeのものをはじめ、おかしかったスピーチが修正
+  (例えば、'throwing switch'としゃべる部分など)。
+  既知の不具合(対処中):「ビクトリー」で起動テスト時にエラー5が出る。ゲーム内でのボイ
+  スは動作する。[Lord Nightmare]
+
+- victoryのセルフテストの問題を修正(STOPフレーム処理時にFIFOはクリアしてはならず、新
+  規のスピーク外部コマンドのときだけ行う。victoryではこの処理に厳しい)。また同時に、
+  スピーク外部モードではない場合の/READYステート読み込みについてのバグも修正(FIFOが満
+  杯になってもこの場合は強制的に/READYを非アクティブにしてはいけない)。
+  [Lord Nightmare]
+
+- SNES SRAMのいろいろな問題を修正。[Fabio Priuli, Angelo Salese]
+
+-「わいワイジョッキーゲートイン」のタイトル画面色を修正。[Angelo Salese]
+
+- mk3ghw (aladbl.cドライバ + megadriv.c) [stephh] :
+ * DIPスイッチと入力の修正(M68000コードの検証による)
+
+- ssgbl (ssgbl.c driver + megadriv.c) [stephh] :
+ * スタックベクタ修正で、コイン処理修正(ゲームは完全にプレイできるはず)
+ * DIPスイッチと入力の修正(M68000コードの検証による)
+
+- makefileにPPC64の自動検出追加。[Julian Sikorski]
+
+- 6840PTM: 割り込みフラグ動作の修正で、端数の入力クロック処理可能。[Phil Bennett]
+
+- 6850ACIA: /CTSシグナルの処理改良で、トランスミッションパリティ生成の問題修正。
+  [Phil Bennett]
+
+- MPU4+表示系の修正: [Phil Bennett, David Haywood]
+ * シリアル通信の修正で、ほとんどのゲームが起動可能
+ * 色修正
+ * SAA1099サウンド修正
+ * 全ゲームにキャラクタライザテーブル追加(まだ不完全)
+
+- Naomiドライバで1555 fbフォーマットサポート。「クレオパトラフォーチュンプラス」で必
+  要。[David Haywood]
+
+- SNESドライバのextラッチ動作を修正。[Angelo Salese]
+
+- vmetal, vmetaln (vmetal.c driver) [stephh] :
+ * DIPスイッチと入力の修正(M68000コードの検証による)
+
+- 5220Cピッチテーブル修正で、出てなかった音も動作。ただしまだ音質は改良が必要。
+  [Lord Nightmare]
+
+- tms5220 VSMの試験的な修正。[Lord Nightmsre]
+
+- F8 CPU逆アセンブラの改良: [Curt Coder]
+ * ブランチターゲットPCを修正
+ * ニーモニック BP,BC,BZ,BR,BM,BNC,BNZ,BNO を追加
+- 2バイト16進数値から不要な$を削除
+
+- NaomiドライバにPVR TAレジスタ各種実装。[Angelo Salese]
+
+- mpu4drvr.c: 68000デバイスリセットを修正。[Phil Bennett]
+
+- Naomi: regをさらに実装。テストモードが正しく640x240で表示。fbピクセルダブル実装で、
+  テストモードが正しく表示。[Angelo Salese]
+
+- i386dasm.c: 逆アセンブリリスト化のデバッグレジスタ(D0-D7)表示を訂正。
+  [Barry Rodewald]
+
+- video/nemesis.c: パレットガンマのハックを削除。[Alex Jackson]
+
+- Subsinoドライバの改良: [Roberto Fresca]
+ *「Treasure Island」の別セット追加
+ * CPUボックスについてのテクニカルノート追加
+ * マイナーなクリーンアップ
+ Revision 8866 by robertof
+
+- 実際の基板接続より完全な回路図作成。対象は、16進Dタイプフリップフロップ、バイポーラ
+  PROM、3ステート8進Dタイプラッチ、Resnet接続。
+  [Roberto Fresca, Aleksandar Spasojevic]
+
+- Atari JSA-iサウンドボードでのPOKEYとTMS5220に、'ステレオ'ゲート処理(YM2151のctXラ
+  インで使用)の部分的実装(今のところは'モノラル'のゲート)。完全なステレオゲート処理と
+  ローパスフィルタについてTODOを追加。[Lord Nightmare]
+
+- Funworldドライバの改良: [Roberto Fresca]
+ *「Fun World Quiz」の不良ROMを置き換え
+ *「Fun World Quiz」のグラフィックと色を修正
+ * 動作不可ゲームのフラグを整理
+ * デフォルトのランプレイアウトにBETのランプを追加
+ *「Fun Wolrd Quiz」入力のクリーンアップ
+ *「Royal Card」を4セット追加。セットの親子関係を再構成(正しく動作させるには、
+   古い.cfgと.nvファイルは削除して下さい)
+ *「Royal Card」のマシンドライバを分割。バイポーラPROMの別半分にアクセスするために必
+   要です
+ *「Royal Card」のメインセットでBETボタンが動作
+ * 新追加セットにデフォルトNVRAM追加
+
+- MPU4のビデオレンダリング改良。[David Haywood]
+
+- Naomiドライバの15/31KHzセレクタを改良。「ストライクファイター」
+ 「シュートアウトプール」が起動可能。[Angelo Salese]
+
+- 補完抑制ロジックをクリーンアップ。サウンドが少し改善したかも。TMS5220Cテーブルにつ
+  いて、ゼロエナジーフレームが正しく検出されるようにマイナーな修正。[Lord Nightmare]
+
+- 以下にドライバデータクラスとセーブステート追加: [Fabio Priuli]
+  playmark.c, powerbal.c, pushman.c, pzletime.c
+
+-「Shark Party」(English, Alpha license)の改良: [Roberto Fresca]
+ * 完全な入力系をゼロから作成
+ * コイン、キーイン、キーアウトカウンタを追加
+ * メインゲームとダブルアップレートのDIPスイッチ追加
+ * 最低BET数のDIPスイッチ追加
+ * 最大BET数のDIPスイッチ追加
+ * コインエイジ、リモートクレジットの完全なDIPスイッチ追加
+ * ジョーカーとデモサウンドのDIPスイッチ追加
+ * 全てのゲーム出力の解析とドキュメント化
+ * ボタンランプレイアウト作成
+ ゲームは完全動作可能状態。
+
+-「タイピング・オブ・ザ・デッド」の起動処理修正のため、RAMミラーリング追加。
+  [Angelo Salese]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+旋光の輪舞スペシャル (GDL-0038) [tormod, The Dumping Union]
+ギルティギアXX アクセントコア (GDL-0041) [Joerg Hartenberger]
+クレオパトラフォーチュンプラス (GDL-0012) [Joerg Hartenberger]
+Hammer [Guru, Smitdogg, Luca Elia, The Dumping Union]
+Royal Card (4 new sets) [Roberto Fresca]
+Treasure Bonus
+  [Team Europe, The Dumping Union, David Haywood, Angelo Salese]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Iron Fortress (Japan) [F205V, The Dumping Union]
+スーパー上海2005 (GDL-0031) [tormod, Gerald, The Dumping Union]
+Megatouch IV Tournament Edition (9255-50-01 ROA, Standard version)
+  [Phil Bennett, MikeDX, Smitdogg, The Dumping Union]
+Teenage Mutant Hero Turtles / T.M.N.T. -スーパー亀忍者- 
+  (UK 4 Players, set 2) [porchy]
+カーニバル (ヘッドオン基板) [Andrew Welburn, Dumping Union] (2 sets)
+ダブルドラゴン (US Set 3) [Corrado Tomaselli]
+Touchmaster 2000 (v4.00 Standard) [Brian Troha, The Dumping Union]
+Phraze Craze (2セット) [D. Beneke, Smitdogg, The Dumping Union]
+Treasure Island (Subsino, set 2)
+  [Roberto Fresca, Team Europe, 9ofzeven]
+VS10ヤードファイト (US, Taito license)
+  [ranger_lennier, W. Belk, Smitdogg, The Dumping Union]
+10-Yard Fight '85 (US, Taito license)
+  [Kevin Eshbach, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Adders and Ladders [Phil Bennett, David Haywood]
+Strike it Lucky [4 sets] [Phil Bennett, David Haywood]
+Quiz Grid [4 sets] [Phil Bennett, David Haywood]
+Eyes Down [2 sets] [Phil Bennett, David Haywood]
+Blox [2 sets] [Phil Bennett, David Haywood]
+Prize Space Invaders [2 sets] [Phil Bennett, David Haywood]
+Sega Strike Fighter [f205v, The Dumping Union]
+Derby Owner's Club (Ver. C) [f205v, The Dumping Union] 
+Kick '4' Cash [f205v, The Dumping Union]
+Happy Tour
+  [Guru, jmurjr, JacKc, gingertom, Rene Single, Smitdogg, 
+   The Dumping Union]

@@ -1,0 +1,140 @@
+0.104u4
+-------
+
+OSD開発者向けの重要変更点:
+
+1. osd_pauseは直接呼び出されません。osd_init関数ではosd_pauseコールバックを
+ （必要なら）add_pause_callbackを使って登録して下さい。
+
+2. osd_dieはコアで操作するようになりました。OSDレイヤーからこの関数を削除して下
+  さい。
+
+3. logerrorはコア側でフロントエンド化して、新OSD関数osd_logerrorを呼び出します。
+  これはOS依存のファイルとデバッガログ取得を扱います。
+
+
+
+MAMETestersの修正バグ
+---------------------
+memwindow0104u3red [Aaron Giles]
+i9600104u2ora [Aaron Giles]
+dietgo0104u2red [Aaron Giles]
+st0016_0104u3red [Aaron Giles]
+8751MCUgames0104u3 [Aaron Giles]
+warriorb0104u2gre [Pierpaolo Prazzoli]
+cheat0104u3ora [Ian Patterson]
+
+
+
+ソースの変更点
+--------------
+- デバッガでコメントをサポート。逆アセンブラビューの隣に動的にコメントを追加して
+  表示できます。コメントはデフォルトで'comments'ディレクトリにXMLベースの.cmt
+  ファイルへ終了時にセーブされます。[Andrew Gardner]
+
+- osd_tool_fopenに"wb+"モード追加。[Nathan Woods]
+
+- チートタイマーの呼び出し間隔を修正。また、表示/UIシステムの依存関係に対応する
+  ため、初期化順序も修正。[Ian Patterson]
+
+- ステートセーブをさらに3ドライバに追加：arkanoid.c, system1.c, taitosj.c
+  またsystem1のSN76496サウンドチップにも追加。[Adam Bousley]
+
+- valgrind氏が見つけたメモリリーク2件とクラッシュのバグ修正。[Lawrence Gold]
+
+- tetrisp2ドライバにステートセーブ追加。[Nathan Woods]
+
+-「クローク＆ダガー」「マリオブラザーズ」「クレイジーバルーン」、SN76477サウンド
+  チップにステートセーブ追加。[Adam Bousley]
+
+- MIPSリコンパイラにR4650を正しく実装。[R. Belmont]
+
+- Namco System 23でさらに進展: [R. Belmont]
+ * ハードウェア関係の作業
+ * H8/3002 MCUとサウンドシステムの実装
+ * メモを多数追加
+ *「ファイナルハロン2」(海外版と日本版)を追加
+
+- set_visible_area()でスクリーンビットマップより大きいサイズを指定していないのを
+  確認するためのサニティチェック追加。[Nathan Woods]
+
+- Namco System 10でMEMN ROMボードを使うゲームのBIOS復号化を追加。[smf]
+
+- Bell-Fruitの'Adder'カードのROMバンキングを新スタンダードに変更。また、新しい情
+  報をもとにMPU4エミュレーションを整理。[El Condor]
+
+-「雷電II」のスプライト復号化で少し前進。[Olivier Galibert]
+
+-「ナムコ クラシックコレクション1/2」、Taito Bシステムにステートセーブ追加と、
+ 「オペレーションウルフ」のステートセーブ修正。[Adam Bousley]
+
+- デバッガの変更と更新: [Aaron Giles]
+ * 新しいストリーミングテキストバッファシステム追加
+ * コンソールウィンドウをストリーミングテキストバッファを使うように書き直し
+ * error.log出力をその場で表示する新しいログウィンドウ(Ctrl+L)を追加
+ * 生データや復号化した命令に対してコメントをコントロールする逆アセビューメ
+   ニュー追加
+ * 逆アセンブラメニューを同様にメインコンソールウィンドウに追加
+ * 処理系の表現、または++/--命令をコマンドとして認識するようにしました。
+   レジスタの更新のために"do pc=0"の代わりに"pc=0"とすることができます。
+ * 逆アセンブラビューが先頭行で時々固まるバグを修正
+
+- さらに全体的なシステムのクリーンアップ: [Aaron Giles, Atari Ace]
+ * osd_dieをfatalerrorに再マップ。これ自体のクリーンアップと、run_gameからosd 
+   codeに返します。
+ * driver.hからかなりの数の不要なインクルードを削除
+ * logerrorをコアに移動
+ * 68000専用のビルドルールをcpu.makに移動
+ * osd_skip_this_frameに代わり、ドライバから呼び出す新関数skip_this_frame追加
+ * ドライバからosdepend.hとosd_cpu.hのインクルードを削除; これらはコアだけがイン
+   クルードした方がよいと思われます
+
+- 初期化/リセット/ポーズをさらにクリーンアップ: [Aaron Giles]
+ * 新関数add_pause_callback追加。MAMEのポーズ・再開時のコールバックを登録するた
+   め他のモジュールから呼び出しができる
+ * 既存のポーズ実装部を全て新システムにコンバート
+ * 新関数add_reset_callback追加。MAMEのリセット時のコールバックを登録するため他
+   のモジュールから呼び出しができる
+ * 既存のリセット実装部を全て新システムにコンバート
+ * machine_resetを削除; mame_schedule_soft_resetと置き換え
+ * 外部イベントからクリーンに強制終了する関数mame_schedule_exitを追加
+ * Windowsコードから意味の無いtrying_to_quitを全て削除
+ * セーブ/リストアシステムをcpuexec.cからmame.cに移動
+ * コアゲームループをcpuexec.cからmame.cに移動
+ * ハードリセットサポート (完全なエミュレーションの終了と再初期化）
+
+- コアファイルをさらに調整: [Aaron Giles]
+ * sndintrf.cをsound.c、sndintrf.c、sndhrdw/generic.cに分割
+ * mamecore.hに#include vidhrdw/generic.h追加と、その他の場所にある明示的なイン
+   クルードを全て削除
+
+- BSMT2000サウンドエミュレータとdcheeseドライバにセーブステート追加。
+  [Aaron Giles]
+
+- dkongドライバのセーブステートデータの欠落を修正。[Aaron Giles]
+
+- 68000の逆アセンブラで新インターフェースを使うように更新。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Fred Flintstone's Memory Match [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ドラゴンブリード (M81 pcb version) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Crazy Fight [Pierpaolo Prazzoli]
+マジカルエラーをさがせ [David Haywood]
+ファイナルハロン 2 [R. Belmont]
+撃牌砦 - 雀スペース [smf]
+ミスタードリラーG [smf]
+ことばのパズル もじぴったん [smf]
+スタートリゴン [smf]

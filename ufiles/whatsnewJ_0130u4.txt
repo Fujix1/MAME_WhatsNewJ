@@ -1,0 +1,116 @@
+0.130u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03106: [サウンド] mouja: 効果音と音声が再生されない。(Angelo Salese)
+- 03065: [クラッシュ/フリーズ] All sets in namcos12.c: [デバッグ限定] ロード時にアサート。(Aaron Giles)
+- 03069: [クラッシュ/フリーズ] All sets in midzeus.c: [デバッグ限定] ロード時にアサート。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- www.segaresurrection.comでの「Ninja Kids II」の復号化したサウンドROMについてドキュ
+  メント化。新しく見つかった海賊版ではないことが判明。[Brian Troha]
+
+- downtown、gondo、hbarrel、midres、timesold、topgunblで、IPT_POSITIONALを使うように  変更。[Derrick Renaud]
+
+- IPT_UI_SELECT (enter) が選択されると、アナログ設定をデフォルトに戻すよう修正。ブラ
+  ケットの誤配置修正、照準グラフィックとldplayerのCHDファイルで、大文字と小文字の拡張
+  子を使用可能に変更。[Derrick Renaud]
+
+- Naomiの更新: [Angelo Salese, David Haywood]
+ * 割り込み実装にH-Blank INを追加
+ * さらに割り込みを生成(ISP end of render, VIDEO end of render)
+ * IRQシステムを若干改良
+ * Maple-DMAの修正多数。moeruが起動可能
+
+- machine/atari.cからMESS専用コードを抽出(cart初期化、ロード、アンロード)。
+  [Fabio Priuli]
+
+- ninjakd2の尾を引くエフェクトを正しく実装。[kanikani]
+
+- galgbiosのサービススイッチをトグルタイプに変更。[David Haywood]
+
+- MESSのデバッグビルドで-validateによりCPU_GET_INFOの問題が起きていたのを修正。
+  [Fabio Priuli]
+
+- jalmah.cにDIP配置追加。[Fabio Priuli]
+
+- jalmah.cのテストモード動作を改良。[Angelo Salese]
+
+- デバッガのレジスタビューで、beamx/y情報にフレーム番号表示を追加。[Aaron Giles]
+
+- munch mobileの改良: [robiza]
+ * プライオリティの実装
+ * 不要なタイルインデックスチェックを削除
+
+- naughtyb.cとssrj.cのメモリマップ統合。[Angelo Salese]
+
+- jangouとnightgalドライバで、カラーPROMによるレジスタを使うように変換。
+  [Angelo Salese]
+
+- 変更された入力ポートフィールドの処理方法を以前のやり方に巻き戻し。当初目指していた
+  動作は、既存フィールドに交わる新フィールドは、オリジナルのフィールドを完全に無効に
+  することでした。最近、導入された変更では、オリジナルフィールドの一部分のビットのみを
+  削除するというものでした。しかしこれは問題のある方法なので、オリジナルのものに戻し
+  ました。[Aaron Giles]
+
+- アナログジョイスティックのオートセンタリングバグを修正。[Derrick Renaud]
+
+- アナログ操作の増加・減少・アナログフィールドを順に変更するときのUI動作を修正。
+  [Derrick Renaud]
+
+- System 1のZ80クロックを訂正: [Aaron Giles]
+ * 各命令コードフェッチは、/M1 lowで2サイクルなので、命令コードフェッチの各バイトは以
+   前のテーブルよりも若干ディレイが長くなります
+ * ビデオRAMアクセスにおおよそのウェイトステートタイミングを実装;
+    さらに正確にするには、水平ビデオタイミングを操作しているPAL16R4を吸い出すかにかかっ
+    ています
+
+- taito_l.c、taito_x.c、taito_b.c、taito_f2.c、taito_f3.c、surpratk.c、system16.c、
+  system18.cｊのメモリマップを統合。また、アドレスマップで、READ8/WRITE8を直接使うよ
+  うにするため、ワード型のハンドラを削除。AM_READ_PORTの使用に合わせて、不要なハンド
+  ラをさらに削除。[Aaron Giles]
+
+- PPU2C0xをデバイスによる実装に変更。[Nathan Woods]
+
+- Sammy製、アウトドアシューティング系のガンポートをシンプル化。[Derrick Renaud]
+
+- System 1のマイナー更新: [Aaron Giles]
+ * 表示タイミング訂正
+ * スクロール領域を正しくマスクするゲーム用の、"small"なドライバを削除
+
+-「T-Mek」4.4のサウンドROM修正。[Lars Bull]
+
+- バグ3070(harddrivとracedrivのアナログ入力をP2入力と表示する)の部分的な修正。
+  steeltalについては考え中。[Fabio Priuli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+鉄拳タッグトーナメント (world versions) [Olivier Galibert]
+
+
+
+新規クローンセット
+------------------
+マイティー！パン (Euro 000925) [Corrado Tomaselli]
+ヴァンパイアハンター / Night Warriors: Darkstalkers' Revenge (Asia 950302?) 
+  [Smitdogg Jones, Nicola Salmoria]
+Trivia Master (set 4) [SoftwareThis]
+ウルフファング -空牙2001- (Rohga Japan Ver.) [Team Japump!!!]
+ミスティックウォリアーズ (JAA) [Guru]
+
+
+
+追加された未動作ゲーム
+----------------------
+ザ・タイピング・オブ・デッド [Alex's Rom Dumping Project]
+アウトトリガー [Guru]
+Cannon Spike / Gun Spike
+ヘビーメタル ジオマトリックス
+Super Lucky Roulette? [robiza, Angelo Salese]

@@ -1,0 +1,176 @@
+0.112u1
+-------
+
+重要: このリリースではソースコードを大幅に再編成しています。このため、diffファイ
+ルが巨大になるので、diffでの更新はありません。
+
+新しいレイアウトは以下の通りです:
+
+makefile
+docs/
+src/
+  emu/        (旧src/ディレクトリからの汎用エミュレーションファイル)
+    cpu/      (src/cpuからCPUコア)
+    sound/    (src/soundからサウンドコア)
+    debug/    (src/debugからデバッガのコード)
+    audio/    (src/sndhrdwからの汎用オーディオファイル)
+    layout/   (src/layoutからの汎用レイアウトファイル)
+    machine/  (src/machineからの汎用マシンファイル)
+    video/    (src/vidhrdwからの汎用ビデオファイル)
+
+  mame/       (MAME用のドライバ)
+    drivers/  (src/driversからのドライバファイル)
+    includes/ (src/includesからのインクルードファイル)
+    layout/   (src/layoutからの大半のファイル)
+    machine/  (src/machineからの大半のファイル)
+    audio/    (src/sndhrdwからの大半のファイル)
+    video/    (src/vidhrdwからの大半のファイル)
+    etc/      (src/etcからのいろいろなファイル)
+
+  lib/        (ライブラリ)
+    util/     (srcから、軽い依存関係を持つファイル)
+    zlib/     (zlibライブラリ)
+    expat/    (expatライブラリ)
+
+  osd/        (OS依存コード)
+    osdmini/  (ミニOS依存コード)
+    windows/  (Windows OS依存コード)
+
+  tools/      (その他のツール類)
+
+これらの変更に伴い、makefileの改修も行っています。また、新しくビルド時の問題や、
+その他の影響があるかもしれません。見つけた場合はMAMETestersに報告してください。
+
+
+
+MAMETestersの修正バグ
+---------------------
+m4_0111u4gra [Mike Ellery]
+mouser0112yel [Mamesick]
+bnj0111u5ora [Canim]
+
+
+
+ソースの変更点
+--------------
+- Cidelsaドライバの改良: [Curt Coder]
+ - cdp1802のLSKP命令の逆アセンブリを修正
+ - cdp1802のOUT命令で、書き込みハンドラ呼び出し後にR(X)をインクリメントするよう
+   に変更
+ - cdp1869のディスプレイサイズと表示領域をデータシートに基づいて設定
+ - cdp1869のCFCエミュレーション追加（多分使われてませんが、完全性のために追加）
+ - ドライバのクリーンアップ
+
+- M2ドライバの改良: [Ville Linde]
+ - CDコントローラエミュレーションの初期型追加
+ - マルチプロセッサ機能と割り込みをさらに実装
+
+- C352サウンドエミュレータの改良: [cync, hoot development team]
+ - ループとフラグ処理を書き直し。グローバルキーオンレジスタをサポート
+ - ステートセーブ追加
+
+- MSVCでコンパイルすると、Neo Geoゲームで"Calendar error"が起こるので対策を追加。
+  [Atari Ace]
+
+- RF5C400サウンドエミュレータの大幅書き換え。ループ、ステレオパニング、8bitサン
+  プルのサポート。[hoot development team, Ville Linde]
+
+- mjleagueのパッチが不要になったので削除。[Arenzo Fabrice]
+
+- bubbletrのクロスヘア修正。[Canim]
+
+- mamedriv.cの情報をクリーンアップ。[Brian Troha]
+
+- gng.c、gunsmoke.c、lasso.c、solomon.c、terracre.cの全ゲームでセーブステートを
+  サポート。[Vas Crabb]
+
+- Namco 54xxサウンドチップを、オリジナルの組み込みROMを動作させるMB8844 CPUコア
+  と置き換え。古いサウンドコアは削除。「ポールポジション」「ボスコニアン」はサン
+  プルが不要になりました。[Nicola Salmora, Ernesto Corvi, Guru]
+
+- ドライバの数を返す新関数driver_get_count()を追加。[Nathan Woods]
+
+-「SDガンダム」「ヒーテッドバレル」用のプロテクトルーチンを大量追加。
+  [Angelo Salese]
+
+- 入力システムの変更: [Derrick Renaud]
+ - 新入力タイプ、IPT_POSITIONALを追加。これは「怒」などのロータリータイプや、
+  「シーウルフ」などのグレーコードデバイスで使用します。これにより、カスタムハン
+   ドラを使用せずに、ロータリースイッチや、グレイコード操作を追加できます
+ - コア入力コード部の、切り捨て、最小・最大値のエラーを修正
+ - 照準コードを実際の拡大率をベースするよう改良。「シーウルフ」などを参照。また、
+  必要なら、一つの入力ポートに対して複数の照準を持つこともできます
+ - namcos2の照準を再追加。キャリブレーションで必要
+ - 不要になったgwarの操作用ハックを削除。gwarの操作は、1フレームのみ使うように
+   変更
+ - boothill、gunfight、seawolf、spacenctrで新しいPROT_REMAP_TABLEを使用
+
+- exidy/ster-sb1000 6840ベースサウンドハードで、回路図を元に、正しいと思われる
+  LFSR/PRNGウェーブフォームを2次クロックソースに使用するよう修正。
+  [Lord Nightmare]
+
+-「Dragon Bowl」でサウンド割り込みにHOLD_LINEを使うように更新。同様の変更を以下
+  のドライバにも適用: afega, ettrivia, funybubl, jack, mustache, seta,
+   trvmadns, wink. [Pierpaolo Prazzoli]
+
+- 6809/6309 CPUコアで、CWAI/SYNCが使用されたときにMAMEデバッガを呼び出すよう変更。
+  [Nathan Woods]
+
+- 64bitビルドでrfjetがクラッシュするのに対応するため、video_dma_addressが初期化
+  しないで使用していたのを修正。[Ville Linde]
+
+- Motorola MPC8240をPowerPCコアに追加。[Ville Linde]
+
+- ZIPファイルの検索で、最初に名前とCRCが一致するもの、次にCRCのみの一致、最後に
+  名前のみの一致するものを探すように改良。[Ben Rudiak-Gould]
+
+- stepperの動作を実機で検証、改良。[James Wallace]
+
+- file2strがどのバイナリファイルでも動作して、文字列ではなくバイト列を出力するよ
+  うに変更。[Aaron Giles]
+
+- UIフォントサイズをさらにフレキシブルに変更。これにより、縦サイズ全体から拡大率を
+  割り出すので、大抵のフォントの表示バランスが改善するはずです。[Aaron Giles]
+
+- サウンドインデックスをタグで参照する関数sound_find_sndnum_by_tag()を追加。
+  [Aaron Giles]
+
+- osd_uchar_from_osdcharをosdcodeファイルライブラリのメンバに追加。[Aaron Giles]
+
+- MAMEに対する依存度が低い、新汎用ビットマップ管理コードを作成。ユーティリティ
+  コードとして使用できます。bitmap_allocでフォーマットパラメータを常にとるように
+  変更したので、bitmap_alloc_formatは廃止します。ビットマップ割り当て時にフォー
+  マットを渡しているドライバを全て更新しました。また、auto_bitmap_allocも同様に
+  変更しています。[Aaron Giles]
+
+- fileio.cから一部分をcorefile.cモジュールに分割。これはユニコードサポートが必要
+  なユーティリティや、OSDルーチントップのfopenスタイルなファイルI/Oで使用します。
+  また、mame_core_file()を追加、mame_fileからのcore_fileオブジェクトを構成して、
+  PNGやxmlfileコードで使用できます。[Aaron Giles]
+
+- タイニービルドの動作を変更。SUBTARGETのコンセプトを導入しました。デフォルトで
+  は、SUBTARGETはTARGET（MAMEのこと）と同じで、全て普通通りビルドします。インク
+  ルードされるmakefileは、src/$(TARGET)/$(SUBTARGET).makになります。そのため、タ
+  イニービルドをする場合は、“make SUBTARGET=tiny”と指定する必要があります。実
+  行ファイル名は$(TARGET)$(SUBTARGET)です。[Aaron Giles]
+
+- トラブルが多いようなので、ENABLE_BORDER_PIXを復活。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Cash Quiz [Pierpaolo Prazzoli]
+Sidewinder [smf]
+
+
+
+新規クローンセット
+------------------
+Power Spikes (China) / スーパーバレー'91 [Pierpaolo Prazzoli]
+ラスタンサーガ (Japan Rev 1) [Gerald Coy]
+Eco Fighters (USA 931203) / アルティミットエコロジー [Nicola Salmoria]
+アルティミットエコロジー (Japan 931203) [Nicola Salmoria]
+Eco Fighters (Asia 931203) / アルティミットエコロジー [Nicola Salmoria]
+Night Warriors: Darkstalkers' Revenge (Hispanic 950403) / ヴァンパイアハンター [Nicola]
+Night Warriors: Darkstalkers' Revenge (Brazil 950403) / ヴァンパイアハンター [Nicola]

@@ -1,0 +1,85 @@
+﻿0.74u1
+
+ソース全般の変更：
+------------------
+
+■一部のドライバ（「エリア51」など）で、Act-Labs製のガンコントローラを使って
+  画面外を撃つ動作が改善されています。[Bryan McPhail]
+
+■inptport.cのデフォルト設定の問題を修正。[Robin Merrill]
+	src/inptport.c
+
+■SH2の修正いろいろで、マスタ/スレーブのサポート改善(ST-Vの「紫炎龍」を改善する
+  ものですが、エミュレートが不完全なのでプレイはできません)。[Olivier Galibert]
+	src/cpu/sh2/sh2.c
+	src/cpu/sh2/sh2.h
+
+■SegaPCMのバグ修正。[Olivier Galibert]
+	src/sound/segapcm.c
+
+■コンフィグコード関係を移動。[Nathan Woods]
+	src/config.c
+	src/config.h
+	src/inptport.c
+
+■「ノストラダムス」が一部でクラッシュする問題を多分修正。[David Haywood]
+	src/vidhrdw/mcatadv.c
+
+■「ポップンバウンス」でパドルサポート(-mouseにして、テストモードで有効にする、
+  デフォルトはパドルではなくジョイスティックの設定)。[David Haywood]
+
+■Type 1 GXゲームを少し改善。まだ追加にするほどには動作してません。[R.Belmont]
+	src/drivers/konamigx.c
+	src/vidhrdw/konamigx.c
+
+■mustangのオリジナルセットのクラッシュ修正。[R.Belmont]
+	src/drivers/nmk16.c
+
+■frogsで2方向+1ボタンだったのを、3方向スティックを使うように修正。[Robin Merrill]
+
+■mid*unit.cボタンが実際の基板入力にマッチするように再マップ。
+
+■ST-Vをさらに改善。[Angelo Salese, David Haywood]
+	src/drivers/stv.c
+	src/vidhrdw/stvvdp1.c
+	src/vidhrdw/stvvdp2.c
+
+
+新規サポートゲーム：
+--------------------
+
+Porky [Pierpaolo Prazzoli, Peter Storey] - サウンド無し
+Driving Force [Pierpaolo Prazzoli]
+Big Bucks [Pierpaolo Prazzoli]
+	src/drivers/pacman.c
+	src/vidhrdw/pengo.c
+	src/includes/pengo.h
+
+Embargo [Stefan Jokisch, MASH]
+	src/drivers/embargo.c
+
+
+新規サポートクローン：
+----------------------
+
+8 Ball Action (Pacman Kit) [Pierpaolo Prazzoli, David Widel] - 色不完全
+	サウンド無し
+	src/drivers/pacman.c
+	src/vidhrdw/pengo.c
+	src/includes/pengo.h
+
+パズループ (USA) [Brian Troha]
+	src/drivers/suprnova.c
+
+
+新規TESTDRIVER：
+----------------
+
+コンペティションゴルフ 決勝ラウンド [Angelo Salese]
+	表示系が不完全
+	src/drivers/compgolf.c
+
+(メダル版) 夢札 [Angelo Salese]
+	予備サポート、起動せず
+	src/drivers/yumefuda.c
+

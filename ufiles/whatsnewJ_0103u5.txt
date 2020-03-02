@@ -1,0 +1,88 @@
+0.103u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+esb065gre [Mathis Rosenhauer]
+
+
+
+ソースの変更点
+--------------
+- turbofrc37b1greの再修正。他のゲームで問題が起きていたため。
+  [Pierpaolo Prazzoli]
+
+-「Cookie & Bibi」のマイナーな色問題修正。[David Haywood]
+
+- Hyperstoneコアのアップデート: [Pierpaolo Prazzoli]
+ - ディレイのネスト削除
+ - 改良版ディレイブランチサポート
+ - ディレイ命令ではPCの遅延を使うべきなので、ディレイ命令でのPCの動作を修正（こ
+   れにより、ソフトウェア命令コードも実行ができる）
+
+- NeoGeoゲームのウォッチドッグを実装して、ハックを大幅に削除。[David Haywood]
+
+- klondkpの3面終わりでハングするのを修正。[Pierpaolo Prazzoli]
+
+-「連珠貴族」「ねらってチュー！」「五月陣戦2」の入力、及び後者2つのDIPスイッチ修
+  正。[Sonikos]
+
+- auto_mallocについて、メモリ使用量を減らし、ハードコードによる割当数の最大数制
+  限を持たないように改良。また、コード中でのauto_mallocの使用状況を調べて、不要
+  なNULLチェックを削除（auto_mallocは失敗時にNULLを返さないため）。[Atari Ace]
+
+- MAX_OPEN_FILESにヒットしたとき、osd_fopenが正しい値を返したとしてエラー報告す
+  るのを修正。[Nathan Woods]
+
+- i386逆アセンブラで、一部のバイトオペランドがsignedではなくunsignedになるように
+  変更。[Nathan Woods]
+
+- ディスクリートサウンドの更新: [Derrick Renaud]
+ * DISCRETE_CSVLOGモジュール追加。ディスクリートノードのCSV（カンマ区切り）デー
+   タとしてログ取り可能
+ * MDRV_SOUND_ADDで指定されているクロックを使うようにディスクリートコアを改良。
+   指定クロックが0の時は、ディスクリートエミュレーションはオーディオサンプルレー
+   トクロックをデフォルトに使用
+ * Phoenix Effect 2サウンドをオシロスコープのデータにさらに正確に合うように改良。
+   Phoenixディスクリートクロックレートを120000に固定して、速度の代わりにノイズを
+   減らして以前より正確なシミュレーションが可能
+ * DISCRETE_NOTEモジュールで音が1カウントずれていたバグを修正
+
+- レジスタリストに表示されないレジスタをサポート。i386のAXなどのレジスタで役に立
+  ちます。これによりAXはexpressionで使用してもレジスタリストには表示されません。
+  また単純にレジスタ名の先頭に'~'をつけると表示しないようにできます。
+  [Nathan Woods, Aaron Giles]
+
+- i386コアの隠しレジスタであるx86の8bitと16bit系レジスタをサポート。
+  [Nathan Woods]
+
+- ESBのBGM修正。IRQ周波数と分周率を回路図に合うように更新。[Mathis Rosenhauer]
+
+- rocktrv2のDIPスイッチ改良。[Chaneman]
+
+- グラフィックデータの割り当てをデコーディングと分離。これによりu4で起きていたク
+  ラッシュの修正とデコード進捗状況のレポートもいずれ可能になる予定。[Aaron Giles]
+
+- makefile全体のクリーンアップ。rules.makは削除して、cpu.makとsound.makで置き換
+  え。またmame.makの再編成。makefilesは全部コメントにしたので、フォローが簡単に
+  なっているはずです。[Aaron Giles]
+
+- アートワークの拡大縮小機能について、関係する全ピクセルを正しく計算するように書
+  き直し。この結果、高解像度のアートワークを低解像度に縮小したときの画質が改善し
+  ます。拡大時のバイリニアフィルタについてはそのままです。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Hidden Catch (World) [Pierpaolo Prazzoli]
+Fortress 2 Blue Arcade [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+NeoGeoの海賊版をいくつか [Razoola, David Haywood]
+ジャンボ尾崎のスーパーマスターズ (Japan) [Team Japump]
+Miss Puzzle (Nudes) [Brian Troha]

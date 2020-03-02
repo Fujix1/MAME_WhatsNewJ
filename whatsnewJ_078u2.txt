@@ -1,0 +1,156 @@
+0.78u2
+------
+
+u2での変更は、以下で解説しているメモリシステムのオーバーホールのみで、ドライバの新規
+追加はありません。
+
+
+ソース全般の変更：
+------------------
+
+■メモリシステムの大改修を行っています。これは、最初の段階のものですが、将来の拡張へ
+  のベースとなるものです。この変更に伴って、全てのCPUコア及びドライバファイルに手を加
+  える必要があります。[Aaron Giles]
+
+
+メモリシステムの変更点：
+------------------------
+
+最大の変更点はアドレス空間の考えを導入したことです。CPUそれぞれが将来的に容易に拡張で
+きるように最大で3つの独立したアドレス空間を持つことできます。個々のアドレス空間は、デー
+タバス幅、アドレスバス幅、アドレスシフト、未マップメモリ値などそれぞれ独立した構造を
+とれます。
+
+この3つのアドレス空間はプログラム、データ、I/Oとして定義され、プログラムアドレス空間
+については、コードが存在するとされる場所になりますが、通常のフォン・ノイマンアーキテ
+クチャCPUでは全メモリの場所が利用可能です。データアドレス空間はハーバードアーキテクチャ
+CPU用であるCCPU、PIC16C5x、ADSP210x、TMS32010、TMS32025用で、将来的にプログラムとデー
+タの分離を正しく行うためのものです。I/Oアドレス空間は、Z80やx86CPUによるポートアクセ
+ス等に使用します。
+
+CPUがメモリアクセスに利用するリード/ライトハンドラは全て名称を変更しました。これは、
+アドレス空間のネーミング(プログラム/データ/IO）と揃えるのと、ハンドラがどういう目的の
+ものかをはっきりさせるためです。
+さらに、大幅な統合も行っています。アドレスバス幅とデータバス幅に基づく個別のメモリア
+クセサに替えて、それぞれのデータバス幅に合わせたメモリアクセサの共有セットを新しく一
+つだけ用意しました。以下に以前のファンクションマップがどのように変更されたかを示しま
+す：
+
+   cpu_readmem16, cpu_readmem17, cpu_readmem20,     -> program_read_byte_8
+   cpu_readmem21, cpu_readmem24
+
+   cpu_writemem_16bew_word, cpu_writemem18bew_word, -> program_write_word_16be
+   cpu_writemem_24bew_word, cpu_writemem32bew_word
+
+   cpu_readport                                     -> io_read_byte_8
+
+以前は、ドライバがメモリの読み込み時にどの関数を使うか把握しておかなければならず、悩
+みの種でしたが、メモリコンテキストスイッチの一部にアクセサのテーブルが含まれたため、
+メモリアクセス用の一般的な関数を追加できるようになりました。例えば、ドライバが68000の
+アドレス空間からword値を読み込む場合、これまではcpu_readmem24bew_word()をコールする必
+要がありましたが、現在はprogram_read_word()を呼べばメモリシステムは正常に動作します。
+さらに、全CPUコアでデータバスとアドレスバスの幅に関係なくchange_pc()マクロを使うよう
+にしました。これらの変更に伴い、メモリマップの定義マクロも以下のように変更されていま
+す：
+
+   MEMORY_READ_START                -> PROGRAM_READ8_MAP_START
+   MEMORY_READ16_START              -> PROGRAM_READ16_MAP_START
+   MEMORY_READ32_START              -> PROGRAM_READ32_MAP_START
+   MEMORY_WRITE_START               -> PROGRAM_WRITE8_MAP_START
+   MEMORY_WRITE16_START             -> PROGRAM_WRITE16_MAP_START
+   MEMORY_WRITE32_START             -> PROGRAM_WRITE32_MAP_START
+   MEMORY_END                       -> PROGRAM_MAP_END
+
+   PORT_READ_START                  -> IO_READ8_MAP_START
+   PORT_READ16_START                -> IO_READ16_MAP_START
+   PORT_READ32_START                -> IO_READ32_MAP_START
+   PORT_WRITE_START                 -> IO_WRITE8_MAP_START
+   PORT_WRITE16_START               -> IO_WRITE16_MAP_START
+   PORT_WRITE32_START               -> IO_WRITE32_MAP_START
+   PORT_END                         -> IO_MAP_END
+
+同様に、CPUの64bitデータバスサポートも追加したので、PROGRAM_READ64_MAP_STARTなどのマ
+クロも追加しました。
+
+メモリシステムの目標はメモリレンジのサポートのみではなく、ミラーリングやアドレッシン
+グが等間隔で繰り返されるような複雑な状況のサポートを改善することです。この作業をスムー
+ズに行うために、メモリマップ定義時に使用するマクロを作成しました：
+
+   MEMORY_READ_START                           PROGRAM_READ8_MAP_START
+     { 0x0000, 0xffff, MRA_RAM },         ->   READ_RANGE( 0x0000, 0xffff, MRA8_RAM )
+   MEMORY_END                                  PROGRAM_MAP_END
+
+   MEMORY_WRITE_START                          PROGRAM_WRITE8_MAP_START
+     { 0x0000, 0x0fff, MRA_RAM },              WRITE_RANGE   ( 0x0000, 0x0fff, MRA_RAM )
+     { 0x1000, 0x7fff, MRA_RAM, &foo },   ->   WRITE_RANGE_P ( 0x1000, 0x7fff, MRA_RAM, &foo )
+     { 0x8000, 0xffff, MRA_RAM, &bar, &bar_size },      WRITE_RANGE_PS( 0x8000, 0xffff, MRA_RAM, &bar, &bar_size )
+   MEMORY_END                                  PROGRAM_MAP_END
+
+全部のメモリマップが変更されたため、static 8bitハンドラも合わせて名称変更してます。例
+えば、MRA_NOPはMRA8_NOPなど。
+
+以前のMAMEでは有効なアドレスビットの数をコントロールするための特殊なリード/ライトマッ
+プのエントリーが使えましたが、任意のフラグを割り当てるように変更されました：
+
+   MEMORY_ADDRESS_BITS(20)          -> PROGRAM_MAP_FLAGS( MEMORY_ABITS(20) )
+
+また、未マップのメモリ値を指定できるように拡張してます：
+
+   PROGRAM_MAP_FLAGS( MEMORY_UNMAPPED_0 ) /* unmapped reads return all 0's */
+   PROGRAM_MAP_FLAGS( MEMORY_UNMAPPED_1 ) /* unmapped reads return all 1's */
+
+このメカニズムのため、旧関数memory_set_unmap_value()は使用しないようにしてください。
+この関数を使っていたドライバは全て新型に更新しました。さらに、MRA_NOPハンドラが常に0
+から、未マップの値を返すようになったので注意してください。
+
+その他の変更点としては、20bit未満のアドレス空間の未マップのリード/ライトがRAMのように
+動作しなくなりました。このためいくつかのドライバが動かなくなってますが、8bitアドレス
+空間の特別扱いをやめることができました。
+
+マシンドライバマクロでは、アドレス空間が明示的に定義されるようになります：
+
+   MDRV_CPU_MEMORY(read,write)     -> MDRV_CPU_PROGRAM_MAP(read,write)
+   /* not applicable */            -> MDRV_CPU_DATA_MAP(read,write)
+   MDRV_CPU_PORTS(read,write)      -> MDRV_CPU_IO_MAP(read,write)
+
+
+CPUインターフェースの変更点：
+-----------------------------
+
+このリリースでのもう一つの大きな変更がCPUの定義と参照方法です。以前は、cpuintrf.cファ
+イルが各CPUのポインタや、大量のCPUタイプを保持する巨大なテーブルを持ってましたが、メ
+ンテナンスがしずらく、CPUコア自体ではなくMAME側から多くのデータが定義される状態でした。
+
+新しい方法では、全てのCPUで実装する必要のある新関数で定義します：
+
+   <cputype>_get_info(UINT32 state, union cpuinfo *info)
+
+それぞれのCPUコアについて定義されるパブリック関数はこれだけです。cpuintrf.cのテーブル
+はCPUタイプのインデックスだけを保持するようになり、実際のCPUのget_info関数に対するポ
+インタが続きます（？）。
+そのため、フレキシブルなget_info関数は残り全ての関数へのポインタを提供するようにしな
+ければいけません。さらに、その他の関数の数も大幅に減少しました：
+
+   void   set_info(UINT32 state, union cpuinfo *info);
+   void   get_context(void *context);
+   void   set_context(void *context);
+   void   init(void);
+   void   reset(void *param);
+   void   exit(void);
+   int    execute(int cycles);
+   void   burn(int cycles);
+   offs_t disassemble(char *buffer, offs_t pc);
+
+旧関数であるget_reg, set_reg, set_irq_line, set_irq_callback, info, get_cycle_table, 
+set_cycle_tableは全てget_infoとset_infoに統合されました。
+
+現在の全CPUコアがこの新システムに更新されています。また、ほとんどのコアで、全部の関数
+とicountグローバル変数をget_info関数から切り離しました。get_info/set_info用のセレクタ
+の多くがCPU情報を返すように定義されています。
+このCPU情報にはアドレスと全アドレス空間のデータバスサイズ、クロックディバイダ、IRQラ
+インサイズ、コンテキストサイズなどが含まれます。
+
+移植者向けの注意：cpuintrf[]配列はcpuintrf_init()で動的に構成されるようになりました。
+つまり、もしrun_game()を呼ぶ前にCPU情報が有ることを前提にしたコード（例：cputype_*関
+数など）を使う場合は、予め手動でcpuintrf_init()を呼び出す必要があるということです。複
+数回cpuintrf_init()を呼び出しても安全なので安心して下さい。

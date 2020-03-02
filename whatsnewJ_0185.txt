@@ -1,0 +1,365 @@
+0.185
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06107: [システムコア] any system with a software list: ソフトウェアリストの問題。(Robbbert)
+- 06481: [DIP/入力] (mac128.cpp) All classic Macs: キーボード入力が0.181から動作しない。(R. Belmont)
+- 06516: [DIP/入力] (coolpool.cpp) 9ballsht and clones, coolpool and clones: コインが入らない。(Olivier Galibert)
+- 06402: [インターフェイス] UI:: 項目の順序を切り替えるとソフトウェアリストがバグる。(npwoods)
+- 06534: [クラッシュ/フリーズ] (fm7.cpp) fm77av: BASICが起動しない。(mahlemiut)
+- 06532: [ステート保存/再生] (alpha68k.cpp) skysoldr skyadvnt timesold: 音が出ない。(Osso)
+- 06526: [DIP/入力] (nbmj8891.cpp) club90s: DIPスイッチBは実機では存在しない。(system11)
+
+
+新規動作可能マシン
+------------------
+ぱたぱたぱにっく [David Haywood, Surgeville, Sean Sutton, Jred, Mike Krug, Smitdogg, The Dumping Union]
+Fidelity Dame Sensory Challenger [hap, yovan]
+Fidelity Sensory Chess Challenger 8 [hap, yovan]
+Galaxy Games StarPak 4 (prototype) [Keith M. Kolmos, The Dumping Union]
+Novag Presto [hap, Berger]
+Pirate Ship [Phil Bennett, R. Belmont, Jared Bresee]
+TI-2550 III [hap, Sean Riddle]
+鉄拳カードワールド [ShouTime, Rob Carr, The Dumping Union]
+Wireless 60 (Jungle Soft / Kids Station Toys Inc) [RebeccaRGB]
+
+
+新規動作可能クローン
+--------------------
+トップシークレット / Bionic Commando (bootleg, set 2) [TeamEurope]
+ギャルズパニックDX (Asia) [arcademodbios.com]
+三国戦紀 / Knights of Valour (ver. 100, Hong Kong) [Pasky Junk]
+マッハブレイカーズ -ニューマンアスレチック2- (World, MB2) [caius, Silvio Grazini, The Dumping Union]
+形意拳 ＜シンイーケン＞ / Martial Masters (ver. 103, 102, 101CN) [kuze, The Dumping Union]
+Megatack (set 2) [OriginalJohn]
+Novag Octo [hap, Berger]
+原始島 / Prehistoric Isle in 1930 (World, bootleg) [The Iron Goat]
+ラスタンサーガ / Rastan (World, Earlier code base) [System11, The Dumping Union]
+ソニックブラストマン (US) [coolmod, The Dumping Union]
+ストリートファイターII' -チャンピオンエディション- (UPL bootleg) [ShouTime, The Dumping Union]
+Up Maguila (bootleg of Donkey Kong Jr.) [Asociacion A.R.C.A.D.E.]
+
+
+動作可能に昇格したマシン
+------------------------
+HP 9845T [fulivi, A.Kueckes]
+Popper [Dirk Best]
+それいけココロジー2 [AJR]
+
+
+
+新規追加された未動作マシン
+--------------------------
+GIクラシックEX (satellite terminal) [R. Belmont, Jacob Kesinger, Surgeville, Paul Vining, Smitdogg, The Dumping Union]
+GIクラシックEX (server) [R. Belmont, Phil Bennett]
+Gaelco Championship Tuning Race [Mark F., Smitdogg, The Dumping Union]
+Galaxy Play [PinMAME]
+ゲーム&ウォッチ: ボクシング [hap, Sean Riddle]
+ゲーム&ウォッチ: ドンキーコングII [hap, Sean Riddle]
+MegaTouch XL 6000 (Version r07) [R. Belmont]
+Megatouch XL Gold (Version r01) [R. Belmont, Smitdogg, The Dumping Union]
+MegaTouch XL (Italy version R1) [any, R. Belmont]
+Megatouch XL Super 5000 (Version R5I) [R. Belmont, Smitdogg, The Dumping Union]
+オトメディウス (ver GGG:J:A:A:2008041801)
+  [R. Belmont, dopefishjustin, G. Paziouros, S. Fauveau, R. Higashi, R. Howard, B. Munger, S. S. Neilson, Tormod, Smitdogg,
+  The Dumping Union]
+Police Trainer 2 [R. Belmont, gamerfan, Mr. CAST, Smitdogg, The Dumping Union]
+Ring Riders (Software version v2.2) [Mark F., Smitdogg, The Dumping Union]
+Shark (US Billiards Inc.) [Stiletto, Siftware]
+スーパーダービーII (Satellite board) [Charles MacDonald, The Dumping Union]
+Super Star (Recreativos Franco) [AJR, Akiles500]
+Unknown 'VIP 2000' game [TeamEurope, f205v]
+Unknown Poker Game by Chain Leisure [Gerald (COY), The Dumping Union]
+Unknown Sega gambling game (M1 Satellite board) [Jacob Kesinger, Surgeville, Paul Vining, Smitdogg, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Megatouch XL 6000 (Version r02) [R. Belmont, AeroCityMayor, Smitdogg, The Dumping Union]
+MegaTouch XL Gold (Version r00) [R. Belmont]
+MegaTouch XL Super 5000 (Version R5B) [R. Belmont]
+MegaTouch XL Super 5000 (Version R5E) [R. Belmont]
+Rocky (French speech) [PinMAME]
+迷宮ハンターG / The Real Ghostbusters (US 3 Players, revision ?) [caius, The Dumping Union]
+トーキョーコップ (US, dedicated version) [Mark F., Smitdogg, The Dumping Union]
+トーキョーコップ (US, kit version) [Mark F., Smitdogg, The Dumping Union]
+U.S.A. Football (R01u) [PinMAME]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+bbcb_cass:
+  3D-Wars (Demo), Arcade 4 Pack, Blockbusters Question Master, Children from Space, CopyCat III,
+  Crazy Cut/Mastermind/Klingon Attack, Disk Master, Football Director, How To Move Programs To Disk, Music, Predict, Pro Word,
+  Superior Mover, Tape Transfer Software, Toccata [Nigel Barnes]
+coco_cart: Super LOGO [Nigel Barnes]
+dragon_cass: All known cassette dumps [Nigel Barnes]
+dragon_flop: All known floppy dumps [Nigel Barnes]
+dragon_flex: FLEX System and other Compusense FLEX releases [Nigel Barnes]
+dragon_os9: OS-9, BASIC09, C, Dynacalc, Pascal, RMS, Stylograph [Nigel Barnes]
+dgnalpha_flop: OS-9, NitrOS9, C, Dynacalc, Pascal, RMS, Stylograph, etc. [Nigel Barnes]
+fmtowns_cd:
+  F-BASIC386 Compiler v1.1 L21, Dennou Ehon - Kyouryuu no Sekai, Hyper Oku no Hosomichii, Soko-ban Perfect,
+  Youjuu Senki 2 - Reimei no Senshi [r09]
+ibm5150:
+  Golden Axe, Home Alone, Prince of Persia v1.0 [ArcadeShadow]
+ibm5170:
+  Gods, Indiana Jones and the Fate of Atlantis, The Legend of Kyrandia, Monkey Island 2: LeChuck's Revenge,
+  Space Quest V: The Next Mutation [ArcadeShadow]
+  Borland Quattro Pro 3.0 (German), Borland Quattro Pro 5.0 (German), Borland Turbo Basic 1.0 (German),
+  Borland Turbo Pascal 4.0, Borland Turbo Pascal 6.01 (German) [darkstar]
+ibm5150, ibm5170: Various alternate sets [Justin Kerk]
+megadriv: Zhan Qi - Chinese Battle Chess (Tw) [system11]
+nes: Adan y Eva [No-Intro], AV Super Real Pachinko [Frank Cifaldi]
+pc98_cd:
+  Jorougumo - Jubaku no Dorei-tachi, Ms. Detective File #1 - Iwami Ginzan Satsujin Jiken, Youjuu Senki 2 - Reimei no Senshi [r09]
+pet_rom: KeyChip [Andy Grady]
+phc25_cass: official releases from Sanyo, Citadelle [Nigel Barnes]
+
+
+
+新規追加された未動作ソフトリスト
+-------------------------------- 
+gameboy: Song of the Pipa / Magic Ball [James, TeamEurope, Tauwasser]
+pce_tourvision: Dragon Egg! [system11]
+
+
+ソースの変更点
+--------------
+- pstring、pdynlib、pfmtlogのリファクタリング: [Couriersud]
+ * pstring:
+   - ストレージにstd::stringを使う用変更(アロケーションコードを削除)
+   - UTF16LEをサポート
+   - size()をmem_t_size()に、len()をlentgh()に改名、size() == length()を追加
+   - empty()とシンプルなcompare()を追加
+ * pfmtlogのシンプル化、さらにC++化
+ * pdynlib: ダイナミックライブラリコールをラップするため、dynproc型をdynlibに追加
+ * Coverityのスキャンによる問題を2つ、clangの警告などを修正
+
+- Netlistコードのリファクタリング: [Couriersud]
+ * C++機能をさらに使用
+ * pfmtlogでのCRTP
+ * 真理値表を逆分解
+ * constexprをさらに使用
+ * メインループを書き直し
+ * デフォルトコンストラクタとアサインメントオペレータを使用
+ * 7448と9316を最適化
+ * スタートアップタイムを25%～30%削減
+ * 動作パフォーマンスを約5%改善
+
+-「Double Dealer」のGun Cardロジックを修正。[Angelo Salese]
+
+- 書き込みオンリーな-printerイメージインスタンスタイプを-printoutに改名(前者は一部ドライバのプリンタポートと競合する)。[AJR]
+
+- osbexec: RS232Cシリアルポートの試験的なサポート。[AJR]
+
+- UI入力マップの修正: [AJR]
+ * 非ルートデバイスに属する入力に一部のORしたボタンが割り当てられない昔からあるバグを修正
+ * アナログシーケンスに入力を割り当てるときの表示不具合を修正
+
+- decocass.cpp:「ハイウェイチェイス」「アストロファンタジア」のミサイル色を修正。[AJR]
+
+- segas24.cpp, segaybd.cpp, segajw.cpp: I/Oに315-5296を使用。[AJR]
+
+- segaxbd.cpp: CXD1095をデバイスとして書き直し、megaplay.cpp、megatech.cpp、cyclwarr、bigfightにも追加。[AJR]
+
+- segaybd.cpp, srallyc: OKI MSM6253デバイスを追加。[AJR]
+
+- Video System製のいろいろなゲームにVS9209 I/Oデバイスを追加。[AJR]
+
+- Sega Model 1サウンドボードとZ80ベースのデジタルサウンドボードで正しいUARTベースのシリアルインタフェースを使用。[AJR]
+
+- segas32.cpp: 入力系のモダン化: [AJR]
+ * 非JAMMA入力のほとんどでI8255かMSM6253デバイスを使用
+ * Multi-32とツインユニットセットで、サービスとテスト入力を分離
+ * arescue: コイン2個でなく4個を認識
+ * ga2: V25コミュニケーション用にMB8421デバイス使用
+ * orunners: 2P入力用にキーを割り当て
+ * プライマリーI/O用にSega 315-5296デバイスを使用
+ * f1lap、radm、radr、slipstrmのコイン2入力を復活
+ * オンボードデバイス入力を特定して実質全ゲームでリストア
+
+- hotrod: MSM6253経由でペダルの読み込み。[AJR]
+
+- kokoroj2: 入力の修正、ゲーム名をタイトル画面に合わせて変更。[AJR]
+ * CDとプリンタを無効化するスイッチを発見。ゲームは動作するようになったが不完全
+
+- jvs13551: MCU PROMの過剰吸い出しによって後半の半分が前半と完全に同じだったので削除。[AJR]
+
+- device_palette_interfaceミックスインを作成: [AJR]
+ * 初期化/デコーディングルーチン、RAMインタフェースに加え、palette_deviceからほとんどの機能を提供
+ * screen_deviceとdevice_gfx_interfaceが、palette_deviceではなくdevice_palette_interfaceを使うように更新
+ * v9938とv9958でサブデバイスではなくdevice_palette_interfaceを使うように改造
+ 
+- Seibu/TAD PROM関係:
+ * toki: バイポーラPROMの吸い出し追加 [caius]
+ * bloodbro: バイポーラPROMの吸い出し追加 [Andreas Naive]
+ * dynduke, raiden, skysmash, cupsoc: 多くのセットでの未吸い出しPROMをドキュメント化 [AJR]
+
+- ds1205: Dallas DS1205マルチキーを追加。[Carl]
+
+- popper: メモリマップ修正、グラフィックレンダリング完成 - ゲームが再び動作可能に。[Dirk Best]
+
+- dgnbeta: OS-9システムとアプリのソフトリスト追加。[Nigel Barnes]
+ * 5.25"フロッピーを3.5"と置き換え。サウンド追加
+ * フロッピーモーター有効化
+ * タグルックアップ削除
+
+- cesblit.cpp: blit座標の改良 - 例えばgalgame4などの不足グラフィックが修正。[Luca Elia]
+
+- 'util::arbitrary_clock'クラステンプレートを作成、既知エポックによるクロックを表す。[Nathan Woods]
+ * NTFSファイルタイムコードとImgtool Mac datetimeコードで新しいテンプレートを使うようにコンバート
+
+- coco: カートリッジスロットシグナル処理をさらに整理: [Nathan Woods]
+ * CoCoカートリッジスロット(CART、NMI、HALT)のシグナルをより標準化する試み。特にPrograming PakがCART lineをQにしようとする部分
+ * CoCo Multi-Pakインタフェースを使うときにシグナルを渡す方法にあった目立ったバグが直ったはす
+
+- 偽の引数が間違ってレポートされる問題の修正。[Nathan Woods]
+ * 例: 'mame -whatever nes' とすると、以前は"Unrecognized argument: nes"とレポートされていた
+
+- MT6531に対するリファクタリング: [Nathan Woods]
+ * emu_optionsイメージとスロット選択をマップとしてアクセス可能化。core_optionsを壊さずにセッションをまたぐデータを保持
+ * get_default_card_software()のいろいろな実装をオーバーホール
+
+- NeoGeoのメモリアクセスでアウトオブバウンズの問題があったのを修正。[Nathan Woods]
+
+- クリーンアップいろいろ: [Nathan Woods]
+ * dipalette.hのpedantic MSVC警告を修正
+ * いくつかのメソッドをconst化
+ * ソフトリストコード内のルックアップでstd::find_if()を使うように変更
+
+- dragon32: リリース年度とスペイン版クローンセットの製造元を修正。[Nigel Barnes]
+ * 全マシンにジョイスティック追加。フロッピーサウンド追加
+
+- dragon200e: chargen ROM追加、動作せず(MC6847の問題か)。[Nigel Barnes]
+ * MACHINE_NOT_WORKINGに降格
+
+- d64plus: chargen ROMとセカンドスクリーン出力とともにCRTCを追加。未実装。[Nigel Barnes]
+ * MACHINE_NOT_WORKINGに降格
+
+- dgnalpha: 古い Boot v0.4 ROM追加。[Nigel Barnes]
+ * 5.25"フロッピードライブを3.5"に置き換え。サウンド追加
+
+- atom: cswカセットフォーマット追加。[Nigel Barnes]
+
+- dragon: 全てのDragonカートリッジをcoco_cartからdragon_cartに移動。[Nigel Barnes]
+
+- phc25: キャラクタ生成ROM追加、未使用。[Nigel Barnes]
+
+- electron: Power Softwareジョイスティックインタフェース追加。[Nigel Barnes]
+
+- bbc: ダイレクトアップデートハンドラを削除(もう使い道がないため)。[Nigel Barnes, O. Galibert]
+
+- ti8*: ブートハックを削除 - Flashベースモデルは不具合発生。[O. Galibert]
+
+- abc80x: ダイレクトアップデートハンドラを削除。[O. Galibert]
+
+- multiface 2: ダイレクトアップデートハンドラを無効化。[O. Galibert]
+ * Device should be overhauled using the by now-reversed PAL information.
+
+- i86: 復号化したオペコード空間をサポート。[O. Galibert]
+
+- ダイレクトアップデートハンドラを削除。[O. Galibert]
+
+- mlanding: tms32025メモリマップの修正。[O. Galibert]
+
+- tms32026: ステータスレジスタとバンキングの修正。[O. Galibert]
+
+- voodoo: funkballのテクスチャ修正のため、マルチベースのアドレス選択を変更。[Ted Green]
+
+- vp101: VP050のコスト削減版を改善。[R. Belmont]
+
+- piratesh: POSTをパスするように修正。これにより表示不完全ながら動作。[R. Belmont]
+
+- mac: Mac IIシリーズが0.183で大幅に壊れたのを修正。[R. Belmont]
+
+- megatouch: 各バージョンの違いをクリアにするための作業。Meritのドキュメントより。[R. Belmont]
+
+- apple1: カセットスロットのスロット化で起きていたバグを修正。[Colin Douglas Howell, R. Belmont]
+
+- chihiro: an2131scのハイレベルシミュレーション追加 -「アウトラン2」がパッチ無しのUSB有効で動作。[Samuele Zannoli]
+
+- pstringイテレータを、スタンダードなアルゴリズムで動作するリアルなフォーワードイテレータに変更。[Vas Crabb]
+
+- __llvm__が定義されているが__GLIBC__が未定義の場合はLLVM libc++と想定(MacPorts clangによるbxビルドが修正)。[Vas Crabb]
+
+- bgfx_pathの環境変数の代用を追加 (github issue #2201)。[Vas Crabb]
+
+- naomi, triforce, chihiro: 残りの不良CHDv4を正常なv5にコンバート。トラック1とトラック2の長さを判明したデータパターンからリストア。
+  [MetalliC]
+
+- naomi.cpp: mushik2e/mushi2eoをスリーインワンな「Mushiking II」「同III」「同III+」ゲームにエクスポート。[MetalliC]
+
+- thomson: レガシーなフロッピーサポートで起きていた不具合を修正。[Antoine Mine]
+
+- apollo: SIOの不具合を修正。[Hans Ostermeyer]
+
+- デバッガのdasmコマンドで未マップな穴のある仮想空間をトラバースできるよう変更。[Happy]
+
+- uml: UML命令の逆アセンブリで、パラメータがPTYPE_CODE_LABELのケースを追加。[Happy]
+
+- vicdual: 97269-P-Bと97271-Pドーターボードをnsubに追加。[SailorSat]
+ * nsubマザーボードのPR-33とPR-34を確認。タイプはMMI 6331 (32*8)
+ * 97269-P-Bドーターボードを追加 - グラデーションはまだシミュレーションだがPROMを使用(星空は未実装)
+
+- HP 9845Tドライバを実装(HP987080Aハードウェアアクセラレートモノクログラフィック付き9845)。[fulivi, A.Kueckes]
+ * 45Tの競合を解消、2個目のテープドライブ(T14)追加、98035モジュールのデフォルトSCを9に設定
+ * hphybrid: 9845Tビデオハードウェアの超微妙な競合をたぶん修正
+
+- acchi.cpp: 動作可能ステートに昇格: [David Haywood]
+ * scantimer割り込み追加で入力が動作
+ * ビデオバンキング追加
+ * NMK112をサウンドバンキング用に追加。日本語がわからないと実装が難しく正しくない可能性あり
+ * Oki周波数などを実機で検証し修正
+ 
+- mcs51: 間接メモリアクセスオペーコード、dec、inc、xch_aを修正。[Jean-Francois DEL NERO]
+ * 間接アクセスはSFRを使用できず、追加メモリ0x80以降のみ
+
+- i86: JNLフラグテストを修正(github issue #2200)。 [htjywf2008]
+
+- namconb1.cpp: コイン入力修正とコイン3と4を追加。[Brian Troha]
+
+- wirels60: P2 IOポートをオプショナルに設定。[RebeccaRGB]
+
+- sblaster: DSPステートをセーブ。ポップ音が鳴り続けたを修正。[moralrecordings]
+
+- ymf262: セーブステートサポートとスロットポインタのチェック追加。[moralrecordings]
+
+- nesの改良: [kazblox]
+ * edu2k48を動作可能にマーク。マウスタイトルについてのノート追加
+ * kokoの基板写真を元に、WRAMバッテリーバックアップを使わないよう指定
+ * waixing.cpp: 少しモダン化 - CaH4e3の方法で実装。より多くのタイトルが動作
+
+-「ヘッドパニック」の控えめ表示設定を修正(より控えめの設定は面クリア後の服が多い)。[einstein95]
+
+- 入力/サービスボタンの修正とクリーンアップ: [OzFalcon]
+ * realbrk.cpp: サービスボタンがハードコードでキー割り当てされていたのを削除
+ * hanaroku: スタンダードな花札入力とキー割り当て使用、ハードコードされたIPT_SERVICE割り当てを削除
+ * aleck64.cpp: サービス/テストボタンの割り当てを訂正
+ * suprstar: ハードコードされたキーコード割り当て削除
+ * ampoker2.cpp: いろいろなキーの割り当てを整理
+ * albazc.cpp: "Data Clear"をIPT_MEMORY_RESETに割り当て。"Medal In"と"Pay Out"を通常のボタンに変更。ロックアウト"Key"を
+   PORT_TOGGLEタイプに変更。"Payout"ボタンがIPT_GAMBLE_PAYOUTを使うよう修正。IPT_SERVICEの割り当て修正。IPT_SERVICEとDouble Upボ
+   タンをスタンダードな割り当てに変更。"Ext In 1"と"Ext In 2"をIPT_OTHERに設定
+
+- gtrfrk6mの起動をフラッシュカードメモリサイズを32MBに変更して修正。gtrfrk5mでも動作(@sakamoto-nekoさんに感謝)。[limyz]
+
+- naomi.cpp:「頭文字DアーケードステージVer.2 (Export) (GDS-0027)」を吸い出し直し。[rtw]
+
+-「Knights of Valour 3 HD (V105)」を再吸い出し。[Peter Wilhelmsen, The Dumping Union]
+
+- Taitoの「T.T.ニューヨークニューヨーク」のROMがSigma版セットと一致することをドキュメントに追加。[ShouTime]
+
+- SuperMac Spec/8 III V1.3のNuBus ROMを追加。[fink]
+
+- コベリティ CID 157540とCID 15741の修正: カンマの欠落により意図しない文字列の結合が起こる。[Peter Bortas]
+
+- sun4: SARCstation IPX V2.3とSPARCstation 1 V2.2の起動ROM追加。[NekoEd]
+
+- 復号済みオペコードメモリ空間への書き込み修正。[Pugsy]
+ * オペコード書き込みが正しいメモリにアクセスできるよう、EXPSPACE_RAMWRITEとEXPSPACE_OPCODEのケースステートメントを分離
+ * 例: flckyでネコがメインスプライトに衝突しなくなる: maincpu.ob@3ac6=c3.

@@ -1,0 +1,169 @@
+﻿0.113u2
+-------
+
+OSD移植者へ: このビルドでOSD関係の変更がいくつかあります。システム関係のオプショ
+ンの多くがコアによる定義になり、options_*関数で参照するようになっています。これ
+により、OSD部からかなりのコードが削除できます。さらに、mame_file_error型を、
+file_errorに改名したので、一部置き換えが必要になります。
+
+
+
+MAMETestersの修正バグ
+---------------------
+neogeo0113u1red [Zsolt Vasvari]
+
+
+
+ソースの変更点
+--------------
+- Sega製ゲームの多くを新ビデオタイミングコードへ更新。[Zsolt Vasvari]
+
+- SSP1610 CPUコアの超初期版を追加。[Pierpaolo Prazzoli]
+
+- 現在のプロセスがコンソールアプリかどうかを判断するユーティリティ、
+  win_is_gui_application()を作成。また、MAMEがWindowsアプリケーション(MAME32など)
+  として動作しているときに、メッセージボックスへ直接エラーを出力する関数を追加。
+  これにより、MAME32で問題が起きたときにエラーを表示して終了させることが可能。
+  [Nathan Woods]
+
+- NeoGeoドライバを、新ビデオタイミングコードとロースクリーンパラメータに更新。
+  [Zsolt Vasvari]
+
+- Firebeatドライバのアップデート: [Ville Linde]
+ -「キーボードマニア 2nd MIX」のハードウェアエラー修正
+ -「キーボードマニア」にiButton追加
+ -「ポップンミュージック7」の入力を実装
+
+-「Gridlee」とBally/Senteドライバで、新ビデオタイミングコードとロースクリーンパ
+  ラメータを使うように更新。[Zsolt Vasvari]
+
+- Win32 APIのGetModuleFileName()のUTF-8ラッパーを作成。[Nathan Woods]
+
+- Voodooベースのゲームで、新ビデオタイミングとMAMEタイマーを使うように更新。
+  [Zsolt Vasvari]
+
+- Ultra Tankドライバの大幅クリーンアップと書き直し。[Stefan Jokisch]
+
+-「スプリント4」を更新。最近の変更でギアシフトが動作しなくなっていたのを修正。そ
+  の他の改良も少し。[Stefan Jokisch]
+
+- ジョイスティックのデッドゾーンについて、他のOSD版用の定義パターンを、コンパイ
+  ル時に定義する処理を再追加。[Derrick Renaud]
+
+- mw8080bwの割り込み生成を実際のハードウェアの動作により近い形で実装。また、ビデ
+  オタイミングと、割り込み生成システムの詳細を追加。[Zsolt Vasvari]
+
+- cdp1869 doubleを修正(MESS用)。[Curt Coder]
+
+-「ピタゴラスの謎」からスプライトハックを削除。[David Haywood]
+
+- Starfireドライバで、回路図からビデオタイミングを使うように更新。
+  [Zsolt Vasvari]
+
+- 8080bwの修正: [Zsolt Vasvari]
+ - 不良サンプルのせいで「ルパン三世」がクラッシュしていたのを修正
+ - mw8080bwにビデオタイミング追加。これによりほとんどのゲームで表示領域が変化し
+   ています。不具合がでるかもしれません
+ -「シャトルインベーダー」の表示が画面よりはみ出します。ただし、違うハードウェア
+   のようなので、いずれにしても独自のドライバが必要です
+ - MB14241用の新ファイル作成。「インベーダー」のハードウェアでシフタICとして使用
+
+- mame_file_errorをfile_errorに改名。ユーティリティを含めコード全体で使用してい
+  るため。[Aaron Giles]
+
+- フレームレートをさらに安定させるため、Windowsスリープ時のプライオリティ引き上
+  げを強化。[Aaron Giles]
+
+- 0100hまでのUnicocdeキャラクタをビルトインフォントに追加。[Aaron Giles]
+
+- osd_work_item_queue()に引数flags追加。また新しいフラグ、
+  WORK_ITEM_FLAG_AUTO_RELEASEを追加。これは、ワークアイテムは完了時に自動でリリー
+  スしたほうがよいという意味になります。[Aaron Giles]
+
+- Windows OSDで、システムリソース節約のため、必要なときのみアイテムのイベント割
+  り当てをするように変更。[Aaron Giles]
+
+- システム全体で、リフレッシュとVBLANKタイミング用のパラメータを浮動小数点から、
+  subseconds_tで定義するように変更。[Aaron Giles]
+
+- Midway V-unitドライバのビデオタイミング更新。[Aaron Giles]
+
+- gaelco3dドライバで、osd_work_itemsをレンダリングに使用するように更新。マルチ
+  CPUシステムで、ほとんどのレンダリング負荷をセカンドCPUに移動できます。
+  [Aaron Giles]
+
+- 次のオプションについて、サポートをコアに移動: [Aaron Giles]
+  -state <x>
+  -autosave
+  -playback <file>
+  -record <file>
+  -mngwrite <file>
+  -wavwrite <file>
+  -rotate
+  -ror
+  -rol
+  -autoror
+  -autorol
+  -flipx
+  -flipy
+  -artwork_crop
+  -use_backdrops
+  -use_overlays
+  -use_bezels
+  -brightness <x>
+  -contrast <x>
+  -gamma <x>
+  -pause_brightness <x>
+  -antialias
+  -beam <x>
+  -flicker <x>
+  -sound
+  -samples
+  -volume <x>
+  -ctrlr
+  -log
+  -debug
+  -debugscript <file>
+  -bios <x>
+  -cheat
+  -skip_gameinfo
+
+- Food Fightドライバをクリーンアップ。完全なメモリマップ追加と、スプライトとプレ
+  イフィールドのプライオリティ実装を完了。また、タイミングの修正、など。
+  [Aaron Giles]
+
+- mame.cの初期化パスをクリーンアップ。それぞれを論理的に構成。また、致命的なエラー
+  のメッセージをより詳細にするため、リターンコードを大幅に削減。[Aaron Giles]
+
+- 速度制限処理で、スキップしないフレームだけを制限するように変更。これにより、フ
+  レームスキップが必要なゲームでのパフォーマンスが若干上がります。[Aaron Giles]
+
+- toolsディレクトリにsrccleanツール追加。これは、リリース前に細かなコードの整理を
+  行います。[Aaron Giles]
+
+- 新しいドライバ用フラグ、VIDEO_SELF_RENDERを追加。これは、VIDEO_UPDATEコールバッ
+  クで、ドライバが独自にレンダラとコミュニケートするかを指定します。全てのレーザー
+  ディスクゲームこのフラグを追加しました。コアビデオのロジックについて、描画の最
+  終段階のとき、スクリーンコンテナのみを空にするように変更しました。これまでは、
+  各フレームの開始時にこれらを空にしていました。[Aaron Giles]
+
+- 非デバッグビルドでのポーズ処理を変更。単純に、直近のプリミティブリストを保持し
+  て、再描画します。デバッグビルドでは現行のデフォルト処理のままで、エミュレーショ
+  ンの問題を特定するため、ポーズ中でもVIDEO_UDPATEコードを各フレームで走らせます。
+  [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+パラパラパラダイス v1.1 [Ville Linde]
+Sky Robo [Stefan Lindberg]
+キャプテンアメリカ ジ・アベンジャーズ (US Rev 1.4) [chaneman]
+Hex Pool (Senko) [Pierpaolo Prazzoli]
+デイトナUSA (With Saturn Adverts) [Guru, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Motoraid [Guru, David Haywood]

@@ -1,0 +1,388 @@
+0.190
+-----
+
+MAMETestersの修正バグ
+---------------------
+- 06682: [サウンド] (cinemat.cpp) qb3: AY-3-8910の音が出ていない。(AJR)
+- 06680: [サウンド] (namcos2.cpp) metlhawk: 0.182から音が出ていない。(Angelo Salese)
+- 06673: [DIP/入力] (subsino.cpp) stbsub: DIPスイッチ3番のunknownの情報。(D Go Go Fan)
+- 00490: [サウンド] (homedata.cpp) hourouki: "リーチ"、"ロン"などの声が出ない。(smf)
+- 06658: [プラグイン] (mappy.cpp) mappy, mappyj: <parameterによるチートを使うと左矢印で表示値が変らない。(crazyc)
+- 06672: [サウンド] (starwars.cpp) starwars: サウンド不具合あり。(AJR)
+
+
+新規動作可能マシン
+------------------
+Altered Beast (Tiger handheld) [hap, Sean Riddle]
+Laser 2001 [cvemu]
+Mephisto Modena [yoyo_chessboard, Sandro Ronco]
+Mephisto Monte Carlo [Sandro Ronco]
+Mephisto Super Mondial II [yoyo_chessboard, Sandro Ronco]
+Mephisto Super Mondial [yoyo_chessboard, Sandro Ronco]
+R-Zone: Batman Forever [hap, Sean Riddle]
+R-Zone: Indy 500 [hap, Sean Riddle]
+unknown Italian poker game [caius, AJR, Ivan Vangelista, Roberto Fresca]
+
+
+新規動作可能クローン
+--------------------
+Alligator Hunt (World, protected) [Pablo]
+ビーストバスターズ (Japan, Version 2, J3) [Layer @ jammaplus]
+Big Buck Hunter - Shooter's Challenge (v1.60.01) [Ted Green]
+中華大仙 (Japan) (P0-025-A PCB) [Pacman70]
+大列車強盗 / Iron Horse (version K) [Coolmod, The Dumping Union]
+キックオフ (bootleg) [caius, The Dumping Union]
+レディーマスター (set 2, older) [Corrado Tomaselli, The Dumping Union]
+Land Breaker (World) / Miss Tang Ja Ru Gi (Korea) (pcb ver 1.0) (AT89c52 protected) [Hammy]
+Maniac Square (protected, Version 1.0, Checksum DEEE)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, Charles MacDonald, David Haywood]
+Royal Card / Royal Jackpot (with a third draw)(encrypted) [Roberto Fresca, Team Europe]
+サイバリオン (US, PS2 Taito Legends 2) [MetalliC, rtw, Zerochan]
+サイバリオン (World, PS2 Taito Legends 2) [MetalliC, rtw, Zerochan]
+
+
+動作可能に昇格したマシン
+------------------------
+Alligator Hunt (Spain, protected) [David Haywood, Darksoft, Morten Shearman Kirkegaard, Peter Wilhelmsen]
+Big Buck Hunter - Shooter's Challenge (v1.60.01) [Ted Green]
+Big Buck Hunter Call of the Wild (v3.02.5) [Ted Green]
+Big Buck Hunter II - Sportsman's Paradise (v2.02.11) [Ted Green]
+Glass (Ver 1.1, Break Edition, Checksum 49D5E66B, Version 1994) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood]
+Great Guns [Angelo Salese]
+Maniac Square (protected, Version 1.0, Checksum CF2D)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, Charles MacDonald, David Haywood]
+Mazer Blazer (set 1) [Angelo Salese]
+Mephisto Mega IV [Sandro Ronco]
+テクモワールドカップ'94 (set 1) [Angelo Salese]
+Virtual Pool [Ted Green]
+
+
+動作可能に昇格したクローン
+--------------------------
+Big Buck Hunter - Shooter's Challenge (v1.50.07) [Ted Green]
+Glass (Ver 1.0, Break Edition, Checksum C5513F3C) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood]
+Glass (Ver 1.0, Break Edition, Checksum D3864FDB) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood]
+Mazer Blazer (set 2) [Angelo Salese]
+Mephisto Monte Carlo IV LE [Sandro Ronco]
+スラップファイト (A76 set, GX-006-A PCB) [Corrado Tomaselli, The Dumping Union]
+テクモワールドカップ'94 (set 2) [Angelo Salese]
+
+
+新規追加された未動作マシン
+--------------------------
+Cisco/Fisco 400 [TTL] [Andrew Welburn]
+Convergent Miniframe [rfka01, R. Belmont]
+Gaelco Football [Peter Wilhelmsen, Smitdogg, The Dumping Union]
+Gran Trak 10/Trak 10/Formula K [TTL] [Mike Salay]
+Gran Trak 20/Trak 20/Twin Racer [TTL] [Ed Fries]
+Le Mans [TTL] [teeray]
+Nintendo DS [Ryan Holtz]
+Qwak!/Quack [TTL] [Ed Fries]
+Triumph-Adler alphatronic P3 [Dirk Best, rfka01]
+
+
+新規追加された未動作クローン
+----------------------------
+AEG Olympia Olytext 30 [rfka01]
+Bingo Wave [Harcsa Bela, caius]
+Ericsson PC [Joakim Larsson Edstrom, Joel Tegner]
+Ericsson Portable PC [Joakim Larsson Edstrom, Joel Tegner, FakeShemp]
+Guns N Roses (2.00) [Gore Daimon, Guilherme Cobra]
+Meteor (Stern, set 2) [Gore Daimon, Guilherme Cobra]
+PC/AT 386SX (VGA, MF2 Keyboard) [Carl]
+Robot Hunting (bootleg of Death Race) [TTL] [f205v, Any]
+Schneider EURO PC II [rfka01]
+Schneider EURO XT [rfka01]
+Shootout Pool Prize (Export) / Shootout Pool The Medal (Japan) Version B -P [Ordyne]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2: Thief [san inc. & TRex]
+apple2_cass: Color Demosoft / Little Brickout, Lords of Karma, Startrek / Starwars [Dagarman]
+archimedes: SCSI Support Disc [Nigel Barnes]
+bbcb_flop: ArcPinball [Nigel Barnes]
+c128_cart: VizaWrite 128 [terror]
+hp85_rom: Assembler ROM, I/O ROM, Matrix ROM, Service ROM, Service ROM (fixed) [F.Ulivi]
+ibm5150:
+  Concurrent PC DOS 3.2, Concurrent PC DOS 4.1, Concurrent DOS XM 6.0, Concurrent DOS XM 6.01, Concurrent DOS XM 6.21 [Justin Kerk]
+ibm5170:
+  Freddy Pharkas, Frontier Pharmacist [ArcadeShadow]
+  Wing Commander II - Special Operations 1, Wing Commander II - Special Operations 2 [breiztiger]
+  Concurrent DOS 386 2.0, Concurrent DOS 386 3.01 [Justin Kerk]
+kayproii: Digital Keyboards' Synergy Host Control System [shattered]
+laser2001_cart: Salora Disk Drive [cvemu]
+pce_tourvision: Bomberman 93, Die Hard, Hit The Ice, Knight Rider Special [system11]
+spectrum_cass: Currah MicroSpeech Demo, Fuller Box Orator Demonstration, Shadow of the Unicorn, Spectrum Voice Chess [Nigel Barnes]
+
+
+追加・変更された翻訳
+--------------------
+Dutch [Jos van Mourik]
+Italian [Tharabas17]
+Spanish [A. Viloria]
+Turkish [Kadir Eksi]
+
+
+ソースの変更点
+--------------
+- AM9513システムタイミングコントローラデバイス追加。[AJR]
+
+- 28XXパラレルEEPROMエミュレーションを改良: [AJR]
+ * モード制御用の/OEラインの直接操作をエミュレート
+ * 書き込み完了前でのデータポーリング用に特別な処理を追加
+ * 各書き込み後にEEPROMをロックするオプション設定を追加。Atariで多用
+ * Atari EEPROMインタフェースデバイスをベースデバイスに置き換え。古いNVRAMファイルを使うには、eeprom_eepromをeepromに改名する
+
+- dblewing: サウンドラッチのモダン化; IRQの調停の改良でサウンドコマンドの欠落が改善(したはず)。[AJR]
+
+- cninjabl2: サウンドバンキング修正。[AJR]
+
+- z8の改良: [AJR]
+ * データ空間をオプショナル化
+ * スタックpopセマンティクスを修正
+ * P0コントロールビットをベースに外部メモリアクセス用にアドレスをマスク
+ * CP/SBC/SUBのCフラグポラリティ修正。SBCでキャリー考慮な実際の減算(amerihokが初期チェックサムをパス可能)
+ * 割り込み修正
+
+- megaplay: BIOS経由でスタートボタンをルーティング。ただしまだ正しく動作せず。[AJR]
+
+- quizpun2: COP402 MCUをエミュレート。[AJR]
+
+- COP400のオーバーホール: [AJR]
+ * 実行制御ロジックが、メインループの1回のパスで命令の各バイトを別々にフェッチするよう書き直し
+   - SIOシフトレジスタでのEEPROM互換なタイミングが得られる。これによりquizpun2の93C46が正しく読み書き可能になる
+ * M疑似レジスタ(Bで参照される内部RAM)をデバッガステートに追加
+ * SKTにのみ影響するデバイスでのデバッガステートにTレジスタを追加
+ * バイナリでシフトレジスタとして定義されている場合にSIOステートを表示 
+ * 命令のスキップができるようにし、コンパイル時スイッチを使用しSKIPフラグをデバッグ(デフォルトでは無効)
+
+- weststry: サウンドが鳴らなくなる原因だったタイミングのずれた割り込みを抑制。[AJR]
+
+- rs232: 多くのシステムで使っているボーレート9615を追加。[AJR]
+
+-「アステロイド」の言語ROMを修正 - セルフテストをパス可能。[Andrew Welburn]
+
+- gstriker.cppを更新: [Angelo Salese]
+ * twrldc94aセットにMCUエミュレーション追加
+ * バッファ付きスプライトRAM追加(スプライトが2フレーム早い)
+ *「テクモワールドカップ'94」のトーナメントロジックを修正
+ * mb60553のズーム処理改良(一番わかるのは「テクモワールドカップ'94」)
+ * mb60553コアに回転処理追加(「テクモVゴールサッカー」のフィールド表示に使用)
+
+- ninjaw.cpp: まともなインタリーブCPUタイミングに変更。「ニンジャウォリアーズ」で敵が消えるバグを修正する試み。[Angelo Salese]
+
+- rockrage.cpp:「恋のホットロック / Rock 'n Rage」のプライオリティとテキストタイルバンキングを修正。[Angelo Salese]
+ * 1面のボスの目が光るところと5面ボスで泡の中にシーナがいる箇所が修正
+
+- mb_vcu.cppの更新: [Angelo Salese]
+ * マルチレイヤー描画追加
+ *「Mazer Blazer」のレイヤークリーニングを改善。「Great Guns」のレイヤークリーンアップを修正
+ *「Mazer Blazer」で当たり判定機能追加
+
+- mazerbla.cpp:「Great Guns」にバックアップRAM追加と光線銃入力修正。[Angelo Salese]
+
+- itech8.cpp:「Ninja Clowns」の改善: [Angelo Salese]
+ * パレットリードアクセス修正。多くの色間違いが改善
+ * 0x40000-0x7ffffの定数領域を修正。プログラムROMのチェックサムが修正
+ * vblankのIRQ生成を移動 - 1秒当たりのフレーム数が安定しないのを修正
+
+- model2.cpp: lumaのオーバーフロー(「バーチャストライカー」の旗の色)を修正。[Angelo Salese]
+
+- ymf271.cpp: スロットエンドステータスビット追加(「デザートウォー」のショットサンプル音修正)。[Angelo Salese]
+
+- saturn.cpp: 無効なスプライトオペコードが来た場合、VDP1 IRQを発火(「セクシーパロディウス」の海賊版修正)。[Angelo Salese]
+
+- pce_cd.cpp: 本物ではないCD-ROMステートのバグを修正(「Snatcher」の起動修正)。[Angelo Salese]
+
+- ladyfrog.cpp: Added missing DAC sound chip (fixes death scream in Touche Me). [Angelo Salese]
+
+- flstory.cpp: メモリマップの統合とグラフィックバングのデフォルト修正(「女三四郎」のPOSTメッセージを修正)。[Angelo Salese]
+
+- bigevglf.cpp: DAC追加(カップインと歓声のサンプル音)。[Angelo Salese]
+
+- buggychl.cppの更新: [Angelo Salese]
+ * サウンドタイマIRQ周波数修正(名前登録BGMのテンポ修正)
+ * 背景ペンんとクリッピングイネーブルの修正(タイトル画面と3面のグラフィック修正)
+ * 入力を修正。アクセルはアナログ化
+
+- vicdual.cpp:「ボーダーライン」にサウンドサンプル追加。[Angelo Salese, Corrado Tomaselli]
+
+- ioport.cpp: MAMEコアのrand()コールにより引き起こされていた、INP再生がずれる長年のバグを修正。[Angelo Salese, hap]
+
+- leland: 後期の「アタックス」時代のオーディオでDACサウンドが鳴っていないのを修正。[Barry Rodewald]
+
+- vamphalf.cpp: coolminiiにアイドルスキップによるスピードアップハックを追加。[Brian Troha]
+
+- luaengine: 翻訳サポート。[Carl]
+
+- altos8600: シリアルボード追加。[Carl]
+
+- c64_cart.xml: 4040+Fast Hack'emカセット付属のディスクを追加。[Curt Coder]
+
+- Megaplayを動作不可に降格。[David Haywood]
+
+-「パニックロード」を動作不可に降格。当たり判定が正しくないため。[David Haywood]
+
+- フロッピー: ドライブのLEDコールバック追加。[Dirk Best]
+
+- cninjaとdeco32ドライバで使用しているData East IRQコントローラデバイスを追加。[Dirk Best]
+
+- pktgaldx: vblank割り込みACK追加。[Dirk Best]
+
+- deco32の改良とクリーンアップ: [Dirk Best]
+ *「ドラゴンガン」ベースのゲーム用にLC7535ベースの音量調整をエミュレート
+ *「キャプテンアメリカ -ジ・アベンジャーズ-」で、DSW3とDIPスイッチの配置追加
+
+- deco156: パレットのクリーンアップ。[Dirk Best]
+
+- 最近の吸い出しを元に「タンク」(atarittl.cpp)のROMサイズを修正。[Ed Fries]
+
+- Master System/Game Gearの修正いろいろ: [Enik Land]
+ * SMSマルチパッドデバイスハードの作者を修正
+ * デバイスで使用されていないSMS2/GGメモリマップの上位アドレスをRAMに移動('shero'GGゲームを修正)
+ * termntrの基板情報追加と、SMSソフトウェアリスト内でjangpun2のエントリのマッパーを修正
+ * SMSソフトウェアリストの4pakエントリのマッパーコードにあったソフトリセットのバグ修正
+ * MESSがBIOS選択をサポートしていなかった頃に追加された古いコメントを削除
+ * SMSモードでもGGの入力が無効化されないことについてのコメント二件変更
+
+- hp85: オプションのROMカセットサポートとソフトウェアリスト作成開始。[F.Ulivi]
+
+- a2arcadebd: テストディスクの全プログラムが動作するようにポートミラー追加。[Golden Child]
+
+- apple2: Synetix SuperSpriteカードの試験的サポート。[Golden Child, R. Belmont]
+
+- segasp.cpp:「古代王者 恐竜キング / Dinosaur King」のオリジナルCFカードを吸い出し。[Hellfromabove]
+
+- dbox: 29F800Bフラッシュブートデバイスを追加。RS232/モデムポートの実装。[Joakim Larsson Edstrom]
+
+- mc68681: DUART互換の68340シリアルモジュールを追加。[Joakim Larsson Edstrom]
+
+- 68340tmu: MCRレジスタenumエラー修正。ログエラーをLOGxステートメントに変更しスパム状態を解消。[Joakim Larsson Edstrom]
+
+- 68340の改良: [Joakim Larsson Edstrom]
+ * シリアルモジュールをDUARTデバイスから派生したシリアルモジュールとして実装(mc68681.cppで定義)
+ * SIMモジュールのリードレジスタバグを修正し、チップ選択ロジックの説明的なログメッセージを追加
+ * タイマーモジュールの実装を独立した2つのインスタンスによるデバイスに変更しコードをシンプル化
+
+- CandelaのPALドライブなアドレスマップを実装(BASICコマンドを修正)。[Joakim Larsson Edstrom]
+
+- upd7725: デスティネーションがDPのときはDPLフィールドを無視。また、RPのときはRPDCRビットを無視。[Jonas Quinn]
+
+- jedutilでPLS100/82S100/PLS101/82S101のequationsの表示をサポート。[Kevin Eshbach]
+
+-「ガズラー (スイマー基板)」のPAL吸い出し追加。[Kevin Eshbach]
+
+- dccons.cpp: DCフラッシュROM吸い出しを工場出荷状態に巻き戻し。DreamcastのフラッシュROM構造についてドキュメント化。[MetalliC]
+
+- 不要な文字列のコピーを防ぐため、corestr.cppのコールから参照をリターン。[Nathan Woods]
+
+- PORT_CHARの文字値にバリデーションチェックを追加。[Nathan Woods]
+
+- -validate verbがドライバの一致パターンが無いときにエラーを出すように変更。[Nathan Woods]
+
+- UTF-8のコマンドライン引数のサニタイズと正当化する試み。[Nathan Woods]
+ * Windowsで非7ビットのASCIIが正しく処理されないimgtoolのバグを修正
+
+- spectrum: 拡張スロットとデバイスを追加。ドライバからKemptonジョイスティックインタフェースを削除。[Nigel Barnes]
+ * 動作可能デバイス: Currah MicroSlot, Currah MicroSource, Currah MicroSpeech, Didaktik Melodik, Fuller Box,
+                     Kempston Joystick Interface, Mikro-Plus (Shadow of the Unicorn), Protek Joystick Interface, ZX Interface 2
+ * 動作不可デバイス: ZX Interface 1
+ * Currah MicroSpeechの準備作業をしてくれたThomas Busseさんに感謝
+
+- spec128: 拡張スロットとデバイスを追加。ドライバからKemptonジョイスティックインタフェースを削除。[Nigel Barnes]
+ * 動作可能デバイス: Kempston Joystick Interface, Mikro-Plus (Shadow of the Unicorn), Protek Joystick Interface,
+                     Spectrum +2 Test Software, ZX Interface 2
+ * 動作不可デバイス: ZX Interface 1
+
+- tube_casper: CPUクロックを4MHzに修正。[Nigel Barnes]
+
+- m68k: abcd/abcd/nbcdが68k-bcd-verifierをパスするよう修正。[notaz]
+
+- upd765: センサーの割り込みステータスロジックとモーターのON・OFFロジックを含むi82072のサポート。[Patrick Mackinlay]
+
+- i82586: 82586の初期化修正。[Patrick Mackinlay]
+
+- clipper割り込み処理の修正: [Patrick Mackinlay]
+ * 割り込みベクタ処理を改良
+ * C300割り込みエントリとスタックフレームを修正
+ * ソースレジスタがスタックレジスタと同じときのpushwを修正
+
+- apple2e: ページ切り替え時に直ちに80カラム画面を更新しないよう変更。[Peter Ferrie]
+
+- psi98: ドライブLEDの最小限な基本レイアウト追加。[rfka01]
+
+- unkitpkrの更新: [Roberto Fresca]
+ * 入力システムの実装と、残りの入力のマッピング。AY8812ポート実装とそこにDIPスイッチのリルート
+ * ハックコードについてテクニカルノートを追加
+ * 正しいパレットのresnetを追加
+ * バイポーラPROMの吸い出しを検証。「ウォールクラッシュ」のものと一致
+
+- Royal Jackpotの改良: [Roberto Fresca]
+ * 正しい入力、DIPスイッチ、デフォルトNVRAMを追加。ゲーム名の変更と動作可能へ昇格
+ * 3つの不足PLDをNO_DUMPとして追加
+ * マニュアルよりDIPスイッチテーブル追加。ファクトリよりデフォルトの位置を実装
+ * 三番目描画機能についてノートを追加
+
+- arm7: ARM946ES派生版追加。CPU ID値修正。[Ryan Holtz]
+
+- cgc7900: キーボードとシリアルポート接続。強制コールドブート。[shattered]
+
+- Namco System 22とSystem 23ゲームのリージョンとタイトル修正。[sjy96525]
+
+- PlayStation CPUでプログラムカウンタのブレークポイント実装。PlayStation EXE、CPE、PSFローディングの再追加。[smf]
+
+- INS8250レジスタ/ビット(LSR/MCR/LSR)用の名前付き定数追加。[Sven Schnelle]
+
+- HP HIL: デバイス間のコマンドをパススルー。[Sven Schnelle]
+
+- HP9000/300の改良: [Sven Schnelle]
+ * HILキーボードをサポート
+ * DIOカードの検出を修正
+ * DMAコントローラのハックを無効化(ROMが未実装のDMA機能を使ってしまう。PIOに巻き戻し)
+ * SN76494サウンドデバイス追加
+
+- hp9k_3xx: HP9000/332でキーボードとサウンドの実装。98603 ROMカードの追加。[Sven Schnelle]
+
+- hp16500: HIL MLCの接続。[Sven Schnelle]
+
+- tourvis: 新しいBIOS吸い出し追加。BIOS名の確認、新しく見つかったIDコードのゲームを更新。[system11, Tafoid]
+
+- iteagle: virtpoolのミディアム解像度をデフォルトに設定し、MACHINE_IMPERFECT_GRAPHICSを削除。[Ted Green]
+
+- 共有コードのクリーンアップと最適化: [Vas Crabb]
+ * Natual Keyoboardで低位のシフトステートを優先し、O(n)キャラクタルックアップを削除
+ * ほとんどのROMエントリアクセサマクロをテンプレート化し、tiny_rom_entry/rom_entryのポインタ/参照で動作するよう変更
+ * 特定のROMエントリタイプ用にイテレート可能クラスのラッパを追加開始
+ * LOG_OUTPUT_STREAMを使用しlogmacro.hでC++出力ストリームをサポート
+ * -listxmlのパフォーマンスを10%くらい改善
+
+- -listxmlでレポートされるROM BIOSをROMロードにマッチするものに改良。[Vas Crabb]
+
+- buggychl: NMIトランポリンの削除と、メモリマップにミラー追加。[Lord Nightmare]
+
+- grchamp.cpp: サウンドCPUコミュニケーション改良。[Lord Nightmare]
+
+- taitosj: サウンドCPUコミュニケーション改良と、サウンドCPUのメモリマップにミラー追加。[Lord Nightmare]
+
+- upd7725: OV1とS1フラグの演算を修正。[AWJ, Lord Nightmare]
+
+- superqix.cppの更新: [Lord Nightmare]
+ * 8751 port2ラッチの実装とsemaphoreの修正
+ * 保留になっていたコミュニケーションのハックを、スケジューラ同期バリアに置き換え
+ * ステートクラスの分離、port2の処理の統合、不要なトランポリンの削除
+ * 基板よりCPUとMCUの正しい分周を割り出し
+ * 8031海賊版MCUのport 3出力ラッチのエミュレーション追加
+
+- MC68705吸い出し2つで化けていたバイトをRAWデータの再解析により修正。[Lord Nightmare, ShouTime]
+
+- retofinvb3: 色修正。[Lord Nightmare]
+
+- hexion.cpp: K053252 CCPUからのINT_TIMEコールバックを修正(BGMテンポ修正)。hexionbの音程修正。[Lord Nightmare]
+
+- notetaker.cpp: ノートの更新、ソースリストよりPROMの型を追加。[Lord Nightmare]
+
+- hiscore.dat更新。[Leezer]
+
+-tnzs.cpp: ROM基板配置修正と、P0-25-A基板のGuruなReadMeを追加。[Guru]

@@ -1,0 +1,212 @@
+0.123u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01520: [DIP/Input] wilytowr, atomboy: DIPスイッチ情報
+- 01236: [DIP/Input] psurge: コイン入力ができない
+- 01521: [Gameplay] ar_sdwr: タイトル画面でハング
+- 01477: [Gameplay] metamrph, metamrpj, metamrpu: ゲームが始まらない
+- 01452: [Misc.] boobhack: クラッシュ
+- 01474: [Sound] ninjakd2, ninjak2a, ninjak2b, rdaction: サウンド関係の問題
+- 01461: [Misc.] mazinger: ウォッチドッグメッセージが出てリセットする
+- 01440: [Speed] mazingar, agallet: 特定の場面でスローダウンする
+- 01087: [Misc.] spbactn, spbactnj: デバッグビルドでクラッシュ、ノーマルビルドで
+         表示化け
+- 00223: [Graphics] splndrbt: 最初の面で、小惑星を過ぎた背景は黒ではなく青
+- 00220: [Graphics] splndrbt: 実機の背景は歪んでいる
+- 00217: [Graphics] splndrbt: 実機の起動画面の背景は青色
+- 01531: [Misc.] ポリゴン系 drivers: winwork.c メモリリーク
+- 00150: [Misc.] alpinr2b, alpinesa : -debugでアサート
+- 01462: [Save/Restore] atarimo_render-based drivers: オートセーブ読み込み時にク
+         ラッシュ
+- 01538: [Core] -verifysamples: 不明サンプルの動作が不安定
+- 01491: [Interface] switchresでエラーが起こる
+- 01529: [Misc.] AICAのメモリリーク
+- 01511: [Save/Restore] batman: オートセーブの読み込みができない
+- 01536: [Misc.] uballoon: -debugでAccess Violationエラー
+- 01535: [Misc.] usclssic: -debugでAccess Violationエラー
+- 01465: [Misc.] topgunnr: クラッシュ
+- 01534: [Misc.] ajax, ajaxj, typhoon: -debugでAccess Violationエラー
+- 01019: [Sound] Various Drivers: サウンドクリッピング
+- 01499: [Multisession] Various Drivers: 内蔵UIからゲームを数回起動するとエラー
+- 01453: [Misc.] troangel, newtangl: クラッシュ
+- 01463: [Misc.] connect4, mpu4met0, mpu4tst2, mpu4utst, bctvidbs: アサート
+- 01475: [Misc.] vblankコールバックにより画面の無いシステムが壊れている
+- 01486: [Gameplay] meritm.c: Access Violationエラー
+- 01530: [Misc.] Various Drivers: ビットマップのメモリリーク
+- 01508: [Misc.] most vector-based drivers: アサート
+- 01527: [Misc.] all meritm.c drivers: アサート
+- 01528: [Misc.] pzlestar, sexyboom: アサート
+- 01522: [Misc.] all ddragon.c drivers: アサート
+- 01523: [Misc.] nkdodge, nkdodgeb, spdodgeb: アサート
+- 01524: [Misc.] btoads: アサート
+- 01526: [Misc.] futflash, laserbas, laserbsa: アサート
+- 01507: [Misc.] all naomi.c drivers: アサート
+- 01503: [Misc.] sidearjp, sidearmr, sidearms: アサート
+- 01509: [Misc.] backfire, backfira: アサート
+- 01501: [Misc.] all m107.c drivers: アサート
+- 01504: [Misc.] all leland.c drivers: アサート
+- 01506: [Misc.] all ataxx.c drivers: アサート
+- 01500: [Misc.] all astrocde.c drivers: アサート
+- 01514: [Misc.] all cyberbal.c drivers: アサート
+- 01515: [Misc.] all atarig42.c drivers: アサート
+- 01516: [Misc.] all atarigx2.c drivers: アサート
+- 01517: [Misc.] all atarigt.c drivers: アサート
+- 01505: [Misc.] all vicdual.c drivers: アサート
+- 01512: [Misc.] beathead: アサート
+- 01496: [Misc.] all segae.c drivers: Access Violationエラー
+- 01498: [Gameplay] otwalls: ゲーム直前に固まる
+
+
+
+ソースの変更点
+--------------
+- タイマー用の新しいデバイス型を追加。また、適用可能な箇所には、emu_timerの代わ
+  りにdevice_configを取る並列なのタイマ関数セットを追加。マシンドライバ内でタイ
+  マを定義するMDRV_TIMER_*マクロを追加。周期型とスキャンラインベースの両タイマを
+  実装。「スペースエンカウンター」と「センチピード」でこの機能を使用しています。
+  これを周期的なタイマを生成する場合の最適な方法とします。[Zsolt Vasvari]
+
+- *_vbl_cbを*_vblank_callbackに改名。[Aaron Giles]
+
+-「Magicfly」の更新: [Roberto Fresca]
+ - コンポーネントリストと基板レイアウト完成
+ - レジスタ$63(拡大)の技術的な資料を追加
+ - クリスタルを新しいフォーマットに切り替え
+
+- Funworld製ゲームの更新: [Roberto Fresca]
+ - jolyc980に正しい入力追加
+ - jolyc980の"コード"画面をバイパスできるように一時的なパッチ追加
+ - テクニカルノートを更新
+
+- exidy440_sound_commandを"UNIT8"に差し戻し。が8bitと16bitのシステム両方で使われ
+  るため、UINT16 **へのキャストが必要な場合は自動割り当ては意味がありません。
+  exidyファイルの一部からdeprecat.hを削除。[Zsolt Vasvari]
+
+-「エアバスター」の海賊版がウォッチドックのせいでリセットするのを修正。
+  [Zsolt Vasvari]
+
+- オンスクリーンメッセージの"Reset by watchdog"をデバッグビルドだけで表示するよ
+  に変更。[Zsolt Vasvari]
+
+- megatechゲームの上画面を修正。[Zsolt Vasvari]
+
+-「Gorf」に内部アートワークを追加。[Mr. Do!]
+
+- clifront.cのメモリリークを修正。[Zsolt Vasvari]
+
+- ドライバからどのスクリーンにどの照準を表示するかを指定するための関数
+  crosshair_set_screen()を追加。[Nathan Woods]
+
+- ドライバがセーブステートをサポートしているとき、セーブステートコールバックの登
+  録が間違ったタイミングで行われた場合、致命的なエラーが起こるように変更。
+  [Aaron Giles]
+
+- device_startコールバックで、前後関係があいまいな問題があったのを修正。
+  [Aaron Giles]
+ 
+ - DEVINFO_INT_TOKEN_BYTESを追加。これは、デバイスのスタートアップ前に必要です。
+   0ではなく、device->tokenから割り当てられる構造体のサイズを返す必要があります
+
+ - コアデバイスインターフェイスについて、device_startを呼び出す前に、
+   DEVINFO_INT_TOKEN_BYTESのサイズのメモリブロックの確保と内容のゼロ化。このメモ
+  リへのポインタは、device_startを呼び出した時点で既に、device->tokenにアタッチ
+  されています
+
+ - これを導入した主な理由は、オブジェクトが完全に構成されているかのように、
+   device_startが内部コールを行い、device_config *を渡すことできるようにするため
+   です。デバイスが生きているかを示すのにトークンを使っているため、これにより、
+   device_startが呼び出された時点では、デバイスが生きていると設定します。
+
+- 画面毎の初期化をコアビデオ部のDEVICE_STARTに、画面毎の後処理をDEVICE_STOPに移
+  動。[Aaron Giles]
+
+- スクリーンが見つからない場合、render_target_get_minimum_size()が最小の値を返す
+  ように修正。[Aaron Giles]
+
+- Alpha Denshiの大幅アップデート: [Nicola Salmoria]
+ - Alpha 8201/830x MCUシミュレーションを修正
+   - equitesドライバから全てのハックを削除
+   - equitesで、地下面に行ってからのリスタート位置を修正
+   - hvolumeとsplndrbtのプレイヤー2を修正
+   - exctsccr2からハックを削除
+   - shougiのCPU動作を修正
+ - Alpha 8201 MCUを使用するゲームに追加 (ROMは未使用。HMCS44 CPUコアが必要)
+ - equites.cのクリーンアップ:
+   - 貴重なハードウェア情報について、Corrado Tomaselli氏に感謝
+   - PROMを使った背景スクロールを実装
+   - スプライトのフリップと無効化を修正
+   - 背景色修正
+   - 背景をタイルマップにコンバート
+   - 前景のバンキングを修正
+   - 画面反転を修正
+   - 意味も無くプレイヤー入力をバンクしていたのを削除
+   - MSM5232周波数のUIによる調整を追加
+   - MSM5232の音量調整
+ - MSM5232ノイズLFSR処理法を修正 (サンプル提供はCorrado Tomaselli氏; 作業は
+   Jarek Burczynski氏)
+ - MSM5232エミュレータがチャンネルを分けて出力するように変更
+ - MSM5232エミュレータのソロチャンネル出力を追加
+ - champbasの入力を修正
+ - champbasとtalbotを統合。ドライバのクリーンアップ
+ - shougiの入力を修正
+ - exctsccbが正しいグラフィックROMを使うように変更 (バグID 01058にあるスクリーン
+   ショットに合うように)
+ - exctscrrのスプライト色数を修正。色の修正と透過表示に使われていたとんでもない
+   ハックを削除
+ - exctsccrのサウンドクリッピングを修正
+ - equites.cのゲームにサンプルを使用したパーカッションを追加; サウンドボードのエ
+   ミュレーションはまだ不完全です。シンバルヒット音とハイハットが無く、ベースラ
+   インも不正確、またDAC出力はフィルタリングする必要があります
+
+- spbactnのクラッシュ修正。[Zsolt Vasvari]
+
+- drawgfxで、不要なペンの検索を削除。コードフォーマットのクリーンアップ。
+  [Zsolt Vasvari]
+
+- ninjakd2のPCMサンプルレートを基板の値に合うように修正。[Nicola Salmoria]
+
+- Windowsでのchdman -extractを物理ドライブに修正。[Aaron Giles]
+
+- video_screen_update_partial()で、VIDEO_UPDATEが結果として呼び出されたかを示す
+  値を返り値として追加。[Aaron Giles]
+
+- pitnrunの周波数の間違い修正。[Corrado Tomaselli]
+
+- DIPスイッチの改良: [RansAckeR]
+ 1945kiii.c, 88games.c and 40love.c: PORT_DIPUNKNOWN_DIPLOCを使用
+ 40love.c: PORT_INCLUDEを使用
+ 8080bw.c: DIP配置をさらに追加。PORT_INCLUDEを使用
+ wilytowr.c: atomboy/wilytowrのDIP配置追加。コインモード修正
+ battlane.c, battlera.c, battlnts.c, bbusters.c: DIP配置追加
+ battlnts.c: PORT_INCLUDEを使用。不明なDIPを修正
+ bbusters.c: ガンのキャリブレーションについて記載
+ bionicc.c: DIP配置追加
+ bladestl.c: DIP配置追加。PORT_INCLUDEを使用
+ blockade.c: PORT_INCLUDEを使用
+ beezer.c: DIP配置追加
+ bfm_sc2.c: PORT_INCLUDEを使用
+
+- 基板上にHD6845があり、さらにVBLANKの生成に使用されているので、値をハードコード
+  する代わりにMPU4ドライバでHD6845を使うようにコンバート。ネットワークにプルダウ
+  ンレジスタを追加。後期の筐体(Ready Steady Go-1以降)では、10pスロットがロックア
+  ウト(これ用のtrueレジスタの位置は不明)されていますが、入力設定は正確です。お金
+  の投入にはコイン2以上を使います。[James Wallace]
+
+- SH-4 CPUをデバッグ中にデバッガウィンドウに"ゴミ"が出るのを修正。
+  [Oliver Stoenberg]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+激走 [Nicola Salmoria]
+Pot Game (italian) [Roberto Fresca]
+
+
+新規クローンセット
+------------------
+ピットフォールII (315-5093, Flicky Conversion) [Corrado Tomaselli]
+サンダードラゴン (4th Jun. 1991) [Corrado Tomaselli]

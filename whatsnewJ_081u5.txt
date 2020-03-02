@@ -1,0 +1,130 @@
+0.81u5
+------
+
+ソース全般の変更：
+------------------
+
+■vblankのコールバックログが間違って残っていたのを削除。[Aaron Giles]
+
+■最近のIDEの変更でSeattleの起動に時間がかかるようになっていたのを修正。[Aaron Giles]
+
+■DCS2アップロードコマンドのHLEによる最適化。(ドライバ側の作業を軽減) [Aaron Giles]
+
+■MIPSコアの割り込み修正。[Aaron Giles]
+
+■デバッグ時に、PC処理を正確にするためのMIPSコアオプションMIPS3DRC_FLUSH_PC追加。
+  [Aaron Giles]
+
+■MIPSでビッグエンディアンモードのときに2バイトの値に直接アクセスする時のバグを修正。
+  [Aaron Giles]
+
+■Seattleシステムの更新。[Aaron Giles]
+    seattle.c:
+    * VBLANK割り込み処理の改善
+    * DMAオペレーション処理のクリーンアップ
+    * Voodooに書き込み出来ないとき、DMAオペレーションが正確に一時停止するように修正
+    * ブリッジデバイスPCIの正確なIDを返すように修正
+    *「BioFreaks」の入力とDIPスイッチのマッピング強化
+    *「Wayne Gretzky's 3D Hockey」のクロック速度を修正
+    * メモリマップをクリーンアップ
+    *「ヴェイパーTRX」をサポートゲームに追加
+    *「ハイパードライブ」と「SF Rush: The Rock」のエントリ追加
+
+    midwayic.c:
+    * 実時間クロックの疑似サポート（チェックパス用）
+    *「ヴェイパーTRX」のシャッフルマップ追加
+    * UARTに生のループバック実装（チェックパス用）
+
+    voodoo.c:
+    * 完全なFIFOメモリエミュレーション追加
+    * バッファ入れ替え後のファストフィル処理のハックを削除
+    * 解像度縮小のコンパイル時オプション追加
+    * VBLANK同期用のクライアントコールバック追加
+    * 統計情報とデバッグ情報のハンドリングをクリーンアップ
+    * R/Bコンポーネントの入れ替えオプション追加（vaportrx用）
+    * Midway POST実行時にクラッシュする問題を修正
+    * hSync/vSyncレジスタベースで動的にリフレッシュレートを計算するように改良
+
+■「雷電II」のスプライト描画改善。[David Haywood]
+    ゲーム自体はバンキングの問題とプロテクトによりプレイ不可
+
+■修正いろいろ。[Nathan Woods]
+    src/osdepend.h:
+        - GCC 2.5以降でコンパイルするとき、__attribute__((noreturn))をosd_die()に追加
+
+    src/memory.c:
+    src/state.c:
+    src/x86drc.c:
+    src/cpu/i386/i386.c:
+    src/cpu/i386/i386op16.c:
+    src/cpu/i386/i386op32.c:
+    src/cpu/i386/i386ops.c:
+        - printf()/exit()の組み合わせをosd_die()にコンバート
+
+    src/windows/config.c:
+        - osd_die()のメッセージがlogerrorとコンソール出力の両方に送られるように変更
+
+    src/cpu/i386/i386op16.c:
+    src/cpu/i386/i386op32.c:
+    src/cpu/i386/i386ops.c:
+        - i386の入出力命令を実装
+
+■Model1のライティングを改善。[ElSemi]
+
+■TMS32025の修正。[Phil Stroffolino, Quench]
+
+■SPIシステムのアップデート。[Ville Linde]
+    * 標準タイルにテキストレイヤーのデクリプトを適用
+    * スクロール、レイヤー無効化などのタイルマップエミュレーションを超改善
+    * タイルバンクセレクトとパレットバンクセレクトなど、タイルマップエミュレーションを
+      さらに改良
+    * viperp1の別仕様（旧型？）のビデオハードをサポート。タイルマップがひとつ少なく、
+      VRAMのレイアウトが違うもの
+    * ejanhsに麻雀コントローラ追加。でもコインが入らず
+    * スプライト描画改善
+    * rf2_usのサウンドが動作し始める
+
+■Konami GXのクリーンアップ。[R.Belmont]
+    * 実機所有者にとって紛らわしかったため、Acho氏による偽のDIPスイッチを削除
+    * 最新スペックに合わせてメモリマップの統合とクリーンアップ
+    * rushheroのプロテクトをさらにエミュレート（スプライトリストのコピー場所が正しく
+      なりました）。見た目の改善は特にありません
+    * GCC 3.3以降で警告が出ないように未使用のルーチンを削除
+    * type3と4について、PSACタイルのデコードを修正
+    * type3のPSACタイルマップのXとY反転フラグを修正
+
+■Rock-olaの改良。[Curt Coder]
+    drivers/rockola.c
+    sndhrdw/rockola.c
+    - さらにクリーンアップ
+    - 他のゲームにもSN76477インターフェースを追加。ただし未接続。
+      要、ディスクリートサウンドのエキスパート（ウインク、ウインク）
+    - vanguardにSHOT Bの効果音を追加
+    - vangrdceのフェイクROMにNO_DUMP追加
+    - nibblerのマニュアルに従ってROM名を訂正
+
+■MegaPlayで、さらにチェックをパスするように改良。[Barry Rodewald]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+ブレイブブレイド [smf, David Haywood]
+レイストーム [smf, Olivier Galibert]
+Pirate Treasure [Stefan Jokisch]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+NBA Maximum Hangtime v1.03 [Asure]
+Leprechaun (Pacific Polytechnical license) [Stefan Jokisch]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+MegaPlay: Tecmo World Cup [David Haywood]
+    MegaPlay自体のエミュレートがまだ不完全
+ヴェイパーTRX [Aaron Giles]
+    ゲームをスタートしようとすると固まる
+San Francisco Rush: The Rock [Aaron Giles]
+ハイパードライブ [Aaron Giles]
+    ハードディスク無し

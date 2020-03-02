@@ -1,0 +1,127 @@
+0.134u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03470: [クラッシュ/フリーズ] backfirea: 起動時に"Game mode setting error"と出る。
+         (Fabio Priuli)
+- 03465: [クラッシュ/フリーズ] batrid, bgaregga, bkraidu and clones: ROMチェック後に
+         リセットがかかる。(R. Belmont)
+- 03463: [DIP/入力] kingball, kingballj: コインエイジのDIP設定が間違っている。
+         (Tafoid)
+
+
+
+ソースの変更点
+--------------
+- Multifishドライバの更新: [MetalliC]
+ - RTC(リアルタイムクロック)を実装
+ - バックドア/海賊版/ハックについてのドキュメント追加
+
+-「スペースエンカウンター」 - 敵のショット音を修正。[Derrick Renaud]
+
+-「Space Walk」 - Springboard Missサウンドを開始。[Derrick Renaud]
+
+-「Omega / ジ・エンド」のカラーPROMを追加。[Andy Welburn]
+
+- m68k updates: [R. Belmont]
+ - PMMU命令が未装備CPUに当たったとき、Fライントラップを正しく出すように変更
+ - PPMUアドレストランスレーション(機能的には不完全ですが、MESSの68030 Macを起動するに
+   は十分です)
+ - PPMU命令の逆アセンブリを修正
+ - "68851付き68020"CPU型を追加
+
+- spikeoutに正しく吸い出した64Mb CROMを追加。[Phil Bennett]
+
+- 既存のUNEXPECTEDマクロを補足する形で、EXPECTEDマクロを追加。[couriersud]
+
+- ディスクリートの更新: [couriersud]
+ - 定数の変な箇所を修正
+ - CRFILTER_VREFとRCFILTER_VREFのVREFを修正。VREFが静的変数だったため使われることがあ
+   りませんでした
+ - CR_FILTER*とRC_FILTER*からenableを削除
+ - 合わせてドライバを更新
+ - コンパイラ支援用にEXPECTED/UNEXPECTEDを使用
+
+- DISCRETE_CRFILTER, DISCRETE_RCFILTERの更新: [Derrick Renaud]
+ - rev 6979での変更を巻き戻し
+ - 全ての値をノード化できるように変更
+
+-「スターシップ1」 - モーター音を修正。[Derrick Renaud]
+
+-「Shuffleboard」- ディスクリートサウンド実装開始。[Derrick Renaud]
+
+- 8237dmaのDMA書き込みマスクレジスタを修正。[Mariusz Wojcieszek]
+
+-「ブルーシャーク」- タコ音追加。[Derrick Renaud]
+
+-「フロッガー」(Sega set 2)のROM名訂正。[Derrick Renaud]
+
+- multifish.cドライバにあるIgrosoft製ギャンブルゲームハードウェアの基板レイアウトを追
+  加。[Brian Troha]
+
+- genesis/megadrive用コードのうち、古いものや重複したものを削除。また、
+  megaplay/megatech用の定数を構造体へ移動して、コードの再整理中。海賊版で、最新の
+  genesis用コードを使うようにして、src/mame/drivers/genesis.cをついに削除。
+  [Fabio Priuli]
+
+- コアライブラリとOSDファイルの著作権保持者の確認と、オリジナル作者の許諾の元でBSDラ
+  イセンスによる再ライセンス。対象ファイルはsrc/lib/utilとsrc/osd。[Aaron Giles]
+
+- デバッガでデバイスメモリ空間を可視化。[Aaron Giles]
+
+- ディスクリートサウンドのタスク処理を改良: [couriersud]
+ - タスクを依存関係リストに基づいて処理するよう変更。早期にタスクを開始して、既に利用
+   できるサンプルのみを処理させることが可能です。これは、各タスクのランタイムにおける
+   違いが大きく出るドライバに影響します。
+ - タスク側は、サンプルをスライスで処理します。現在は、スライス当たり最大240サンプル
+   です
+ - TASK_GROUPを廃止。ドライバは後ほど更新します
+ - ノードにステップ関数ポインタを復帰。モジュールで最適化したステップ関数を登録します
+ - プロファイリングコードを常にコンパイル。static int profiling = ...を導入
+ - EXPECTED/UNEXPECTEDをさらに使用
+
+- attckufoのDIPスイッチ修正。[stephh]
+
+- Norautポーカードライバの改良: [Roberto Fresca]
+ *「Draw Poker Hi-Lo」ハードウェアをサポート。8080A CPUベース
+ * ハードウェアエミュレーションのシンプル化と統合のためPPIオフセットをミラーリング
+ * DPHL両セットよりハードウェアのドキュメントと基板レイアウト追加
+ * DPHLディスクリートサウンド回路とドキュメントを追加
+ * Micro Manufacturing製の「Turbo Poker 2」追加
+ * PMAポーカー追加
+ *「Turbo Poker 2」ハードウェアのドキュメント化
+ *「Turbo Poker 2」基板レイアウトを追加
+ * 新型PPIコアへ切りかえ
+ * ハンドシェイクされたストロボラインが正しくエミュレートされるまで、3番目のPPIデバイ
+   スをコメントアウト。今のところ、全てのVRAMアクセスはダイレクトハンドラ経由で行われ
+   ます。これにより、各ゲームで起動用に必要だったハックを削除できました
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Pirate 2 (061005) [Metallic]
+Phoenix Part 2 [Andy Welburn, Dumping Union]
+Block 2 (アルカノイド海賊版) [Andy Welburn, stephh]
+団地でクイズ -奥さん4択ですよ！- [Guru]
+ゴーフォーザゴールド (Japan) [Darran]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Pirate (060803) [MetalliC]
+Battle of Atlantis (bootleg) [David Haywood, Dumping Union]
+Multi Fish (031124) [MetalliC]
+
+
+
+追加された未動作ゲーム
+----------------------
+Bingo Roll / Bell Star V3 [Roberto Fresca, Team Europe]
+Draw Poker Hi-Lo (M.Kramer) [Roberto Fresca]
+Draw Poker Hi-Lo (alt) [Roberto Fresca, Alan Griffin]
+PMA Poker [Roberto Fresca, Siftware]
+Turbo Poker 2 [Roberto Fresca, Siftware]

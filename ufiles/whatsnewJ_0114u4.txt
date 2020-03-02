@@ -1,0 +1,108 @@
+0.114u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+gauntlet0114u2gre [Aaron Giles]
+psxbasedgames0114u3red [couriersud]
+successstv0114u2red [R. Belmont]
+asserts0113ora [Aaron Giles]
+hginga0114u2gra [Aaron Giles]
+ckongg0114u2gra [Aaron Giles]
+sample0114u3 [Aaron Giles]
+rampage0114u2gra [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「アルカノイド」の周波数を実機で計った値に更新。[Tormod Tjaberg]
+
+- vp906iiiドライバの書き直し: [Roberto Fresca]
+ - グラフィックの正確なデコード
+ - プログラムROMの解析を元にして、メモリマップを書き直し
+ - I/O用にSY6520/6280 (M6821) PIAを実装
+ - SY6545 (6845) CRTコントローラを実装
+ - SY6545 CRTCレジスタを元に、画面全体と表示部分のサイズを修正
+ - PIA経由の入力を部分的に追加
+ - AY8910サウンドを正しく追加（$0840-$0841にマッピング）
+ - カラーPROMによる正確な色表示
+ - プロテクトへの対策
+ - NVRAMをサポート
+
+- 不要なNULLチェックとauto_mallocを間違って使っているのを修正。[Atari Ace]
+
+- Model 1ゲームのレイヤー描画とポリゴンのソート順を修正。wingwarが大幅に改良。
+  [Yochizo]
+
+- ARM7を大幅更新: [R. Belmont]
+ * 逆アセンブラをクリーンアップ
+ * Thumb命令をさらにサポート
+ * 不要なログ保存を削除
+ * Unalignedなリード・ライトをサポート
+
+- Success製のST-Vゲームで、CDが見つからないためにクラッシュしていたのを修正。
+  [R. Belmont]
+
+- オプション経由のenumをサポート。[Nathan Woods]
+
+- set_vh_global_attribute()とget_vh_global_attribute_changed()を多くのドライバか
+  ら削除。同時に、これらのゲームのビデオシステムもクリーンアップ。最も改善が大き
+  いのはroute16、hyhoo、tutankhm、liberatr。[Zsolt Vasvari]
+
+- minxという名前がついているCPUコアを追加。このコアはNintendoポケモンミニハンド
+  ヘルドコンソールのエミュレーションに使います。[Wilbert Pol]
+
+-「オメガレース」のクロック修正とドキュメント追加。[Tafoid]
+
+- 6502 CPUコアで、リード・ライトが毎サイクル発生するように精度を向上。6502コアの
+  他のバージョンで、ドキュメント化されていない命令を持つものがあるため、これらの
+  命令を6510コアからメインの6502コアに移動。また、コードを読みやすくするための
+  #defineオーバライドを削除。6510コアで、port_readとport_write関数が引数にddrレ
+  ジスタを含むように更新。[Wilbert Pol]
+
+- MIPS3 DRCを、16バイトの境界に対してスタックアライメントを行うように更新。
+  Mac OS Xでの呼び出し規約のために必要。WindowsとLinuxでの呼び出し規約との互換性
+  も保っています。これにより、Intel CPUのOS XでMIPS3ゲームがクラッシュしていたの
+  が修正されます。[Vas Crabb]
+
+- -verboseオプションをコアに移動。新関数mame_printf_verbose()を追加。これは、
+  -verboseが使用します。既存のverbose出力を、全て新関数を使うように変更しました。
+  [Aaron Giles]
+
+- cpu_boost_interleave()、cpu_spinuntil_tile()、cpy_yieldunit_time()で、double型
+  に代えてmame_time型の引数をとるように変更。[Aaron Giles]
+
+- MDRV_CPU_PERIODIC_INT()の引数を、時間から周波数に変更。内部でサブセカンド値に
+  コンバートされます。[Aaron Giles]
+
+- asteroidとllanderの操作を、ジョイスティックからボタンへ修正。[Aaron Giles]
+
+- TMS34010コアのレジスタとフラグ管理を簡略化。全てのフラグ処理を再調査して、マイ
+  ナーな食い違いを2箇所修正。[Aaron Giles]
+
+-「ロードライアット4WD」「スティールタロンズ」に、実際にTMS32015を実装。
+  [Aaron Giles]
+
+- i386コアのシステムレジスタへのアクセスを改良。セグメントデータとフラグの明示的
+  なキャッシュを追加。また、マイナーな問題をいくつか修正。[Aaron Giles]
+
+- AY8910系のチップを追加。互換性があってわずかに異なるチップを使っているケースを
+  特定できるように。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+エキサイトリーグ [Guru, Aaron Giles]
+スーパーリーグ [Guru, Aaron Giles]
+ロードライアット4WD [Aaron Giles]
+Gaming Draw Poker [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Freeze (クローン数本) [Aaron Giles]
+レーシングフォース (ver EAC) [David Haywood]

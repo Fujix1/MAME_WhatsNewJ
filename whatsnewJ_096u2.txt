@@ -1,0 +1,118 @@
+0.96u2
+------
+
+
+MAMETestersの修正バグ
+---------------------
+starforc095u5gre
+fghtbskt095u2red
+ncv1095gre
+paperboy095gre
+garyoret095u2yel
+alpine37b4gre
+bioatack080u1yel (以前に修正されてました)
+hwrace37b10gre
+piratpet060yel
+waterski37b5yel
+
+
+
+ソースの変更点
+--------------
+新型デバッガで内部RAMの表示ができるように、CPUのリード・ライトハンドラを指定でき
+る機能を追加。TMS32025コアでこれを実装。[Aaron Giles]
+
+TMS34010コアのウィンドウモード1を修正。また、配列ずれのスタックアクセスが動作し
+なくなっていたバグ、またそれによりPCで16bit揃えにしなくてよかったのを修正。
+[Aaron Giles]
+
+TMS32025コアのMAC命令バグ修正。また内部タイマが狂う原因だったサイクルカウントの
+問題も修正。[Aaron Giles]
+
+「Hollywood Action」のスプライト終了リストと画面反転修正。[Pierpaolo Prazzoli]
+
+「New Sindbad 7」の色修正。[Pierpaolo Prazzoli]
+
+Taito SJシステムのスプライト修正:
+- スプライトプライオリティ修正。「ティンスター」「エレベーターアクション」
+ 「ハイウェイレース」のプライオリティと、「エレベーターアクション」の面終わり部
+  分のラッピング修正
+- 画面端のスプライトクリッピング追加。実基板で起きてるのを確認して追加しました。
+ 「エレベーターアクション」での弾のラップラウンド処理はこれで99%間違いないと思い
+  ます :)
+- ハードのスプライト当り判定修正。「Pirate Pete」の最終面、「アルペンスキー」の
+  ボーナス、「ウォータースキー」の1面最後部分修正 [Nicola Salmoria]
+
+「Rohga / ウルフファング」のDIPスイッチ修正。[Yasuhiro Ogawa]
+
+「ヴォルフィールド」の修正:
+- 表示エリア修正
+- ROM名修正
+- カスタムチップシミュレーションを改良。タイミングと色データが全部正確
+  [Bryan McPhail]
+
+入力設定をデリートキーでクリアできる機能追加。[Curt Coder]
+
+Qixドライバにカクテルモードの反転追加。[Nicola Salmoria]
+
+「ハイパークラッシュ」のグラフィック修正。[Pierpaolo Prazzoli, David Haywood]
+
+8255 PPIモード2サポートを書き直し。またbuckrogで8255を正しく実装。[Nathan Woods]
+
+SCSIのバグ修正いっぱいと、コマンド及びモードの追加。[R. Belmont, Ville Linde]
+
+「Goal!'92」と「Euro League (海賊版)」にMSM5205を実装したけどあんまり音が良くな
+い。[Pierpaolo Prazzoli]
+
+Eposゲームの復号化をクリーンアップ。[Nicola Salmoria]
+
+xday2でデフォルトのnamcona1ジョイスティック入力を使うように変更。これで最初のプ
+リンタテスト後にプレイできます。[Sonikos]
+
+mj4simaiのLボタンが無かったのを修正。[Pierpaolo Prazzoli]
+
+Playchoice 10 BIOSのシングルモニタ版サポート。画面比率とデュアルモニタフラグの設
+定をランタイムで変更できないので画面の上側に表示されます。[Pierpaolo Prazzoli]
+
+-debugscriptコマンドラインパラメータ追加。スタートアップ時にデバッガを起動します。
+[Nathan Woods]
+
+mame_debugがONのときにMIPS DRCコアの最適化をしないように変更。これによりMIPS DRC
+が無効なものと比較トレースするのが容易になります。[Nathan Woods]
+
+Sun8ドライバの復号コードを単純化。また「Brick Zone」メインセットの改良。
+[Nicola Salmoria]
+
+PPCコア（403, 602, 603)を全部有効にしていない場合にコンパイルが通るように非DRCの
+PPCコアにパッチ追加。またFCMPO命令改良。[Nathan Woods]
+
+間違ってキー設定を変更してメインメニューに行けなくならないように、オンスクリーン
+ディスプレイと設定メニューの項目を入れ替え。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Cool Pool [Aaron Giles]
+9 Ball Shootout [Aaron Giles]
+Hot Mind [Pierpaolo Prazzoli]
+ハイパークラッシュ [Pierpaolo Prazzoli]
+Multi Champ Deluxe [David Haywood]
+
+
+
+新規クローンセット
+------------------
+イエローキャブ (bootleg) [Pierpaolo Prazzoli]
+Atomic Punk (US) / ボンバーマンワールド [Pierpaolo Prazzoli]
+ガイアポリス 黄金鷹の剣 (US) [Corrado Tomaselli]
+Rock 'n Rage / 恋のホットロック (Prototype?) [Brian Troha]
+コスミックモンスターII [David Widel]
+ヴァリアメタル (New Ways Trading Co.) [David Haywood]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Revenger [Pierpaolo Prazzoli]
+機動戦士ガンダム ファイナルシューティング [David Haywood]

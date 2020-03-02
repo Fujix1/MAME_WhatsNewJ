@@ -1,0 +1,142 @@
+0.110u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+circusc0110u2gre [Derrick Renaud]
+circusc37b16ora [Derrick Renaud]
+64street057gre [Mamesick]
+cannonb0104u8Yel [Mamesick]
+gratia099u4red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- Polygonet Commandersドライバの改良: [Andrew Gardner]
+ * dsp56k命令をいろいろ実装
+ *「ポリゴネットコマンダーズ」がメモりテストをパスするようになりました
+
+- perfrmanの背景色修正。[Pierpaolo Prazzoli]
+
+- MESS用のPCサポートコードを統合。[Nathan Woods]
+
+- valtricにモザイクエフェクト追加。MAMEでも実際のハードと同じように不具合っぽく
+  表示されます :)[Tomasz Slanina]
+
+-「Honey Dolls」の色修正。[David Haywood]
+
+- circuscドライバにサウンドの最終フィルタリングステージ、正確なウォッチドッグ、
+  メモリーミラーリングを追加。またPORT_DIPLOCATION情報とセーブステートも追加。
+  [Derrick Renaud]
+
+- vconv.cで、プリプロセッサとMSVCビルドでのアセンブリファイル出力サポート。
+  [Nathan Woods]
+
+-「Honey Dolls」と「Twin Adventure」のDIPスイッチ改良。[Brian Troha]
+
+- アナログコントロールから"Autocenter Speed"メニューを削除。[Derrick Renaud]
+
+- アナログコントロールメニューに値0の"Digital Speed"追加。これはボタンの押した時
+  間に関係なく、1回押す毎に値の増減があるような操作に使います。増減量は
+  "Sensitivity"設定によるので注意してください。[Derrick Renaud]
+
+- WindowsでのマウスZ軸を使えるように入力を30倍に拡大。ほとんどのマウスではホイー
+  ルクリック当たりの数値は120です。ごく稀に30のもあるようです。というわけで、大
+  抵のマウスでは、Sensitivityを25%に設定すれば、ホイールクリック1回で増減の入力
+  が1になります。[Derrick Renaud]
+
+- cclimberドライバをクリーンアップ。cannonbのハック部分を別個のビデオ更新コール
+  バックと置き換え。[Mamesick]
+
+- ST-Vのプロテクト関係コードをstvprot.cに移動。また「デカスリート」のプロテクト
+  情報追加。stvhacksには速度用のハックの他にもほとんどの初期化部分が含まれている
+  のでstvinitに改名。[David Haywood]
+
+- funworldドライバの大幅書き直し: [Roberto Fresca]
+ - 一部のmachineドライバ、メモリマップ、入力を統合・分割
+ - 全ゲームでget_bg_tile_infoを統一
+ - 全ゲームの入力ボタンマップのフォーマットを改良
+ - 正しいカラーPROMデコードルーチン追加
+ - ドライバをdriver/vidhrdwに分割
+ - magiccrdの画面サイズと表示エリア修正
+ - magiccrdの残り2グラフィックレイヤ追加: 表示は不完全
+ - Royalcrd: 全入力とDIPスイッチ追加
+ - jolycdcrのグラフィックを4bppに修正
+ - jolycdcrが動作するようにその他の修正
+ - royalcdbが動作するようにプログラムROMの後半を使用
+ - jolycditが動作。グラフィックは不完全
+ - 残り全てのゲームもCPUクロックを2MHzに修正
+ - elephfamの音に合わせてay8910の周波数を修正
+ - ay8910の音量をクリッピングしないように調整
+ - jolycdcr、jolycditの入力を修正
+ - jolycdatをbigdealのクローンに設定
+ - jolycditにバイポーラPROMとGAL追加
+ - cuoreunoとelephfamにカラーPROM追加
+ - jollycrdの画面サイズと表示領域修正
+ - jollycrdでカラーPROMデコードと実装
+ - cuoreunoとelephfamでカラーPROMデコードと実装
+ - royalcrdのカラーPROMデコードと実装
+ - bigdealでカラーPROMデコードと実装
+ - jolycditグラフィックROMを復号化
+ - jolycdaeの復号化と正しい色表示
+
+- WindowsコードのマイナーなUnicode変更。[Nathan Woods]
+
+- Amigaハードウェアのシリアル入力・出力サポート。出力ピンとライトペンのポジショ
+  ニング実装。また、デバッグビルドでの起動時のひどい雑音を修正。[Aaron Giles]
+
+- 新しいプレーヤーに対応するため、レーザーディスクサポートを再構成。Sony 
+  LDP-1450をサポートに追加。[Aaron Giles]
+
+- 新しいレンダテクスチャフォーマットTEXFORMAT_YUY16追加。これは、4:2:2 Y/Cb/Cr
+  フォーマットのピクセルを保持するのに使用します。WindowsのDirect3Dコードとソフ
+  トウェアレンダラでこのフォーマットを直接使用するように変更。[Aaron Giles]
+
+- 新しいレンダテクスチャフォーマットTEXFORMAT_PALETTEA16追加。これは、
+  TEXFORMAT_PALETTE16と同じものですが、パレットエントリのアルファコンポーネントを
+  考慮しています。Windows Direct3Dとソフトウェアレンダラでこのフォーマットを使う
+  ように更新。[Aaron Giles]
+
+- レンダシステムで、画面要素に対してブレンドモードを考慮するように変更。これによ
+  り個々のVIDEO_UPDATEルーチンが独自の表示合成を行えます。[Aaron Giles]
+
+- レンダリングシステムで、任意のパレットを渡せるような誤解を与える部分があっ
+  たので削除。サポートされているのはシステムパレットのみです。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Twin Adventure [David Haywood]
+Royal Card [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Twins (set 2) [David Haywood]
+Jolly Card (Austria, encrypted) [Roberto Fresca]
+Royal Card (Slovakia, encrypted) [Roberto Fresca]
+Elephant Family (Italia, old) [Roberto Fresca]
+Phoenix (Centuri), Set 2 [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+パラパラパラダイス [Ville Linde]
+キーボードマニア 3rd Mix [Ville Linde]
+マッドドッグマックリー [Andrea Turci, Aaron Giles]
+Who Shot Johnny Rock? [Andrea Turci, Aaron Giles]
+Mad Dog II: The Lost Gold [Andrea Turci, Aaron Giles]
+Space Pirates [Andrea Turci, Aaron Giles]
+Gallagher's Gallery [Andrea Turci, Aaron Giles]
+クライムパトロール [Andrea Turci, Aaron Giles]
+Crime Patrol 2: Drug Wars [Andrea Turci, Aaron Giles]
+The Last Bounty Hunter [Andrea Turci, Aaron Giles]
+Fast Draw Showdown [Andrea Turci, Aaron Giles]
+Platoon [Andrea Turci, Aaron Giles]
+Zorton Brothers (Los Justicieros) [Andrea Turci, Aaron Giles]
+Joker Card [Roberto Fresca]

@@ -1,0 +1,163 @@
+0.159
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05498: [クラッシュ/フリーズ] (mpu4vid.c) Many sets in mpu4vid.c: "Serial Link 
+         Failure"画面で止まる。(crazyc)
+- 05538: [クラッシュ/フリーズ] (bfcobra.c) all sets in bfcobra.c: 最初の画面でゲーム
+         が止まってしまう。(crazyc)
+- 05838: [その他] (firetrk.c) Superbug: カラーオーバーレイが無い。(hap)
+- 02004: [クラッシュ/フリーズ] (hornet.c) nbapbp: ハードウェアエラーのメッセージが現
+         れる。(Fabio Priuli)
+- 05841: [その他] (gunsmoke.c) gunsmoke, gunsmokej, gunsmokeu, gunsmokeua: 各バージョ
+         ンの日付について。
+- 05837: [コンパイル] [64bit限定] mame-0.158 - make: *** [chdman] Error 1
+- 05835: [その他] Windows版でMAMEのバージョンが0.0.0.0になっている。(Firewave)
+
+
+ソースの変更点
+--------------
+- m65ce02: Kale氏による解析の一般化。[O. Galibert]
+
+- jvs host: パケットエンコーディングを修正。[MetalliC]
+
+-「デイトナ2パワーエディション」の解析を元に315-5881の暗号化を更新。[Andreas Naive]
+
+- LinuxとWinodowsでのマルチモニタフルスクリーンの修正。VirtualBox環境では2つのモニタ
+  に対してswitchresが動作しているが、実環境でも動くかは保証できない。動くかもね。
+  WindowsではDirect3Dの動作が安定しないので、デフォルトのレンダドライバをOpenGLに変更
+  した。この機能はいまのところ"-video accel"ドライバに限定されている。他にはユーザー
+  スペースblit処理の拡張。[Couriersud]
+
+- NetBSDで使用するためのネットワークAPI定義。[Thomas Klausner]
+
+- NetBSDでのビルド修正。[Thomas Klausner]
+
+- ディスクリートドライバのドキュメント改良。[gregf, Stiletto]
+
+- silvmil.c:「Puzzlove」のDIPスイッチ定義と配置追加。[Brian Troha]
+
+- lindbergh: CFカードの吸い出し。[soyandroid]
+
+- naomi.c:「ダービーオーナーズクラブ」のIOボード吸い出し。
+  [Mr. CAST, Smitdogg, The Dumping Union] 
+
+- C++コードをC++11としてコンパイルするMAKEFILE用定義 CPP11 を追加。[Oliver Stöneberg]
+
+- SDL 2.0.2未満でのコンパイルを修正。[announ]
+
+- EmscriptenのターゲットにSDL2を使用。[Justin Kerk]
+
+- mitchell.c:「Pang / ポンピングワールド」セットのROM名訂正。
+  [Bad A Billy, Smitdogg, Tormod, The Dumping Union]
+
+-「子連れ狼」のタイマーオーバーバグ向けパッチ。ゲームを動作可能に指定。詳しくはソース
+  の記述を参照。[Angelo Salese]
+
+- Samba共有環境の-veifyromsのパフォーマンス改善。[qmc2]
+
+- champbas.c, equites.c, shougi.c: alpha-8xxxx MCUダンプ名について、実物のチップラベ
+  ルや、実際にはHD44801 MCUであることを反映して改名。また未吸い出しのalpha-8304 MCUを
+  NO_DUMPで追加。[Lord Nightmare]
+
+- NAOMIドキュメントの訂正。[f205v]
+
+- scn2674: PCDの再作業。[Carl]
+
+- m68k: 68020/68EC020の命令キャッシュをエミュレート。[R. Belmont]
+
+- bnstars.c: プレイヤー2入力の実装。hazeinputの削除。整理いろいろとモダン化。
+  [Alex Jackson]
+
+- メインラインビルドでもOpenGLレンダラを有効化。USE_OPENGL=1を指定して有効にする必要
+  あり。コードをさらに調整。[Couriersud]
+
+- i386.c: 将来に向けて更新: [Samuele Zannoli]
+ * オペコード ?? 0f 38 ?? と ?? 0f 3a ?? をサポートするためのベースを追加
+ * オペコードテーブルで、全ての未実装命令のプレースホルダ追加
+ * オペコードグループ 0f 73 の修正
+ * オペコードグループ 66 0f 73 の修正
+ * SSEオペコード movd movdqa を専用ルーチンに移動
+ * SSEオペ—コード pinsrw pextrw を専用ルーチンに移動
+ * オペ—コード punpcklbw punpcklwd punpckldq punpcklqdq を追加
+
+- vaportraのクロック検証。[system11]
+
+- OS Xのバイナリにバージョン情報追加(Finderの情報、ウィンドウモードのaboutボックスで
+  表示される)。[Vas Crabb]
+
+- opwolf.c: 不明DIPスイッチをマニュアルを元に追加。[mzdmommy]
+
+- デバッガ改良: [Vas Crabb]
+ * 全プラットフォーム: ブレイクポイント/ウォッチポイントビューのソート、配置、クリッ
+   クのクラッシュ修正
+ * Win32/Qt/Cocoa: メニュー内の使用可能な操作のみの動的更新を改良
+ * Win32/Qt/Cocoa: どの逆アセンブリビューにフォーカスがあってもブレークポイントが操作
+   できるように改良
+ * Win32/Cocoa: ブレイクポイント/ウォッチポイントウィンドウ追加
+ * Win32/Cocoa: マルチマシンへの対応に備えてグローバルステートを削除。終了時のクリー
+   ンアップ。ハードリセット時のクラッシュ防止
+ * Win32: C++へ移植。メモリリークやバグなどの修正
+ * Cocoa: デバイスツリーと詳細ウィンドウ追加
+ * Cocoa: レンダリング、マウス処理、パフォーマンスの改善
+
+- sdl-とpkg-configコマンドを一度だけ評価。[Ramiro Polla]
+
+- sdl: MACOSX_USE_LIBSDL用のBASELIBS追加。[mbcoguno]
+
+- 3rdparty/mongoose: BSDとSolarisでのビルドを修正。[0-wiz-0]
+
+- SDLMAME v0.158用のOS/2パッチ。[KO Myung-Hun]
+
+- 以下のドライバでセーブステートのサポート・有効化: [Osso]
+  bestleag.c, bloodbro.c, buggychl.c, chaknpop.c, cyclemb.c, d9final.c, darkmist.c, 
+  dcon.c, dreambal.c, exzisus.c, fastfred.c, fuukifg2, fuukifg3.c, galpani2.c, 
+  gladiatr.c, gluck2.c, goodejan.c, gsword.c, iqblock.c, kaneko16.c, limenko.c, 
+  lordgun.c, mastboy.c, mustache.c, panicr.c, pipeline.c, pirates.c, progolf.c, 
+  quizo.c, quizpani.c, rabbit.c, raiden.c, retofinv.c, rollrace.c, scotrsht.c, 
+  seicross.c, sengokmj.c, shadfrce.c, shootout.c, sidepckt.c, skyarmy.c, skydiver.c, 
+  snowbros.c, supduck.c, taxidriv.c, tecmo.c, tecmo16.c, tecmosys.c, tehkanwc.c, 
+  thedeep.c, tmmjprd.c, tnzs.c, toki.c, vball.c, wc90.c, welltris.c, wink.c, 
+  wrally.c, wwfsstar.c, xorworld.c, xxmissio.c
+
+- opwolf.c: DIPLOCATION追加。[Guru]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+PuzzLove [Manuel Assoni]
+Player's Edge Plus (PS0090) Gold, Silver & Bronze Slots [BrianT]
+Poke Champ (set 2) [system11]]
+Super MIss World [system11]
+
+
+新しく追加されたクローンセット
+------------------------------
+ゴーストスカッド (GDX-0012) [Ripper006]
+セガネットワーク対戦麻雀MJ2 (Rev F) (GDX-0006F) [Team Europe]
+サイドアーム -HYPER DYNE- (US, 861202) [system11]
+ターボアウトラン (Japan, deluxe cockpit, FD1094 317-0101)
+  [Charles MacDonald, ShouTime]
+アヴァロンの鍵 (server) (Rev E) [Ripper006]
+アヴァロンの鍵 (server) (Rev F) [Ripper006]
+アヴァロンの鍵 (server) (Rev G) [Ripper006]
+アヴァロンの鍵 (client) (Rev E) [Ripper006]
+アヴァロンの鍵 (client) (Rev F) [Ripper006]
+アヴァロンの鍵 (client) (Rev G) [Ripper006]
+アヴァロンの鍵 ver.1.20 -新たなる召還- (server) (Rev A) [Ripper006]
+アヴァロンの鍵 ver.1.20 -新たなる召還- (client) (Rev A) [Ripper006]
+アヴァロンの鍵 ver.1.30 -混沌の宴- (server) (Rev C) [Ripper006]
+激闘プロ野球 水島新司オールスターズVSプロ野球 (Rev B) [Ripper006]
+アシュラバスター -エターナルウォリアーズ- (Japan) (ARCADIA review build)
+  [ShouTime]
+超時空要塞マクロスII / Super Spacefortress Macross II (GAMEST review build)
+  [ShouTime]
+ウルトラ警備隊 -空想特撮ゲーム- / Ultra X Weapons (GAMEST review build) [ShouTime]
+
+
+追加された未動作ゲーム
+----------------------
+ヴァンパイアナイト (VPN3 Ver. B) [Guru]
+Super Rock and Bowl [Bad A Billy, Smitdogg, The Dumping Union]

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.121</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.121.txt</div>
+	<div class="main">
+<div class="wn">
+0.121
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+dunhuang0120u3gra [Vas Crabb]
+
+
+
+ソースの変更点
+--------------
+- 以下のドライバにDIP配置追加: [Vas Crabb]
+ - bublbobl.c: bublbobl, tokio
+ - cps1.c: 全ゲーム
+ - dunhuang.c: dunhuang
+ - mario.c: 全てactive highにマーク (マニュアルより)
+ - segag80r.c: astrob2, astrob1, spaceod, pignewt
+ - segag80v.c: 全ゲーム, スイッチ順修正
+
+- 名前空間の衝突を減らすため、関数をさらにstatic化。[Atari Ace]
+
+-「Touchmaster」ドライバの改良。まだ未動作ラベルはついています。tmとtm3kは実はプ
+  レイできますが、タッチスクリーン入力が時々動作しなくなるので、リセットが必要で
+  す。tm4kはプロテクトされているので全くプレイできません。[Luca Elia]
+
+- アルタベックアクセラレータでのコンパイル系の問題を修正。[Vas Crabb]
+
+- Voodooの統計累積についてのバグ修正。[Atari Ace]
+
+- -switchresがOFFのときについても以前の動作に巻き戻し。MAMEはDirect3Dで描画する
+  場合、占有モードを使用します。これにより、フルスクリーンから戻る、またはフルス
+　クリーンに移行したときの不具合が再発します。ただ、デフォルトでの低パフォーマン
+  スによる混乱は避けられるはずです。[Aaron Giles]
+
+- Windowsの入力コードで、ジョイスティックを絶対モードに変更できない場合について、
+  致命的なエラーではなくしました。一部のドライバで、このことでヤバイ感じでした。
+  [Aaron Giles]
+
+- インライン関数をさらに2つ追加: div_64x32_remとunsignedのdivu_64x32_rem
+  GCC x86とMSVC用のインライン実装。[Aaron Giles, Vas Crabb]
+
+- タイマーインタフェースをクリーンアップ。新モジュール、attotimeを追加。これは、
+  新構造体型attotimeを管理するもので、以前のmame_timeと同等です。タイマー演算関
+  数は全てattotimeでの実装となり、timer.hから削除しました。コードについては以下
+  の操作を行いました:
+
+   mame_time              -> attotime
+   subseconds_t           -> attoseconds_t
+   time_zero              -> attotime_zero
+   time_never             -> attotime_never
+   
+   make_mame_make         -> attotime_make
+   mame_time_to_subseconds-> attotime_to_attoseconds
+   mame_time_to_double    -> attotime_to_double
+   double_to_mame_time    -> double_to_attotime
+   add_mame_times         -> attotime_add
+   add_subseconds_to_mame_time -> attotime_add_subseconds
+   sub_mame_times         -> attotime_sub
+   sub_subseconds_from_mame_time -> attotime_sub_subseconds
+   scale_up_mame_time     -> attotime_mul
+   scale_down_mame_time   -> attotime_div
+   compare_mame_times     -> attotime_compare
+
+   SUBSECONDS_TO_DOUBLE   -> ATTOSECONDS_TO_DOUBLE
+   DOUBLE_TO_SUBSECONDS   -> DOUBLE_TO_ATTOSECONDS
+   USEC_TO_SUBSECONDS     -> ATTOSECONDS_IN_USEC
+   SUBSECONDS_TO_HZ       -> ATTOSECONDS_TO_HZ
+   HZ_TO_SUBSECONDS       -> HZ_TO_ATTOSECONDS
+   MAME_TIME_IN_HZ        -> ATTOTIME_IN_HZ
+   MAME_TIME_IN_SEC       -> ATTOTIME_IN_SEC
+   MAME_TIME_IN_MSEC      -> ATTOTIME_IN_MSEC
+   MAME_TIME_IN_USEC      -> ATTOTIME_IN_USEC
+   MAME_TIME_IN_NSEC      -> ATTOTIME_IN_NSEC
+   MAME_TIME_TO_CYCLES    -> ATTOTIME_TO_CYCLES
+   MAME_TIME_IN_CYCLES    -> ATTOTIME_IN_CYCLES
+
+  さらに、mame_timer_*関数全てを元のtimer_*に戻しました。例えば、
+  mame_timer_set()は以前のtimer_set()になりました。mame_timerオブジェクト自体は
+  emu_timerに改名しています。
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Best Of Best [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+Cluedo (prod. 2) [James Wallace]
+
+
+
+0.120u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+gradius4_0120u3yel [Aaron Giles]
+vegas.c0120u3yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- インラインコードのマイナーな変更。atomic_add32の結果は何度も使われないので、最
+  後の追加分は削除できます。eminline.hのatomic_increment32とatomic_decrement32か
+  ら、不要なデルタ引数を削除と実装の追加。また、tgbsse.hを使用する条件について、
+  SSEが有効な32ビットプラットフォームであることを含むように変更。[Vas Crabb]
+
+- ssv.cの入力ポートを大幅にクリーンアップ。ジョイスティック、麻雀、クイズの共通
+  な入力をまとめて、PORT_INCLUDEで使えるように更新。また、重複を防ぐため、共通の
+  コインエイジ設定についてもとりまとめ作業。[Vas Crabb]
+
+- 全ドライバのインターフェイス(DRIVER_INIT, READ8_HANDLERなど)について、どれを
+  staticにしてグローバルな名前空間での競合を減らせるかを検証。一部はデッドコード
+  だと判明。[Atari Ace]
+
+-「チューブパニック」ドライバを更新。背景のスクロールインを修正。メインCPUとサブ
+  CPU間の同期不良が原因。また、スキャンラインレベルで正確になるようにビデオドラ
+  イバを改良。以前より正確な割り込み処理も実装。[Jarek Burczynski]
+
+- res_net.cのTTLローハイレベルを変更。これにより、カラーレンジが少し広がります。
+  ただし、結果は正規化されるので、目に見える効果は限られます。[couriersud]
+
+- ms32.cの入力系のクリーンアップと、DIP配置追加。また、47pie2とakissのDIPも修正。
+  [Sonikos]
+
+- Windows環境で、複数マウスを一つのマウスにマッピングする場合に、まちがった入力
+  が発生するバグを修正。[Nathan Woods]
+
+- i8051コアで、間違ってTimer2割り込みが起こるバグを修正。[Jim Stolis]
+
+- peplusドライバを更新: [Jim Stolis]
+ * ライトペンをサポート
+ * PE+ スーパーボードをサポート
+ * ABCコインの視覚効果サポート
+ * 完全なI2C EEPROMをサポート
+ * NVRAMサポート
+ * ドアの開閉に関係した問題を訂正
+ * メモリのハックをほぼ削除
+ * マシンと入力の統合
+ * pepp0158用新レイアウト追加
+
+- MPU4ドライバを、NeoGeo風にコアとドライバに分割。また、タイマーの修正と新しい
+  ROMセットの追加。[James Wallace]
+
+- junofrstのblitterコードを簡略化したときに起きた問題を修正。[Chris Hardy]
+
+-「American Poker II」の大幅な書き直し: [Roberto Fresca]
+ - クリスタルから周波数を正しく分周して取得
+ - TILE_GET_INFOで、タイル・カラーコードを正しく処理するように書き直し
+ - 割り込み(NMI)の修正
+ - AY8910の周波数を実機に合わせて1.5MHzに訂正
+ - AY8910の音量について、全ゲームでクリッピングが起きないように調整
+ - 画面表示領域の訂正
+ - NVRAMサポート
+ - メモリマップの再作業。ハードウェアI/Oポートを全てマッピング
+ - 全セットについて、入力系の再作業
+ - オペレータとスーパーバイザのキーを実装
+ - タイミング関係のトラブルを修正
+ - 全セットにdiplocationsを使った部分的なDIPスイッチのサポート
+ - DRIVER_INITのハックを削除
+ - 出力ポート用の書き込みハンドラを実装
+ - ウォッチドッグルーチンを追加
+ - 全セットについて、カラーPROMの吸い出し、実装、接続、デコード
+ - ハードウェアの測定に基づいてリフレッシュレートを調整
+ - 全セットのランプを接続と、それぞれのレイアウトを作成
+ - ドライバを、ドライバとビデオに分割
+ - その他、細かな修正
+
+- SCSPの修正: [kingshriek]
+ * DECAY1のエンベロープ状態がすぐに終了しないよう修正
+ * LPSLNKとSBCTLのサポート向上
+ * パン位置演算のバグを修正
+ * キーレートスケーリングがオフの不具合を修正
+
+- DIP配置表示で、DIPスイッチが逆になるのを示す機能を追加。[Vas Crabb]
+
+- Midway TronとNindendo「ドンキーコング」シリーズ(dkong.c)のDIP配置追加。
+  [Vas Crabb]
+
+- G4、G5、POWER5 CPUを使っている人向けに、アルタベック/VMX対応のRGBツールを追加
+  (rgbvmx.h)。また、rgbsse.hにrgbint_bilinear_filterとrgbaint_bilinear_filterも
+  追加(rgb_bilinear_filterとrgba_bilinear_filterがベース)。これらの関数は、
+  rgbgen.hにあるので完全を期して追加。[Vas Crabb]
+
+- model2.c、taitojc.c、gticlub.cで新ポリゴンルーチンを使用するように更新。
+  古いpoly.cの廃止と、polynew.*のpoly.*への改名。[Aaron Giles]
+
+- triとquadのコールバックが同じ方法で動作するように、poly.cのコールバックを統合。
+  [Aaron Giles]
+
+- デバッガで、浮動小数点TMS32031レジスタの表示を修正。[Aaron Giles]
+
+- TMS32031のABSF命令について、proper engativeを生成せずにドキュメント通りに動作
+  するよう修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Player's Edge Plus (PP0516) Double Bonus Poker [Jim Stolis]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker [Jim Stolis]
+Player's Edge Plus (PP0188) Standard Draw Poker [Jim Stolis]
+Player's Edge Plus (Set038) Set Chip [Jim Stolis]
+Player's Edge Plus (BE0014) Blackjack [Jim Stolis]
+Player's Edge Plus (KE1012) Keno [Jim Stolis]
+Player's Edge Plus (PS0615) Video Slots [Jim Stolis]
+Player's Edge Plus (PS0716) Video Slots [Jim Stolis]
+Player's Edge Plus (XP000019) Deuces Wild Poker [Jim Stolis]
+Player's Edge Plus (XS000006) Triple Triple Diamond Slots [Jim Stolis]
+MPU4 Unit Test [James Wallace]
+Sigma Poker [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Slipstream (950515 HISPANIC) [Guru]
+キック&ラン (US) [Brian Troha]
+American Poker 95 [Roberto Fresca]
+Poker De Win [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Vegas Poker (Prototype) [James Wallace]
+Sigma Poker 2000 [Roberto Fresca]
+
+
+
+
+0.120u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+neodriv0117u3red [Hairu]
+kof10th0120u2yel [Robbbert]
+6800basedgames0120u2red [Curt Coder]
+mpatrol0120u2yel [Curt Coder]
+
+
+
+ソースの変更点
+--------------
+- x86とPPC用両方のインラインアセンブリをクリーンアップ。mul32ファミリのアセンブ
+  リを32ビットx86に追加。また、64ビットGCCのコンパイラ警告について修正。これ以外
+  は以下の通り: [Vas Crabb]
+ * PowerPC、SSE2のx86用に単精度の逆数近似コードを追加
+ * eigccx86.hに他のTBD関数を全て追加
+ * eigccppc.hのコードについて、コンパイラが64ビット命令が利用できる場合に使用し
+   ないように条件付け
+
+- グローバルな名前空間の整理をさらに進めるため、static qualifierの追加と、シンボ
+  ルのリネーム。主に一般名称や、staticとextern両方のシンボルが対象です。
+  [Atari Ace]
+ * K053247_ramを完全にstatic化。xmen.cで値取得にK053247_export_configを使用
+ * DS1991_STATEとDSP_TYPEのemumが使われていないので削除
+ * cps3.cとthayer.cでデッドコードがあったのでコメントアウト
+
+- ほとんど全ての入力ポート定義をstatic化。[Aaron Giles]
+
+- GAMEBマクロを廃止。[Atari Ace]
+
+- 新インライン妥当性チェックのキャスティング問題修正。[R. Belmont]
+
+- サウンドコアのビルド関係の改良: [Atari Ace]
+ * SCSPのmame/dirver/stv.cへの依存性を無くし、単体でビルト可能
+ * WAVEのMESSコードへの依存性を明示化して、MESSとは独立してビルト可能
+ * VOTRAXをSAMPLESから独立してビルド可能
+ * YM2612コアを、YM3248コアを含まずにビルト可能
+ * BUILD_とHAS_マクロが不要なものを削除
+ * 他のFMコアに合わせて、3812intf.cでHAS_マクロに替えて、BUILD_を使用
+
+- SSVゲームにDIP配置追加。[Vas Crabb]
+
+- SH4コアのエラー修正と、ストアキューとDMAの基本部を実装。外部デバイスでのDMA転
+  送をシミュレートする関数追加。[Samuele Zannoli]
+
+- polynew.cで新しくクアッドレンダリングをサポート。midvunit.cでこれを使うように
+  コンバート。以前から悩まされていたレンダリング関係の問題が数多く修正。
+  [Aaron Giles]
+
+- Zクリッピングロジックをpolynew.cに追加。namcos22でこのコードを使うようコンバー
+  ト。namcos22について、よりローレベルなパイプライン全体でクアッド処理して、
+  polynew.cへ結果を渡すように変更することで大幅に簡略化。[Aaron Giles]
+
+- model3.cで新ポリゴンコードを使うように更新。また、シンプルにするため、ローレベ
+  ルな実装を大幅変更。[Aaron Giles]
+
+- eminline.hに新関数を2つ追加: atomic_increment32, atomic_decrement32
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Every Second Counts [Philip Bennett]
+Treble Top [Philip Bennett]
+Quizvaders [Philip Bennett]
+
+
+
+新規クローンセット
+------------------
+エクスターミネーション (Japan) [Corrado Tomaselli]
+Gang Busters (set 2) / クレイジーコップ [Patrik Styrnell]
+Trog (rev LA5 03/29/91) [icronnya77]
+
+
+
+追加された未動作ゲーム
+----------------------
+Inquizitor [Philip Bennett]
+
+
+
+
+0.120u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+hornet0120u1red [Ville Linde]
+srmp6_0120u1ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- ACIA6850を書き直し。[Curt Coder]
+
+-「マッドエイリアン」ドライバを完全にオーバーホール。[Stefan Jokish]
+ - メモリマップの統合とミラーアドレスの追加
+ - サウンドチップ周波数を2倍に変更
+ - サウンドCPU用に、IRQ ackを実装
+ - 未実装のディスクリートサウンド用に、スタブ関数追加
+ - タイルマップの再実装（トンネルの壁部分が見えます）
+ - 6845 CRTコントローラを実装
+ - カラー処理関係の修正
+ - 入力のクリーンアップと、DIPスイッチ配置を追加
+ - メインCPU速度を向上（未検証）
+ - セーブステートをサポート
+
+-「Deal 'Em」のバグ修正のため、IC24タイマーの動作を修正。また、入力の追加。
+  [James Wallace]
+
+- skykidにセーブステート追加。[Mike Haaland]
+
+- 新しいソース構造に合わせてtiny.makを修正。[Tiago Pierezan Camargo]
+
+- System 573ドライバでCR-589ファームウェアのサポート。SCSIサポートの大幅な変更で、
+  ハックの減少と他のデバイスからの派生が可能。また、セーブステートも追加。[smf]
+
+- M6803/HD63701にSCIサポート追加。[Curt Coder]
+
+- サウンドサンプルインターフェイスの名前を修正。[Atari Ace]
+
+- model1のルックアップ関数をリニアスキャンからインデックスベースへ変更。
+  [Atari Ace]
+
+- 汎用I2Cバスメモリをサポート。cubocd32ドライバで実装。[smf]
+
+- インラインアセンブリサポートのクリーンアップ: [Aaron Giles]
+ * インライン可能な全ての関数を新モジュール、eminline.hへ移動
+ * 新インライン関数を追加:
+    - 32x32 -> 64 bitへの変換
+    - 浮動小数点値の高速な逆数近似取得
+ * 古いインライン関数定義をosinline.h、osd_cpu.hなどから削除
+ * eminline.hは全てのC実装を保持します
+ * 新モジュール、eigccx86.hはGCC互換のx86/64版を保持します
+ * 新モジュール、eigccppc.hはGCC互換のPowerPC版を保持します
+ * eminline.hは自動的にGCCの実行環境を検出して最適なファイルをインクルードします
+ * osinline.hは非GCC環境でのみ使用します
+ * osd/windows/osinline.hはMSVC互換版を保持するように更新
+
+- TMS32031コアにNORMを実装。[Aaron Giles]
+
+- 汎用のRGB操作を行うインライン関数から構成されるrgbutilモジュールを追加。このモ
+  ジュールはSSE2、または他のSIMD命令で高速化できます。デフォルトでは、64ビットの
+  IntelビルドのみでSSEを利用します。namcos22のライスタライザで、このインライン関
+  数を導入しています。また、gaelco3dのラスタライザでも、バイリニアフィルタリング
+  の高速化のため、このモジュールを導入しました。[Aaron Giles]
+
+- Midway Zeusベースのシステムで進展。3Dコマンドストリームの構文解析と、一部の解
+  釈により、「Mortal Kombat 4」のポリゴンが表示されるようになりました。ただしテ
+  クスチャは間違っています。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Konami CD-ROM Drive Updater (700A04) [smf]
+VS雀士 ブランニュースターズ [sonikos]
+
+
+
+新規クローンセット
+------------------
+Eco Fighters (USA 940215) / アルティミットエコロジー [Nicola Salmoria, Razoola]
+
+
+
+追加された未動作ゲーム
+----------------------
+Time Machine v2.0 [James Wallace]
+ジェットウエーブ [Ville Linde, Guru]
+
+
+
+
+0.120u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+ikki0120yel [robiza]
+buckrog0118u2yel [couriersud]
+
+
+
+ソースの変更点
+--------------
+-「Cannonball」各セットの情報追加。[stephh]
+
+- f1gpbのROZレイヤー、FGレイヤー、スプライトを実装。まだ一部のビデオオフセット、
+  OKIバンキング、スプライトプライオリティなどが未実装。[Pierpaolo Prazzoli]
+
+- dominob.cドライバの更新: [stephh]
+ - DIPスイッチ修正
+ - 入力の修正
+ - 記載事項を2つ追加
+
+- peplusドライバと関連するコンポーネントを更新: [Jim Stolis]
+ - ゲームに内部レイアウト追加
+ - i8051の問題を修正...
+    * 一部の命令のサイクルカウントを訂正
+    * タイマーモード決定のバグを修正
+    * シリアル転送モード決定のバグを修正
+    * スプリットタイマーモードをサポート
+
+- マルチプロセッサでのVoodooのレンダリング競合を減らしてパフォーマンスを改善。
+  レンダリングとエミュレーション間のオーバーラップを拡大。
+  [couriersud, Aaron Giles]
+
+- ジョイパッドの設定をして、システム情報画面で抜いてESCキーを押すとクラッシュす
+  るのを修正。[R. Belmont]
+
+- CPUとサウンドチップのstrict typeを定義。不要になったcpu_prefixを構造体メンバか
+  ら削除。[Atari Ace]
+
+- m4510 CPUコアで、命令サイクルカウンタが更新されないのを修正。[Wilbert Pol]
+
+- m6509の命令、91とb1のメモリアクセスを修正。[Wilbert Pol]
+
+- osdcore.hについて、osinline.hを含ませ同期プリミティブの外部インライン定義をで
+  きるように変更。また、新しいワークキューヒント、WORK_QUEUE_FLAG_HIGH_FREQを追
+  加。これは、新しいアイテムを積極的に待つ状態であることを示します。
+  [couriersud, Vas Crabb]
+
+- makefileのリンカの共通警告を有効化。[Oliver Stoneberg]
+
+- SCSPで、IRQが遮断状態でポーリングされるタイマ関係のコーナーケースを修正。
+  [R. Belmont]
+
+- Namco System 21の更新: [Phil Stroffolino]
+ - namconb1のスプライトバグ修正
+ -「サイバースレッド」の表示されていない3Dグラフィック修正
+ -「スターブレード」のグラデーションカラー
+ - より正確な深度キューイング
+ -「スターブレード」2面でのクラッシュ修正
+ -「エアーコンバット」「ソルバルウ」のフリーズ修正
+ - スプライトプライオリティの修正（「ソルバルウ」の山部分）
+ - 透過エフェクト（パレットシフト）の実装
+
+- Model 2のレンダリングで、先にクリッピングしたZ値をソートに使用するよう変更。
+  [Aaron Giles]
+
+- Midway Y-unitドライバゲームで、bill入力を正しく判断。[Aaron Giles]
+
+- winworkコードにinstrumentationやパラノイアをさらに追加。[Aaron Giles]
+
+- ADSP2100の外部フラグ処理の間違ったコードを修正。[Aaron Giles]
+
+- 新モジュール、polynew.cを作成。これは、トライアングル設定、ラスタ化、Voodoo風
+  なマルチプロセッサをまとめたものです。Gaelco3D、Midway V-Unit、Namco System 22、
+  Voodooドライバを新システムにコンバートしました。[Aaron Giles]
+
+- ワークアイテムのコールバック関数にthreadid引数を追加。これにより、コールバック
+  でスレッド毎の情報を保持できます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+ホットギミック インテグラル (Japan) [Guru, David Haywood]
+とってもE雀 - 潜入アイドルプロダクション！ [David Haywood, Team Japump!]
+グッとE雀 -勝ち抜き麻雀賞金王!! [David Haywood, Team Japump!]
+テラバースト [icronnya77, Ville Linde]
+
+
+
+新規クローンセット
+------------------
+チューブパニック (海賊版) [sonikos]
+Player's Edge Plus (PP0188) Standard Draw Poker [Jim Stolis]
+Player's Edge Plus (Set038) Set Chip [Jim Stolis]
+Mortal Kombat 4 (set 2) [icronnya77]
+Meteor [Andreas]
+
+
+
+追加された未動作ゲーム
+----------------------
+GameCristal [f205v, R. Belmont]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

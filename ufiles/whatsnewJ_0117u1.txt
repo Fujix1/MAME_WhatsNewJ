@@ -1,0 +1,166 @@
+0.117u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+brkthru091u1gra [Luigi30]
+debbuger+psx_0117ora [Aaron Giles]
+cbtime0117red [Zsolt Vasvari]
+hotpinbl0117gra [Roberto Fresca]
+batrider0114red [Alex Jackson]
+battleg0113u4red [Alex Jackson]
+battleg0116u1ora [Alex Jackson]
+
+
+
+ソースの変更点
+--------------
+- スクリーンを使わないシステムのバグを修正。[Nathan Woods]
+
+- chdでファイルの終端を超えて読み込みをしようとするとクラッシュするのを修正。
+  [Roman Scherzer]
+
+-「サンドスコーピオン」「ギャルズパニック」でPandoraエミュレーションを使うように
+  変更。またPandoraエミュレーションの問題を修正して、「DJボーイ」のスプライト改
+  善。[David Haywood]
+
+- 新関数timer_call_after_resynch()追加。再シンクロを行うために持続時間がゼロのタ
+  イマーをセットします。コード内の持続時間ゼロのタイマーは、目的をはっきりさせた
+  この関数に置き換えました。[Zsolt Vasvari]
+
+- 新マクロ、TIMER_CALLBACKを定義。タイマーコールバックのラッピングに使います。
+  また、タイマーコールバックにrunning_machine *引数追加。既存の全タイマーコール
+  バックで新しいマクロを使うように更新。[Zsolt Vasvari]
+
+- gussunに命令の復号化をさらに追加。[Robiza]
+
+- vicdual.cのheadonとクローン版にディスクリートサウンド追加。[couriersud]
+
+- 信号のミキシングをサポートするため、2つのインバータ発信器をdiscrete.h / 
+  disc_wav.cに追加。[couriersud]
+
+-「Change Lanes」の表示バグを修正。[Adam Bousley]
+
+- monzagpドライバをなんとかプレイ可能な状態までアップデート。まだグラフィック関
+  係の不具合がいくつか残ってます。また、スコアと残りタイム表示用のLEDも実装する
+  必要があります。[Phil Stroffolino]
+
+- Neo-Geoのアップデート: [Zsolt Vasvari]
+ - BIOSのみのドライバのneogeoがクラッシュしないように修正
+ - メモリバンキングコードで、memory_set_bank_ptr()をmemory_set_bank()に置き換え
+   クリーンアップ
+ - LEDの修正
+
+- toaplan2ドライバの改良: [Alex Jackson]
+ - バイトスワップしていたtruxton2のM68KプログラムROMを正しいものと置き換え
+ - Raizing製ゲームのサウンドCPUコミュニケーションを修正。これは経験から推測した
+   ものですが、以前のものに比べればより完全で、多分正確なはずです。さらに、必要
+   以上にcpu_yield()を使うこともありません
+ - Raizingのゲームについてのコメントをドライバに追加。また間違いも修正
+ -「バトルガレッガ」のセットをもっとわかりやすく再構成
+
+- 入力システムについて、機能をさらにコアへ集約するため書き直し。依存関係を正しく
+  切り分けるため、アーキテクチャのクリーンアップ。ただし、この変更は入力処理の底
+  辺のレイヤーのみ対処したもので、高いレイヤー（ドライバレイヤーの入力ポート処理
+  など）についてはそのままにしてあります。[Aaron Giles]
+
+  大きな変更は以下の通り:
+
+  * システムからos_codeの概念を削除しました。全てのコードは、input.h内のマクロセッ
+    トを通じて定義されます。各コードは32ビットの値で、デバイスクラス、デバイス
+    インデックス、アイテムクラス、アイテムモディファイア、アイテムIDをエンコード
+    します
+
+  * OSD関数、osd_get_code_list()とosd_get_code_value()を削除。これに替わり、
+    osd_init()中にOSDレイヤーは、2つの新しい関数、input_device_add()と
+    input_device_item_add()を使って各デバイスに関連づけたデバイスと入力アイテムを
+    1つ以上登録する必要があります
+
+  * 入力シーケンスコードを新モジュール、inputseq.cに分離
+
+  * 以下のオプションサポートをコアに移動: -mouse, -joystick, -lightgun, 
+    -steadykey, -offscreen_reload, -joy_deadzone, -joy_saturation, 
+    -paddle_device, -adstick_device, -pedal_device, -dial_device, 
+    -trackball_device, -lightgun_device, -positional_device, -mouse_device
+
+    OSDレイヤーはosd_init()のときに全てのデバイスを登録して、オプションに応じて
+    コアに対しこれらの有効/無効を指定をさせます
+
+  * 新オプション追加: -multikeyboardと-multimouse
+    デフォルトではオフです。オフのときはコアは全てのキーポード入力、及びマウス入
+    力を1つのキーボードとマウス入力として重ね合わせます。ONのときは、コアが各キー
+    ボードやマウスの入力を独立したまま処理するように指定します
+
+  * 新オプション追加: -joystick_map
+    このオプションは、ジョイスティック入力のアナログからデジタルへのマッピングを
+    制御する9x9のグリッドを指定します
+
+  * Windowsの入力処理について、キーボードとマウスはRaw Inputインターフェイスを完
+    全にサポートしました。DirectInputは、ジョイスティック入力と、WindowsXPよりも
+    前のシステムでのキーボードとマウス入力のためにまだ使っています。これにより、
+    マルチキーボードとマウスのサポートが可能になります。また、キーボードとマウス
+    の動作を、DirectInputの非排他モードに変更し、より一貫した入力処理のため、ポー
+    ズ中でもデバイスが生きているようにしました。
+
+  * windows.txtから、コアでサポートされる共通なオプションとコマンドについては
+    config.txtへ移動。windows.txtはWindows専用の追加項目だけにしました
+
+- フレームアップデートコールバックを追加。ポーズと終了コールバックに似ていますが、
+  これはosd_update()と同時に呼び出されます。[Aaron Giles]
+
+- osd_init()が値を返さないように変更。OSDの初期化時の致命的なエラーの報告は
+  fatalerror()に依存します。[Aaron Giles]
+
+- 新関数、mame_schedule_new_driver()を追加。これは、ハードリセット後にキューされ
+  る新しいドライバを指定します。[Aaron Giles]
+
+- 試験的に最低限のゲーム選択インターフェイスを追加。パラメータ無しでMAMEを起動す
+  るか、メインメニューで"Select a New Game"を選ぶとこのインタフェイスにアクセス
+  できます。ここでは、ゲーム名をタイプしてゲームドライバを選択できます。タイプす
+  る毎に、MAMEのファジーネームマッチングコードが該当するトップ15のゲームを表示し
+  ます。このインターフェイスは、設定したrompathに見つかったゲームのみを表示しま
+  す。[Aaron Giles]
+
+- ゲーム選択画面を表示するために使う、空のドライバを追加。[Aaron Giles]
+
+- Windows版でアイコンをダブルクリックしたときの動作を、新しく追加したゲーム選択
+  インターフェイスを表示するように変更。[Aaron Giles]
+
+- NOT_A_DRIVERフラグが2つの違った意味を持つようになっていたので削除して、新しい
+  フラグを追加しました: GAME_IS_BIOS_ROOTは、完全なゲームではなく、BIOSを意味す
+  るドライバを示します。次に、GAME_NO_STANDALONEは、そのドライバが単体ではリスト
+  されたり、実行されたりしないものを指します。MAMEでは、ほとんどのBIOSはそれだけ
+  で、動作させることができるので、GAME_NO_STANDALONEフラグではなく、
+  GAME_IS_BIOS_ROOTフラグを持つことになります。[Aaron Giles]
+
+- 新ルーチン、mame_openpath()、mame_readpath()、mame_closepath()を追加。パス設定
+  の全ファイルを繰り返すのに使用するもので、複数パスサポートを含みます。
+  [Aaron Giles]
+
+- auditインターフェースで、ゲームのインデックスではなく、game_driver *を取るよう
+  に変更。[Aaron Giles]
+
+- driver_get_approx_matches()とdriver_get_count()のAPIについて、固定したドライバ
+  リストを決め打ちしていたのを、任意のドライバリストで動作するよう変更。また、
+  関数名をdriver_get_*からdriver_list_get_*に変更。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Sliver [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Space Dragon (ムーンクレスタ海賊版) [David Haywood]
+バトルガレッガ - Type 2 (Europe / USA / Japan / Asia) [Alex Jackson]
+
+
+
+追加された未動作ゲーム
+----------------------
+ギャルズパニック (US, EXPRO-02 PCB) [David Haywood]
+Balloon & Balloon [Tomasz Slanina]

@@ -1,0 +1,1244 @@
+0.153
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05490: [サウンド] (lemmings.c) lemmings: ゲーム内の音が出ない。(David Haywood)
+- 05479: [インターフェイス] (xybots.c) xybots: Twist LeftとTwist Rightの操作設定がハ
+         ードコーディングされていてユーザー設定できない。(hap)
+- 05210: [クラッシュ/フリーズ] (qix.c) kram3: 起動時に黒画面のまま固まる。
+         (Wilbert Pol)
+- 04992: [画面反転/カクテルモード] (toaplan1.c) All sets in toaplan1.c: 画面反転をON
+         にするとほとんど全ての背景やテキストが表示されなくなる。(hap)
+- 05414: [インターフェイス] (mcr.c) dotron: ダイアルの増減操作をマッピングできない。
+         (Osso)
+- 05266: [クラッシュ/フリーズ] (tempest.c) tempest: 赤ステージ（20面か21面）でハング
+         して、ウォッチドッグによるリセットがかかることがある。(couriersud)
+- 04722: [クラッシュ/フリーズ] cliffhgr, cobram3, cubeqst, firefox, mach3, usvsthem: 
+         終了時にエラーが起こる。(Aaron Giles)
+- 05025: [その他] (neodrvr.c) neogeo.c: Neo DiagnosticsツールでZ80の問題が報告される。
+         (hap)
+- 05065: [その他] (dblcrown.c) dblcrown: PLD読み込み間違い。(Roberto Fresca)
+- 00810: [グラフィック] (wiz.c) wiz: 青ドラゴンのスプライトタイルの表示が1ピクセルず
+         れていて、パーツの隙間から背景が見える。(hap)
+- 00811: [グラフィック] (wiz.c) stinger: カクテルモードでグラフィック問題あり。巨大衛
+         星のスプライトに細い線が入る。(hap)
+- 00809: [サウンド] (wiz.c) wiz: やられて、再スタート時のサウンドがひどい。特に谷間に
+         落ちたときにわかりやすい。(hap)
+- 05472: [DIP/入力] (cps1.c) willow , willowo: USA版のデフォルトDIPスイッチ設定が間違
+         っている。(Tafoid)
+- 05471: [DIP/入力] (cps1.c) ghoulsu: USA版のデフォルトDIPスイッチ設定が間違っている。
+         (Tafoid)
+- 05470: [DIP/入力] (cps1.c) strider: USA版のデフォルトDIPスイッチ設定が間違っている。
+         (Tafoid)
+- 03975: [サウンド] (nycaptor.c) cyclshtg, bronx: ゲーム開始時のデモでシーンで音が出
+         ない。(Osso)
+- 05276: [グラフィック] (witch.c) witch, pbchmp95: グラフィック不具合あり。(Osso)
+- 04993: [画面反転/カクテルモード] (toaplan2.c) Many sets in toaplan2.c: 画面反転をON
+         にするとスプライトとテキストが上にずれる。(Alex Jackson)
+- 05468: [DIP/入力] (segahang.c) sharrier: アナログ入力の最大値と最小値が間違っている。
+- 05466: [クラッシュ/フリーズ] (cdi.c) All sets in cdi.c: 初期起動画面から起動しない。
+         (Osso)
+- 05467: [グラフィック] (cave.c) agallet: アトラクトモードでの表示不具合がある。
+         (Alex Jackson)
+- 04308: [インターフェイス] INP記録中にポーズすると再生に失敗する。(Alex Jackson)
+- 05245: [クラッシュ/フリーズ] (opwolf.c) all opwolf.c sets: -autosave指定をしている
+         と終了時に固まる。(Alex Jackson)
+- 05465: [グラフィック] (galivan.c) all games in galivan.c: スプライトラグがあり背景
+         とスプライトがずれる。(Alex Jackson)
+- 04679: [ゲームプレイ] (gei.c) jokpokera, jokpokerb, jokpokerc: コインが入らない。親
+         セットでは正常動作。(Osso)
+- 04174: [ゲームプレイ] (asteroid.c) asteroidb: 画面に5の文字が表示されて固まる。
+- 05440: [インターフェイス] all games with tilemaps and a colortable: F4キーで入るグ
+         ラフィックビューアーでカラーテーブルを使うタイルマップの表示ができない。
+         (Alex Jackson)
+- 05459: [ドキュメント] (model3.c) lemans24: ゲーム名のLeとMansの間にスペースがない。
+- 04934: [画面反転/カクテルモード] (hexion.c) hexion: 画面反転すると表示が右にずれる。
+         (Alex Jackson)
+- 03346: [色/パレット] (lucky74.c) lucky74, lucky74a: 初期化画面が64-bitよりも32-bit
+         の方が濃い。(Osso)
+- 03726: [サウンド] (popeye.c) popeye: AY-3-8910 Voice A（ベース音）のフィルタリング
+         がかかっていない。(Alex Jackson)
+- 03438: [クラッシュ/フリーズ] (maygayv1.c) screenpl + clones: ゲーム開始直後にエラー
+         が出て固まる。(Osso)
+- 05430: [クラッシュ/フリーズ] (tugboat.c) noahsark: デモモードで猿が舟に乗ったところ
+         でフリーズする。(Osso)
+- 04906: [画面反転/カクテルモード] (chinagat.c) All sets in chinagat.c: 画面反転する
+         とスプライトがずれる。(Osso)
+- 04914: [画面反転/カクテルモード] (ddragon.c) ddragon, ddragon2 and clones: 画面反転
+         すると表示が右にずれる。(Osso)
+- 04982: [画面反転/カクテルモード] (xain.c) All sets in xain.c: 画面反転をONにすると
+         スプライトが右にずれる。(Osso)
+- 04984: [画面反転/カクテルモード] (wwfwfest.c) All sets in wwfwfest.c: 画面反転をON
+         にするとスプライトが右にずれる。(Osso)
+- 04983: [画面反転/カクテルモード] (wwfsstar.c) All sets in wwfsstar.c: 画面反転時に
+         スプライトが右にずれる。(Osso)
+- 04986: [画面反転/カクテルモード] (vball.c) All sets in vball.c: 画面反転するとスプ
+         ライトが右にずれる。(Osso)
+- 04916: [画面反転/カクテルモード] (ddragon3.c) All sets in ddragon3.c: 画面反転する
+         と表示が右下にずれる。(Osso)
+- 05256: [速度] (jaguar.c) area51mx, a51mxr3k, maxforce, maxf_102, maxf_ng, vcircle: 
+         ゲームの動作がほとんど止まるくらい遅くなる。(smf)
+- 04797: [画面反転/カクテルモード] (dec0.c) All sets in dec0.c: 画面反転・カクテルモ
+         ードを選択すると、反転した画面の位置がずれる。(Osso)
+- 04724: [画面反転/カクテルモード] (dec8.c) oscar, oscaru, oscarj1, oscarj2, 
+         cobracom, cobracomj: 画面反転が動作しない。(Osso)
+- 05429: [ステート保存/再生] (neogeo.inc) all sets in neogeo.inc: セーブステートを読
+         み込むとクラッシュする。(Alex Jackson)
+- 04898: [画面反転/カクテルモード] (argus.c) butasan and clone: 画面反転するとスプラ
+         イトが割れる。(Osso)
+- 05407: [ドキュメント] (gei.c) quiz, quizvid: quizはElettronolo のオリジナル。
+         (Stiletto)
+- 05427: [ドキュメント] MAME.lstの問題いろいろ。
+- 03329: [その他] (phoenix.c) falcon, fenix: 32-bitと64-bitで、初期化画面のゴミ模様に
+         違いがある。(Osso)
+- 03344: [色/パレット] (twins.c) twins: 32-bitと64-bitビルドでは、初期化画面の色が異
+         なる。(Osso)
+- 05420: [コンパイル] (pong.c) pong, pongf: 古いGCC 4.1.2でコンパイルできない。
+         (couriersud)
+- 02879: [サウンド] (hyperspt.c) roadf, roadf2: 実機のロードファイターにはVLM5030は実
+         装されていない。(M.A.S.H.)
+- 05401: [グラフィック] (firetrk.c) montecar: クラッシュすると画面の色が反転する。も
+         う一回クラッシュすると元に戻る。(hap)
+- 04645: [ゲームプレイ] (firetrk.c) montecar: ゲームの全体的な速度が前よりも遅くなっ
+         た。(hap)
+- 05312: [クラッシュ/フリーズ] (namcona1.c) All games in namcona1.c: ハードリセット、
+         またはUIからゲームを切り替えるとエミュレータがクラッシュする。(Osso)
+- 03976: [ステート保存/再生] (ms32.c) gametngk: セーブステート読み込み後、ゲームがフ
+         リーズしてプレイ出来なくなる。(Osso)
+- 04005: [ステート保存/再生] (ms32.c) All sets in ms32.c: セーブステートを読み込むと
+         黒画面のままになる。(Osso)
+- 05406: [ドキュメント] (cd32.c) ソースファイルのCD Expressのリストに"Laser Strixx" 
+         (1995)が欠けている。(Stiletto)
+- 04102: [ステート保存/再生] (f1gp.c) f1gp, f1gpb: セーブステートから復帰するとグラフ
+         ィックがおかしくなる。(Osso)
+- 05404: [システムコア] all: [64bit限定] 64ビットビルドのスクリーンショットが32ビット
+         に比べ青の要素の値が1多い。(Alex Jackson)
+- 04157: [グラフィック] (seattle.c) calspeed: [64bit限定] 64ビットビルドではMt. 
+         Shastaの面で、木のグラフィックの透明部分が正しく表示されない。(Alex Jackson)
+- 05405: [既知事項/未実装] (8080bw.c) attackfc: オーバーレイが表示されない。(hap)
+- 05403: [ドキュメント] (centiped.c) caterplr, magworm: 海賊版の製造元が記載されてい
+         ない。
+
+
+
+ソースの変更点
+--------------
+- アーキテクチャの大幅変更: シングルグローバルパレットを廃止し、パレットをデバイス化。
+  ドライバとデバイスが必要に応じてパレットを独立して保持する。この更新によりコア、UI、
+  OSDレイヤー、ドライバ、デバイスに対して大幅な変更が必要となった。[Aaron Giles,
+  Miodrag Milanovic, Alex Jackson]
+
+- 同様に、デコード済グラフィックのシングルグローバル配列も廃止。デコードしたグラフィ
+  ックは新型のデバイスインタフェースdevice_gfx_interfaceを使うデバイスが保持する。
+  新インタフェース向けにアップデートされていないデバイスや、デバイスベースではないビ
+  デオエミュレーションドライバ用には、gfxdecodeデバイス(このデバイスを継承したもの)が
+  旧来のドライバレベルなデコード機能を提供する。
+  また、グラフィックレイアウトはROM領域と同じようにタグにより共有RAM領域を参照できる。
+  [Miodrag Milanovic, Alex Jackson]
+
+- コアとドライバのモダン化のため大量の作業がなされ、ほとんど全てのファイルに手が入っ
+  た。[Curt Coder, Osso, Alex Jackson, smf, Miodrag Milanovic]
+
+- デバッガでINT8/UINT8のメモリ表示ができなくなっていたバグを修正。[Couriersud]
+
+- netlistに不足していたインタフェースを追加。mame -debug pongfがクラッシュせずにステ
+  ート表示をするようになった。さらに作業が必要。またnetlistのステートセーブをさらに改
+  良。[Couriersud]
+
+- tx0.c: CPUコアのモダン化。[Wilbert Pol]
+
+- netlistのレガシーコード削除と74153と74107(A)を分離。[Couriersud]
+
+- superfx.c: CPUコアのモダン化。[Wilbert Pol]
+
+- Truco-Tron: ほぼ全ての基板のICをドキュメント化。[Roberto Fresca]
+
+- srccleanでUNIXスタイルの行末で出力する-u (UNIX用)フラグ追加。[Couriersud]
+
+- spc700.c: CPUコアのモダン化。[Wilbert Pol]
+
+- srccleanにドライランオプション(-d)を追加。[Couriersud]
+
+- mc68901.c: 割り込み生成のトランジション選択にaerレジスタを使用。またトランスミット
+  とレシーブの仮サポート。[smf]
+
+- se3208.c: CPUコアのモダン化。[Wilbert Pol]
+
+- netlistをMAMEスタンダードに変更。netlistへの入力はMAMEのサブデバイスとしてMCFG_*を
+  使ってレジストされ、通常のwriteXX/readXXとPORT_CHANGEDメソッドが利用できる。これに
+  より入力へのダイレクトリンクが可能。[Couriersud]
+
+- sc61860.c: CPUコアのモダン化。[Wilbert Pol]
+
+- ssp1601.c: CPUコアのモダン化。[Wilbert Pol]
+
+- diserial.c: 外部クロックで動作中は何も送信したりキューに入れないよう変更。 
+  set_rcv_rate()の呼び出し前にset_data_frame()を呼び出さないと、m_synchronousに設定前
+  にアクセスしてしまい動作がランダムになる。
+  パリティとストップビットをenumに変更。1.5ストップビットでテストしていたuartsを更新。
+  ただし、おそらく他のものがあったり1.5ストップビットがダイシリアルにより2に変更され
+  ているかもしれない。The 68681 requires stop bits to be specified in clocks, so this
+  will change in the future. Replaced synchronous flag with start bit count,
+  as some uarts can use a start bit in synchronous mode & that whether there
+  is a start bit is all the flag is currently controlling. Updated rs232
+  terminal to allow startbits, stop bits 1.5 to be specified (although that
+  is currently not supported by diserial) and individual transmit and receive
+  baud rates. [smf]
+
+- scmp.c: CPUコアのモダン化。[Wilbert Pol]
+
+- atarist.c: 割り込みが動作刷るように全てのgpio値をプッシュ。[smf]
+
+- unsp.c: CPUコアのモダン化。[Wilbert Pol]
+
+- AVR8の改善: [Felipe Sanches]
+ * ELPM命令追加
+ * fuse bitsマクロ追加
+ * fuse bits設定に基づく初期プログラムカウンタを決定するためのリセットロジック追加
+ * ATMEGA1280とATMEGA2560の初期サポート
+ * INとOUT命令の逆アセンブリでレジスタ名を使用
+
+- tms32010.c: CPUコアのモダン化。[Wilbert Pol]
+
+- segaorun.c: モーターとランプ入力追加。[Howard Casto, hap]
+
+- via6522.c: devcb2を使うようにコンバート。値のプッシュが簡単にできるようにリードハン
+  ドラを大量に削除。CA1は入力のみなので出力コールバック削除。CA1/CB1に実装したCA2/CB2
+  という名前の関数を持ち、CA1出力がないようにlisa via実装を変更。MAMEとコードを統合し
+  たときから間違っていた模様。t2レートで操作するshift out freeをサポート。cb1出力は指
+  定したクロック数の間残る。[smf]
+
+- tms32025.c: CPUコアのモダン化。[Wilbert Pol]
+
+- netlistパーサの拡張とpong.cの整理。スタンドアロンなnetlistのサンプル用にnl_examples
+  フォルダ追加。[couriersud]
+
+- tms32051.c: CPUコアのモダン化。[Wilbert Pol]
+
+- mquake.c: I/O MCU用のNO_DUMPプレイスホルダとノート追加。[Phil Bennett]
+
+- SDL2.0: 相対的なマウスモーション修正。これでうちのLogitech Marble Trackballを使って
+ 「ミサイルアタック」がまたプレイ出来るようになった。[Couriersud]
+
+- PNPモデルの修正と、テスト版netlist追加(bjt.c)。[Couriersud]
+
+- tms7000.c: CPUコアのモダン化。[Wilbert Pol]
+
+-「ポン」のrunQとSRSTシグナル用に完全なディスクリートロジックエミュレーション。
+  switch2デバイスを抵抗ベースで書き直し。[Couriersud]
+
+- AVR8 CPUの変更: [Felipe Sanches]
+ * タイマー作業中
+ * TIMSK*読み込み追加 - timer_tickコールの修正
+ * レジスタ初期化ステートメントの無駄なものを削除。0x200レジスタを全てゼロに設定
+ * タイマーのデバッギング
+ * RJMPデスティネーションアドレスの逆アセンブリシンタックス改良
+ * CBI、SBI、SBIC、SBIS命令の逆アセンブリにレジスタ名使用
+ * SBI、SBIS、SBIC、CBI命令の逆アセンブリにビット名使用
+
+- avr8 EEPROMリードライトサポートの作業中。
+
+- Netlist: [Couriersud]
+ * 7474のセーブステート修正
+ * printf削除
+ * netlist_list_tをシンプル化
+ * リスケジュールカウントを15に増加 - ダイオードが激遅
+ * リスケジュールカウントをソルバーパラメータに設定
+ * ソルバーコードをシンプル化
+ * ソルバータイムもリセット
+
+- fd_fdc: FM sync検出修正。[Michael Zapf]
+
+- n68681: devcb2への移行にともないモダン化とconfig structの廃止。[R. Belmont]
+
+- HLSLモードでのマルチ画面ゲームでピクセルギャップが出るのを修正。[MooglyGuy]
+
+- pet/vic20/c64/plus4/c128ユーザーポートを統合。ピンアウトはそれぞれ微妙に違うが、異
+  なるマシン間で互換性のあるカードがある。vic1011のc64版を削除し、protovision 4プレイ
+  ヤーアダプタをbus/c64からbus/vic20に移動。
+  http://code.google.com/p/commodore-multi-player/ でテスト。[smf]
+
+- plus 4ユーザーポートに6551を実装。[smf]
+
+- CBMIIのマニュアルよりユーザーポートピンアウト追加。[smf]
+
+- commodoreのクイックロードを修正。machine().firstcpuを使う代わりにアドレス空間を渡す
+  ように変更。[smf]
+
+- PETユーザーポートのジョイスティックアダプタ追加。[smf]
+
+- segas32.c: alien3とdarkedgeのreadme追加。[Guru]
+
+- Netlist: [Couriersud]
+ * アナログ入力デバイスの不足パラメータ追加
+ * パーサーがNET_MODELをパースするように変更
+ * switching bjt実装のバグ修正
+
+- AY8910のノイズ期間を修正。[Dr. Venom, Couriersud]
+
+- FMのCRC後にクロックビットが削除されるのを防止。[Michael Zapf]
+
+- MSXの正しいYM8910ミキシングモデル使用。音量をMSXのハードに合わせて設定。
+  [Dr. Venom, Couriersud]
+
+- BBC Microのキーボード更新と修正: [Nigel Barnes]
+ * Masterシリーズのテンキー追加
+ * CAPS LOCKとSHIFT LOCKの修正
+ * MasterシリーズからDIPスイッチ削除
+ * DIPスイッチの説明を改良
+
+- Naomi/Triforceのドキュメント更新。[f205v]
+
+- PIA6821をDEVCB2にコンバート。チップへの書き込んだものしか返さないため
+  porta_r/portb_r/ca1_r/ca2_r/cb1_r/cb2_rを削除。このうち使われていたのは
+  audio/exidy.cからの2つだけだった。既にプッシュ済のものや常に0を返していたca*/cb読み
+  込みコールバックを削除。cb2リードコールバックがなくなったのでこの機能は削除された。
+  porta_wを呼び出すことでset_a_inputの呼び出し数を低減。WRITE_HANDLERも同様。[smf]
+
+- Netlist: [Couriersud]
+ * Ebers-Moll BJTモデル追加。現状はNPNについてのみ
+ * ソルバーのコンバージェンス問題を修正
+ * Ebers-Mollの精度はナノ秒単位のスパイクを発生させないために1e-5より上げる必要がある。
+   スパイクはは聞こえないので典型的なサウンドアプリケーションでは精度はここまでいらな
+   い
+
+- tlcs90.c: CPUコアのモダン化。[Wilbert Pol]
+
+- mpu4_state *state = machine.driver_data<mpu4_state>();の呼び出しについて、コードを
+  mpu4_stateに移動することで削除。mpu4_stateで既にルックアップ済のデバイスをランタイ
+  ムでルックアップしないように修正。[smf]
+
+- docastle.c: 回路図を元にスレーブCPU IRQを実装。[Alex Jackson]
+
+- 全ての利用可能デバイスをリスト出力する"-listdevices"をnltoolに追加。コードの整理。
+  [Couriersud]
+
+- Z80DARTのパリティ選択修正。[smf]
+
+- pulsar.c: Z80DARTを正しく実装。[smf]
+
+-「Donggul Donggul Haerong」のパッチ: [ElSemi]
+  (まだ動作しないが起動だけはするようになった)。
+
+- 正しいパッチのようだがゲームはまだ動かない。[ElSemi]
+
+- i8251: マニュアルを元に、Tx mid-byteを無効にすると完了するためのトランスミッション
+  を待つように変更。[R. Belmont]
+
+- v810.c: CPUコアのモダン化。[Wilbert Pol]
+
+- s2650.c: FLAGフェイクIOポートをDEVCB2コールバックに置き換え。write_senseメソッドを
+  追加し、pipbugのシリアルポートに使用。[smf]
+
+- exp85.c: シリアルターミナルのハードコーディングに代えてRS232ポートを追加。[smf]
+
+- thunderlblのサウンド追加。やはりwiggieとsuperbonと同じ実装方法やthunderlのハックを
+  を共有していたようだ。コイン投入後何秒かするとBGMが再スタートするので
+  IMPERFECT_SOUNDに設定。ゲーム中は問題ないようだ。[Osso]
+
+- Visual Studio 2012でのコンパイルを修正。[smf]
+
+- spyhunt/spyhuntpに正確なcpu_pg5.11を追加。[Porchy]
+
+- 全てのnetlistデバイスにnear-to-properリセット実装。改良したmatric solivingのリセッ
+  ト動作可能。[couriersud]
+
+-「Ropeman」(「ロックンロープ」海賊版)から82s153を追加。ROM名と配置の修正。さらにUSA
+  版「ドンキーコングJr.」のひとつの名前修正。[Kevin Eshbach]
+
+- isbc.c: RS232ポートをハードコードしたものからシリアルターミナルを使うように変更。
+  [smf]
+
+- netlistコードからデッドコードと曖昧な関数を削除。[Couriersud]
+
+- "ロジックファミリー"コンセプトを導入。今のところスタンダードなデバイスはTTLにデフォ
+  ルト設定。これはファミリータイプ(LS, S, HCTなど)をデバイスパラメータにできる。
+  これはアーキテクチャ的な作業なので現状で変更点はない。[Couriersud]
+
+- netlist用のMAMEサウンドデバイスを作成。ワイルドなoscillationが起こる問題を修正。今
+  のところサウンドデバイスの使用例を「ポン」で実装している。7400マルチバイブレーター
+  からの定常音が聞こえるようにpong.cのTEST_SOUNDをアンコメント。サウンドはまだWIP状態
+  だが新設計の裏付けはできた。[Couriersud]
+
+- bmcbowlにBGMとセーブステート追加。[Osso]
+
+- koftballにBGMとセーブステート追加。[Osso]
+
+- tms9927: VSYNCコールバック追加。[Curt Coder]
+
+- SDL: Qtの4.7以前のバージョンでの互換性を確保するための対策。[R. Belmont]
+
+- 'svg'の親セットに正しい内部ROM追加。コイン入力でリセットされるので検証が必要。
+  [rtw, iq_132, David Haywood]
+
+- tms5501: devcb2とダイシリアルを使うエミュレーションを書き直し。[Curt Coder]
+
+- flopimg: Compucolro IIフロッピーで使う8-N-1シリアルエンコーディングスキームをサポー
+  ト。[Curt Coder]
+
+- diserial: フレーミングエラーの検出を追加。[Curt Coder]
+
+- Netlist: [Couriersud]
+ * Eber Millモデルの動作。重要な進展
+ * 複ターミナルデバイスでシンプルな2x2|RHS SPICEをサポート。これはデザインとして暗黙
+   的に含まれているが、set_matがSPICEアプローチに複ターミナルデバイスがどうフィットす
+   るかを示している
+ * 1つまたは2つのネットがあるネットグループ用ダイレクトソルバー追加
+ * テンプレートを使いN=1,2,3,4,5のときの特別ソルバー追加
+ * BJTのナイスなパフォーマンス改善
+
+- donghearの表示不具合修正。[ElSemi]
+
+- n68681: タイマー終了時のOP3切り替えと入力デルタ割り込み実装。[R. Belmont]
+
+- h2680.c: h6280.hをインクルードしたときの#define競合を防ぐため.incの内容を.cに移動。
+  [smf]
+
+- z80.c: C++化。[smf]
+
+- ata/ide: セット機能コマンドを使い8ビットデータ転送をサポート。これまではmem_maskを
+  使用しておりATAで動作しなかった。[smf]
+
+- machine().firstcpuの呼び出しをm_maincpuに置き換え。[smf]
+
+- machine().firstcpu->pcbase()の呼び出しをmachine().describe_context()に置き換え。
+  [smf]
+
+- bankdev.c: 他のデバイスがリセット時に既にバンクを変更してる可能性があるので、リセッ
+  ト時のカレントバンクを変更しないように変更。[smf]
+
+- clcd.c: MMUを実装し使用可能に。rtc、rs232、セントロニクス、サウンドの実装。LCD色は
+  この写真に合わせて設定:
+  http://vivaamigafilm.blogspot.co.uk/2012/02/chillin-with-porter.html
+ 
+  文字のROMは未吸い出しなので、カーネルROMにある未使用の大文字フォントを開始点とし、
+  小文字を追加したフェイクのフォントを使用。スクリーンショットに合わせて調整した。
+  http://www.floodgap.com/retrobits/ckb/secret/cbm-vlcd-charrom.jpg
+  http://www.floodgap.com/retrobits/ckb/secret/cbm-lcd-screen.gif
+  rtcに影響するバグがROMにある模様。[smf]
+
+-「Royal Card」の不明な暗号化版追加。このゲームは「Dino 4」暗号化版ハードで動作し、
+  CPU+PLCCドーターボード装備。プログラムアドレスとデータは復号化したが、コードはま何
+  もコードがない$48xx領域にジャンプしている。グラフィックセットはデコードして一部復号
+  化。[Roberto Fresca, ANY]
+
+- n68681: ループバックオペレートを即時から現在のボーレートに設定。dectalkのDUARTセル
+  フテストが修正。[R. Belmont]
+
+- z180.c: CPUコアのモダン化。[Wilbert Pol]
+
+- tourvis.c: カートリッジの名前を1つ修正とU4-43 BIOSを吸い出し。
+ [The Dumping Union]
+
+- MSM58321をDEVCB2にコンバート。データシートに基づきストロボのエッジ検出の代わりにレ
+  ベルロジックを使用。設定ビットの保存が必要なのでNVRAMインタフェース追加。12時間と24
+  時間のサポート。デフォルトは12時間だがドライバで24時間に設定可能。year 0が何かをド
+  ライバで設定可能で、起動時の日付設定に使用する。[smf]
+
+- sharc.c: CPUコアのモダン化。[Wilbert Pol]
+
+-「ウエスタンエクスプレス / Express Raider」にSCREEN_RAW_PARAMS追加で、画面サイズを
+  256x240に修正。[Angelo Salese]
+
+- z8000.c: CPUコアのモダン化。[Wilbert Pol]
+
+- m6502: 柔軟性を高めるためSYNCピンをdevcb2経由でエクスポーズ。[R. Belmont]
+
+- tugboat.c: AYチップタイプとクロック修正。その他クリーンアップ。[Alex Jackson]
+
+- AICA: EFREGを一つおきのワードにマッピング。Naomi/DC/AW全ゲームのメモリトラッシング
+  が修正。[O. Galibert, R. Belmont]
+
+- "PET user port"の出所にちなんで名前変更。ソースファイルの再フォーマット。[smf]
+
+- qix.c: パレット全体を毎回生成するのをやめて部分更新に改良。[Alex Jackson]
+
+- mos6551: Rockwell 6551のサポート。リセット時にMOS/SCGパートからのレジスタ内容が異な
+  る。[R. Belmont]
+
+- nemesis.c [Alex Jackson]:
+ * AY8910のRCフィルタ実装
+ * konamigtレイアウトのアスペクト比修正
+ * アドレスマップと入力の修正
+
+- popeye.c: RCフィルタ追加(MT 3726)。クリーンアップ。[Alex Jackson]
+
+- 画面反転祭りに終止符: [Alex Jackson]
+  タイルマップ反転は画面全体サイズではなく表示領域の中心からの相対で演算し、汎用の画
+  面反転関数が表示領域を変更しないように修正。この変更で、MCFG_RAW_PARAMを使うドライ
+  バ、プログラマブルCRTCをもつゲーム、ラスタエフェクトを使うゲームで画面反転がほぼ動
+  作するようになった。さらに、長い間あった画面反転系の不具合も直ったはず。
+
+-「Bingo」(1983)追加。基板は海賊版のようだがゲーム自体は本物の模様。入力、ボタンラン
+  プをスクラッチから作成。poker41のゲーム名を「Four in One Poker」に変更。テクニカル
+  ノート追加。[Roberto Fresca]
+
+- Dino4基板動作の不明な「Royal Card」の改善: [Roberto Fresca]
+ * グラフィックセットを完全に復号化
+ * テクニカルノート追加
+
+-「Bingo」の基板レイアウトとテクニカルノート追加。[Roberto Fresca]
+
+- rallybikのタイトル画面色を修正。[Alex Jackson]
+
+- toaplan1.c: サウンドリセットハック削除。グラフィックデコーディング統合。その他整理。
+  [Alex Jackson]
+
+-「タイムスキャナー」の317-0024(FB1089B)再吸い出し。[Charles MacDonald, ShouTime]
+
+- twincobr.c: コア変更後の画面反転不具合修正。[Alex Jackson]
+
+- ドキュメント更新。[Charles MacDonald]
+
+- ROMを使用するディスクリートゲーム用のスケルトンドライバとドキュメントを追加。
+  [Fabio Priuli, Tafoid, gregf]
+
+- DEVCB2と書き込みラインを使ったCentronicsの更新。MCFGでの設定可能なように、出力ラッ
+  チと入力バッファを追加。Centronicsデバイス"printer"を"image"に改名。FM-7のパラレル
+  ポートジョイスティックが再び動作可能に。PC LPT操作ラインを入力としてサポート(未テス
+  ト)。c64のgeocable各ラインをスルーで引き渡し、ストロボラインをオンラインドキュメン
+  トに基づき変更(未テスト)。MSXとexidyのソーサラーパラレルポートDACで、設定切り替えで
+  はなくcovoxデバイスを使うように変更(未テスト)。ソーサラーパラレルポートはcommodore
+  のユーザーポートに似ているので、一つのオプションがセントロニクスカードになっている
+  独自スロットに変更したほうがよい。[smf]
+
+- Magic Card II: 専用CRTC設定インタフェースで表示領域の修正とセンタリング。
+  [Roberto Fresca]
+
+- SN76496 readyをDEVCB2にコンバート。[smf]
+
+- dkong.c, docastle.c, galaxian.c, mario.c, zaxxon.c: コア変更後の画面反転不具合修正。
+  [Alex Jackson]
+
+- bagman.c, bublbobl.c, chance32.c, galaga.c, mappy.c, pacman.c: コア変更後の画面反転
+  不具合修正。また、boscoのスプライトと弾の位置ずれ改善に再チャレンジ。[Alex Jackson]
+
+- 汎用バーコードリーダーエミュレーション追加: コードはUPC-A、EAN-13、EAN-8フォーマッ
+  トで数値を受け、バイトフォーマットとピクセルフォーマットの両方で保持する; 転送プロ
+  トコルの実装はドライバ側による。[Fabio Priuli]
+
+- キーボードからバーコードを入力するUIメニュー追加。起動中のマシンがバーコードデバイ
+  スを持つときのみ有効。[Fabio Priuli]
+
+- Truco-Tron: 最後の不明IC(U15)が判明。テクニカルノート追加。
+  [Cristian Arias, Roberto Fresca]
+
+- diimage: 書き込み禁止イメージを示す"read_only"機能をソフトウェアリストに追加。
+  [Curt Coder]
+
+- src\emu\bus\rs232とsrc\emu\bus\midiディレクトリを作成し、rs232とmidiデバイスを分離。
+  h89がrs232ポートを使って直接接続ではなくシリアルターミナルと通信するように変更。
+  [smf]
+
+- オプション、または必須のdevice/ioport/memory_region/...を追加する機能追加。
+  また、同様のデバイスファインダをどのデバイスにも追加可能。さらに、デバイスのstatic
+  な設定内にタグ追加する機能も追加したので、driver machine設定から参照可能。
+  [Miodrag Milanovic] 
+
+- i8251をDEVCB2にコンバート。[smf]
+
+- Funworldドライバの更新: [Roberto Fresca]
+ *「Luna Park」(set 1, dual program)を追加。改造CMCハードで動作し、ビデオRAM 
+   4000-4FFFを6000-6FFFに、カラーRAM 5000-5FFFを7000-7FFFにミラーリングしている。
+   このゲームはプログラムの最大アドレスラインがDIPスイッチ#1に接続されているので、
+   2つのプログラムを選択できる。両方のプログラムともvideoramを各video RAM領域に書き込
+   む
+ * 正しいプログラムROMバンキング追加とDIPスイッチ#1に接続
+ * 「Luna Park」(set 2)追加。これは通常のCMCビデオRAMに書き込む
+ * マシンドライバのクリーンアップ
+ * #define経由でクロック取得
+ * テクニカルノート追加
+
+-「Crystal Colours」(CMCハード)にデフォルトNVRAM追加。クリーンなメーターと設定で起動
+  可能。[Roberto Fresca]
+
+- National Semiconductor MM58167リアルタムクロック・カレンダーをサポート開始。
+  [R. Belmont]
+
+- Jubilee Double-Up Poker (TMS9980)の更新: [Roberto Fresca]
+ * #DEFINEでクリスタル値と分周したクロックを修正
+ * メモリマップ改良
+ * CRTコントローラ実装。ただし初期化シーケンスが不完全なもよう
+ * 正確なグラフィックバンク作成
+ * ビデオRAMの発見とマッピング
+ * ATTR RAM実装
+ * 正確なグラフィックバンクを正しい描画タイルに割り当て
+ * 入力ポートの発見とマッピング
+ * 入力ポートの分解するため対策開始
+ * テクニカルノート追加
+
+- Naomiの更新:
+ * 既知のICロケーションを全て追加。[MetalliC]
+ * 間違っていたSegaチップ番号とICロケーションを修正。[MetalliC]
+ * mvsc2の本物チップ吸い出し使用。[Guru]
+ *「アニマルバスケット」のROMロード修正。[MetalliC]
+
+- gottlieb.c, kyugo.c, madalien.c, rallyx.c, taito_b.c, zodiack.c: コア変更後の画面反
+  転不具合修正。[Alex Jackson]
+
+- Jubilee Double-Up Poker (TMS9980)の更新: [Roberto Fresca]
+ * 入力システムの分割
+ * 整理した入力をコイン入力以外全て実装
+ * NVRAMサポート
+ * テクニカルノート追加
+
+- Jubilee Double-Up Poker: NVRAMサイズ修正。ビデオRAMとワーキングRAMを同じデバイスの
+  半分に設定(TC5517AP-2、バッテリ接続)。テクニカルノートも追加。[Roberto Fresca]
+
+- palette_tとpalette_clientをクラス化。palette.cの全体的な整理。[Aaron Giles]
+
+-「Jubilee Poker」をさらに更新: [Roberto Fresca]
+ * CRTCを正しく実装
+ * 画面サイズと表示領域をCRTC値を元に調整
+ * 画面位置を8ピクセル調整してセンタリング
+ * テクニカルノートの追加
+
+- galivan.c: MT 05465の修正のためバッファドスプライトRAM追加; 整理。[Alex Jackson]
+
+- Jubilee Double-Up Pokerの更新: [Roberto Fresca]
+ * デフォルトNVRAM追加
+ * クレジット入力の発見と実装。ゲームが動作可能に。サウンドは無しよ
+
+- 内部プロファイラのデバイスタグ表示を修正。[Alex Jackson]
+
+- netlistソースの抽象化。ライブラリサポートへの第一段階(opamsなど)。[Couriersud]
+
+- v60.c: CPUコアのモダン化。[Wilbert Pol]
+
+- 6850をデータシートを元に書き直し。外部CLOCKを使用しMIDIクロックハックを削除。
+  COM8116 DEVCB2コールバックの標準化。txとrx IRQステートへアクセスをパブリックメソッ
+  ドとして見えるようにする代わりに、GUS gf1_deviceデバイスドライバをacia6850_deviceか
+  ら継承してアクセスを確保[smf]
+
+- upd7810.c: CPUコアのモダン化。[Wilbert Pol]
+
+- IGS036復号化のサポート。[Andreas Naive]
+
+- 0.141u2以前同様に、タイマーをタイムラインの開始ではなく終了時もう一度実行。MT4308が
+  修正。[Alex Jackson]
+
+- psyariaとraycrisのアトラクトモードでの描画不具合を修正。[smf]
+
+-「Gold Fruit」の改良: [Roberto Fresca]
+  最初のグラフィックバンクが異なる方法でエンコード・圧縮されているため、専用マシンド
+  ライバ作成してを正しくデコード。このゲームはメインレートが40%に固定されており、コイ
+  ンA+Bはパルスにより100クレジットに固定されている(恐らくリモートクレジット入力として
+  使う)。
+
+- bking.c, toypop.c: コア変更後の画面反転を修正。[Alex Jackson]
+
+- cat: 古い68681実装で必要だったハックを削除; キーボードが動作可能。[R. Belmont]
+
+- Mundial/Mondial (Italian/French): プログラムバンキングを修正。DIPスイッチでプログラ
+  ムを選択可能。[Roberto Fresca]
+
+- midiデバイスのローカルリストがどれも同じなので削除。[smf]
+ 
+- PIT8253をDEVCB2にコンバート。[smf]
+
+- n68681: 未初期化変数を修正。ログ処理を改良。[R. Belmont]
+
+- diserialのconnect()を削除。thomson、mc1502、wangpcで代わりにDEVCB2を使うように変更。
+  [smf]
+
+- coco.c: bitbangerの代わりにrs232ポートを使用。[smf]
+
+- ATTR_NORETURNによるclangのnetlistクラッシュを修正。デバッグステートメントの修正も。
+  [Couriersud]
+
+- baraduke.c, pacland.c: コア変更後の画面反転修正。SCREEN_RAW_PARAMの追加。
+  [Alex Jackson]
+
+- namcos1.c, namcos86.c: コア変更後の画面反転修正。SCREEN_RAW_PARAMの追加。
+  [Alex Jackson]
+
+- pdp1.c: CPUコアのモダン化。[Wilbert Pol]
+
+- Witch: 両方のCPUクロックを3MHzに、YM2203を3MHzに変更、ES8712のクロックを8MHzと確認 
+  (M5205のピン14から来ている)。全て基板をトレースして計測。全てのクロックを#defineで
+  定義。[Roberto Fresca, ANY]
+
+- uni bios v3.1のフリー版追加。[pza]
+
+- 複数の異なるビデオチップが同一のアドレス空間にバンク切り替えするドライバ、またROMと
+  共にバンク切り替えするRAMを持つドライバをアドレスマップバンクデバイスを使うように変
+  更。[Alex Jackson, hap]
+
+- popeyeで回路図を元に計算したパレットを使うように変更。インタレースフィールドをサポ
+  ート。実際にゲームで読み込まれている。[Couriersud]
+
+-「ポパイ」にnetlistフィルタリングとアンプを追加。[Couriersud]
+
+- CD4066デバイス実装 - Quad Bilateral Switch. [Couriersud]
+
+- 特定のOS X設定でのコンパイルを修正。[Robert Walsh]
+
+-「Cherry Wheel」の改良: [Roberto Fresca]
+ * ハードウェアの違いにより新しいメモリマップ作成
+ * デフォルトNVRAM追加
+ * MCUの部分的なシミュレーション。MCUなしではチェリーだけが現れ常に勝ってしまう
+ * 正しいボタンランプ表示
+ * テクニカルノートの追加
+
+- Super Nove (Playmark): 正しいマシンドライバを作成し、2つめのグラフィックバンク復号
+  化・デコード処理を改良。[Roberto Fresca]
+
+- i386.c: CPUコアのモダン化。[Wilbert Pol]
+
+-「Super Star '97」の入力を作り直し。ドライバ内の他のドライバの入力を改良。テクニカル
+  ノートの追加。[Roberto Fresca]
+
+-「サラリーマン金太郎」を再吸い出し。[Guru]
+
+- M4カートリッジ処理を大幅改良(flashコマンド追加で暗号化のON/Offロジック修正)。
+  [MetalliC] 
+- f355 EPRがオーバーダンプだったので修正。[MetalliC]
+- vtenis2cの吸い出し完了。ROMテストをパス可能。[MetalliC]
+- M1/ActelとNamcoカートリッジICレイアウト修正。ROMテストをパス可能。[MetalliC]
+- Namco 2f-2b IC名を[cartlabel].2d.2cという具合に変更。[MetalliC]
+-「ワールドキックス」の親セット化。[MetalliC]
+- カートリッジ基板を元にICラベルを変更。[MetalliC]
+- ドキュメントの更新。[MetalliC]
+
+- Super Star '97: さらに翻訳と技術情報追加。女性グラフィックだけのための別なパレット
+  をもつ新しいグラフィックバンク作成。[Roberto Fresca]
+
+-「ポン」(ROMベース)の修正。[Couriersud]
+
+- upd7810.c: ADCサポート。[Ramiro Polla]
+
+- バイポーラPROMに保存されている分割値を再構成し不足分を足すことでcb3dの色を修正。動
+  作可能に昇格。[Roberto Fresca]
+
+- device_output_interfaceとMCFG_OUTPUT_NAMEマクロ追加。使用するレイアウト出力を指定す
+  る。[Curt Coder]
+
+- CPS1.c: マニュアルより「ウィロー」「ストライダー飛竜」「大魔界村」のデフォルト設定
+  を変更。[Tafoid]
+ 
+- omti8621: 正しいISAカードにコンバート。[R. Belmont]
+
+- nbmj8688: HD61830デバイスを使うように変更。[Curt Coder]
+
+- 2個目のYMF271を追加し、ms32.cからのコードをお借りしてbnstars.cにサウンド追加。
+  [Osso]
+
+- Cherry Bonus III (set 4, encrypted bootleg): 両方のグラフィックバックについて復号化
+  とデコードを修正。[Roberto Fresca, ANY]
+
+- 8方向でしょ。[Jon Banks]
+
+- spyhuntのROMラベルと位置を訂正。[Porchy]
+
+- drawgfx.c: ind16ビットマップを描画するときに必要だった1対1のルックアップテーブルを
+  削除。[Alex Jackson]
+
+-「Win Cherry」の改良: [Roberto Fresca]
+ * 全グラフィックバンクの復号化・デコード
+ * 初期版のメモリマップ
+
+- 複数パターンや複数のグラフィックデコーダを持つゲームを表示できるようにUIグラフィッ
+  クビューアを拡張。[Alex Jackson]
+
+- cinemat.c: spaceftrを再吸い出し。[f205v, Piero Andreini]
+
+-「Royal Card (French)」追加。このセットはオリジナルだが、海賊版基板で動作している。
+  ゲームが動作するようにデフォルトNVRAM追加。テクニカルノートも追加。[Roberto Fresca]
+
+- duart ipピンが間違ってdevice_write_lineのステートを互いにクリアしないように修正;
+  MESSのCanon Catが改善。[Lord Nightmare]
+
+- NSC810 RAM-I/O-Timerデバイスの基本実装追加。「Husky Hunter 2」ドライバに実装。
+  [Barry Rodewald]
+
+- listxml出力から選択できないスロットオプション(SLOT_INTERFACE_INTERNAL)を削除。
+  [Curt Coder]
+
+- トランケートファイルにosd_truncateコールを追加。[O. Galibert]
+
+- コアのテンプレートコンテナクラスをemutempl.hからcoretmpl.hに移動: [Aaron Giles]
+ * これらのクラスからresource_poolを削除; 全てグローバルで管理するので、リストに追加
+   するオブジェクトはglobal_allocで割り当てする必要がある
+ * auto_pointer<>テンプレート追加。これはポインタのラッパでデストラクト時に自動解放を
+   行う; また明示的な初期化を不要にするためデフォルトでNULLに設定
+ * tagmap.hにtagged_listテンプレートを移動
+
+- 低レベルメモリトラッキングシステムの作り直し: [Aaron Giles]
+ * 低レベルトラッキングを全コンポーネントで共有してコアライブラリから使用できるように
+   emu\emuallocからlib\util\coreallocに移動
+ * global_allocとそのお友達で割り当てのトラッキングができるようにリソースプールを使用;
+   これが大量のメモリを消費するする余計なシステムだったことが判明
+ * global_resource_poolを完全に削除
+ * global_alloc_arrayに割り当てていた配列を削除するためglobal_free_arrayを追加
+ * 配列割り当てに対するオブジェクトのトラッキングを追加; 配列でglobal_freeを使う、ま
+   たはオブジェクトでglobal_free_arrayを使うとエラーが発生するよう変更
+
+- ユーティリティヘルパ const_string_pool を追加。これは変更予定のない文字列を効率的に
+  蓄積するもので、新しいmakelistとソフトウェアリストコードで使用する。[Aaron Giles]
+
+- png2bdcを更新しmakelistツールのメモリリークを修正、またよりモダンな方法をとるように
+  変更(例えばmakelistでMAX_DRIVERSを使うのをやめるなど)。[Aaron Giles]
+
+- auto_strdupを廃止し、ソフトウェアリストの書き直しと呼び出し側のastringにより使用箇
+  所を削除。[Aaron Giles]
+
+- ソフトウェアリスト管理の書き直し: [Aaron Giles]
+ * software_listがsoft_ware_list_deviceと分かれているという考えを削除; これらは同一の
+   ものに変更
+ * コアのソフトウェアリストクラスにあるべきではない関数をdevice_image_interfaceに移動
+ * 以上の変更に伴い大幅な整理
+
+-「Cherry Bonus III」全セットでボタンランプサポート。本物っぽい内蔵レイアウトも作成。
+  メモリマップについてのテクニカルノート追加。[Roberto Fresca]
+
+-「Double-Up Poker (Jubilee)」の改善: [Roberto Fresca]
+  部分的なランプサポートとディスクリートサウンドのトリガオフセットの対策。テクニカル
+  ノートと新しい発見を超いっぱい追加。
+
+- pgm.c: タイルグラフィックROMロード・デコード処理をシンプル化。[Alex Jackson]
+
+- i8089: チャンネルプライオリティ。[Carl] 
+
+- m6502: アンオフィシャルなオペコードの修正。[R. Belmont]
+
+- MT05065を修正。Double Crown PLDをバイナリ化。[Roberto Fresca]
+
+-「Golden Star (IGS)」のランプサポート。入力も合わせて修正。[Roberto Fresca]
+
+- video/generic.cから疑似パレットを削除。これを使用していた全ドライバは本物のパレット
+  を使うように変更。[Alex Jackson]
+
+- shanghai.c:「上海」セットの基板レイアウトとROM配置追加。[Brian Troha]
+
+-「American Music Poker (Amusco)」用の8086 CPU＋CRTC 6845＋PSG SN76489ベースドライバ
+  追加。[Roberto Fresca]
+
+- k053250デバイスにパレット追加でxexexのクラッシュ修正。コードのモダン化
+  (dynamic_arrays、device_video_interfaceをattach screeenなど)。
+  [Alex Jackson]
+
+- HD63484のアップデート: [Sandro Ronco]
+ * 16ビットアドレスマップを使うように変更
+ * RPR, MOD, SCLR, SCPY, LINE, PLG, PLL, CRCL, ARC, FRCT, PAINT, DOT, PTN, GCPYコマン
+   ド追加
+ * パターンRAMエミュレーション追加
+
+- wd_fdc: devcb2コールバックを使うように変更。[Curt Coder]
+
+- 6551エミュレーションを書き直し。クロックをボーレートXTALからo2クロックに変更し外部
+  クロッキングをサポート。アイドル時に転送割り込みを生成、エコーモード追加、
+  dcd/dsr/cts入力処理、パリティ&ストップビットチェック追加。Commodore lcd & plus 4で
+  の実装とテスト。[smf]
+
+- offtwall.c: Atariの「オフザウォール」アップライト版のROM名と配置を訂正。また、
+  セキュリティヒューズが飛んでいないも基板だけにあるGALのうちGAL16V8A-25LPを吸い出し。
+  [Kevin Eshbach]
+
+- upd765: dvcb2コールバックを使うように変更。[Curt Coder]
+
+- gfx_element::decode()をプライベートに設定; 直接これを呼び出していたドライバを修正。
+  [Alex Jackson]
+
+- tmnt2セットの正しいIC配置追加。[Ben76]
+
+- 新しく吸い出された「上海3」の韓国版?タイルROMを追加。[Brian Troha]
+  (基板上にはあったが既存セットでは不使用? 未吸い出しの韓国版プログラムROMと使うのだ
+  ろうか)
+
+- h63484.cのコンパイル修正。[external] 
+
+- delegete.hに64-bit intelコンパイラのコンパイル時チェック追加
+  (assert(sizeof(mfp) <= sizeof(m_rawdata));を予防するため)。 [external]
+
+- MPU4ゲームのバンキング修正の試み。不完全ながら非バンクゲームはほとんど動作可能。
+  [J. Wallace]
+
+- SDL: totalColorsハック削除しGPUにRGB32のみを送信。[R. Belmont]
+
+- littlerb.c:「Little Robin」の不足DIPスイッチ追加とDIP配置追加。[Brian Troha]
+
+- SDL: 次のステージのクリーンアップ。現在のWindows/D3Dコードのテクスチャ変換の位置合
+  わせ。過度のGLテクスチャキャッシングを修正。[R. Belmont]
+
+- tms5110r.inc: デキャップに基づき、tms5110で新しいchirpテーブルを使うように更新。 
+  [Lord_Nightmare, digshadow]
+
+- 315_5124.c: X-Scrollレジスタタイミングを改善。[Enik Land]
+
+- netlist: netからロジックターミナルを削除してナイスなパフォーマンス改善。linked-list
+  の抽象化のためlinked-listクラスを導入。デバイスの不活性化を修正。タイミングが完全に
+  合っている補償がないのでこれを有効にする必要あり。[Couriersud]
+
+- N64 RSPの変更: [MooglyGuy]
+ * SMIDオペコードのバグを簡単に見つけられるようにSIMUL_SIMDフラグ追加
+ * SIMD版のSSV、SLV、SDV、STV、VSUB、VADDC、VSUBC、VGE修正
+ * MESSのスカラ実装と結果が違うため、VMACF、VMADL、VMADNの最適化を削除
+
+- h8: 書き直し。[O. Galibert]
+
+- MegaPlayとMegaTechでモダンSMS VDPを使うように更新。[Fabio Priuli]
+
+- jedutilテストで使うテストデータの不具合を修正。[Kevin Eshbach]
+
+- h8: dec16/inc16の修正。[Fabio Priuli]
+
+- h8: UEポラリティの判別。[O. Galibert]
+
+- h8: タイマーのイネーブル処理修正。[O. Galibert]
+
+- h8: デバッガのレジスタとフラグを整理。[O. Galibert]
+
+- floppy: スプライス関連の修正。[O. Galibert]
+
+- 4enlineaドライバの改良。CGAモードのHCGAコントローラ実装(UM486Fエミュレーションの修
+  正が必要)。検証結果やドキュメントの追加。[Roberto Fresca]
+
+- gfx_elementsについて、デコード時にソースビットのオフセットにそれぞれ適用されるXORマ
+  スク追加。これはRAMやプログラムROMからグラフィックをデコードする際のエンディアン処
+  理や、ビットオーダーの反転(pgm.cなど)に使用できる。[Alex Jackson]
+
+- mc6845: アップデート関数にディスプレイイネーブルと縦横のバックポーチ幅を追加。MESS
+  ドライバでこれを使うように更新。[Curt Coder]
+
+- 4enlinea: HCGAコントローラのプログラムドレジスタを元に初期画面パラメータを調整して
+  グラフィック描画方法を改良。テキストが読めるように改善。[Roberto Fresca]
+
+- 4enlinea: HCGAコントローラのステータスハンドラ実装(今のところシミュレート)。
+  RAM容量とオフセットを修正するためメモリマップの改良とHCGAステータスの正しいオフセット追加。また、ポートE0000-E001のデバッグハンドラ2つを追加。[Roberto Fresca]
+
+- Naomiの更新: [MetalliC]
+ * GD-ROM17枚の.gdiソースよりCHD v5形式で再吸い出し
+ * 不足していたプロテクトキーを追加
+ *「18ホイーラーズ」(アップライト版)の追加
+ *「クラブカート:ヨーロピアンセッション」(2003)の追加とクローンセットのプロテクト解除
+ *「クラブカート:ヨーロピアンセッション」(Rev.D)の追加
+
+- cps1.c: mswordjのMS22B.1A吸い出しと追加。[Bonky0013, neocps1]
+
+- MPU4テストプログラム4をMOD4ドライバに移動。タイミング関係の作業がまだ必要。Gamball
+  のリール配置が修正。標準化するにはさらに作業が必要。[J.Wallace]
+
+- quickjac: 入力系追加。[Sandro Ronco]
+
+-namco23: 春の大掃除: [O. Galibert]
+ * OO化で不要なs23プリフィクス・サフィックスを削除
+ * p3dをc435に改名
+ * c435 DMAとPIOを統合
+ * 汎用セットステートコマンドを解析
+ * 割り込みセットステートサブコマンドを実装
+ * コントロールポートのエンディアン修正(操作はまだ動作せず)
+ * その他もろもろ
+
+- tiamc1:
+ * 背景スクロールの修正と有効化 [MetalliC]
+ *「Snezhnaja Koroleva」の不良グラフィックROM修正 [Titus]
+
+- cosmac: 入力ライン用のライン書き込みメンバーを追加。[Curt Coder]
+
+- namcos23:「ダウンヒルバイカーズ」のIRQストームを修正。[O. Galibert]
+
+-「Little Robin」のサウンドハードとビデオタイミングを分離。[Angelo Salese]
+
+- quantumの完璧なエミュレーションによりtempestに長年あったバグを修正。古いセーブス
+  テートは不具合があるので削除のこと。[Couriersud]
+
+- namcos23: timecrs2の3D演算を修正。[O. Galibert]
+
+- namcos23: コマンドフォーマットの解析。downhillと500gpで何かが表示可能。
+  [O. Galibert]
+
+- namcos23: マトリックスベクターMULを拡張。[O. Galibert]
+
+- 将来的にAWPタイトルで必要な水平リールをサポート。呼び出しのためにレイアウトのリール
+  エレメントにbeltreelアトリビュートを追加。[J. Wallace]
+
+- h8: h8/3008追加。[O. Galibert]
+
+- Double Crown: ボタンランプ、コインイン、コインアウトカウンタ、MAX693ウォッチドッグ
+  リセットのサポート、入力の修正、テクニカルノートの追加。[Roberto Fresca]
+
+- Double Crown: ボタンランプレイアウトの再デザインとCANCELボタンを追加。
+  [Roberto Fresca]
+
+- Z80の派生版Toshiba TLCS-Z80を追加。[Felipe Sanches]
+
+- berlwallのRGB背景の明るさ調整を追加。[David Haywood]
+
+-「Little Robin」で、カスタムBlitterコードの代わりにTMS34010を使うように変更。また、
+ 「Mega Phoenix」の一部と共有。[David Haywood]
+
+- TMS34010コアの改良: [David Haywood]
+ *「Mega Phoenix」「Little Robin」でグラフィックを全部表示するのに必要な8ビット書き込
+   み処理を改良
+ * 画面上部にゴミが表示されないように画面クリッピングを修正
+
+- マルチパレットを使うようにドライバを更新。[David Haywood]
+
+- Segaの各セットにデラックス筐体モーターROMを追加。[ANY]
+
+-「ジョッキークラブII」のEEPROMを吸い出して初期IDチェックをパスできるようにデバイスの
+  実装を試み。[ANY]
+
+- Super Star '97: 全部のグラフィックROMを吸い出し不良にマーク(これらはマスクROMで
+  27512として吸い出されたためグラフィックが半分足りない)。[Roberto Fresca]
+
+- Zoom ZSG2サウンド追加。taitognとfx1bで使用。DSPは未実装なので音がちょっと安っぽい感
+  じ。[hap]
+
+- goldnpkr.c driver: 全ゲームのボタンランプステートを反転と共通化。[Roberto Fresca]
+
+- Atariベクターゲーム各種: ジャダー低減のためCPU IRQから(フェイクの)リフレッシュレー
+  ト取得。[Alex Jackson]
+
+- toaplan1.c: CRTCレジスタベースの全ゲームについてSCREEN_RAW_PARAMSを修正。
+  [Alex Jackson]
+
+- naomi.c: cfield CHDをGDIソースより再吸い出し。ngdup23eセットで使っているPICについて
+  ドキュメント化。[MetalliC]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+
+Top Blade V [ElSemi]
+Carket Ball [ANY, David Haywood]
+Mega Phoenix [Enricnes (from AUMAP), David Haywood]
+Aaargh (Arcadia) [Unigame, David Haywood]
+Happy 6-in-1 (ver. 101CN) [rtw, iq_132, David Haywood]
+x2222 (prototype) [David Haywood, se yong Jang]
+The Real Broadway [Brian Troha, Mariusz Wojcieszek, The Dumping Union]
+Mongolfier New (Italian) [Roberto Fresca, Peter Ferrie]
+Soccer New (Italian) [Roberto Fresca, Peter Ferrie]
+Player's Edge Plus (X002377P+XP000112) Super Double Bonus Poker
+  [BrianT, Ken]
+Player's Edge Plus (IP0041) Double Deuces Wild Poker - French
+  [BrianT, Ken]
+Player's Edge Plus (PS0426) Sizzling Sevens Slots [BrianT, Ken]
+Player's Edge Plus (PP0060) Standard Draw Poker (set 2) [BrianT, Ken]
+Player's Edge Plus (PP0159) Standard Draw Poker (International)
+  [BrianT, Ken]
+Player's Edge Plus (X000040P+XP000038) Standard Draw Poker
+  [BrianT, Ken]
+Player's Edge Plus (X000046P+XP000038) 10's or Better [BrianT, Ken]
+Player's Edge Plus (X000053P+XP000038) Joker Poker [BrianT, Ken]
+Player's Edge Plus (X000537P+XP000038) Standard Draw Poker
+  [BrianT, Ken]
+Player's Edge Plus (X000568P+XP000038) Joker Poker [BrianT, Ken]
+Player's Edge Plus (X000588P+XP000038) Joker Poker [BrianT, Ken]
+Player's Edge Plus (X002461P+XP000055) Joker Poker [BrianT, Ken]
+Player's Edge Plus (PS0296) Haywire [BrianT]
+Player's Edge Plus (PP0120) Wild Sevens Poker [BrianT]
+Bingo [Roberto Fresca, Siftware]
+チャイナタウン (Ver 1B, Dino4 HW) [Roberto Fresca, ANY]
+Luna Park (set 1, dual program) [Roberto Fresca, ANY]
+Luna Park (set 2, dual program) [Roberto Fresca, ANY]
+Luna Park (set 3) [Roberto Fresca, ANY]
+Crystal Colours (CMC hardware) [Roberto Fresca, ANY]
+Jubilee Double-Up Poker [Roberto Fresca]
+Gold Fruit [Roberto Fresca, ANY]
+Record (Version 1) [Roberto Fresca, ANY]
+Cherry Wheel (Version 1.7) [Roberto Fresca, ANY]
+MPU4 Reel Test (3.0) [jameswal]
+Guns and Roses (C606191SMP, Australia)  [Lord-Data]
+Joker Poker (Coinmaster, Amusement Only) [Roberto Fresca, ANY]
+
+
+新しく追加されたクローンセット
+------------------------------
+
+ギャラクシアン (Irem) [DamagedGoods]
+スペクトラルVSジェネレーション (M68k label V200) 
+ (ARM label V200, ROM 10/11/05 S.V.G V201) [rtw, iq_132, David Haywood]
+Happy 6-in-1 (ver. 102CN) [rtw]
+ドンキーコング (hard kit) [Matt Ziolkowski, Rob Rings]
+アウトラン (Japan, FD1089A 317-0019) [Charles MacDonald, ShouTime, Yasuhiro]
+Cookie & Bibi (set 2) [ANY, David Haywood]
+Pocket Gals V.I.P (set 1) [bodger319, AeroCityMayor, Brian Troha, The Dumping Union]
+Pocket Gals V.I.P (set 2) [system11]
+Rough Ranger (v2.0) [bodger319, AeroCityMayor, Brian Troha, The Dumping Union]
+ジェットウエーブ (EAB, Euro v1.04) [The Dumping Union]
+鉄拳2 Ver.B (Japan, TES1/VER.B) [Any, The Dumping Union]
+鉄拳2 Ver.B (Japan, TES1/VER.C) [Any, The Dumping Union]
+Galaxia (sets 2,3,4) [Paul Swan, Andrew Welburn]
+Fantasia (940429 PCB, set 2) [system11]
+Multi 5 / New Multi Game 5 (set 2) [system11]
+Deluxe 5 (set 2 + set 3) [system11]
+ギャルズパニック3 (Hong Kong) [system11]
+バイパーフェイズ1 (New Version, Korea) [shmups forum]
+ファンタジーゾーン (prototype) [Unigame] (incomplete set)
+Yukiwo (World, prototype) [Unigame]
+Flying Tiger (set 2) [system11]
+Puckman Pockimon (set 3) [any]
+Gulf War II (set 2) [system11]
+Vs.テニス (Set 3)  [any]
+スパイダーマン (Japan) [ShouTime]
+レーシングビート (Japan) [ShouTime]
+ファイターズヒストリー (Japan ver 41-04, DE-0380-1 PCB)
+  [Caius, The Dumping Union]
+タイトルファイト (Japan) [ShouTime, The Dumping Union]
+Disco Boy (Promat license?) [system11]
+Miss World '96 (Nude) (2 sets) [system11]
+フラッシュアタック (Japan, PWB 450593 sub-board) [system11]
+ダンシングアイ (US, DC3/VER.C) [Tormod, Smitdogg, The Dumping Union]
+ミスタードリラー (US, DRI3/VER.A2) [Tormod, Smitdogg, The Dumping Union]
+オー！バキューン (Japan, OB1/VER.A)
+  [Tormod, balrog, f205v, Shoutime, ghoolster, Mucci, Mooglyguy, Smitdogg,
+   The Dumping Union]
+ファンキージェット (World, rev 1) [Arzeno Fabrice, The Dumping Union]
+Gulf Storm (set 3) [TeamEurope]
+ストリートファイターIII -ニュージェネレーション- (Asia 970204, NO CD, bios set 1)
+  [Smitdogg]
+Super Toffy [System11, The Dumping Union]
+19XX -THE WAR AGAINST DESTINY- (Japan 960104, yellow case)
+  [Tormod, ?other credits?]
+ゼロウイング (2P set) [System11, The Dumping Union]
+The Three Stooges In Brides Is Brides (set 2) [The_Hamster]
+Billard List [system11]
+ストリートファイターIII -ニュージェネレーション- (Asia 970204) [Bonky0013]
+上海III (World) [Brian Troha, The Dumping Union]
+上海 (World) [Brian Troha, The Dumping Union]
+リーサルエンフォーサーズ (ver UAB, 09/01/92 11:12) [Brian Troha, The Dumping Union]
+チェイスH.Q. (Japan, upright?) [ANY]
+Kero Kero Keroppi's Let's Play Together / けろけろけろっぴのいっしょにあそぼう
+  (USA, Version 2.0) [Mark F., The Dumping Union]
+Air Assault (World) [system11]
+Snow Bros. 2 - With New Elves / お天気パラダイス (bootleg) [ANY]
+ストリートファイターII' -チャンピオンエディション- (L735 Test Rom, bootleg) [ANY]
+ストリートファイターII' -Magic Delta Turbo- (bootleg, set 3) [ANY]
+Trojan (bootleg) [ANY]
+Astro Combat (unencrypted bootleg) [ANY]
+ビデオハスラー (bootleg, set 2) [ANY]
+イントレピッド (2 bootlegs) [ANY]
+ギャラクシアン (bootleg, set 3) [ANY]
+ブロックカーニバル / Thunder & Lightning 2 (bootleg) [ANY]
+マウストラップ (bootleg) [ANY]
+Arch Rivals (rev 2.0 5/03/89, 8-way Joystick bootleg) [ANY]
+Hunchback (Scramble hardware, bootleg) [ANY]
+ミズパックマン (bootleg on Crush Roller Hardware)  [Kevin Eshbach]
+Galaxian Growing Galaxip / Galaxian Nave Creciente 
+  (Recreativos Franco S.A. Spanish bootleg) [Roselson from AUMAP]
+Player's Edge Plus (PP0059) Two Pair or Better [BrianT]
+Player's Edge Plus (PP0060) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0219) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0221) Standard Draw Poker (set 2) [BrianT]
+Player's Edge Plus (PP0725) Double Bonus Poker (set 2) [BrianT]
+Player's Edge Plus (PP0010) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0014) Standard Draw Poker (Multi Region) [BrianT, Jim]
+Player's Edge Plus (PP0040) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0041) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0053) Joker Poker [BrianT, Jim]
+Player's Edge Plus (PP0057) Deuces Wild Poker [BrianT, Jim]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker (set 2) [BrianT, Jim]
+Player's Edge Plus (PP0203) 4 of a Kind Bonus Poker (set 3) [BrianT, Jim]
+Player's Edge Plus (PP0265) 4 of a Kind Bonus Poker (set 2) [BrianT, Jim]
+Player's Edge Plus (PP0510) Standard Draw Poker [BrianT, Jim]
+Player's Edge Plus (PP0514) Double Bonus Poker (set 3) [BrianT, Jim]
+Player's Edge Plus (PP0531) Joker Poker [BrianT, Jim]
+Player's Edge Plus (PP0713) Bonus Poker Deluxe [BrianT, Jim]
+Player's Edge Plus (X002283P+XP000057) Deuces Wild Bonus Poker [BrianT, Jim]
+Player's Edge Plus (X002284P+XP000057) Deuces Wild Bonus Poker [BrianT, Jim]
+Player's Edge Plus (X000224P+XP000053) Deuces Wild Poker [BrianT, Dave]
+Player's Edge Plus (X000265P+XP000038) 4 of a Kind Bonus Poker [BrianT, Dave]
+Player's Edge Plus (XM00008P+XMP00006) Multi-Poker [BrianT, Dave]
+Player's Edge Plus (X000536P+XP000038) Joker Poker [BrianT]
+Player's Edge Plus (X002440P+XP000053) Deuces Wild Poker [BrianT]
+Player's Edge Plus (XM00006P+XMP00006) Multi-Poker [BrianT]
+Player's Edge Plus (XMP00030) 5-in-1 Wingboard (CG2426) [BrianT]
+Player's Edge Plus (PP0008) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0014) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0023) 10's or Better [BrianT]
+Player's Edge Plus (PP0051) Joker Poker [BrianT]
+Player's Edge Plus (PP0055) Deuces Wild Poker (set 3) [BrianT]
+Player's Edge Plus (PP0057) Deuces Wild Poker (set 2) [BrianT]
+Player's Edge Plus (PP0059) Two Pair or Better (set 2) [BrianT]
+Player's Edge Plus (PP0064) Joker Poker [BrianT]
+Player's Edge Plus (PP0083) 10's or Better [BrianT]
+Player's Edge Plus (PP0116) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0118) Standard Draw Poker [BrianT]
+Player's Edge Plus (PP0125) Deuces Wild Poker [BrianT]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker (set 3) [BrianT]
+Player's Edge Plus (PP0249) Deuces Wild Poker [BrianT]
+Pool 10 (Italian, set 5) [Roberto Fresca, ANY]
+Pool 10 (Italian, set 6) [Roberto Fresca, ANY]
+Pool 10 (Italian, set 7) [Roberto Fresca, ANY]
+Pool 10 (Italian, set 8) [Roberto Fresca, ANY]
+Royal (Pool 10 hack) [Roberto Fresca, ANY]
+Royal Card (Austrian, set 7) [Roberto Fresca, ANY]
+Royal Card (Austrian, set 7, CMC C1030 HW) [Roberto Fresca, ANY]
+Royal Card (French) [Roberto Fresca, f205v]
+Jolly Card (Italian, different colors, set 1) [Roberto Fresca, ANY]
+Jolly Card (Italian, different colors, set 2) [Roberto Fresca, ANY]
+Cherry Bonus III (set 3) [Roberto Fresca]
+Cherry Bonus III (set 4, encrypted bootleg) [Roberto Fresca, ANY]
+Videotron Poker (cards selector, set 2) [Roberto Fresca, ANY]
+Witch (With ranking) [Roberto Fresca, ANY]
+Tesorone Dell'Isola (Italy, v2.30) [ANY]
+Manic Panic Ghosts! [Guru, R. Belmont]
+
+
+追加された未動作ゲーム
+----------------------
+NetMerc [ShouTime, smf]
+Club Kart Prize [gamerfan, rtw, Smitdogg, The Dumping Union, R. Belmont]
+Angler King (AG1 Ver. A) [The Dumping Union]
+Unknown encrypted Royal Card (Dino4 HW) [Roberto Fresca, ANY]
+Star Horse (client) [Anonymous]
+Star Horse (server) [Anonymous]
+Star Horse (large screens) [Anonymous]
+ぷよぷよフィーバー(prototype v0.01) [Anonymous, R. Belmont]
+Club Kart Prize Ver. B [Anonymous, R. Belmont]
+Naomi SWP Hopper Board [Anonymous, R. Belmont]
+まもるクンは呪われてしまった！ [rtw]
+甲虫王者ムシキング ～グレイテストチャンピオンへの道2～ ENG (Ver. 1.001) [rtw]
+甲虫王者ムシキング ～グレイテストチャンピオンへの道2～ ENG (Ver. 2.001) [rtw]
+ラジルギノア [rtw]
+Star Horse Progress (Rev. A)
+  [rtw, Mr. CAST, hap, Yohji, Smitdogg, The Dumping Union]
+タッチでズノー (Rev. A) [CaH4e3]
+カートデュエル (Japan, KTD1/VER.A) 
+  [hap, Mooglyguy, Shoutime, Smitdogg, The Dumping Union]
+コスモスワット [Andrew Welburn, Oliver Moazezzi]
+Super Nove (Playmark) [Roberto Fresca, ANY]
+Gran Capitan (Version 3) [Roberto Fresca, ANY]
+Magic Bomb (Version 1) [Roberto Fresca, ANY]
+Super Star '97 (version V153B) [Roberto Fresca, Siftware]
+Win Cherry (ver 0.16 - 19990219) [Roberto Fresca, f205v]
+Jockey Club II (older hardware, set 2) [ANY]
+unknown Sisteme France Poker [Roberto Fresca, f205v]
+American Music Poker (V1.4) [Roberto Fresca, Siftware]
+Cuatro en Linea [Rockman (from AUMAP), David Haywood, Roberto Fresca]
+雷電DX (Holland) [Alex Meijer (Asure)]
+雷電II(set 9, Holland)   [Alex Meijer (Asure)]
+ギャルズパニックII (Germany, single PCB) [system11]
+World Kicks (WK1 Ver. A) [Anonymous]
+魔斬 (MAZ3 Ver. A) [rtw, ShouTime]
+メルティブラッド アクトレスアゲイン (Ver. A) [rtw]
+ニンジャアサルト (NJA1 Ver. A) [rtw, ShouTime]
+ニンジャアサルト (NJA2 Ver. A) [rtw, ShouTime]
+Magic Worm (bootleg of Centipede) alternate [Andrew Welburn]
+パニックパーク (PNP1 Ver. B) [Any, The Dumping Union]
+Gunmen Wars (GM1 Ver. B) [hap, Shoutime, Smitdogg, The Dumping Union]
+Queen of the Games [ANY]
+Euro Jolly X9 [ANY]
+Aero Blasters / エアバスター (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+コラムス (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+ファイナルラップツイン (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+フォーメーションサッカー ヒューマンカップ`90 (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+ゴモラスピード (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+ジャッキーチェン (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+PC原人2  (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+パワーイレブン (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+スーパースターソルジャー (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]
+ヴォルフィード (Tourvision PCE bootleg)
+  [clawgrip, Mooglyguy, Charles MacDonald, The Dumping Union]

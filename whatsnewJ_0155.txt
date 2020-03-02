@@ -1,0 +1,596 @@
+0.155
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02506: [速度] All Sets in fuukifg2.c and fuukifg3.c: [バグかもね] フルスクリーンフ
+         レームバッファリング中に大幅に速度が落ちる。(David Haywood)
+- 05708: [グラフィック] (blktiger.c) blktiger and clones: 4面の橋のところでスプライト
+         プライオリティの問題あり。(Mamesick)
+- 00386: [グラフィック] (battlera.c) battlera, bldwolf, bldwolfj: 最終面のラスボスで、
+         ボスが山の向こうに行っても見えてしまう。1面の潜水艦と同じ現象。
+         (David Haywood)
+- 00385: [グラフィック] (battlera.c) battlera: 最初のボス(潜水艦)と戦っているときに、
+         水に潜っているのに見えてしまう。おそらく、プライオリティか、影・ハイライト効
+         果がうまく動作していないのだろう。(David Haywood)
+- 01007: [サウンド] (simpsons.c) simpsons: 一部のボイス（“Maggie”、“That's my 
+         sister mister”など）が変になっている。MAMEと実機ではかなり隔たりがあり、本
+         当はTVクオリティに近い。(Alex Jackson)
+- 05705: [DIP/入力] (segas18.c) ddcrew: プレイヤー3のボタンが動かない。(Osso)
+- 05700: [グラフィック] (terracre.c) amazon, amatelas: スプライトと背景がシンクロしな
+         い。(Alex Jackson)
+- 03395: [サウンド] (nmk16.c) macross2: 音量バランス調整が必要。(trap15)
+- 02422: [サウンド] (nmk16.c) mustang: サウンドコミュニケーションの実装方法が間違って
+         いるかも。(trap15)
+- 02417: [サウンド] (nmk16.c) NMK004サウンドCPUはまだシミュレーション動作。しかも不完
+         全。(trap15)
+- 01117: [グラフィック] (nmk16.c) macross2: 巨大戦艦とウェポンのプライオリティが変わ
+         ったが、これは正しい？(trap15)
+- 05493: [クラッシュ/フリーズ] (itgambl2.c) All sets in itgambl2.c: OK画面後クラッシ
+         ュ。(Olivier Galibert)
+- 05697: [DIP/入力] (flyball.c) All sets in flyball.c: バッターとピッチャーの操作がご
+         ちゃ混ぜ。(hap)
+- 05693: [グラフィック] (ddragon3.c) wwfwfest: Wrestler Entranceシーンのグラフィック
+         が表示されない。(hap)
+- 05689: [その他] (williams.c) All sets in williams.c: 実機ではテスト用の特殊なボタン
+         があるが再現されていない。
+- 05683: [インターフェイス] SDL-based: -watchdogコマンドがSDLMAMEで動かない。
+         (R. Belmont)
+- 05681: [クラッシュ/フリーズ] SDL-based: レーザーディスクCHDゲームが起動しない、また
+         は問題がある。(R. Belmont)
+- 05688: [クラッシュ/フリーズ] (psikyo4.c) hgkairak, hotgm4ev, hotgmck, hotgmck3, 
+         hotgmcki: 画面反転をONにするとクラッシュする。(Osso)
+- 02124: [グラフィック] (namconb1.c) nebulray, nebulrayj: 1面の回転エフェクトが実装さ
+         れていない。(Phil Bennett)
+- 05686: [ドキュメント] (model2.c) vcopa: vcopのクローンセットじゃね？(Tafoid)
+- 05685: [ドキュメント] (alg.c) maddog22: maddog2セットと関連がない。(JWallace)
+- 05676: [サウンド] (eolith.c) candy: 音が出ない。(Wilbert Pol)
+- 05675: [色/パレット] (highvdeo.c) newmcard, record: パレットの問題あり。
+         (David Haywood)
+- 05666: [クラッシュ/フリーズ] (cswat.c) cswat: -aviwriteでヒープバッファオーバーフロ
+         ー。(hap)
+- 05350: [システムコア] Systems using M6809 with M6809_HOLD_LINE: CWAIが割り込みポー
+         リング中にACKしない。(hap)
+- 05629: [色/パレット] hangplt, hangpltu, thrilld: 3Dグラフィックにパレットが適用され
+         ていない。(Phil Bennett)
+- 05637: [クラッシュ/フリーズ] (vegas.c) gauntdl, gauntdl24: 初期化後にハングする。
+         (Phil Bennett)
+- 05638: [クラッシュ/フリーズ] (seattle.c) vaportrx, vaportrxp: INIT中にハングする。
+         (Phil Bennett)
+- 05636: [サウンド] (vegas.c) gauntleg, gauntdl, carnevil and clones: BGM、効果音が鳴
+         らない。(Phil Bennett)
+- 05634: [クラッシュ/フリーズ] (tasman.c) All sets in tasman.c: [デバッグ限定] デバッ
+         グモードでアサート。(Alex Jackson)
+- 05644: [グラフィック] (homerun.c) ganjaja: 画面上部にゴミグラフィックが出る。(hap)
+- 05631: [クラッシュ/フリーズ] mquake.c, upscope.c: スタート後すぐにクラッシュする。
+         (Osso)
+- 05633: [クラッシュ/フリーズ] (pcxt.c) tetriskr: [デバッグ限定] デバッグモードで起動
+         時にクラッシュする。(crazyc)
+
+
+ソースの変更点
+--------------
+
+- tourvis.c: Tourvisionドライバにバージョン5.3BIOS追加。[system11]
+
+- m68kmake.c: memcpy()のオーバーラップ分をmemmove()に変更。[Casper Ti. Vector]
+
+- mpokerとドライバをmgamesに変更。公式フライヤーに合わせてゲーム名を「Multi-Poker」か
+  ら「Match Games」に変更。
+  http://flyers.arcade-museum.com/?page=thumbs&db=videodb&id=6500
+  実際にはポーカーではなくスキルゲーム。その他ドキュメント追加と見た目の修正。
+  [Roberto Fresca]
+
+- 正体不明のパックマンギャンブルゲーム: 量ゲームの動作に合わせて改名と入力再定義。隠
+  しギャンブルゲームのプレイ方法の詳細を追加。[Roberto Fresca]
+
+- 正体不明のパックマンギャンブルゲーム: サウンドサポート。入力の再アレンジと追加ポー
+  ト実装。DIPスイッチ発見。テクニカルノートとインストラクション追加。ドライバ全体の整
+  理。[Roberto Fresca]
+
+-　k053246_k053247_k055673.c: 8bpp ROMリードバックが動作可能; rungun.cでROMリードバッ
+  クを正しく実装; tasman.cのレジスタを正しく実装(スプライトROMテストパス可能、描画は
+  まだ)。[Alex Jackson]
+
+- fm2612: セーブステート読み込み時にDACチャンネルが失われていたのを修正。
+  [dink (FB Alpha project)]
+
+-「Music Ball」の復号化サポート。[Andreas Naive]
+
+- speedbal.c:「Music Ball」に専用のボーナスDIPスイッチ設定追加。「Speed Ball」
+ 「Music Ball」のDIP配置追加。[Brian Troha]
+
+-「Funny Strip / Puck People」のプロテクトシミュレーション改良。[iq_132]
+
+- tatsumi.c:「サイクルウォーリアーズ」 (set 1)の起動時ハングを修正。[MASH]
+
+- k005289: 一つずれた周波数修正; nemesisのBGMで不足していたデチューンエフェクト追加。
+  [Alex Jackson]
+
+- フロッピー: ハーフ、クオータートラックを処理。[O. Galibert]
+
+- williams.c -「Jouset 2」にビデオボードPROM追加。[Joe Magiera]
+
+- flopimg: レガシーフロッピーロード時にメモリが無駄にならないように修正。
+  [R. Belmont]
+
+- gcpinbal.c:「Grand Cross Pinball」の基板レイアウト追加。[Brian Troha, system11]
+
+- ssv.c:「ストームブレイド」のゲームROMボード基板追加。[Brian Troha, ShouTime]
+
+- レーザーディスクタイトルの追加と別ソースからの吸い出しを追加して整理。ALGタイトルは
+  特に大幅に再構成。[Dragon's Lair Project, J. Wallace]
+
+- taito_b.c: East Technolgy製ET91000A基板のクロック速度検証。「セルフィーナ」「龍神」
+  で使用。[system11]
+
+- namconb1.c - 割り込み処理改良。ラスタエフェクト(nebulrayとmachbrkr)とnebulrayテスト
+  モードの修正。[Phil Bennett]
+
+- Namco Cusotom 116パレットとラスタIRQコントローラをデバイスとして実装。namcos1、
+  namconb1、namcoflドライバに実装。[Alex Jackson]
+
+- digfx.c: 他のdevice_intefaceにならい、メンバをプロテクトからプライベートに変更。
+  [Alex Jackson]
+
+- SDL: manpageの更新。[Cesare Falco]
+
+- 外部のSQLite3を使用可能化。[Cesare Falco]
+
+- coinmvga.cドライバ: マイナークリーンアップ、新セット追加、ゲーム名変更。
+  [Roberto Fresca]
+
+- msm5832: 曜日は1-7ではなく0-6で表す。[R. Belmont]
+
+- galaxian.c: atlantis2を再吸い出し。[system11]
+
+- mgcs用のIGS029プロテクトシミュレーション初期版: [Luca Elia]
+  サウンド、DIP、ゲーム開始時のクラッシュが改善
+
+- bwidow.c - 変更いろいろ: [Phil Bennett]
+ *「グラビター」にアドレスデコーダPROM追加
+ * 正しいパーツ番号とローケーションを含むようにROMの改名
+ * gravpセットをgravitar1に改名
+
+- centiped.c - 変更いろいろ: [Phil Bennett]
+ * centtimeを親に設定(これはリビジョン4)
+ * 正しいパーツ番号とローケーションを含むようにROMの改名
+ *「ウォーロード」の同期PROM追加
+
+- fuukifg2.c:「ススメ！マイルスマイル」「逆転!!パズル番長」のクロックスピード訂正。
+  [system11]
+
+-「ガンダムウイング」の復号化追加。[iq_132]
+
+- フロッピー: フロッピーがないとき、set_write_spliceで無限ループしないようにし、
+  MT5672を修正。[O. Galibert]
+
+- mips3drc: COP1ステータスビットが有効化されていない間は、COP1アクセス時badcop例外を
+  発生。[MarathonMan]
+
+- segaybd.c:「パワードリフト(日本版、リンクバージョン)」の専用DIPスイッチ設定。
+  [Brian Troha]
+
+- ymf278b: wavetableデータへのアクセス用にメモリシステムを使用。これによりROM同様RAM
+  もデバイスに実装可能。MESSでのコンピュータサウンドカード用など。[Alex Jackson]
+ 
+- psikyo4: wavetable ROMのバンキング改良。hotgm4evとhotgmckiのマスクROMテストパス可能。
+  loderndfは謎の理由によりまだパス不可。その他クリーンアップいろいろ。[Alex Jackson]
+
+- mfi_dsk: リーク修正。[O. Galibert]
+
+- SDL: ファイル、ソケット、pty/名前付きパイプI/OについてベースラインのWin32実装へフォ
+  ールスルー。[R. Belmont]
+
+- SDL: Windows、Mac、OS/2ターゲットで必要なinitタイムベース。[R. Belmont]
+
+-「雷電II」のスプライトDMA修正。弾が表示可能。[Angelo Salese, Olivier Galibert]
+
+- SDL: SDL2レンダラから不要コード削除。SDL2 -video accelレンダリング時のレーザーディ
+  スククラッシュを修正。[R. Belmont]
+
+- ryukendnaセットのROMを置き換え。[system11]
+
+- SDL: SDL2用のOS Xで正しくリンク。[R. Belmont]
+
+- SDL: SDL2でもWinodowsと同じ画面選択メソッド使用。[R. Belmont]
+
+- いろいろなピンボールが動作(下のリスト参照)。[Robbbert]
+
+- Atari製ピンボールマシーンのサウンド。[Robbbert]
+
+- gtia.c: デバイス化。[Fabio Priuli]
+
+- hikaru: podrace用マスクダンプ追加。[Cah4e3]
+
+- voodoo.c, vooddefs.h: TMU設定データを返すため、trexInit1レジスタへの書き込みサポー
+  ト。[Peter Ferrie]
+
+- antic.c: デバイス化。[Fabio Priuli]
+
+- SDL: SDL Windowsビルドで-sound dsound使用可能。[R. Belmont]
+
+- legacy_cpu_deviceを削除。[Wilbert Pol]
+
+- NMK004内部ROM追加。[trap15]
+
+- MAMEでNMK004内部ROMをサポートし、にこらが書いた大昔のシミュレーションコード削除。
+  [trap15, David Haywood]
+
+- TLCS90 16-bitタイマ修正とコアでのNMIサポート。[trap15]
+
+- nmk16.cの調整や改良(タイミング、サウンドバランスなど): [trap15, David Haywood]
+ *「US AAF ムスタング」についに音追加
+ * 以下のゲームのサウンド・BGMが大幅改善: 宇宙戦艦ゴモラ、バンダイク、ブラックハート、
+   アクロバットミッション、鋼鉄要塞シュトラール、サンダードラゴン、
+   ハチャメチャファイター、マクロス、ガンネイル
+
+- SDL: SDL WindowsビルドでWindows OSDのフォント選択方法を使用。[R. Belmont]
+
+- softlist: -listsoftwareの出力に一貫性がなかったのを修正。[phulshof]
+
+- ui: softlistで親ソフトがないフロッピーを読み込もうとするとクラッシュするのを修正(た
+  だし、内部ファイルマネージャ使用時のみ)。[Fabio Priuli]
+
+- 汎用のカートリッジスロット/ ROMソケットデバイスを追加。基本的な割り当てとアクセス用
+  ハンドラを提供するもの。cartslot.cのコードを使っていた一部ドライバを書き換え。
+  [Fabio Priuli]
+
+- softlist: 互換softlistからのゲームロードサポートを復活(gameboyのなかのgbcolorゲーム
+  とか、msx2上のmsx1ゲームなど)。mess system -media list:gamenameで指定する。
+  例えば、mess gbcolor -cart gameboy:sml と指定すると、Game Boy Colorで「スーパーマリ
+  オランド」をカスタムパレットでプレイできる。[Fabio Priuli]
+
+- NS8250の修正: [smf] 
+  * ループバック: Modemステータスレジスタが即現れるのではなく、txがハイになり正しい
+        レートでデータをクロック:
+        スタート時、リセット時、ループバックオフ切り替え時、ハンドシェイクレジスタへ
+        の書き込み時に外部シグナルトラックを失わなくなる。: 整合性のためアクティブ
+        ロー化(RS232ポートはデフォルトでハンドシェイクラインハイとなりシリアルマウス
+
+- メモリシステムとNamcoの改良: [Alex Jackson]
+
+  * アドレスマップ(AM_REGION)内の明示的な領域を、内部アドレスでは同種ではなくデバイス
+    に対してルックアップ(デバイスや共有ポインタと同様)。以前よりも直交的なのに加え、
+    MCUの内部ROMと同種デバイスの実装をフールプルーフ的な方法で行える。
+    m37710とm5074x (m6502派生)で利用。
+	
+  * M37702/M37710を固有のモデルに分割。それぞれが正しい量の内部RAMとROMを持つ個別の内
+    部アドレスマップを設定してある
+ 
+  * Namco基板で見つかった各種M37702 MCUは全てユニークなデバイスとなり、デバイスROMと
+    して読み込む内部ROMをそれぞれ持つ。
+
+- namcops2: ドキュメントの更新。[Guru]
+
+- addrmap.c: オーナーがデバイスを提供していないとき、デフォルトデバイスを設定。
+  [Alex Jackson]
+
+- 8250: リセット時、内部割り込みステートをクリア後、割り込みコールバックを呼び出し。
+  [smf]
+
+- XCode 6.0.1のデフォルトのままでビルドできるよう対策。[Oliver Steberg]
+
+- wd_fdc: DDAMでの読み込みセクタ修正。[lowen, O. Galibert]
+
+- hachamfbのプロテクトベクタをhachamfに移し、後者も正常動作可能。[Angelo Salese]
+
+- web: テキストペースト可能。[Firehawke]
+
+-「ガンダムウイング」の更新: [Peter Ferrie]
+ * 共有メモリブロック追加
+ * プロテクションハンドラ追加
+ * リセットベクタ修正
+ * 機動処理の対策
+ ゲームは起動できるがコインが入らず。
+
+- MSVC 2012と2013でのコンパイル修正。[Peter Ferrie]
+
+- snesb.c:「ガンダムウイング」のコイン/DSW入力追加でプレイ可能。[stephh]
+
+- s4.c : サウンド修正。ゲーム4本(Flash, Stellar Wars, TriZone, TimeWarp)を動作可能に
+  指定。
+
+- snesb:「ガンダムウイング」のDIPスイッチ設定。[stephh]
+
+- peplus.c: 修正いろいろで全セット動作可能。[BrianT]
+
+- WebUI: HTMLの整合性修正と整理。[Firehawke]
+
+- OpenMPを有効化するmakefile用の変数OPENMPを追加(-fopenmpのvconvサポートを含む)。
+  [Oliver Steberg]
+
+- blktigerのプライオリティ修正。[Mamesick]
+
+- dragrace.c: タコメータ出力追加。[Comboman]
+
+-「バース」US基板で用の手作りPAL。[Palindrome]
+
+- awboard: 一部のカートリッジで使う"オフセットプロテクション"追加。kofxiが起動可能。
+  [R. Belmont, MetalliC]
+
+- model3: 2Dタイルマップレンダリングを書き直し。[Ville Linde]
+
+- k053260サウンドデバイス。[Alex Jackson]
+
+- より詳細なチートの初期化デバッガメッセージ。[Pugsy]
+
+- orlegend111tセットが動作可能。[iq_132]
+
+- chqflag.c: k007232ボリューム/パン制御改良。まだ推測による作業。[Alex Jackson]
+
+- wecleman.c: k007232ボリュームコールバック追加。[Alex Jackson]
+
+- naomi.c:
+ * M2タイプカードリッジの4/8MBモードマッピングについてのドキュメント及びコード
+    [MetalliC, rtw]
+ * F355プロテクトキー、ドキュメントの更新と修正 [MetalliC]
+ * Atomiswaveコントローラタイプレジスタ [MetalliC]
+ *「頭文字D Ver3」Cycraft PICキー追加 [anonymous, MetalliC]
+
+- eepromuser.c: MSM16911シリアルEEPROMをサポート。[Felipe Sanches]
+
+- mb88xx.c: Fujitsu M88201-202 MCUサポート。[Felipe Sanches]
+
+- model3: 新型3Dレンダラ+修正いろいろ(まだまだWIP状態)。[Ville Linde]
+
+- ビートマニアIIDX Twinkleハード: IDE DMEを実装。但しサウンドボードは違いが出るほどう
+  まく動作していない。FDC37665GT実装とXVD701のHLE追加、また68kサウンドボードがほとん
+  どのゲーム起動に反応。サウンドがまだ出ないのと、ステージ開始時にHDDエラーが起こる。
+ 「ビートマニアIIDX with DDR 2ndクラブバージョン」はGQ863ハードディスクが必要。[smf]
+
+- ビートマニアIIDX Twinkleハード:「ビートマニアIIDX サブストリーム with DDR 2nd クラ
+  ブバージョン2」では「ビートマニアIIDXサブストリーム」のハードディスクが必要。3rdと
+  6thスタイルのCDイメージ追加と5thスタイルのイメージ入れ替え。[smf]
+
+- upd7220: Bresenham arcと完全な文字描画追加。[Carl]
+
+-　m68000: セーブステートに不足していた項目追加。[Alex Jackson]
+
+- battlera.cドライバで本物のPCEビデオコードを使うように変更。0.37b2時代にドライバが追
+  加されたときからあったバグを修正。[David Haywood]
+
+- ST0016コードを再構成、ドライバの整理、gostopで使う表示機能を修正。[David Haywood]
+
+- legionna.c COPコードで新しい「雷電II」の実装を使うように改良。バグがいくつか修正。
+  [David Haywood]
+
+-「雷電II」の当たり判定について、ユーザからのフィードバックを元に弾のパターンと予想さ
+  れる判定ボックスサイズに調整。[David Haywood]
+
+- tharrierのDIPスイッチがプロテクトデバイス経由の読み込みっぽいことについて記述を追加
+  (未実装)。[David Haywood]
+
+- popbingoボーナス面の女4、5、6を修正。[David Haywood]
+
+- sandscrpのROMバンキング不具合を修正。[Dink, David Haywood]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Music Ball [Andreas Naive]
+东方神龙 [Luca Elia, Guru, Dyq, bnathan]
+バブルボブル (set 2) [Darq]
+Jump Jump [system11, The Dumping Union]
+Elfin [system11, The Dumping Union]
+雷電II[Angelo Salese, Olivier Galibert]
+雷電DX [Angelo Salese, Olivier Galibert]
+雷電II New / 雷電DX (newer V33 PCB) (2 sets, different EEPROM for each game)
+  [Olivier Galibert, David Haywood]
+ニューゼロチーム / ゼロチーム2000 [Olivier Galibert, David Haywood]
+韓国花札 GO・STOP [system11, The Dumping Union]
+Player's Edge (PK1024) Aces and Faces Poker [BrianT]
+Americana (9131-00) [Brian Troha, The Dumping Union]
+新機動戦記ガンダムW ENDLESS DUEL (SNES bootleg) [Peter Ferrie, iq_132, stephh]
+Vegas 1 (Ver 2.3 dual coin pulse, shorter) [any]
+Vegas 1 (Ver 2.1 dual coin pulse, longer) [any]
+Vegas 1 (Ver 1.33 single coin pulse) [any]
+Merit Touch Joker Poker (9132-00)
+  [Brian Troha, Mariusz Wojcieszek, The Dumping Union]
+Black Velvet [Robbbert]
+Camel Lights [Robbbert]
+Foxy Lady [Robbbert]
+Real [Robbbert]
+Rio [Robbbert]
+Chuck-a-luck [Robbbert]
+Family Fun [Robbbert]
+Star Trip [Robbbert]
+Vegas [Robbbert]
+Sharp Shooter [Robbbert]
+Old Coney Island [Robbbert]
+Pinball Lizard [Robbbert]
+Super Nova [Robbbert]
+Sharp Shooter II [Robbbert]
+Global Warfare [Robbbert]
+Attila the Hun [Robbbert]
+Agents 777 [Robbbert]
+Captain Hook [Robbbert]
+Lady Sharpshooter [Robbbert]
+Rotation VIII (v. 1.01) [Robbbert]
+Rotation VIII (v. 1.15) [Robbbert]
+Pinball [Robbbert]
+Stingray  [Robbbert]
+Stars [Robbbert]
+Memory Lane [Robbbert]
+Lectronamo [Robbbert]
+Wildfyre [Robbbert]
+Nugent [Robbbert]
+Dracula [Robbbert]
+Trident [Robbbert]
+Hot Hand [Robbbert]
+Magic [Robbbert]
+Cosmic Princess [Robbbert]
+Freedom [Robbbert]
+Night Rider [Robbbert]
+Black Jack [Robbbert]
+Evel Knievel [Robbbert]
+Mata Hari [Robbbert]
+Eight Ball [Robbbert]
+Power Play [Robbbert]
+Strikes and Spares [Robbbert]
+Super Picker [Robbbert]
+Roy Clark - The Entertainer [Robbbert]
+Thunderbolt [Robbbert]
+Hoe Down [Robbbert]
+Take Five [Robbbert]
+Hearts & Spades [Robbbert]
+Flame of Athens [Robbbert]
+Disco '79 [Robbbert]
+Eros One [Robbbert]
+Circa 1933 [Robbbert]
+Star Shooter [Robbbert]
+FJ Holden [Robbbert]
+Orbit 1 [Robbbert]
+Shark [Robbbert]
+Howzat! [Robbbert]
+The Empire Strikes Back [Robbbert]
+Atlantis [Robbbert]
+Black Hole [Robbbert]
+Heavy Metal [Robbbert]
+Taito Test Fixture [Robbbert]
+Shock [Robbbert]
+Oba Oba [Robbbert]
+Meteor [Robbbert]
+Sure Shot [Robbbert]
+Cosmic [Robbbert]
+Vortex [Robbbert]
+Rally [Robbbert]
+Speed Test [Robbbert]
+Drakor [Robbbert]
+Brave Team [Robbbert]
+Canasta 86 [Robbbert]
+Lap by Lap [Robbbert]
+Moon Light [Robbbert]
+Clown [Robbbert]
+Atleta [Robbbert]
+Mundial 90 [Robbbert]
+Corsario [Robbbert]
+250CC [Robbbert]
+Faeton [Robbbert]
+Ski Jump [Robbbert]
+Space City [Robbbert]
+Strike [Robbbert]
+Odin [Robbbert]
+Odin De Luxe [Robbbert]
+Solar Wars [Robbbert]
+Pole Position [Robbbert]
+Star Wars [Robbbert]
+Wolf Man [Robbbert]
+Nemesis [Robbbert]
+Odisea Paris-Dakar [Robbbert]
+Flash [Robbbert]
+Tri-Zone [Robbbert]
+Time Warp [Robbbert]
+Stellar Wars [Robbbert]
+Laser Ball [Robbbert]
+Scorpion [Robbbert]
+Blackout [Robbbert]
+Gorgar [Robbbert]
+Algar [Robbbert]
+Alien Poker [Robbbert]
+Warlok [Robbbert]
+Laser Cue [Robbbert]
+Time Fantasy [Robbbert]
+Thunderball [Robbbert]
+Still Crazy [Robbbert]
+Black Knight [Robbbert]
+Cosmic Gunfighter [Robbbert]
+Pharaoh [Robbbert]
+Star Light [Robbbert]
+Jungle Lord [Robbbert]
+Firepower II [Robbbert]
+Varkon [Robbbert]
+Defender [Robbbert]
+Sorcerer [Robbbert]
+Space Shuttle [Robbbert]
+
+
+新しく追加されたクローンセット
+------------------------------
+Player's Edge Plus (X000124P+XP000053) Deuces Wild Poker [BrianT]
+Player's Edge Plus (X002308P+XP000112) Triple Double Bonus Poker [BrianT]
+パワードギア / Armored Warriors (Asia 941024) [system11, The Dumping Union]
+パンチアウト!!(Rev B) [2600]
+スーパーパンチアウト!! (Rev A) [2600]
+F-1エキゾーストノート (US) [f.arzeno, The Dumping Union]
+Cops (UK) [Any]
+パックマニア(111187 sound program) [system11, The Dumping Union]
+ストームブレイド(Japan) [ShouTime, The Dumping Union]
+Search Eye (English / Korean / Japanese / Spanish)
+  [system11, The Dumping Union]
+飛翔鮫 / Sky Shark(US, set 2) [caius]
+ルナーク / Growl (World, Rev 1) [caius]
+地獄めぐり / Bonze Adventure (World, prototype) [Silvio Grazini]
+Colorama (P521 V13, Spanish) [Roberto Fresca]
+バイパーフェイズ1 (New Version, Holland) [Nigel Parker]
+Phoenix (D&L bootleg)  [PokeMAME, Lord Nightmare]
+ワンダーボーイIII モンスターレア - Monster Lair (encrypted bootleg) [Claudio Bechini]
+シャドーダンサー (bootleg, set 2) [Asure] (not working)
+19XX -THE WAR AGAINST DESTINY- (Asia 960104) [system11, The Dumping Union]
+フードファイト (rev 1) [Phil Bennett]
+Candory (Ponpoko bootleg with Mario)  [system11, The Dumping Union]
+センチピード (revision 1) [philipbe]
+エアラスキュー (Japan) [ShouTime, The Dumping Union]
+ギャプラス (Tecfri PCB) [system11, The Dumping Union]
+ザ・シンプソンズ (2 Players World, set 3) [Ben76]
+Fantasia (940803 PCB) [system11, The Dumping Union]
+The X-Files [system11, The Dumping Union]
+クライムファイターズ2 / Vendetta (World, 2 Players, ver. unknown) [caius]
+ハチャメチャファイター (19th Sep. 1991, unprotected, bootleg Thunder Dragon 
+  conversion) [trap15]
+ロックマン・ザ・パワーバトル / Mega Man - The Power Battle (CPS2, USA 950926, SAMPLE
+  Version) [Asure]
+雷電DX (Japan) [rtw]
+雷電DX (China, Ideal International Development Corp license)
+雷電II (US, set 2) [farzeno]
+雷電II (easy version, Germany) [Icronnya77]
+雷電II (harder, Raiden DX hardware) [the sheep]
+Baryon - Future Assault (set 2) [Rockman, Datasat]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker (set 1) [BrianT]
+Zero Hour (Inder) [Basilio Garc僘]
+頭文字D アーケードステージ (Japan) [rtw, ShouTime, The Dumping Union]
+頭文字D アーケードステージ Ver.2 (Japan) [rtw, ShouTime, The Dumping Union]
+ストリートファイターII' -Magic Delta Turbo- (bootleg, set 4) [any]
+ストリートファイターII' -チャンピオンエディション- (M9, bootleg) [any]
+ストリートファイターII -ザ・ワールドウォリアー- (TAB Austria, bootleg, set 3) [any]
+ストリートファイターII -ザ・ワールドウォリアー- (TAB Austria, bootleg, set 4) [any]
+西游釈厄伝 / Oriental Legend (ver. 111, Taiwanese Board) [bytestorm, iq_132]
+アルカノイド (Japan) [ShouTime]
+チェルノブ -戦う人間発電所- (Japan, bootleg with I8031, set 1) [Jan Kretschmer]
+チェルノブ -戦う人間発電所- (Japan, bootleg with I8031, set 2) [Tirino73]
+ショットライダー (bootleg) [f205v]
+Hexa (with 2xZ80, protected) [??]
+Jumping (set 2) [Porchy]
+パックマン (JPM bootleg) [Hammy]
+Speed Up (Version 1.00) [neocps1]
+フリスキートム (set 3, encrypted?) [Andrew Welburn]
+ペンゴ (bootleg on JPM Pac-Man hardware) [Ace]
+スーパーストリートファイターII -ザ・ニューチャレンジャー- (World 931005) [palindrome]
+フロッガー (bootleg on Amigo? hardware) [ANY]
+Come-Cocos (ミズパックマン) ('Made in Greece' Triunvi bootleg) [elnaib (AUMAP)]
+マリオブラザーズ (Japan, bootleg) (different music/sfx) [Tirino73, David Haywood]
+
+
+追加された未動作ゲーム
+----------------------
+Revelations (Nova Productions) [AintBigAintClever, J.Wallace]
+マージャンカフェパラダイス [Guru, Dyq, Bnathan]
+Number Crash [kurobee]
+Su Ho Seong [system11, The Dumping Union]
+Host Invaders [R. Belmont]
+パワードリフト (Japan, Link Version)
+  [ShouTime,rtw,B2K24, Gor ,Dullaron, anonymous, Mucci ,gregf ,ghoolster, Smitdogg, 
+   The Dumping Union]
+バズーカ (TTL) [Al Kossow]
+ワンタメ ミュージックチャンネル [ShouTime]
+Yori Zori Kuk Kuk [Dullaron, Kai Bauer, Brian Troha, The Dumping Union]
+Space Warp (Century Electronics)  [Stiletto, Tafoid]
+Trivia (TTL) [gregf, Frank Palazzolo]
+戦国BASARA X [darksoft, Guru]
+キン肉マン マッスルグランプリ2 [darksoft, Guru]
+機動戦士ガンダム ガンダムVS.ガンダム [darksoft, Guru]
+Eggs Playing Chicken [Tafoid, R. Belmont]
+Capriccio Spin 2 [hap, Yasuhiro]
+Capriccio Cyclone [hap, Yasuhiro]
+甲虫王者ムシキング 2005ファースト [rtw, ShouTime, The Dumping Union, R. Belmont]

@@ -1,0 +1,214 @@
+0.145u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04712: [グラフィック] fncywld, pangpang: キャラクタ表示がずれている。
+         (David Haywood)
+- 04303: [クラッシュ/フリーズ] nost, nostk: デモ中に太陽が輝き始めるところでクラッ
+         シュが起こる。ごくまれ。(David Haywood)
+- 04725: [コンパイル] unidasmが0.145u4でリンクしない (mingw64-w64 or w32, Intel,
+          Windows 7 x64)(Olivier Galibert)
+
+
+
+ソースの変更点
+--------------
+- unidasm: モダンコアがまともに扱われるまで、TMS57002を削除。[O. Galibert]
+
+- PowerPC: DIVWをさらに改良。[R. Belmont]
+
+- PowerPC: 全ての整数除算命令でPPCTortureを100%パス可能。[R. Belmont]
+
+- PowerPC: SLW/SRWのコーナーケースでの動作を改善。[R. Belmont]
+
+- Seibu COPパレットの明るさテーブルの解析とクリーンアップ。[Andreas Naive]
+
+- bfm_sc2.cドライバの別バージョンをさらにクローン版として300本以上も追加。
+  [James Wallace]
+
+- m68k: '020のFPU命令を有効化(外部の68881/882を持つ可能性あり)とブレークの修正。
+  [Hans Ostermeyer]
+
+- chanbaraのDIPスイッチと入力の修正(M6809コードの検証による)。[stephh]
+
+- Super Famicom Boxハードウェアのドキュメント追加と分類。[Y~K]
+
+- Super Famicom Boxのアトラクト用ROMをセットとして移動。また本物のBIOS ROMを追加。
+  [Y~K]
+
+- progolf.cドライバのDIPスイッチと入力の修正(M6809コードの検証による)。[stephh]
+
+- galdrvr.c: fantastcの未表示なスプライトと弾の表示を修正。[David Haywood, hap]
+
+- sidepckt.cドライバのDIPスイッチと入力の修正(M6809コードの検証による)。[stephh]
+
+-「オセロダービー」にVblankビットとスキャンラインレジスタ追加。[Angelo Salese]
+
+- 6526cia.c: PC出力を、ポートBのリードライト後直後から、1サイクル後に下位にように変更。
+  [Curt Coder]
+
+- ARM7: v5以降でThum POPをARMモードに戻せるよう変更。[R. Belmont]
+
+- CPS-1の更新: [Team CPS-1]
+ * 「1941 -カウンターアタック-」(World 900227)を追加して親セットに設定
+ * 実際の基板に合わせてゲーム名ラベルの修正と基板で確認した情報のドキュメント追加
+ * sf2cejxセットを復活
+
+- pgm.c: svgpcbの復号化処理テスト版追加。[iq132]
+
+- SoftFloat: sin/cos/tanが正しい結果を返すように修正。[Hans Ostermeyer] 
+
+- m68k: PFLUSHAとPFLUSHANのビットパターンを解析。[Hans Ostermeyer]
+
+- pgm.c: happy6の復号化追加。[iq132]
+
+- BAD_DUMPな「アンダーディフィート」以外のGD-ROM全て: 今のCHDMANを使って、.GDIソース
+  からCHDの再コンバートが必要。[R. Belmont]
+
+- SDL manページを更新。chdmanはフォーマット不具合があるものの、リリースしたバイナリに
+  は最低限マッチ。[wallyweek, R. Belmont]
+
+- PGMのプロテクトを作り直しとクリーンアップ。また、複数ファイルに分割。
+  [David Haywood]
+
+- igs_m027.cのゲームに復号化処理追加。[iq132]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Witch Up & Down (Export, 6T/12T ver 0.99)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Up & Down (Export, 6T/12T ver 1.02)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.74A) [Roberto Fresca]
+Witch Strike (Export, 6T/12T ver 1.01A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Strike (Export, 6T/12T ver 1.01B)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.84A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.87-89)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+怒首領蜂II / 蜂暴 / Bee Storm (Japan, vers. 102,101,100) [David Haywood, rtw]
+Lucky Boom [f205v, David Haywood]
+デーモンフロント (PGM cartridge versions) [David Haywood]
+Galaxia [hap]
+Astro Wars [hap]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+モータルコンバット (Turbo 3.0 08/31/92, hack)  [MK3Fan]
+ストリートファイターEX2 Plus (Hipanic 990611)
+  [Corrado Tomaselli, John666, Layne, The Dumping Union]
+イントレピッド (海賊版) [ANY, The Dumping Union]
+ワンダーボーイ (set 5, 海賊版) [ANY, The Dumping Union]
+Caveman Ninja / 戦え原始人 ジョー＆マック (海賊版, alt) [ANY, The Dumping Union]
+Wild Witch (Export, 6T/12T ver 1.57-SP)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.62A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.62B)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.62A alt)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.62B alt)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.65A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.65A-S)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.65A-S alt)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.65A-N)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.70A beta)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.70A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.70A alt)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.74A-SP-BELG)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.74A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.74A alt)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6B/12B ver 1.75A-E)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.76A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.77A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.79A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.83A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+ビッグストライカー (海賊版 w/Italian teams) [ANY, The Dumping Union]
+ファイティングサッカー (Joystick hack 海賊版, alt) [ANY, The Dumping Union]
+Witch Jackpot (Export, 6T/12T ver 0.25)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.40)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.62)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.64)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.65)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.70S)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.70P)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.87)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.87-88)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+S.V.G. - Spectral vs Generation (M68k label V100JP) (ARM label V100JP) (JAMMA PCB)
+  [Yohji, Layne, J. Wilke, Dave France, Smitdogg, The Dumping Union] (NOT WORKING)
+デーモンフロント (68k label V107, ROM M107KR 11/03/03) (ARM label V107, ROM
+  10/16/03 S106KR) (JAMMA PCB) [Joerg Hartenberger] (NOT WORKING)
+The Gladiator - Road of the Sword / Shen Jian (M68k label V100) (ARM label V100,
+  ROM 02/25/03 SHEN JIAN) (JAMMA PCB) [SoftwareThis] (NOT WORKING)
+Witch Up & Down (Export, 6T/12T ver 0.99, set 2)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Up & Down (Export, 6T/12T ver 0.99, set 3)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Up & Down (Export, 6T/12T ver 0.99T)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Falcons Wild - World Wide Poker (Video Klein, set 2)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+1945 2 - Battle Garegga Chinese hack [Brian Troha]
+ボブルボブル (set 2) [ANY, The Dumping Union]
+ドリブリング (海賊版, Brazil)
+  [Augusto Garcia, Silvio Finotti, Marcello Mancini, David Haywood]
+Galactic Empire [Augusto Garcia, Silvio Finotti, Marcello Mancini, David Haywood]
+ポラリス (Brazil) [Augusto Garcia, Silvio Finotti, Marcello Mancini, David Haywood]
+ドラゴン忍者 (海賊版) [ANY, The Dumping Union]
+Rastan / ラスタンサーガ (World set 2) [ANY, The Dumping Union]
+1941 -カウンターアタック- (World 900227) [Techmotour]
+
+
+
+追加された未動作ゲーム
+----------------------
+Janken Man (Pretty Carnival) [Roberto Fresca, anonyMous donator, hap]
+Witch Strike (Export, 6T/12T ver 1.01A)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Strike (Export, 6T/12T ver 1.01B)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Kong (Brazil)  [Silvio Maeboto and David Haywood]
+Wild Witch (Export, 6T/12T ver 1.57-TE)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Wild Witch (Export, 6T/12T ver 1.62A-F)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+Witch Jack (Export, 6T/12T ver 0.40T)
+  [Roberto Fresca, Team Europe, Marcus Jendroska, Video Klein]
+1991 Spikes (Italian 海賊版, set 2) [R. Belmont]
+ワンダーボーイ (US 海賊版) [ANY, The Dumping Union]
+
+

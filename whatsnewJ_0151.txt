@@ -1,0 +1,380 @@
+0.151
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05353: [その他] (at.c) at586がCDROM/ISOイメージからは起動可能だが、ハードドライブ
+         /CHDからは出来ない。
+- 05351: [クラッシュ/フリーズ] (berzerk.c) frenzy: ゲーム中、スプライトがランダムにフ
+         リーズする。(hap)
+- 05343: [DIP/入力] (hornet.c) gradius4: 常にクレジットが1つ入った状態で始まる。(hap)
+- 05346: [システムコア] (ksys573.c) darkhleg, powyakex, konam80s and clones: "Now 
+         Loading"画面のあと"Hardware Failure"のメッセージが出て動かない。(smf)
+- 05321: [グラフィック] (darius.c) darius.c,ninjaw.c,tx1.c: フルスクリーンで3画面を横
+         に並べると隙間が出来る。(hap)
+- 05324: [グラフィック] (cubeqst.c) cubeqst, mach3, usvsthem and clones: キューブが表
+         示されない。(hap)
+- 05332: [グラフィック] Multiple Systems: バックドロップがゲーム画面の手前に表示され
+         るため、プレイできない。(hap)
+- 05309: [グラフィック] Many systems that use multiple screens: マルチスクリーンゲー
+         ムでオーバーレイエフェクトが片方の画面にしか適用されない。(hap)
+- 05322: [グラフィック] (m92.c) majtitl2, majtitl2j, skingame, skingame2: プレイヤー3
+         と4になると画面がずれる。(Angelo Salese)
+- 05341: [サウンド] (taito_f3.c) qtheater: 音が出ず、速度も遅い。(Angelo Salese)
+- 05340: [クラッシュ/フリーズ] (konamigq.c) cryptklr: RAM/ROMチェックをパスできない。
+         (smf)
+- 00489: [グラフィック] (holeland.c) holeland: タイトルデモ画面で、モンスターが左下に
+         隠れようとするが丸見えになっている。0.54では正しく消えた。(Angelo Salese)
+- 05142: [クラッシュ/フリーズ] (subsino.c) mtrainnv: スタート後すぐに例外エラーが起こ
+         る。(Angelo Salese)
+- 00423: [システムコア] (deco_mlc.c) hoops96: F2キーを押すとゲームがクラッシュする。
+         起きる場合と起きない場合がある。(Angelo Salese)
+- 05240: [クラッシュ/フリーズ] (deco_mlc.c) ddream95, hoops95, hoops96, stadhr96, 
+         stadhr96j: [デバッグ限定] Assertion failed: vpos >= 0, file 
+         src\emu\screen.c, line 711エラー(Angelo Salese)
+- 05335: [システムコア] (dbz.c) All sets in dbz.c: ゲーム内メッセージ"Warning: 
+         k053252 read 0e, contact MAMEdev pops up on the screen."が表示される。
+         (Angelo Salese)
+- 04731: [システムコア] (mystwarr.c) viostorm and clones: RAM・ROMテスト直後に
+         "Warning: k053252 read 0e, contact MAMEdev"メッセージが出る。(Angelo Salese)
+- 05216: [クラッシュ/フリーズ] (taitogn.c) zooo: 一列揃えるとゲームがリセットする。
+         (smf)
+- 04484: [その他] (konamigx.c) rushhero: コールドブート時にエラーメッセージ
+         "tms57002: sfmr - Contact Mamedev"が出る。(Phil Bennett)
+- 05320: [DIP/入力] (deco_mlc.c) ddream95, hoops95, hoops96: プレイヤー3と4の操作が実
+         装されていない。(Osso)
+- 05327: [DIP/入力] (scramble.c) mars: プレイヤー2のショットボタンが止まらない。
+         (Osso)
+- 05328: [ゲームプレイ] (ksys573.c) gtrfrk2m: 初回起動時にフラッシュROMの消去が必要だ
+         が、エラーが起こって完了できない。(smf)
+- 05326: [クラッシュ/フリーズ] (subsino2.c) xplan: 起動時にフリーズする。(crazyc)
+- 05300: [システムコア] HLSL w/Vector Games: -HLSLを指定すると全てのベクターゲームの
+         表示がされない。(hap)
+- 05323: [DIP/入力] (rallyx.c) rallyx, rallyxa, rallyxm, rallyxmr: DIP設定のボーナス
+         ライフにINVALIDと表示される。(Robbbert)
+- 05257: [クラッシュ/フリーズ] (namcos12.c) tenkomor, tenkomorja: "collect X medals"
+         のミニゲームでクラッシュする。(smf)
+- 05317: [クラッシュ/フリーズ] (taitogn.c) spuzbobl, spuzboblj, usagi: システムエラー
+         が発生する。(smf)
+- 05318: [クラッシュ/フリーズ] (djmain.c) bm1stmix and other: CHDディスクエラーが起き
+         て起動しない。(smf)
+- 05316: [サウンド] (dec8.c) meikyuh, meikyuha: 音が出ない。(Phil Bennett)
+- 05294: [クラッシュ/フリーズ] (sidepckt.c) sidepckt, sidepcktj: [デバッグ限定] OK画
+         面後にアサート。(hap)
+- 05302: [その他] (ddragon3.c) ddragon3 and clones: 縦リフレッシュレートが正しくない。
+         49.23hzだが正しくは57.44hz。(hap)
+- 05311: [グラフィック] (unico.c) zeropnt2: 背景が表示されない。(David Haywood)
+- 05293: [クラッシュ/フリーズ] (megadrvb.c) srmdb: [デバッグ限定] OK画面後にアサート。
+         (Firewave)
+- 03450: [システムコア] NO_DUMPディスクについての紛らわしい警告について。(Firewave)
+- 05305: [クラッシュ/フリーズ] (rastersp.c) rotr: 最初の面でクラッシュする。(hap)
+- 05301: [グラフィック] (xmen.c) xmen6p, xmen6pu: スプライト化けが多数。(hap)
+- 05303: [ゲームプレイ] (harddriv.c) All sets in harddriv.c: 色化けが起きている。
+         (Phil Bennett)
+
+
+ソースの変更点
+--------------
+-「ヘンリーエクスプローラーズ / Crypt Killer」で起きていた不具合修正。[smf]
+
+- SCSIとATAPI間のコマンド処理をシェアするため、SCSIのサブデバイスを持つ方法から、複数
+  の仮想継承を使うように変更。これにより、matsushita_cr589_deviceとgdrom_deviceを
+  atapi_cdrom_deviceから派生可能。[smf]
+
+- kungfum: 8方向ジョイスティックを使うように変更。[Phil Bennett]
+
+- web: index.html内にhostnameとportをハードコードしていたのを修正。[Firehawke]
+
+- adaptec mode sense処理をACB4070デバイスに移動。[smf]
+
+- web: WebKitベースのスマホでポートレートモード表示したときの不具合修正。ポーズ切り替
+  え追加。[Firehawke]
+
+- sh2: PC-relative命令の逆アセンブリに有効なアドレス表示を追加。
+  [R. Belmont, Darksoftさん作成のパッチベース]
+
+- cps3: ドキュメント追加(一部は単にインクルードされてなかったもの)。
+  [R. Belmont, Darksoftさん作成のパッチベース]
+
+- アドレスマップにAM_(DEV)SETOFFSET機能追加。[Michael Zapf]
+
+- tms9900.c: デバッグメモリアクセス修正。[Michael Zapf]
+
+- tms9995.c: デバッグメモリアクセス、MID割り込み、デクリメンタ修正。[Michael Zapf]
+
+- SDL: Clangが間違った警告を出すので対策。[R. Belmont]
+
+- Clangサポート強化。OS XのXcode 5.0で必要。[R. Belmont]
+
+- m68000: 68010がCLR命令中書き込み前に読み込めないよう変更。[Phil Bennett]
+
+- web: ステートのロードとセーブ追加。[Firehawke]
+
+- cps3: ドキュメントにハードウェアの詳細をさらに追加。[Guru]
+
+- web: iniからのwebオプション読み込みを修正。ステートUIのロード・セーブ改良。
+  [Firehawke]
+
+- 1943.c: プロテクトエミュレーション改良。[Dave]
+
+- web: UIをさらに改良。[Firehawke]
+
+- web: コードの整理。[Firehawke]
+
+- m68k: SimCity 2000などで使用しているFSCALE命令を追加。[R. Belmont]
+
+- web: JS使用部のモダン化。その他バグ修正。[Firehawke]
+
+- System 5とMPSのメーターコミュニケーション追加。ゲーム側のエラーが減ったはず。
+  [J. Wallace]
+
+- 下記のドライバについて、MCFG_SCREEN_VBLANK_TIME() / MCFG_SCREEN_REFRESH_RATE()から、
+   MCFG_SCREEN_RAW_PARAMS()関数を使うように変更: [Angelo Salese]
+
+  * twin16.c (fround以外)
+  * yunsun16.c
+  * yunsung8.c
+
+- web: JSのクリーンアップと細かなバグの修正。[Firehawke]
+
+- thepit.c:「Desert Dan」のカラーBPROM吸い出しで表示色修正。[Zab]
+
+- SCSP: SH-2再度のDMA改善とトリガリングの修正。[Angelo Salese]
+
+- ncr5380n: DRQ機能の改良。arbitration-in-progress bitの修正。[R. Belmont]
+
+- SDL: manページの更新。[Cesare Falco]
+
+-「中国龍3スペシャル / Dragon World 3」のプロテクトシミュレーションを改善。DMAモード
+  での68kコードのRAMへのコピーが欠落しているもののゲームはほぼプレイ可能。[iq_132]
+
+-「コナミ 80'sアーケードギャラリー」がまた動作できるようにハック追加。3つのセクタ用に
+  DMAがトリガされてなかったが、古いコードではリクエストされているかを関知していなかっ
+  た。これが原因だが、実際にはどうするべきかは謎。[smf]
+
+- wpc_an: 追加いろいろで完全サウンドサポート: [Barry Rodewald]
+ * WPCサウンドボード追加と、WPCボードの実装
+ * WPCチップのシフタ追加(入力の修正)
+ * メモリプロテクションの試験的実装
+
+- ptblank: プロテクトの動作原理についてドキュメント化。[Guru, R. Belmont]
+
+- peplus.c: 情報の更新、クローンセット、新タイトルの追加。[BrianT]
+
+- request senseコマンドをt10spcに移動。新旧両フォーマットをサポート。[smf]
+
+- div 0x80000000, 0xffffffffがオーバーフロー例外を起こさないように変更。全てのloadは
+  lwl/lwrだけでなく、同じレジスタに対するoutstaindingなloadをキャンセル。[smf]
+
+- read tocが常にリードアウトを返し、msfリクエストに対し正しい結果を返すように修正。
+  Windows 8で同じISOをマウントすると少し異なった結果になるが、Windows 2000のリカバリ
+  コンソールやWindows 95aを動作させるには十分。[smf]
+
+- mmcフォーマットフィールドがゼロの時、sff8020 read tocレガシーフォーマットフィールド
+  を使うように変更(MSCDEXはmmcフォーマットフィールドではなくsff8020のフォーマットを使
+  う)。read toc用のセッションフォーマットサポート。データがほとんどハードコードされて
+  いるので1セッションのみのサポート。subq bit未設定時のread subコマンドも修正。[smf]
+
+- テスター5328の修正のため、「ギターフリークス2」を32MBカードに変更。ゲーム側ではフ
+  ラッシュカードの16MBしか初期化しないものの、チェックと削除は32MB行うため。[smf]
+
+- pacland.c - イースターエッグについての記述を追加。[cmonkey]
+
+- model3.c: 「ロストワールド」「ルマン24」のROM名とリビジョンラベル訂正。[ShouTime]
+
+- lastduel.c: 訂正いろいろ。[Phil Bennett]
+ * madgearとクローンセットの背景タイルマップのビットプレーン順序修正
+ * madgearとクローンセットの縦方向リフレッシュレート修正
+ * madgearとクローンセットにボタン2と3を追加
+ * ledstorm2のスプライトROM順を修正(ただし、ROM不良のためゴミスプライトはまだ表示され
+   る)
+
+- atapicdrパケットの種別を仮想CDROMに変更。イメージは全てが圧縮されておらず、ベンダー
+  名の真ん中からテキストも開始していないため(ソフトはベンダー名を"MAME Com"と表示して
+  いた)。また、汎用のATAPIとSCSI CDROMドライブを"仮想CDROM"と設定できるように、cdu76s
+  デバイスを追加。しかし、Konami GVゲームはどれも違いが見られないため、どのゲームでこ
+  のレスポンスが必要なのかや、Konami SCSI CDベースシステムだけなのかは不明。SCSIのス
+  ペックによれば、このレスポンスは無効で、文字列は本来空白文字だけになるはず。そのた
+  め、今のところこれはコンパイルだけして使用はしていない。[smf]
+
+- PALCE16V8用の不具合テストデータと共にPALCE16V8 jedファイルの表示機能追加。
+ 「究極タイガーII / Twin Cobra 2」のPALデータをjedutilで見るとデータが不良なので、吸
+  い出し不良に設定。[Kevin Eshbach]
+
+- cosmicg: 新型TMS9980を使用。[Michael Zapf]
+
+- zippath.c: デバッグビルドでのクラッシュを修正。[somebody]
+
+- Visual Studio 2013 RTMでのビルド問題を修正。[smf]
+
+- i186: 内部クロックドライバを追加。[Curt Coder]
+
+- tms57002: SFMR命令を実装。[Phil Bennett]
+
+- cosmic.c, jpmsru.c, jubilee.c, jvh.c, looping.c, nsmpoker.c, pachifev.c, supertnk, 
+  tmspoker: 新型TMS9980/95を使用。[Michael Zapf]
+
+- winfile: MAME側でファイルを開いていても外部プログラムで書き込み専用ファイルを開ける
+  ように変更(POSIXセマンティクスにマッチ。ログファイルに便利)。[Firehawke]
+
+- web: ページが見つからないときに404エラーを送るように変更。[Firehawke]
+
+- isbx: Intel iSBXバス用のプレースホルダを追加。[Curt Coder]
+
+- 8080bw.c:「スペースインベーダー」アップライト版(sisv)セットについて、Andrew Welburn
+  氏による吸い出しを元に変更。sisv2はsisv、sisvはsisv3に変更、新セットsisv2追加、プ
+  レースホルダ用セットsisv2追加。コメントもかなり変更。sisvセットにあったオーバーレイ
+  ROMを間違って削除。また、sitvoをsitv1にも変更。[Andrew Welburn, Lord Nightmare]
+
+- テスターの05216を修正するため、RAMのデフォルトを0に設定。これがゲームのバグなのかは
+  不明。また、一部整理とコメントも追加。[smf]
+
+- spc700ds.c: BRK命令の逆アセンブリを修正。[Lord Nightmare, jwdonal]
+
+-「コスミックモンスター」(version II)のコメントとROM名を更新。[Andrew Welburn]
+
+- SDL: OS/2ビルドの修正。[KO Myung-Hun]
+
+- 8080bw.c:「スペースインベーダー」のROMを再修正。コメント情報の追加。
+  [Andy Welburn, Lord Nightmare]
+
+- i80130 OSPエミュレーション追加。[Curt Coder]
+
+- SDL: OS XとOX X 10.9でSDLがインストールされている場合に制御するSDL_FRAMEWORK_PATHオ
+  プションを追加。不要になったGTK+デバッガの削除開始。[R. Belmont, Balrog]
+
+- SDL: GTK+デバッガが不要になったので削除。[R. Belmont]
+
+- IDEのセクタ読み込みタイミングをセクタライトではなくリードマルチプルと同じに変更。
+  [smf]
+
+- spc700ds.c: memory-to-memory、immediate-to-memory命令の逆アセンブリを修正。
+  [Alex Jackson]
+
+- ハードコードしたトグル入力(レースゲームでのギアのハイ・ローのロックなど)をユーザ側
+  でオフにできるように変更。[hap]
+
+- DSP/GPU割り込みをtomに実装。r247366でjaguarコアをモダン化したときに追加し忘れたもの。
+  テスターズの05256で指摘されていた「Area 51」の問題を修正するものだが、0.149u1がモダ
+  ン化前にリリースされたせいで、maxf_ngが問題を抱えたままになっていた。[smf]
+
+- ncr5380n: アービトレーション時の/BSY動作を改良。[R. Belmont]
+
+- Deco MLC HWのマスタボリュームを試験的に追加。[Angelo Salese]
+
+- 2608 ROMの吸い出し不良マークを削除。確か、Jarek氏がこの吸い出しを外部ROMとしてテス
+  トしたところ、内部ROMをDAC入力としてデジタル比較したところ完全に一致したため。また、
+  オリジナルfm.cバージョンからコメントを再度追加。ただし、最終的には腑分けできる2608
+  を探し出すのが最良の解決方法。[Lord Nightmare]
+
+- quizshow.c: グラフィックPROMをひとつ吸い出し。もうひとつは作業中に壊れてしまった。
+  [Siftware]
+
+- vsnes.c: 最近吸い出されたROMのラベルに合わせて、「VSベースボール」英語セットの左右
+  半分それぞれのROMを入れ替え。また、ラベルもチップに合わせて修正。
+  [Lord Nightmare, Dead_Body]
+
+- MC146818のモダン化について、ローカルかUTCか、さらにNVRAMに世紀が保存されているかど
+  うかを普通の方法で指定できるように修正。チップ側には世紀の更新機能がないので、それ
+  を削除。ただし、各ドライバ側でどこに世紀を保存するかは指定可能。日付・時刻のアップ
+  デートがずれるエラーを修正。異なる外部クロック速度とディバイダをサポート。クロック
+  スピードはこれまでチップが1Hz単位で更新するものとして設定されていたが、これは必ずし
+  も正しくない。タイマー更新の停止やIRQ生成を修正するため、ほとんどのフラグを実装。
+  [smf]
+
+- ppccom.c - PPC4xx DMA割り込みロジックの修正とシンプル化。fivesideのゴールアニメショ
+  ンが改善。[Phil Bennett]
+
+- ワークキュー当たりのスレッド数を制限するハックを追加。これを0にするとchdmanがハング
+  しなくなる。[smf]
+
+- サイズの異なるMC146818の互換性を確保。[smf]
+
+- nss.c - Nintendo Super SystemのSingle Cartバージョン3用BIOSを追加。[Porchy]
+
+- JSMESSのコンパイルに必要なアップストリームの変更。
+  [Justin Kerk, John Vilk, Justin de Vesine]
+
+- wboy4のドキュメント更新。[Irongiant]
+
+- -listxmlをDIPスイッチの出力を考慮するように修正。[Andreas Singer]
+
+- IPT_STARTを、複数のスタートボタンがある場合にIPT_START1またはIPT_START2に変更。
+  [M*A*S*H]
+
+- tia.c - オフィシャルドキュメントやハードウェアテストを元に、CRT表示を改善するため
+  NTSCパレットを更新。[Robert Tuccitto]
+
+- NeoGeoの改良: [Alex Jackson]
+ * MAMEとMESS(AES/NeoCD)ドライバで重複していた大量のコードを整理
+ * MVS専用のROMとデバイス(SM1 ROM、SFIX ROM、upd4990a RTCなど)をAEX/NeoCDから削除
+ * MVSとNeoCDのレガシーなNVRAMをNVRAMデバイスに置き換え
+ * SM1 ROMバンクスイッチを正しく実装; BIOSでのサウンドテストが動作可能
+ * VRAMサイズの訂正
+ * Universe BIOSバージョンのソートと、MAMEとMESSでの共通化
+ * kf10thep ROM読み込みと、キモイハックで動いていた(しかもエンディアンセーフじゃない)
+   復号化処理を修正
+ * svcplusのプロテクトハックROMパッチを、FBAを参考により影響の少ないものに置き換え
+ * デバイスに移動した方がよいコードやデータの印付け
+ * その他いろいろなコードやコメントの整理
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Dolmen [Renato Mucciarelli, Brian Troha, The Dumping Union]
+Frantic Fred [Brian Troha]
+Player's Edge Plus (Set001) Set Chip [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0103) Deuces Wild Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0127) Deuces Joker Wild Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0434) Bonus Poker Deluxe [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0452) Double Deuces Wild Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0508) Loose Deuce Deuces Wild! Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (PP0542) One Eyed Jacks Wild Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002031P+XP000112) Lucky Deal Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002040P+XP000038) Nevada Bonus Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002042P+XP000038) Triple Bonus Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002067P+XP000038) Double Double Bonus Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002250P+XP000050) Shockwave Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002307P+XP000112) Triple Double Bonus Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (X002314P+XP000112) Triple Bonus Poker Plus [BrianT, Kevin, Jim]
+Player's Edge Plus (XMP00002+XM00004P) Multi-Poker [BrianT, Kevin, Jim]
+Player's Edge Plus (XMP00004+XM00005P) Multi-Poker [BrianT, Kevin, Jim]
+Space Invaders (SV version rev 1) [jgevarya]
+Turret Tower [Philip Bennett, smf]
+Burger Time (set 3) [Artemio]
+
+
+新しく追加されたクローンセット
+------------------------------
+Erotictac/Tactic (set 2) [ANY]
+Super Derby (v.10.04) [ANY]
+アフターバーナーII (German) [Andrew Welburn, The Dumping Union]
+Player's Edge Plus Pokerのいろんなセット (100本以上) [BrianT, Kevin, Jim]
+サファリラリー (World) [Andrew Welburn]
+ストリートファイターII -ザ・ワールドウォリアー- (World 910318)
+  [Any, The Dumping Union]
+ストライクファイター (World) [ShouTime, The Dumping Union]
+ボンバーマンワールド (Japan) [Artemio Urbina, The Dumping Union]
+ファイナルファイト (Japan 900613) [Smitdogg, The Dumping Union]
+エックスメンVS.ストリートファイター (Asia 961004) [Smitdogg, The Dumping Union]
+鮫！鮫！鮫！/ Fire Shark (earlier) [ShouTime, The Dumping Union]
+救急車 -エマージェンシーコールアンビュランス- (US location test?)
+  [ShouTime, The Dumping Union]
+ダイナマイトダックス (set 2, Japan, FD1094 317-0094)
+  [Charles MacDonald, ShouTime, The Dumping Union]
+サイバーポリス E-スワット (set 1, Japan, FD1094 317-0131)
+  [Charles MacDonald, ShouTime, The Dumping Union]
+Phozon (Sidam)  [Albolo, Silvio Grazzini, Corrado Tomaselli]
+スペースインベーダー (SV version rev 1)
+スペースインベーダー (SV version rev 2)
+Kizuna Encounter - Super Tag Battle 4 Way Battle Version /
+ 風雲スーパータッグバトルスペシャルバージョン [Alex Jackson]
+
+
+追加された未動作ゲーム
+----------------------
+Carket Ball [ANY]
+Unknown Sidam Poker [ANY]
+Hide & Seek [Guru]
+フェイト／アンリミテッドコード (FUD1 Ver. A) [Guru, R. Belmont]

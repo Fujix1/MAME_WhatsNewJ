@@ -1,0 +1,70 @@
+﻿0.69u3 (0.69 Update 3)
+
+　ソース差分です。バイナリのbと間違いやすいので、バージョンをabcじゃなくてu＋番号にし
+ました。
+
+今回は修正と改良がメインで、タイマーシステム関係の変更は無しです。
+
+自分でMAMEをビルドして配布してる方は、このアップデートコードの正しいバージョン番号を
+使うようにして下さい。
+
+
+ソース全般の変更：
+------------------
+
+■Direct3Dでのcleanstretchの扱いをアップデート。[Leon van Rooij]
+	-cleanstretch auto : blitter側で自動的に判断します。0.69のデフォルト-nocsと同じ
+	-cleanstretch full : 0.69の-csと同じ
+	-cleanstretch none : 無効にする（スキャンライン表示がきれいになりません）
+	-cleanstretch horizontal: 横方向のみ
+	-cleanstretch vertical: 縦方向のみ
+
+■「Ozon 1」のPROM追加。[Pierpaolo Prazzoli]
+	src\drivers\galaxian.c
+
+■「Mighty Monkey」(Super Cobra基板の海賊版)に正しいROM追加。[Pierpaolo Prazzoli]
+	src\drivers\scobra.c
+
+■xml2infoプログラム用のmakefileの問題を修正。[Andrea Mazzoleni]
+	makefile
+	src\core.mak
+
+■「U.S.クラシック」のクラッシュ修正。[]
+	src\drivers\seta.c
+
+■「タグボート」の2面から操作が効かなくなる問題を修正。[Tomasz Slanina]
+	src\drivers\tugboat.c
+
+■アセンブラ68000コアのMULUタイミングをCコア版に合うように修正。[Razoola]
+	src\cpu\m68000\make68k.c
+
+■YMF278Bのループアドレッシングのバグ修正。ループするサンプル音が修正。
+  (s1945の最後の部分など)[OpenMSX]
+	src\sound\ymf278b.c
+
+■「ヘッドパニック」のサウンドバンキング修正。[]
+	src\drivers\esd16.c
+
+■vballドライバのクロック系訂正。[TheGuru]
+	src\drivers\vball.c
+
+新規サポートクローン：
+----------------------
+
+Field Day (今回より「ザ・運動会」の親セット) [Tomasz Slanina]
+	src\drivers\40love.c
+
+ザ・キング・オブ・ファイターズ'98 (alt M1) [Razoola]
+キング・オブ・ザ・モンスターズ (set 2) [Razoola]
+	src\drivers\neogeo.c
+
+CPS2クローン数本 [Razoola]
+	src\drivers\cps2.c
+	
+新規TESTDRIVER：
+----------------
+
+Sparkman [Luca Elia]
+	プロテクトのため動作せず
+	src\drivers\suna8.c
+

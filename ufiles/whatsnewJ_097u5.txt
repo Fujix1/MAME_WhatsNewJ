@@ -1,0 +1,71 @@
+0.97u5
+------
+
+
+MAMETestersの修正バグ
+---------------------
+srmp7077red [Luca Elia]
+skybump097u3yel [MASH]
+hachoo37b2gre [Mamesick]
+slipstrm097u4ora [Aaron Giles]
+outzone097u4ora [Aaron Giles]
+centiped097gre [Aaron Giles]
+goldnaxe097gra [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+*「X-MEN」の6人プレイ版を大幅改良。[David Haywood]
+
+* 68000コアにかなり基本的な68040のサポートを追加。[Ville Linde]
+
+*「サンダーフォックス」の列スクロール修正。[Nicola Salmoria]
+
+* PowerPCコアに将来的にMMUをサポートできるように更新。[Nathan Woods]
+
+*「Boogie Wings / ザ・グレートラグタイムショー」のDIPスイッチ修正。[Brian Troha]
+
+* Windowsの不完全なマルチモニタ機能を使うときに起こるコンパイルの問題を修正する
+  クラックをさらに追加。[Krick]
+
+* phoenix3, condor, griffon, falconaにコイン2追加とDIPスイッチの修正。
+ [Pierpaolo Prazzoli]
+
+* Speed Ballドライバを大幅にクリーンアップ: [Pierpaolo Prazzoli]
+- クリーンアップ / タイルマップにコンバート
+- コインカウンタ追加
+- カクテルモード追加
+- プライオリティ修正 (まだ100%正確ではない模様。タイトル画面で、2ピクセルの
+    プライオリティがまだおかしい)
+
+*「Mug Smashers」のタイルマップスクロールと表示エリア修正。[Pierpaolo Prazzoli]
+
+* zlibのバッファオーバーランバグ用パッチ追加。[Santeri Saarimaa]
+
+* メモリインターフェースの要約と53C810 SCSIエミュレーションの改良。
+ [Nathan Woods]
+
+*「マリオブラザーズ」のスクロール修正。[David Haywood]
+
+* Sega Multi-PCMサウンドコアのバンク処理をクリーンアップ。[Aaron Giles]
+
+* 新しいSystem32コードを使ってSega Multi 32ゲームを接続。[Aaron Giles]
+
+* MCR Chip Squeak DeluxeとSounds Goodボードのメモリマップ更新。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+イーグルショットゴルフ [Luca Elia]
+スーパーリアル麻雀P7 [Luca Elia]
+機動戦士ガンダム ファイナルシューティング [Luca Elia]
+ガンマスター [David Haywood]
+
+
+
+新規クローンセット
+------------------
+X-MEN (Euro 6 Players) [David Haywood]
+Pinball Champ '95 (new parent) [David Haywood]

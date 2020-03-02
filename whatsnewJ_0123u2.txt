@@ -1,0 +1,218 @@
+0.123u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+progear0123u1gra [stephh]
+
+
+
+ソースの変更点
+--------------
+- csk.cドライバの改良: [Mirko Buffoni]
+ * 全DIPスイッチにDIPLOCATIONマクロ追加。全てテストモードで確認
+ * custom_io_rがプロテクトだけでなくキーボード入力に使うよう修正
+
+- zlibを外部としてビルドしたときの修正。[R. Belmont]
+
+- 旧型のカラーテーブル削除を完了。MDRV_COLORTABLE_LENGTHマクロを削除。新型のカラー
+  テーブルがある場合はuigfxで表示するように更新。[Zsolt Vasvari]
+
+-「マッドエイリアン」ドライバの再構成とマイナークリーンアップ。[Zsolt Vasvari]
+
+-「ゼノフォーブ」のスプライト位置修正。[Derek Ledbetter]
+
+- パレットシステムの悪者だったSNES (デバッグコード以外)をRGB32にコンバート。
+  [Zsolt Vasvari]
+
+- emupalにcolortable_palette_get_size()を追加。また、エラーさらにをキャッチする
+  ためのアサートを追加。[Zsolt Vasvari]
+
+- mpatrolとtroanglのDIPスイッチ(特にコインエイジ)と入力の修正。両ドライバの統合
+  に挑戦(個人的にはまだ、部分的にはマージできると思っています)。iremipt.hをソー
+  スに追加(taitopt.hと同じ目的)。alpha1vのDIPと入力修正。一応ゲームはプレイでき
+  ますが、まだチェックすることが残ってるのでGAME_NOT_WORKINGフラグはそのままです。
+  [stephh]
+
+- IREM CPUの復号化を"リアルタイム"に変更(CPUの機能)。復号化テーブルのセットアッ
+  プ部をCPUの"config"構造体に移動。robiza氏からの最新版テーブル追加で、
+  「Risky Challenge / ぐっすんおよよ」がプレイ可能。CPUコアはbrkn命令後に復号化
+  を停止、iret後に再開する模様。これにより、コードから"復号化しない領域"のハックを
+  削除。全てのドライバを同様に更新。いまのところ、逆アセンブリがちょっと変なので、
+  調べる必要があります。[David Haywood, robiza]
+
+- AICA (Naomiサウンドチップ)の追加と実装。Naomiの起動音が再生。これはSCSPx2でFMを
+  ADPCMと置き換えたものなので、フィルタエンベロープ以外は機能的に完成しています。
+  ARM7コアのバグのため、Naomiのサウンドテストメニューなどで、パンと音量値が間違っ
+  て計算されます。これはAICA自体の問題ではありません。
+  [ElSemi, Deunan Knute, kingshriek, R. Belmont]
+
+- 10yardのDIPスイッチ(特にコインエイジ)と入力を修正。m52とm57ドライバの統合に挑
+  戦(個人的にはまだ、部分的にはマージできると思っています)。[stephh]
+
+- ARM7コアのunalignedな32-bit読み込みを修正。[R. Belmont]
+
+- 最近の変更でmpatrolの背景がずれていたのを修正。[Zsolt Vasvari]
+
+- マイナーなコードのクリーンアップ。必要に応じてstatic/constを追加の他、修正など。
+  MSVCでのビルドに失敗するため、u1からbuild.makを一部巻き戻し。m10.cのgfx_layout
+  の調整と最適化。cpuintrf.c、sndintrf.cのコア追加。5220intf.cの#ifが無い部分に
+  追加。[Atari Ace]
+
+- mirage.cドライバのDIPスイッチを1、2個修正。またサービススイッチらしいものと入
+  力のスタートと思われるのを発見。[Brian Troha]
+
+- expand_machine_driver()を削除。machine_config_alloc()とmachine_config_free()で
+  置き換え。全ての呼び出し元を更新。info.cスタイルの統一と、コードのシンプル化。
+  [Aaron Giles]
+
+- machine->drvをmachine->configに改名。"driver"という語句の使いすぎを減らすため。
+  [Aaron Giles]
+
+- taitosjとtank8の当たり判定をシンプル化。[Zsolt Vasvari]
+
+- 新モジュール: drvintrf.c/.h。サウンドやCPUインタフェース同様に、汎用のドライバ
+  インタフェースを提供します。[Aaron Giles]
+
+- 新モジュール: mconfig.c/.h。全てのmachine_configとMDRV_*マクロをdriver.c/.hか
+  らここに移動。デバイスの追加・削除・設定用のMDRVマクロ追加。[Aaron Giles]
+
+- 以下の定数は使わないで下さい。資料的なものに見せてますが、実はただの推測にすぎ
+  ません:
+  - DEFAULT_60HZ_VBLANK_DURATION
+  - DEFAULT_30HZ_VBLANK_DURATION
+  - DEFAULT_REAL_60HZ_VBLANK_DURATION
+  - DEFAULT_REAL_30HZ_VBLANK_DURATION
+  - DEFAULT_60HZ_3S_VBLANK_WATCHDOG
+  - DEFAULT_30HZ_3S_VBLANK_WATCHDOG
+
+  全てのドライバで、等価の更新間隔を本物ではない値として明示的に指定するよう変更
+  しました。また、"REAL"なVBLANK間隔も、正確ではないものとしてコメントを追加して
+  います。[Aaron Giles]
+
+- 下記のドライバで、DIPスイッチの改良、DIP配置の追加、必要な箇所でIPT_COINxを
+  IPT_SERVICE1に置き換え、操作定義のシンプル化: [RansAckeR]
+  alpha68k.c, actfancr.c, aeroboto.c, aerofgt.c, aliens.c, ambush.c, amidar.c, 
+  amspdwy.c, angelkds.c, appoooh.c, arabian.c, argus.c, arkanoid.c. 
+
+-「Shadow Warriors」のボタンを、オリジナルの基板(JAMMA)と同じように接続。
+  [Corrado Tomaselli]
+
+- 以下のものにDIP配置追加: [RansAckeR]
+  cclimbr2, legion, terraf, ultennis, cheesech, stonebal, stoneba2, scessjoe, 
+  ashnojoe, asteroid, llander, llander1, astdelux
+
+- Namco System 2ゲームのマルチセッションクラッシュを修正。[Atari Ace]
+
+-「プリント倶楽部」のDIPスイッチ実装。[Edward Swiftwood]
+
+- MPU4テストROMを動作させた結果を元に、6840エミュレーションのコーナーケースを修
+  正。また、ゲームの外部クロックを動的に変更できる機能を追加。[James Wallace]
+
+- 6850コアについて、MPU4のタイミング問題の一部を解決できるかもということで、
+  RXとTXクロックを動的に変更出来るよう変更。[James Wallace]
+
+- MPU4ビデオボードのドキュメント更新。「Cosmic Chasm」のクリスタルについて記述追
+  加と、メモリマップとの統合。[James Wallace]
+
+- GCC v3.3.5を使ってI686最適化コンパイルするとき、インライン関数_mul_32x32_hi()
+  と_mulu_32x32_hi()がバリデーションに引っかかるのを修正。[KO Myung-Hun]
+
+- 「レインボーアイランド」「ランボー3」「雷電II」のクロックを確認。
+  「Truxton 2 / 達人王」のサウンドOSCをサントラに合わせて27MHz/8に差し戻し。
+  以前測った基板では28MHz/8でしたが、一般的なものとはバージョンが違うものでした。
+  MAMEではマルチOSCはサポートしていないので、27MHzの方にしました。
+  [Corrado Tomaselli]
+
+-「ダブルドラゴン3」の吸い出し不良ROMを修正(一部は海賊版ベースでオリジナルではあ
+  りませんでした)。実際の基板に合わせて名称とロケーションを更新。[Kevin Eshbach]
+
+-「ザ・コンバットライブス」「Battle Toads」にDIP配置追加。[Kevin Eshbach]
+
+- 現在のビーム位置まで画面を強制更新する関数、
+  video_screen_update_now(int scrnum)を追加。[Zsolt Vasvari]
+
+- 旧型カラーテーブルの残り処理: [Aaron Giles]
+ * PALETTE_INITからcolortableパラメータ削除
+ * machine_configから、game_colortalbeとremapped_colortableを削除
+ * これらのフィールドを参照している古い箇所を更新
+ * tilemap.cからtile_draw_colortableを削除
+
+- 入力ポートトークンで、FPRTに全てキャストする代わりに、共用体を使うよう変更。
+  将来的には、C99を有効にしたコンパイラなら、指定したイニシャライザにより型安全
+  性を確保できると思われます。[Aaron Giles]
+
+- MESS用にi8749 CPUの派生版追加。[Curt Coder]
+
+- SH4に未追加だった命令実装とFPUのバグ修正。Naomi I/Oボードエミュレーションの改
+  良と動作可能な操作系追加。[Samuele Zannoli]
+
+- jedi.cを改良: [Zsolt Vasvari]
+ - メモリマップ完成
+ - クリスタル
+ - ドライバステートストラクチャ
+ - テキストレイヤを背景と同時に描画
+
+- Qixドライバの再構成 (ドライバステート、オーディオセクションの切り離しなど)
+  [Zsolt Vasvari]
+
+- MC6845チップを使う全ドライバで、新インタフェース使うよう変更。mc6845_configを
+  削除。[Zsolt Vasvari]
+
+- Gameplanドライバを再構成。「Trivia Quest」でGameplanのビデオコードを使うように
+  変更。Gameplanピクセルクロック用のクリスタル追加。[Zsolt Vasvari]
+
+- INDEXED16ドライバがペン配列を不必要に参照していたのを修正。[Zsolt Vasvari]
+
+- 画面毎のpalette_baseを削除。このアイディアはうまくいかなかった、または必要なかっ
+  たようです。[Aaron Giles]
+
+- 新デバイスタイプ、VIDEO_SCREENを定義。今のところ実際の機能はなく、ビデオ画面の
+  プレースホルダの役目しかしません。そのうち、画面管理のコードをstart/stop/reset
+　関数に移すかもしれません。[Aaron Giles]
+
+- MDRV_SCREEN_ADDについて、画面タイプ(今のところRASTER、VECTOR、LCD)を指定するよ
+  うに変更。以前のVIDEO_TYPE_RASTERとVIDEO_TYPE_VECTORは削除。この情報は画面リス
+  トをチェックして決定されます。[Aaron Giles]
+
+- MDRV_SCREEN_*マクロについて、screen[]配列に値を入れるのではなく、VIDEO_SCREEN
+  デバイスを生成するよに変更。machine_configからはscreen[]を削除。
+  Machine->config->screen[]の参照をしている全てのコードを修正して、新しい
+  video_screen_first()とvideo_screen_next()関数を使い、デバイスについて繰り返す
+  ように変更。[Aaron Giles]
+
+- 暗黙の画面#0を削除。全てのドライバで明示的に画面を宣言する必要があります。滑っ
+  てのドライバをそのように更新しました。この作業のとき、MDRV_SCREEN_*パラメータを
+  全てグループ化しました。また、VIDEO_TYPE_RASTERとVIDEO_TYPE_VECTORも不要なので
+  削除しました。さらに、ベクターゲームから、VBLANKとビットマップフォーマットの情
+  報も削除しています。疲れました。[Aaron Giles]
+
+- ゲーム情報で全ての画面について情報を表示するように更新。[Aaron Giles]
+
+- Beatheadドライバで、スキャンラインレベルをキャッシュするのに代えて、partial 
+  updateを使うように変更。[Zsolt Vasvari]
+
+- state_save_combine_module_and_tag()を追加。これは、インデックスではなくタグベー
+  スのモジュールでステートセーブのために、一意の名前を生成するためのものです。
+  [Zsolt Vasvari]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Champion Poker [Mirko Buffoni]
+Risky Challenge / ぐっすんおよよ [robiza]
+
+
+
+新規クローンセット
+------------------
+ファイティングサッカー (Japan) [Yasuhiro Ogawa]
+Red Hawk (Excellent Co., Ltd) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+トイファイター [Corrado Tomaselli]

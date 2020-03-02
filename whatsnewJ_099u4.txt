@@ -1,0 +1,68 @@
+0.99u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+quarth37b1gre [Pierpaolo Prazzoli]
+devilw36b10yel [Pierpaolo Prazzoli]
+vulcan137b1gre, part 7 [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* システムにメモリカードとチートメニューを復活。[Aaron Giles]
+
+* u3でMNGレコーディングの問題が出ていたのを修正。[Aaron Giles]
+
+* u3でベクターゲームがクラッシュしていたのを修正。[Aaron Giles]
+
+* コアコードでのコーディング規格について特定のルール化を進めるため、コアストラク
+  チャの一部で、ネーミングのクリーンアップと規格化:
+
+  struct InputPortDefinition   -> input_port_default_entry
+  struct InputPort             -> input_port_entry
+  struct RegionInfo            -> region_info
+  struct RunningMachine        -> running_machine
+  struct GameOptions           -> global_options
+  struct GameDriver            -> game_driver
+  struct InternalMachineDriver -> machine_config
+  struct MachineCPU            -> cpu_config
+  struct MachineSoundRoute     -> sound_route
+  struct MachineSound          -> sound_config
+  struct MachineSpeaker        -> speaker_config
+  struct RomModule             -> rom_entry
+  struct SystemBios            -> bios_entry
+  struct GfxLayout             -> gfx_layout
+  struct GfxElement            -> gfx_element
+  struct GfxDecodeInfo         -> gfx_decode
+
+  さらにその他多くでも同じルール適用。この作業はまだ終わってないので注 意してく
+  ださい。またもっと広範囲な構造体(mame_bitmap, rectangle)は非diffリリース
+  (0.100)までそのままにしておきます。[Aaron Giles]
+
+* 最初の実行後は自動的になくなるので-skip_disclaimerを削除。[Aaron Giles]
+
+* NMK112 ROMバンキングモジュールを新規作成、これを使用するドライバと接続。影響の
+  あるゲームはcave.c, nmk16.c, powerins.c, quizpani.c, toaplan2.c。
+  [Alex W. Jackson]
+
+*「Showdown」で不足していたボタン追加。[David Widel]
+
+* 6309逆アセンブラのPULUW命令修正。[Nathan Woods]
+
+* 初期化失敗時にマルチセッションポートでの保存ステートの再生を改善。
+  [Tim Lindner]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+テトリス ジ・アブソリュート ザ・グランドマスター2 [Guru]
+
+
+
+新規クローンセット
+------------------
+Plotting / フリップル (US) [David Haywood]

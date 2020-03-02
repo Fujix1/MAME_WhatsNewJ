@@ -1,0 +1,102 @@
+0.89u5
+------
+
+全般的な改良点：
+----------------
+
+■Namcos System 2のサウンドバランス調整。
+
+■Solar Warriorドライバのアップデート。[Bryan McPhail]
+    NMIとFIRQの処理を回路図をもとに修正
+    クロックスピードを修正
+    グラフィックプライオリティレジスタとPROMの実装
+
+■Irem GA20 64-bitクラッシュの修正。[Stephen Behling]
+
+■いろいろな更新。[Nathan Woods]
+    src/cpu/i86/i86.c:
+    src/cpu/i86/i286.c:
+    - 逆アセンブラコールを修正。命令が間違って32bitで逆アセンブルされあ
+    いようになりました
+
+    src/cpu/i386/i386op16.c:
+    - SMSW命令の実装
+
+    src/cpu/i386/i386dasm.c:
+    - RETF命令をDASMFLAG_STEP_OUTに設定
+    
+    src/x86drc.h:
+    - pushfd()とpopfd()マクロ追加
+
+■デバッガに“TRACEOVER”追加（ヘルプ参照）。[Nathan Woods]
+
+■デバッガコマンド追加。[Aaron Giles]
+    - snap [<filename>] - スナップショットを撮って指定した<filename>に保
+      存します；<filename>を省略するとF12と同じ動作です
+    - gi[int] [<irqline>] - <irqline>で指定した割り込みラインまで現在の
+      CPUを実行します；<irqline>の省略時は、現在のCPUで次のIRQまで実行し
+      ます。F7にも割り当てられてます
+    - gv[blank] - 次のVBLANKまで実行します；デバッガでフレーム毎にステッ
+      プ動作するのに便利です。F8に割り当てられています
+
+■改良いろいろ。[Sebastien Volpe]
+
+    galpani3:
+    - パレット、入力、サウンド実装。背景の“デコード”(RLE)
+
+    jchan:
+    - 少しクリーンアップ。サウンド実装。タイルエリア判明
+    - jchan2が初期チェックをパスするようになりました
+
+    kaneko16 (bonkadv):
+    - Luca氏の情報に基づいてプライオリティ修正
+    - サウンドの“改良”（バンキングとROMロード）
+    - ゲーム名の更新
+    - 割り込みスケジュールの変更（正確ではないですが、少し改善してます。
+      コメントをチェックして下さい）。この結果、フェイクのリージョンDIP
+      スイッチを削除しました
+
+    srmp6: 新ドライバ、Seta System 12 ?
+    - TODOがまだ多くあります。グラフィックデコードがあればナイスです
+
+    toki:
+    - 周波数の訂正
+
+■System32ドライバのマイナーなクリーンアップを開始（一時的に動作しなくなって
+  いるものもあります）。[David Haywood]
+
+■hypereac2のサウンド修正、sh2のオーバーフローの修正、atarijsaのmemcpy修正。
+  [Mame32Plus]
+
+■Namco 54xxノイズジェネレータの改良。[Jarek Burczynski]
+    Type AとBをエミュレート。Type Cはまだ不明
+
+■Segaのマイナーな更新。[Aaron Giles]
+    - dbrkrをdesertbrにリネーム
+    - 演算チップエミュレーションをクリーンアップ。精度向上
+    - wrestwraのカラムスクロールがひとつずれていたのを修正
+    - S18の影がVDPで描画したピクセルに影響しないのを修正
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+レッスルウォー (Japan) [Gerald]
+Flying Ball (Deco Cassette) [Juergen Buchmueller]
+SportTime Bowling (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Leader Board Golf (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Ninja Mission (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Road Wars (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+忍 (set 4, System 16B, unprotected) [Aaron Giles]
+
+
+新規未動作ゲーム：
+------------------
+Astro Battle (Sidam) [Highwayman, Pierpaolo Prazzoli]
+スーパーリアル麻雀PVI [Sebastien Volpe]
+Magic Johnson's Fast Break (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Xenon (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+SportTime Table Hockey (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+World Darts (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Sidewinder (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Space Ranger (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+7-up Spot (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]

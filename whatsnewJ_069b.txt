@@ -1,0 +1,82 @@
+0.69b (0.69 Update 2)
+
+　ソース差分更新です。MAMEテスターで見つかっている新型タイマーコード絡みの修正などです。
+0.69と比べて、壊れてるゲームがあった場合は重要な情報ですので是非お知らせ下さい。
+
+
+ソース全般の変更：
+------------------
+
+■「Atlantic City Action / Broadwalk Casino」のDIPと入力修正。[Peter Storey]
+	src\drivers\pacman.c
+
+■綴り間違いの修正。[Santeri Saarimaa]
+	src\drivers\metro.c
+	src\drivers\oneshot.c
+	src\drivers\lethalj.c
+
+■「ムーンシャトル」に“Right”追加。[David Haywood]
+	src\drivers\galaxian.c
+
+■PIC16C5xコアのさまざまな修正。[Quench]
+	src\cpu\pic16c5x\pic16c5x.c
+	src\cpu\pic16c5x\pic16c5x.h
+	src\cpuintrf.c
+	
+■「Big Twin」のサウンド動作。[Quench]
+	src\drivers\playmark.c
+
+■「Dragon Master」「Big Twin」のPIC HEXダンプ使用。[Quench]
+	src\drivers\playmark.c
+	src\drivers\drgnmst.c
+
+■V60 CPUコアのバグ修正。新タイマシステムでのトラブル系。[Aaron Giles]
+	src\cpu\v60\v60.c
+
+■snprintf.cでの0以下の少数出力修正。[Chris Kirmse]
+	src\windows\snprintf.c
+
+■K054539のバグ修正で「究極戦隊ダダンダーン」で子門真人ボイスが正常に。[R.Belmont]
+	src\sound\k054539.c
+
+■PGMのカレンダ追加。[Pierpaolo Prazzoli]
+	src\drivers\pgm.c
+
+■新タイマシステムでYM2610を使うゲームが壊れていたのを修正。[Aaron Giles]
+	src\cpuint.c
+
+■NeoGeoでCPUの通信をさらにきっちりするためにboost_interleaveを使うよう変更。[Aaron Giles]
+	src\drivers\neogeo.c
+
+
+新規サポートゲーム：
+--------------------
+
+スペースクルーザー [Tomasz Slanina]
+	src\drivers\taitosj.c
+
+マスタッシュボーイ [Tomasz Slanina, Nicola Salmoria]
+	TESTDRIVERより昇格。Nicola氏により解読完了。
+	色不良と音が出ないのはROMかMCUが不足？
+	src\drivers\mustache.c
+	src\vidhrdw\mustache.c
+	
+エビルストーン [Tomasz Slanina]
+	src\drivers\taito_l.c
+	
+Glass [Manuel Abadia]
+	プロテクトのためプレイ不可。でもとりあえず。
+	src\drivers\glass.c
+	src\vidhrdw\glass.c
+	
+Tri-Pool [David Haywood]
+	src\drivers\jack.c
+
+
+新規サポートクローン：
+----------------------
+
+ファイナルファイト (Japan Set 2) [Razoola]
+	src\drivers\cps1.c
+	src\vidhrdw\cps1.c
+

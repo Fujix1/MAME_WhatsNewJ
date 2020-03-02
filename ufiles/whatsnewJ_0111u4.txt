@@ -1,0 +1,179 @@
+0.111u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+simpbowl0110u2yel [R. Belmont]
+arcadiac0111u3yel [Ernesto Corvi]
+mcatadv0111u3gre [David Haywood]
+photoy2k0111u3yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Pioneer PR-8210レーザーディスクプレーヤのサポート追加。[Ernesto Corvi]
+
+- 入力ポート用マクロ追加: PORT_DIPUNUSED, PORT_DIPUNUSED_DIPLOC [stephh]
+
+- caveドライバのDIPスイッチ更新と配置追加。[stephh]
+
+- sbrkoutのDIPスイッチ改良とニセのスイッチを設定スイッチに変換。[stephh]
+
+-「ゼロアワー」のDIP改良。[Mike Ellery]
+
+- m90ドライバのDIP配置追加。[Brian Oberholtzer]
+
+-「Forgotten World / ロストワールド」ドライバをCPS1ドライバと統合。OKI6295ピンコ
+  ントロールを正しく接続。[David Haywood]
+
+- makefileで独立したシンボル生成と最適化レベルを設定できるように改良。
+  [Atari Ace]
+
+- Amigaコードのシステムタイムカウンタ修正。[Ernesto Corvi]
+
+- Midway 8080白黒表示ドライバの大改修。巨大な8080bwドライバから分離して、以下の
+  変更を追加: [Zsolt Vasvari, Derrick Renaud]
+
+  - シフト回路のハードウェアに基づいたエミュレーション
+  - サウンドトリガの識別とスタブ
+  - DIPスイッチ修正
+  - DIPLOCATIONを全てに追加
+  - ウォッチドッグ追加
+  - コインカウンタ追加
+  -「シーウルフ」「Guided Missile」「スペースエンカウンター」「Phantom II」
+   「4 Player Bowling Alley」にランプ出力追加
+  -「ガンファイト」「Guided Missile」「M-4」にステレオサウンド追加
+  -「Tornado Baseball」「ブーツヒル」「デザートガン」「Double Play」
+   「ブルーシャーク」に部分的にサウンドエミュレーション追加
+  -「ブーツヒル」のシフト回路を正しくエミュレート
+  -「デザートガン」の弾の跳ね返る出力を追加
+  -「Clowns」にアナログコントロールを使うセット追加
+  -「Dog Patch」のアナログ操作修正
+  -「スペースエンカウンター」にSN76477の効果音追加
+  -「スペースインベーダー」「ブルーシャーク」「スペースインベーダーII」に非メモ
+    リマップのコインカウンタ追加
+  - 全てのゲームに正しいウォッチドッグ追加
+  - ノイズクロック用の回路作成と、その周波数が正しいか確認
+
+- Scorpion 2ドライバのビデオコールバックに、ランプマトリックス追加。また、ランプ
+  と入力について新UIによくフィットするように改良。VFDサポートを設定スイッチに移
+  動。[James Wallace]
+
+- MediaGXドライバのサウンド出力改良。[Ville Linde]
+
+- Berzerk/Frenzy（とStern製のピンボール）で使われているTSI S14001Aスピーチシンセ
+  サイザの初期版追加。[Lord Nightmare, Kevtris, R. Belmont]
+
+-「マジカルキャットアドベンチャー」と「ノストラダムス」にラインスクロール追加。
+  どちらのゲームでも1面から使われています。[David Haywood]
+
+- konamigxドライバのクリーンアップ。[R. Belmont]
+
+- Sega System 24ドライバのクラッシュ修正。[David Haywood]
+
+- 入力ポート名がUTF-8の文字列かのバリディティチェック追加。[Nathan Woods]
+
+- tumbleb.cドライバのDIPスイッチ改良。[stephh]
+
+- legionaドライバのドキュメント追加とその他の更新。[Angelo Salese]
+
+- cdp1869ビデオエミュレーションをCidelsaドライバに追加。ただし、タイミングと割り
+  込み関係の問題のためゲームは未動作。[Curt Coder]
+
+- Tao Taidoドライバのクラッシュ修正。[David Haywood]
+
+- suprnova RLEレンダリングをout-of-boundsアクセスしないように修正。
+  [David Haywood]
+
+- Midnight Landingドライバの改良をいろいろ。サウンド、表示、操作も一部動作。ただ
+  し、ゲーム自体は未動作。[Tomasz Slanina]
+
+- TMS9928で依存関係が変わったときに、中途半端にならないようにパターンマスクを再
+  計算するよう修正。[R. Belmont]
+
+- UIの全テキストをUTF-8コードとしての描画サポート。UTF-8でエンコードしたユニコー
+  ドが、ゲーム中の表記などで使われます。ただし、最初にユニコードに対応したBDF
+  フォントが必要です。[Aaron Giles]
+
+- Vistaでビルドするためのハックが必要なくなったのでwinodws.makから削除。
+  [Aaron Giles]
+
+- mame_bitmapsでの、ハックぽい使われかたをしているdepthフィールドを削除。
+  ビットマップは列挙型のformatで割り当てします。内部的には、規格化した方法でピク
+  セル当たりのビット数へ変換されます。さらにMachine->color_depthも間違って使われ
+  ることが多かったので削除しました。[Aaron Giles]
+
+- 新マクロBTMAP_ADDR追加。ビットマップのアドレス情報に利用します。コアコードから
+  はbitmap->line[]を削除しました。line[]配列は廃止予定なので、使わないようにして
+  ください。[Aaron Giles]
+
+- plot_pixel、read_pixel、plot_boxの操作を変更。手前の2つはインライン関数になり、
+  最後のは他のインライン関数でfillbitmapにマッピングされます。[Aaron Giles]
+
+- マシンドライバに新エントリMDRV_SCREEN_FORMAT()が必要になりました。これは、画面
+  のビットマップフォーマットを指定します。暗黙的にフォーマット指定をしていた
+  VIDEO_RGB_DIRECTとVIDEO_NEEDS_6BITS_PER_GUNフラグは削除しました。[Aaron Giles]
+
+- 以下のマシンドライバエントリは廃止予定です:
+
+   MDRV_FRAMES_PER_SECOND -> MDRV_SCREEN_REFRESH_RATE
+   MDRV_VBLANK_DURATION   -> MDRV_SCREEN_VBLANK_TIME(TIME_IN_USEC(x))
+   MDRV_VISIBLE_AREA      -> MDRV_SCREEN_VISIBLE_AREA
+
+  [Aaron Giles]
+
+- 光線銃ゲーム用の照準描画メカニズムを刷新。光線銃による操作が指定されていれば、
+  照準は自動的に描画され、ゲーム自体が描画する必要はありません。新しい
+  PORT_CROSSHAIRマクロを使い、他のアナログ軸入力で照準表示を使うようにもできます。
+  また、照準の表示色をプレイヤー毎に変わります。新レンダリングシステムを使うこと
+  で、ゲーム画面のビットマップに直接描画するのではなく、オーバーレイ的に表示を行
+  います。というわけで、スクリーンショットに照準が表示されることはもうありません。
+  ビルトインの照準が気に入らない場合は、自作のものをcross0.png (プレイヤー1)、
+  corss1.png (プレイヤー2)というファイルをルートかアートワークディレクトリ配置し
+  て利用できます。[Aaron Giles]
+
+- F1キーの照準表示を変更。デフォルトでは全プレイヤーに対して有効になります。
+  1回目は全部の照準の表示を切り替えます。その次に各プレイヤー毎の切り替えになり
+  ます。[Aaron Giles]
+
+- chd.cに非可逆圧縮サポートを追加。CRCや他のハッシュは復元後のものをベースに求め
+  ます。また、新しいOSDワークアイテムインターフェイスを使って、非同期の読み込み・
+  書き込みもサポートしました。[Aaron Giles]
+
+- OSDワークアイテムインターフェイスのWindowsでの実装バグを修正。[Aaron Giles]
+
+- ハードディスクインターフェイスを少し簡略化。[Aaron Giles]
+
+- Z80 SIOチップのバグ修正とエミュレーションの改良。[Aaron Giles]
+
+- レーザーディスクのシーク中にスタックしないようコードを改良。また、22VP932プレー
+  ヤーの初期サポート追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Date Quiz Go Go (Korea) [David Haywood]
+Disco Boy [David Haywood, Stefan Lindberg]
+
+
+
+新規クローンセット
+------------------
+ゲイングランド (Japan) [Team Japump, Brian Troha]
+ダイナミックカントリークラブ (Japan) [Team Japump, Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cliffhanger [Ernesto Corvi]
+Goal To Go [Ernesto Corvi]
+Quick Jack [David Haywood, ClawGrip]
+Strip Teaser [David Haywood]
+Pango Fun (Italy) [David Haywood]
+がんばれ珍さん！大勝負 (MC-8123A, 317-5012) [David Haywood]
+Stelle e Cubi (Italy) [David Haywood]
+スペースエース [Aaron Giles]

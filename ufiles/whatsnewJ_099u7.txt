@@ -1,0 +1,79 @@
+0.99u7
+------
+
+
+MAMETestersの修正バグ
+---------------------
+uccops062gre [Pierpaolo Prazzoli]
+dynduke055gre [Curt Coder]
+countryc087u4gra [Roberto Fresca]
+analogconfig099u6 [Aaron Giles]
+konami099u6red [Aaron Giles]
+m92099u6red [Aaron Giles]
+midvunit099u6red [Aaron Giles]
+policetrc099u6red [Aaron Giles]
+popupinfo099u6ora [Aaron Giles]
+keyhold099u6gra [Aaron Giles]
+ymsound099u6yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+* OPNエミュレータからcur_chipハック削除。[Aaron Giles]
+
+* 動作中のゲームのCPUがステートセーブをサポートしない場合にクラッシュするのを修
+  正。[Aaron Giles]
+
+* F3ゲームの割り込みタイミング修正。[Nicola Salmoria]
+
+* MNG記録サイズ修正。[Mathis Rosenhauer]
+
+*「8-Ball」(パックマン基板)の色修正。[Steve Rice]
+
+* ST-VドライバのIC13ROMロードエミュレーション改良。「ファインドラブ」「デカス
+  リート」「蒼穹紅蓮隊 / Terra Diver」がハックまたはデバッグ技を使わすに起動。
+  また「水滸演武」の動作も改良。[Angelo Salese]
+
+* leagueman_decryption_table (nbbatmanで使用)のopcode 0を追加。
+  [Pierpaolo Prazzoli]
+
+*「スペースクルーザー」のアステロイド面でやられるとリセットするのを修正。
+  [Pierpaolo Prazzoli]
+
+*「スペースポジション」のDIPスイッチ修正。[Roberto Fresca]
+
+* m92ドライバのタイルマップ間の描画順修正。[Pierpaolo Prazzoli]
+
+*「スクーターシューター」の色修正。[Pierpaolo Prazzoli]
+
+* Namco System 22サウンドシステムのバグ修正。[Cync]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Jolly Jogger [Pierpaolo Prazzoli]
+インディアンバトル [Tomasz Slanina]
+龍虎榜 [Luca Elia]
+中国龍 [Luca Elia]
+Champion List II [Luca Elia]
+幸運満貫 (V638C) [Luca Elia]
+マルちゃんdeグー!!! [Angelo Salese]
+スーパーメジャーリーグ [Angelo Salese]
+2度あることはサンドアール [Angelo Salese]
+蒼穹紅蓮隊 / Terra Driver [Angelo Salese]
+水滸演武 [Angelo Salese]
+
+
+
+新規クローンセット
+------------------
+Eliminator (2 Players, cocktail) [Mathis Rosenhauer]
+Eliminator (4 Players, prototype) [Mathis Rosenhauer]
+World Beach Volley (set 2) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------

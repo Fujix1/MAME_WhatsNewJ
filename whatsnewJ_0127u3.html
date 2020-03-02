@@ -1,0 +1,293 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.127u3</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.127u3.txt</div>
+	<div class="main">
+<div class="wn">
+0.127u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00614: [DIP/Input] sspeedr: ペダル操作が動作しない。(Mike Green)
+- 02198: [DIP/Input] stocker: コインエイジのDIP設定間違い。(Mike Green)
+- 02206: [Sound] cubeqst: BGMとナレーションが鳴らない。(Aaron Giles)
+- 02166: [Cheat System] garou and clones: Work RAM Error (Aaron Giles)
+- 02200: [Cheat System] galaga: フリーズする。 (Aaron Giles)
+- 02189: [Cheat System] gradius4: セットアップをパスできない。(Aaron Giles)
+- 02214: [Cheat System] rchase: トロッコが動かない。(Aaron Giles)
+- 02177: [Cheat System] All lethal.c sets: T 4 EEPROM エラー(BAD)。(Aaron Giles)
+- 02188: [Cheat System] Many sets in neodrvr.c: 起動時にRAMエラーで動作しない。(Aaron Giles)
+- 02207: [Crash/Freeze] marioj, marioo: Access Violation (Aaron Giles)
+- 02204: [Crash/Freeze] masao: メモリバンクエラー。(Aaron Giles)
+- 02202: [Crash/Freeze] Many Sets in segas16a.c: Access Violation。(Aaron Giles)
+- 02222: [Crash/Freeze] monsterb, monster2: 起動時にクラッシュ。(Aaron Giles)
+- 02205: [Graphics] jackal, jackalj, topgunbl, topgunr: 敵戦車の色間違い。(Nicola Salmoria)
+- 02201: [Compiling] 64 bitコンパイルエラー。(Aaron Giles)
+- 01689: [Graphics] riskchal, gussun: ラスタエフェクト未実装。(Pierpaolo Prazzoli)
+
+
+
+ソースの変更点
+--------------
+- m90のプレイフィールド1とプレイフィールド2のY-オフセットテーブル実装。これにより、
+  riskchalの水表示エフェクトと、matchit2のデモでのテキストフェーディング修正。
+  [Pierpaolo Prazzoli, Tomasz Slanina]
+
+- Naomi GDROMセットでCHDをロードするように変更開始。[David Haywood]
+
+-「Egg Venture」「Lethal Justice」の追加ドキュメント: [Brian Troha]
+ - JAMMAピンアウト追加
+ - ガンコネクタピンアウト
+ - サウンドとアンプ情報
+
+- snk.cのコイン入力はアクティブハイ(jcross以外)の模様。[Nicola Salmoria]
+
+-「Canvas Crquis」の背景タイルバンキング修正。基板上にSNKWAVEが使われている形跡がない
+  ので削除。その他ドライバのクリーンアップしてsnk.cレベルに整理。ただし、一部合わない
+  部分があるので未統合。[Nicola Salmoria]
+
+- munchmo.cのメモリマップを統合。[Nicola Salmoria]
+
+- magic10ドライバの変更: [Roberto Fresca]
+ - 全体のシステムを改良
+ -「Super Gran Safari」追加
+ -「Super Gran Safari」「Magic's 10」のランプレイアウト改良
+
+- 新しいデバイスインタフェースセレクタ、DEVINFO_PTR_ROM_REGION追加。これは、ゲームROM
+  に合わせてロードするROM領域セットをデバイスから指定することができます。ほとんどのデ
+  バイス領域では、これを使ってROMREGION_LOADBYNAMEフラグを指定し、中心領域に存在でき
+  るようにして下さい。[Aaron Giles]
+
+- 新デバイスインタフェース、DEVINFO_PTR_MACHINE_CONFIGを追加。これにより、このデバイ
+  スを使用するゲームで、マシン部の後ろに追加する部分マシンドライバをデバイスから指定
+  できます。これを導入したのは、独自のBIOSロジックを持つデバイスが、CPUやこのデバイスを
+  使う全てのシステム共通の追加特性を指定できるようにするためです。[Aaron Giles]
+
+- 新ROMREGIONフラグ: ROMREGION_LOADBYNAMEは、通常のドライバファイル内にこの領域のROM
+  は見つからないことを示します。領域名はドライバのファイル名としてロードに使用します。
+  [Aaron Giles]
+
+- ldcoreインターフェイス構造体で、各プレイヤータイプが独自のROM領域と部分的なマシンド
+  ライバを提供できるように拡張。[Aaron Giles]
+
+- PR-8210エミュレーションの仮コードをldplayr.cからldpr8210.cに移動。いまのところ、こ
+  れはコンパイル時フラグ、EMULATE_PR8210_ROMで無効に設定しています。[Aaron Giles]
+
+- チートに、ビルトインの"OFF"ステートをパラメータとして追加。これはデフォルトのステー
+  トでもあるので、デフォルト値の指定は不要です。この結果として、"default"アトリビュー
+  トは削除しました。どれかのチートステートを変えることでスクリプトが動作しはじめます。
+  これがOFFでないときは、"run"指定のスクリプトは毎フレーム実行されます。
+  [Aaron Giles]
+
+- チートメニューのデフォルト動作リセットをIPT_UI_CLEARに移動。[Aaron Giles]
+
+- Naomi-GDキーを全て外部化。[David Haywood]
+
+- shadfrce.cの入力ポートマッピングをクリーンアップ。[David Haywood]
+
+- 多くのドライバでI/Oマップを統合。[Andrew Gardner]
+
+-「Imago」のスプライト修正。[Pierpaolo Prazzoli, Tomasz Slanina]
+
+- romローダにromソースのコンセプトを導入。オーディット、CLIユーティリティ、バリディ
+  ティチェック、ROMローディングで、デバイス固有のROM処理を正しく行うために、これらの
+  新関数を使うように更新。[Aaron Giles]
+
+- core_fopen_ram_copy()を追加。core_fopen_ram()のメモリをコピーするバージョン。
+  [Nathan Woods]
+
+- welltrisの吸い出し直しROM追加。[Dazzer]
+
+- デバイスとして指定されるCPU、サウンドチップ、デバイス、ROM領域は、デバイスが、自動
+  でデバイスタグの前に独自タグを追加するようにしました。これにより、複数のインスタン
+  スが存在可能になります。例えば、PR-8210レーザーディスクプレーヤは、pr8210というタグを
+  持つCPUを使っています。これがドライバでデバイスとして保持されるときは、デバイスに
+  laserdiscというタグを付けます。最終的なCPUタグ名は"laserdisc:pr8210"です。また、デ
+  バッガのエクスプレッションエンジンでも、コロンが埋め込まれた名称をサポートしました。
+  [Aaron Giles]
+
+- CPU、サウンドチップ、領域、デバイスに使われているタグ名が基本ルールに沿っているかの
+  チェックを追加。文字数は15文字以内、使える文字はアルファベット小文字、数字、アンダー
+  スコア、ドットのみ(スペースは不可)。これにより、デバッガ表記で使えるようになり、下
+  手に長くならないようにします(15文字でも長いほどです)。このチェックに引っかかった
+  全てのタグを修正しました。[Aaron Giles]
+
+-「Space Win」の変更: [Roberto Fresca]
+ - 新メモリマップの訂正
+ - 正しいワーキングRAM追加
+ - Dallas DS1220Y NVRAM追加
+ - 出力ポート追加
+ - ランプレイアウト追加
+ - 完全な入力追加
+ - ゲーム名を「Scacco Matto / Space Win」に変更。デフォルトのゲーム名が「Scacco Matto」
+   のため
+ - メモリマップ修正
+ -「Super Derby」の出力についてドキュメント化
+ -「Super Derby」にランプとレイアウト追加
+ - 全ゲームの物理RAMサイズを修正
+ - spacewinのNVRAMサイズを修正(16KBじゃなく16Kbit)
+ - sderbyとpmrouletに正しいNVRAM追加
+ - pmrouletの3つ目のボタン追加(3ボタンモードで使用)
+ - ドライバをクリーンアップ
+
+ ゲームの切り替えには、サービスモードでグラフィックを変更する必要あり。
+
+- DEVICE_START関数がエラーコードを返すように変更。今のところ、DEVICE_START_OKか
+  DEVICE_START_MISSING_DEPENDENCYになります。後者は、依存関係があるデバイスがまだ始動
+  していない場合に返されます。デバイスが始動済みかを示すための新フラグをデバイスイン
+  タフェースに追加しました。[Aaron Giles]
+
+- レーザーディスクインタフェースについて、ルートするスクリーンとサウンドデバイスを明
+  示的に指定するように変更。ドライバ側でマニュアルでlaserdisc_vsync()を呼ぶ必要はあり
+  ません。その代わり、レーザーディスクコードがルートされるスクリーンデバイスと接続し、
+  画面のVBLANKタイミングを元に動作します。既存のlaserdisc_vsync()呼び出し部を削除しま
+  した。[Aaron Giles]
+
+- レーザーディスクの動作について、現時点のフレーム読み込みを完了させて、次の読み込みを
+  はじめるタイミングを、VBLANKの開始時からVBLANKの終了時に変更。これにより、プレイヤー
+  側は、次のフレームの読み込みに先立って、スライダ位置を変更するためのロジック時間を
+  VBLANKの間に得ることができます。[Aaron Giles]
+
+- vsync開始用のレーザーディスクコールバック追加。更新用コールバックをVBLANKの終わりで
+  呼び出すように変更。さらに、スライダ速度の指定、スライダ送り、映像・音声のスケルチ
+  直接操作用の関数も追加。また、大まかにスライダの位置を取得するステータス関数も追加。
+  [Aaron Giles]
+
+- emu/video.cでのVBLANKコールバックにパラメータ追加。全ての呼び出し元にコールバック値を
+  設定。[Aaron Giles]
+
+- ウォッチポイントアドレスに対してメモリウィンドウを開いていると、ウォッチポイントが
+  有効になるバグを修正。[Aaron Giles]
+
+- PR-8210 ROMシミュレーションを更に改良。まだ完全ではないですが、システムはかなりわかっ
+  てきました。フロントパネルLEDのステート表示を行うPR-8210のレイアウト追加。
+  [Aaron Giles]
+
+- クリッカブル入力をサポート。レイアウト側で、クリックすることでステートを変更するア
+  イテムを保持できます。これは新アトリビュート'inputtag'と'inputmask'で行っていて、入
+  力ポートタグとマスクの指定をします。指定された要素がクリックされると、要素のステー
+  トは1に変化して、入力ポートで指定したビットが、同等のスイッチが押されたのと同じよう
+  に設定されます。[Nathan Woods]
+
+- naomi2のセット追加開始。[David Haywood]
+
+- Limenkoドライバにスプライトバッファリング追加と、sopttyから表示不完全のフラグを削除。
+  [Pierpaolo Prazzoli]
+
+-「Croupier」(Playmark Roulette)の改良: [Roberto Fresca]
+ - MCUコミュニケーション/プロテクションのシミュレート
+   ゲームは動く様ですが、ほとんど勝てません。
+   MCUが腑分けされて、正しくエミュレートされるまでフラグを残しておきます
+ - サウンドを完全サポート
+ - ランプサポートとレイアウト追加
+
+- 内部バンクのメモリ処理修正。これらは、ドライバのメモリマップよりも、優先度は低くす
+  るべきです。最近追加された、とてもハッキーであちこちのクラッシュの原因だった、
+  MCS-48コアの変更を巻き戻し。これにより、内部メモリマップをオーバーライドして、独自
+  のバンキングを使えるようになっています。[Aaron Giles]
+
+- 8080/8085 CPUコアの更新: [Miodrag Milanovic]
+ 1. ANA/ANI命令、HFフラグが計算時にエラーを起こすので正しくセットされていなかった模様
+ 2. 8080ではNFフラグを常時セット (使われてはいないがビットは常にセット
+ 3. ステータス出力ラインをサポート
+
+- staticなデータをさらに定数化して、明示的な初期化処理を追加。[Atari Ace]
+
+- Atari System 1ドライバにLSI BIOS追加。System 1 BIOSを正規のBIOSに指定。BIOS関係の
+  ROMがBIOS関係のROM定義に直ちに従わなければならない制約を削除。
+  [Kevin Eshbach, Aaron Giles]
+
+- cave.cの変更: [Kevin Eshbach]
+ * クリスタルの値をXTALを使うように変更
+ * ギャル付き?「ぐわんげ」を要吸い出しに指定
+
+-「Jail Break / マンハッタン24分署」の変更: [Kevin Eshbach]
+ * DIP配置追加
+ * サウンドチップをSN76496からSN76489に訂正
+ * ROM名訂正
+ * VLM ROMを再吸い出し
+
+-「スーパーバスケットボール」の変更: [Kevin Eshbach]
+ * Rivision HのROM吸い出し
+ * DIP配置追加
+ * VLM XTALを訂正
+ * Rivision Hを親セットにして、セットの関係を更新
+ * ドライバのセーブステートを有効化
+
+- Sega System 1ドライバに「チョップリフター」海賊版の基板情報追加と、吸い出しが必要な
+  PALのプレースホルダを更新。[Kevin Eshbach]
+
+-「WWFレッスルフェスト」ドライバのROM名を更新。セーブステート追加。[Kevin Eshbach]
+
+- C352のクリーンアップ: 以前音量が(正しく)リニアに実装されていたころのボリュームテー
+  ブルが使われていないので削除。[Olivier Galibert]
+
+- ledutil.cにメモリチェックとエラーロジックを追加。[Christophe Jaillet]
+
+- システムにrunning_machine *を更に追加。これに合わせてドライバを更新。
+  [Oliver Stoeneberg]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Super Gran Safari [Roberto Fresca]
+Scacco Matto / Space Win [David Haywood, Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+ザ・グレート・ラグタイム・ショー (Japan v1.3, 92.11.26) [Stefan Lindberg]
+Imago (cocktail set) [Chris Hardy]
+ザ・ニュージーランドストーリー (Japan, newer) [Tirino73]
+マーブルマッドネス (set 5 - LSI Cartridge) [Kevin Eshbach]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

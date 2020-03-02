@@ -1,0 +1,105 @@
+0.87u1
+
+全般的な改良点：
+----------------
+
+■コンパイラのマイナーな修正。[Brad Oliver]
+
+■options.color_depthを削除（どっちにしても古くなってたので）。[Brad Oliver]
+
+■VCのコンパイラ用修正。[Bryan McPhail]
+    src\drivers\suprgolf.c        - C99の修正
+    src\cpu\m37710\m37710op.h    - VCで警告が出ないように修正
+    src\cpu\powerpc\ppc.c        - VCで警告が出ないように修正
+    src\cpu\powerpc\ppc403.c    - VCで警告が出ないように修正
+
+■「リカルホーン」でクラッシュが起きないようにデフォルトのEEPROM追加。
+  [Bryan McPhail]
+
+■テスターバグsotsugyo069u3greを修正。[Bryan McPhail].
+    sotsugyo: 通知表でゼロが表示されない問題
+
+■tilemap.cでROZとRGB_DIRECTが同時に使えるように改良。[Andrew Gardner]
+
+■HyperstoneのI/Oアドレス修正でvamphalfドライバのハックを削除。
+  [Pierpaolo Prazzoli]
+
+■「夢札」の更新（EEPROMなど）。[Gondos, Pierpaolo Prazzoli]
+
+■tmmjprdのグラフィック修正。[Pierpaolo Prazzoli]
+
+■i960の更新。[R.Belmont]
+    - 以下の命令コードをサポート: nor, addc, subc, atanr, sinr, cosr, tanr,
+      atanrl, logrl, sinrl, cosrl, tanrl
+    - 逆アセンブラにもこれらと、その他いくつかを追加
+    - コンパイラの警告に括弧を追加
+    - sttのストアワード数を4から3に修正
+    - logeprとcvtri追加
+    - cmprとcmprlを修正。正しいレジスタの値でなくゴミ値を比較してました
+    - movrlの逆アセ追加
+    - scanbit追加
+    - flushregを書き直し。前のは*完全に*間違ってました。これでHOTDが動作
+    - ゼロ除算でMAMEがクラッシュしないようにハック（一部のゲームが、まだ実装
+      していないDSPから0を受け取るため）
+    - 逆アセンブラをさらに改良
+    - 次の命令追加：NAND, EDIV, SCALER, SCALERL, ROUNDR, ROUNDRL,
+      EXPRL, MOVRE, CPYSRE
+    - 割り込みハンドリングのエラーを修正。fvipersのグラフィック化け、
+      また、fvipers、schamp、dynamcopのクラッシュが解決
+    - REMR命令追加
+
+■SegaIC24のアップデート。[R.Belmont]
+    キャラクタとタイルRAMに32bitでアクセスする方法を追加。
+
+■「グランドチャンピオン」のサウンド修正。[Justin Szczap]
+
+■INPの変更。[Barry Rodewald]
+    基本的に、interpolate_analog_port()でアナログポートデータのリード/ライ
+    トを毎回行うのはよい方法ではありません。特にreadinputport()が呼び出され
+    る度に、これも呼び出されてしまいます。
+    そこで、アナログポートのリード/ライト部分をforループに入れました。これに
+    より、ポートが実際にアナログの場合のみ、アナログポートのリード/ライトが
+    行われます
+
+■「ダイナギア」のDIP修正。[Derrick Renaud]
+
+■ZN1/ZN2のビッグエンディアンの修正。[smf]
+
+■SPIの解読の改善(rf2_2k)。[Ville Linde]
+
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Painted Lady (Splash) (Ver 1.3 US) [Manuel Abadia]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Tatsumiドライバ [Bryan McPhail]
+    ある程度はプレイできますが、きちんと動作しているわけではありません
+    アパッチ3
+    ラウンドアップ5
+    サイクルウォリアーズ
+
+    超複雑なハードです。それぞれ別な基板ですが、似たようなスプライトチップ
+    （アパッチ3はTZB215、その他はTZB315）を使っています。そのほかのグラ
+    フィック（道部分、空、背景、前景の各レイヤー）はそれぞれのゲームで異なり
+    ます
+
+    Todo:
+        スプライト回転
+        道路のレイヤーを完成させる (ラウンドアップ5)
+        道路のレイヤーを実装する (アパッチ3, サイクルウォリアーズ)
+        背景レイヤー (サイクルウォリアーズ)
+        背景レイヤー (ラウンドアップ5) - おそらく不明のVRAMデータで動作
+        ラウンドアップ5がコイン入力された状態で起動する
+        ラウンドアップ5でリセットが働かない
+        DIPスイッチ
+        その他いろいろ..
+
+Sega Model 2ドライバ [R.Belmont]
+    (ゲームリストはmodel2.cを参照)
+    タイルマップ、サウンド、入力がゲームによってある程度まで動作。
+    大抵のものは最低限起動だけはします。その他のものは固まったり、
+    クラッシュします。

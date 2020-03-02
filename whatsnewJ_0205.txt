@@ -1,0 +1,406 @@
+0.205 2018-12-26
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 06566: [クラッシュ/フリーズ] (vic20.cpp) All sets in vic20.cpp: Data 20 Video Pakをマウントすると例外発生。(Ryan Holtz)
+- 06539: [クラッシュ/フリーズ] (konamim2.cpp) All sets in konamim2.cpp: [デバッグ限定] プログラムの終了が異常。(Phil Bennett)
+- 07172: [ゲームプレイ] (vii.cpp) vii + vii software list entries: 入力が動作しない。(Ryan Holtz)
+- 07131: [グラフィック] (vtech2.cpp) laser500: 文字セットROMが間違っている。(Robbbert)
+- 07022: [DIP/入力] (vtech2.cpp) laser500: 一部のキーが動作しない。(Robbbert)
+- 07116: [ステート保存/再生] Numerous Drivers: 多くのドライバでセーブステートが動作しない。(Olivier Galibert)
+- 07177: [ドキュメント] swim: ゲーム名のとじカッコが無い。(AntoPISA)
+- 04954: [グラフィック] (cps2.cpp) mvscu, xmvsf, mshvsf: 最終面でOnslaughtが登場するシーンで、表示プライオリティに不具合がある。(hap)
+- 07049: [メディアサポート] (ct486.cpp) ct486: フロッピーディスクがリードオンリーモードなのにセーブできてしまう。(AJR)
+- 07170: [サウンド] xaudio2: モジュールでDLLが間違ってロードされる。(Moe)
+- 07169: [サウンド] (equites.cpp) equites, equitess: リセットの隣のDIPスイッチは音のON/OFF。(AJR)
+- 05732: [クラッシュ/フリーズ] All games using MCS-48: MCS-48ゲームWPDにウォッチポイントを設定するとクラッシュする。(AJR)
+- 02774: [グラフィック] (seta2.cpp) grdians: ときどき1フレームだけ画面が乱れる。(David Haywood)
+- 07165: [ドキュメント] (bzone.cpp) bzone: ソースコメントの間違い。(zaxxon)
+- 07005: [クラッシュ/フリーズ] (vamphalf.cpp) wolrdadv, luplup, poosho (possibly more): ランダムにフリーズする。(Ryan Holtz)
+- 04053: [グラフィック] (ssv.cpp) eaglshot, dynagear: ロゴが表示される箇所のラスタエフェクトがかかっていない。(David Haywood)
+
+
+新規動作可能マシン
+------------------
+Dance Dance Revolution Strawberry Shortcake [Peter Bortas, ClawGrip, The Dumping Union]
+Four Play [Robbbert]
+ゲーム&ウォッチ: オイルパニック [algestam, Eric Smith]
+ゲーム&ウォッチ: スキッシュ [algestam, 4am]
+雀神 (Japan) [ShouTime, The Dumping Union, Ivan Vangelista]
+Magic Purple [David Haywood, Jose IBI, Arcade Vintage, Recreativas.org, The Dumping Union]
+パステルアイランド (Japan, プロトタイプ) [ShouTime, David Haywood]
+Player's Edge Plus (X002143P+XP000043) Joker's Revenge Poker [Brian Troha]
+Super Ball (Version EC-3.50 N165) [Grull Osgo]
+Super Ball (Version EC-3.50 N322) [Grull Osgo]
+Venom & Spider-Man - Separation Anxiety (SNES海賊版) [Jorge Silva, Kravex, iq_132]
+Video Eight [Robbbert]
+
+
+新規動作可能クローン
+--------------------
+イーグルショットゴルフ (Japan, bootleg?) [Joshua Inman]
+Galaxy Gunners (1990 year hack) [David Torres, ClawGrip, Recreativas.org]
+グランプリスター (ver 4.0) [Porchy, The Dumping Union]
+伊賀忍術伝 -五神の書- (Japan, bootleg) [hammy, Jonhughes, digshadow]
+レジェンドオブヒーロー トンマ (World, bootleg with i8751) [hammy, The Dumping Union]
+New Biliard 98 (Pool 10 hack) [Roberto Fresca, f205v]
+ピットファイター (rev 1, 2 players) [R.Coltrane, The Dumping Union]
+ストリートファイターEX2プラス (Euro 990611)
+  [Nomax, Brian Troha, Sean Sutton, Henrique Areias Pontes, MetalliC, Evan Korzon, Smitdogg, The Dumping Union]
+ストリートファイターII’レッドウェーブパートII (Red Wave PtII, bootleg) [okada yuko]
+ストリートファイター ザ・ムービー (v1.14N, Japan) [Jorge Silva]
+Triumph-Adler Alphatronic PC (NTSC) [AJR]
+Trivial Pursuit (Volumen II, Spanish, Maibesa license) [Sevilla Retro, Arcade Planet, Recreativas.org, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+エヴィルナイト (ver UBA) [Phil Bennett, Ryan Holtz]
+Fruit Bonus 2010 [David Haywood, Canil Babypet]
+とべ！ポリスターズ (ver JAA) [Phil Bennett, Ryan Holtz]
+トータルバイス (ver EBA) [Phil Bennett, Ryan Holtz]
+
+
+動作可能に昇格したクローン
+--------------------------
+強行突破 / Break Thru (Tecfri license) [ClawGrip, jordigahan, Recreativas.org, The Dumping Union, Roberto Fresca]
+エヴィルナイト / Hell Night (ver EAA) [Phil Bennett, Ryan Holtz]
+
+
+
+新規追加された未動作マシン
+--------------------------
+15 Lions (10166211, Queensland) [Heihachi_73]
+Cardinal Video Terminal [Bitsavers]
+DECstation 3100 [R. Belmont, Maciej Rozycki]
+Epic 14E (v1.0) [Al Kossow]
+Flash Beats [R. Belmont, twistedsymphony]
+Fortune 32:16 [Bitsavers]
+HP 3478A Multimeter [fenugrec]
+HP 95LX [shattered]
+Les Fiches (ver 1.3) [f205v]
+Monon Color [David Haywood, zhongtiao1]
+mupid M-Disk Comp.-A [Dirk Best]
+mupid Post-Mupid C2A2 [Dirk Best, rfka01]
+Network Computing Devices NCD 16 [R. Belmont, Al Kossow]
+Pro Tele Cardioline (Salter Fitness Bike V.1.0, Checksum 02AB) [ClawGrip, Roberto Fresca, Arcade Vintage, Recreativas.org]
+Shine/1 [Carlo Santagostino, Alessandro Liberalato, Nigel Barnes]
+スーパーマリオ 不思議のころころパーティ2 [ShouTime, Dane Biegert, rtw, The Dumping Union]
+Telmac 1800 [Robbbert]
+Trivial Pursuit (Volumen IV, Spanish, Maibesa hardware) [Sevilla Retro, Arcade Planet, Recreativas.org, The Dumping Union]
+ワンタメ ハッピーチャンネル (Ver E) [ShouTime, Dane Biegert, rtw, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Black Belt (Zaccaria, French speech) [PinMAME]
+Black Belt (Zaccaria, German speech) [PinMAME]
+Black Belt (Zaccaria, Italian speech) [PinMAME]
+Grundig FL-100 [Dirk Best]
+Grundig PTC-100 [Dirk Best, rfka01]
+Infonova C2A2 [Dirk Best, rfka01]
+Les Fiches (ver 1.2) [f205v]
+More Chilli (20289311, Queensland) [Heihachi_73]
+New Star's Phoenix (French speech) [PinMAME]
+Orchid Mist (0101241V, New Zealand) [Heihachi_73]
+OSCOM 1000B [Robbbert]
+Pelican Pete - Jackpot Carnival (10226711, Queensland) [Heihachi_73]
+Queen of the Nile (0300785V, New Zealand) [Heihachi_73]
+Spring Carnival (10008011, Queensland) [Heihachi_73]
+Star's Phoenix (French speech) [PinMAME]
+Werewolf Wild (20290711, Queensland) [Heihachi_73]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+bbc_rom:
+  Accelerator 1.03, Acom, Advanced BASIC 1.01, ATS 2.60 STL, ATS 3.1 Morley, CommSoft 8.6h, DataGem 1.02F, Demon, Diagram II,
+  Disc Menu 1.00, Disc Menu 1.20, EdiKit 1.00, EXROM: The Extension ROM 3.17, General Utilities, Hebrew, HyperDriver 1.40,
+  Ice-Box 1.40, Master Operating System: A Dabhand Guide, Matrix, Midwich WDFS, NTQ Font Extension ROM 2, NTQ Font Extension ROM 3,
+  NTQ Font Extension ROM 4, Plus 4.00, PMS Genie Junior, ROM Master (Computer Village), Side Writer 4.0, Solidisk DFS 2.2F Issue 2,
+  Solimon 1.02, StarStore II 2.03, STL Toolkit 1.20 15/10/85, STL Toolkit 1.20 22/10/85, STL Toolkit 1.20 27/09/85,
+  STL Toolkit 1.3 03/03/86, SupaStore 2.0S, System Delta 2.011, T2C3 1.00, TechnoCAD R1, TechnoCAD R2, Teletel Emulator 1.00,
+  Teletel Emulator 1.12, TNC2-3 Driver, Trek 1.07, Turbo-PROM, UserRAM Demonstration ROM, User to User, UVIPROM 1.0, VDU 1.2,
+  VT100 1.60, Xcal [Nigel Barnes]
+c64_cass:
+  10 Computer Hits 2, 180, 1985 - The Day After, 1985 - The Day After (alt), 4 Most Megaheroes, 5th Gear, 911 TS, APB, Aardvark,
+  Ace 2088, Advanced Basketball Simulator, Agent X II: The Mad Prof's Back!, Ah Diddums, Airborne Ranger, Airwolf, Airwolf 2,
+  Alleykat, Amaurote, Anarchy, Android 2, Andy Capp, Annihilator, Arcade Classics, Arcadia 64, Archon II: Adept, Arkanoid,
+  Armageddon, Armageddon (Visions), Asylum, Attack of the Mutant Camels, Augie Doggie and Doggie Daddy, Automania (Manic Mechanic),
+  B.C. Bill, BC's Quest for Tires, BCII: Grog's Revenge, BMX Racers, BMX Racers (alt), BMX Racers (alt2), BMX Simulator, BMX Trials,
+  Back to Reality, Back to the Future, Barbarian II, Batman, Batman: The Caped Crusader, Battle Island, Battle Ships, Battle Valley,
+  Bazooka Bill, Beach Buggy Simulator, Beach-Head, Beat-It, Better Dead Than Alien, Beyond the Ice Palace,
+  Big Nose's American Adventure, Bionic Granny, Blagger Goes to Hollywood, Blaze Out, Blue Angel 69, Blue Thunder, Bomb Jack,
+  Bomb Jack II, Bombo, Bombuzal, Booga-Boo the Flea, Booty, Booty (Silver), Brainstorm, Breakthru, Bruce Lee, Bubble Bobble,
+  Bubble Dizzy, Buffalo Bill's Rodeo Games, Bug Blitz, Bug Squad, Bullseye, Bump Set Spike, Burger Chase, C.O.D.E. Hunter,
+  Cauldron I & II, Cauldron II: The Pumpkin Strikes Back, Cavelon, Cavemania, Caverns of Eriban, Caverns of Xydrapur,
+  Chain Reaction, Challenger, Championship Basketball - Two on Two, Chiller, Chinese Juggler, Chubby Gristle, Circus Attractions,
+  Classic Snooker, Cliff Hanger, Combat Lynx, Commando, Commando (Encore), Computer-Orgel, Corporation, Cosmic Convoy,
+  Cosmic Cruiser, Crazy Balloon, Crazy Cars, Crazy Kong, Critical Mass, Cybernoid: The Fighting Machine, Cybertron Mission,
+  Cybotron, Cyclons, Cylu, Daley Thompson's Decathlon, Daley Thompson's Decathlon (Hit Squad), Dan Dare II - Mekon's Revenge,
+  Danger Mouse in Double Trouble, Dark Star, Das Spukschloss, Deadly Evil, Demon Blue, Denarius, Desert Hawk,
+  Dizzy: Down the Rapids, Donkey Kong, Double Dare, Double Dragon II: The Revenge, Drop Zone, Duck Shoot, Dynamite Dan,
+  Eagle Empire, Enduro Racer, Engineer Humpty, Erebus, European 5-a-Side, Falcon Patrol, Falcon Patrol 2, Fall Guy, Fast Food,
+  Fighter Pilot, Finders Keepers, Firelord, Fireman Sam, First Strike, Fist II: La Leyenda Continua, Flak, Flying Feathers,
+  Footballer of the Year, Force One, Formula 1 Simulator, Frank Bruno's Boxing, Frank Bruno's Boxing (Encore),
+  Frank Bruno's World Championship Boxing, Frankenstein Jnr., Frightmare, Fruit Machine Simulator, Fruit Machine Simulator 2,
+  Fun School 2 for 6-8 Year Olds, Fungus, Galactic Games, Gangster, Gaplus, Gary Lineker's Hot-Shot!, Gauntlet, Gauntlet (Kixx),
+  Gauntlet: The Deeper Dungeons, Ghostbusters, Ghouls, Gilligan's Gold, Glug Glug, Gold or Glory, Golden Axe, Golf, Golf Master,
+  Grand Larceny, Grand Prix Simulator, Graphic Editor, Graphics Editor, Gribbly's Day Out, Gryzor, Guardian, Guardian Angel,
+  Gunstar, Gyroscope, H.A.T.E: Hostile All Terrain Encounter, H.E.R.O., Harvey Headbanger, Headcoach, Hektik, Hektik (alt), Hexpert,
+  Hollywood Poker, Hoodoo Voodoo, Hoppingmad, Horace Goes Skiing, Hunchback, Hungry Horace, Hustler, Huxley Pig, Hyperbowl, I Ball,
+  I Ball II, I-Xera, IO (Into Oblivion), Ikari Warriors, International Rugby Simulator,
+  James Bond 007 in Live and Let Die - The Computer Game, James Bond 007: Licence To Kill, Jeep Command,
+  Jet Set Willy II: The Final Frontier, Joe Blade, Joe Blade 2, Jonah Barrington's Squash, Jonny and the Jimpys,
+  Junior Maths: Spirates / Snowmen, KGB Superspy, KP Skips Action Biker with Clumsy Colin, Kaktus, Kane, Kentilla, Kentucky Racing,
+  Kikstart 2, Kikstart 2 (alt), Kikstart: Off-Road Simulator, Killing Machine, Knight Tyme, Knightmare, Kokotoni Wilf,
+  Konami's Pooyan, Kongo Kong, Krazy Kar, Labyrinth, Lancer Lords, Land of Neverwhere, Lazer Force, Lazer Wheel, Los Angeles Swat,
+  Lotus Esprit Turbo Challenge, Magic Carpet, Majik, Manic Miner, Manic Miner (MAD), Match Point, Metro Cross, Miami Chase,
+  Micro Ball, Mike Read's Computer Pop Quiz, Milk Race, Missile Command, Mission Omega, Monkey Magic, Monopole, Mordon's Quest,
+  More Adventures of Big-Mac the Mad Maintenance Man, Moto X, Motor Mania, Motor Mania (alt), Mr. Wimpy: The Hamburger Game,
+  Munch Mania, Munch Mania (alt), Mushroom Alley, Mystery of the Indus Valley, Nebulus, Neutral Zone, Neutralizor, New York City,
+  Night Racer, Ninja, Nonterraqueous, Oh No!, Oink!, Olympic Skier, On Cue, Operation Thunderbolt, Operation Wolf, Orbitron, Outlaw,
+  P.O.D. - Proof of Destruction, Pacmania, Paint-Box 64, Pakacuda, Panther, Paperboy, Paperboy (alt), Paradroid, Parallax,
+  Park Patrol, Pedro, Penetrator, Periscope Up, Pilot 64, Pinball Wizard, Ping Pong, Pipeline 2, Platoon, Popeye 2,
+  Popeye 3: Wrestle Crazy, Poster Paster, Pro Skateboard Simulator, Prodigy, Professional Ski Simulator,
+  Professional Snooker Simulator, Protium, Prowler, Punchy, Pyjamarama, QUATTRO Adventure, QUATTRO Cartoon, QUATTRO Combat,
+  QUATTRO Fighters, QUATTRO Racers, QUATTRO Super Hits, Quintic Warrior, Raging Beast, Raid over Moscow, Rainbow Islands,
+  Rally Driver, Rambo III, Rambo: First Blood Part II, Realm of Impossibility, Red Heat, Red Max, Renegade, Rescue on Fractalus!,
+  Rigel's Revenge, Rik the Roadie, River Rescue, River Rescue (Alternative), Road Blasters, Road Blasters (Kixx), Road Runner,
+  Road Runner and Wile E. Coyote, Robin to the Rescue, Rock Star Ate My Hamster, Rock'n Wrestle, Rock'n Wrestle (alt), Rollaround,
+  Rollerball, Rollerboard, Rolling Thunder, RoomLord, Rupert and the Ice Castle, Rygar,
+  S*M*A*S*H*E*D: Strangest Mobile Army Surgical Hospital East of Detroit, S.O.S., Salamander, Scorpion, Se-Kaa of Assiah, Sentinel,
+  Shamus, Silkworm, Skatin' USA, Skool Daze, Slamball, Slap Fight, Slayer, Slimey's Mine, Slinky, Snokie, Solomon's Key, Sorcery,
+  Space Harrier, Space Walk, Speed King, Speedboat Race, Spike in Transilvania, Spitfire, Split Personalities, Spore, Spy vs Spy,
+  Spy vs Spy II: The Island Caper, Spy vs Spy III: Arctic Antics, Squirm, Stallone: Cobra, Star Race, Star Wars: Return of the Jedi,
+  Starlifter, Starquake, Steel, Stellar 7, Stix, Storm, Strangeloop, Street Cred Boxing, Street Gang, Street Surfer,
+  Street Warriors, Strike, Strike Force Cobra, Strip Poker, Strip Poker (CDS), Strip Poker II, Strontium Dog and the Death Gauntlet,
+  Stunt Bike, Stunt Bike Simulator, Sub Hunt, Suicide Express, Summer Games, Summer Games (Kixx), Super Cassette 'B', Super Cycle,
+  Super Gran, Super Hang On, Super League, Super Seymour Saves the Planet, Super Trux, Superkid in Space, T-Bird, Target Renegade,
+  Terra Cresta, Terrormolinos, Test Master, The Action Pack, The Curse of Sherwood, The Election Game,
+  The Growing Pains of Adrian Mole, The Halls of the Things, The Helm, The Human Race, The Last Ninja, The Last V8,
+  The Last V8 (alt), The Legend of the Knucker-Hole, The National, The Newzealand Story, The Power Pack,
+  The Quest for the Golden Egg Cup, The Quest for the Holy Grail, The Very First, The Vindicator, Thomas the Tank Engine & Friends,
+  Thrust, Thrust (alt), Thunder Blade, Thundercats, Thunderforce, Time Traveller, Tomahawk, Tombs of Xeiops, Tornado Low Level,
+  Traffic, Trailblazer, Trivial Fruit, Trollie Wallie, Turbo 64, Turbo Boat Simulator, Turbo Esprit, Turtle Jump, U.F.O., Uridium,
+  Vampire, Vegas Jackpot, Velocipede, Velocipede II, Venom, Wanderer 3D, Wanted! Monty Mole, War Cars Construction Set, War Hawk,
+  Way of the Exploding Fist, Who Dares Wins II, Who Dares Wins II (Alternative), Wilder Westen, Winter Games, Winter Games (Kixx),
+  Wiz Biz, Wizball, Word Feud, World Games, World Series Baseball, Xevious, Yeti, Yie Ar Kung-Fu, Yogi's Great Escape, Zoids, Zolyx,
+  Zone Ranger, Zorro, Zzzzzzz [The Ultimate Tape Archive Team]
+nascom_snap:
+  3D Labyrinth, 3D Maze, Adventure Quest, Asteroids, BLS Pascal V1.2, Breakout, Car Race, Chaser, Colossal Adventure,
+  Double Mastermind, Dungeon Adventure, Eldorado Gold, Eliza, Extension Basic, Fruit Machine, Fruit Machine Game, Galactic Invaders,
+  Galaxian Attack, Galaxy Attack, Gener-80, Graphics ROM Editor, Hangman, Hisoft Pascal 4 V1.0, Hisoft Pascal 4 V1.5,
+  Hisoft Pascal 4 V2.0, HullForth, Invasion, Invasion Earth, Jailbreak in Space, Level 9 Surround, Life, Logichess,
+  Lollypop Lady Trainer, Lords of Time, Lumberjack, Lunar Lander, Monster, Moon Raider, NAS-Calc, NAS-Forth V1.11, NAS-Pen 2.0,
+  Nas-Graphpac 1.0, Nascom Extended Basic, Othello, Pac Man, Piranha, Pack-Mann, React, Retriever 2, Return to Eden,
+  Revenge of the Drosphila, Reversi, Rubic, Sargon Chess v1.2, Sargon Chess v1.3, Serpent, Snowball, Space Invaders, Space Invasion,
+  Space Zap, Spacewar, The Hole in the Wall, Tic-Tac-Toe, V & T Assembler, Xtal Basic 2.2, ZEAP 2.0 [Nigel Barnes]
+nascom_socket: NAS-Pen 1.0, NAS-Print 80, Sys-Ex [Nigel Barnes]
+
+
+Software list items promoted to working
+---------------------------------------
+bbc_rom: Solidisk DFS 2.1J Issue 2 [Nigel Barnes]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+bbc_rom: Inter-Base 2.0A, MRM E00 DFS 1.20, Mega3, SatPic 3.0 [Nigel Barnes]
+monon_color:
+  Gangtie xia-yingxiong fanji zhan, Jiangshi lieren, Ji jia xuanfeng-gedou dashi, Kaijia yongshi daluan dou,
+  Luoke wangguo-bing zhi lan, Luoke wangguo-da maoxian, Luoke wangguo-hei zhi yan, Luoke wangguo-ka pai zhan ji,
+  Luoke wangguo-mofa zhen, Luoji pin yi pin, Longzhu-wudao dahui, Shen po-shiluo de yiji, Sai er hao-nengyuan da zuozhan,
+  Sai er hao: Zhanshen dou hun, Yingxiong lianmeng-zhongji gedou [zhongtiao1]
+nascom_snap: Starfighters [Nigel Barnes]
+
+
+ソースの変更点
+--------------
+- tmp68301: ペンディングの割り込みの登録とアクナレッジの正確さを改善。[AJR]
+
+- balsente.cpp: 6VBオーディオボードのエミュレーション(とROM)をドライバクラスから分離。[AJR]
+
+- f8: フラグクリア前のLNK命令をキャリーフラグのテストにより修正 (github #4371)。[AJR]
+
+- z8: レジスタ処理のオーバーホール: [AJR]
+ * 内部割り込みレジスタファイルを個別のアドレス空間に移動。デバッグステートにポート出力レジスタを追加
+ * EI命令が実行されるまでリセット時の割り込みをロックアウト
+
+- mbc55x: 8087コプロセッサ追加。[AJR]
+
+- x86: デバッガでREP命令のステップオーバー。[AJR]
+
+- alphatro: クロック周波数と画面タイミングの訂正。PALとNTSC版に分割。[AJR]
+
+- tv955: キーボード動作可能。カーソルのエミュレーション追加。[AJR]
+
+- eepromser: ソフトリセット時にステートを変更しないよう改良(実際にはEEPROMはリセットラインを持たない)。[AJR]
+
+- rainbow.cpp: モニタの自動検出改良。パレットの問題修正。ログ処理の整理。ノートの更新。[Bavarese]
+
+- scsp.cpp: SCSPエミュレーションで実機による実装をより反映。[cam900]
+ * EXTSミキシングとDAC18B出力の実装。ハードコードしたDMA IRQターゲットデバイスを削除
+ * セーブステートをサポート。サウンド不完全に設定。明示的なサイズ指定のある整数型を使うよう更新
+ * 未使用で重複したコードの整理。MCFGマクロの削除。コードの再フォーマット
+ * stvcd.cpp: device_mixer_interfaceの実装。CDオーディオを正しくルーティング
+ * coolridr.cpp, model2.cpp, model3.cpp: SCSPとサウンドCPUクロックを訂正。サウンドバランス修正
+ * stv.cpp: SCSPのクロック修正
+
+- coolridr.cppの更新: [cam900]
+ * 描画をクリップ領域に限定、パレットメモリの割当をスタート時に遅延
+ * コードの重複削減。生ポインタをオブジェクトファインダに置き換え。タグ名とメンバ名を改良
+
+- psikyo4.cppの更新: [cam900]
+ * サウンドルーティングの修正とランタイム時のタグ参照削減
+ * コードの重複を削減。ACCESSING_BITSマクロを完全に削除。メンバ名改良
+
+- prehisle.cpp: コードのクリーンアップ。メンバ名の改良。ランタイム時のタグ参照削減。[cam900]
+
+- seta2.cppのクリーンアップ: [cam900]
+ * スプライトRAMの割当をスタート時に遅延。ACCESSING_BITSマクロの使用を低減
+ * メンバのプロテクト化。不要コードの削除。メンバ名の改良
+
+- pgm2.cppとpgm2_memcard.cppのクリーンアップ: [cam900]
+ * ハードコードしたサイズやランタイム時のタグ参照依存から、リージョンファインダを活用する方法に変更
+ * 短縮整数型変更。 m_メンバプリフィックス定数を使用。ハンドラメンバのシグネチャを最新型に改良
+ * コードを明示的なサイズ指定志向に変更。変数スコープを減らし、変数のさらなるconst化
+ * グラフィックデコーディングディスクリプションをシンプル化。MCFGマクロの使用率低下。リージョン名改良。ノートの更新
+
+- deco32.cpp: captavenとクローンのグラフィック不具合修正(github #4417)。ACEミキシングをクリップ領域に限定。[cam900]
+
+- sdl_sound.cpp: リングバッファコードのカプセル化改良と、デッドロックを回避するためのリワーク。[Celelibi]
+
+- ssv.cpp: 列スクロールとプレーンマスキングエフェクトのエミュレート。[David Haywood]
+
+- gcpinbal.cpp: ラスタ割り込みのエミュレート(「Power Flipper Pinball Shooting」のエフェクトで使用)。[David Haywood]
+
+- seta2.cppの更新: [David Haywood]
+ * ラスタエフェクトとXオフセットレジスタの暫定エミュエーション
+ * 8x8モードでのタイルマップラッピングと、画面サイズ、表示領域、レイヤーオフセット処理の改良
+ * grdiansのマップ画面オーバーレイで使用している異なるスプライトフォーマットフラグを実装
+ * グラフィックデコーディングのシンプル化。コードの整理
+
+- goldstar.cpp:「Fruit Bonus 2010」の起動を補助するROMパッチ追加。入力の改善。[David Haywood]
+
+- mcs51: AppoTech AXC51-CORE逆アセンブラの暫定版追加。[David Haywood]
+
+- bus/nes_ctrl: Majescoダンスマットデバイスを追加(nes_vt.cppのddrdismxとddrstrawで使用)。[David Haywood]
+
+- amiga: A2058メモリ拡張Zorroカードをサポート。[Dirk Best]
+
+- hp9825, hp9845: I/Oサブシステムをhp9845ドライバから分離。hp9825にI/Oスロット追加。98032 GPIOモジュール追加。[F.Ulivi]
+
+- HP 3478デジタルマルチメーターをエミュレート。[fenugrec]
+ * アナログ側の8048 MCUは未吸出しで未エミュレート - メインROMはこれが無くても動作するようにパッチ
+ * LCD文字は未検証。LCDアンシエーターは未描画
+ * HP-IB/IEEE488インタフェースは未エミュレート(i8291コントローラを使用)
+
+- ampoker.cpp: NVRAMサイズ修正。[Grull Osgo]
+
+- リファクタリングに伴うダメージを修正。[hap]
+
+- snowbros.cpp: yutnoriのROMパッチをプロテクトシミュレーションに置き換え。[iq_132, Robbbert]
+
+- toypop.cpp: 前景座標の演算をシンプル化。[kunikuni]
+
+- ti99: メモリ汚染を防ぐためサイズ超えで吸い出したカセットについて致命的エラーを発生。[Michael Zapf]
+
+- NDK r18b、現行のAndroid StudioとGradle(APIバージョン24)でビルドするためのAndroid向けサポート更新。[Miodrag Milanovic]
+
+- nascom1の更新: [Nigel Barnes]
+ * スナップショットのパース改良。「Sargon Chess」のキャラクタROMのスナップショット追加
+ * B-BugモニタのBIOSオプション追加
+ * RestartアドレスのLSW1リンクローケーションを修正
+
+- bbcの更新: [Nigel Barnes]
+ * FDC(8MHz)、1MHzバス(1MHz)、Compact拡張ポート(8MHz)のバスクロックを追加
+ * Music 2000とEMR BBC MIDIインタフェース 1MHzバスデバイスを追加
+
+- debugger: ウォッチポイントが再帰的に何度も設定されるのを防止。[O. Galibert]
+
+- swp30.cpp: サウンド生成の改良とセーブステートをサポート。[O. Galibert]
+
+- ymmu100.cpp: MIDIポートの実装と、ログの追加。[O. Galibert]
+
+- t10mmc.cpp: CDオーディオコマンドへの変更が間違ってたぽいので巻き戻し。各CD-DAチャンネルにゲインセッターを追加。[Phil Bennett]
+
+- nascom1.cppの更新: [Phill Harvey-Smith]
+ * CTRLキーが組み合わせ動作するようNascom 2/3キーボード処理を修正
+ * Nascom 2 NasSys 3 BIOS ROMをデフォルトに追加。AVC、NETバージョン、Nascrom 3 CP/Mブートv3.2 BIOS ROM追加
+
+- apple3: フォントのアップロードを改善(まだ不完全)。[R. Belmont, Rob Justice]
+
+- apple2: .WOZフロッピーイメージのバージョン2をサポート。[R. Belmont]
+
+- z80ne: 手で写したときにあったROMのエラーを訂正。[Robbbert]
+
+- vtech2: フランス語とドイツ語をサポート。マシン設定スイッチで選択可能。[Robbbert]
+ * Resetを選択するとクラッシュしてするので注意。MT0718に記載
+ 
+- rulechan.cpp: コードの整理。デモモードのDIPスイッチをデフォルトでONに設定。[Roberto Fresca]
+
+- brkthru.cpp: brkthrutのPROMアドレッシング修正とノートの追加。[Roberto Fresca]
+
+- e132xs.cpp: CMPBとSUBC命令エミュレーションと、DRC使用時の命令長を修正。[Ryan Holtz]
+
+- midtunit.cpp: ビデオエミュレーションをデバイス化し、staticなグローバル変数を削除。[Ryan Holtz]
+ * プリプロセッサマクロで有効化できるDMA bilitterグラフィックビューアを追加
+
+- midtunit.cpp, midxunit.cpp: コードの整理とログ処理をlogmacro使用に変更。[Ryan Holtz]
+
+- tms32031: 逆アセンブラ修正とMCFGマクロの削除。[Ryan Holtz]
+
+- pocketc.cppの整理: [Ryan Holtz]
+ * 重複の解消。メンバ名の改良。ランタイム時のタグ参照削減。ログ処理をlogmacroを使うよう変換
+ * MCFGマクロを削除。言語系とフレームワークの機能の使用を改良。コードの再フォーマット。コメントの整理
+
+- bgfxとbxを最新のアップストリームコードに更新。[Ryan Holtz]
+
+- cave.cpp: MCFGマクロを削除し、共通設定ブロックを関数化。[Ryan Holtz]
+
+- デバイスとドライバからMCFGマクロを削除。1つを除くCPU全てを含む。[Ryan Holtz, Ivan Vangelista]
+
+- pasopia7: キーボードのポーリングレートを5kHzに増加 - デバウンスコードが動作可能。[shattered]
+
+- hp_dio: ヒューマンインタフェースカードのレジスタを操作するDMAイネーブルを追加。[Sven Schnelle]
+
+- mb87030.cpp: FIFO動作を修正(HP9000/382)のSCSIを修正)。[Sven Schnelle]
+
+- m68kfpu: WRITE_EA_FPEに(d16,An) addrモードを追加(NetBSDのpsコマンドで使用)。[Sven Schnelle]
+
+- FreeBSD/NetBSDのclangでビルドをサポート。video/xavix.cppの不足ヘッダを追加。[Thomas Klausner]
+
+- gsword.cpp: gswordのMPUを吸出し、既存のシミュレーションを暫定的なエミュレーションに置き換え。[Vas Crabb, Caps0ff, *=/STARRIDER\=*]
+ * gswordで、クレジット関係とサウンドに問題があるためMACHINE_NOT_WORKINGとMACHINE_IMPERFECT_SOUNDに降格。
+ * josvolyのMCU吸出しからBAD_DUMPフラグを削除。このMCUが異なるプログラムを含んでいる理由がないため
+
+- コマンドラインオプションの説明を更新、または改良。[Vas Crabb]
+
+- 重要なオブジェクトのコンストラクトとデストラクトに失敗しDRCバックエンドがクラッシュしていたのを修正。[Vas Crabb]
+
+- goldstar.cpp:「Fruit Bonus 2010」のグラフィックROM吸出し。[Canil Babypet]
+
+- brkthru.cpp: brkthrutのROM再吸出しとPROMの吸出し。[ClawGrip, jordigahan, Recreativas.org, The Dumping Union]
+
+- balsente.cpp: メインボードのPAL吸出し。スペイン語の「Trivial Pursuit」セットのドキュメント改良。[ClawGrip, Recreativas.org]
+
+- leapster.xml: 未吸出しゲームについてドキュメント化(数十本が未吸出し)。[ClawGrip]
+
+- brkthru.cpp: PALを吸出し。darwinの基板レイアウト追加とノートの更新。[f205v]
+
+- ymmu100.cpp: 不足ROMを追加。[Guru]
+
+- aristmk5.cpp: ドキュメントの更新。[Heihachi_73]
+
+- aristmk6.cpp: BIOSを2セット追加。基板配置を修正。[Heihachi_73]
+
+-「三国志大戦2サテライト」(Chihiro)のDESキーをブルートフォース。[Peter Wilhelmsen, Morten Shearman Kirkegaard]
+
+- m24: BIOSバージョンv1.1、v1.21、v1.36を追加。コメントとリンクを追加。[rfka01]
+
+- berzerk.cpp: berzerk1の基板写真をもとにROMラベルを訂正。[Smitdogg, The Dumping Union]

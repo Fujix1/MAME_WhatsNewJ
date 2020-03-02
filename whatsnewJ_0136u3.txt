@@ -1,0 +1,279 @@
+0.136u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03724: [速度]  mrdo: XTAL値が間違っているのでリフレッシュレートやゲーム速度の問題が
+         ある。(Tafoid)
+- 03706: [サウンド] lastday, gulfstrm: 0.131u1よりBGMが壊れている。ドライバの更新ミス
+         によるもの。(M.A.S.H.)
+- 03704: [サウンド] evilston: 0.131u1から音が出なくなっている。ソースの更新ミスによる
+         もの。(M.A.S.H.)
+- 00993: [クラッシュ /フリーズ] sharrier: [デバッグ限定] デバッグビルドで、特定のボイ
+         スが再生されようとするとクラッシュする。ボスを倒した後の「You're doing 
+         great!」など。(Phil Bennett)
+- 03692: [クラッシュ/フリーズ] kurikint: 起動時に"SERVICE SW ERROR"と表示されプレイ出
+         来ない。(M.A.S.H.)
+
+
+
+ソースの変更点
+--------------
+- DIPスイッチと入力を修正(Z80コードの検証による): [stephh]
+  scramblb, scramb2, bagmanmc, dkongjrm, rockclim (最後のモノはメモリマップも更新)
+
+- am29k: PPC GCCコンパイルエラーの修正。[R. Belmont]
+
+- 新しく追加した「インディ500」のSega ID#を追加とアトラクトのスペリング修正。
+  [Brian Troha]
+
+- seibuspi.cの「バイパーフェイズ1」の情報についてマイナーな更新。[Brian Troha]
+
+- PDP1,TX0とAPEXCの逆アセンブリ修正。[Robbbert]
+
+- GTKデバッガが即クラッシュするのを修正。[R. Belmont]
+
+- namcos11: オーディオとI/O用に本物のC76 BIOSを使用。
+  [R. Belmont, Olivier Galibert, Guru]
+
+- 古いドライバ名を参照していたコメントを整理。頭文字0からKのドライバのクローンセット
+  名を更新。[Tafoid]
+
+- [APEXC]
+  1. デバッガに疑似PCレジスタ追加で、次に実行される命令をハイライト。
+  2. 逆アセンブラ出力に"normal"なアドレス追加で、プログラムフローを誰でも追えます。
+  [Robbbert]
+
+- SegaのWIPいろいろ:  [Fabio Priuli]
+ - system16ゲームを海賊版から独立
+ - ヘッダファイルをいくつかincludes/に移動
+ - 不要なインクルードを削除
+ - デッドコードを削除
+ - ドライバ構造体を次に追加: segahang.c, segaorun.c, segas16a.c, sega16b.c, 
+     segas18.c, segaxbd.c, segaybd.c
+ - segas16a.cにセーブステート追加
+
+- ozon1、ladybugg、vpoolのDIPスイッチと入力を修正(Z80コードの検証による)。[stephh]
+
+- system 16/18海賊版用のドライバ構造体追加と、未使用コードをほとんど削除。
+  [Fabio Priuli]
+
+-「Treasure Island」(Subsino)のリールを実装。goldstar.cと同じ。[David Haywood]
+
+- Sega 315-5248、315-5249、315-5250カスタムICをデバイスにコンバートし、ドライバを更新。
+  [Fabio Priuli]
+
+- [PDP1] PCを16進数と8進数の両方で表示。[Robbbert]
+
+- hornet.cでKonami 037122デバイスを使うよう切り替え、旧コードを削除。[Fabio Priuli]
+
+- gticlub.c、nwk-tr.c、zr107.cでKonami 001604デイバスを使うように切り替え、旧コードを
+  削除。[Fabio Priuli]
+
+- carjmbre.c - XTAL追加とz80速度の修正。DIP配置追加。[Tafoid]
+
+-「Treasure Island」の改良: [Roberto Fresca]
+ - 正しい入力系の追加
+ - コイン、キーイン、キーアウト、ペイアウトカウンタの追加
+ - コイン詰まりを防ぐため、ベットとコインパルスが連続しないよう制限
+ - 完全なコインエイジとキーインDIPスイッチ追加
+ - メインゲームとダブルアップレートのDIPスイッチ追加
+ - 最小ベット数のDIPスイッチ追加
+ - 最大ベット数のDIPスイッチ追加
+ - メインゲームとダブルアップの制限DIPスイッチ追加
+ - ペイアウトモードとオートテイクのDIPスイッチ追加
+ - 設定モード通りにDIP配置追加
+ - デモサウンドのDIPスイッチ追加
+ - 正しいボタンランプレイアウト作成
+ - テクニカルノート追加
+ - その他のクリーンアップ...
+
+-「ジャイアントグラム2000」のIC1を吸い出し。[Joerg Hartenberger]
+
+-「Treasure Island」(Subsino)のボーナスゲームグラフィック修正。[Angelo Salese]
+
+- OS2の自動検出修正。[KO Myung-Hun]
+
+- Panasonic MN10200 CPUコアとTaito ZSG-1サウンドシステムの初期版追加。
+  [Olivier Galibert]
+
+- gram2000のFPGAにある"ic1"データをドキュメント化。[Joerg Hartenberger]
+
+-「花六」の画面反転実装。[Angelo Salese]
+
+-「Best League」(World Cup version)のビデオエミュレーションを修正。[Angelo Salese]
+
+- DISTRO=gcc44-genericがgcc-4.4を使用するショートカットを正しく作成するよう修正
+  (-V 4.4はリンキングで動作しません)。[couriersud]
+
+- 内部レンダデバッガのマイナーな変更: [couriersud]
+ - ui_input_frame_updateをglobalに変更
+ - element_componentをrendlay.cからrendlay.hに移動
+ - rendlay.cにコンテナコンポーネントを定義できる機能を追加。これはrender_containerを
+   提供します
+
+- デバッガの同時動作を可能にするDEBUG_FLAG_OSD_ENABLEDを追加。src/osd/*のOPTION_DEBUG
+  使用箇所を全て、machine->debug_flagsのチェックに置き換え。また、src/osd/*の
+  DEBUG_FLAG_ENABLEDの使用箇所を全てDEBUG_FLAG_OSD_ENABLEDに置き換え。今のところ、
+  デフォルトはDEBUG_FLAG_OSD_ENABLED(mame.cで設定)。[couriersud]
+
+- bongo、porterのDIPスイッチと入力を修正(Z80コードの検証による)。[stephh]
+
+- Actel FPGA IDを実装。Naomiゲームで特殊ROMチェックモードにアクセスするために使用。
+  [Deunan Knute, Angelo Salese]
+
+-「ホットドッグストーム」のドキュメントを更新。例えば、PCB ID番号やタイルマップチップ
+  情報など。[Brian Troha]
+
+- ZOOM ZSG-2スケルトンの追加。[Olivier Galibert]
+
+  まだ大した動作はしませんが、ドキュメントが増えるのは意味があると思われます
+  (例えば、サンプル圧縮フォーマットのドキュメントを作成中です)。
+
+- Sigma B52システムのドライバを新追加。ACRTCの実装は、エミュレーションステータスが準
+  備段階のためちょっとハックな感じ。[Roberto Fresca]
+
+- lethal.c - 実基板でクロックとVSyncを検証。[Corrado Tomaselli]
+
+- astrocorp.cの更新: [Luca Elia]
+ - フレームバッファ追加
+ - スプライトリストエンド、負座標、ワープアラウンドを修正
+ - バッテリバックアップRAMを追加
+
+- adp.c: hd63484メモリマップのグラフィックROMを(ハックで)実装。[robiza]
+
+- skattvのコインとスタート入力を実装。[robiza]
+
+- astrocde.c - gorfのボーナスライフDIPスイッチを修正。ステートが逆。[Tafoid]
+
+- [I8255] モードレジスタへの書き込み時に出力ラインを0に、float入力ラインを1にクリア。
+  [Curt Coder]
+
+- MAMEとMESSコードのシンプル化と統合: [Miodrag Milanovic]
+ - 互換性検証部をMESSからMAMEコアに移動
+ - GAME_NO_SOUNDチェックをMESSでも動作
+ - MESS専用のチェックを削除
+ - 非公式なハード改造のマークをGAME_COMPUTER_MODIFIEDからGAME_UNOFFICIALに変更
+ - GAME_COMPUTERを削除。IPT_KEYBOARDで明確なため
+ - GAME_NO_SOUND_HWを追加(サウンドハードが無いもののマーク)。dotrikun.c、minivadr.c、
+    tgtpanic.cに同フラグを設定
+ - GAME_SHARE_ROMSの削除と、以前の重複ROMエントリチェックをコメントアウト
+ - ナチュラルキーボードサポートをMESSからMAMEに移動
+ - OSDファイル関数とクリップボードアクセス関数をOSDコアに移動
+ - MESSで必要な新OSD関数を大幅に削減 [with couriersud]
+
+- tazzmangのDIPスイッチと入力を修正(Z80コードの検証による)。[stephh]
+
+- snesのWIP: [Fabio Priuli]
+ * snes_ppu構造体にレジスタを2つ追加
+ * 混色(背景、サブ画面の加色・減色)を描画プロセスの最終段に移動
+ * 未使用(でもう動作しない)デバッグコードを削除
+ * 残りのデバッグ機能を修正
+ * 色構造体を別レイヤーに移動(コードのシンプル化)
+ * 高解像度混色を2ピクセル同時に行うよう更新
+ * 高解像度モードのクリップマスクを修正
+
+- 3Dオブジェクト用の0x10サイズパレットページを実装開始。これによりsams64の環境色がほ
+  ぼ正確に。[Andrew Gardner]
+
+- [VIA6522] 一部ピンが入力のときポートA/Bのみを読み込み。[Curt Coder]
+
+- dambustrとクローンセットのDIPスイッチと入力の修正(Z80コードの検証による)。[stephh]
+
+- 内蔵デバッガで、MAMEのレンダリングインフラを使用: [couriersud]
+ - render_targetのコンテナ数を任意に指定可能
+ - デバッグモードで内部デバッガを使うコマンドラインパラメータ、-debug_internal(-di)を
+   追加
+ - 内蔵デバッガは、メモリビュー以外の全てのビューをサポート
+ - 縦画面ゲーム用により広いデバッグ領域を確保するため、layout/vertical.layに"Debug"
+   ビューを追加
+
+ 注: 表示色は変です。またフォント描画も改善が必要です。ショートカットキーはまだありま
+     せん。他にもまだ改良する余地が多くあります。ただ、既に動作可能ですし、どのような
+     UIツールキットにも依存しません。インタフェースはプログラムでビュー表示をサポート
+     するようにデザインされています。
+
+ 簡単な使い方:
+  - MAMEを"-debug -di"で起動します。
+  - コンソール、レジスタ、逆アセンブラビューが表示されます。各ビューのタイトルバーを
+    ドラッグして配置します。
+  - ビュー右下の黄色い部分をドラッグするとリサイズできます
+  - フォーカスのあるビューはタイトルバーが緑になります
+  - "Tab"キー(IPT_UI_CONFIGURE)を押すとメニューが表示されます
+  - コンソールと逆アセビューは、コマンドとアドレスを入力するための簡単なツールをサポー
+    トしています。打ち込んでENTERを押すと完了します
+
+- irobot.c - マニュアルよりXTALの値を追加し、メインとサウンドCPU用に実装。
+  [Phil Bennett/Tafoid]
+
+- rungun: ビッグエンディアン向けにテキストタイルマップのルックアップを修正。
+  [R. Belmont]
+
+- Intel 8021/8022 CPU型を追加。[Curt Coder]
+
+- irobot.c - マニュアルとテストモードを参考にDIP配置追加と検証。[Tafoid]
+
+- Solarisでgcc-4.3が誤って警告を出す現象の対策: このファイルのみ-Werrorを無効化。
+  [couriersud]
+
+- MESS用とのコード統合に関わるSDL OSD関数のクリーンアップ。[couriersud]
+
+- wrally.c -「ワールドラリー」のDIP配置追加と検証。[Guru]
+
+-「闘いの挽歌 / Trojan」に長く残っていた(サポート直後から?)ADPCMサンプルのバグを修正。
+  [Mamesick, Angelo Salese]
+
+- espial、espialu、netwarsのDIPスイッチと入力を修正(Z80コードの確認による)。[stephh]
+
+-「Mortal Kombat 3」(メガドライブ版の海賊版)が起動可能。キー入力が一部不足中。
+  [Mariusz Wojcieszek]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ミッドナイトレジスタンス (海賊版 with 68705) [IQ_132]
+Sexy Boom [Mariusz Wojcieszek]
+Treasure Island (Subsino) 
+   [Team Europe, Dumping Union, Angelo Salese, David Haywood, Roberto Fresca]
+ゴーストチェイサー電精 (SNES 海賊版) [Tomasz Slanina, XingXing]
+Skill Drop Georgia 
+   [Luca Elia, Smitdogg, Brian Troha, The Dumping Union]
+ロジックプロアドベンチャー
+   [Guru, D. Beneke, snoopy, pongplaya, W. Belk, hap, S. S. Neilson, JacKc, 
+    The Dumping Union]
+パチフィーバー [Tomasz Slanina]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+インディ500 ツイン筐体 (Revision A, Newer) [Brian Troha, Dumping Union]
+Fantastic Journey / 極上パロディウス -過去の栄光を求めて- (ver AAA) [Tirino73]
+Name That Tune (3-23-86) [Kevin Eshbach]
+E.D.F.アースディフェンスフォース (海賊版) 
+   [Team Europe, Rene Single, Dumping Union] - not working
+アウトゾーン (set 5) [Corrado Tomaselli]
+Ghosts'n Goblins / 魔界村 (World? set 3) [Corrado Tomaselli]
+Bagman (クレイジーコング基板、海賊版) 
+   [Team Europe & Volker Hahn] - 動作せず
+Magical Tonic / Magical Odds? [David Haywood] - not working
+Spiders (set 3) [Team Europe]
+雷電 (US, SEI8904 + SEI9008 PCBs) 
+   [tormod, Smitdogg, The Dumping Union, David Haywood]
+アステリクス (ver AAD) [Luis "Datasat"]
+パン! 3 (Euro 950601) 
+   [Gerald (COY), B. Sparks, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Mr. Kicker [krick, MrGoodwraith, Smitdogg, The Dumping Union]
+クラッキンDJ [Guru, R. Belmont]
+Joker's Wild (B52 system, set 1) 
+   [Roberto Fresca, Tomasz Slanina, Gerald Vanderick]
+Joker's Wild (B52 system, set 2) [Roberto Fresca, Tomasz Slanina]
+Joker's Wild (B52 system, Harrah's GFX) 
+   [Roberto Fresca, Tomasz Slanina, Gerald Vanderick]

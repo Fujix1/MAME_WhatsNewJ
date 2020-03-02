@@ -1,0 +1,231 @@
+0.161
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+MAME - 0.161
+============
+- 05680: [グラフィック] (sigmab98.c) itazuram: テストモードのグラフィックが乱れる。
+         (Luca Elia)
+- 05903: [DIP/入力] (sf.c) sf sfj sfua: DIPスイッチの設定が間違っている。(Osso)
+- 05909: [システムコア] validityテストで入力タグが空になる。
+- 05922: [DIP/入力] (exidy.c) pepper2, pepper27: DIPスイッチのラベルが間違っている。
+         (Tafoid)
+- 05916: [DIP/入力] (dkong.c) dkongjr: ボーナスライフのDIPスイッチラベルが間違って
+         いる。(Tafoid)
+- 05679: [クラッシュ/フリーズ] (sigmab98.c) itazuram: デモを260回以上回すとリセットが
+         かかりNVRAMが消える。(Luca Elia)
+- 03174: [クラッシュ/フリーズ] (cardline.c) cardline: 緑画面のままで起動しない。
+         (couriersud)
+- 05895: [ドキュメント] hlsl_writeがbooleanとして記述されている。(Tafoid)
+
+
+ソースの変更点
+--------------
+- mips3: MIPS IIIコアに整数ゼロ除算処理を追加。[MooglyGuy]
+
+- segas32: サイズが大きすぎた「スタジアムクロス」のROMを正しいサイズで再吸い出し。
+  [Guru]
+
+- aica.c: ADPCMのループとアドレスマスキング(Red Dog)の修正。[MetalliC, Wind]
+
+- segasp.c: 基本システムとIOの実装。BIOSが動作可能、「テトリスデカリス」がタイトルま
+  で動作。他のROMベースゲームは読み込まれるもののRFIDリーダーが内のでハングする。
+  [MetalliC]
+
+- atomiswave: ROMボードPIOアクセス改良(ggisuka、rublef2のクラッシュ修正)。
+  [MetalliC, CaH4e3]
+
+- arm7: STMデクリメントモードでは実機ではインクリメントモードで書き込みを行っている。
+  GBAの"クラシックNES"カセットで使用。[R. Belmont, endrift]
+
+- "Unknown 186 Gambling Game"の作業。メニュー表示可能だが、プレイ可能からはほど遠い。
+  [Angelo Salese]
+
+- ビルドシステムをGENieに移動。[Miodrag Milanovic, Vas Crabb, Couriersud]
+
+- OSD毎のmakファイルをサポート。[qmc2]
+
+- mips3: インタプリタ、DRCの両方に共通の高速RAMオプション作成。[MooglyGuy]
+
+- hng64のサウンドコミュニケーションを修正。[Angelo Salese]
+
+- SegaPCMボリュームレジスタのオーバーフロー修正。[superctr]
+
+- netdev: pcapデバイスの選択にOSDを使うときの競合・クラッシュを修正。[Rob Braun]
+
+- mtwins pal [Corrado Tomaselli]
+
+- goldstar.c: DIPと入力系の更新。[Bad A. Billy]
+
+- iteagleドライバの改良: [Ted Green]
+ * PCI: 0のBAR許可; "invalid"を0から-1に変更
+ * vrc4373: バスマスタDMA実装
+ * es1373: 一部処理とDMA実行、IRQ発行
+
+- z80pio: ポートビット用の個別ラインハンドラ追加。[Curt Coder]
+
+- openglのYUVテクスチャ変換修正。[O. Galibert]
+
+- OSXでネイティブCoreAudioサウンドサポート。[Vas Crabb]
+ * SDLサウンド出力に比べ、聞いてわかるレベルのレイテンシ低下
+ * 出力デバイスの選択可能(-audio_output)
+ * 最大10のAudioUnitエフェクト利用可能(-audio_effect0..9)
+ * エフェクトの作成と編集に使うaueffectutilツール追加
+ * スタンダードな.aupresetエフェクトファイルもサポート
+
+- 6522via: デバイスアドレスマップ追加。[Curt Coder]
+
+- mos6530: タイムトラベルサポート。[Curt Coder]
+
+- QtとCocoaデバッガでフォント種類・サイズの選択可能。[Vas Crabb]
+
+- hexion.c: チップ配置ドキュメント化。Konami基板と海賊版基板の写真を元にXTAL追加。
+  [Lord Nightmare]
+
+- MAMEのソースファイルを整理。[Zoe Blade]
+
+- simple_setをstd::setに置き換え。[Vas Crabb]
+
+- mcs51ファミリプロセッサで、実際には0が出力として書き込まれている入力処理をポートビ
+  ットとして使用する機能追加。同ファミリのCMOSチップは低インピーダンスソースが接続さ
+  れた場合にこのように間違って使用されたのかもしれない。[Couriersud]
+
+- cardlineドライバを修正。[Couriersud]
+
+- 6845をcardlineに実装。[Couriersud]
+
+- sigmab98.c: ズームしたスプライトの位置修正とスプライトRAMバッファの追加。背景色レジ
+  スタエミュレート。ROMパッチの削除。[Luca Elia]
+
+- exidy.c: m6502系で起きていた不具合に対してブルートフォースな修正。[Alex Jackson]
+
+-「Ma Cheon Ru」のプロテクトデータを抽出。[system11]
+
+- dynamic_arrayをstd::vectorに置き換え。[O. Galibert]
+
+- cardlineドライバで6845を完全実装。asicアドレスのドキュメント化。[Couriersud]
+
+- std::stringのasting化。[Miodrag Milanovic]
+
+- jwildb52a: グラフィックROM吸い出し。[anonyMous]
+
+- netlistの真理値表処理を改善。USE_DEACTIVE_DEVICEのゲーム毎セッティングを用意。
+  [Couriersud]
+
+- netlistに9312/DM9312追加。[Couriersud]
+
+- 反復モニタ更新の修正。MAMEはモニタ解像度が変わったときに、アスペクト比の設定にわざ
+  と問題を持たせているが、このことはまた別途対策が必要。[Couriersud]
+
+- netlistに74192、9316、9310、74193デバイスを追加。breakoutのnetlistも追加したものの、
+  実際の動作にはあと3つのデバイスが必要。[Couriersud]
+
+- luaengineの改良。[Luca Bruno]
+
+-「ジャンプバグ」 (galaxian.c): 実機ビデオに合うようにクロックスピードを調整。
+  不足しているサウンドについてノートを追加し、音声不完全フラグ追加。[Tafoid]
+
+- cardlineのGFX ROMについてアドレスデコーディング処理を正しくドキュメント化。
+  [Couriersud]
+
+- berzerk.c: 「Berzerk」セット1のROMラベルの検証と訂正。[Brian Troha]
+
+- Cirrus Logic GD542x/3xビデオチップセットの作業。また、pc_vga.cから独自ファイルに分
+  割。ハードウェアカーソルは動作するが、その他のアクセラレーション機能には多くの作業
+  が必要。[Barry Rodewald]
+
+- *nix man pages: デバッガのフォントとサイズを選択する新オプション追加。
+  [Cesare Falco]
+
+- SDL12でのSDLMAME v0.160で、-switchresを使うと最初のモードを無条件に最良のモードとし
+  て選択。[KO Myung-Hun]
+
+- OpenBSDでのビルド修正。[ibara]
+ 
+- イカのドライバでセーブステートサポート、または有効化:
+ aztarac.c, bagman.c, bigstrkb.c, cheekyms.c, clshroad.c, headonb.c, invqix.c,
+ jackie.c, lwings.c, m107.c, m72.c, mainsnk.c, mirax.c, murogem.c, murogmbl.c, 
+ niyanpai.c, pitnrun.c, portrait.c, powerins.c, ppmast93.c, quizdna.c, rmhaihai.c, 
+ rotaryf.c, roul.c, route16.c, sauro.c, sbugger.c, shangha3.c, shanghai.c, 
+ shangkid.c, shaolins.c, spcforce.c, splash.c, spoker.c, spool99.c, ssfindo.c, 
+ stactics.c, thepit.c, toobin.c, truco.c, tunhunt.c, unkhorse.c, vamphalf.c, 
+ victory.c, vigilant.c, vroulet.c, warpsped.c, wiz.c [Osso]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Table Tennis Championship [David Haywood, Angelo Salese]
+怒首領蜂 大復活 ブラックレーベル (2010/1/18 BLACK LABEL) [Bicycle Repairman]
+Car Hunt / Deep Scan (France) [Ricky2001 (from AUMAP)]
+みんなあつまれ！ドッジヒーロー [anonyMous, Luca Elia]
+いたずらだいすき！スシマルくん [anonyMous, Luca Elia]
+バーニング三輪車 [anonyMous, Luca Elia]
+ビーストウォーズII 超生命体トランスフォーマー [anonyMous, Luca Elia]
+Ma Cheon Ru [System11, David Haywood, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+スタジアムクロス(World, alt) [Guru]
+Hot Bubble (Korea) [system11, The Dumping Union]
+大王 (93111A PCB conversion) [CoolMod, system11, trap15]
+ライデンファイターズ (Japan set 3) [Artemio Urbina, The Dumping Union]
+スーパーパズルファイターII Trubo (Euro 960529) [fluxcore, idc/Team Avalaunch]
+ヘクシオン (Asia ver AAA, bootleg) [system11]
+Berzerk (French Speech) [Arcade Vintage]
+Berzerk (Spanish Speech) [Bartolomé López Giménez, Rockman, Ricky2001]
+デスブレイド / Mutant Fighter (World ver EM-2) [Simon Dennison]
+帰ってきたチャンピオンベースボール / Super Champion Baseball (Japan) [Manuel Assoni]
+Total Vice (EBA) (not working) [arcademodbios]
+Player's Edge Plus (X002172P+XP000112) Ace$ Bonus Poker (The Fun Ships) [BrianT]
+Player's Edge Plus (PP0542) One Eyed Jacks Wild Poker (CG2243) [BrianT]
+スーパーフォーミュラ -地上最速のバトル- (Japan, set 2) [Paolo Venturi]
+中国龍3スペシャル / Dragon World 3 (Japan, ver. 103) [arcademodbios]
+パズニック (bootleg, set 2) [f205v]
+ステッガーI  / Red Hawk (Korea) [system11]
+フェリオス [Stefano Rolleri]
+Player's Edge Plus (X000455P+XP000038) Joker Poker [BrianT]
+Player's Edge Plus (X002028P+XP000019) Deuces Wild Bonus Poker [BrianT]
+パーフェクトビリヤード (MC-8123, 317-5008) [PokeMame]
+ロボコップ2 (US v0.10) [Bill D, The Dumping Union]
+ライデンファイターズ (Germany) [Fabrice Arzeno, The Dumping Union]
+ファイターズヒストリー (US ver 42-06, DE-0395-1 PCB)
+  [Fabrice Arzeno, The Dumping Union]
+ザ・グレイトラグタイムショー / Boogie Wings (USA v1.7, 92.12.14)
+  [Fabrice Arzeno, The Dumping Union]
+Amuse (Version 30.08A) [PokeMAME}
+スクランブル (Centromatic S.A.) Spanish Bootleg [Manuel Giron]
+ダブルドラゴンII -The Revenge- (Japan) [caius] (NOT WORKING, incomplete dump)
+エリア51 (Time Warner license) [Brian Troha, The Dumping Union]
+三輪サンちゃん / Spatter (315-5099) [Andrea Palazzetti] (NOT WORKING, encrypted)
+
+
+追加された未動作ゲーム
+----------------------
+太鼓の達人7 (TK71-NA-A) [Guru]
+太鼓の達人8 (TK8100-1-NA-A) [Guru]
+ゾイドインフィニティ [Guru]
+ゾイドインフィニティEX PLUS (ver. 2.10) [Guru]
+Go Go Strike [MikeDX, Smitdogg, The Dumping Union]
+みんながんばれ！ダッシュヒーロー [anonyMous, Luca Elia]
+Sigma Super 8 Ways FC (Fruit combination) [anonyMous]
+Ultimate Arctic Thunder Update CD ver 1.950 (5/3/04)
+  [gamerfan, Smitdogg, The Dumping Union]
+Brick People / ぶろっくぴーぽー (Ver 1.002) [Andy Geezer, MetalliC]
+古代王者恐竜キング / Dinosaur King (USA)
+  [Mark F., Mr. CAST, Smitdogg, ANY, The Dumping Union]
+古代王者恐竜キング / Dinosaur King -  Operation: Dinosaur Rescue (USA, Export)
+  [Hamster, MetalliC]
+古代王者恐竜キング / Dinosaur King - D-Team VS. the Alpha Fortress
+  (Export, Ver 2.500) (MDA-C0047) [Andy Geezer]
+オシャレ魔女 ラブandベリー / Love And Berry - 1st-2nd Collection (Export, Ver 1.003)
+  [Andy Geezer, MetalliC]
+オシャレ魔女 ラブandベリー / Love And Berry - 1st-2nd Collection (Export, Ver 2.000)
+  [Andy Geezer, MetalliC]
+オシャレ魔女 ラブandベリー / Love And Berry - 3rd-5th Collection 
+  (USA, Export, Ver 1.002) (MDA-C0042) [Englishman, Hamster]
+テトリス・デカリス / Tetris Giant (MDA-C0076) [Andy Geezer]
+テトリス・デカリス / Tetris Giant (Ver.2.000) [Andy Geezer, Soyandroid, MetalliC]
+Breakout [Couriersud, DICE Team]

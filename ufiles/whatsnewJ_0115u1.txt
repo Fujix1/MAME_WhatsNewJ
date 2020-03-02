@@ -1,0 +1,136 @@
+0.115u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+asserts0115ora [Aaron Giles]
+scregg0115red [Zsolt Vasvari]
+mysticri36rc2gre [Pierpaolo Prazzoli]
+m92c053gre2 [Pierpaolo Prazzoli]
+aerofgt.c0115ora [Roberto Fresca]
+midyunit0115red [couriersud]
+nekkyoku0115red [couriersud]
+exerion0112u4yel [Pierpaolo Prazzoli]
+dragngun067yel [R. Belmont, Ryan Holtz -- please verify]
+cidelsa0114u4gre [Aaron Giles]
+missile0115yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- 得点競争サイトなどで見られる、拡張されたINPファイルの再生をサポート。
+  [David Haywood]
+
+- PowerPCコアにlswxとstswx命令を追加。[Ville Linde]
+
+- DRIVER_INITマクロで、他の初期化関数との一貫性を持たせるため、だだのinit_*から
+  driver_init_*に変更。[Atari Ace]
+
+- MPU4ドライバで、タイマー出力のパルス形状を訂正。またAYサウンドチップが
+  AY8913であることを確認。[James Wallace]
+
+- leprechnドライバをgameplanドライバに統合。また、正確なビデオタイミング追加。
+  [Zsolt Vasvari]
+
+- dorachanドライバをクリーンアップ。フェイクのカラーマップを、カラーPROMを実際に
+  デコードする処理に置き換え。[Zsolt Vasvari]
+
+- supertnkドライバのクリーンアップ。[Zsolt Vasvari]
+
+- AtariベクターPROMを、別領域に移動。[Mathis Rosenhauer]
+
+-「エキサイトリーグ」にDIPスイッチ追加。[Barry Harris, Yasuhiro Ogawa]
+
+- m92ドライバのスプライト描画を改良。[Pierpaolo Prazzoli]
+
+- magicflyドライバの書き直し: [Roberto Fresca]
+ - プロテクト動作の解析
+ - これまでゲームを起動させるために使用したハックやパッチを削除
+ - バッファ入力の動作を解析
+ - 各ゲーム用に全ての入力を分離
+ - 各ゲームのメモリマップを統合
+ - 各ゲームにNVRAMサポート追加
+ - DIPスイッチのマッピング
+ - 3bppグラフィックカラーが正しくなるようにプレーンと統合
+ - 基板写真、ROM内容に基づき、ROM名を変更
+ - ドライバのクリーンアップと最適化
+
+- gforce2のスロットルレンジを修正。[David Haywood]
+
+- Win32 UTF-8ラッパーを新モジュール（winutf8.c）に移動。また、Oliver Stoeneberg
+  氏がMAME32用に作成した新ラッパーを追加。[Nathan Woods]
+
+- Aleck64/N64の更新: [Ryan Holtz]
+ - RSP: 命令コードのバグ修正で、ビッグエンディアンの環境でも動作するはず
+ - 実際のPIF ROMを使用
+ - その他、修正など
+
+- surfplntのeeprom処理を修正。[couriersud]
+
+- ARMコアのSUB/SBC/CMPファミリ命令のキャリーフラグ処理を修正。
+  [R. Belmont, Ryan Holtz]
+
+- ARM7コアの改良: [R. Belmont, Ryan Holtz]
+ - 32bitのアンアラインド読み込みで、ただしく"スクランブル"するように修正
+ - SUB/SBC/CMPファミリ命令のキャリーフラグの演算を修正
+ - MAC命令を修正
+ - 逆アセンブラに命令を追加
+ - 論理及び演算シフトの修正
+ - Thumb命令を更に追加
+ - 相対ロード、ストアを修正
+ - ゼロシフト値でのLSL/LSRを修正
+ - CMNの逆アセンブリを修正
+ - 実ハードを使って、ADD命令の送り先がPCの場合の動作を検証
+
+- Space Firebirdドライバの書き直し: [Zsolt Vasvari]
+ - 背景の星空を追加。スクリーンショットと完全にマッチ
+ - 回路図を元に、ビデオタイミング、メモリマップ、割り込みを修正
+ - カラーフェードエフェクトを追加
+
+- Irem V30 CPUの新しい命令コードを2つ発見。matchit2が改善。[Pierpaolo Prazzoli]
+
+- Spidersドライバを大幅にクリーンアップ。[Zsolt Vasvari]
+
+- メモリシステム処理について、マスクをミラーに対して独立して指定できるように変更。
+  デフォルトでは、マスクは0でミラーが存在します。以前と同様に、マスクは暗黙的に
+  ~mirrorとなります。しかし、マスクを指定した場合は、非ミラービットに限定されま
+  せん。これにより、マッピングに対してリード・ライトハンドラへ返されるかを独立し
+  て操作できます。[Aaron Giles]
+
+- Astrocadeドライバの書き直し: [Aaron Giles]
+ - 全てのファンクションジェネレータモードを完全実装
+ - 回路図よりパターンボードの実装。タイミングも含む
+ - 割り込み処理の修正
+ - 「シーウルフ II」に照準を追加
+ - 「シーウルフ II」にステレオサウンドとサンプルのパンを追加
+ - Astrocadeのサウンドエミュレーションを特許に基づいて書き直し
+ - ノイズエフェクトサウンドの生成で、正しいLFSRを使うように更新
+ -「Ten Pin Deluxe」を部分的にサポート。サウンドボードのエミュレーションと、内部
+   レイアウトも含む
+
+- ついに「Inferno」のサウンドを修正。残念ながら、ハックが必要でした。
+  [Aaron Giles]
+
+- Williams製ゲームに正確なビデオタイミング追加。[Aaron Giles]
+
+- TMS34010コアに、ミスアラインドなPIXBLT命令を追加。コード自体はまだクリーンアップが必要ですが、新しく追加したJPMドライバは改善しています。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Magic Fly [Roberto Fresca]
+7 e Mezzo [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+キャプテンシルバー (World) [David Haywood]
+
+
+追加された未動作ゲーム
+----------------------
+Ten Pin Deluxe [Aaron Giles]

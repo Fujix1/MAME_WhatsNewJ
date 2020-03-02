@@ -1,0 +1,100 @@
+0.114u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+revx060gre [Aaron Giles]
+totcarn063gre1 [Aaron Giles]
+term20104u2gre [Aaron Giles]
+term20103u4gre [Aaron Giles]
+openice093u2gre [Aaron Giles]
+mk095gre [Aaron Giles]
+rmpgwt060gre [Aaron Giles]
+psyforce0105u5red [couriersud]
+raystorm0111u1red [couriersud]
+sfex20103red [couriersud]
+pkscram0111u4red [couriersud]
+looping0111u3yel [couriersud]
+cpsgfxpage4_0111red [couriersud]
+rfjetus0101u5red [couriersud]
+policetr059yel [couriersud]
+
+
+
+ソースの変更点
+--------------
+- cdp1802 DMAエミュレーション修正。[Curt Coder]
+
+- Konami系の更新: [Ville Linde]
+ - Voodooベースの全ゲームにVoodoo用vblank割り込み実装
+ -「サイレントスコープ」のROMロード問題修正
+ - ADC1213x A/Dコンバータエミュレーション追加 (machine/adc1213x)
+ - NWK-TRゲームのアナログ操作の実装
+
+- MPU4の改良: [James Wallace]
+ -「Deal 'Em」のNMIパルス追加。起動だけはします
+ - Phil氏の6850aciaコードで同じ動作をするため、machine/mpu4.cを廃止
+
+- フロントエンドコマンドとコマンドライン処理を、コア管理の場所にclifront.cとして
+  移動。これにより、windows/fronthlp.cとwindows/config.cが不要になり、コマンドラ
+  インベースの移植が将来的に今よりもかなり簡単になります。[Aaron Giles]
+
+-「GTIクラブ」「ソーラーアサルト」「オペレーションサンダーハリケーン」に多く残っ
+  ていたポリゴンの不具合を修正。[Ville Linde]
+
+- pkscramドライバにセーブステート追加。[couriersud]
+
+- machine/konppc.cからタイミング系のハックを全て削除。「GTIクラブ」がなんとかプ
+  レイ可能です。1周か2周すると、ネットワークエラーで固まります。[Ville Linde]
+
+- SUBTARGET=tinyビルドの修正と、mame.makのダブっていたエントリを削除。
+  [Atari Ace]
+
+-「スペースインベーダー」にフルディスクリートエミュレーション追加。これまでの
+  サンプルサウンドとその音量レベルに慣れてしまっていると思いますが、新しいレベル
+  はミキシングレジスタから割り出したものです。全く異なるバージョンのサウンドボー
+  ドがあり、それぞれサウンドとコンポーネントが異なります。現在のものは正しい
+  Midway版のものはずです。[Derrick Renaud]
+
+- ほとんどのサターンゲームが動作するようにstvcdを更新。不具合があっても最低限他
+  の理由によるものです。また、コアのCDROMコードで、どのフォーマットか前もってわ
+  からなくてもセクターの取得ができるように更新。[R. Belmont]
+
+- video.cに“クロスヘアスクリーンマスク”のコンセプトを追加。また、マスク取得用
+  のスタティックコールを作成。[Nathan Woods]
+
+-「Roller Aces / ファイティングローラー」を実ハード同様にステレオに変更。
+  また、基板に合わせてクロックとNMIレートを修正。[Corrado Tomaselli]
+
+- Midway Y-Unit、T-Unit、X-Unit、Wolf-Unitのゲームにセーブステート追加。
+  [Aaron Giles]
+
+- i386dasm.cに、予備版の64bit逆アセンブラ追加。[Aaron Giles]
+
+- TMS34010コアの内部割り込み処理をクリーンアップ。[Aaron Giles]
+
+- Atari 68000系ゲームのほとんどに、以前よりも正確なビデオタイミング追加。
+  [Aaron Giles, couriersud]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Quiz Olympic [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+キャメルトライ (World, YM2203 + M6295) [David Haywood]
+Lightning Fighters / トライゴン (Asia) [David Haywood]
+ストリートファイターEX (EURO 961219) [Guru]
+鉄拳3 (TET3/VER.A) [Guru]
+ソウルキャリバー (SOC13/VER.B) [Guru]
+
+
+
+追加された未動作ゲーム
+----------------------
+Filetto (v1.05 901009) [Angelo Salese, Chris Hardy]

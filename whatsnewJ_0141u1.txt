@@ -1,0 +1,537 @@
+0.141u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04199: [ドキュメント] barbball: タイトルのBarromはBarroom。
+- 01879: [グラフィック] All sets in toaplan2.c: カクテルモードでのプレイヤー2で、背景
+         が表示されない。(David Haywood)
+- 01004: [グラフィック] chinhero, chinhero2, chinherot: 7面で最初に出てくる敵が化けて
+         いる。(Pierpaolo Prazzoli)
+- 02111: [グラフィック] madalien, madaliena: 暗闇で敵を倒すと、画面全体が光るはず。
+- 02041: [サウンド] smgp and clones: ピットクルーのボイスが繰り替えされたり、間違った
+         ものが再生される。(hap)
+- 00992: [サウンド] hangon: BGMがエンジン音とごっちゃになっている。(hap)
+- 03460: [色/パレット] starfire, starfirea: 画面下側のスコアなどが表示される箇所の背
+          景色が間違っている。
+- 04190: [色/パレット] heiankyo: 色が間違っている。(hap)
+- 02080: [サウンド] armedf: DACチップによるオーケストラヒット音が低すぎる。(hap)
+- 03501: [サウンド] batsugun, batsuguna, batsugunsp: BGMとSEが鳴らない。
+         (Alex Jackson)
+- 04147: [クラッシュ/フリーズ] raiden: -debug スイッチを有効にするとクラッシュする。
+         (Alex Jackson)
+- 03808: [グラフィック] starsldr, vivdolls: 画面表示が化けている。(MooglyGuy)
+- 04079: [クラッシュ/フリーズ] mtrain: OK後にAccess Violationエラーで落ちる。
+         (Luca Elia)
+- 04178: [ドキュメント] cmmb162: 年度は2002、ゲーム名は「Centipede, Millipede, 
+         Missile Command, Let's Go Bowling」。
+- 00865: [グラフィック] blandia: Juraneの面で画面の下部分がグレーになる。
+         (Pierpaolo Prazzoli)
+- 04180: [クラッシュ/フリーズ] dunkmniaj: OKを押した後、青画面しか表示されない。
+         (Tafoid)
+- 04057: [グラフィック] mslider, stmblade: 画面反転のDIPスイッチをONにすると表示が乱
+         れる。(robiza)
+- 02883: [デバッガ] debugger: ステップオーバー動作のF10キーを押すと、メニューバーに
+         フォーカスが移る。(hap)
+- 04165: [クラッシュ/フリーズ] vbowl, vbowlj: OKを押した直後にクラッシュする。
+- 04166: [クラッシュ/フリーズ] arabian, arabiana: アトラクトモードを何周かするとゲー
+         ムが固まる。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+- Rockwell PPS4 CPUコア追加(未完成)。[Miodrag Milanovic]
+
+- 機械的インタフェースを使うゲーム(ピンボール、メダルゲーム、ボウリングなど)用の
+  GAME_MECHANICALフラグを追加。PinMAMEのゲームをスケルトンとしてインポート。
+  [Miodrag Milanovic]
+
+- コアメモリシステムへの移行に伴い、高速IMEMとDMEMハンドラをRSP DRCから削除; 32ビット
+  ターゲットでのRSP DRCが修正。[Harmony]
+
+- Aleck 64ドライバのDMADACインタフェースを2から1に変更; モノラルでポッピーな音が修正。
+  [Harmony]
+
+- ARM7:「39in1」(MAME)の修正と重複した行を削除。[Tim Schuerewegen]
+
+- Seibu COPのマクロコマンド0x6200の試験実装。「SDガンダムレインボー大陸戦記」のホーミ
+  ング兵器で使用。[Angelo Salese]
+
+- ARM7+: サイクルタイミングの修正。[Tim Schuerewegen]
+
+- 39in1: 新型ARM7コアで動作するように修正。[Tim Schuerewegen]
+
+- MIPS: #ifdefでDRCを選択可能なよう改良。[R. Belmont]
+
+- MIPS IIIインタプリタのBADCOP例外処理を修正。[MooglyGuy]
+
+-「雷電II」のmidgroundバンキングを修正。[Angelo Salese]
+
+-「雷電II」にDMAスロットコンセプトを実装。「X Se Dae」と「ゼロチーム」のスプライト
+  テーブルが修正。[Angelo Salese]
+
+-「雷電DX」のスタートアップバンキングを修正。[O. Galibert]
+
+- Seibu COPマクロコマンド 0x904(0x905の仲間)を実装。「X Se Dae」「ゼロチーム」で使用。
+  [Angelo Salese]
+
+-「雷電II」のプログラムバンクリードバックを実装。アトラクトモード・ゲーム中でのクラッ
+  シュを修正。[Angelo Salese]
+
+- MIPS IIIインタプリタコアのCompare割り込みを修正。Aleck 64ゲームがMIPS IIIで動作可能。
+  [Harmony]
+
+- MIPS IIIに、TLB処理を正しく実装。[Harmony]
+
+- cb2001: グラフィックの改良。[David Haywood]
+
+- Seibu COPコマンド 0x7e05を修正。「雷電DX」の前景バンキングで使用。[Angelo Salese]
+
+- osd/sdlが最新版のSDL 1.3 svnで再びコンパイル可能。[Couriersud]
+
+-「Mr. Dig」の画面反転を実装。[Pierpaolo Prazzoli]
+
+- SDLMameに"-watchdog"オプションを実装。[Couriersud]
+
+- win32版からSDLに"-bench"オプションをコピペ。[Couriersud]
+
+- SNESハードウェア用にuPD7725 16ビットDSPコアの追加と実装。[byuu, R. Belmont]
+
+- 不要になったSNES HLEコードを削除。[R. Belmont]
+
+- STV VDP2でMSBシャドウ表示をサポート。「蒼穹紅蓮隊」の影表示が改善。
+  [Mariusz Wojcieszek]
+
+- RSPコアのVRSQLを修正。[Harmony]
+
+- spaceg.cの改善: [hap]
+ * ゴミ表示不具合の改善。まだ不完全
+ * 横方向の移動をスムーズに改良
+ * ロードステート時のクラッシュを修正
+ * カラーPROMを未吸い出しにマーク
+
+- 内部ROM付きNamco 62xxデバイスを追加。
+  [Dr. Decapitator, Phil Bennett, Andrew Gardner]
+
+- MIPS3 DRC: ブランチディレイスロットが、ページ境界をまたぐケースと、ブロックがページ
+  内にあるかをページチェックが確認するように修正。[Aaron Giles]
+
+-「ヘビーユニット」(World)のコインモードとコインエイジを訂正。[Brian Troha, Guru]
+
+- makedepについて、sdlmameで他のインクルードの前にsdlprefix.hをインクルードするための
+  "-include"を無視するよう変更。[Couriersud]
+
+- sdl.makから"makedep"関係を削除し、コア側でサポート。また、Linuxターゲット用に
+  sdl-configの出力をICPATHとCCOMFLAGSの間で分割。makedependが動作可能。[Couriersud]
+
+- STV VDP2の回転していないRGBレイヤー描画を修正。「蒼穹紅蓮隊」の4面ゴミ表示が解消。
+  [Mariusz Wojcieszek]
+
+- moo.c、mystston.c、mystwarr.c、prehisle.c、pushman.cドライバのDIP配置を追加。
+  [Brian Troha]
+
+- jchan.cのDIP配置追加。[Brian Troha]
+
+- MIPS3 DRC: チェックサム演算のディレイスロットを組み込み。[Aaron Giles]
+
+- drcfeのC++化と関連フロントエンド追加。drc_frontendから抽出項目で独自フロントエンド
+  が作成可能。[Aaron Giles]
+
+- STVのスプライトについて、MSBイネーブルな色演算をサポート。「蒼穹紅蓮隊」の一部スプ
+  ライトが改善。[Mariusz Wojcieszek]
+
+- ディスクリートサブシステムのC++移行開始。構造体のクラス化と、ほとんどのリストプロセ
+  スで型安全なリンク済みテンプレートを使用。[Couriersud]
+
+-「SDガンダム三国志レインボー大陸戦記」のスプライトとタイル間プライオリティ改善。
+  [David Haywood]
+
+- V25: GCCの一部バージョンで間違った警告が出ていたのを修正。[R. Belmont]
+
+- PPC DRCでTLBミスマッチ処理が空エントリをフィルするように改良。ターゲット向けのコー
+  ドを常に再コンパイルするのではなく、コンパイル済みのコードを再ディスパッチするよう
+  変更。これにより、603ベースのゲームでDRCのオーバーヘッドが大幅に低減。[Aaron Giles]
+
+- MESS RAMデバイスをコアに移動。driver.hにCOMPとCONSマクロを追加。[Miodrag Milanovic]
+
+- XMLにも機械系ゲームの出力追加。[Miodrag Milanovic]
+
+- MESSより、イメージデバイス実装部と関連するUI関数を導入。[Miodrag Milanovic]
+
+- drccecheをC++にコンバート。[Aaron Giles]
+
+- 未エミュレートな機械パーツがあることを示すため、既存の該当MAMEゲームにも
+  GAME_MECHANICALフラグを追加。[Tafoid]
+
+-「電神魔傀」のフェードイン・アウトで使用しているSeibu COPのパレット明るさモード4を仮
+  実装。[Angelo Salese]
+
+-「Rushing Heroes」のPSAC2 ROMを再吸い出し。[Smitdogg, The Dumping Union]
+
+- z80.c: デイジーチェーンデバイス以外に割り込み元がある場合でもデイジーチェーン機能が
+  使えるように変更。[Wilbert Pol]
+
+-「Rushing Heroes」のスプライトROMを再吸い出し。[Smitdogg, The Dumping Union]
+
+- MESSのCasio PB-1000/PB-2000cエミュレート用のHD61700 CPUコア追加。[Sandro Ronco]
+
+- Seibu COPのコマンド 0x8100と0x8900の対策。オブジェクトの向きのため、全ゲームで使用。
+  これにより、legionna.cとraiden2.c全ゲームのシンクロバグが修正。
+  [Angelo Salese, Tomasz Slanina]
+
+-「雷電II」のスプライトちらつきと5面でのクラッシュを修正。[Angelo Salese]
+
+- Win32ビルドの一部として、すべての状況でvconvをビルド。vconvのビルドには常にgccを使
+  用。定義部で欠けていたextern "C"を追加。vconvのライブラリ用に、lib.exeではなく
+  link.exe呼び出すように変更。[Aaron Giles]
+
+-「雷電II」の後半面で背景グラフィックの問題があるのを修正。[Angelo Salese]
+
+- SP0256インタフェースにSBYラインリードを追加。[Curt Coder]
+
+- YM2151が1個のSeibu Audio別バージョンを追加。「Air Raid / クロスシューター」の音動作。
+  [Angelo Salese]
+
+- bishjan.cの更新: [Luca Elia]
+ * ダイナミックタイルサイズ実装
+ * さらに多くのレイヤーをサポートするため、ビデオルーチンを汎用化
+ * mtrainをsubsino.cから移動
+
+-「雷電II」「ゼロチーム」のBCDスコア表示を修正。[Angelo Salese]
+
+- naomi.c: ドキュメントの追加。[f205v]
+
+-「ゾディアック」のDIPスイッチ配置追加。[Brian Troha]
+
+-「Mr. Kicker」のプレイ速度訂正。[David Haywood]
+
+- softlistsでCHDをサポート。[Miodrag Milanovic]
+
+- 80186命令処理を修正。[Phill Harvey-Smith]
+
+- SDL OS/2の修正。[K.O. Myung-Hun]
+
+- naomi: テクスチャストライド選択をサポート。[O. Galibert]
+
+- STV VDP2で、RGB0のビットマップパレット番号を訂正。「蒼穹紅蓮隊」4面と5面のボスグラ
+  フィック色修正。[Mariusz Wojcieszek]
+
+- meosism、vasara、vasara2、twineag2(ssv.c)の入力問題を修正。[Tafoid]
+
+-「Golden Par Gold」でのgrom01.bin BAD_DUMPを修正。[MASH]
+
+- ディスクリートサウンドシステム:
+ * 全ノードをクラスベースに変更
+ * "レガシー"なもののサポートを終了
+ * ノードは、ディスクリートブロックでインスタンスが設定されたクラスファクトリを使って
+   作成されます。ノードとモジュールが分かれた状態はもう存在しません
+ * カスタムモジュールは、通常のノードのように実装されます
+ * カスタムモジュールをすべてコンバート
+- コンテキスト変数はプライベートなクラスメンバに組み込み可能です。[Couriersud]
+
+- cheat.c: ソフトウェアリストショートネームによるチートをサポート。[Fabio Priuli]
+
+- video.c: -snapname用の新テンプレートをサポート。MESSでデバイスにマウントしたイメー
+  ジ名を使えるようにするため。つまり、デバイスXXXXでマウントされるイメージは%d_XXXXと
+  指定することができます。[Fabio Priuli]
+
+- clifront.c: DTDで、これまで無かった要素やアトリビュート(ソフトリスト名、機能、ディ
+  スクデータ)の追加や、サイズとオフセットフォーマットの修正により、-listsoftwareの出
+  力を改良。[Fabio Priuli]
+
+- clifront.c: 残りのロードフラグを-listsoftware出力に追加。[Fabio Priuli]
+
+- ARM7のR15ビットがARMステート中に動作しないのを修正。「ルパン三世 ザ・タイピング」で
+  コインを入れるとクラッシュするのが解消。[Tim Schuerewegen]
+
+- softlist.c: ソフトウェアリストにベストマッチするサジェストを追加。[Fabio Priuli]
+
+- softlist.c: リストがある場合、ベストマッチのみを出力し、同じインタフェースでのデバ
+  イスに対する一致検索を制限。また、shortname=listnameの場合のコーナーケースを修正。
+  [Miodrag Milanovic]
+
+- romload.c: ソフトリストでスプリットセットをサポート(カート、CD、HDD用)。
+  [Fabio Priuli]
+
+- devimage.c: カセット、フロッピーについてもスプリットセットをサポート。
+  [Fabio Priuli]
+
+- ソフトリストで、rompathもファイル検索するように変更。[Fabio Priuli]
+
+-「セイブカップサッカー」海賊版のROM15中14のマステーブルの解析とmachine/seicop.cにコ
+  メント追加。[O. Galibert]
+
+- SSV: 画面反転サポートの改善。[Roberto Zandona']
+
+- H8: 終端処理されていない文字列バッファ。[R. Belmont, Belegdol]
+
+- clifront.c: -listsoftwareオプションの短縮版、-lsoftを追加。[Fabio Priuli]
+
+- clifront.c: リストが見つからない場合、出力DTDから-lsoftを抑制。[Fabio Priuli]
+
+- 全メガドライブコードをMAME側に配置。[David Haywood]
+
+- softlists: サポート状態が部分的、または不可のソフトをロードするときに警告を追加。
+  [Fabio Priuli]
+
+- model3:「デイトナUSA2 -バトル・オン・ザ・エッジ-」のCROMを再吸い出し。[Guru]
+
+- M68040 FPUでFSAVEモード2をサポート。[Barry Rodewald]
+
+- ssv: スプライト位置の改良。[Roberto Zandona']
+
+- SH4: クリーンアップ及び、共通部、インタプリタ部の分離。[R. Belmont]
+
+- beezerドライバで、将来的なサウンド向け作業のためドキュメントを更新。
+  [Lord Nightmare]
+
+- beezerのXYZラッチリードバックを追加。サウンドがもう少しで動作。[Lord Nightmare]
+
+- SH4: DRCより試験的なSH3機能の移植。[R. Belmont]
+
+- ディスクリートサブシステム: [couriersud]
+ * すべてのリスト処理をdynamic_array_t (discrete.h)ベースに変更
+ * 決め打ちをなくすため、さらにコードを書き換え
+ * 0.140と同等のパフォーマンスで動作
+
+- ほぼ完全なNEC V25/V35 CPUコアを追加。「バツグン」のサウンド動作や、
+ 「Cosmic Cop / ギャロップ」でV35制御による正しい割り込みを実装。[Alex Jackson]
+
+- Seibu COPエミュレーションで、正しいRNGメカニズムを実装。
+  [Tomasz Slanina, Angelo Salese]
+
+- romload.c: ソフトウェアリストにCHDの親子処理を追加。[Fabio Priuli]
+
+- bfm_sc2.c: 機械系ゲームのサポートに備えて、旧スタイルのNVRAMハンドラを削除。
+  [AGEMAME]
+
+- MPU4の変更: [AGEMAME]
+ * ランプの"オープンサーキット"エラー修正で、「Connect 4」動作改善
+ *「Connect 4」のレイアウトの誤字により、部品が変な位置に出ていたのを修正
+ * サンプル音を後で変更できるように、MPU4のDUARTとPTMのドキュメントを改善
+ * serial_card_connected_を7aにリンクするよう変更。これはIRQ優先度を変更するROMカード
+   上のジャンパで、これ自体はシリアルインタフェースではないため
+
+- dogyuun: オペコードを一部解読。[Roberto Zandona']
+
+- raiden2: コマンド0205が+1cでもデータを変更。[dox, O. Galibert]
+
+- raiden2: cop "ディスアセンブラ"での最初のスタブ。[trap15, O. Galibert]
+
+- DRC/バックエンドサポートをほぼC++化。x86/x64のバックエンドがどこでもコンパイルでき
+  るのは意図的なものです。バックエンドはdrcbe_interfaceから生成されるようになり、必要
+  なオーバライドを実装しています。x86emit.hは、x86/x64エミッタが共存できるように名前
+  空間を使用するようになりました。新規ファイルのuml.h/uml.cはUML言語を記述し、
+  drcuml.cの考え方を一部切り出します。[Aaron Giles]
+
+- 80年代中後期の非麻雀系Nichibutsuゲームのクロックを整理。まだ完全に正確ではないもの
+  の、BGM速度とDACの音程が少し改善したはず。[hap]
+
+- romload.c: -biosオプションで大文字小文字を区別しないように変更。[Fabio Priuli]
+
+- starfire.c: 色エミュレーション改良とドライバデータ追加。[Qwi Jibo]
+
+- toaplan2:
+ *「バツグン」とのコードマッチによりkbashのオペコードを大量に修正 [Alex Jackson]
+ * kbashのm68kとv25アドレスマップを訂正 [Alex Jackson]
+ * truxton2のプログラムROMを訂正 [Alex Jackson]
+
+- fixeight: オペコードをいくつか追加。[Roberto Zandona']
+
+- UMLパラメータを以下のようにシンプル化: [Aaron Giles]
+ * イミディエイトはそのまま渡せます。IMM()ラッパは不要です(IMMは削除しました)
+ * 固定整数レジスタは、IREG(0),...にかえて定数I0,I1,I2,etcを使用
+ * 固定浮動小数点のレジスタも同様で、FREG(0)にかえてF0,F1,F2,etcを使用
+ * ダイナミックな整数・浮動小数点のレジスタはインライン関数ireg()、freg()を使用
+ * MEMマクロは小文字のインライン関数mem()に変更
+
+-「Lethal Thudner / サンダーブラスター」での起動ベクタプログラム初期化バグを修正。
+  [Angelo Salese]
+
+-「Mystic Riders / 魔法警備隊ガンホーキ」のオペコード復号化テーブル追加で、mysticrib
+  でもBGMが動作。[Angelo Salese]
+
+- Irem M92ハードにサウンドリセットラインを追加。「パーフェクトソルジャーズ」の
+  GAME_IMPEFECT_SOUNDを削除。[Angelo Salese]
+
+- makedepのバグで、skyraid.hのような最初の行にあるインクルードを無視してしまうのを修
+  正。[Couriersud]
+
+-「ドギューン！！」「V・V」でサウンド動作。[Roberto Zandona', Alex Jackson]
+
+- toaplan2の改良: [Alex Jackson]
+ * 68000コードの比較により、各ゲームでのV25 RESETをどのビットが操作しているか解析
+ *「フィグゼイト」のI/Oマップについてコメント追加。復号化する際に必要になるもの
+ * シミュレーション部分に#ifndef USE_ENCRYPTED_V25Sを配置。「フィグゼイト」の
+   DRIVER_INITに隠れていたもの
+
+- segapcm.c: ループアドレス修正。「ハングオン」のエンジン音が改善。また既知のレジスタ
+  について、ソースにドキュメントを追加。[hap]
+
+- madalien.c: トンネルでのハイライト処理を修正。[Qwi Jibo]
+
+- Toaplan2ゲームの画面反転が壊れていたのを修正。[David Haywood]
+
+- ディスクリートサウンドシステムをクラスベースに変更: [Couriersud]
+ * 以前のモジュールはdiscrete_base_nodeの派生クラスになりました
+ * コンテキスト変数をすべてプライベートなクラスメンバに移動
+ * "通常ノード"については、DISCRETE_CLASS_STEP_RESETで、簡単にノードの実装ができます
+ * ノード関連の情報(追加情報構造体、定数、入力マッピング)は、クラスレベルで定義して統
+   合。dss_inverter_oscなど
+ * タスクハンドリングをかなりシンプル化
+ * 第2出力がバッファされないバグを修正
+ * sound/disc_*のリストはdynamic_array_t (discrete.h)ベースに変更
+ * すべてのドライバでこの変更を反映
+ * カスタムモジュールはノードクラスのひとつとして定義
+ * これらの変更により、パフォーマンスへの影響はない模様
+
+- goldnpkr.cの改良: [Roberto Fresca]
+ * Video Klein製ゲームが動作するように大幅な変更
+ * witchcdeをwitchjol「Jolly Witch (Export, 6T/12T ver 1.57D)」に改名
+ *「Wild Witch」(Export, 6T/12T ver 1.74A)追加
+ * Video Kleinの拡張タイルゲーム用ビデオハードとマシンドライバ追加
+ * Video Klein CPUボックスゲームに、Dallas DS1210と、バッテリバックアップRAMを追加
+ *「Jolli Witch」「Wild Witch」の入力改善。ゲームセレクタスイッチ追加
+ *「Witch Card」セットをクリーンアップ
+ * テクニカルノート、ゲームノートを追加
+
+- m90: 割り込みの改良。[Alex Jackson]
+
+- BSMT2000 HLEエミュレータをオリジナルのTMS32015のエミュレーションに置き換え。
+  [Dr. Decapitator, Andrew Gardner, Quench, Guru, Ernesto Corvi, Peter Grounds,
+   Lord Nightmare, Aaron Giles]
+
+- M6801の変更: [Curt Coder]
+ * オペレーティングモードのenumを追加
+ * ポート書き出し修正
+ * SCIステータスフォロアビットを実装
+
+- toaplan2:
+ *「バツグン」との割り込みルーチンとコードの突き合わせにより、「フィグゼイト」のオペ
+   コードをさらにいくつか発見 [Alex Jackson]
+ *「フィグゼイト」のV25アドレスマップを修正(YM2151とOKI6295の位置が他のゲームと異なる)
+   [Alex Jackson]
+ * V25/V35ポート出力の試験実装 [Alex Jackson]
+
+- RC_INTEGRATEとTRANSFORMを最適化。ナイスな改良。[Couriersud]
+
+- すべての"output[0] = ..."という箇所を、 "set_output(0, ..)"に変更。"output[0]"を使
+  うモジュールもラッチに書き直し。これは、ディスクリートインフラ実装部から、ノードを
+  分離するのが目的です。[Couriersud]
+
+- デバイスサウンドインタフェースにバーチャルストリームアップデート関数を追加。新たに、
+  少ないパラメータでデバイスのストリーム更新を呼び出すstream_createを追加。ストリーム
+  アップデートのスタブテンプレートは削除。BSMT2000とOKIM6295で新インタフェースをスト
+  リームに使用するよう更新。[Aaron Giles]
+
+- fixeight: EEPROMの実装。[David Haywood]
+
+- beezerでサウンドのテストサポート。[Lord Nightmare]
+
+- M6801の変更: [Curt Coder]
+ * ポート3ストロボモードを実装
+ * ポート書き出しをさらに修正
+
+- ディスクリートサブシステムでsound_device stream_update関数を使用。[Couriersud]
+
+- mouserのnmi処理を改善。[Couriersud]
+
+- i8085.c: CPUが割り込みを受けIEフラグがクリアされたとき、コールバックが呼び出されな
+  いバグを修正。n8080.cのhelifireとspacelncの割り込み不具合が解決。[Qwi Jibo]
+
+- raiden2: 何回かテストした変な結果をドキュメント化。[dox, O. Galibert]
+
+- "-syncrefresh"オプションをosd/sdlに追加。これは画面のリフレッシュレートにゲームの速
+  度を"制限"するもので、-mtモードでも動きます。このオプションは"-waitvsync"を指定した
+  ときのみ有効です。[Couriersud, Chris Kennedy]
+
+- 01004を修正: chinhero, chinhero2, chinherot: 7面で不良スプライトあり。
+  [Corrado Tomaselli, Pierpaolo Prazzoli]
+
+-「チャイニーズヒーロー」のY方向ラップラウンド追加で、ゴリラのスプライトが左に見える
+  のを修正。[Pierpaolo Prazzoli]
+
+- fixeight: 使用するオペコードすべて復号化と、全リージョン用のEEPROMを追加。サウンド
+  が動作可能。[Andrew Jackson, David Haywood, Roberto Zandona']
+
+- fixeight: 入力ポートのクリーンアップ(DIP無し)。[David Haywood]
+
+- ARM7の更新: [Tim Schuerewegen]
+ * ARM7500以外のARM7系ファミリにおける26ビット後方互換性を無効化
+ * ARMモードでの増減時におけるキャリーフラグの問題を修正
+
+- cb2001: 割り込み処理の書き直し。[Alex Jackson]
+
+- 720 - 実物の「720」コントローラ、フェイクのジョイスティック、フェイクなスピナーの各
+  入力に対応するよう、Driver Configurationオプションを追加。デフォルトではマウス・ス
+  ピナー用にフェイクスピナーに設定。[Derrick Renaud]
+
+- Driver Configurationで選択された操作系のみを表示するようにアナログコントロールメ
+  ニューを変更。[Derrick Renaud]
+
+- ARM7の更新: [Tim Schuerewegen]
+ * ARMWrestlerでのテストを元に、"MOV x, R15, LSL #y"のフォームを修正
+ * GBAのMoto GPで使用している未実装なThumb MOVバリアントを追加
+
+- MAMEとMESSでの共有を改善するため、megadrive/smsのソースファイルを再構成。
+  [Fabio Priuli]
+
+- NEC DSPの更新: [R. Belmont, byuu, Dr. Decapitator]
+ * uPD7725とuPD96050をサポート
+ * ST-010/011用にSNES共有コードでuPD96050を使うようにフック
+ * ST-010 HLEシミュレーションを削除
+
+- ゲーム名が必要なコマンドが呼び出され、該当が内場合にサジェストを表示するよう変更。
+  [Miodrag Milanovic]
+
+- discrete_deviceからdiscrete_sound_deviceを切り出し。これは、ストリーム関係のコード
+  を全部持つようになりました。discrete_deviceが全体的なコードを保持するため、サウンド
+  に関係のない実装についてもこちらを使用することになるかもしれません。[Couriersud]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Mr. Kicker [Pierpaolo Prazzoli]
+X-Plan [Bicycle Repair Man, Luca Elia]
+Penfan Girls [hap, N. Francfort, Smitdogg, The Dumping Union]
+Witch Card (Video Klein CPU box) [Roberto Fresca]
+Jolli Witch (Export, 6T/12T ver 1.57D) [Roberto Fresca]
+Wild Witch (Export, 6T/12T ver 1.74A) [Roberto Fresca, Team Europe]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+セガツーリングカーチャンピオンシップ (Newer) [briantro]
+セガツーリングカーチャンピオンシップ (Unknown Revision) [Brian Troha]
+滿貫大亨 (Taiwan, V125T1) [Luca Elia]
+Zero Team Suicide Revival Kit [Angelo Salese]
+ボンジャックツイン (プロトタイプ? with adult pictures)
+  [ranger_lennier, Smitdogg, The Dumping Union]
+セクシーパロディウス (ver AAA) [Tormod]
+Ring of Destruction: Slammasters II / スーパーマッスルボマー (Asia 940831)
+  [john666, Smitdogg, David Haywood, The Dumping Union]
+Street Fighter Alpha 2 / ストリートファイターZERO2 (USA 960430)
+  [Ricky74, Layne, Smitdogg, The Dumping Union]
+Football Champ / ハットトリックヒーロー (World, 海賊版) [Clawgrip] (not working)
+逆鱗弾 (Ver 2.30 1995/09/21) [Corrado Tomaselli, J. Bijl, The Dumping Union]
+1943 -ミッドウェイ海戦- (海賊版, 日本版のハック) [Smitdogg, The Dumping Union]
+Road Riot 4WD (set 1, 13 Nov 1991)  (not working) [Smitdogg, The Dumping Union]
+スクランブル (海賊版?) [Roberto Fresca, Team Europe & Hal9k]
+Zero Target / 撃墜王 (World, CW)
+  [ranger_lennier, B. Sparks, Kevin Eshbach, Smitdogg, The Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+X-Plan [Bicycle Repairman]
+ファンタジーゾーン (Mega-Tech, SMS based) [Ace]
+Brave Fire Fighters [Guru]
+NASCAR Racing [Guru]
+Lucky Lady (Wing, encrypted) [Roberto Fresca, Team Europe & Willi.O]
+ATV Track
+  [hap, ANY, ranger_lennier, dopefishjustin, gamerfan, gatt9, N.
+   Francfort, Smitdogg, The Dumping Union, David Haywood]

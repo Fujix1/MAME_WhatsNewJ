@@ -1,0 +1,586 @@
+0.119
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+vr0118u6yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- srmp6ドライバのクリーンアップと、グラフィックの改良。
+  [David Haywood, Tomasz Slanina]
+
+- Model 2のポリゴンクリッピングのバグ修正。[Ernesto Corvi]
+
+- shadfrcjで、いきなりエンディングに進まないように入力ポートを修正。[stephh]
+
+- MB86233コアの変更で「バーチャレーシング」が壊れていたのを修正。[Aaron Giles]
+
+- VIDEO_UPDATEから戻るUPDATE_HAS_NOT_CHANGEDフラグ周りを強化。ゲーム内の全てのス
+  クリーンが、UPDATE_HAS_NOT_CHANGEDを返した場合は、速度制限の点からそのフレームを
+  スキップします（連続で3フレームまで）。これにより、オフフレームのときに速度が
+  制限されないよう、1つおきにフレームを描画することができます。midvuitドライバで、
+  UPDATE_HAS_NOT_CHANGEDを返すように更新しました。これらのゲームで、速度制限を有
+  効にしたときのフレームレートの改善が確認できると思います。ただし、効果があるの
+  はフレームスキップが0のときだけなので注意して下さい。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+Turpin (スクランブル基板の海賊版) [David Haywood]
+オペレーションウルフ (World, set 2) [David Haywood]
+スターフォース (encrypted, 海賊版) [David Haywood]
+ギャラクシアン (海賊版) [David Haywood]
+クレイジーコング (ギャラクシアン基板の海賊版, set 2) [David Haywood]
+バンダイク (PIC16c57使用の海賊版) [David Haywood]
+
+
+
+0.118u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+cave0118u5red [Aaron Giles]
+radikalb0118u5red [Aaron Giles]
+chdrewrite0118u5red [smf]
+pacland0118u5yel [Aaron Giles]
+sspaceat0118u1red [Aaron Giles]
+yamato0118u5red [Aaron Giles]
+ym2203_0118u1yel [Aaron Giles]
+profiler0116u2yel (maybe) [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- TMS5220コアで、パラメータ補完に除算ではなくシフトを使うよう更新。また、内部DACを
+  使うときは内部で8ビット出力をサポート。[Lord Nightmare]
+
+- CHDゲームで、CHDが無いときにクラッシュルしていたのを修正。また、CHDへの書き込
+  みが必要になっていたのも修正。[smf]
+
+- CHDの検索パスを、親のサブディレクトリを見るように再修正。[Aaron Giles]
+
+-「ギターフリークス 3rd MIX (GE949 VER.JAB)」のセキュリティカセットの内容を修正。
+  [smf]
+
+- 関数的な視点から、core_vfprintf()を取り出し、mame_vfprintf()を実装。[
+  Nathan Woods]
+
+- Wheels + Fireドライバの改良。まだ不完全。[David Haywood]
+
+- scsicdとscsihdにSCSIOP_GET_INQUIRY_BUFFERを追加。[smf]
+
+- MB86233コアの変更: [ElSemi]
+ * double move命令を修正
+ * これまで不明だったdouble move命令を追加
+
+- MAMEのオプション処理方法を内部的に変更。mame_options_init()がcore_optionsオブ
+  ジェクトを返すように変更して、mame_execute()に渡すようにしました。
+  mame_options()をmame.cに移動して、エミュレーション動作中だけ有効にしました。
+  ROMチェックはcore_optionsパラメータを取るようになってます。[Nathan Woods]
+
+- HD6309を更に修正: [Tim Lindner]
+ * SEXW命令がオーバーフローフラグをクリアしないよう修正
+ * TFMに無効なレジスタが指定された場合、不正命令トラップの世代付け
+
+- WindowsのメッセージフィルタリングをMAMEのゲームウィンドウのみに適用するよう変
+  更。[Nathan Woods]
+
+- srmp6ドライバのグラフィック改良とクリーンアップ。
+  [David Haywood, Tomasz Slanina]
+
+- 新しいx86emit.hコードエミッタのクリーンアップ。メモリ参照法の変更と、マクロを
+  インライン関数に置き換え。[Aaron Giles]
+
+- MIPSとPowerPC DRCコアで新エミッタを使うように更新。x86drc.hにあった古いマクロ
+  ベースのものは削除。[Aaron Giles]
+
+- paclandにセーブステート追加。[Aaron Giles]
+
+- -autoframeskipが-speed設定を考慮するよう変更。[Aaron Giles]
+
+- install_mem_handler()のスタックバッファオーバーランを修正。gcc 4.2.1で
+  Hyperstoneベースのゲームが壊れていたのを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Yukon [Al Kossow, Aaron Giles]
+Mega Man - The Power Battle / ロックマン [Nicola Salmoria, David Haywood]
+
+
+
+新規クローンセット
+------------------
+Hard Times (set 2) [David Haywood]
+Scorpion (set 3) [David Haywood]
+サタンオブサターン (set 2) [David Haywood]
+Street Fighter Alpha 3 (Euro 980904) / ストリートファイターZero3 [David Haywood]
+Dimahoo (Euro 000121) / グレート魔法大作戦 [David Haywood]
+クラッシュローラー (海賊版) [David Haywood]
+クラッシュローラー (Sidam 海賊版) [David Haywood]
+Moon War (ムーンクレスタ海賊版) [David Haywood]
+ポートマン (ムーンクレスタ基板海賊版) [David Haywood]
+ターピン (スクランブル基板海賊版) [David Haywood]
+オペレーションウルフ (World, set 2) [David Haywood]
+スターフォース (encrypted, 海賊版) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Astropal [David Haywood]
+Come On Baby [MooglyGuy]
+
+
+
+0.118u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mappyc0118u1red [Aaron Giles]
+mappy0116u2gre [Aaron Giles]
+namcona1c057red [Atari Ace]
+9ballsh3097red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- memconv.hについて、リトルエンディアンとビッグエンディアンのどちらでも、基本的
+  にどんな幅(8/16/32/64)同士でのコンバートもできるように更新。また、とてもよく使
+  われるマッピングについて、スタブを作成するマクロを、1:1の方法、または
+  LSB/MSB/LSW/MSWスタイルの両方について追加。[Ernesto Corvi]
+
+- CuboCD32/Amigaの更新: [Ernesto Corvi]
+ - CDROMコントローラの実装完了。ゲームの起動が可能です
+ - 扱いやすさのため、Akikoコード全体をmachine/cudocd32.cに移動
+ - CDROMコントローラとドライバにCDDAサポート追加
+ - AGAチップセットのシステムで、CIAのビット0を接続しなくしました。これは以前、
+   Overlayピンに接続されてました
+ - BLTDDATが自身の値を返すように更新。これは読み出し可能なレジスタで、今までは
+   扱っていません
+ - 転送バッファとシフトレジスタが空であるのを反映するため、リセット時にSERDATRレ
+   ジスタを初期化
+
+- PowerPC 601をサポート。[Ville Linde]
+
+- -listxmlのPLDリージョンを修正。[MASH]
+
+- CPUとサウンドチップタイプの比較を、0ではなく、CPU_DUMMYとSOUND_DUMMYとで行うよ
+  うに全て変更。また、sndti_tosndnum()を使っているところで、sndti_exists()が適切
+  なものは置き換え。[Atari Ace]
+
+- CHDインターフェイスストラクチャを削除。CHDのファイルI/Oは、コアファイルルーチ
+  ンを使用します。システムの残り部分もこれに合わせて更新。この結果、分割したCHD
+  が使えなくなります。[Nathan Woods]
+
+- 新コアライブラリユーティリティモジュール、palette.cをパレット管理用に追加。
+  エミュレータ専用のパレットコードをemupal.cに改名して、コアライブラリの先頭に来
+  るよう、再構成。[Aaron Giles]
+
+- ビットマップにパレットを付属させる機能をコアに追加。デフォルトでの16ピクセルビッ
+  トマップの安全地帯は、ほとんどのドライバで不要なため削除しました。新関数、
+  bitmap_alloc_slop()を追加、呼び出し元で指定したslop値のビットマップを作成でき
+  ます。[Aaron Giles]
+
+- gfx_element.colortableエレメントを削除して、新しいcolor_baseエレメントに置き換
+  え。これはグローバルなカラーオフセットを指定します。これにより、パレットとグラ
+  フィックコード間にあったやっかいな依存関係を無くし、システムからOddポインタ演
+  算を大量に取り除くことができます。[Aaron Giles]
+
+- Machine->pens、Machine->colortable、Machine->remapped_colortableの誤用を防ぐた
+  め、constとしてタグ化。誤用があったドライバの修正と、将来のクリーンアップのた
+  めに、残りのタグ付け。[Aaron Giles]
+
+- emupal.cに新しいカラーテーブル管理用関数を追加。これらの関数で、
+  TRANSPARENCY_COLORが使用中(基本的に、ペンマスクがTRANSPARENTCY_PENS)の場合に、
+  コアパレットのカラーテーブルを管理できます。pacman、mappy、toypop、その他ドラ
+  イバ数本で新関数を使うように更新。[Aaron Giles]
+
+- docastleの描画コードを超シンプル化。[Aaron Giles]
+
+- gcc 4.2.1でビルドするときのエラーと警告を修正。[Aaron Giles]
+
+- 新関数、render_target_set_max_update_rate()を追加。OSDレイヤーから、MAMEに対し
+  てターゲットのリフレッシュレート(または、最大値がないときは0)を知らせます。
+  次のダイナミック速度調整パラメータを使えるようにします。[Aaron Giles]
+
+- 新パラメータ -refreshspeed (短縮は-rs)を追加。画面の最低リフレッシュレートを効
+  率的にキープするよう、-speedパラメータを動的に調整します。[Aaron Giles]
+
+- x86emit.hに命令コードエミッタを更に追加。[Aaron Giles]
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Last Fighting [Luca Elia]
+美笑雀 [Luca Elia]
+アマンドピンキー [Luca Elia]
+麻雀カフェタイム [Luca Elia]
+岩谷テンホーの麻雀コミック劇場 Vol.1 [Luca Elia]
+スーパーイーグルショット [Tomasz Slanina, pSXAuthor]
+Date Quiz Go Go Episode 2 [Pierpaolo Prazzoli]
+ダンシングステージ フィーチャリング ドリームズカムトゥルー [smf]
+
+
+新規クローンセット
+------------------
+エックスメン チルドレン・オブ・ジ・アトム (Japan 941222) [Nicola Salmoria]
+Quintoon (UK, Game Card 95-750-206) [James Wallace]
+
+
+追加された未動作ゲーム
+----------------------
+スーパーリアル麻雀PI [Luca Elia]
+ダンスダンスレボリューションエクストリーム [smf]
+
+
+
+0.118u4
+-------
+
+
+ソースの変更点
+--------------
+- galaga.cの入力をタグにコンバート。クローンにはINCLUDE/MODIFYを使用。また、
+ 「ゼビウス」と「ディグダグ」（「ボスコニアン」と「ギャラガ」はまだ作業が必要）
+  でエクストラのDIPスイッチ設定の条件分け動作修正。stephh氏による、「ディグダグ」
+  のROMセットについての情報追加。[Alex Jackson]
+
+- superdqドライバのサウンドチップ周波数修正。[Jim Hernandez]
+
+- chdmanの改良: [smf]
+ * TOCの解析で、ファイル名にスペースと引用符が使えるように修正
+ * サブコードを読み込まない場合にcdrdaoが生成する、"offset start length"トラック
+   のサポート
+ * 続くデータが無いときには、トラックの残りを常にゼロで埋めるように変更
+ * cdrom_track_input_infoを、src/lib/util/cdrom.hから、src/tools/chdcd.hに移動
+ * オーディオバイトのスワッピングをサポート
+
+-「サイコニクスオスカー」(Japan Revision 0)のDIPスイッチ修正。
+  [Corrado Tomaselli]
+
+- aerofgtドライバのDIPスイッチ配置追加。[Fabio Priuli]
+
+- Amigaのアップデート: [Erneso Corvi]
+ - ECSのみのBLTCON0Lレジスタを実装
+ - Modified the amiga_interface structure to add a nmi callback and 
+    a flags variable.
+ - AGA chipmemマスク定義追加
+ - chipramで32ビットデータバスサポート。チップセットがAGAのときは自動的に使用さ
+   れます
+ - machine/amiga.hに68k PAL、NTSC、68EC00 NTSC用のクロックチップ定数追加。これら
+   の値を使うようにドライバを更新
+- ECSチップセット、AGAチップセット、または"ECSかAGAチップセット"のどれで動作し
+   ているかを取得するマクロ追加
+ - autoconfigが0xffffではなく0x0000を読み出すように変更
+ - 8520 ciaのMSB値タイマを修正。前は、LSB値が読み込まれたときに単純にタイマの値を
+   更新するだけでした
+ - cubocd32ドライバに、基本的なAkikoエミュレーション追加。ChunkyからPlanerへの
+   コンバータと、I2C NVRAMが完全に実装されたはずですが、CDROMの機能的には完全で
+   はありません。今のところ、kickstartでAkikoチェックをパスするのに必要なものだ
+   けです
+
+- Taito製ゲームの入力ポートクリーンアップの続き: [stephh]
+ - 1ボタンしか使わないゲーム用にincludes/taitopt.hにマクロ追加
+ - 以下のドライバのコンバートとドキュメント追加、これまでわかっている入力とDIPス
+   イッチの間違い修正: 
+    taitoair.c, taito_h.c, taito_x.c
+ -「スーパーマン」のカスタムチップエミュレーションを他のTaito製ゲームと同じよう
+   に動作するよう大幅改良
+ - その他のTaitoドライバのノートを修正
+
+- verinfoコードを、version.oへのリンクから、version.cファイルを調べるように変更。
+  これで、リンク順の問題や、ビルドする毎に再生製されるのを防ぎます。
+  [Aaron Giles]
+
+- i386逆アセンブラの大幅改良。あいまいなケースを除いて、"byte ptr"を出力しないよ
+  うに変更。フル64ビット逆アセンブリサポート。Intelのマニュアルを元に、フルIA32
+  命令マトリックスサポート。SSE系の命令も含む。[Aaron Giles]
+
+- 外部割り当てキャッシュサポート用の、x86 drcヘルパーを更新。また、キャッシュ外
+  のデータストラクチャ割り当てサポート。リセットまで待たず、直ちにコードを生成し
+  ないように初期化部を変更。[reg*scale] modrmフォームのコード生成時のバグ修正。
+  [Aaron Giles]
+
+- 32ビットと64ビットデータバスシステムで、アクセスマスクを明示的に指定するCPUコ
+  アをサポートするための新関数をメモリシステムに追加。これにより、MIPSコアで、
+  リード/モディファイ/ライトサイクル無しで、SWL/SWRとSDL/SDRを処理できます。
+  CとDRC MIPSコアを新メカニズムに更新しています。[Aaron Giles]
+
+- x86とx64システム両方のコード生成をサポートする新モジュールx86emit.hを追加。
+  この新システムは以前よりも遙かに完成された方法ですが、まだ全ての命令コードは
+  定義されていません。また、前にx86drc.hでの定義に比べると、新しいインターフェイ
+  スはシンプルになっています。既存のDRCコアはまだ旧インターフェイスを使ってます
+  が、新規のものについてはこの新システムを使って下さい。[Aaron Giles]
+
+- mips3コアで最近起きたバグを修正。Cコアで、最初の命令の後に処理がどこにも続かな
+  い問題。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+アンダーカバーコップス (Alpha Renewal Version) [Guru]
+ファイナルファイト (US) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Interstellar Laser Fantasy [Andrew Gardner]
+
+
+
+0.118u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+qbert0118u2gra [Aaron Giles]
+zoom909_0118u2ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- dacholer.cドライバで、これまでわかっているDIPスイッチを全て更新。[stephh]
+
+- MDRV_VBLANK_DURATIONマクロで、1秒未満の値について、doubleからコンバートせずに
+  直接受け取るように変更。新マクロ、USEC_TO_SUBSECONDSも追加。全ドライバでこれを
+  使うようにコンバートしました。[Atari Ace]
+
+- メモリマップの検証について、memory.cの現在のロジックに合うように改良と修正。
+  この方法でわかった問題も修正。また、construct_map_0を削除して、マップの生成を
+  単一の関数に独立。[Atari Ace]
+
+- AM_READ_PORT()マクロを新規追加。これは、入力ポートのリードコールバックをポート
+  タグに基づいて定義するものです。従来のAM_READ()マクロ内でport_tag_to_handler()を
+  呼び出すテクニックに代えて、新しい方法を使って下さい。後者のパターンを使ってい
+  た全てのドライバを、新システムを使うように更新しています。[Atari Ace]
+
+- 0.36b10(!)で起きていたmonymonyの微妙な不具合を修正。[Atari Ace]
+
+- F8 CPUコアで、リセット時にirq_callbackをclobbertしないように修正。
+  [Wilbert Pol]
+
+- Amigaシステムの更新: [Ernesto Corvi]
+ - ECSのみのBLTSIZVとBLTSIZHカスタムレジスタを実装。また、BLTSIZEとblitterでこれ
+   らを使用するように変更
+ - VPOSRのbitが、PALかNTSC Amigaのどちらで動作しているか示すように正しく実装
+ - alg.cのPictmaticドライバのPALクロックを修正
+
+- COP420 CPUコアにカウンタエミュレーション追加。「Thayer's Quest」で実装。また別
+  セット追加。[Andrew Gardner]
+
+-「Status Trivia」ドライバにPROM追加。[Brian Troha]
+
+- Taitoドライバ(opwolf.c, othunder.c, topspeed.c, warriorb.c, wgp.c, rastan.c, 
+  rainbow.c, volfied.c)で、共通の入力ポートマクロを使うようにクリーンアップ。
+  全ゲームのDIPスイッチ修正(まだいくつか不明のものあり)と、ノートの追加。また、
+  ninjaw.cドライバで間違っていた点を2つ修正。「オペレーションウルフ」とクローン
+  版のC-chipエミュレーション改良で、複数のコインエイジ処理が可能。[stephh]
+
+- aladblで、ゲームがコイン入力を正しく処理されるようにMCUシミュレーションを改良。
+  アーケード筐体にマッチするように入力の修正と、ゲームのM68000コードを元にDIPス
+  イッチも追加。[stephh]
+
+- バージョン情報を抽出して、それをWindowsのバージョンリソースに追加するビルドツー
+  ルを追加。[Nathan Woods]
+
+- かなり完成度の高いWD33C93 SCSIコントローラエミュレーション追加。cps3.cドライバ
+  でこれを使うように更新。[Ernesto Corvi]
+
+-「チェイスHQ」のランプ実装。[R. Belmont, couriersud]
+
+- NEC V30 CPUコアで、16ビットデータバスを使うように変更。影響のあるドライバを
+  更新: raiden, raiden2, m72, m90, m92, m107, segas32, hng64, deadang, dynduke,
+  sengokmj, shanghai, lockon, tatsumi, fantland, twins, gunpey, ttchamp
+
+  i386逆アセンブラから、Vシリーズの逆アセンブラの分離、及び正しいレジスタと命令
+  コード用語を使うように更新。[Aaron Giles, Philip Bennett, Pierpaolo Prazzoli]
+
+- I8086 CPUコアで16ビットデータバスを使うように変更。影響のあるドライバを更新:
+  gottlieb, leland, tx1, fantland, tetriunk
+
+  CPUのネーミングをクリーンアップ（i86 → i8086など）。[Aaron Giles]
+
+- 共有PCコンポーネントの多くに16ビットハンドラ追加。[Nathan Woods]
+
+- drcと非drc MIPSコアで共通なコードを統合。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Aladdin (bootleg of Japanese Megadrive version) [stephh]
+
+
+
+新規クローンセット
+------------------
+ライデンファイターズ (Italy) [Corrado Tomaselli]
+
+
+
+0.118u2
+-------
+
+お知らせ：60Hzより高い周波数で表示できないディスプレイを使っていて、サウンドが
+途切れる場合は、-speedオプションを試してみてください。これにより、モニタのリフ
+レッシュレートに収まるように、MAMEのエミュレーション速度を少し遅らせます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+boogwing0118yel [Aaron Giles]
+starblad0113u3red [Atari Ace]
+mgakuen0106u1red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- nemesisドライバの調子がおかしかったのを修正。[Atari Ace]
+
+- chdmanのCD生成コードの修正を改良。[smf]
+
+- amspdwy.cドライバのamspdwyのDIPスイッチを修正。amspdwyaとは少し違う模様。
+  [stephh]
+
+- HP Saturn CPUコア逆アセンブラを修正。[Wilbert Pol]
+
+-「Trivia Genius」のクロック速度と色修正。[Lord Nightmare]
+
+- Taitoドライバで、共通の入力ポート定義を使うようにクリーンアップ。[stephh]
+
+-「ポールポジション」で、ハードコードしていた不要な定義を削除。[Alex Jackson]
+
+- bombjackのDIPスイッチ改良。[stephh]
+
+- BFMゲームのデフォルトレイアウトがVFDを表示しないように変更。[James Wallace]
+
+- TMS5220エミュレーションを更に改良と、TMS5110コアとの共通化。[Lord Nightmare]
+
+- INIファイルの解析について、<inipath>/sourceにあるソースファイルのINIを最初に
+  行うよう変更。これは、ソース名とゲーム名が同じ場合のINIファイルのあいまいさを
+  なくすためのものです。もし、INIファイルが<inipath>/sourceに見つからないときは、
+  従来通り<inipath>内を探します。[Aaron Giles]
+
+-「雷電」のメモリマップをマージ。「雷電II」のCOPエミュレーションコードをクリーン
+  アップ。[Aaron Giles]
+
+- エミュレーション全体の速度制御を試験的に追加。これにより、オリジナルと比べてど
+  のくらいの速度でエミュレートするかを指定できます。-speed 1.0は普通の速度、
+  -speed 2.0は2倍速、-speed 0.5は半分の速度となります。この結果、サウンドの音程
+  もずれます。60.60Hzで動作する初期のNamcoゲームを走らせるなら、-speed 0.99とす
+  れば60Hz以下で動作します。使っているモニタが60Hzよりも高いリフレッシュレートを
+  サポートしていない場合には、この設定でサウンドが途切れるのを防ぐことができます。
+  この機能が使えそうなときは、将来のバージョンで、使っているモニタのリフレッシュ
+  レートを常に下回るように自動で速度を制御する-speedリフレッシュパラメータを追加
+  するかもしれません。[Aaron Giles]
+
+- V30のビット命令の逆アセンブリを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+El Grande - 5 Card Draw [Roberto Fresca]
+
+
+
+新規クローンセット
+-------------------
+Kickman [Aaron Giles]
+Trivia ? Whiz (Edition 3 - Vertical) [Pierpaolo Prazzoli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Big Apple Games [Pierpaolo Prazzoli]
+Thayer's Quest [Andrew Gardner]
+
+
+
+0.118u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+boogwing0118yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- auto_realloc()で、常にオリジナルのメモリプールから再割り当てするように動作を修
+  正。[Atari Ace]
+
+- -video noneで動作させると、divide-by-zeroが起きることがあったのを修正。
+  [Atari Ace]
+
+- ARM7コアの修正: [R. Belmont, Ryan Holtz]
+ - R15がMOVのソースのときの動作を修正
+ - ADC/SBCのフラグ演算修正
+ - NEGのフラグ演算修正
+ - CMPのフラグ演算修正
+ - Thumb命令の後方動作回数を修正
+ - 一部のARM命令が無差別にchange_pc()を実行するのを修正
+
+- 最近おかしくなっていた、cdrdaoでリッピングした音声を含むCDのコンバートを修正。
+  コードは以前よりきれいになって、メンテナンスもしやすくしました。[smf]
+
+- chdman_open() "w"が常に、ファイルを生成・切り捨てするように修正。"+r"は以前通
+  り、最初にファイルオープンを試してから切り捨てます。これはコアの動作に合わせた
+  ものです。[smf]
+
+- M6803 CPUコアに欠けていたポート3/4を追加。[Curt Coder]
+
+- 6850ACIAでMSB/LSBリードハンドラを使うように変更。[Curt Coder]
+
+- COP400 CPU逆アセンブラのマイナーなバグを修正。コアに、64バイトの内部データRAMを
+  実装。[Andrew Gardner]
+
+- デバッガに、トランスレーション無しのメモリリード・ライトを追加。
+  [Olivier Galibert]
+
+- MSM6242のアップデート: [Ernesto Corvi]
+ - 12/24時間モードをサポート
+ - HOLDビットのサポート
+ 
+- Galaxianドライバのアップデート: [stephh]
+ - spcdragaのグラフィックROMロードを修正
+ - 全セットについて、DIPスイッチを完全に検証
+ - 全セットに、解説追加
+
+- タイルマップ描画コードを大幅に改良。タイルマップの種類は、ペン、または色をベー
+  スにした透過を使うかどうかの2種類のみになりました。既存のタイルマップエフェク
+  トは全て、この2つのモードで構成されます。内部のタイルマップ処理コードは、再構
+  成して多くのケースで単純化しました。タイルマップのタイプ値を除いて、ほとんどの
+  ゲームではこの変更は透過的です。このタイルマップシステムでは、あいまいな名称
+  （例えば、'priority'など）を取り除いてはっきりさせるために異なった用語を使うよ
+  うにしました。簡単なチュートリアルと、改良したドキュメント、また変更点の詳細に
+  ついては、tilemap.hの最初の部分を参照してください。[Aaron Giles]
+
+
+
+追加された未動作ゲーム
+----------------------
+アマンドピンキー [BET] (Roberto Fresca)
+Jack Potten's Poker (bootleg 2) (Roberto Fresca)

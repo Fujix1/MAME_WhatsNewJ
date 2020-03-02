@@ -1,0 +1,743 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.120</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.120.txt</div>
+	<div class="main">
+<div class="wn">
+0.120
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+
+
+ソースの変更点
+--------------
+- makefileに"ネイティブ"アーキテクチャオプション追加。これを使うと、コンパイルす
+  るシステムに最も適合するアーキテクチャをgccが自動で選択します。
+  [Christophe Jaillet]
+
+- KL5C80コミュニケーションCPUをHNG64 BIOSに実装して、機能の一部をエミュレート。
+  [Andrew Gardner, Justin Kerk]
+
+- Windows 64ビットコードのポインタ切り捨てバグを修正。64ビットポインタ切り捨ての
+  警告を有効化。x86とx64のマニフェストを統合。[Atari Ace]
+
+- 6821 PIAで、コアメッセージを一度だけログ出力するように変更。[Tim Lindner]
+
+- NeoGeoのROMセットについていろいろな更新。一部のROMはチップのラベルで確認したも
+  のに合わせて更新しました。古いセットの多くを再吸い出しして、"64k m1/s1問題"
+  （また、m1のオーバーダンプ）を検証しました。この結果、全てのm1とs1は最低でも
+  128kx8なのが判明しました。以前のオーバーダンプしたm1は不完全でした。更に、全て
+  の"p-rom"の最小サイズが4Mビットなのもわかりました。多くのセットを"本来の"状態
+  にリストアしています。また、その他についても該当するものは吸い出し不良印を付け
+  ました。変更のあったものは以下の通り: [Johnboy]
+
+ - bjourney: MAME v0.34b5から128kのm1を再追加
+ - bstars:   完全に再吸い出し。正しいm1追加
+ - bstars2:  完全に再吸い出し。正しいm1追加
+ - goalx3:   MAME v0.34b5から128kのm1を再追加
+ - janshin:  MAME v0.34b5から128kのm1を再追加
+ - joyjoy:   正しいm1を追加
+ - legendos: MAME v0.34b5から128kのm1を再追加
+ - maglord:  完全に再吸い出し。正しいm1追加
+ - mutnat:   一部再吸い出し。正しいm1追加
+ - nam1975:  完全に再吸い出し。正しいm1とs1追加
+ - ncombata: 完全に再吸い出し。ncombathに改名
+ - neomrdo:  MAME v0.34b5から128kのs1を再追加
+ - pbobblen: MAME v0.34b5から128kのm1を再追加
+ - puzzledp: MAME v0.34b5から128kのs1を再追加
+ - ridhero:  完全に再吸い出し。正しいs1追加
+ - socbrawl: MAME v0.34b5から128kのs1を再追加
+ - ssideki2: 完全に再吸い出し
+ - strhoop:  MAME v0.34b5から128kのm1を再追加
+ - svc:      MVSタグ削除。バージョンは1種類のみ (AES/MVS/PCB) 
+ - svcboot:  MVSタグ削除
+ - tws96:    MAME v0.34b5から128kのm1を再追加
+ - viewpoin: 完全に再吸い出し。正しいm1とs1追加
+ - wh2j:     一部再吸い出し。wh2jhに改名。AES版と確認
+ - wh2j:     完全に再吸い出し。MVS版と確認
+ - wh1h:     完全に再吸い出し。AES版と確認
+ - wh1ha:    wh1hからwh1haに改名
+
+- Voodooエミュレーションに旧来の最適化を適用。数パーセント改善。[Aaron Giles]
+
+- ワークコードについて、outstaindingなアイテム数のチェックに対するワークアイテムを
+  適切にチェックするようにさらに改良。[Aaron Giles]
+
+- Model2のレンダリングコードを一部簡素化。[Aaron Giles]
+
+- mame/machineとmame/videoから多くのファイルをemu/machineとemu/videoに移動。全般
+  に、（製造者特有のカスタムチップに対して）汎用の業界標準チップをエミュレートす
+  るファイルを移動しました。将来的に、一般的なシステムレベルのコンポーネント
+  （amiga, snesなど）を独立させるような再編成があるかもしれません。
+  [Aaron Giles, Curt Coder]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+早押しクイズ 王座決定戦 [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+ワールドヒーローズ (set 3) [Johnboy]
+ワールドヒーローズ2 Jet (set 2) [Johnboy]
+ナイトメア・イン・ザ・ダーク (海賊版) [Johnboy]
+
+
+
+0.119u4
+-------
+
+OSD移植者向け注意事項: ワークインタフェイスを再変更しました。以下に詳しく説明し
+ています。新しいインタフェイスからは機能が削除されているので、移植はシンプル(!)
+になったはずです。
+
+
+
+MAMETestersの修正バグ
+---------------------
+parodius0111u3gra [Mike Green]
+ghostb0105u4gra [Mike Green]
+seibuspisingle099u9yel [couriersud]
+futspy0114gra [Mike Green]
+finalizr0102u5gra [Mike Green]
+gijoe0114gra [Mike Green]
+playch10_0109gre [Mike Green]
+
+
+
+ソースの変更点
+--------------
+-「早押しクイズ クイズ王座決定戦」を独自ドライバに移動。[David Haywood]
+
+- cabal海賊版にコインカウンタ追加と、サンプル再生CPUを2つ追加。コイン投入音がゲー
+  ム中に再生されるので、まだ問題があるようです。[Pierpaolo Prazzoli]
+
+-「VS雀士 ブランニュースターズ」ドライバをさらに改良。[David Haywood]
+
+- SCSPを更に改良: [El Semi]
+ - 8ビットサンプルのエンディアン問題の修正と、補間処理の追加
+ - モジュレーションの試行を不可に設定（クラッシュする問題を修正）
+ - ピッチ計算を改良
+
+- MB86223コアに、リピートカウントレジスタ（reg 0x34）アクセスと、イミディエイト
+  値のロードを追加（「パイロットキッズ」で使用）。[El Semi]
+
+- dynax.cの入力のクリーンアップと、画面反転修正。 [Luca Elia]
+
+- seibuspi.cの問題修正: [couriersud]
+ - rdft2usにサウンド追加
+ - 単体基板ゲームにコイン処理追加
+ - 割り込み処理の修正
+ - rfjetusで、nvramが無い場合に、テストモードに入れるようにテストスイッチを有効
+   にするハック追加
+
+- i386コアの問題を修正: [couriersud]
+ - i386のINTRラインを"レベル"ラインに; 割り込み処理をアサートラインでの発生に
+   変更
+ - 32ビットモードで、ゲートヘッダからのトラップ・割り込みの割り出し
+ - 2バスサイクル内での割り込みライン読み込み。合わせてCYCLESの調整
+
+- crushsにコインと、"テレポートホール"のDIPスイッチ追加。[sonikos]
+
+- z80gb CPUコアのバグ修正: [Wilbert Pol]
+ - 割り込み取得のためのサイクルカウント修正
+ - BIT X,(HL)命令のサイクルカウント修正
+ - RRCA命令のフラグ修正
+ - DAA命令修正
+ - ADD SP,n8命令のフラグ修正
+ - LD HL,SP+n8命令のフラグ修正
+
+- MSVC_BUILD=1とDEBUG=1を指定したときのリンク問題修正。[Oliver Stoneberg]
+
+- charが符号無しのアーキテクチャ（特に一部のPowerPC環境など）でコンパイルエラー
+  が起こるのを修正。[Bill Blake]
+
+- headonのクラッシュ音にフィルタを2つ追加。これで、クラッシュ音については、エン
+  ベロープのフィルタだけが無い状態です。[couriersud]
+
+-「Loverboy」の入力修正: [wolf676]
+ - 全DIPスイッチの確認と追加
+ - 両プレイヤーにボタン1を追加。
+
+-「キャノンボール」のカラーPROM追加。[Rob Walmsley]
+
+- コード内のアウトオブバウンズな配列アクセスを修正。[Andi]
+
+- prmrsocrのマスクROMテストを修正。[Pierpaolo Prazzoli]
+
+- 前回リリースで、64ビットDRCがkinstをおかしくしていたバグを修正。[Aaron Giles]
+
+- 64ビットDRCで、ホットスポットになりそうなものを検出するコードを追加。seattle.c
+  全ゲームと、vegas.cの一部のゲームにホットスポッとを追加。[Aaron Giles]
+
+- osd_workの実装を簡素化。共有のワークアイテムという概念を無くしました。新関数、
+  osd_work_item_queue_multiple()を追加。これは、大量のワークアイテムを効率的に
+  キューできるようにします。以前のosd_work_item_queue()関数は、新関数を呼び出す
+  インライン関数に変更しました。[Aaron Giles]
+
+- Voodooコードを新しいワーク関数を使うように更新。共有項目を使わずに、小さなスキャ
+  ンラインの集まりを独立項目としてキューします。また、より多くのエミュレーション
+  とレンダリングの重複を考慮して、いくつかのパラメータをコピーするようにコードを
+  更新。[Aaron Giles]
+
+- Windowsのワーク関数について、2CPU以上にスケーリングする場合、よりよいパフォー
+  マンスを持てるように、新しいスケーラブルなロックを実装。[Aaron Giles]
+
+- Windowsのワーク関数について、統計値の収集コードを追加。このバージョンで起こる
+  かもしれない問題の割り出しのため、今のところデフォルトでオンにしています。
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+雀狂 [David Haywood, Nicola Salmoria]
+早押しクイズ グランドチャンピオン大会 [David Haywood]
+早押しクイズ 熱闘生放送 [David Haywood]
+スーパーリアル麻雀 PI (Japan) [David Haywood]
+華をやらねば! (Japan) [Luca Elia]
+華天国 (Japan) [Luca Elia]
+Player's Edge Plus (PP0516) Double Bonus Poker [Jim Stolis]
+
+
+
+新規クローンセット
+------------------
+牌砦II 仇討外伝 (Japan) [David Haywood]
+パン (海賊版, set 3) [David Haywood]
+スーパーボブルボブル (set 1) [David Haywood]
+エアーウルフ (US) [David Haywood]
+Golden Tee '97 Tournament (v2.43) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+GTI Poker [David Haywood]
+Poker? (IGS) [David Haywood]
+華仁義 [Luca Elia]
+GP World [Andrew Gardner]
+
+
+
+0.119u3
+-------
+
+OSD移植者向け重要事項: このビルドでは、ワークアイテム管理の拡張機能並びに、新し
+くOSD同期モジュールに新しいプリミティブが一組必要です。詳細は以下を参照して下さ
+い。
+
+
+
+MAMETestersの修正バグ
+---------------------
+cabal0119u2ora [David Haywood]
+
+
+
+ソースの変更点
+--------------
+-「カベール」（ジョイスティック版）が前リリースで間違った提出分を採用したのを修
+  正。[David Haywood]
+
+- dealemの改良（ゲーム画面が見えるようになりました）。[David Haywood]
+
+- 前回のアップデートおかしくなっていたSCSPを修正。[R. Belmont]
+
+- リード・ライトハンドラの引数を"address"から、変更していない"original_address"
+  に変更(渡された引数に手を加えないことで、デバッグ中にオリジナルの値を割り出す
+  のが簡単になります)。[Nathan Woods]
+
+- dyndukeの色修正。[David Haywood]
+
+- 以下のx86命令で、2つのbyteを分けてではなく、word全体をリード・ライトするように
+  変更: [Philip Bennett]
+ - mov_axdisp
+ - mov_dispax
+ - stosw (8086のみ)
+ - rep stosw (8086のみ)
+ また、x86のWAIT命令の処理を改良。
+
+-「リスキーチャレンジ」用に命令コードの修正。[robiza]
+
+- コード内での、インクルードファイルの使用部分をクリーンアップ。 [Atari Ace]
+ - 使われていないプロトタイプを削除
+ - セルフ#includeの追加
+ - mame/includesで欠けているソースコメントを追加
+ - ドライバヘッダファイルから、#include "driver.h"の数行をソースファイルに移動
+   (これが一般的な方法です)
+ - #include "driver.h"で十分なところは、#include "mame.h", "osdcode.h"などをドラ
+   イバから削除
+ - srmp6.hと9900stat.hが使われていないので削除
+
+- 5*XX ROMのローディング追加。これらの吸い出しは完了してますが実装されていません。
+  [David Haywood]
+
+- option.cのエラーメッセージ出力を修正。[Christophe Jaillet]
+
+- gstreamドライバの更新: [Pierpaolo Prazzoli]
+ - デフォルトのnvramハンドラを使うように変更
+ - 入力の検証
+ - スプライトの調整
+ - OKIチップバンキングについてのコメント追加
+
+- Sega Model 2の大規模な書き直し: [Ernesto Corvi]
+ - ハードウェアラスタライザから、ジオメトリエンジンコードを分離。これにより、2B
+   と2Cモデル用のジオメトリDSPエミュレータを追加して、ラスタライ座に直接実装させ
+   ることができるでしょう。オリジナルと2Aのモデルについては、HLEのジオメトリエン
+   ジンがあります（現在は全てのモデルで使っています）
+ - ジオメトリエンジンの完全シミュレーション。スペキュラー、マルチセンター、デュ
+   アルポリゴンRAMを含む。
+ - テクスチャ、透過、チェッカーの全レンダリングモードをサポート
+ - テクセル・ルマモジュレーションの改良
+ - ビューポイントクリッピングの改良
+ - Zクリッピングの改良
+ - 広範囲なノートとドキュメントの追加
+ - ニアZクリッピングの大幅改良。ただしまだ不完全
+ - 大型テクスチャの、パースに対する正確なテクスチャリングを改良
+ - Zソーティングの改良
+
+- できるところで、Machineをmachineに変更。[Atari Ace]
+
+-「雀狂」の復号化追加。[Nicola Salmoria]
+
+- OSDレイヤーが追加の同期プリミティブ、osd_compare_exhange32()と
+  osd_compare_exhange64()を提供する必要があります。これらのプリミティブは、アト
+  ミックの比較、32ビットと64ビット値の交換をそれぞれ実装しなければいけません。こ
+  れらの関数をWindows版のOSDレイヤーに実装しました。[Aaron Giles]
+
+- 新OSDプリミティブでビルドされるインライン関数を2つ定義: 
+  osd_compare_exchange_ptr()は、適切なサイズのポインタに対して、アトミック比較・
+  交換を行います。osd_sync_add()はメモリの位置へ自動で値を追加します。
+  [Aaron Giles]
+
+- WORK_QUEUE_FLAG_MULTIヒントにより生成されるOSDワークキューの処理を変更。このよ
+  うなキューはn-1個のスレッドを生成します。nはシステムの論理プロセッサ数です。
+  これにより、他のスレッドの処理中に、メインスレッドが処理を完了させ続けられます。
+  もし、メインスレッドが続いて、osd_work_queue_wait()を呼び出したときは、動的に
+  他のスレッドへ"ジャンプイン"して、他のスレッドが全てのワークアイテムを完了させ
+  るのに協力します。[Aaron Giles]
+
+- 新しいワークアイテムフラグ、WORK_ITEM_FLAG_SHAREDを追加。
+  WORK_QUEUE_FLAG_MULTIのヒントをつけて作成したワークキューとして、ワークアイテ
+  ムが指定される場合、これは全部のスレッドを一つのワークアイテムを処理するために
+  指定することを意味します。これらの"共有"ワークアイテムは、全部の処理スレッドが
+  戻ったときだけ、完了と見なされます。[Aaron Giles]
+
+- 環境変数OSDPROCESSORSを使ったマルチスレッド動作の制御を追加。デフォルトの動作
+  をオーバーライドするには、OSDレイヤーに対して見せかけたい論理プロセッサの数を
+  OSDPROCESSORSに設定します。[Aaron Giles]
+
+- 3dfx Voodooエミュレーションコードを、上記の新スレッドメカニズムを活用するよう
+  に変更。WORK_QUEUE_FLAG_MULTIフラグセットでワークキューを生成、マルチプロセッ
+  サに対してラスタライズワークを展開するため、共有のワークアイテムを使用します。
+  このサポートは実験的なものと位置づけています; 一部の環境ではデッドロックが起こ
+  ります。もし問題が起きたときは、OSDPROCESSORSを1にすれば事実上以前の動作をさせ
+  ることができます。[Aaron Giles]
+
+- 全てのSeattleゲームと「ガントレットダークレガシー」「ガントレットレジェンド」
+  に、"トップ20"の専用ラスタライザを追加。これにより、ラスタライズのパフォーマン
+  スが10-20%向上しています。[Aaron Giles]
+
+- 64ビットMIPSリコンパイラのバグをさらに修正。Seattleゲームと3Dガントレットが動
+  作できるようになってます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+スーパー華パラダイス [Luca Elia]
+花札 華五光 [Luca Elia]
+天将神兵 [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+熱血高校ドッジボール部 (Japan) [David Haywood, Team Japump!]
+龍龍 (Japan) [Luca Elia]
+レジェンド・オブ・ヒーロー トンマ (Japan) [David Haywood]
+レジェンド・オブ・ヒーロー トンマ (海賊版, set 2) [David Haywood]
+IQ-Block (V127M, V113FR) [Pierpaolo Prazzoli]
+カベール (Alpha Trading) [David Haywood]
+パズル＆アクション タントアール (Japan) (海賊版 set 3) [David Haywood]
+忍 (Datsu bootleg) [David Haywood]
+忍 (Star bootleg, System 16A) [David Haywood]
+クラックダウン (World, FD1094 317-0058-04c) [Arzeno Fabrice, Chris Hardy]
+スーパーパン (World 900914, 海賊版) [David Haywood]
+パン (bootleg, set 2) [David Haywood]
+テーカンワールドカップ (set 2, 海賊版?) [David Haywood]
+DJボーイ (set 2) [David Haywood]
+Hunchback (set 2) [David Haywood]
+ダブルドラゴン (海賊版 with M6803) [David Haywood]
+キャノンボール (パックマン基板) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀狂 [David Haywood, Nicola Salmoria]
+VS雀士ブランニュースターズ [David Haywood]
+
+
+
+0.119u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+model2c_crx0119u1red [R. Belmont]
+
+
+
+ソースの変更点
+--------------
+- gfx_decode構造体について、直接指定するのでなく、マクロを使って抽象的に定義され
+  るよう変更。gfx_decode情報を設定する新マクロ、GFXDECODE_START、GFXDECODE_ENTRY、
+  GFXDECODE_ENDを追加。全てのドライバで新マクロを使うようにコンバート。
+  [Atari Ace]
+
+- h6280 CPUコアのNMI処理修正。[Wilbert Pol]
+
+- vaportraで割り込み信号にPULSE_LINEからASSERT/CLEARを使うように修正。
+  [Wilbert Pol]
+
+- sg1000a.cの入力ポートをクリーンアップ。dokidokiのコイン用DIPスイッチと、サービ
+  ススイッチを追加。psychic5の画面反転用DIPスイッチ追加。[sonikos]
+
+- macrossp.cドライバの入力ポートクリーンアップと、DIP位置追加。[Brian Troha]
+
+-「ビッグイベントゴルフ」のDIP配置追加と、日本版用のPORT_MODIFY追加。
+  [Brian Troha]
+
+- ディスクリートサウンドインタフェースの定義をクリーンアップするマクロを追加。ま
+  た同時に、これら全てをconstに設定。[Atari Ace]
+
+- megatchドライバのいろいろな変更。[David Haywood]
+
+- srmp6を更に改良。[686]
+
+- Model2の修正2つ: [Ernesto Corvi]
+ - トライアングルパーサの修正; 全オブジェクトについて構造的には正確なはず
+ - 標準変換でトランスレーションベクターを使わないように修正
+
+- 可能なところではコードとデータを静的にするようクリーンアップと、古いコードの削
+  除。[Atari Ace]
+
+- SCSPの改良: [R. Belmont, ElSemi]
+ - アクティブなボイスを、逆方向または双方向ループに設定したとき、音程を変えると
+   起こる不具合を修正
+ - フェイクのリバーブを削除
+ - 内部DSPが正しく動作するよう修正
+ - タイマと割り込み処理を書き直し
+ - SCSPが2つあるときの動作を修正
+
+- SCSPを搭載したModel 2ゲームのサウンドをほとんど修正。[R. Belmont]
+
+- Model 3ゲームにサウンドハード追加とサウンドROMのロードを修正。[R. Belmont]
+
+- options_output_diff_in_file() APIを作成。これは、options_output_ini_file()に似
+  ていますが、これは元になるcore_optionsと違うオプションだけを出力します。INI出
+  力（とそれに伴って-ccオプション）で、オプションを含まないヘッダをを省くように
+  変更しました。[Nathan Woods]
+
+- discoboyにサウンド実装。[Tomasz Slanina]
+
+- 古いgfx_decode構造体をgfx_decode_entryに改名。新マクロを使っていない残りのドラ
+  イバを把握するため。[Aaron Giles]
+
+- プロファイラがデバッグビルドとは独立して選択できるように変更。非デバッグビルド
+  でMAME_PROFILER=1と指定してビルドすれば、プロファイラを有効にできます。
+  [Aaron Giles]
+
+- MIPS3逆アセンブラのj/jal命令を修正。[Aaron Giles]
+
+- MIPS3の64ビットDRCを、レジスタ割り当てとマッピングについてより強力な新システム
+  へ移行。残念ながら、目に見えるパフォーマンスの向上はほとんどないものの、コード
+  の構成は改良されました。[Aaron Giles]
+
+- 64ビットシステムでの16ビットの命令に関係したx86emitのバグを修正。[Aaron Giles]
+
+- 新しい汎用のx86/x64ログシステム、x86logを作成。MIPS3 DRCで使うように更新。
+  [Aaron Giles]
+
+- 新しい汎用DRCフロントエンド処理を作成。将来的に、MIPS3のフロントエンドはこの新
+  アーキテクチャを中心に再構成していきます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Loverboy [David Haywood]
+麻雀蜃気楼 (Japan) [Luca Elia]
+Final Godori (Korea, version 2.20.5915) [Pierpaolo Prazzoli]
+自分を磨くカルチャースクール麻雀編 [Pierpaolo Prazzoli]
+麻雀ファンタジックラブ (Japan) [Luca Elia]
+Domino Block [Tomasz Slanina, David Haywood]
+
+
+
+新規クローンセット
+------------------
+ファイターズヒストリー (Japan ver 42-03) [Team Japump!]
+雀友・パート2 (ver 7.03, July 1 1983) [Team Japump!]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀王 [Luca Elia]
+麻雀ベガス (Japan) [Luca Elia]
+エシューズオルンミラ [Andrew Gardner]
+ミラージュ妖獣麻雀伝 (Japan) [Team Japump!]
+
+
+
+
+0.119u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+createconfig+debug0119yel [Nathan Woods]
+jrpacman0119gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- System C2とSystem 18ゲームのクラッシュと表示化け修正。[David Haywood]
+
+- MB86233コアをElSemi氏のものとシンクロ。バグの修正。[Ernesto Corvi]
+
+- Model 2ドライバのシンクロコードを修正。[Ernesto Corvi]
+
+- i960コアの、SCALER、SCALERL、ATANRL命令を修正。[Ernesto Corvi]
+
+- gdrawpkrドライバを更新: [Roberto Fresca]
+ -「El Grande - 5 Card Draw」にサウンド追加
+ - CPUとサウンドクロックを#defindedで定義されている周波数から導出
+ - マイナーな入力関係のクリーンアップ
+
+- ARM7コアの修正: [R. Belmont]
+ - unalignedなリード・ライトの再修正
+ - Thumbモードのための最小命令バイトを修正
+ - ARM7ビルドルールの依存関係を修正
+ - ThumbモードのASR命令を修正
+
+- BIOS ROMの再吸い出しと、「ポップンミュージック7」のSPUボードエミュレーション初
+  期版をFirebeatドライバに追加。[Ville Linde]
+
+- taito_z.cドライバの入力ポートクリーンアップ。[Brian Troha]
+
+- -wno-unused-functionを削除するためソースの更新。デッドコードは#ifdef 
+  UNUSED_FUNCTIONで識別され、さらなる解析と将来的な削除が可能なようになっていま
+  す。?[Atari Ace]
+
+- h6280 CPUコアの問題をいろいろ修正: [Wilbert Pol]
+ - 既に命令パイプラインに保留中の命令を考慮して割り込みの遅延をとるように変更
+ - ADCとSBC命令のデシマルモードに1サイクル追加
+ - CSH、CSL命令のサイクルカウントを3に変更
+ - SBC命令にTフラグサポート
+ - ADC Tフラグを、読み込んだ値を元にZフラグに設定
+ - Tフラグが設定されているとき、ADC、AND、EOR、ORA、SBC命令のペナルティを3に設定
+ - サイクルカウントの修正と、TAI、TDD、TIA、TIN命令の65536バイトブロックサポート
+ - 逆アセンブラのRDWORDマクロ修正
+ - TST命令のNとVフラグ設定を修正
+ - 不要になってたdebug_mmrコードを削除
+ - TSBとTRB命令を修正
+ - VDC、またはVCEエリアにアクセスするときに1ディレイ追加
+ - 低速と高速のCPUモード実装
+
+- srmp5(「スーパーリアル麻雀 P5」)をst0016.cから単独ドライバに移行。ビデオハード
+  エミュレーションの初期版追加。プレイ不可、サウンド無し。[Tomasz Slanina]
+
+- marioドライバのDIPスイッチ修正。[stephh]
+
+- Namco System 21のメジャーアップデート。変更点は以下の通り: [Phil Stroffolino]
+ - EPROM処理修正(Namco System 2にも影響)
+ - namcoic.cのスプライトエミュレーションでのスクロール修正
+ -「スターブレード」「サイバースレッド」「ソルバルウ」がフル3Dで動作
+ - 再構成が必要な深度キューテーブル以外はグラフィックは100%のはず
+ -「エアーコンバット」の改良。ただしウォッチドッグエミュレーションが不完全なので
+   118秒で固まる
+ -「ウィニングラン」ハードウェアはこの更新では未動作
+
+- RAMからのREGION_CPU1のデカップリングでundoukaiが壊れていたのを修正。
+  [Pierpaolo Prazzoli]
+
+- SCSPの修正: [R. Belmont]
+ * グローバルレジスタを破棄しないように、SCSPのアドレス空間(0x430～0x5ff)への
+   書き込みを修正
+ * SCSP DMAが自身のレジスタとして、ランダムなメモリを読み込まないように修正
+
+-「ビデオピンボール」のビルトインレイアウトにランプ表示を追加。[Mr. Do!]
+
+- Model 2の大更新。改良点が多すぎるので、動作していないものリストします:
+ [Ernesto Corvi, El Semi]
+ - トライアングルパーサにまだ不具合あり。motoraidのSegaロゴ、dynamcopのプレイヤー
+   選択画面の矢印など。daytonaの道路が変なのも多分このせい
+ - Zクリッピングの問題あり。カメラに近い位置のトライアングルのクリップが早すぎる。
+   また、逆にクリップされないものもあって、1、2フレームの間ミューポートを遮る
+ - サブウィンドウは未実装。dynacopのミッション選択、「セガラリー」の車選択など
+ - デカールテクスチャがフレームおきに点滅する。透過変換後のZ座標のフロート解像度
+   の問題?
+ - デフォルトでテクスチャがラップしている。本来はフラグが設定されたときのみ。ラッ
+   ピングしない場合の動作は不明
+
+- Z180コアの改良: [Pierpaolo Prazzoli]
+ - Programmable Reload Timerを2つ追加
+ - 内部I/Oレジスタ再マップを修正
+ - 論理→物理メモリ変換を追加
+ - ループハック無効化
+ - "extra icount"を削除
+ - 割り込み処理変更。Z80コアと同様にチェックされます
+ - RETNとEI命令を単純化
+ - PRT割り込みを修正
+ - どのIRQについても、割り込みフリップフロップの両方をクリア
+ - _IFF2 = _IFF1を追加; _IFF1 = 0の手前; NMIを取るとき
+
+- Z180エミュレーションの改良により、20pacgalからパッチを削除。サウンドも動作。
+  [Pierpaolo Prazzoli]
+
+- othunder.cドライバのDIPスイッチ修正と、ノート追加。opwolf.cドライバにもノート
+  追加。[stephh]
+
+- MegaTech/MegaPlayドライバを新しいGenesisコアコードに移行開始。[David Haywood]
+
+-「ぐっすんおよよ / Risky Challenge」で、多くの新しい追加命令を割り出し。
+  [robiza]
+
+- Voodooのビデオタイミングをマニュアルを元に修正。ブランク間隔、VSync割り込みな
+  ど。これにより「Carnevil」とその他いくつかが、再び正しい速度で動作。
+  [Aaron Giles]
+
+- Voodooの描画コードについて、フロントバッファの変更を追跡して、フレームレートを
+  上げるためにレンダリングが不要なフレームをスキップできるように更新。
+  [Aaron Giles]
+
+- マルチスレッドでデバッガが有効なとき、ウィンドウを動かそうとするとハングするのを
+  修正。[Aaron Giles]
+
+- MIPS 3/4 CPUのx64の新ダイナミックコンパイラを試験的に追加。現在のバージョンは
+  基本的なゲーム（kinst、carevil）を何本か動作するだけです。さらに、このバー
+  ジョンは既に、レジスタ割り当てやコンスタントフォールディングを行う改良版に置き
+  換えられています。今のところデフォルトでは無効にしています。[Aaron Giles]
+
+- i386dasm.cの、64ビット逆アセンブラの問題をさらに修正。x86emit.hのコード生成に
+  ついても64ビットでのエラーを修正。[Aaron Giles]
+
+- 8バイトチャンクサイズのメモリ表示機能をデバッガに追加。未マップのアドレスをア
+  スタリスクで表示できない古いバグを修正。また、Windowsのデバッガに論理、物理メ
+  モリの表示機能追加。
+
+- 4bppの場合を除き、タイルマップのタイル幅が2の倍数という制限を削除。アサートで
+  チェックします。[Aaron Giles]
+
+- -switchresを使わないときに、Direct3Dを使ったフルスクリーンの動作を、フルスクリー
+  ンのDirect3Dデバイスを作成しなように試験的に変更。これにより、フルスクリーンに
+  移るときのグラフィックカードのモード切替を最小限に抑え（特にVistaのグラス処理を
+  無効にしない）ます。古い方法を使いたい場合は、-switchresを有効にして、
+  -resolusionのパラーメータにデスクトップのサイズを指定します。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Deer Hunting USA [Luca Elia]
+Turkey Hunting USA [Luca Elia]
+Wing Shooting Championship [Luca Elia]
+Trophy Hunting - Bear & Moose [Luca Elia]
+赤マルQ上昇ドントアール [Team Japump]
+サイバースレッド [Phil Stroffolino]
+ソルバルウ [Phil Stroffolino]
+スーパーリアル麻雀 PVI (Japan) [686]
+一発逆転 [BET] (Japan) [Luca Elia]
+清水市代女流四冠王監修 女流将棋教室 (Japan) [Luca Elia]
+Mazin Wars / Mazin Saga (Mega Play) [David Haywood]
+Grand Slam (Mega Play) [David Haywood]
+
+
+
+新規クローンセット
+------------------
+スクランブル (海賊版) [David Haywood]
+エイリアンストーム (海賊版, set 2) [David Haywood]
+Zero Team Selection [David Haywood]
+Passing Shot (Japan, 4 Players, System 16A, FD1094 317-0071)
+  [Arzeno Fabrice, ShinobiZ, Gerald Coy]
+パウンドフォーパウンド (Japan) [Team Japump]
+ビッグイベントゴルフ (Japan) [Team Japump]
+S.C.I (Japan) [Team Japump]
+ロイヤルマージャン (Japan, v1.13) [Team Japump]
+サイバースレッド (Japan) [Brian Troha]
+クラウンズゴルフ (new set) [Arzeno Fabrice]
+ドンデンラバー Vol.1 白黒つけよっ! (Japan) [Team Jampump]
+マリオブラザーズ (US, set 2) [stephh]
+Puzznic (Italy) [Corrado Tomaselli]
+ドンデンラバー Vol.1 (Korea, 海賊版) [David Haywood]
+ジェネシス / Boomer Rang'r (set 2) [Team Japump]
+ならず者戦闘部隊 ブラッディウルフ (Japan) [Team Japump]
+オープン麻雀 [BET] (Japan) [Team Japump]
+
+
+
+追加された未動作ゲーム
+----------------------
+レーザーグランプリ [Andrew Gardner]
+Saloon (France, encrypted) [Roberto Fresca]
+麻雀カフェドール (Japan) [Team Japump]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

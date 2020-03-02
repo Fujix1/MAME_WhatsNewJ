@@ -1,0 +1,178 @@
+0.77u2
+
+クリーンビルドをしないと動作しないので注意してください。
+
+
+ソース全般の変更：
+------------------
+
+■CHDmanでアップデート時にソースのCHDが正しいかどうかをチェックするように
+  しました。[Aaron Giles]
+	src/chdman.c
+
+■「グランドストライカー2」のDIPスイッチを修正。[Pierpaolo Prazzoli]
+	src/drivers/metro.c
+
+■OTIR/INIT命令がPFフラグに影響する方法の発見でルックアップテーブルを削除。
+  [Ramsoft, Sean Young]
+	src/cpu/z80/z80.c
+
+■V60の浮動小数点命令をいくつか修正。[Olivier Galibert]
+
+■taito_x.cとseta.cのビデオハードを統合。これは正しいのですが、ドライバ側の
+  違いのため「ツインホーク」で不具合が起きているので調べてみます。
+  [David Haywood]
+
+■MESS関係の更新。[Nathan Woods]
+	src/windows/fileio.c:
+	- #ifdef MESSのコードを一部マージ
+
+■missb2の背景グラフィックデコード改善。ただし、背景表示自体はまだ未実装。
+  [David Haywood]
+	src/drivers/missb2.c
+
+■YM2610のステートセーブを修正。[Leon van Rooij]
+	src/sound/fm.c
+
+■SCSPの修正(一部のゲームでBGMがちょこっと改善)。[ElSemi / R.Belmont]
+	src/sound/scsp.c
+
+■Mysterious Stoneドライバを配線図を元に改良。[Curt Coder]
+	src/drivers/mystston.c
+	src/vidhrdw/mystston.c
+
+■「雷電」の音量バランスを改善。[R.Belmont]
+	src/drivers/raiden.c
+	src/sndhrdw/seibu.h
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+機動戦士ガンダム エックスレビュー [Pierpaolo Prazzoli, David Haywood]
+	src/drivers/seta2.c
+	src/vidhrdw/seta2.c
+
+Runaway (プロトタイプ) [Stefan Jokisch]
+	src/drivers/centiped.c
+	src/vidhrdw/runaway.c
+	src/drivers/runaway.c
+	src/vidhrdw/runaway.c
+
+NFLブリッツ [Aaron Giles]
+NFLブリッツ2000 [Aaron Giles]
+	src/drivers/seattle.c
+
+究極のストライカー / Last Striker [Luca Elia]
+	src/drivers/taito_x.c
+
+MegaTech : Tournament Golf [David Haywood]
+	src/drivers/segac2.c
+
+熱答クイズチャンピオン [Luca Elia]
+	src/drivers/ddenlovr.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+Capitol (プレアデスのクローン) [Pierpaolo Prazzoli]
+	src/drivers/phoenix.c
+
+サンダーセプター [BUT]
+	src/drivers/tceptor.c
+	src/vidhrdw/tceptor.c
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Rabbit
+ときめき麻雀パラダイス - ディアマイラブ
+	Blitterベースのグラフィック/サウンドチップなので他とは違います
+	src/drivers/rabbit.c
+
+BioFreaks [Aaron Giles]
+	missing hd image
+	src/drivers/seattle.c
+
+ジャッキーチェン [David Haywood]
+	グラフィックデコードも動作してないのはプロテクトのせい？
+	一年以上手がつけられていないようです
+	src/drivers/jchan.c
+
+
+
+
+0.77u1(private)
+
+前リリースでのZ80DAAエミュレーションの改善については“Ramsoft”
+( http://www.ramsoft.bbk.org/ )氏のクレジットとします。
+
+
+ソース全般の変更：
+------------------
+
+■CHD新フォーマットと管理ツール追加。[Aaron Giles]
+	hdcompの名称をchdmanに変更
+	古いCHDファイルとの互換性はありません。
+    “chdman -update 古い方.chd 新しい方.chd”で変換する必要があります
+    フォーマットが汎用的になったため、CHDは“Compressed Hard Drive”から
+    “Comressed Hunks of Data”の略にします
+
+■変更をいろいろ。[Nathan Woods]
+	src/drivers/sengokmj.c:
+	src/drivers/stv.c:
+	- マイナーなクリーンアップ(特に変数を定数に変更)
+	src/machine/6522via.c:
+	src/vidhrdw/tms9928a.c:
+	- MESSから修正とアップデートを取り込み
+
+■Hard Drive SHA1の変更にあわせてドライバを更新。[Roman Scherzer]
+	src/drivers/cojag.c
+	src/drivers/djmain.c
+	src/drivers/seattle.c
+
+■tpgolfのサウンド修正。[Leon van Rooij]
+	src/drivers/neogeo.c
+
+■その他いろいろな修正(DIPスイッチ、タイルマップへの変更など)
+  [いろんな方]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+麻雀エンジェルキッス [David Haywood]
+	サウンドなし
+	src/drivers/ms32.c
+
+グランドストライカー2 [David Haywood]
+	ラウンド間にプライオリティ不具合あり
+	src/drivers/metro.c
+	src/vidhrdw/metro.c
+
+Hatch Catch [David Haywood]
+	src/drivers/tumblep.c
+	src/vidhrdw/tumblep.c
+
+Cookie & Bibi 2 [David Haywood]
+	src/drivers/snowbros.c
+	src/vidhrdw/snowbros.c
+
+クイズ ぱにくるふぁんたじ～ [Pierpaolo Prazzoli]
+	サンプルバンキングが不良
+	src/drivers/quizpani.c
+	src/vidhrdw/quizpani.c
+
+ビデオピンボール [Stefan Jokisch]
+	ドライバの書き換えにより動作
+	src/drivers/videopin.c
+	src/vidhrdw/videopin.c
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+BC Story (SemiCom)
+	プロテクト (プログラムの0x200バイト分不明)

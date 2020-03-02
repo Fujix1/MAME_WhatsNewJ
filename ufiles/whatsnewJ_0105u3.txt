@@ -1,0 +1,81 @@
+0.105u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mystston097u3yel [David Haywood]
+decocass0105u2yel [Aaron Giles]
+taitosj0105u2yel [Aaron Giles]
+vicdual0105u2gre [Aaron Giles]
+chqflag0105u2red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- dec0ドライバのDIPスイッチの修正とクリーンアップ。[Roberto Fresca]
+
+- PGMのビデオコードをさらに改良。また、ddp2のブートができるようにサウンドCPUの一時停
+  止ハック追加。[David Haywood] 
+
+- 間違った光線銃ゲームの名称を修正。[Derrick Renaud]
+
+-「Bozne Adventure / 地獄めぐり」の2面と9面を修正。[Bryan McPhail]
+
+- 8530CIAコードをAmigaから単独モジュールへ再構成して、同類機種6526と8530をサポート。
+  [Nathan Woods]
+
+- megasys1のDIPスイッチ修正と改良。diego, ynsun16ドライバ。[Twisty]
+
+-「Lost Castle in Darkmist」のDIP修正、カクテルモードでのP2操作追加。[Sonikos]
+
+-　Windowsのレンダリングコードを大幅修正: [Giuseppe Gorgoglione]
+ * D3Dモードで、blit_vectorsがdirtyピクセルアレイを使うよう修正
+ * dirty pixel同様にblit_vectorの回転問題も修正
+ * -full_screen_brightnessを-full_screen_gammaに変更
+    (説明的にはより正確)
+ * -d3dfileterをbooleanに変更。他のフィルタモードはMAMEにはもう古くて時代遅れなため
+ * ウィンドウの位置を強制的に8ピクセルの境界部分にそろえなくてもいいように変更
+ * 未使用のグローバル変数を大量にクリーンアップ
+ * マルチスクリーンサポートについて、GDIモードだけでなく、フルスクリーンモードでない
+   ときでも動作するように改良
+ * -screenパラメータの説明追加
+
+- MAMEヘッダについて、実際のの定義と比べ、残っていたエラーと不一致部分を削除。重複ま
+  たは単独で使われていない宣言を多く削除。また、#includeを正しいところに移動、または
+  位置が違っていたものは他のファイルに移動。[Atari Ace]
+
+- 未使用のROM領域を大幅に削除。ほとんど（ただし全部じゃない）の空ROM領域警告は処理済
+  み。また、NamcoとCPS2ゲームで、未ダンプのROM/XORを追加。[Aaron Giles]
+
+- Amiga系のクリーンアップ: [Aaron Giles]
+ * デュアルプレイフィールドモード修正
+ * blitterコードを書き直し（ar_bowlなどの不具合修正）
+ * Arcadiaの起動で自動設定ではなくROMタグを使うよう変更
+ * Kickstart 1.2をArcadia BIOSに入れ替え（ar_adwrが修正）
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Puzzle Star [XingXing]
+Marine Date [MAME32Plus]
+Speed Up [Aaron Giles]
+Up Scope [Mariusz Wojcieszek, Tomasz Slanina, Aaron Giles]
+Greyhound Poker (Version 50.02) [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+The Pit (Bootleg) [Brian Troha]
+アミダー (Bootleg) [Brian Troha]
+ムーンクレスタ (bootleg set 3) [Brian Troha]
+ゼクセクス (ver AAA) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+The Gladiator [David Haywood]

@@ -1,0 +1,158 @@
+0.119u3
+-------
+
+OSD移植者向け重要事項: このビルドでは、ワークアイテム管理の拡張機能並びに、新し
+くOSD同期モジュールに新しいプリミティブが一組必要です。詳細は以下を参照して下さ
+い。
+
+
+
+MAMETestersの修正バグ
+---------------------
+cabal0119u2ora [David Haywood]
+
+
+
+ソースの変更点
+--------------
+-「カベール」（ジョイスティック版）が前リリースで間違った提出分を採用したのを修
+  正。[David Haywood]
+
+- dealemの改良（ゲーム画面が見えるようになりました）。[David Haywood]
+
+- 前回のアップデートおかしくなっていたSCSPを修正。[R. Belmont]
+
+- リード・ライトハンドラの引数を"address"から、変更していない"original_address"
+  に変更(渡された引数に手を加えないことで、デバッグ中にオリジナルの値を割り出す
+  のが簡単になります)。[Nathan Woods]
+
+- dyndukeの色修正。[David Haywood]
+
+- 以下のx86命令で、2つのbyteを分けてではなく、word全体をリード・ライトするように
+  変更: [Philip Bennett]
+ - mov_axdisp
+ - mov_dispax
+ - stosw (8086のみ)
+ - rep stosw (8086のみ)
+ また、x86のWAIT命令の処理を改良。
+
+-「リスキーチャレンジ」用に命令コードの修正。[robiza]
+
+- コード内での、インクルードファイルの使用部分をクリーンアップ。 [Atari Ace]
+ - 使われていないプロトタイプを削除
+ - セルフ#includeの追加
+ - mame/includesで欠けているソースコメントを追加
+ - ドライバヘッダファイルから、#include "driver.h"の数行をソースファイルに移動
+   (これが一般的な方法です)
+ - #include "driver.h"で十分なところは、#include "mame.h", "osdcode.h"などをドラ
+   イバから削除
+ - srmp6.hと9900stat.hが使われていないので削除
+
+- 5*XX ROMのローディング追加。これらの吸い出しは完了してますが実装されていません。
+  [David Haywood]
+
+- option.cのエラーメッセージ出力を修正。[Christophe Jaillet]
+
+- gstreamドライバの更新: [Pierpaolo Prazzoli]
+ - デフォルトのnvramハンドラを使うように変更
+ - 入力の検証
+ - スプライトの調整
+ - OKIチップバンキングについてのコメント追加
+
+- Sega Model 2の大規模な書き直し: [Ernesto Corvi]
+ - ハードウェアラスタライザから、ジオメトリエンジンコードを分離。これにより、2B
+   と2Cモデル用のジオメトリDSPエミュレータを追加して、ラスタライ座に直接実装させ
+   ることができるでしょう。オリジナルと2Aのモデルについては、HLEのジオメトリエン
+   ジンがあります（現在は全てのモデルで使っています）
+ - ジオメトリエンジンの完全シミュレーション。スペキュラー、マルチセンター、デュ
+   アルポリゴンRAMを含む。
+ - テクスチャ、透過、チェッカーの全レンダリングモードをサポート
+ - テクセル・ルマモジュレーションの改良
+ - ビューポイントクリッピングの改良
+ - Zクリッピングの改良
+ - 広範囲なノートとドキュメントの追加
+ - ニアZクリッピングの大幅改良。ただしまだ不完全
+ - 大型テクスチャの、パースに対する正確なテクスチャリングを改良
+ - Zソーティングの改良
+
+- できるところで、Machineをmachineに変更。[Atari Ace]
+
+-「雀狂」の復号化追加。[Nicola Salmoria]
+
+- OSDレイヤーが追加の同期プリミティブ、osd_compare_exhange32()と
+  osd_compare_exhange64()を提供する必要があります。これらのプリミティブは、アト
+  ミックの比較、32ビットと64ビット値の交換をそれぞれ実装しなければいけません。こ
+  れらの関数をWindows版のOSDレイヤーに実装しました。[Aaron Giles]
+
+- 新OSDプリミティブでビルドされるインライン関数を2つ定義: 
+  osd_compare_exchange_ptr()は、適切なサイズのポインタに対して、アトミック比較・
+  交換を行います。osd_sync_add()はメモリの位置へ自動で値を追加します。
+  [Aaron Giles]
+
+- WORK_QUEUE_FLAG_MULTIヒントにより生成されるOSDワークキューの処理を変更。このよ
+  うなキューはn-1個のスレッドを生成します。nはシステムの論理プロセッサ数です。
+  これにより、他のスレッドの処理中に、メインスレッドが処理を完了させ続けられます。
+  もし、メインスレッドが続いて、osd_work_queue_wait()を呼び出したときは、動的に
+  他のスレッドへ"ジャンプイン"して、他のスレッドが全てのワークアイテムを完了させ
+  るのに協力します。[Aaron Giles]
+
+- 新しいワークアイテムフラグ、WORK_ITEM_FLAG_SHAREDを追加。
+  WORK_QUEUE_FLAG_MULTIのヒントをつけて作成したワークキューとして、ワークアイテ
+  ムが指定される場合、これは全部のスレッドを一つのワークアイテムを処理するために
+  指定することを意味します。これらの"共有"ワークアイテムは、全部の処理スレッドが
+  戻ったときだけ、完了と見なされます。[Aaron Giles]
+
+- 環境変数、OSDPROCESSORSを使ったマルチスレッド動作の制御を追加。デフォルトの動
+  作をオーバーライドには、OSDレイヤーに対して見せかけたい数の論理プロセッサ数を
+  OSDPROCESSORSに設定します。[Aaron Giles]
+
+- 3dfx Voodooエミュレーションコードを、上記の新スレッドメカニズムを活用するよう
+  に変更。WORK_QUEUE_FLAG_MULTIフラグセットでワークキューを生成、マルチプロセッ
+  サに対してラスタライズワークを展開するため、共有のワークアイテムを使用します。
+  このサポートは実験的なものと位置づけています; 一部の環境ではデッドロックが起こ
+  ります。もし問題が起きたときは、OSDPROCESSORSを1にすれば事実上以前の動作をさせ
+  ることができます。[Aaron Giles]
+
+- 全てのSeattleゲームと「ガントレットダークレガシー」「ガントレットレジェンド」
+  に、"トップ20"の専用ラスタライザを追加。これにより、ラスタライズのパフォーマン
+  スが10-20%向上しています。[Aaron Giles]
+
+- 64ビットMIPSリコンパイラのバグをさらに修正。Seattleゲームと3Dガントレットが動
+  作できるようになってます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+スーパー華パラダイス [Luca Elia]
+花札 華五光 [Luca Elia]
+天将神兵 [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+熱血高校ドッジボール部 (Japan) [David Haywood, Team Japump!]
+龍龍 (Japan) [Luca Elia]
+レジェンド・オブ・ヒーロー トンマ (Japan) [David Haywood]
+レジェンド・オブ・ヒーロー トンマ (海賊版, set 2) [David Haywood]
+IQ-Block (V127M, V113FR) [Pierpaolo Prazzoli]
+カベール (Alpha Trading) [David Haywood]
+パズル＆アクション タントアール (Japan) (海賊版 set 3) [David Haywood]
+忍 (Datsu bootleg) [David Haywood]
+忍 (Star bootleg, System 16A) [David Haywood]
+クラックダウン (World, FD1094 317-0058-04c) [Arzeno Fabrice, Chris Hardy]
+スーパーパン (World 900914, 海賊版) [David Haywood]
+パン (bootleg, set 2) [David Haywood]
+テーカンワールドカップ (set 2, 海賊版?) [David Haywood]
+DJボーイ (set 2) [David Haywood]
+Hunchback (set 2) [David Haywood]
+ダブルドラゴン (海賊版 with M6803) [David Haywood]
+キャノンボール (パックマン基板) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+雀狂 [David Haywood, Nicola Salmoria]
+VS雀士ブランニュースターズ [David Haywood]

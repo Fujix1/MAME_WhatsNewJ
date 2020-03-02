@@ -1,0 +1,70 @@
+0.99u8
+------
+
+
+MAMETestersの修正バグ
+---------------------
+demonwld37b5gre [Pierpaolo Prazzoli]
+batrider099u1gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+* タイルマップパラメータのセーブ/リストア追加。[Aaron Giles]
+
+* ST-Vドライバの改良: [Mariusz Wojcieszek]
+ * dma:  dmaパラメータのチェック追加
+ * stv:  v-blankタイミング変更
+ * vdp1: フレームバッファふたつとフリッピング実装
+ * vdp1: フレームバッファのマニュアル削除と変更追加
+ * vdp1: マニュアルの描画用トリガ追加
+ * vdp1: フレームバッファをメモリにマッピング（16bppのみ）
+ * vdp1: RGBスプライトに影と輝度半分の描画追加
+ * vdp2: ビットマップスクロール修正（batmanfrとbakubakuのイントロ修正）
+ * vdp2: タイルマップとスプライトレイヤーにウィンドウエフェクト初期版追加
+    (batmanfr用)
+ * vdp2: 8bppと15bppビットマップの拡大縮小追加（vmahjongとmyfairldの背景修正）
+
+* toaplan1ゲームのスプライトプライオリティ修正。[Pierpaolo Prazzoli]
+
+*「ジョリージョガー」の背景色修正。[Pierpaolo Prazzoli]
+
+* 入力ポートの条件をより一般的に動作するようにしました。このために入力ポートコー
+  ドを一部再構成する必要がありました。以前と同様に動作するか確認をお願いします。
+  この変更ではさらにアナログポートの保存方法の修正も必要だったので、既存のINPは
+  多分動作しません。[Aaron Giles]
+
+*「タイムクライシス」のクラッシュ対策。[Phil Stroffolino]
+
+*「Top Gunner」の間違いベクターを修正。[Mathis Rosenhauer]
+
+* 新関数memory_configure_bank()とmemory_set_bank()追加。バンクスイッチ用の改良版。
+  現在のメモリバンキングの状態を自動的に保存します。m62.cを使用例としてこの関
+  数を使うようにアップデートしました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+World Trophy Soccer (Arcadia) [Mariusz Wojcieszek]
+ファンキーヘッドボクサーズ [Mariusz Wojcieszek]
+ペブルビーチ ザ・グレートショット [Mariusz Wojcieszek]
+エアレスキュー [Anonymous]
+Cuore Uno (Italia) [Roberto Fresca]
+Elephant Family (Italia) [Roberto Fresca]
+Royal Card (Austria) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+グレート1000マイルラリー (94/06/13) [Corrado Tomaselli]
+フロッガー (Falcon bootleg) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Cookie and Bibi 3 [David Haywood]
+サッカースーパースターズ ver EAA [Corrado Tomaselli]

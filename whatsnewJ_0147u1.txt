@@ -1,0 +1,157 @@
+0.147u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 01064: [実機資料] (astrocde.c) spacezap: オリジナルゲームは白黒モニタにカラーオー
+         バーレイを使用している。(hap)
+- 04717: [ドキュメント] (vicdual.c) nsub: コインエイジのDIPスイッチ設定。(hap)
+- 05015: [グラフィック] (segaxbd.c) Most sets in segaxbd.c: スプライト表示化け、また
+         は表示されない。(hap)
+- 03831: [ゲームプレイ] (vicdual.c) carnivalh, carnivalha: ノーマルセットに比べて動作
+         が速すぎる。(hap)
+- 05022: [色/パレット] (segaybd.c) gloc, strkfgtr, rchase, pdrift: グラフィック不具合
+         あり。(hap)
+- 05017: [サウンド] (poo.c) unclepoo: サウンドが不完全、また間違って再生される。(hap)
+- 03464: [デバッガ] (seattle.c) All sets in seattle.c: voodooリージョンを読み込む時に
+         MAMEがクラッシュする。(Firewave)
+- 05020: [ドキュメント] (royalmah.c) janputer: このセットは「ジャンピューター」ではな
+         く「ニューダブルベットマージャン」。
+- 04719: [ドキュメント] (vicdual.c) invho2: マニュアルのDIPスイッチ設定。
+- 04718: [ドキュメント] (vicdual.c) invds: マニュアルのDIPスイッチ設定。
+- 03751: [クラッシュ/フリーズ] (gunpey.c) gunpey: [デバッグ限定] デバッグビルドでのア
+         サート。(Phil Bennett)
+- 05012: [ドキュメント] 内部MAMEリストの間違い。
+- 05007: [クラッシュ/フリーズ] All sets in midtunit.c, midwunit.c, midxunit.c: グラ
+         フィック不具合や、起動直後にクラッシュしたりする。(Firewave)
+- 05008: [システムコア] CHDMAN: chdmanでV4からV5に更新しようとするとエラーが出る。
+         (smf)
+
+
+ソースの変更点
+--------------
+- メモリハンドラの整理、第1弾。 READ/WRITE_DEVICE*_HANDLERにaddress_spaceを渡すように
+  し、8ビット版ではmem_maskも取るように変更。これにより、メンバ関数のデリゲートとは直
+  に互換性が生まれます。また、特定のアドレス空間が利用不可の場合に使用できるよう、
+  driver_deviceに汎用アドレス空間を追加。さらに、デフォルトのmem_mask引数をもつデバイ
+  スコールバックを宣言する、DECLARE_READ/WRITE_DEVICE*_HANDLERマクロを追加しました。
+  [Aaron Giles]
+
+- メモリハンドラの整理、第2弾。レガシーなリード・ライトハンドラの引数を
+  address_space *からaddress_spaceに変更。また、他の多くの関数についても、適切な参照
+  を取るように更新。[Aaron Giles]
+
+- メモリハンドラのクリーンアップ第3弾。他のものに合わせて8ビットハンドラにmem_mask引
+  数を追加。デフォルトの引数設定を簡単にするため、DECLARE_READ/WRITE_HANDLERマクロを
+  追加。また、mem_maskの有無を問わずにハンドラを呼び出せるようdevcbを更新。
+  [Aaron Giles]
+
+- Seibu COP: 0x0205コマンドに0x1c引数を追加。「雷電II」と「ゼロチーム」のイントロ
+  シーンでのスプライト位置が修正(ただし、「ゼロチーム」ではゲームに入るとおかしくなる
+  ので、検証が必要)。[Angelo Salese, Smitdogg]
+
+- Seibu COP: 0x42c2コマンドをより正確なものに改良。「レジオネア」の敵動作の修正と
+ 「セイブカップサッカー」で試合開始がついに実現。[Angelo Salese, Smitdogg]
+
+- gunpey.c - OKI M6925の周波数を訂正。[Phil Bennett]
+
+- ファイル作成時の"file note writeable"エラーを修正。また、重複していたり冗長なコード
+  を整理。[smf]
+
+- Seibu COP: 0xe38eコマンド追加。「セイブカップサッカー」でボールの追跡に使用。
+  [Angelo Salese]
+
+- NULLを誰もチェックしないので、device_memory_interface::space()で、NULLに対するア
+  サートを追加して参照元を返すように改良。また、システムでの全アドレス空間での参照を
+  プッシュ。これがあいまいな場合の対策としてhas_space()メソッドを追加。[Aaron Giles]
+
+- -verifysoftwareコマンドを追加。[Wilbert Pol]
+
+- CPS-1の表示タイミングをSCREEN_RAW_PARAMSに変更。[Angelo Salese]
+
+- ピンボール用の汎用機械音セットを追加。[Robbbert]
+
+- lib7z: 特定の設定でメモリトラッシュを起こしていたポータビリティ関係の問題を修正。
+  [R. Belmont]
+
+-「メタルスラッグX」のプロテクトデバイスシミュレーションを改良。[IQ_132]
+
+- Epson R4543 RTCを適切なRTCデバイスにすることで、Namco System 12と23での重複したコー
+  ドを削除。[R. Belmont]
+
+- rotation - モーターのシミュレーション追加; nvram追加; メカニカルサウンド追加; ノー
+  ト追加 [Robbbert]
+
+- tms99x8: 他の表示画面にチップが同時に存在できるようRGB32ビットマップを使うように変
+  更。[R. Belmont]
+
+- MT03464を修正: src/emu/video/voodoo.c logerror()で、配列外アクセスが起こる可能性が
+  あったのを修正。[Oliver Steberg]
+
+- m6509: EAゼロページインダイレクト+Y(post indexed)を修正。[Curt Coder]
+
+- DS75160A/DS75161A IEEE-488 GPIBトランシーバを実装。[Curt Coder]
+
+- spectra - サウンド追加で、WORKINGステートに設定。[Robbbert]
+
+-「雷電II」ハードウェアにパレットの明るさを移植。「ゼロチーム」「X Se Dae」で使用。
+  [Angelo Salese]
+
+- mcr68.c: ドライバ内の全セットにDIP配置追加。[Brian Troha]
+
+- aftor - ディスプレイの修正で、WORKINGステートに設定。[Robbbert]
+
+-「上海III」ハードウェアにIRQ ACKを追加。[Angelo Salese]
+
+-「ぶろっけん」で、M68Kの修正とSCREEN_RAW_PARAMSの実装。以前の動作スピードは明らかに
+  間違い。[Angelo Salese, Tafoid]
+
+- mos6526: ほぼサイクル単位で正確だった"旧型"CIAを改良。ほとんどのLorenz/VICE CIAテス
+  トをパス可能。c64/c128/vic10/cbm2ドライバ、1571/1581フロッピードライブで新型CIAを使
+  うように変更。[Curt Coder]
+
+- 6532riot.c: 内部タイマーを常時動作させることでa2600で起きた不具合修正。
+  (Wilbert Pol)
+
+- SCSIプロトコルコードをscsibus_deviceからscsihle_deviceに移動。scsibus_deviceは現在
+  のバス内容を処理して各scsidev_deviceに分配するように変更。[smf]
+
+- suna8.c: サウンドサンプル幅修正で、rrrangerなどのスピーチ改善。[Luca Elia]
+ 
+- starfighをプレイ可能ステートに昇格: [Luca Elia]
+ * データROMのアドレスラインスクランブル処理
+ * ROMバンクのラッチ処理とミラーリング
+ * サウンドのラッチ処理とNMIディスエーブル
+ * プロテクトをさらにパッチ
+ * グラフィックバンキング追加
+
+-「Lord of Gun」のプロテクトをパッチからエミュレートに変更。[iq_132]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Claybuster [Any, hap]
+Gun Champ [hap]
+Star Fighter (v1) [Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+Asterock (Videotron bootleg) [Any]
+ジュラシックパーク (Japan) [ShouTime]
+Dodge City (2131-82, U5-0D)
+  [Brian Troha, The Dumping Union] (動作不可)
+エンフォース (World) [ShouTime, The Dumping Union]
+Sega Bass Fishing Deluxe (Japan)
+  [Tormod, Yohji, Smitdogg, The Dumping Union] (動作不可)
+Cruis'n Exotica (version 1.3)
+  [Brian Troha, Smitdogg, The Dumping Union] (動作不可)
+
+
+追加された未動作ゲーム
+----------------------
+Blankity Bank (PCP) (SYSTEM80) [TTX]
+VLC Nevada [Yves]
+Game Magic [Grull Osgo]
+99 Bottles of Beer [Grull Osgo]

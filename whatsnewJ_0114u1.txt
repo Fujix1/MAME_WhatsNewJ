@@ -1,0 +1,73 @@
+0.114u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+segas32pedal0114gra [Derrick Renaud]
+klaxp1_0114red [Couriersud]
+savestate0114gre [Couriersud]
+exerion0114yel [Aaron Giles]
+arcadecl0114red [Aaron Giles]
+apb0114gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「ボスコニアン」「ゼビウス」で使われている、Namco 50xxマイクロコントローラのエ
+  ミュレーションを追加。[Nicola Salmoria]
+
+- COp420コアについて、XABR命令の修正、LBIスキップを拡張命令に追加、セーブステー
+  トのCPU名を修正。Cidelsa製ゲームにGAME_SUPPROTS_SAVEフラグ追加。ただし、Draco
+  はまだサウンド無し。[Curt Coder]
+
+- playch10をスタンドアローンで動作させたときのクラッシュ修正。[Curt Coder]
+
+- Konami Viperシステムのスケルトンドライバ追加。[Ville Linde]
+
+- Dreamcastがベースのシステム用スケルトンドライバ追加。
+
+- SH4 CPUコアの超初期版追加。[R. Belmont]
+
+- mario、mrdo、sheriff、spacebドライバのDIP配置追加。[Justin Szczap]
+
+- XML出力にデバッグ設定を追加。[Firewave]
+
+-「ハングパイロット」ドライバが動作。アナログ操作はまだ未実装なので、未動作にマー
+  ク。[Ville Linde]
+
+- マルチスレッドレンダリングと、グラフィックビューアのクラッシュ修正。
+  [Couriersud]
+
+- NWK-TRドライバを改良。「スリルドライブ」がほぼ動作。[Ville Linde]
+
+- フレームスキップ動作時に同期のとれないテクスチャを使って画面がおかしくなるのを
+  修正。[Nathan Woods]
+
+- Sega System 16と、「ハングオン」「アウトラン」、X-Boardゲームの表示タイミングを
+  基板の解析に基づいて更新。[Aaron Giles]
+
+- TMS340x0インターフェイスを大幅改良。CPUエミュレータによる表示画面の直接操作が
+  可能になりました。この結果、一部のゲームのバグが修正（「NBAジャム」の画面ちら
+  つきなど）されました。[Aaron Giles]
+
+- TMS32025コアの内部タイマーカウントを修正。「Cool Pool」と「9 Ball Shootout」の
+  BGM修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+コンバットホーク [David Haywood, stephh]
+スーパーリアル花札 恋こいしましょ [Tomasz Slanina]
+花札 花銀河 [Luca Elia]
+麻雀 東洋の神秘 [Luca Elia]
+麻雀 宇宙の神秘 [Luca Elia]
+麻将 敦煌 [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+麻雀 世界の神秘 (set 2) [Luca Elia]

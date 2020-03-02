@@ -1,0 +1,296 @@
+0.147u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05046: [クラッシュ/フリーズ] (megatech.c) megatech, all sms-based sets: 
+         [デバッグ限定] OK画面の直後にクラッシュする。(sronco)
+- 05042: [ドキュメント] (ataxx.c) ataxxj: 日本版とアジア版のライセンス先はカプコン。
+- 04948: [ゲームプレイ] (pgm.c) kov and clones: 6面でリセットがかかり、タイトルに戻る。
+- 00007: [DIP/入力] (8080bw.c) invrvnge: カクテルモードのDIPスイッチが動作しない。
+         (hap)
+- 05036: [ゲームプレイ] (ninjakd2.c) omegafs: 起動時に初期化に失敗してリセットがかか
+         る。(hap)
+- 05028: [ゲームプレイ] (system1.c) shtngmste: 銃の照準と当たる場所がずれている。
+         (hap)
+
+
+
+ソースの変更点
+--------------
+- デバイスコールバックのリード・ライトに対するログオンを行うDEVCB_UNMAPPEDをサポート。
+  これにより、ダミーのログラインハンドラ生成が不要。[Miodrag Milanovic]
+
+- 複数行のコメントの開始部がインデントされていれば、続くコメント行はタブによりインデ
+  ント。[smf]
+
+- naomi.c、chihiro.c、mame.lstの情報を最新のものに更新。[f205v]
+
+- Webak MPU-12プラットフォーム用ドライバを準備。[Roberto Fresca]
+
+- jedutilのコードをGAL16V8デバイスの表示が出来るように更新し、読みやすい論理式で全て
+  のデバイスをリスト出力するコマンドライン"-viewlist"を追加。また、追加引数"debug"で、
+  詳細ログを出力するようjedutilの不具合発生テストを更新。さらに、jedutilの不具合発生
+  テストデータをデバイス名をつけた別ディレクトリに移動。[Kevin Eshbach]
+
+-「Caveman Ninja / 戦え原始人 ジョー＆マック」のプロテクトルーチンをエミュレートし、
+  プロテクトハック用のパッチを削除。[IQ_132 & JackC]
+
+- jedutilへの入力用にBarkeley PLAファイルを試験的に使用。[Curt Coder]
+
+- memory: ダイナミックな再帰的デバイスマッピングの修正: [O. Galibert]
+  状況:
+   * メモリマップを持ったデバイス(pc-fdc)を使う
+   * install_deviceでcpu(maincpu)アドレス空間にこれをダイナミックにマッピングする
+   * pc-fdcがサブデバイス(upd765)を持つ
+   * サブデバイスupd765が独自のメモリマップを持つ
+   * pc-fdcがAM_DEVICE("upd765", ...)によりupd765メモリマップを含む
+    
+    この修正以前は、コードはupd765をpc-fdcではなくmaincpuのサブデバイスとしてサーチし
+    ていた
+
+-　am9517a: ベリファイ時の大きな不具合を修正。[O. Galibert]
+
+-「3X3 Puzzle」の更新: [David Haywood]
+  * 表示領域の修正
+  * 2つめのボタン追加
+  * デモサウンドのDIPスイッチ追加
+
+-「3X3 Puzzle」のサウンドバンキングを修正。[Mariusz Wojcieszek]
+
+-「3X3 Puzzle」にスクロール追加。[Mariusz Wojcieszek]
+
+- SCSI: シグナル操作に電圧レベルの代わりに論理レベルを使用。データは送っていないとき
+  はデータに0を書き出す必要があります。6522からのFFを停止する対策をしてバスが読み込ま
+  れるのを防止。これが実際の動作なのかどうかは不明。[smf]
+
+- i386dasm.c: [Peter Ferrie]
+  * 新型CPU用のオペコードを大量に追加;
+  * ドキュメント化されてないけどサポートされている旧型CPUのオペコード追加;
+  * 2つのオペコードの名前を修正
+
+- ポート0x64オペーコード0xd1のデリバリング時にディレイを受けないようの変更。これによ
+  り、su2000で起動時にCMOS設定画面に進むことが可能。[Peter Ferrie]
+
+-「3X3 Puzzle」の入力改善。[Stephh]
+
+- ニューサウスウェールズ地域用のAristocrat MK6ベースシステムのBIOS追加。
+  [Heihachi_73]
+
+- hercules: メカニカルサウンドを実装。[Robbbert]
+
+- memory: ルートデバイスではなく、CPUオーナーからのマッピング。[O. Galibert]
+
+- clifront.c: 分割したソフトウェアリストのチェック用にverifysoftlistコマンド追加。
+  [Wilbert Pol]
+
+- 全デリゲート型用の基底クラスdeligate_common_baseを作成。また、型が合わずにバインド
+  が失敗したときに発生するbinding_type_exceptionを追加。[Aaron Giles]
+ 
+  driver_deviceにレガシーデバイスのリード・ライトハンドラをdriver_deviceのメンバ関数
+  としてラップするヘルパテンプレートを追加。これにより、共通コードがきちんとしたデバ
+  イスにさらにコンバートされるまでの後押しになるはずです。
+ 
+  新モジュールdevcb2を追加。これはモダン版devcbです。以前の物に比べ全体的にシンプルに
+  なっており、単一の内部アダプタ関数セットをトランポリンコールします。この新バージョ
+  ンはさらに構造体内ではなく、machine_configで指定するようにデザインされているので、
+  シンプルなPOD型ではなくなりました。新規・変更点は以下の通り:
+ 
+  * リードとライトにより、ラインや8/16/32/64-bit用のデリゲートをマッピング可能
+  * リードとライトにより、I/Oポートにマッピング可能
+  * リードをロギングなしに一定値にマッピングできる
+  * ライトをデバイスの入力ラインにマッピングできる
+  * 全てのリード・ライトに、シフト、マスク、and/or、xorを適用できる
+  * デバイスが無効化されるときに関数をsafe-if-NULLできる
+  * メンバ関数型のみをサポート
+ 
+  YM2151のインタフェースを完全にモダン化し、新型devcb2メカニズムを使用したインライン
+  設定化することでym2151_interfaceを削除しました。多くのケースで、入力ラインの書き込
+  みを直接サポートし、トランポリン処理は不要としました。
+
+- SCSICBをDEVCB2を使うように切り替え。[smf]
+
+- PLAの実装部を最適化し、パフォーマンスを大幅改善するシンプルなキャッシュを追加。
+  [Curt Coder]
+
+- tlcs900.c: 4バイトプリフェッチキューを実装。[Wilbert Pol]
+
+- t6w28.c: C++にコンバート。[Wilbert Pol]
+
+- suna8.cの更新: [Luca Elia]
+ * sparkmanのプロテクトをエミュレート
+ * スプライトチップ2つをサポート
+ * サンプルROM2つをサポート
+ * hardhea2のカラーサイクリングを修正
+ * ゲーム毎のタイルバンキング
+
+- Atmel AVRコアにオペコード追加: OR, SBCI, ORI, ST Y+, ADIW [Mooglyguy]
+
+- Atmel AVRのオペーコードの動作を修正: COM, NEG, LSR [Mooglyguy]
+
+- polepos.c、portrait.c、tomcat.cで新しいtms5220の実装を使用。[Osso]
+
+- addrmap: 8ビット上での8ビットマップをサポート。[O. Galibert]
+
+- addrmap: address_mapとdevice_memory_interfaceクラスのメソッドが衝突しないよう修正。
+  [O. Galibert]
+
+- i386: 486+ WPビットをサポート。[Carl]
+
+- Williams system3:「Contact」「Disco Fever」を動作可能ステートに設定。[Robbbert]
+
+- Hot Tip, Lucky Seven: チャイムを追加。動作可能ステートに設定。[Robbbert]
+
+-「フェニックス」「Pokerino」をs3.cに移動し、動作可能ステートに設定。[Robbbert]
+
+- REP NOPでクラッシュしないよう修正。[Carl, Alegend45]
+
+- suna16.c: uballoonで、パッチを外しプロテクトをエミュレート。[IQ_132 & JackC]
+
+- pgm.c: kovの6面でクラッシュするのを修正。[IQ_132]
+
+- megadrvb.c: srmdbのデコード関数を簡略化。[IQ_132]
+
+-「マスタッシュボーイ」のvblank割り込みを整理: 同時期のSeibu製ゲーム(panicrd、
+  darkmist)が使用している'vblank in+vblank out' intスキームを使用し、long-intによる
+  ハックを削除。実機ではおそらくこの方法で動作していると思われ、動作も良好。
+  [Lord Nightmare]
+
+- 2ディスクハックでドライブ1台を使うように変更。[smf]
+
+- SCSICDをCDDAのサブデバイス化。[smf]
+
+- avr8: 以下のオペーコード実装: [MooglyGuy]
+  MULS, ANDI, STD Z+, LD -Z, LD Y+, LD -Y, LD -X, SWAP, ASR, ROR, SBIS
+
+- avr8: Timer 0-2をCPUコア自体に移動。30xドライバの速度改善。[MooglyGuy]
+
+- sf2rb、sf2rb2(cps1.c)、ichirjbl(segac2.c)のプロテクトをエミュレートし、パッチを削除。
+  [IQ_132]
+
+- DEVCB2を使用するPSX IRQを実装。[smf]
+
+- avr8.c: オペーコードLD Rd,Z+qを追加。[MooglyGuy]
+
+- avr8.c: LDとSTオペコード用のサイクルカウントを修正。[MooglyGuy]
+
+- avr8.c: タイムスライス内で2サイクルと3サイクルオペコードにより、次の1サイクルオペー
+  コードのときにタイムスライスの残りの2、3サイクルが差し引かれてしまうバグを修正。
+  [MooglyGuy]
+
+- DEVCB2へのIRQが変わるようにIDEコントローラを整理。[smf]
+
+- avr8.c: MULSU命令コードのレジスタインデックス付けを修正。[MooglyGuy]
+
+- avr8.c: LD -ZとLD -Yオペコードのレジスタ書き戻しを修正。[MooglyGuy]
+
+- Bingo Mania: 基板レイアウトと詳細記述を追加。[Roberto Fresca, Team Europe]
+
+- YM2612: LFO AMウェーブフォームを修正。[Eke-Eke, R. Belmont]
+
+- Fun Worldドライバの改良: [Roberto Fresca]
+ *「Bonus Card (Austrian)」追加
+ * 基板レイアウト追加
+ *「Bid Deal」セットと「Jolly Card Hybrid」を「Bonus Card」のクローンセットに設定
+ * コードを整理
+ * 製造元名をFunworldからFun Worldに変更
+ * 実機動作を元に「Mega Card」を「Power Card」に変更
+ *「Power Card」のグラフィックROMローディングを修正
+ * テクニカルノートを追加
+
+- romload: zip内のどのROMが不足しているかを出力するよう改良。[O. Galibert]
+
+- jolycdatプログラムを「Bonus Card」に移動し親セットに設定。このプログラムは本物のオ
+  リジナル版「Bonus Card」のもので、基板には間違って「Jolly Card」用のグラフィックが
+  組み合わされていた。その他の「Bonus Card」セットはフェイクのコピーライト文字列がつ
+  いているのでクローンセットに設定。また、テクニカルノートも追加。[Roberto Fresca]
+
+- Fun Worldドライバをさらに改良: [Roberto Fresca]
+ * 内部レイアウトアートワークを改名: bigdeal → bonuscrd.
+ *「Bonus Card」「Big Deal」のデフォルトDIPスイッチ位置を追加。これによりエラー無しで
+   起動可能
+
+-「Pennant Fever」をWORKINGステートに昇格。[Robbbert].
+
+- lethalj.c:「Egg Venture」セットのDIP配置追加。[Brian Troha]
+
+- Maygay M1エミュレーションを改良し、ほとんどのゲームで最低限何らかの表示が可能。
+  [David Haywood/James Wallace]
+
+- tdragonbのハックパッチを削除し、プロテクトをエミュレート。[IQ_132]
+
+- CometをWORKINGステートに昇格。[Robbbert].
+
+-「Magic Card II」の改良: [Roberto Fresca]
+ -「Magic Card 2 (Nov/New)」のユーゴスラビア版追加
+ - 正常起動に必要なデフォルトNVRAM追加
+ -「Magic Card 2」セットの全体の再構成。セット説明の改良
+ - テクニカルノートを追加
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Each Way Shifter (Barcrest?) [Launton/MPU Mecca]
+Lucky Twos [launton/MPU Mecca]
+Scoop (Peter Simper, プロトタイプ?) (MPU3) [Superbank/MPU Mecca]
+More Money (VFS) (MPU3) [Fruitsim/MPU Mecca]
+Talk of the Town (MPU3) [Fruitsim/MPU Mecca]
+3X3 Puzzle [Mariusz Wojcieszek, David Haywood, Guru]
+3 on 3 ダンクマッドネス (US, プロトタイプ? 1997/02/04) 
+  [David Haywood, ShouTime, Smitdogg, The Dumping Union]
+Spark Man (v2.0, 2 sets) [Luca Elia, Stefan Lindberg]
+ファイティングファンタジー (海賊版 with 68705)  [IQ_132]
+Bonus Card (Austrian) [Roberto Fresca, Team Europe]
+
+
+新しく追加されたクローンセット
+------------------------------
+Each Way Nudger (Barcrest?, set 3, version 20?) [Launton/MPU Mecca]
+Knights of Valour Super Heroes / 三国戦紀 -スーパーヒーローズ- (ver. 102, CN) 
+  [Joerg Hartenberger, JackC]
+Knights of Valour Super Heroes / 三国戦紀 -スーパーヒーローズ- (ver. 101, CN) 
+  [Joerg Hartenberger, JackC]
+Invader's Revenge (3 sets) [Andrew Welburn]
+Megatouch 5 Tournament Edition (9255-70-01 ROC, Standard version)
+  [Brian Troha, The Dumping Union]
+フェニックス (Irecsa / G.G.I Corp, set 3)  [Any]
+Rallys (スペクターの別な海賊版) [Any]
+The Billiards (ビデオハスラー海賊版) - Set 2  [Any] - not working
+パワーホイールズ / Double Axle (US) [ShouTime, The Dumping Union]
+Angler Dangler [Tornadoboy]
+ぱづり2 (ver 100) [Tormod, Smitdogg, The Dumping Union] (NOT WORKING)
+4-in-1 MAME 海賊版 (set 1, ver 3.00) [David Haywood]
+4-in-1 MAME 海賊版 (set 2) [David Haywood]
+19-in-1 MAME 海賊版 [David Haywood]
+48-in-1 MAME 海賊版 (set 2, ver 3.09, alt flash) [David Haywood]
+60-in-1 MAME 海賊版 (ver 3.00) [David Haywood, Andreas Naive]
+ザインドスリーナ (World) [Corrado Tomaselli]
+WECル・マン24 (set 2) [Corrado Tomaselli]
+ラッシュ＆クラッシュ / The Speed Rumbler (set 3) [Corrado Tomaselli]
+ラピッドリバー (プロトタイプ) [Italian dumping team]
+ハングパイロット (ver UAA) (not working) [ShouTime]
+セイブカップサッカー (set 3) (not working)
+Egg Venture (Release 2) [Brian Troha, The Dumping Union]
+The King of Fighters '97 Oroshi Plus 2003 (海賊版) 
+  [The Dumping Union, Smitdogg, IQ_132]
+Magic Card II (Nov, Yugoslavian hack) [Roberto Fresca]
+
+
+追加された未動作ゲーム
+----------------------
+3 On 3 Dunk Madness (US, プロトタイプ?) [ShouTime, Smitdogg, The Dumping Union]
+Secret Service (2.6 alternate sound) [PinMAME]
+Odin [PinMAME]
+Gamatron (Sonic) [PinMAME]
+Star Wars (Sonic, alternate set) [PinMAME]
+Nemesis [PinMAME]
+Verne's World [PinMAME]
+Still Crazy [Robbbert]
+Fruit Star Bonus (Ver 8.20PIR) [Roberto Fresca, Team Europe]
+Double Crown [Kevin Eschbach]
+Cops [Mariusz Wojcieszek]
+Bingo Mania (P03-P07-P14) [Team Europe, Angelo Salese, Roberto Fresca]
+Bingo Mania (A03) [Team Europe, Angelo Salese, Roberto Fresca]
+Power Card (Ver 0263, encrypted) [Roberto Fresca, Team Europe]

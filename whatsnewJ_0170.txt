@@ -1,0 +1,274 @@
+0.170
+-
+
+MAMETestersの修正バグ
+---------------------
+- 06097: [クラッシュ/フリーズ] (viper.c) Most sets in viper.c: 32ビットのみ起動後にクラッシュする。(Robbbert)
+- 06127: [DIP/入力] (m92.c) thndblst: "Continuous Play"DIPスイッチの設定が逆。
+- 06046: [速度] Several drivers using mc6845.c: 動作速度制限をすると90～98%で動作する。(crazyc)
+- 06104: [ゲームプレイ] (x1.c) x1 [druaga]: ロード画面で止まる。(crazyc)
+- 06126: [クラッシュ/フリーズ] (suna8.c) hardhea2b: 起動時に例外。(Osso)
+- 04900: [画面反転/カクテルモード] (battlex.c) battlex: 画面反転するとタイルとテキストが表示されない。(Osso)
+- 06124: [クラッシュ/フリーズ] (phc25.c) phc25, spc1000, fc100: クラッシュする。(Osso)
+- 06122: [クラッシュ/フリーズ] (x68k.c) x68000 [ffight]: stack crawlが出てクラッシュする。(crazyc)
+- 06117: [マルチセッション] (bfm_sc2.c) qntoond, quintoon: ゲームを切り替えるとMAMEがクラッシュする。(Osso)
+- 02640: [ゲームプレイ] (megasys1.c) kazan, iganinju: グラフィックレンダリングが遅い、グラフィックが表示されないなどの問題がある。(Angelo Salese)
+- 06114: [DIP/入力] (cps1.c) sf2m10: キックが動作しない。(Osso)
+- 06090: [クラッシュ/フリーズ] (namcos10.c) mrdrilr2, mrdrlr2a: 初期化中にクラッシュする。(Osso)
+
+
+
+ソースの変更点
+--------------
+- SSi S14001Aスピーチチップエミュレーションのより正確なものを追加。1974年5月にSSiに在
+  籍して、オリジナルのS14001Aのシリコンを設計した人による制作。[Ed Bernard]
+
+- nokia_3310.cpp: 手に入る情報をもとにドライバ実装開始。いろいろなモデルの吸い出しも
+  追加。[Sandro Ronco]
+
+-「エレベーターアクション」の基板写真を元に、ROM名やラベルの修正。
+  [Lord Nightmare, brizzo]
+
+- tispeak.cpp: 1979年版「US Speak & Spell」の正しいバージョンの吸い出しと追加。
+  [Sean Riddle]
+
+- vicdual: carnivalのBGM基板エミュレーションを書き直し。audio/pulsar.cppからサンプル
+  処理をコピペ。サンプル名と関数名は同じままキープ。[hap]
+
+- XAudio2サポート。[Brad Hughes]
+
+- this == nullptrチェックの削除でクラッシュの修正。[MooglyGuy, Tafoid]
+ 
+- psychic5.cpp: SCREEN_RAW_PARAMS追加。[Angelo Salese]
+
+- 設定の修正: [AJR]
+ * terrafb: 未使用のNB1414M4を削除
+ * segas16b.cpp: 最後のconfixでサニティチェック漏れ
+ * sega16sp.cpp: リージョン幅修正
+
+- psychic5.cpp:「Bombs Away」のスプライトディセーブル修正。[Angelo Salese]
+ 
+- パレットデバイスをポインタ渡しから参照渡しに変更: [AJR]
+ * screen_device::has_palette()を追加
+ * メンバのアクセスにdevice_gfx_interface::gfx()とpalette()が必要
+ * atari_vad_deviceのゲッターはポインタではなく参照でデバイスを返す
+
+- ドライバコンフィグの修正: [AJR]
+ - オブジェクトファインダのfound()メソッドを実装
+ - a1200, cubo, midzeus2, etc.: ニセのパレットタグを削除
+ - bagman, sbagman & clones: PROMリージョン長を訂正
+ - atomicp, snapper: ROMがない未使用？なスプライトデバイス削除
+
+- taitotz: HLEレンダリングを本物のチップエミュレーションに置き換え。[Ville Linde]
+
+- NAOMI/Chihiroのドキュメント更新: [f205v]
+ - Atomiswave残りのレジスタをドキュメント化 [brizzo, MetalliC]
+ -「WORLD CLUB Champion Football」のカメラセンサーボード吸い出し [ANY]
+
+- tourvis.cpp: V4.0 BIOSを追加。[system11]
+
+- OS/2用パッチ。[KO Myung-Hun]
+
+- アルカノイド: 光学ホイ—ルのスロット数のノート追加。[brizzo]
+
+- Arkanoid.cpp: YM2149エミュレーションで実基板と同じチャンネルのミキシング処理。レジ
+  スタのミキシングをせず、直接結合している。これにより音割れが起こるが、実際の基板に
+  より忠実になった。[Lord Nightmare]
+ 
+- 40love.cpp: グローバルカラーセレクトバンク追加。「40-0 ＜フォーティラブ＞」の後半レ
+  ベルの色が修正。[Angelo Salese]
+
+- spc1000: カセットテープモーターが正しく動作するよう修正。[Miso Kim]
+
+- arkanoid.cpp: 68705タイマーとタイマー割り込みエミュレーション追加。
+  MCUポートC DDR処理バグ修正、ラッチとエッジの検出、Z80からMCUへの欠けていた割り込み
+  追加、これらの修正で不要になったブーストインタリーブハックの削除。
+ 「アルカノイド」(older)セットで、これまで海賊版のMCUをコードを使っていた箇所で、オリ
+  ジナルのTaito A75 06 MCUコードを使用。
+  3本の新しいセットとトーナメント版1セットでは、オリジナルのMCUチップが吸い出されるか
+  デキャップされるまでは手作業でハックされた海賊版MCUコードをまだ使っている。
+  これまで吸い出された9つのMCUコードROMは、対応するドライバに実装すれば正しく動作する。
+  動作可能になった"プロテクトを外したTaito版"MCU吸い出しをarkanoidjblとして実装。
+  オリジナルのUS旧型基板から吸い出した、型の異なるグラフィックROMを追加。
+  [Lord Nightmare, Brizzo]
+
+-「Fast Invaders」の改良。[ANY]
+
+- std::stringオブジェクトを参照ではなく値で返すよう変更: [AJR]
+  - strprintfは変わらないが、strformatは引数を一個削除
+  - state_string_expor still fills a buffer, but has been made const
+  - get_default_card_softwareの引数をなくしたが文字列を返す
+
+- TRS-01の'early radar scope' 5-PCBセットにコメント追加。Superullyからの基板写真をも
+  とにROM名の修正。[Lord Nightmare]
+
+- segas18.cpp:「レーザーゴースト」テスト基板のドキュメント追加。[Arzeno Fabrice]
+
+- meadwttl.cpp:「Bombs Away」(Meadows)のROMラベル更新。[Stiletto, Andrew Welburn]
+
+- 共通OSDパス環境var拡張。[Jeffrey Clark]
+
+- luaコンソールサポート。[Jeffrey Clark]
+
+- pc9801_86: PCM追加。[Carl]
+
+- calspeedaセットでHDDとゲームにリビジョンをアップデートできるオフィシャルのアップデ
+  ートROM追加。[mrsinister]
+
+- ts803: テキストとグラフィックの表示、ディスクから起動可能。[Gabriele D'Antona]
+
+- dccons.c:
+  Dreamcast v1.022 "no MIL-CD" BIOSを吸い出し。[Leonard Oliveira]
+  Katana Set5 Dev.Box BIOS v1.001発見。[MetalliC]
+  BIOSとFlashを整理し、古いコメント削除。[MetalliC]
+
+- apple2e: $c800調停修正。IDEとSCSIカード修正。[R. Belmont]
+
+- R9751: クリーンアップ、タイマーレジスタ追加、他のシステムディスクセットをソフトウェ
+  アリストに追加。[Brandon Munger]
+
+- makedep.py: python3互換化完了。[O. Galibert]
+
+- sfkick.cpp: 不明DIPの解析とDIP配置追加。[Brian Troha]
+
+- ビルドシステムでコンパイル済ヘッダをサポート。[Miodrag Milanovic]
+ 
+- hp9845bドライバを改良。[F.Ulivi]
+
+- debugcon.hのデバッグコンソール用最大パラメータを増加。[ConHuevosGuey]
+
+- m68k: 020+ bfins命令の結果とフラグを修正。[Till Harbaum]
+
+- fidelz80: CC10B PRG ROMを吸い直し。[Berger]
+
+- rf5c400: 外部メモリの読み書き機能追加。[Ville Linde]
+
+- marywu: PCBトラックの解析により、ハードウェアの大半をマッピング。[Felipe Sanches]
+ 	* 全30個のLEDと13個のダブルデジタル7セグモジュールによるビデオレイアウト追加
+  * メモリマップ改良とAY8910-3チップ2つ、2KBのスタティックRAM、キーボード・ディスプレ
+    イコントローラ(i8279クローン)の実装
+	* 7セグディスプレイのシグナルを多重化
+	* LEDはAY8910-3のIOポートで制御
+	* DIPスイッチ8-bitセット、2x16キーボード、プッシュボタン4つをi8279のスキャンライン
+    とリターンラインにマッピング
+
+- バリディティチェックの改良: [AJR]
+	* -validateコマンドの文字列オプションで、対象ドライバを指定可能。デバッグで便利。デ
+    フォルトは今まで通り全ドライバのバリデート
+	* デバイスのオートファインダをバリデート中はデバイス名がトラックされる
+
+- sound_stream::input_nameがstd::stringを返すように変更。[AJR]
+
+- SteamLinkの初歩的なサポート。[Sam Lantiga, Miodrag Milanovic]
+
+- NTSCパスとスライダのリファクタリング: [ImJezze]
+	* YIQエンコードとデコードぱすを一つのNTSCパスに統合
+	* 半テクセルオフセットを修正
+	* A値の利用を再追加
+	* P値の利用を再追加
+	* B値のジッタを再追加
+	* デフォルト0値を0に変更
+	* サンプルカウントを64に縮小
+	* YIQ設定定義の重複を削除
+	* NTSC設定のほとんどのスライダを追加
+	* B値ジッタを0から1の最小・最大レンジに割り当て
+	* AとB値の最小と最大を-1から1に割り当て
+ カラーコンバージェンスパスをリファクタリング
+	* カラーコンバージェンスを比率から独立
+	* カラーコンバージェンスを最大10に制限
+	* 放射状のカラーコンバージェンスが、線形カラーコンバージェンスと同量でトランスレー
+    トされるように外側のピクセルを"トランスレート"するよう変更
+	* ベクターレンダリングにカラーコンバージェンスパスを追加
+ その他
+	* プレスケールパスでの半テクセルオフセットを修正
+	* スキャンラインのジッタの最小と最大レンジを0から1に割り当て
+	* カラーコンボリューション、デフォーカス、フォスファパスは、影響するパラメータが0の
+    とき全てスキップ
+	* MooglyGuyの作ったMAMEのシェーダパイプラインの移植版GLSLを元に、ハムバーシミュレー
+    ションを追加
+	* monochrome-chessboard.pngを追加
+	* slot-mask-aligned.pngを追加(TFT LCDのシミュレート用)
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+Wing Force (Japan, prototype) [ShouTime]
+Snow Board Championship [Charles MacDonald, David Haywood]
+わくわくマリン [Ryan Holtz, Smitdogg, Shoutime, The Dumping Union]
+Il Galeone [f205v]
+Last Four (09:12 16/01/2001) [f205v]
+Samsung SPC-1500 [Miso Kim]
+TI-1250 [hap, Sean Riddle]
+Speak & Spell Compact (3 versions) [hap, Sean Riddle, Lord Nightmare, Kevin Horton, plgDavid(David Viens)]
+Ordisavant (France) [TeamEurope, dlfrsilver]
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+ガンディーラー (bootleg) [Yrouel]
+Rambo 3 (怒の海賊版, Joystick hack) [Any]
+レーザーゴースト (Japan) (FD1094 317-0164) [Charles MacDonald, ShouTime]
+ストライダー飛竜 (USA, B-Board 90629B-3, Street Fighter II conversion) [system11]
+ノバ2001 (Japan, hack?) [system11]
+スタジアムヒーロー'96 (USA, EAH) [Kevin Eshbach, The Dumping Union]
+Multi Game '96 (Italy) [system11]
+シークレットエージェント / Sly Spy (US revision 4) [system11]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Sequential Circuits Prophet-600 [R. Belmont]
+Didact mp68a [Joakim Larsson]
+Didact md6802 [Joakim Larsson]
+Esselte 100 [Joakim Larsson]
+<unknown> Labeled 'WU- MARY-1A [Felipe Sanches]
+Tourvision (PCE海賊版)のソフトいろいろ [system11, The Dumping Union]
+ 1943改, アフターバーナー, アームドF, バリスティックス, ビーボール, 
+ 超絶倫人ベラボーマン, 中華大仙,  コリューン, 大旋風, デッド—ムーン -月世界の悪夢-, 
+ デビルクラッシュ, ドッジボール, ドラゴンスピリット, ファイナルブラスター, 
+ ファイナルマッチテニス, ガンヘッド, はなたーかだか!?, 神武伝承, 奇々怪界,
+ レジェンドオブヒーロートンマ, ミズバク大冒険＜アドベンチャー＞, ミスターヘリ,
+ 忍者龍剣伝, オペレーションウルフ, オーバーライド, パックランド, PC原人,
+ パワードリフト, プロ野球ワールドスタジアム'91, サイコチェイサー, パズルボーイ, 雷電,
+ R-タイプII, 最後の忍道, 沙羅曼蛇, 忍, サイドアームズ, スクウィーク, ソンソンII, 達人,
+ テラクレスタII, トイショップボーイズ, ヴェイグス, ウィニングショット, ダブルリング, 
+ ゼビウス, ドラえもん迷宮大作戦
+
+Unknown Tab Austria Poker [ANY]
+Roland TR-606 [hap, Kevin Horton]
+ぴょんぴょんジャンプ [Ryan Holtz, Smitdogg, Shoutime, Roberto Fresca, The Dumping Union]
+Fidelity Voice Excellence [plgDavid, hap]
+Fidelity Sensory Chess Challenger 12-B [Berger]
+Dragon Treasure 3 (Rev A) (GDS-0041A) [Jorge Valero, rtw, The Dumping Union]
+
+
+新規追加された未動作クローン
+----------------------------
+Fidelity Voice Chess Challenger (Spanish) [Berger]
+Fidelity Voice Chess Challenger (German, French) [plgDavid, hap]
+Sega Bass Fishing Challenge Version A [gamerfan, brizzo, MetalliC, Smitdogg, The Dumping Union]
+Raizin Ping Pong (V2.01J) [Shoutime]
+パワーショベルに乗ろう!! (v2.07J, alt) [Shoutime]
+デザートパトロール (set 2) (Project Support Engineering (Telegames license)) [blinddog1, Paul Swan, gregf]
+Maniac Square (protected) [Charles MacDonald]
+Pacman Club (set 1, Argentina) [Roberto Fresca]
+Pacman Club (set 2, Argentina) [Roberto Fresca]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+tutor.xml: Tron (Jpn) [TeamEurope, Steve]
+snotec.xml: 新規吸い出し4本 [TeamEurope]
+PreComputer 1000に新規吸い出しカセット10本 [TeamEurope]
+Ordisavant (France)に新規吸い出しカセット2本 [TeamEurope, dlfrsilver]
+c64_flop.xml: Little Knight Arthur追加 [Pasi Hytönen]
+c64_cart.xml: KoalaPainter追加 [Curt Coder]
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+casloopy.xml: ルーピータウンのおへやがほしい! [TeamEurope, Steve]
+casloopy.xml: ルピトンのワンダーパレット [TeamEurope, Steve]
+database.xml: Leapfrog [TeamEurope & Steve]
+

@@ -1,0 +1,83 @@
+0.100u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+pepper20100u1red [Aaron Giles]
+exidy440c0100u1red [Aaron Giles]
+ldrun0100u1gre [Pierpaolo Prazzoli]
+orld105k079yel [Mamesick]
+fromanc4099u2gre [Mamesick]
+
+
+
+ソースの変更点
+--------------
+* ポーズ中にVIDEO_EOFルーチンが起こるバグを修正。これにより一部のゲームでグラ
+  フィックがおかしくなったり、タイマー不足が起きてました。[Aaron Giles]
+
+* redhawkbのDIPスイッチ改良。[Roberto Fresca]
+
+* Sega C2ドライバをいくつかに分解。[David Haywood]
+
+* m72の表示更新にパーシャルアップデートを使うように変更。[Aaron Giles]
+
+*「プロップサイクル」の入力用ハックを正しいアナログ操作に置き換え。
+  propcycl.nvファイルを削除してキャリブレート（「サイバーサイクルズ」と
+  「ファイナルラップR」と同じ手順）してください。[R. Belmont]
+
+* オプションファイルをチェックするときのメッセージを修正。[smf]
+
+* elecyoyoドライバのアトラクトモードでのハングを避けるためにインターリーブの改良。
+  [MASH]
+
+* solarqのオーバーレイを反転。[MASH]
+
+* Sega C2ドライバのアップデート: [Aaron Giles]
+ *「ツインスカッシュ」動作
+ * 8ラインスクロールとのコラムスクロールを修正
+ * 入力ポートクリーンアップ
+ *「Ribbit」のプロテクト実装部をクリーンアップ
+ *「プリクラ」のプロテクト修正
+ * cgfmのドキュメントに基づいてメモリマップの書き入れ
+ *「プリント倶楽部 v2, 4, 5」のプロテクトを実装
+
+* System FLにラスタ分割割り込み実装。「ファイナルラップR」完全動作。[El Semi]
+
+* funworldドライバのドライバフラグとセットの親子関係をクリーンアップ
+  [Roberto Fresca]
+
+* NSSのアップデートを少し: [R. Belmont]
+ * SPC700の命令2つの逆アセンブリを修正
+ * APUポートクリアフラグが出力ポートも削除しないように修正。
+   一部のゲームは“APUスキッパー”なしで動作するようになってます
+ * SPC700 CMP命令フラグ修正
+
+* デバッガの見えない部分の変更: [Olivier Galibert]
+ * ods-private void *を debug_viewsに追加
+ * ビューサイズを以前よりダイナミックに
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Lup Lup Puzzle [Pierpaolo Prazzoli]
+ツインスカッシュ [Aaron Giles]
+Cool Minigame Collection [Pierpaolo Prazzoli]
+ゴールデンアックス・ザ・デュエル [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+Moon Light [Roberto Fresca]
+Final Crash (World, bootleg) [David Haywood]
+Golden Tee Supreme Edition Tournament (v5.10) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+NBAプレイバイプレイ [Ville Linde]
+トップシューター [David Haywood]

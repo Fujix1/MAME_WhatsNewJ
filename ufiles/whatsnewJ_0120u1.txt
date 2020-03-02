@@ -1,0 +1,105 @@
+0.120u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+ikki0120yel [robiza]
+buckrog0118u2yel [couriersud]
+
+
+
+ソースの変更点
+--------------
+-「Cannonball」各セットの情報追加。[stephh]
+
+- f1gpbのROZレイヤー、FGレイヤー、スプライトを実装。まだ一部のビデオオフセット、
+  OKIバンキング、スプライトプライオリティなどが未実装。[Pierpaolo Prazzoli]
+
+- dominob.cドライバの更新: [stephh]
+ - DIPスイッチ修正
+ - 入力の修正
+ - 記載事項を2つ追加
+
+- peplusドライバと関連するコンポーネントを更新: [Jim Stolis]
+ - ゲームに内部レイアウト追加
+ - i8051の問題を修正...
+    * 一部の命令のサイクルカウントを訂正
+    * タイマーモード決定のバグを修正
+    * シリアル転送モード決定のバグを修正
+    * スプリットタイマーモードをサポート
+
+- マルチプロセッサでのVoodooのレンダリング競合を減らしてパフォーマンスを改善。
+  レンダリングとエミュレーション間のオーバーラップを拡大。
+  [couriersud, Aaron Giles]
+
+- ジョイパッドの設定をして、システム情報画面で抜いてESCキーを押すとクラッシュす
+  るのを修正。[R. Belmont]
+
+- CPUとサウンドチップのstrict typeを定義。不要になったcpu_prefixを構造体メンバか
+  ら削除。[Atari Ace]
+
+- m4510 CPUコアで、命令サイクルカウンタが更新されないのを修正。[Wilbert Pol]
+
+- m6509の命令、91とb1のメモリアクセスを修正。[Wilbert Pol]
+
+- osdcore.hについて、osinline.hを含ませ同期プリミティブの外部インライン定義をで
+  きるように変更。また、新しいワークキューヒント、WORK_QUEUE_FLAG_HIGH_FREQを追
+  加。これは、新しいアイテムを積極的に待つ状態であることを示します。
+  [couriersud, Vas Crabb]
+
+- makefileのリンカの共通警告を有効化。[Oliver Stoneberg]
+
+- SCSPで、IRQが遮断状態でポーリングされるタイマ関係のコーナーケースを修正。
+  [R. Belmont]
+
+- Namco System 21の更新: [Phil Stroffolino]
+ - namconb1のスプライトバグ修正
+ -「サイバースレッド」の表示されていない3Dグラフィック修正
+ -「スターブレード」のグラデーションカラー
+ - より正確な深度キューイング
+ -「スターブレード」2面でのクラッシュ修正
+ -「エアーコンバット」「ソルバルウ」のフリーズ修正
+ - スプライトプライオリティの修正（「ソルバルウ」の山部分）
+ - 透過エフェクト（パレットシフト）の実装
+
+- Model 2のレンダリングで、先にクリッピングしたZ値をソートに使用するよう変更。
+  [Aaron Giles]
+
+- Midway Y-unitドライバゲームで、bill入力を正しく判断。[Aaron Giles]
+
+- winworkコードにinstrumentationやパラノイアをさらに追加。[Aaron Giles]
+
+- ADSP2100の外部フラグ処理の間違ったコードを修正。[Aaron Giles]
+
+- 新モジュール、polynew.cを作成。これは、トライアングル設定、ラスタ化、Voodoo風
+  なマルチプロセッサをまとめたものです。Gaelco3D、Midway V-Unit、Namco System 22、
+  Voodooドライバを新システムにコンバートしました。[Aaron Giles]
+
+- ワークアイテムのコールバック関数にthreadid引数を追加。これにより、コールバック
+  でスレッド毎の情報を保持できます。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+ホットギミック インテグラル (Japan) [Guru, David Haywood]
+とってもE雀 - 潜入アイドルプロダクション！ [David Haywood, Team Japump!]
+グッとE雀 -勝ち抜き麻雀賞金王!! [David Haywood, Team Japump!]
+テラバースト [icronnya77, Ville Linde]
+
+
+
+新規クローンセット
+------------------
+チューブパニック (海賊版) [sonikos]
+Player's Edge Plus (PP0188) Standard Draw Poker [Jim Stolis]
+Player's Edge Plus (Set038) Set Chip [Jim Stolis]
+Mortal Kombat 4 (set 2) [icronnya77]
+Meteor [Andreas]
+
+
+
+追加された未動作ゲーム
+----------------------
+GameCristal [f205v, R. Belmont]

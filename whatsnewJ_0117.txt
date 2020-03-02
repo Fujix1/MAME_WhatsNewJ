@@ -1,0 +1,480 @@
+0.117
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+gauntleg0116u4red [Zsolt Vasvari, Aaron Giles]
+vlm5030_0116u4gre [Zsolt Vasvari]
+tetrisp2_0116u4red [Zsolt Vasvari]
+primrage0116u3yel [Aaron Giles]
+debuggerandmt_0116u2red [Aaron Giles]
+memleak0116u4ora [Aaron Giles]
+term2_0116u1yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- bzone.cゲームにセーブステート追加。[R. Belmont]
+
+-「Leprechaun」で鳴っていない音を修正。[Zsolt Vasvari]
+
+- 空か無効なROM領域についてのバグを修正。[Nathan Woods]
+
+- speglshtドライバで、クラッシュの可能性があったのを修正。[Atari Ace]
+
+- 6532riotコードについて、r6532_initを、r6532_initとr6532_resetに分割。
+  [Wilbert Pol]
+
+- CPS3コードをビッグエンディアンに対応。[R. Belmont]
+
+- CPSドライバのアルファブレンディング効果追加と、スプライト表示位置を改善。
+  [David Haywood]
+
+- “Pandora”スプライトチップの実装部を、独自ファイルへ移動。「スノーブラザーズ」
+  「エアバスター」「DJボーイ」「ヘビーユニット」で新しい方法を使うように更新。
+  [David Haywood]
+
+- segasyseドライバで不具合が出ていたのを修正。[Zsolt Vasvari]
+
+- 6526CIAのパッチについて、Amiga/Arcadiaエミュレーションで問題が起きたため、巻き
+  戻し。[Pete Rittwage]
+
+- gussunの命令コードをさらにいくつか推定。起動とコイン投入可能。[robiza]
+
+- vmetalとtatsumiドライバで起きた不具合を修正。[Zsolt Vasvari]
+
+- chinheroのTaito版修正。[Zsolt Vasvari]
+
+- tms9928ビデオシステムのコードを簡略化。[Zsolt Vasvari]
+
+- 68000エミュレータのROL命令を修正。[Zsolt Vasvari]
+
+- tiny MAME targetのクリーンアップ。[neoforma]
+
+- Exidyサウンドに出ていた不具合を修正。[Zsolt Vasvari]
+
+- mame_timer_scale_upの精度を向上。[Aaron Giles]
+
+- mame_rand()出力の周期性を軽減するため、出力を16bitで循環。[Aaron Giles]
+
+- winalloc.cをスレッドセーフに修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+対戦ホットギミック フォーエバー (Japan) [Guru, David Haywood]
+
+
+
+新規クローンセット
+------------------
+Photo Finish [Tomasz Slanina]
+Golden Poker (no double up) [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+39 in 1 MAME海賊版 [R. Belmont, Guru]
+Super Pool (Italy) [Roberto Fresca]
+ギターフリークス 6th MIX (G*B06 VER. JAA) [smf]
+ギターフリークス 11th MIX (G*D39 VER. JAA) [smf]
+
+
+
+0.116u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+kinst0116u3gra [Zsolt Vasvari]
+
+
+
+ソースの変更点
+--------------
+- system1ドライバでSN7489Aを使うように巻き戻し。[Lord Nightmare]
+
+- changelaドライバに、道路のグラフィック修正、表示されていないグラフィックの修正、
+  当たり判定の追加、セーブステートサポート。色も修正。[Adam Bousley]
+
+- 全ドライバでmame_timer_*を使うように変更。古いdouble型ベースのタイマーは廃止予
+  定です。[Zsolt Vasvari]
+
+- 最後に残っていたrand()をmame_rand()に変更。再び使われないように#defineを追加。
+  [Zsolt Vasvari]
+
+- clifront.cのinfo_list*()関数を、staticからpublic関数に変更。[Dave Dribin]
+
+- maxaflex.c、megadriv.c、monzagp.c、tetriunk.c、gticlub.cがクラッシュするように
+  なっていたのを修正。[Atari Ace]
+
+- TIAグラフィックとサウンドをさらに改良: [Wilbert Pol]
+ - INPT4とINPT5を、指定時から必要なときに読み込むように変更
+ - HMOVE機能の処理を改良
+ - 一部のAtari 2600ゲームで画面のちらつきを減らすコードを追加
+ - サウンド和音生成を改良
+ - POLY5_DIV3サウンドモード処理を改良
+
+- djboyドライバの更新: [Phil Stroffolino]
+ - djboyjをサポート; MCUは同じ、ROMバンキングビットはXORが必要
+ - ゲームオーバーと勝利のステート遷移処理を修正
+ - DIPスイッチ修正
+ - コインエイジ追加
+
+- ドライバコードが正しく実装されていない箇所があったのを修正。ほとんどのケースで
+  は大きな問題ではありませんでしたが、セーブステートがされなくなるケースが2箇所
+  ありました。また、他にクラッシュを起こす可能性があったのも修正されています。
+  [Atari Ace]
+
+-「Space Raider」の不具合修正。[Zsolt Vasvari]
+
+- Gaelco 3dドライバのフレームスキップ処理を改良。[couriersud]
+
+-「ワープ＆ワープ」「ジービー」のパレット不具合が出たの修正。[Atari Ace]
+
+- chdmanに、cue2tocで作成したtocのサポートを追加。[smf]
+
+- CPS3の更新: [David Haywood, ElSemi]
+ - クロック速度訂正。クロックを下げずに、アイドルスキップを使用
+ - グラフィック関数の最適化。データ変更の度ではなく、描画の必要がある場合だけ、
+   RAMベースのタイルをデコードします
+ - CDフラッシングのサポート
+ - 他のBIOSセットのサポート
+ - カスタムレンダー関数を使うようにコードを変更
+
+- gussunの暗号化した命令コードをさらにたくさん発見。[robiza]
+
+- BIOSセットの内部処理を単純化。構造体を追加するのではなく、各BIOSのROM定義に
+  BIOS情報を埋め込むようにしました。[Atari Ace]
+
+-「ミリピード」のプレイヤー2入力を修正。[Mike Haaland]
+
+- evilngtでCDイメージが無いためにクラッシュしていたのを修正。[R. Belmont]
+
+- cfarm/cclownがアウトオブバウンズな引数でクラッシュしていたのを修正。
+  [R. Belmont]
+
+- CD-ROMが無いときに、ゲームがクラッシュしないように、cdrom.cでのチェックを強化。
+  [R. Belmont]
+
+- dkongjrとpestplceで、メモリマップの間違いでスプライトが描画されすぎていたのを
+  修正。[couriersud]
+
+- SUBTARGET=tinyビルドを修正。[neoforma]
+
+- 白黒画面8080ゲームで、アップライトモードでP1ジョイスティック入力をP2に割り当て。
+  適当なもの以外はカクテルモードの設定を削除。spclaserのデュアルプレーヤーモードを
+  有効化。[Mike Haaland]
+
+- x64コンパイル関係の修正: [Oliver Stoneberg]
+ - VS2005 x64警告を修正
+ - VS2005のx64ポーティング警告を有効
+ - tstring_from_utf8()を使わないようにするため、
+   win_create_window_ex_utf8()を追加
+ - win_extract_icon_utf8()を削除
+
+- Irem M62ゲームのカラーデコードを改良。[Zsolt Vasvari]
+
+- MPU4コードについて、MAMEとAGEMAMEをシンクロ。「Connect 4」のレイアウト改善。コー
+ ドの大幅簡略化。[James Wallace, Atari Ace]
+
+- 6532riotタイマの実装を改良。IRQコールバックをサポート。[Wilbert Pol]
+
+- minx CPUコアの更新: [Wilbert Pol]
+ - TEST (94, 95, 96, 97)命令を修正
+ - MOV命令を2つ(BFとBE)を修正
+ - AND命令を1つ(DC)修正
+
+- z80gbコードの割り込み処理を簡略化。[Wilbert Pol]
+
+-「アフターバーナー2」ドライバのランプを実装。[Zsolt Vasvari]
+
+- PGMゲームの鳴っていないサウンドを修正。[Zsolt Vasvari]
+
+-「ミリピード」のカクテルモードでのスプライトを修正。[Mike Haaland]
+
+- ddribleとironhorsのRCフィルタの動作を修正。[couriersud]
+
+- m92ドライバに、X軸方向のスプライトラップ追加。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Change Lanes [Adam Bousley]
+DJボーイ [Phil Stroffolino]
+
+
+
+新規クローンセット
+------------------
+ビーラップボーズ (World) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Final Godori [Pierpaolo Prazzoli]
+
+
+
+0.116u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+
+
+ソースの変更点
+--------------
+- CPS3の復号化を簡略化。[Nicola Salmoria]
+
+- PNGコードでダブルフリーが起こる可能性があったのを修正。[Nathan Woods]
+
+- 新しいgccコンパイラで警告が出るのを修正。[R. Belmont]
+
+- 全般的なドライバのクリーンアップ: [Zsolt Vasvari]
+ - グローバルな"Machine"をさらにローカル"machine"に変更
+ - 関数名"draw_sprites"の統一
+ - 古くなった形式的なコメントを削除
+
+- FMエミュレータで、doubleに替えてmame_timeを使うように更新。neogeo用のFMコード
+  にあったハックは、もう必要ないと思われるので削除。[Zsolt Vasvari]
+
+- 全てのサウンドコアで、doubleに替えてmame_timeを使うように更新。[Zsolt Vasvari]
+
+- gussun用にIrem CPUの命令を更に追加。[robiza]
+
+- CPS3のコードがビッグエンディアンのシステムでも動くように修正。[R. Belmont]
+
+- code_to_token()でバッファオーバーフローが起こる可能性があったのを修正。
+  [Atari Ace]
+
+- 動作してないdynablsbとdriveyesのドライバがクラッシュするのを修正。[Atari Ace]
+
+- 全てのCPUコアと、まだtimer_alloc()を使っていた残りのコアファイルで内部タイマーを
+  mame_timer*関数に変更。これにより、emuディレクトリ以下のファイルで、旧式のタイ
+  ミングコードを使っているものは無くなりました。[Zsolt Vasvari]
+
+- Haze氏がブログで書いたCPS3のいろいろな更新。[David Haywood]
+
+- n64ビデオコードのBLENDER2_32関数のタイプ修正。[Christophe Jaillet]
+
+- カラーPROMや、PCBのコンポーネント値からパレットを導くため、新しいレジスタネッ
+  トワークインターフェイスを作成。これまでの実装に見られた問題を修正。
+  [couriersud]
+
+-「ドンキーコング」ドライバの更新: [couriersud]
+ - 回路図を元に、スプライトRAMバンク切り替え追加
+ - メモリマップの結合
+ - m58815デコードの最初の試み
+ -「レーダースコープ」trs01ハードウェア用にradarsc1ドライバ追加
+ - 全ドライバでVIDEO_RAWを使うよう変更
+ - カクテルモードの問題修正
+ - IOとサウンドメモリマップを統合
+ - dkongドライバ全てで、背景の処理を実装（PROM /CSラインを無効にする）
+
+- flt_rcフィルタでハイパスフィルタをサポートするように拡張。また、ローパスフィル
+  タがきちんとローパスフィルタとして動作するように修正。「キング＆バルーン」にこ
+  のフィルタを実装。他のドライバでも新インターフェイスを使うように更新。
+  [couriersud]
+
+- メインのmakefileでプロファイリングをサポート。PROFILE=1で有効になります。
+  [Christophe Jaillet]
+
+- djboyドライバをほぼプレイ可能な状態まで更新。[Phil Stroffolino]
+
+- 入力処理コードを一時的に0.116まで巻き戻し。これ以上の解析と、予定していた入力
+  処理についてのOSDレイヤー簡素化を目的にしたコア変更は保留。[Aaron Giles]
+
+- Windows OSDコードで、多くのstderrのfprintfをそれぞれに適するように、
+  mame_printf_warningとmame_printf_errorに変更。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+大大革命 (Japan) [Hau, Team Japump!]
+CPS3ゲーム: [David Haywood, Andreas Naive, ElSemi]
+  ストリートファイターIII - ニュージェネレーション
+  ストリートファイターIII 2ndインパクト - ジャイアントアタック
+  ストリートファイターIII 3rdストライク - ファイトフォーザフューチャー
+  ジョジョの奇妙な冒険 / JoJo's Venture
+  ジョジョの奇妙な冒険 - 未来への遺産 / JoJo's Bizarre Adventure: Heritage for the Future
+  レッドアース / Warzard
+
+
+
+新規クローンセット
+------------------
+The Tin Star (set 2) [David Haywood]
+Car 2 (bootleg of Head On 2) [David Haywood]
+レーダースコープ (TRS01) [couriersud]
+Crouching Tiger Hidden Dragon 2003 Super Plus alternate [JohnBoy]
+ポップフレーマー (ノーティーボーイ基板の海賊版) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Missile Combat (Videotron bootleg) [David Haywood]
+Aladdin (メガドライブ用国内版の海賊版) [David Haywood]
+
+
+
+0.116u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+adk0116yel [Zsolt Vasvari]
+neodrvr0116u1red [Zsolt Vasvari]
+strhoop0116u1red [Zsolt Vasvari]
+wb3_0116u1gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Gridlee」と「五目並べ連珠」に出ていた不具合を修正。[Zsolt Vasvari]
+
+- WindowsコードでのUnicodeビルド関係の問題を修正。[Oliver Stoneberg]
+
+- 多くのドライバで、後期型のSN76496ではなく正しくSN76489を使うように更新。
+  [Justin Kerk, Lord Nightmare]
+
+- 多くのドライバからのエクスポートをクリーンアップ。エクスポートの必要が無い関数
+  と変数にstatic属性の付加と、汎用的な名称を適用。[Atari Ace]
+
+- 多くのドライバで、必要ない部分ではグローバルMachineを使わないように更新。
+  また、クリッピング領域を見直し、必ず指定された領域を使うように変更。
+  [Zsolt Vasvari]
+
+- Dooyongドライバのクリーンアップ: [Vas Crabb]
+ * タイルマップコールバックの機能強化と効率化
+ * 頻繁に更新する必要を省くため、より大きなタイルマップを構成して、MAMEのタイル
+   マップキャッシングを有効利用
+ * rshark/superxのスプライトのY軸位置をsigned 9bit値で解釈（不具合の修正ため）
+ * コードを読みやすくするため、以前より詳しい注釈を追加
+
+- mameタイマーオブジェクトをvoid *からmame_timer *へ変更。[Atari Ace]
+
+-「Match It 2 / 四川省II」を改善するため、Irem CPUの命令コードを2箇所修正。
+  [Robiza]
+
+-「Thunder X」の当たり判定修正。[Shimapong]
+
+- 動作可能なCPS3ドライバの最初のバージョン追加。一応動きますが、完成にはまだまだ
+  かかります。
+  [David Haywood, Andreas Naive, Tomasz Slanina, ElSemi, Philip Bennett]
+
+- 6809 CPUコアの、マイナーなサイクルタイミングの問題を修正。[Ernesto Corvi]
+
+- Neo-Geoの更新: [Zsolt Vasvari]
+ * 前回の更新で起きた不具合を修正
+ * LED出力追加
+ * 表示領域が小さい場合の設定を改良
+
+- NeoGeo ROMセットの間違った情報を修正。[JohnBoy]
+
+- コアのmakefileにプラットフォーム固有の変更を統合。ほとんどは、SDLMAMEの
+  makefileから。MAMEOSの設定がOSDに対しても変更できるようにして、どのOSDレイヤー
+  がコンパイルされるかを指定できます。また、ターゲットのOSプラットフォームを指定
+  するため、新しい変数 TARGETOS を追加。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+パンチアウト!! (Italian bootleg) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Mini Boy 7 [Roberto Fresca]
+
+
+
+0.116u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+shanghai0116red [Aaron Giles]
+bldwolf061gre [Robiza]
+superx0116gre [Robiza]
+matchit2_0116ora [Robiza]
+qix0116yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- qixドライバのスキャンラインアドレスレポートを修正。[Zsolt Vasvari]
+
+- Charles MacDonald氏の情報を元に、Neo-Geoドライバを再び書き直し。この更新により、
+  前回修正出来なかった問題の多くが解消されています。[Zsolt Vasvari]
+
+- マルチキーボードのサポート: [Andrew Kuruhin]
+ - RAWINPUTメカニズムを使ってマルチキーボードの入力をサポート
+    (同時に最大8つまでのキーボードをサポート)
+ - RAWINPUTデバイスレジストリの列挙バグを修正
+
+- CDP1802のリセットモード修正。[Curt Coder]
+
+- ptm6840コードのエラー修正と、コードの大幅簡略化。[Atari Ace]
+
+- fcrashドライバのスプライトとレイヤーオフセット修正。[Robiza]
+
+- SH4 CPUコアの改良: [Samuele Zannoli]
+ - 命令コードのデコーディングで、SH4の全命令コードをデコードするように修正
+ - SH2には無くてSH4だけにある全ての命令のサポートと、逆アセンブラの修正
+ - 全fpu命令の逆アセンブル
+ - CPUをリトルエンディアンに変更(SH4はビッグとリトルのどちらにもなれます)
+ - どのデータがメモリから読み出され、書き込まれたかを訂正
+ - fpulとdbrレジスタを追加
+ - SH2には無い、SH4にはある(FPU関係じゃない)命令を追加
+ - FPU命令を4つ追加
+ - メモリマップされた内部レジスタの管理を、全ての内部レジスタが実際に使えるよう
+   に改良
+ - sh4regs.hファイル追加。sh7750の全内部レジスタを定義
+ - メモリリフレッシュ用の内部レジスタを実装
+ - SH4には無く、SH2にはある内部レジスタを削除
+ - 内部キャッシュをRAMとして使用するのを予備的にサポート
+
+- CPS2の復号ビット順が、オリジナルと思われる順序に合うように更新。
+  [Nicola Salmoria]
+
+- -Wextraで表示される警告を修正。[Atari Ace, Zsolt Vasvari]
+
+- toaplan2.cについて、コインメカニズムポートのスペアデータライン経由での、
+  OKI6295サンプルROMのバンク切り替えが、shippumdだけしか実装されていなかったのを
+  修正。[AWJ]
+
+- scramblesのプロテクトの実装部で、fpgaarcade.comでの方法をを元にした平均化を使
+  うように更新。[Mark McDougall]
+
+- rendlay.cコードのGCD演算処理を改良。[Christophe Jaillet]
+
+- 0.116リリースで起きた多数の問題を修正。[Zsolt Vasvari, Aaron Giles]
+
+- ドライバコードで、rand()に代わって、mame_rand()のみを使うように変更
+  しました。結果の整合性向上用。[Aaron Giles]
+
+- qixドライバのMCUタイミングと通信を改良。まだ2、3問題が残っています。
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Match It II / 四川省II [Robiza]

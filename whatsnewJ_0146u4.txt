@@ -1,0 +1,191 @@
+0.146u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04957: [DIP/入力] (fantland.c) galaxygn: 残ライフのDIPスイッチが壊れていて、常に1機
+         しかない。(David Haywood)
+- 04953: [その他] pnchmna, hypbbc2p, jingystm, jojobar1: ディスクを吸い出し不良に設定
+         する必要あり。
+- 04404: [その他] (tnzs.c) tnzs: イントロシーン後、大きく速度が低下する。
+         (David Haywood)
+- 04485: [その他] (wardner.c) All sets in wardner.c: メモリマップの変更により速度低下
+         が起こる。(David Haywood)
+- 04714: [ドキュメント] (micro3d.c) botss, botssa: クローンセットの方が新しい。
+- 04844: [クラッシュ/フリーズ] (jaguar.c) fishfren: EEPROM初期化後、画面が黒いまま。
+         (micko)
+
+
+ソースの変更点
+--------------
+- vsnes.c:「VS.レッキングクルー」「VS.バルーンファイト」のDIP設定を修正。
+  [Brian Troha]
+
+- pacman.c:「バーディ」に専用の正確なDIPスイッチ設定を追加。[Brian Troha]
+
+- decocass.c:「フィッシング」(デコカセ版)に正しいDIPスイッチ設定追加。[Brian Troha]
+
+- gcpinbal.c:「グランドクロス」にDIP配置追加。[Brian Troha]
+
+- gunpey.c:「グンペイ」のDIP配置追加。[Brian Troha]
+
+- seta.c:「仮面ライダー倶楽部バトルレース」にDIP配置追加。[Brian Troha]
+
+- metro.c:「だるま道場」のDIPスイッチ修正と説明追加。[Brian Troha]
+
+- galdrvr.c: fantastcのPROMを吸い出し直して色修正。[Marcello Mancini]
+
+- aristmk6.c:「Crystal Springs」の綴り訂正とROM名の整理。「50 Lions」の親子関係を入れ
+  替え(オーストラリア版を親に設定)。[Heihachi_73]
+
+-「Last Bank」ドライバを改良。最低限のグラフィックと入力系追加。[Angelo Salese]
+
+-「魔境戦士」の再吸い出しとROM名訂正し、ドライバドキュメント化。
+  [Yohji, Smitdogg, The Dumping Union]
+
+-「Last Bank」のu11グラフィックROMを吸い出し。[Smitdogg, The Dumping Union]
+
+- TC0091LVCの基本的なデバイス化。[Angelo Salese]
+
+-「ビジランテ」のPALを追加。ただし未実装。以前のPAL(4m)は不良だと判明。
+  [Corrado Tomaselli]
+
+- dsp32cの変更: [Phil Bennett]
+ * PCRをリセット時に1に設定
+ * PDR/PIRレジスタを読み書きしているときのみ、PDF/PIF出力PINステートを更新
+ * goto_pde、goto_pdf、goto-pdf命令を実装
+
+- harddrivの更新: [Phil Bennett]
+ * 全ゲームで診断モードジャンパとDIPスイッチを実装
+ * racedrivb1、racedrivg1が起動時にクラッシュしないように対策
+ * 汎用68681 DUARTを使用
+ * CPUクロック用にXTALの値を使用
+
+- legionna.c:「ヒーテッドバレル」セットにプライオリティBPROMを追加。ROM名訂正と基板配
+  置を追加。[Smitdogg, The Dumping Union]
+
+- PORT_ADJUSTERが、PORT_MINMAXも受けつけ可能。[Couriersud]
+
+- モデルディスクリートネットリストに、汎用的な実装追加: [Couriersud]
+ * タイムスロットモデリングをベースにした、ロジックチップでのゲートディレイモデル
+ * 汎用、及びMAME用実装箇所を分離可能な設計
+ * discrete.*からのディスクリートコンポーネントを統合するための準備設計
+ * 外部のネットリスト構文解析をベースとするコードをサポート。最終的には、ネットリスト
+   とディスクリートエミュレーションは同一のコードベースを共有していくものになります。
+   555や7474などを複数実装するのは意味がありません。ほとんどのコードをlib/netlistに移
+   動さえて行けば、他のプロジェクトでも使うことができるようになっていくでしょう
+
+-「ポン」がnetlist.hを使用。この実装により、Dr. H. Holden氏が2012年に著書で記述してい
+  たゲートタイミングと555関係のエフェクトを全て再現。[Couriersud]
+
+- cshooter.c:「クロスシューター / Air Raid」セットにDIP配置追加。[Brian Troha]
+
+- tlcs900: TMP95C063をサポート。[Ville Linde]
+
+- taitotz.c: ドライバの大幅更新: [Ville Linde]
+ * アドレスマップのモダン化
+ * 2Dレンダリングの改良
+ * IO CPUの通信を実装
+ * IDEコントローラを実装
+ * 基本的な3Dグラフィックの実装
+
+- metro.c:「スカイアラート」「牌砦」で、ドライバでリストされているようにOKI6295 Pin 7
+  割り当てを訂正。また、ドライバ内でリストされているPin 7割り当ても検証。
+  [Brian Troha]
+
+-「Fruit Dream」にTC0091LVCデバイスを実装。[Angelo Salese]
+
+- midwunit.c:「Open Ice」のROMラベルを訂正し、LリビジョンのROMセット特有の情報を追加。
+  [Brian Troha]
+
+- C++コンパイラで、バンドルされている7zライブラリをビルド出来るように変更。
+  [Markus Rathgeb]
+
+- acesp.cドライバのセット関係を整理。これにより500本もまた追加。[David Haywood]
+
+- Taito JCの3Dレンダラをpolynew.hを使うようにコンバート。[Ville Linde]
+
+- SDL: Linux/*BSDターゲットで、マルチ光線銃を使えるようにXInputを使用。
+  [Markus Rathgeb, SpritesMods.comでのパッチがベース]
+
+- sfbonus.c: ドライバのDIPスイッチ修正と、配置追加。[Brian Troha]
+
+- pokechmp.c:  [David Haywood]
+ * 8bpp背景タイルプレーンの順序が判明。少し変なのはラインスワップか
+ * OKIサウンドバンキング実装
+ * スプライトアトリビュート修正
+ * CPUバンキングをシンプル化
+ * グラフィックパレット関数を使用
+
+-「コンバットスクール」海賊版にサウンドROMバンク切り替え追加。[Angelo Salese]
+
+- 新しいROMのTwister Soundを追加。[Guitar]
+
+-「コンバットスクール」のサウンド用対策を削除。[Angelo Salese]
+
+-「サイバータンク」のゲーム用入力を修正。[Angelo Salese]
+
+-「サイバータンク」のI/Oを整理。[Angelo Salese]
+
+- cybertnk.c:  [David Haywood]
+ * タイルマップをスクロールのあるタイルマップとして実装
+ * 道路の描画でパレット選択を実装(道路が動いてるように見える)
+ * プライオリティ関連ビットを一部処理。合ってるのか合ってないのか不明
+
+- expatを2.1.0に更新。[Oliver Steberg]
+
+- zlibを1.2.7に更新 / zconf.in.hをzconf.h.inに改名。[Oliver Steberg]
+
+- esd16.c:「Jumping Pop」をtumbleb.cからesd16.cに移動し、ドライバの整理。
+  [David Haywood]
+
+- F8 CPUコアのAMD/ASDオペコードを修正。10進数補正要素を追加する前に、ステータスフラグ
+  を設定するので、10進加算オペコード後はキャリーフラグのみが重要。[Sean Riddle]
+
+- cobra.c: 3Dレンダラでpolynew.hを使うようにコンバート。[Ville Linde]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Last Bank [Angelo Salese, David Haywood, Smitdogg, The Dumping Union]
+ハードドライビン (cockpit, rev 1) [philipbe]
+レースドライビン (cockpit, rev 1) [philipbe]
+レースドライビン (cockpit, rev 2) [philipbe]
+レースドライビン (cockpit, rev 3) [philipbe]
+レースドライビン (cockpit, British, rev 1) [philipbe]
+レースドライビン (cockpit, German, rev 2) [philipbe]
+The Big Game (Barcrest) (MPU 3), [James Wallace]
+Bank Raid (Jpm) (MPS) [C J Wren/MPU Mecca]
+Lucky Arrows (Jpm) (MPS) [C J Wren/MPU Mecca]
+Solid Gold (Jpm) (MPS) [C J Wren/MPU Mecca]
+Fruit Dream [Angelo Salese]
+Get Rich [Sara S.]
+
+
+新しく追加されたクローンセット
+------------------------------
+ダイナマイトデューク (Europe set 1) [Arzeno Fabrice]
+Ninja Baseball Bat Man / 野球格闘リーグマン (World) [Arzeno Fabrice]
+Cops 'n' Robbers (Bellfruit) (set 1) (Scorpion 1)", [James Wallace]
+Cops 'n' Robbers (Bellfruit) (set 2) (Scorpion 1)", [James Wallace]
+Last Fortress - Toride / 牌砦 (Erotic, Rev A) [Brian Troha, The Dumping Union]
+Note Exchange (Set 2) (Jpm) (MPS) [C J Wren/MPU Mecca]
+Note Exchange (Set 3) (Jpm) (MPS) [C J Wren/MPU Mecca]
+Nudge Bonanza Deluxe (Set 2) (Jpm) (MPS) [C J Wren/MPU Mecca]
+Trick or Treat (Proconn) [Captain Haddock]
+Action Bank (set 2) (Barcrest) [jameswal]
+Special Effects V2 (Maygay V1) [jameswal]
+Jumping Pop (set 2) [Brian Troha, David Haywood, The Dumping Union]
+モータルコンバットII (rev L2.0) [ebo0763]
+ドリフトアウト (Europe) [Hammy]
+Pipi & Bibis / フーピー!! (プロトタイプ) [Antonio Gonzalez Jr.]
+
+
+追加された未動作ゲーム
+----------------------
+ロイヤルアスコット2  [ShinobiZ]
+スカイデストロイヤー
+  [Gnoppi, P. Vining, C. Bristow, gatt9, Phil Bennett, Tormod, 
+   Andrew Welburn, Smitdogg, The Dumping Union, Angelo Salese]
+Pop Shot (プロトタイプ) [Antonio Gonzalez Jr.]

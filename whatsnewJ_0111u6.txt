@@ -1,0 +1,122 @@
+0.111u6
+-------
+
+
+ソースの変更点
+--------------
+- Amigaドライバのほとんど全部のビデオモードについて、データフェッチとスクロール
+  演算を修正。[Ernesto Corvi]
+
+-「スペースエンカウンター」のtrench circuitをエミュレート。[Adam Bousley]
+
+- win_output_debug_string_utf8()追加; OutputDebugString()のUTF-8ラッパー。これを
+  使うようにコードを変更。[Nathan Woods]
+
+- ARM7コアのThumb命令について、逆アセンブル、動作、サイクルタイミングを修正。
+  [MooglyGuy]
+
+- 新osdコア関数、osd_is_absolute_path()を定義。コアのファイルI/Oの動作について、
+  絶対パスを確認して、検索パスを無視するように変更。[Nathan Woods]
+
+- コインエイジの順序にエラーがある場合、正しい順序を出力するようにバリディティ
+  チェックを改良。[Ernesto Corvi]
+
+-「Dream World」の新しい測定結果を元に、クロックとその他の修正。
+  [David Haywood, Guru]
+
+- 回路図を元にMidway 8080ドライバのビデオ回路を実装。これは表示領域だけに影響す
+  るので、オーバーレイの調整が必要です。全ゲームの表示領域を統一化。また
+  「Phantom II」の雲ピクチャを実装。[Zsolt Vasvari]
+
+- tilemap_create()が必ず成功するように変更。この操作による、結果チェックのコード
+  パスをクリーンアップ。[Atari Ace, Aaron Giles]
+
+- SCSP用の内蔵エフェクトDSPの初期版追加。リバーブ、QSound、その他のエフェクト用
+  として他の多くのゲームでも使用されています。[ElSemi]
+
+- 8085コアから、古くなったi8080_EXACTフラグを削除。[Zsolt Vasvari]
+
+- Midway 8080ドライバで、正しく演算したビデオタイミングとスキャンライン割り込みを
+  使うように更新。[Zsolt Vasvari]
+
+- MPU4ドライバのアサート修正。「Connect 4」のメカニカルメーターの動作修正と、
+  コインエントリを有効化。[James Wallace]
+
+- ブレークとポーズキーのマッピング追加。[Dirk Best]
+
+- アサートの修正とZ80GBエミュレーションの改良をMESS CPUコアに統合。
+  [Nathan Woods, Wilbert Pol]
+
+- GX400/NemesisドライバのサウンドIRQ接続を修正。[R. Belmont]
+
+- SN76477エミュレータをゼロから書き直し。古いバージョンとの主な違いは、実際のチッ
+  プの測定結果を元にしているところです。また、エミュレータは完全にアナログなので、
+  タイミングや周波数などは電圧ベースです。これにより、実チップの変な動作などもか
+  なり正確にエミュレートされます。コード自体も前よりシンプルで読みやすくなりまし
+  た。[Zsolt Vasvari, Derrick Renaud]
+
+- 照準描画の削除ではぐれた変数をクリーンアップ。同じく、はぐれた関数宣言も削除。
+  [Oliver Stoneberg]
+
+- Berzerkドライバとs14001aコアに音量と周波数のコントロールを追加。ボイスがランダ
+  ムに再生されていたのが、正しいものになります。[Lord Nightmare]
+
+-「スペースエンカウンター」のストロボライトの点滅を実装。いずれアートワークと接
+  続されるでしょう。[Zsolt Vasvari]
+
+- driver_add/find/remove関数で、対象が見つからない場合に致命的なエラーになるよう
+  に変更。[Aaron Giles]
+
+- 画面がないドライバのサポート。[Aaron Giles, Nathan Woods]
+
+- OKI6295のエラーを二つ修正。[David Haywood]
+
+- OutrunドライバのDIPスイッチクリーンアップとドキュメントの追加。[Brian Troha]
+
+- NMG5ドライバのサウンドクロック周波数修正。[Brian Troha]
+
+-「ナイトスラッシャーズ」のサウンドクロック周波数修正。[Sonikos]
+
+- Sega System 16/18ドライバをモノラルに変更。またインストに合わせてボタン1と2を
+  入れ替え。[Corrado Tomaselli]
+
+- ツール類のソースを新しいサブディレクトリ、toolsに移動。[Aaron Giles]
+
+- パラレルビルドのサポート改善のためメインのmakefileを改良。[Aaron Giles]
+
+- mame_bitmapからライン配列を削除。数十のドライバで代わりとしてBITMAP_ADDRマクロを
+  使うようにコンバート。[Aaron Giles]
+
+- 自動照準表示があまり自動すぎないように変更。ドライバの入力ポート部で指定するよ
+  うにしました。また、PORT_CROSSHAIRマクロで、短い軸名を使うように変更。光線銃
+  ゲームの全ドライバで、デフォルトでこのマクロを使うように更新。[Aaron Giles]
+
+- デバッグ用の照準位置スライダを追加（デバッグビルドのみ）。[Aaron Giles]
+
+-「ゼビウス」で、割り込みの取りこぼしが起きないようにirq0_pulse_lineに代えて
+  irq0_assert_lineに変更。[Aaron Giles]
+
+-「Gorf」でスキャンライン割り込み用にPULSE_LINEの代わりにHOLD_LINEを使用するよう
+  変更。タイミングはまだずれてますが、ゲームは動作するようになりました。
+  [Aaron Giles]
+
+- 新ビデオルーチンを使い、最初のフレームの実行中に行う横・縦位置のレポートを修正。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+マジカルテトリスチャレンジ: フューチャリング・ミッキー[Ville Linde]
+スターソルジャー: バニシングアース [Ville Linde, Guru]
+ビビッドドールズ [Ville Linde, Guru]
+Connect 4 [James Wallace]
+Martial Masters [MooglyGuy]
+三国戦紀2: ナイツオブヴァラー [MooglyGuy]
+
+
+
+追加された未動作ゲーム
+----------------------
+スーパーリアル麻雀VS [Ville Linde, Guru]
+Tower & Shaft [Ville Linde, Guru]

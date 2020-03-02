@@ -1,0 +1,778 @@
+0.82
+----
+
+全般的なソースの変更：
+----------------------
+- 6502のサイクルカウントを修正。[Stefan Jokisch]
+
+- Flowerドライバのクリーンアップ。[Pierpaolo Prazzoli]
+
+- 4enrayaの色修正。[Pierpaolo Prazzoli]
+
+- i960: fp命令系と追加と、文体の修正。[Olivier Galibert]
+
+- VCでのコンパイルを修正。[Bryan McPhail]
+
+- S22のクラッシュ修正。[R.Belmont]
+
+- i386の改良。[Nathan Woods]
+    - A20ラインのゼロアウト実装
+    - ステートセーブサポート
+    - 不明の命令は逆アセンブル時に'???'と表示
+    - XLAT命令コード実装
+    - DAAの修正
+
+- MEM_DUMPデバッグコード修正。[Nathan Woods]
+
+- MC68000コアにMC68008サポート追加。[Curt Coder]
+
+-「フライボーイ」のプロテクトをシミュレート。[MASH]
+
+- PSX sioの改良。[smf]
+
+- DIP修正いろいろ。[Brian Troha]
+
+- KonamiGXをひそかに改良。[David Haywood]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+スターグラディエイター [smf]
+ストリートファイターEX [smf]
+
+ストリートファイターEX2 [smf]
+    まだときどき固まるかも
+
+1945k III
+    サンプルバンキングが必要
+
+Tylz (prototype) [ENGCameraman]
+    サウンド関係の問題あり
+
+Dynagears [David Haywood, Tomasz Slanina]
+    -todo: 表示部のクリーンアップ (SSVのvidhrdwを変な方法で使用中)
+
+スーパーワールドスタジアム [David Haywood]
+
+Magatechのセットいろいろ [David Haywood]
+    (注：megatech自体はBIOSの問題があるためNON-WORKINGの扱い)
+
+アグレス [David Haywood]
+    ビデオ系の問題あり
+
+タイムクライシス (Version A) [Phil Stroffolino]
+    ガンの照準が合わない？(またはキャリブレーションの問題？)
+
+One + Two [Pierpaolo Prazzoli]
+    パレットの問題あり？
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+コンチネンタルサーカス (US set 2)
+
+
+新規未動作/クローンゲーム：
+---------------------------
+レーシングビート [David Graves]
+    ビデオエミュレーションがかなりやばめ(ラスタIRQ？)
+
+ミッションクラフト
+    Hyperstoneコアはまだ作業が必要
+
+
+
+0.81u9
+------
+
+全般的なソースの変更：
+----------------------
+
+- i960コアの逆アセンブラのコンパイルができるようにクリーンアップ。
+  [Olivier Galibert]
+
+- VSNESのファイル名を訂正。[Chack'n]
+
+- SCSPのアップデート。[ElSemi]
+    - エンベロープレートを訂正
+    - キーレートスケーリングサポート
+    - リングバッファサポート
+
+-「ムーンベース」にカラーPROM追加。[Stefan Jokisch]
+
+- ファイルハンドリングを変更。1キャラクタのバッファ追加。[Andrea Mazzoleni]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Strider 2 / ストライダー飛竜2 [smf]
+    ボスシーンでランダムに固まることあり
+
+
+新規未動作/クローンゲーム：
+---------------------------
+モンスターバッシュ (2 board version) [Mash]
+    動かず。解読不十分？
+    
+One + Two [David Haywood]
+    WIPドライバ。まだ作業が必要
+
+
+
+
+0.81u8 (コードのクリーンアップが必要なため、プライベートリリース)
+------
+
+全般的なソースの変更：
+----------------------
+
+- 386のアップデート。[Nathan Woods]
+    src/cpu/i386/i386.c:
+        - 
+- セグメントリミットの処理を実装。
+        - 16bit割り込み実装
+        - IDTRの初期値が正しく定義されるように修正
+        - state=0でi386_set_irq_line()が呼び出されたとき、i386_interrup()が
+          呼び出されないように修正
+        - 実際のサイクルカウントを返すように改良
+
+    src/cpu/i386/i386op16.c:
+        - CALLとJMP命令を部分的に実装
+
+    src/cpu/i386/i386ops.c:
+        - PUSH rm8命令を実装
+
+- i960CPUコアと逆アセンブラ。[Olivier Galibert, R.Belmont, Farfetch'd]
+
+- SPIシステムの改良。[Ville Linde]
+    SPI:
+    - “旧型”のビデオハード（viperp1）は結局レイヤーが3枚あって、
+       列スクロールはしないことがわかったので修正
+
+    386:
+    - Bugfixed Nathan's REP
+
+- YMF271の音程修正。[Ville Linde]
+    「ブレイブブレイド」のBGM改善
+
+- ファイルIOの問題があったのを修正。[Nathan Woods]
+
+- 386のアップデート。[Nathan Woods]
+    -  マスク可能な割り込みとそうでない物の区別 (int 3, イリーガル命令など)
+    -  無効な命令と、未実装の命令を区別するように変更
+       無効な命令は割り込みを発生します。また、未実装命令は今のところ
+       osd_die()を呼び出します
+    -  state=0でi386_set_irq_line()を呼び出しても割り込みを発生しないように
+       修正
+    -  16-bitモード時に、各ストリング命令でESI/EDIの代わりにSI/DIを使うよう
+       に変更
+    -  LOCKとRETFを実装
+    -  LMSWのバグ修正
+    -  逆アセンブラのマイナーな修正
+
+- PSX sioの実装。[smf]
+
+- DIP修正いろいろ。[Brian Troha]
+    「ゴールドメダリスト」 (alpha68k.c)
+    「Break Through / 強行突破」 (brkthru.c)
+    「Got-Ya」 (gotya.c)
+    「American Horseshoes」「Plotting / フリップル」(taito_l.c)
+
+- Phil氏によるNamco S22 MLEの“私がバスにひかれたら”アップデート。
+  [Phil Stroffolino]
+
+    TMS32025:
+    lstとlst1命令のバグ修正; “ARP無視”のハックをもっと良いハックと置き換え
+    ました。これは間接アドレッシングに干渉しません
+
+    シリアルI/Oを準備的なサポート。RINTとXINTによる割り込み時のDRR/DXRのアッ
+    プデート用。 
+    set_irq_line()は0x7でラインをマスクしなくしました; これにより外部から
+    RINT/XINTの割り込みを発生させられます
+
+    System22ドライバの変更点：
+
+    - マスタDSPによる表示リスト処理
+    - スレーブDSPによるゲーム内でのグラフィック処理と、“カスタムレンダーデ
+      バイス”をシミュレート。「プロップサイクル」でのみ動作
+    - PDPブロックベースのメモリ転送サポート
+    - メインCPUからのDSPデータ/コードアップロードをサポート
+    - “ポイントRAM”と“ポイントROM”アクセスのサポート
+    -「プロップサイクル」「リッジレーサー」のセルフテストがほとんど動作
+    - マスタとスレーブのDSP用にとりあえず手作りの“内部ROM”追加
+    - DSPポート/アドレッシングについてのメモをいろいろ追加
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+Atari Mini Golf (prototype) [Stefan Jokisch]
+Inca (clone of Maya) [ClawGrip]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+MACS (Multi Amenity Cassette System) [David Haywood]
+    CPU不明、Z80ベース（16-bit?）で追加の命令がある模様
+
+Namco FL (スピードレーサー（マッハGoGoGo） / ファイナルラップR) [R.Belmont]
+    i960コアテスト用の予備エミュレーション
+
+
+
+0.81u7
+------
+
+ソース全般の変更：
+------------------
+
+- ST0016ドライバにサウンド追加。[R.Belmont, Tomasz Slanina]
+    「ねらってチュー！」「連珠貴族」でサウンドあり
+
+- クリーンアップいろいろ。[Lawrence Gold]
+
+- チェックサムが無いハードディスクの問題をいくつか修正。[smf]
+
+-「Karate Blazers / 闘神ブレイザーズ」「ターボフォース」「雷電II」のDIP修正。
+  [Brian Troha]
+
+- Megaplayの改良。[Barry Rodewald, GreyRogue]
+
+- SPI / 386のアップデート。[Ville Linde]
+    -「E雀ハイスクール」で欠けていたキー追加
+    - レイヤー有効化のレジスタ追加
+    - 新型のi386逆アセンブラ追加。Dasm386では不正確な部分がありました。また、
+      i86が無くてもi386コアをコンパイルできるようになりました
+    - Dallas DS2404 (RTC/CMOS)エミュレーションの初期版追加
+    -「ライデンファイターズ2」単体版と2000に93C46EEPROMエミュレーション追加。
+      実装はまだ
+    - i386/Z80のインターリーブを改善。短いポーズが入った場合に有効なはず
+    - i386コアの修正。SPIシステムゲームには影響なし。MESSで効果があるはず
+
+- 386の改良。[Nathan Woods]
+    src/cpuexec.c:
+       - MAME_DEBUGが定義されているときに、CPUコアがネガティブサイクルカウン
+         トを実行したときにエラーとするチェックを追加
+
+    src/cpu/i386/i386.c:
+       - EIPレジスタ変更時のi386_set_info()のバグ修正
+    
+    src/cpu/i386/i386dasm.c:
+    src/cpu/i386/i386op32.[c|h]:
+    src/cpu/i386/i386op16.[c|h]:
+    src/cpu/i386/i386ops.c:
+       - GCC以外のコンパイラで起こるエラーを修正
+       - 以下を実装：ES, BOUND, DAA, DAS, AAS, INSB, INSW, OUTSB, OUTSW, 
+         LES, LDS, HLT, LSS, LFS, LGS, IMUL (32bit調整済み)
+
+- 386の改良。[Ville Linde]
+    - DS,SSセグメントのプリフィクス追加。FS,GSはsegment_FS、segment_GSに改称
+    - INTO命令追加
+    - AAS命令コードのレグレッションテストと修正（Intelのドキュメントとは違っ
+      た動作？）
+    - AAA命令コード追加（動作正確）
+    - AAD/AAM命令コード追加
+    - CMC命令コード追加
+    - ドキュメントに無いSETALC命令コード追加
+    - groupFE_8から実際には無いPUSH8命令を削除。なんてこったい ;-)
+    - SHLD/SHRD命令コードのレグレッションテストと修正
+    - AFフラグ演算の修正
+    - SUB/DEC命令コードのAFフラグを修正
+    
+- Beatorizer (海賊版)の改良。 [smf]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ツインイーグル2 [Olivier Galibert]
+
+Megaplay : Sonic the Hedgehog [Barry Rodewald, GreyRogue]
+Megaplay : Tecmo World Cup [Barry Rodewald, GreyRogue]
+Megaplay : Golden Axe 2 [Barry Rodewald, GreyRogue]
+    Megaplayにはまだ問題あり(コインを入れなくてもコンティニューできるなど)
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+Ninja (Sega Ninjaのクローン) [Pierpaolo Prazzoli]
+
+Area 51 (R3000 Version) [Brian Troha]
+    still needs speedup finding
+
+
+新規未動作/クローンゲーム：
+---------------------------
+スーパーパン (Japan)
+    新しい解読キーが必要
+
+Battle Balls / 戦球 (Asia)
+
+
+
+0.81u6
+------
+
+ソース全般の変更：
+------------------
+
+- noboranbで敵が全部表示されてなかったのを修正。[Stefan Jokisch]
+
+- 前回の更新でleprechnのサービススイッチが壊れていたのを修正。[Stefan Jokisch]
+
+- 修正いろいろ。[Nathan Woods]
+    src/cpu/i386/i386ops.c:
+    src/cpu/i386/i386op32.h:
+    src/cpu/i386/i386op16.h:
+    src/cpu/i386/i386op16.c:
+        - INT, INT3, ESセグメントオーバーライド, IMUL変数, LMSWを部分的に実
+          装。マイナーな16bitバグ修正。コプロセッサエスケープ命令
+
+    src/cpuintrf.c:
+    src/cpuintrf.h:
+        - CPUコアリストにMESS用のTMS7000コア追加
+
+- SPIシステムのアップデート。[Ville Linde]
+    * スプライトの反転追加の他、スプライト処理の改良
+    * タイルマップのパレットバンキングを訂正
+
+-「海底大戦争」のスピードアップを修正。[BouKiCHi]
+    注：最近のハードではm92ドライバの速度は特に問題にならなくなってきている
+    のでスピードアップのハックはすぐに削除されるかもしれません
+
+- Model 1にサウンド追加。[R.Belmont]
+
+- ST-Vのスプライトバグを修正。[Mariusz Wojcieszek]
+    (hanagumiのイントロ、othellosのタイトル、cottonbmのイントロ、diehardの
+    イントロ、sleague)
+
+- GPL12命令コード修正。[smf]
+    (cbajのグラフィック修正)
+
+- i386のアップデート。[Ville Linde]
+    - i386コアのリグレッションテスト。シフト/ローテート命令のバグを発見/修正。
+      これにより「ライデンファイターズ」のボスが直っています
+    - REP/REPNEプリフィクス処理を全て書き直し。以下の修正：
+     「戦球」のアトラクトモードが正常に動作。ゲーム中のボールの色が変化する
+      ように修正。
+     「E雀ハイスクール」のコイン入力可能。「バイパーフェイズ1」がプレイ可能
+     （グラフィックは未解読）
+
+- MIPSソフトウェア割り込みの修正。[Aaron Giles]
+
+- Seattleシステムのアップデート。[Aaron Giles]
+    * 割り込みソーシングのダイアグラム追加
+    *「SF Rush: The Rock」のオーディオROMのチェックサム修正
+    * FIFO経由のDCS HLEダウンロードサポート(Vegas製ゲームで使用)
+    *「ブリッツ99/2k」の音程修正
+
+- Hyperstoneの修正。[Pierpaolo Prazzoli]
+    - DASMのHフラグハンドリングを追加
+    - DASMの命令コードビットのインタプリタ処理を修正
+    - d-codeが0のときの、フレームインストラクションを修正
+    - 新規エントリーテーブルをつねにセットするように変更
+
+- Lord of Gunドライバを少し改良(まだ未動作)。[Pierpaolo Prazzoli]
+
+- YMZ280Bの更新。[R.Belmont]
+    (suprnova073greを修正)
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+きらきら五目ならべ 連珠貴族 [Tomasz Slanina]
+ねらってチュー！ [Tomasz Slanina]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+早指し将棋 五月陣戦 [Tomasz Slanina]
+早指し将棋 五月陣戦2 [Tomasz Slanina]
+    (v810CPUが未エミュレート。作業中)
+    
+スーパーイーグルショット [Tomasz Slanina]
+スーパーリアル麻雀PV [Tomasz Slanina]
+    (R3000側が未完成)
+
+
+
+0.81u5
+------
+
+ソース全般の変更：
+------------------
+
+- vblankのコールバックログが間違って残っていたのを削除。[Aaron Giles]
+
+- 最近のIDEの変更でSeattleの起動に時間がかかるようになっていたのを修正。
+  [Aaron Giles]
+
+- DCS2アップロードコマンドのHLEによる最適化。(ドライバ側の作業を軽減) 
+  [Aaron Giles]
+
+- MIPSコアの割り込み修正。[Aaron Giles]
+
+- デバッグ時に、PC処理を正確にするためのMIPSコアオプションMIPS3DRC_FLUSH_PC追加。
+  [Aaron Giles]
+
+- MIPSでビッグエンディアンモードのときに2バイトの値に直接アクセスする時のバグを
+  修正。[Aaron Giles]
+
+- Seattleシステムの更新。[Aaron Giles]
+    seattle.c:
+    * VBLANK割り込み処理の改善
+    * DMAオペレーション処理のクリーンアップ
+    * Voodooに書き込み出来ないとき、DMAオペレーションが正確に一時停止するよ
+      うに修正
+    * ブリッジデバイスPCIの正確なIDを返すように修正
+    *「BioFreaks」の入力とDIPスイッチのマッピング強化
+    *「Wayne Gretzky's 3D Hockey」のクロック速度を修正
+    * メモリマップをクリーンアップ
+    *「ヴェイパーTRX」をサポートゲームに追加
+    *「ハイパードライブ」と「SF Rush: The Rock」のエントリ追加
+
+    midwayic.c:
+    * 実時間クロックの疑似サポート（チェックパス用）
+    *「ヴェイパーTRX」のシャッフルマップ追加
+    * UARTに生のループバック実装（チェックパス用）
+
+    voodoo.c:
+    * 完全なFIFOメモリエミュレーション追加
+    * バッファ入れ替え後のファストフィル処理のハックを削除
+    * 解像度縮小のコンパイル時オプション追加
+    * VBLANK同期用のクライアントコールバック追加
+    * 統計情報とデバッグ情報のハンドリングをクリーンアップ
+    * R/Bコンポーネントの入れ替えオプション追加（vaportrx用）
+    * Midway POST実行時にクラッシュする問題を修正
+    * hSync/vSyncレジスタベースで動的にリフレッシュレートを計算するように
+      改良
+
+-「雷電II」のスプライト描画改善。[David Haywood]
+    ゲーム自体はバンキングの問題とプロテクトによりプレイ不可
+
+- 修正いろいろ。[Nathan Woods]
+    src/osdepend.h:
+        - GCC 2.5以降でコンパイルするとき、__attribute__((noreturn))を
+          osd_die()に追加
+
+    src/memory.c:
+    src/state.c:
+    src/x86drc.c:
+    src/cpu/i386/i386.c:
+    src/cpu/i386/i386op16.c:
+    src/cpu/i386/i386op32.c:
+    src/cpu/i386/i386ops.c:
+        - printf()/exit()の組み合わせをosd_die()にコンバート
+
+    src/windows/config.c:
+        - osd_die()のメッセージがlogerrorとコンソール出力の両方に送られるよ    
+              うに変更
+
+    src/cpu/i386/i386op16.c:
+    src/cpu/i386/i386op32.c:
+    src/cpu/i386/i386ops.c:
+        - i386の入出力命令を実装
+
+- Model1のライティングを改善。[ElSemi]
+
+- TMS32025の修正。[Phil Stroffolino, Quench]
+
+- SPIシステムのアップデート。[Ville Linde]
+    * 標準タイルにテキストレイヤーのデクリプトを適用
+    * スクロール、レイヤー無効化などのタイルマップエミュレーションを超改善
+    * タイルバンクセレクトとパレットバンクセレクトなど、タイルマップエミュ
+      レーションをさらに改良
+    * viperp1の別仕様（旧型？）のビデオハードをサポート。タイルマップがひと
+      つ少なく、VRAMのレイアウトが違うもの
+    * ejanhsに麻雀コントローラ追加。でもコインが入らず
+    * スプライト描画改善
+    * rf2_usのサウンドが動作し始める
+
+- Konami GXのクリーンアップ。[R.Belmont]
+    * 実機所有者にとって紛らわしかったためAcho氏による偽のDIPスイッチを削除
+    * 最新スペックに合わせてメモリマップの統合とクリーンアップ
+    * rushheroのプロテクトをさらにエミュレート（スプライトリストのコピー場所
+      が正しくなりました）。見た目の改善は特にありません
+    * GCC 3.3以降で警告が出ないように未使用のルーチンを削除
+    * type3と4について、PSACタイルのデコードを修正
+    * type3のPSACタイルマップのXとY反転フラグを修正
+
+- Rock-olaの改良。[Curt Coder]
+    drivers/rockola.c
+    sndhrdw/rockola.c
+    - さらにクリーンアップ
+    - 他のゲームにもSN76477インターフェースを追加。ただし未接続。
+      要、ディスクリートサウンドのエキスパート（ウインク、ウインク）
+    - vanguardにSHOT Bの効果音を追加
+    - vangrdceのフェイクROMにNO_DUMP追加
+    - nibblerのマニュアルに従ってROM名を訂正
+
+- MegaPlayで、さらにチェックをパスするように改良。[Barry Rodewald]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+ブレイブブレイド [smf, David Haywood]
+レイストーム [smf, Olivier Galibert]
+Pirate Treasure [Stefan Jokisch]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+NBA Maximum Hangtime v1.03 [Asure]
+Leprechaun (Pacific Polytechnical license) [Stefan Jokisch]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+MegaPlay: Tecmo World Cup [David Haywood]
+    MegaPlay自体のエミュレートがまだ不完全
+ヴェイパーTRX [Aaron Giles]
+    ゲームをスタートしようとすると固まる
+San Francisco Rush: The Rock [Aaron Giles]
+ハイパードライブ [Aaron Giles]
+    ハードディスク無し
+
+
+
+0.81u4
+------
+
+ソース全般の変更：
+------------------
+
+- Hyperstone CPUコアの修正。[Pierpaolo Prazzoli]
+    - ディスプレースメントアドレスモードPCを使うロード・ストア命令がデスティ
+      ネーションレジスタとして扱われる次バイトのアドレッシングを追加
+    - ローカルレジスタによるmodulo 64のラップアラウンドを追加
+    - DASMにトラップ命令追加
+    - Added some debug info when high global registers are written
+    - DASMの間違いフォーマットを修正
+    - ドキュメントにあるようにリセットを例外として動作するように変更
+
+-「Killer Instinct」の修正。[Aaron Giles]
+    * メモリマップのクリーンアップ
+    * 2つ目のビットマップページが判明。表示系の大幅修正と以前導入したインチ
+      キハック削除
+    * サウンドのリセットと初期化を修正
+    * システム診断項目を全てパス
+    * コインエイジのDIP修正
+    * それぞれに別ROMセットを追加
+    修正: kinst067gre2, kinst072gre
+
+- MIPS DRCの修正。[Aaron Giles]
+    以下のようなメモリアクセスのエッジケースを修正:
+      lw  r3,$0(r0)
+    これが、変なステートでスタックを残しクラッシュにつながっていたもの。
+    kinst067redが修正
+
+    以下のフォームの命令:
+      ld   r10,0(r10)
+    この場合、r10に下位ワードを最初にロードして、上位ワードのアドレスには変
+    更されたr10（プラス4）を使っていました。超最悪です。
+    これによりkinst2の空のグラフィック表示が修正されました
+
+- ZNの改善。[smf]
+    「Judge Dreadd」で24ビットレンダリングをサポート
+
+- 'jalmah'ドライバのアップデート。[Angelo Salese]
+    「麻雀革命」「同2」が起動するようになりましたがプロテクトのためにどちら
+     もプレイは不可
+
+- アップデートをいろいろ。[Nathan Woods]
+    src/windows/windows.mak:
+    - 前に言っていたx68drc.cの問題を修正
+
+    src/fileio.c:
+    src/windows/fileio.c:
+    - ファイルを読み書き用にオープンするための（Windowsのみの）新モードを追
+      加しました。
+      変更部分は実際にはオリジナルファイルではなく一時ファイルに書き込まれま
+      す。これはMESSで、操作中のイメージを変更することなくテストできるように
+      する技として使われているものです。
+    - 少しクリーンアップ
+
+    src/png.c:
+    - APPNAMEマクロを使い、#ifdef MESS/#else/#endifを削除
+
+- SPI / 386の更新。[Ville Linde]
+    *「ライデンファイターズ」が起動してアトラクトモードとゲームプレイまで進
+      むようになりました、がグラフィックは暗号化されたままなので、なんかうっ
+      とり :-)
+    *「バイパーフェイズ1」が起動だけするようになりましたが、それ以上は進みま
+      せん
+    * Z80のバンク切り替え実装でサウンドが一部で鳴り出しました
+      （特に「ライデンファイターズ」）(R.Belmont)
+
+- ST-Vのアップデート。[Mariusz Wojcieszek]
+    「グルーブオンファイト」のスプライト修正でプレイ可能になりました。
+    また「コットン2」「コットンブーメラン」「ガーディアンフォース」
+    「オセロしようよ」もRGB0のスクロール追加でかなり改善しています。
+
+- デバッガの修正。[Aaron Giles]
+    新メモリシステムについてデバッガを使いやすくしてみました。アドレスとデー
+    タマスクは再び正しく動作するようになっています
+
+    また、どのメモリウィンドウにも移動可能で、Pキーでプログラムアドレス空間
+    の表示、Tキーで、データアドレス空間の表示ができます
+
+- OSDによる'NO EXECUTE'のサポート。[Aaron Giles]
+    このパッチは以下の2つの新関数をOSDに導入します：
+
+    osd_alloc_executable();
+    osd_free_executable();
+
+    ほとんどのプラットフォームでは、mallocとfreeのマップが出来るだけですが、
+    WinXP SP2よりNO_EXECUTEビットをサポートするプロセッサ（今のところAMDの64
+    ビットチップのみ）で動作させると、通常のユーザーモードではコードをメモリ
+    に配置して実行することは許可されません。
+
+    これはx86drc.cと全く同じことを行うため、上の2つの関数を追加しました。
+    Windowsでは、VirtualAllocとVirtualFreeの呼び出しをマップします。これによ
+    り配置したページのリード、ライト、実行の各ステートを指定することができま
+    す。
+
+-「Lethal Justice」「Egg Venture」のクリーンアップ。[Aaron Giles]
+    * メモリマップの統合
+    * 「Egg Venture」の点滅が正しくなるように表示サイズ修正
+    * VIDEO_RGB_DIRECTにスイッチ
+    * 不要なROMリージョンとメモリコピーを削除
+
+- Rockolaのクリーンアップと修正。[Curt Coder]
+    * ファンタジー/ニブラー/パイオニアバルーン
+    drivers/rockola.c
+    sndhrdw/rockola.c
+    - 回路図より正確なCPU周波数を取得
+    - ボムエフェクト用にSN76477サウンドを実装
+    - メモリマップを統合
+    - ドライバを少しクリーンアップ
+    - DIPスイッチの修正
+    - デバッグ入力を有効化
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ゴーストロップ (プロトタイプ)
+
+スーパーライダー [Aaron Giles]
+
+ST-Vゲームいくつか
+    動作速度はまだかなり遅いです ;-)
+    グルーヴオンファイト [Mariusz Wojcieszek]
+    オセロしようよ [Mariusz Wojcieszek]
+    団地で花札 [thanks to Runik/Saturnin]
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+Driving Force (ギャラクシアン基板, 海賊版) [Pierpaolo Prazzoli]
+スノーブラザーズ (set 4) [Fabrice Arzeno]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Lord of Gun
+    プロテクトあり？
+
+Taito JC System
+    68040とmc68hc11m0のエミュレーションが必要
+    電車でGO (1, 1ex, 2 高速編, 2 高速編3000番台)
+    サイドバイサイド (1 & 2)
+    ランディングギア
+
+
+
+0.81u3
+------
+
+クリーンコンパイルしないときちんと動作しないので注意してください。
+
+ソース全般の変更：
+------------------
+
+- ZNのアップデート。[smf, R.Belmont]
+    いくつか改善したゲームがあります（「ブレイブブレイド」「Judge Dredd」な
+    ど）がまだ不完全です
+
+-「雷電DX」で画面表示が少しだけ出るようになった。
+
+- i386コア修正＋SPIの改良 [Ville Linde]
+    戦球 / Eジャンが少し動き始めてます
+
+- PGMサウンドエミュレーションの初期型。[Olivier Galibert]
+    音的に不完全＋クラッシュあり
+
+- Centipedeドライバのクリーンアップ。[Aaron Giles]
+
+- リセットとタイマーバグの修正。[Aaron Giles]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Cool Boarders Arcade Jam [R.Belmont, smf]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+CPS-3システム
+    プロテクトなどのため動作は一切しません。参照用ドライバです
+    ストリートファイターIII、など
+
+
+
+0.81u2
+------
+
+個人的に最新状態にしておくためのマイナー更新。
+
+
+ソース全般の変更：
+------------------
+
+- ZNシステムのアップデート。[smf, R.Belmont]
+
+-「雷電2」の解読を改良。
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Rival Schools / 私立ジャスティス学園 [smf, R.Belmont]
+上海 真的武勇 [R.Belmont, smf]
+
+
+
+0.81u1
+------
+
+リクエストによる、DEVに合わせるためのリリースです。
+
+ソース全般の変更：
+------------------
+
+-「Beastorizer / ブラッディロア」のハイスコアポートレイト修正。[smf]
+
+- Hyperstoneのバグをさらに修正。[Pierpaolo Prazzoli]
+
+-「雷電2」のスプライトを部分的に解読（F4のスプライトビューアをチェック）。
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+Sega Model 1 [Olivier Galibert]
+    心臓部のTGPコプロセッサ機能のシミュレートが不正確
+    バーチャファイター
+    バーチャレーシング
+    スターウォーズ
+    ウィングウォー
+
+雷電DX
+ゼロチーム / ニューゼロチーム
+    プロテクトが未エミュレート

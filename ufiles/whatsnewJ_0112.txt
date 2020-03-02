@@ -1,0 +1,1208 @@
+0.112
+-----
+
+祝10周年！今日のリリースでオリジナル0.1から10周年になります。この10年で、数百人
+の開発者により、数千のゲームに数万時間以上の開発時間が費やされました。これからも
+MAMEの開発は続きます。長年に渡ってこプロジェクトを支えてくれた全ての人たちに感謝。
+
+また、過去にプロジェクトへ貢献してくれた皆さんにも感謝します。このリストは完全で
+はありませんが、いかに多くの人たちがアーケード史を残すことに関心を持っているかを
+示していると言えるでしょう：
+
+Aaron Giles             Acho A. Tang            Adam Bousley
+Al Kossow               Alan J McCormick        Alan Kamrowski II
+Alessio Manuele         Alex Eddy               Alex Jackson
+Alex Judd               Alex Pasadyn            Aley Keprt
+Allard van der Bas      Andre Hufschmidt        Andrea Mazzoleni
+Andrea Turci            Andreas Naive           Andreas Thorsen
+Andrew Caldwell         Andrew Church           Andrew Gardner
+Andrew Prime            Andrew Scott            Andrew Seed
+Andrew Zaferakis        Andy Conroy             Andy Jones
+Andy Welburn            Andy White              Ange Albertini
+Angelo Salese           Anssi                   Antoine Mine
+ANY                     Arthur Peale            Arzeno Fabrice
+Asure                   Atari Ace               Avedis Boyajian
+
+B.S.Ruggeri             Barry Harris            Barry Rodewald
+Bart Tobalske           Bart Trzynadlowski      Battlepriest
+Ben Bruscella           Ben Rudiak-Gould        Bernd Wiebelt           
+BET                     Bladerunner             Blip
+bmoto                   bnathan                 Bob Seidel
+Bobby Conover           BouKiCHi                Brad Oliver
+Brandon Kirkpatrick     Bret Wallace            Brian Crowe
+Brian Deuel             Brian Levine            Brian Lewis
+Brian Oberholtzer       Brian Stern             Brian Troha
+Brian Verre             Bryan McPhail           Bud Crittenden
+Buddabing               BUT
+
+CAB                     Cananas                 Canim
+Cap                     Carl-Henrik Skarstedt   Carlos A. Lozano
+Carlos Santillan        Chack'n                 Chad Hendrickson
+Chad Hurwitz            Chaneman                Charles MacDonald
+Charlie Miltenberger    Chris Hardy             Chris Kirmse
+Chris Law               Chris Moore             Christoff Feldtmann
+Christophe Verre        Christopher Stone       ClawGrip
+Clay Cowgill            Col Turner              Colin Douglas Howell
+Corrado Tomaselli       Costa Sgantzos          Craig Walker
+Curt Coder              cutebutwrong            cync
+
+Dan Boris               DangSpot                Dani Portillo
+darkcoder               Darren Hatton           Darren Olafson
+Darrin Redick           Dave France             Dave Spicer
+Dave W.                 David Calandra          David Graves
+David Haywood           David Rolfe             David Silva
+David Widel             David Winter            deadscreem
+Derrick Renaud          Dick Millikan           Dirk Best
+Don Maeby               Duddie
+
+Ed Mueller              Eddie Edwards           Edgardo E. Contini Salvan
+Edward Massey           EGCG                    ehrhard@csd.de
+Eisuke Watanabe         Elestir                 ENGCameraman
+Eric Anschuetz          Eric Hustvedt           Erik Ruud
+Ernesto Corvi           Eugene Sandulenko       Eugenio De Renzi
+
+F.J. McCloud            f205v                   Fabio R. Schmidlin
+Fabrice Arzeno          Fabrice Frances         Fabrice Martinez
+Fabrizio Pedrazzini     Farfetch'd              Flatliner
+Francesco Caporali      Frank Palazzolo         Fredrik Sjostedt
+Fujix
+
+Gamester                Gareth Hall             Gary Walton
+gbluma                  Gerald Coy              Gerardo Oporto
+Gerrit Van Goethem      Giuseppe Gorgoglione    GMB
+Gondos                  Gonzalo Casas           gregf
+GreyRogue               Guru
+
+Hans Andersson          Hans de Goede           Hedley Rainnie
+Highwayman              Hiromitsu Shioya        HobbesAtPlay
+hoot development team   Howard Casto            Howie Cohen
+HPMAN                   Hugh McLenaghan
+
+Ian Patterson           Inigo Luja              inkling
+insideoutboy            iq_132                  Ivan Mackintosh
+
+J. Rodman               Jake Stookey            James R. Twine
+James Rowan             James Wallace           Jarek Burczynski
+Jarek Parchanski        Jason Lo                Jason Nelson
+JC Alexander            JCK                     Jeff Johnson
+Jeff Mitchell           Jeoff Krontz            Jess Askey
+Jim Hernandez           Jim Thevenot            Jimmy Hamm
+Joachim Bassmann        Joe Magiera             Johan Samuelsson
+John Butler             John Clegg              John Dickson
+John Dondzila           John IV                 John Wil
+Jonathan Lunman         Jose Miguel Morales Farreras
+Jose Tejada Gomez       Joseba Epalza           Juan Carlos Lorente
+Juddy                   Judge                   Juergen Buchmueller
+Julian Eggebrecht       Julien Frelat           Justin Lee Turner
+Justin Szczap
+
+Karl Stenerud           Kawaks                  Keith Gerdes
+Keith Wilkins           Ken Reneris             Kenneth Lin
+Kenneth Miller          Kevin Bales             Kevin Brisley
+Kevin Eshbach           Kevin Estep             Kevin Jonas
+Kevin Klopp             Kevtris                 Kobat
+Kopromaster             Kurt Mahan               
+
+Larry Bank              laugh                   Lawrence Gold
+Leandro Dardini         Lee Mitchell            Lee Taylor
+Leon van Rooij          Li Jih Hwa              Lodewijk
+Logiqx                  Lord Nightmare          Luca Elia
+Luigi30                 Luis Faria
+
+M.A.S.H.                M.C. Silvius            Machone
+MadSkunk                Malcolm Lear            Malice
+MAME Italia Forum       MAME32Plus              MamePlus!
+Mamesick                MAN                     Manbow-J
+Manfred Schneider       Manuel Abadia           Manuel Assoni
+Marc Lafontaine         Marc Vergoossen         Marcelo de G. Malheiros
+Marco Cassili           Mariusz Wojcieszek      Mark McDougall
+Martin Adrian           Martin Binder           Martin Buchholz
+Martin Pugh             Martin Sandiford        Martin Scragg
+Martin Searle           Martin White            Massimo Morra
+Mathis Rosenhauer       Matthew Conte           Maurizio Clementini
+Maurizio Zanello        mbeighau@iies.es        Michael Appolo
+Michael Cunanan         Michael Soderstrom      Micheal Schumacher
+Miguel Angel Horna      Miguel Figueiredo       Mike Balfour
+Mike Coates             Mike Cuddy              Mike Ellery
+Mike Haaland            Mike Herrin             Mike O'Malley
+MikeJ                   Minuous                 Mirko Buffoni
+Mitsutaka Okazaki       Mr. Do!                 Murray Melvin
+
+NAmag                   Nao                     nathan
+Nathan Barber           Nathan Sturm            Nathan Woods
+Neil Bradley            Nicola Salmoria         Nomax
+nono                    Norbert Kehrer          Norix
+
+Ohsaki Masayuki         Oliver Achten           Oliver Bergmann
+Oliver Stabel           Oliver Stoneberg        Olivier Galibert
+OpenMSX Team            Oshah                   Owen Rubin
+
+Paolo Fiorani           Paolo Venturi           Parodier
+Patrick Lawrence        Patrik Styrnell         Paul Forgey
+Paul Hampson            Paul Leaman             Paul Priest
+Paul Sommers            Paul Swan               Paul Winkler
+Peale                   Peo                     Pete Ashdown
+Pete Ground             Peter Clare             Peter Hirschberg
+Peter Rittwage          Peter Sealy             Peter Storey
+Peter Townson           Peter Trauner           Petter Sjolund
+Phil Hopely             Phil Stroffolino        Philip Bennett
+Pierpaolo Prazzoli      PokeMAME                PongKang
+
+Quench                  quzz                    QWERTY
+
+R. Belmont              Rainer Keuchel          Ralf Willenbacher
+Ramsoft                 Randolph                Randy Hoffman
+Randy Mongenel          Raney Eden              RansAckeR
+Raphael Nabet           Razoola                 ReAnimator
+Rene Single             Reznor007               Richard Bush
+Richard Davies          Richard Mitton          Rob Bohms
+Rob Rosenbrock          Robert Alan Byer        Robert Anschuetz
+Robert Flory            Robert Gallagher        Roberto Fresca
+Roberto Gandola         Roberto Ventura         Robin Merrill
+robiza                  Rodimus Prime           Roger Sanders
+Roman Scherzer          Ron Fries               Ruben Panossian
+Runik                   Russell Nash            Ryan Ahn
+Ryan Holtz              RYO
+
+Sal Bugliarisi          Samuele Zannoli         Santeri Saarimaa
+Satoshi Suzuki          Sawat Pontree           Scott Brasington
+Scott Kelley            Sean Gugler             Sean Riddle
+Sean Young              Sebasten Hegon          Sebastian Ojeda
+Sebastien Chevalier     Sebastien Monassa       Sebastien Volpe
+sedn                    Shane Monroe            Shaun Stephenson
+The Sheep               Shica                   ShimaPong
+Shin Emu Keikaku team   ShiRiRu                 siftware
+SilverFox               Simon Walls             Simon White
+smf                     Smitdogg                Sonikos
+Special LIU             Stefan Jokisch          Stefan Lindberg
+Stefano Mozzi           Stefano Teso            Stephan Cecchinel
+Stephen Behling         stephh                  Steve Ellenoff
+Steve Rice              Steve S.                Steven Frew
+Steven Hugg             sthief                  Stiletto
+Stuart Campbell         Suppi-Chan              Svante Gerhard
+Sylvain Glaize
+
+Taiwan                  Takahiro Nogi           Tatsuyuki Satoh
+Taucher                 Team Japump             Thierry Lescot
+Thomasz Slanina         Thorwak                 Tim Cottrill
+Tim Lindner             Tim Lindquist           Tim Schuerewegen
+Tirino73                Toby Broyad             Tom Girardot
+Tom McClintock          Tomas Karlsson          Tomasz Slanina
+Ton Brouwer             Toninho                 Tormod Tjaberg
+Torsten                 Toshiaki Nijiura        Trinity
+Twisty
+
+Uki                     Uncle Tom               unzu
+uRebelScum              
+
+Valerio Verrando        Vas Crabb               vernimark
+Vernon C. Brooks        VGR                     Victor Trucco
+Ville Laitinen          Ville Linde             Vince Mayo
+Virtu-Al
+
+Weisse Eins             Wiebo de Wit            Wilbert Pol
+William Krick           wolf676                 Wolfi
+wpcmame                 wwtk@mail.com
+
+XingXing                xvi
+
+Yasuhiro Ogawa          Yochizo                 yong
+Yves Colombani
+
+Zerza                   Zonn Moore              Zsolt Vasvari
+
+
+
+MAMETestersの修正バグ
+---------------------
+debug_assertions0111u6ora [Aaron Giles]
+z80update0111u6red [David Haywood]
+memory_leak0111u6ora (partial) [Oliver Stoneberg]
+crosshair0111u5gra [Canim, Aaron Giles]
+renegade0111u4red [Aaron Giles]
+subs0111u6yel [Aaron Giles]
+ddraweffect0111yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Berzerk」のボイス修正。[Lord Nightmare]
+
+- osdcoreにosd_rmfile追加。remove()コールを置き換えます。[Nathan Woods]
+
+- DRIVER_INIT内からmallocを呼び出していたドライバについて、malloc_or_dieを使うよ
+  うにクリーンアップ。[Atari Ace]
+
+- -wavwriteでメモリリークが起きていたのを修正。[Oliver Stoneberg]
+
+-「テンペスト」でプレイヤー2の操作をサポート。[stephh]
+
+- dooyongドライバで新スタイルのバンキングシステムを使うように更新。また、初期版
+  のセーブステートも追加。[Vas Crabb]
+
+- pmpoker.cの改良: [Roberto Fresca]
+ - #defineでのクリスタル記述
+ - #defineのクリスタル周波数値からCPUクロックを割り出し
+ - 正しいカラーPROMのデコードによるカラーシミュレーションに置き換え
+ - ドライバを少しクリーンアップ
+ - カラーPROMをアップデート
+
+- funworld.cの改良: [Roberto Fresca]
+ - #defineでの全クリスタル記述
+ - #defineで定義したクリスタル周波数からCPUとサウンドクロックを割り出し
+ - 全ゲームにDIPLOCATIONS追加
+ - monglfirとsoccernewにちゃんと吸い出したTSC87C52 MCUを追加
+ - リフレッシュレートを60fpsに変更
+ 
+- SCSP DSP RAM初期化を修正。[R. Belmont]
+
+- 新ダンプを元にMC8123-0054の復号化を改良。[Nicola Salmoria]
+
+-「ムーンパトロール」のスクロールを回路図に合わせて修正。[Chris Hardy]
+
+- Exidy/Berzerkサウンド回路のノイズジェネレータを正しく実装。[Lord Nightmare]
+
+-「フィグゼイト」にプレイヤー3の操作追加。(メインセットのfixeightはプレイ不可の
+  まま) [stephh]
+
+- arabianドライバにDIP配置追加。[Roberto Fresca]
+
+-「コラムス'97」のグラフィックにランダムなドットが現われるのを修正。
+  [Mariusz Wojcieszek]
+
+- wwffest、ninjaw、itech32ドライバにDIP配置追加。[Brian Troha]
+
+- Irem GA20サウンドコアの偽のx86アセンブリを書き直し。[R. Belmont]
+
+- Cidelsaドライバの改良。[Curt Coder, David Haywood]
+
+- 8039逆アセンブラのマイナーなクリーンアップ。[Nathan Woods]
+
+- sslamドライバの改良: [Quench]
+ * Guru氏が提供してくれた実機を元に、SSLAMサウンドコントローラのBGMシーケンシン
+   グシミュレーションを訂正
+ * セーブステートサポート
+ * DIP配置追加
+
+- cybrcommのROMが足りなくてクラッシュしていたのを修正。[R. Belmont]
+
+- アルファブレンディングのコードで、テーブル参照から乗算を使うように変更。
+  [Aaron Giles]
+
+- konamiic.cのコードがやばめだったのでクリーンアップ; まだかなりの作業が必要です
+  が、とりあえずGXのスプライトは修正されました。[Aaron Giles]
+
+- BSMT2000からデフォルトの線形補完を削除。オリジナルのチップでは補完をしていませ
+  ん。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Teeter Torture [Aaron Giles]
+ハイパーストリートファイターII: The Anniversary Edition [Nicola Salmoria]
+レディーマスター [Juddy]
+Destroyer (Cidelsa) [Curt Coder]
+Witch [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+ダブルドラゴン (US Set 2) [Corrado Tomaselli]
+Golden Poker Double Up (Mini Boy) [Roberto Fresca]
+Pool 10 (Italia, set 2) [Roberto Fresca]
+マイティーパン (USA 001010) [David Haywood, Charles MacDonald]
+
+
+
+追加された未動作ゲーム
+----------------------
+Wyvern Wings [Pierpaolo Prazzoli]
+Alpha One (Vision Electronics / Kyle Hodgetts) [Gareth Hall]
+Cash Quiz (Type B, Version 5) [Chris Hardy]
+
+
+
+==========================================================================
+
+0.111u6
+-------
+
+
+ソースの変更点
+--------------
+- Amigaドライバのほとんど全部のビデオモードについて、データフェッチとスクロール
+  演算を修正。[Ernesto Corvi]
+
+-「スペースエンカウンター」のtrench circuitをエミュレート。[Adam Bousley]
+
+- win_output_debug_string_utf8()追加; OutputDebugString()のUTF-8ラッパー。これを
+  使うようにコードを変更。[Nathan Woods]
+
+- ARM7コアのThumb命令について、逆アセンブル、動作、サイクルタイミングを修正。
+  [MooglyGuy]
+
+- 新osdコア関数、osd_is_absolute_path()を定義。コアのファイルI/Oの動作について、
+  絶対パスを確認して、検索パスを無視するように変更。[Nathan Woods]
+
+- コインエイジの順序にエラーがある場合、正しい順序を出力するようにバリディティ
+  チェックを改良。[Ernesto Corvi]
+
+-「Dream World」の新しい測定結果を元に、クロックとその他の修正。
+  [David Haywood, Guru]
+
+- 回路図を元にMidway 8080ドライバのビデオ回路を実装。これは表示領域だけに影響す
+  るので、オーバーレイの調整が必要です。全ゲームの表示領域を統一化。また
+  「Phantom II」の雲ピクチャを実装。[Zsolt Vasvari]
+
+- tilemap_create()が必ず成功するように変更。この操作による、結果チェックのコード
+  パスをクリーンアップ。[Atari Ace, Aaron Giles]
+
+- SCSP用の内蔵エフェクトDSPの初期版追加。リバーブ、QSound、その他のエフェクト用
+  として他の多くのゲームでも使用されています。[ElSemi]
+
+- 8085コアから、古くなったi8080_EXACTフラグを削除。[Zsolt Vasvari]
+
+- Midway 8080ドライバで、正しく演算したビデオタイミングとスキャンライン割り込みを
+  使うように更新。[Zsolt Vasvari]
+
+- MPU4ドライバのアサート修正。「Connect 4」のメカニカルメーターの動作修正と、
+  コインエントリを有効化。[James Wallace]
+
+- ブレークとポーズキーのマッピング追加。[Dirk Best]
+
+- アサートの修正とZ80GBエミュレーションの改良をMESS CPUコアに統合。
+  [Nathan Woods, Wilbert Pol]
+
+- GX400/NemesisドライバのサウンドIRQ接続を修正。[R. Belmont]
+
+- SN76477エミュレータをゼロから書き直し。古いバージョンとの主な違いは、実際のチッ
+  プの測定結果を元にしているところです。また、エミュレータは完全にアナログなので、
+  タイミングや周波数などは電圧ベースです。これにより、実チップの変な動作などもか
+  なり正確にエミュレートされます。コード自体も前よりシンプルで読みやすくなりまし
+  た。[Zsolt Vasvari, Derrick Renaud]
+
+- 照準描画の削除ではぐれた変数をクリーンアップ。同じく、はぐれた関数宣言も削除。
+  [Oliver Stoneberg]
+
+- Berzerkドライバとs14001aコアに音量と周波数のコントロールを追加。ボイスがランダ
+  ムに再生されていたのが、正しいものになります。[Lord Nightmare]
+
+-「スペースエンカウンター」のストロボライトの点滅を実装。いずれアートワークと接
+  続されるでしょう。[Zsolt Vasvari]
+
+- driver_add/find/remove関数で、対象が見つからない場合に致命的なエラーになるよう
+  に変更。[Aaron Giles]
+
+- 画面がないドライバのサポート。[Aaron Giles, Nathan Woods]
+
+- OKI6295のエラーを二つ修正。[David Haywood]
+
+- OutrunドライバのDIPスイッチクリーンアップとドキュメントの追加。[Brian Troha]
+
+- NMG5ドライバのサウンドクロック周波数修正。[Brian Troha]
+
+-「ナイトスラッシャーズ」のサウンドクロック周波数修正。[Sonikos]
+
+- Sega System 16/18ドライバをモノラルに変更。またインストに合わせてボタン1と2を
+  入れ替え。[Corrado Tomaselli]
+
+- ツール類のソースを新しいサブディレクトリ、toolsに移動。[Aaron Giles]
+
+- パラレルビルドのサポート改善のためメインのmakefileを改良。[Aaron Giles]
+
+- mame_bitmapからライン配列を削除。数十のドライバで代わりとしてBITMAP_ADDRマクロを
+  使うようにコンバート。[Aaron Giles]
+
+- 自動照準表示があまり自動すぎないように変更。ドライバの入力ポート部で指定するよ
+  うにしました。また、PORT_CROSSHAIRマクロで、短い軸名を使うように変更。光線銃
+  ゲームの全ドライバで、デフォルトでこのマクロを使うように更新。[Aaron Giles]
+
+- デバッグ用の照準位置スライダを追加（デバッグビルドのみ）。[Aaron Giles]
+
+-「ゼビウス」で、割り込みの取りこぼしが起きないようにirq0_pulse_lineに代えて
+  irq0_assert_lineに変更。[Aaron Giles]
+
+-「Gorf」でスキャンライン割り込み用にPULSE_LINEの代わりにHOLD_LINEを使用するよう
+  変更。タイミングはまだずれてますが、ゲームは動作するようになりました。
+  [Aaron Giles]
+
+- 新ビデオルーチンを使い、最初のフレームの実行中に行う横・縦位置のレポートを修正。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+マジカルテトリスチャレンジ: フューチャリング・ミッキー[Ville Linde]
+スターソルジャー: バニシングアース [Ville Linde, Guru]
+ビビッドドールズ [Ville Linde, Guru]
+Connect 4 [James Wallace]
+Martial Masters [MooglyGuy]
+三国戦紀2: ナイツオブヴァラー [MooglyGuy]
+
+
+
+追加された未動作ゲーム
+----------------------
+スーパーリアル麻雀VS [Ville Linde, Guru]
+Tower & Shaft [Ville Linde, Guru]
+
+
+==========================================================================
+
+0.111u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+bitmapalloccore0111u4red [Aaron Giles]
+8080bw0111u4red [Zsolt Vasvari]
+sidvoice0111u4ora [Nathan Woods]
+pyramid0111u4red [James Wallace]
+dragngun0111u3gra [Canim]
+mitchelc0111u3gra [Luigi30]
+lockload0111u3gra [Canim]
+cobracom0111u3ora [Canim]
+
+
+
+ソースの変更点
+--------------
+- 6502レジスタ名のバグと、SC61860逆アセンブラのサイズバグ修正。[Nathan Woods]
+
+-「Crash」用のビルトインオーバーレイ追加。[Mr. Do]
+
+-「ジャイラス」にセーブステート追加。[Buddabing]
+
+- MESSサウンドコアの統合から無くなっていたサウンドインターフェース修正。
+  [Nathan Woods]
+
+- ダブっていたグローバル変数を修正、参照されていないアイテムをヘッダファイルから
+  削除、一部のドライバ用のヘッダファイル追加。[Atari Ace]
+
+- デバッグコンソールのコードについて、auto_mallocを使って初期化後のコールバック
+  登録をしようとするのを検出するように変更。[Nathan Woods]
+
+- kof2003海賊版のコードをビッグエンディアンのシステムで動作するように修正。
+  [R. Belmont]
+
+- 共通なWindows用ユーティリティルーチンを、新モジュールwinutil.cに集中。
+  [Nathan Woods]
+
+- input_port_dword_*_rを使うドライバをクリーンアップ。[smf]
+
+- MPU4とBFMドライバのメモリマップをクリーンアップ。DRIVER_INITで、生成するCHRの
+  参照テーブルについてのROMアドレスしか必要ないようにMPU4コードを再設計。
+  [James Wallace]
+
+- ビルトインのExpatコードをバージョン2.0に更新。[Atari Ace]
+
+-「インディアンバトル」のサウンドサンプル修正。[Zsolt Vasvari]
+
+- mhavocにステートセーブ追加。また、光るベクターのスローダウンの修正と、ベクター
+  リストのオーバーフローが予想できるように修正。[Mathis Rosenhauer]
+
+- ほとんどのCPS2ゲームからXORを削除して、正確な暗号処理エミュレーションと置き換
+  え。[Nicola Salmoria]
+
+- 入力読み込みのコールバックが定義されている場合に、pia_set_input_[a|b]()が使え
+  ないようにするアサーションを追加。[Nathan Woods]
+
+- contra.cドライバの画面反転スイッチの修正と、COIN3をSERVICE1に変更。[Canim]
+
+- nmg5ドライバのDIPスイッチと入力のクリーンアップおよび修正。[stephh]
+
+- Z80のEI後の割り込みシグナルのバグを回避するため、割り込み処理を書き直し。
+  [Aaron Giles]
+
+- esd16、afega、cave、unico、vamphalf、yunsun16ドライバのドキュメント追加。
+  [Brian Troha]
+
+- chdmanで0セクタサイズをデフォルトとするように変更。[Aaron Giles]
+
+- ビデオドライバ(amiga、n64、ppu2c0x、psx、stvvdp2、tia、v9938)で、line[]配列に
+  代えて新しいBITMAP_ADDR*マクロを使うように更新。[Nathan Woods]
+
+- Midway 8080 B&Wドライバの修正: [Zsolt Vasvari]
+ - 必要な場所にPORT_CONDITION追加
+ - 野球ゲーム3つとインベーダーにPORT_CONFNAMEを追加
+ - 全ゲームでセーブステートサポート
+ -「シーウルフ」のランプの綴り違いとバグ修正
+
+- s14000aのサウンドクリッピング修正。[Lord Nightmare]
+
+- TMS5110/5220コードのPRNGノイズ修正と、信号のラッピング追加。[Lord Nightmare]
+
+- auto_bitmap_alloc()の処理をクリーンアップ。確実にfailしなくなりました。
+  [Aaron Giles, Atari Ace]
+
+- Berzerkドライバに効果音のエミュレーション追加。[Aaron Giles]
+
+- 1:1の解像度ではないときのフォントアスペクト比修正。[Aaron Giles]
+
+- BDFフォントの読み込み速度改善のため、バイナリフォーマットでキャッシュを保存す
+  る機能追加。また、サイズが大きいBDFフォントを読み込んでいるときの進捗具合の表
+  示を追加。[Aaron Giles]
+
+- TMS9928aの設定を、よりスタンダードな方法に置き換え。これに合わせてCliffhanger
+  とsg1000aドライバを更新。[Aaron Giles]
+
+- LD-V1000エミュレーションで、Badlandsのカスタムコマンドサポート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Dream World [David Haywood, Guru]
+
+
+
+新規クローンセット
+------------------
+Multi 5 / New Multi Game 5 (Earlier) [Brian Troha]
+バブルボブル (bootleg with 68705) [David Haywood]
+スーパーストリートファイターII (World 930911) [Nicola Salmoria]
+スーパーストリートファイターII (Japan 930911) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: タワーオブドゥーム (Euro 940113) [Nicola Salmoria]
+スーパーストリートファイターIIターボ (USA 940323) [Nicola Salmoria]
+Armored Warriors (Euro 941024) / パワードギア [Nicola Salmoria]
+エイリアンVSプレデター (Hispanic 940520) [Nicola Salmoria]
+サイバーボッツ: フルメタルマッドネス (Euro 950424) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Euro 951024) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Japan 951117) [Nicola Salmoria]
+マーヴルスーパーヒーローズ (Brazil 951117) [Nicola Salmoria]
+ヴァンパイアハンター: ダークストーカーズリベンジ (Japan 950307) [Nicola Salmoria]
+Street Fighter Alpha: Warriors' Dreams (Euro 950627) / ストリートファイターZERO [Nicola Salmoria]
+19XX: The War Against Destiny (Japan 951225) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: シャドーオーバーミスタラ (Euro 960223) [Nicola Salmoria]
+ダンジョンズ&ドラゴンズ: シャドーオーバーミスタラ (Euro 960208) [Nicola Salmoria]
+エックスメンVSストリートファイター (Euro 961004) [Nicola Salmoria]
+カプコンスポーツクラブ (Hispanic 970722) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Euro 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Japan 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Hispanic 970625) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Brazil 970827) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (Brazil 970625) [Nicola Salmoria]
+ヴァンパイアハンター2 (Japan 970929) [Nicola Salmoria]
+ヴァンパイアセイヴァー (Hispanic 970519) [Nicola Salmoria]
+マーヴルVSカプコン (Euro 980112) [Nicola Salmoria]
+マーヴルVSカプコン (Asia 980123) [Nicola Salmoria]
+マーヴルVSカプコン (Hispanic 980123) [Nicola Salmoria]
+マーヴルVSカプコン (Brazil 980123) [Nicola Salmoria]
+Street Fighter Alpha 3 (Brazil 980629) / ストリートファイターZERO 3 [Nicola Salmoria]
+ストリートファイターZERO 3 (Asia 980904) [Nicola Salmoria]
+VS スーパーマリオ (alt) [Lord Nightmare]
+
+
+
+追加された未動作ゲーム
+----------------------
+Two Minute Drill [David Haywood]
+スーパードンキホーテ [Ernesto Corvi]
+
+
+==========================================================================
+
+0.111u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+simpbowl0110u2yel [R. Belmont]
+arcadiac0111u3yel [Ernesto Corvi]
+mcatadv0111u3gre [David Haywood]
+photoy2k0111u3yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- Pioneer PR-8210レーザーディスクプレーヤのサポート追加。[Ernesto Corvi]
+
+- 入力ポート用マクロ追加: PORT_DIPUNUSED, PORT_DIPUNUSED_DIPLOC [stephh]
+
+- caveドライバのDIPスイッチ更新と配置追加。[stephh]
+
+- sbrkoutのDIPスイッチ改良とニセのスイッチを設定スイッチに変換。[stephh]
+
+-「ゼロアワー」のDIP改良。[Mike Ellery]
+
+- m90ドライバのDIP配置追加。[Brian Oberholtzer]
+
+-「Forgotten World / ロストワールド」ドライバをCPS1ドライバと統合。OKI6295ピンコ
+  ントロールを正しく接続。[David Haywood]
+
+- makefileで独立したシンボル生成と最適化レベルを設定できるように改良。
+  [Atari Ace]
+
+- Amigaコードのシステムタイムカウンタ修正。[Ernesto Corvi]
+
+- Midway 8080白黒表示ドライバの大改修。巨大な8080bwドライバから分離して、以下の
+  変更を追加: [Zsolt Vasvari, Derrick Renaud]
+
+  - シフト回路のハードウェアに基づいたエミュレーション
+  - サウンドトリガの識別とスタブ
+  - DIPスイッチ修正
+  - DIPLOCATIONを全てに追加
+  - ウォッチドッグ追加
+  - コインカウンタ追加
+  -「シーウルフ」「Guided Missile」「スペースエンカウンター」「Phantom II」
+   「4 Player Bowling Alley」にランプ出力追加
+  -「ガンファイト」「Guided Missile」「M-4」にステレオサウンド追加
+  -「Tornado Baseball」「ブーツヒル」「デザートガン」「Double Play」
+   「ブルーシャーク」に部分的にサウンドエミュレーション追加
+  -「ブーツヒル」のシフト回路を正しくエミュレート
+  -「デザートガン」の弾の跳ね返る出力を追加
+  -「Clowns」にアナログコントロールを使うセット追加
+  -「Dog Patch」のアナログ操作修正
+  -「スペースエンカウンター」にSN76477の効果音追加
+  -「スペースインベーダー」「ブルーシャーク」「スペースインベーダーII」に非メモ
+    リマップのコインカウンタ追加
+  - 全てのゲームに正しいウォッチドッグ追加
+  - ノイズクロック用の回路作成と、その周波数が正しいか確認
+
+- Scorpion 2ドライバのビデオコールバックに、ランプマトリックス追加。また、ランプ
+  と入力について新UIによくフィットするように改良。VFDサポートを設定スイッチに移
+  動。[James Wallace]
+
+- MediaGXドライバのサウンド出力改良。[Ville Linde]
+
+- Berzerk/Frenzy（とStern製のピンボール）で使われているTSI S14001Aスピーチシンセ
+  サイザの初期版追加。[Lord Nightmare, Kevtris, R. Belmont]
+
+-「マジカルキャットアドベンチャー」と「ノストラダムス」にラインスクロール追加。
+  どちらのゲームでも1面から使われています。[David Haywood]
+
+- konamigxドライバのクリーンアップ。[R. Belmont]
+
+- Sega System 24ドライバのクラッシュ修正。[David Haywood]
+
+- 入力ポート名がUTF-8の文字列かのバリディティチェック追加。[Nathan Woods]
+
+- tumbleb.cドライバのDIPスイッチ改良。[stephh]
+
+- legionaドライバのドキュメント追加とその他の更新。[Angelo Salese]
+
+- cdp1869ビデオエミュレーションをCidelsaドライバに追加。ただし、タイミングと割り
+  込み関係の問題のためゲームは未動作。[Curt Coder]
+
+- Tao Taidoドライバのクラッシュ修正。[David Haywood]
+
+- suprnova RLEレンダリングをout-of-boundsアクセスしないように修正。
+  [David Haywood]
+
+- Midnight Landingドライバの改良をいろいろ。サウンド、表示、操作も一部動作。ただ
+  し、ゲーム自体は未動作。[Tomasz Slanina]
+
+- TMS9928で依存関係が変わったときに、中途半端にならないようにパターンマスクを再
+  計算するよう修正。[R. Belmont]
+
+- UIの全テキストをUTF-8コードとしての描画サポート。UTF-8でエンコードしたユニコー
+  ドが、ゲーム中の表記などで使われます。ただし、最初にユニコードに対応したBDF
+  フォントが必要です。[Aaron Giles]
+
+- Vistaでビルドするためのハックが必要なくなったのでwinodws.makから削除。
+  [Aaron Giles]
+
+- mame_bitmapsでの、ハックぽい使われかたをしているdepthフィールドを削除。
+  ビットマップは列挙型のformatで割り当てします。内部的には、規格化した方法でピク
+  セル当たりのビット数へ変換されます。さらにMachine->color_depthも間違って使われ
+  ることが多かったので削除しました。[Aaron Giles]
+
+- 新マクロBTMAP_ADDR追加。ビットマップのアドレス情報に利用します。コアコードから
+  はbitmap->line[]を削除しました。line[]配列は廃止予定なので、使わないようにして
+  ください。[Aaron Giles]
+
+- plot_pixel、read_pixel、plot_boxの操作を変更。手前の2つはインライン関数になり、
+  最後のは他のインライン関数でfillbitmapにマッピングされます。[Aaron Giles]
+
+- マシンドライバに新エントリMDRV_SCREEN_FORMAT()が必要になりました。これは、画面
+  のビットマップフォーマットを指定します。暗黙的にフォーマット指定をしていた
+  VIDEO_RGB_DIRECTとVIDEO_NEEDS_6BITS_PER_GUNフラグは削除しました。[Aaron Giles]
+
+- 以下のマシンドライバエントリは廃止予定です:
+
+   MDRV_FRAMES_PER_SECOND -> MDRV_SCREEN_REFRESH_RATE
+   MDRV_VBLANK_DURATION   -> MDRV_SCREEN_VBLANK_TIME(TIME_IN_USEC(x))
+   MDRV_VISIBLE_AREA      -> MDRV_SCREEN_VISIBLE_AREA
+
+  [Aaron Giles]
+
+- 光線銃ゲーム用の照準描画メカニズムを刷新。光線銃による操作が指定されていれば、
+  照準は自動的に描画され、ゲーム自体が描画する必要はありません。新しい
+  PORT_CROSSHAIRマクロを使い、他のアナログ軸入力で照準表示を使うようにもできます。
+  また、照準の表示色をプレイヤー毎に変わります。新レンダリングシステムを使うこと
+  で、ゲーム画面のビットマップに直接描画するのではなく、オーバーレイ的に表示を行
+  います。というわけで、スクリーンショットに照準が表示されることはもうありません。
+  ビルトインの照準が気に入らない場合は、自作のものをcross0.png (プレイヤー1)、
+  corss1.png (プレイヤー2)というファイルをルートかアートワークディレクトリ配置し
+  て利用できます。[Aaron Giles]
+
+- F1キーの照準表示を変更。デフォルトでは全プレイヤーに対して有効になります。
+  1回目は全部の照準の表示を切り替えます。その次に各プレイヤー毎の切り替えになり
+  ます。[Aaron Giles]
+
+- chd.cに非可逆圧縮サポートを追加。CRCや他のハッシュは復元後のものをベースに求め
+  ます。また、新しいOSDワークアイテムインターフェイスを使って、非同期の読み込み・
+  書き込みもサポートしました。[Aaron Giles]
+
+- OSDワークアイテムインターフェイスのWindowsでの実装バグを修正。[Aaron Giles]
+
+- ハードディスクインターフェイスを少し簡略化。[Aaron Giles]
+
+- Z80 SIOチップのバグ修正とエミュレーションの改良。[Aaron Giles]
+
+- レーザーディスクのシーク中にスタックしないようコードを改良。また、22VP932プレー
+  ヤーの初期サポート追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Date Quiz Go Go (Korea) [David Haywood]
+Disco Boy [David Haywood, Stefan Lindberg]
+
+
+
+新規クローンセット
+------------------
+ゲイングランド (Japan) [Team Japump, Brian Troha]
+ダイナミックカントリークラブ (Japan) [Team Japump, Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cliffhanger [Ernesto Corvi]
+Goal To Go [Ernesto Corvi]
+Quick Jack [David Haywood, ClawGrip]
+Strip Teaser [David Haywood]
+Pango Fun (Italy) [David Haywood]
+がんばれ珍さん！大勝負 (MC-8123A, 317-5012) [David Haywood]
+Stelle e Cubi (Italy) [David Haywood]
+スペースエース [Aaron Giles]
+
+
+==========================================================================
+
+0.111u3
+-------
+
+OSD移植者はOSDのコアルーチンへの変更点に注意してください。
+
+
+
+ソースの変更点
+--------------
+- tubepドライバにセーブステート追加。[Svante Gerhard]
+
+- steppersモジュールにセーブステート追加。[James Wallace]
+
+- SN76477インターフェースの残りの入力ピンを追加。ピンの値が定数の場合は、初期化
+  時に関数を呼び出す必要はなく、構造体で定義できるようになりました。76477を使用
+  する全てのドライバを更新しています。[Zsolt Vasvari]
+
+- ファイルI/O関数についてosdepend.hのものを優先させ、osd_tool.hからは削除。
+  openコマンドに新フラグOSD_FLAG_CREATE_PATHSを追加。[Nathan Woods]
+
+- OKIM6295のピン7ステート(内部分周器)を内部ストラクチャに移動。インターフェース 
+  設定時にピンステートを指定する全ドライバを更新。また、オリジナルの周波数が
+  /132か/165ではないとき、実際のピンステートは不明であるとコメント追加。
+  [David Haywood]
+
+- TokiドライバでDIPスイッチのビジュアル表示を追加。[Brian Oberholtzer]
+
+- wheelfirドライバのスプライト水平反転追加と、不要なハックを削除。
+  [Tomasz Slanina]
+
+- Unicodeサポートでの問題を修正。[Nathan Woods]
+
+- uimenu.cで、DIPスイッチバンク内に未使用のものがあっても表示するように変更。
+  該当するスイッチはグレイアウトして表示します。[Zsolt Vasvari]
+
+- Amigaのアップデート: [Ernesto Corvi]
+ - ラインモードのblitter修正
+ - Copperが奇数のメモリバスサイクル動作するように修正
+ - 表示データのフェッチがWordに揃っていないときの画面遅延オフセットを修正
+
+- チート検索修正。[stephh]
+
+- CPS2のCHDを復号化機能初期版と置き換え。[Andreas Naive, Nicola Salmoria]
+
+- バンクがauto_malloc()で割り当てられているメモリだけにセットされているかをチェッ
+  クするコードを追加。[Nathan Woods]
+
+- MESS用に入力ポートのトークン化を更新。DIPスイッチとは別の設定系スイッチのサポー
+  トをMAMEに追加。pacman.cでスピードアップオプションの設定をするように改良してい
+  ます。[Nathan Woods, Aaron Giles]
+
+- taito_lドライバの無効な配列アクセスを修正。[Atari Ace]
+
+- コンパイラの互換性についてのマイナーな調整。[Atari Ace]
+
+- u2での入力ポートとUnicodeの変更に伴う不具合とクラッシュを修正。[Aaron Giles]
+
+- コアOSD関数の定義をosdcore.hに分離。より広範囲なドキュメントを追加。
+  [Aaron Giles]
+
+- 新ライブラリosdcoreを作成。これはビルドされ各実行ファイルにリンクされます。
+  想定される全てのコンポーネント定義を、新しいヘッダファイルosdcore.hに移動しま
+  した。また全てにきちんとしたドキュメント追加。osd_tool.cは削除して、機能的に必
+  要な部分をosdcoreに移動しました。[Aaron Giles]
+
+- osdcoreの新インターフェースセットを定義。これはサブスレッドで実行する可能性が
+  ある、待ち行列アイテム用の抽象インターフェイスを生成し、Windows版ではこれらの
+  ルーチンを実装しましたが、まだテストはしていません。[Aaron Giles]
+
+- Windows OSDコアルーチンを以下の独立したファイルに分割:
+  windir.c  - ディレクトリ関係のコアOSD関数
+  winfile.c - ファイル関係のコアOSD関数
+  winmisc.c - その他のコアOSD関数
+  winsync.c - 同期関係のコアOSD関数
+  wintime.c - タイミング関係のコアOSD関数
+  winwork.c - スレッディング関係のコアOSD関数
+  [Aaron Giles]
+
+- 全てのOSDコアルーチンの最小限の実装に使用するosdminiディレクトリを新しく作成。
+  新規の移植作業のスタートポイントや、作業中の機能などに使用します。
+  [Aaron Giles]
+
+- chdmanのクリーンアップ。動作のノーマライズとエラーレポートの改良。
+  [Aaron Giles]
+
+- レーザーディスクエミュレーションについて、ディスクのエンコード方法、将来的な保
+  存方法をより完全な形で理解した上で、さらにアップデート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Thunder Heroes [Guru]
+
+
+
+新規クローンセット
+------------------
+だるま道場 (Korea) [Guru, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cobra Command [Andrew Gardner]
+ギャルズパニックII - クイズバージョン (Japan) [Guru, David Haywood]
+ギャルズパニックII' - スペシャルエディション (Japan) [Guru, David Haywood]
+Monster Zero [Pierpaolo Prazzoli]
+Unknown SemiCom Quiz [Guru, David Haywood]
+
+
+==========================================================================
+
+0.111u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+tourtabl0111u1red [Nathan Woods]
+
+
+
+ソースの変更点
+--------------
+- Amigaコアシステムの更新: [Ernesto Corvi]
+ - 6526/8520 CIAでSPピンの値をセットできるように改良。これにはAmigaのキーボードを
+   エミュレートする必要があります
+ - カスタムチップエミュレーションで、INTERNA、またはINTERQへの書き込みの後、割り
+   込みが約24サイクル遅れるように更新
+ - INTERQがプログラム的にクリアされるときのバグを修正。これにより未処理のCIA割り
+   込みは無視され、CIAはこれ以上割り込みを発生しなくなります
+ - 割り込み遅延ロジックを修正。割り込み要求発生で正しく遅延が起きます
+ - 未使用、または無効なカスタムレジスタ読み込み時の返値を修正
+ - OCS、ECS、AGAを正しく判定するためにDenise IDカスタムレジスタ追加
+ - RESET命令があったときの、custom、autoconfig、ciaのリセットを追加
+ - カスタムチップのリセットで、INTENAをクリアしてそれ以上割り込みが起きないよう
+   に変更
+ - RBF割り込みリクエストのコードチェックを修正
+ - 6526/8520 CIAで、チェーンカウンタが動作しなかったバグを修正
+ - blitterで"blitter-nasty"なビットをサポート。グラフィック表示がおかしかったゲー
+   ムの修正
+
+-「ガンファイト」コインカウンタ実装。また、回路図を元にサウンドを訂正。invaders
+  とinvad2ctに正確なウォッチドッグ追加。[Derrick Renaud]
+
+- TMS5220 RNGの初期化を追加。[Lord Nightmare]
+
+- Taito JCドライバの改良: [Ville Linde]
+ - MC68HC11のコミュニケーションを改良
+ - MC68HC11にアナログコントロール追加
+ - TMS320C51コアのバグ修正と新命令の追加
+ - ビデオハードエミュレーションをvidhrdw/taitojc.cに移動
+ - 3Dハードウェアエミュレーションの実装
+
+- u1で追加された8080bwのサウンド変更をクリーンアップ。[Robert]
+
+- 6532ritoとtiaコードで、起動時のみ初期化できるように変更。[Nathan Woods]
+
+- System16海賊版のバグ修正。[Mamesick]
+
+- i8085エミュレータのSIM命令修正。[Tomasz Slanina]
+
+- コアとWindows OSDでの初期的なUnicodeサポート: [Nathan Woods]
+ - テキストファイルの読み込みと書き出しで自動的にUTF-8変換を行います
+ - Windows関数の多くでは内部的にTCHARで処理します
+ - 新しいWindowsのコンパイルオプションUNICODEを追加。MAMEをUnicodeアプリケーショ
+   ンとしてビルドできます(windows.makを参照)
+
+- ドライバで定義されているものについて、DIPスイッチの実際の状態表示を追加。これを
+  表示させるには、ドキュメント化されているドライバで、DIPスイッチメニューを開く
+  だけです。[Brian Oberholtzer]
+
+- 1942、toaplan2、sega80rドライバのDIPスイッチを訂正。[Brian Oberholtzer]
+
+- MESS CPUコアの残り部分をMAMEに追加。ビルド時には無効になっていますが、MAME CPU
+  コアの変更があったときには、これらのメンテナンスも行います。[Nathan Woods]
+
+- サンプルサウンドシステムのマルチインスタンスをサポート。[Zsolt Vasvari]
+
+- input port定義をコードベースのコンストラクタから、データ駆動型のトークン値にコ
+  ンバート。これによりMAME全体のコードサイズがかなり減ります。このトークン化では、
+  64bitビルドと32bitビルドでは若干違いがあるので、誰か64bitシステムで正しく動作
+  するかチェックしてもらえると幸いです(mame -listxmlについては32bit版と同じもの
+  になるはずです) [Atari Ace, Aaron Giles]
+
+-「ナイトスラッシャーズ」のサウンド割り込みを正しく実装。[Aaron Giles]
+
+- ARM CPUコアのサイクルタイミングを改良。deco32 CPUのクロックを以前よりも妥当な
+  設定に変更。[Aaron Giles]
+
+- ヘッダファイルとドキュメントのコピーライトの日付を更新。 [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Dwarfs Den [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+JuJu伝説 (Japan, bootleg) [David Haywood]
+New Tropical Angel [Stefan Lindberg]
+Circus (Sub-Electro bootleg) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Backgammon [Tomasz Slanina]
+Skat TV [Tomasz Slanina]
+Fashion Gambler [Tomasz Slanina]
+Pit Boss II [David Haywood]
+Super Bitboss [David Haywood]
+Pitboss Megastar [David Haywood]
+Megatouch 3 [David Haywood]
+Megatouch 5 [David Haywood]
+Touchmaster [David Haywood]
+Touchmaster 3000 [David Haywood]
+Touchmaster 4000 [David Haywood]
+麻雀士様 [David Haywood]
+
+
+==========================================================================
+
+0.111u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+jspecter074gra [Robert]
+spcenctr36b16gre [Robert]
+spcewars0108u3red [Robert]
+invad2ct0110u4gre [Robert]
+mngrecording0110u1ora [Buddabing]
+ninjaw0104u2gre [robiza]
+orunners0105u4gre [robiza]
+twinbee0105yel [Mamesick]
+gwarrior0108u1yel [Mamesick]
+tst_galx0101u3 [Atari Ace]
+m660_0108yel [Atari Ace]
+shootouj0102red [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- 8080bwドライバのドキュメント追加。音が出ていないゲーム向けのポートとビットにつ
+  いて解説。ほとんどのケースで、さらに開発を進めるためにサンプルサウンドが添付さ
+  れています。変更のあったゲーム以下の通り:
+   invrvnge/invrvnga, rollingc, spcenctr, gunfight, m4, gmissile, schasrcv, 
+   280zzzap, lagunar, lupin3, phantom2, blueshrk, desertgu, ballbomb,
+   yosakdon/yosakdoa, shuttlei
+
+  cosmoとdogpatchはサウンドが出ますがNO_SOUNDのマークがついています。[Robert]
+
+- プラットフォーム専用のコードをchdcd.cとromcmp.cからods_toolコードへ移動。
+  [Nathan Woods]
+
+- 逆アセンブラとCPUインターフェイスについてプロジェクト全般に渡ってクリーンアッ
+  プ:  [Giuseppe Gorgoglione]
+ - 多くの逆アセンブラで、eainfo.hへの依存性を削除。これらの逆アセンブラからの出
+   力は以前と同じくチェックされます
+ - 6309dasm.cと6809dasm.c逆アセンブラを全体的に書き直し
+ - v810とhd6309インターフェイスのバグを修正
+ - m68000\cpudefs.hを削除。これは昔のm68000アセンブラコアで使っていたものです。
+   m68kmame.cとm68kmame.hも旧コア(A68K0、A68K2など)へ多くの参照があったので削除。
+ - cpuinfo共用体を正しくtypedef化。cpuintrf.hとその他多くのファイルに影響があり
+   ます
+ - 8051dasm.c、m65ce02.c、t11dasm.cで、ローカルな文字列保持に変えて、
+   cpuintrf_temp_str()を使うようにコンバート
+ - info.s = cpuintrf_temp_str()の初期化を以下に移動:
+    activecpu_get_info_string()、cpunum_get_info_string()、 
+    cputype_get_info_string()
+   これにより、各CPUコアのxxx_get_info()アクセサから、info->s = 
+   cpuintrf_temp_str()ステートメントを大量に削除して、可読性が上がりました
+
+- tms5220とtms5110の"chirp"なテーブルの問題を修正。また、tms5110.cとtms5220.cか
+  ら、Jarek氏のPRNG実装部をバックポート。これによりrand()へ依存しなくなりました。
+  [Lord Nightmare]
+
+- m68000コアのバグを2つ修正: [Alex Jackson]
+ -「獣王記」で見つかったGCC4との非互換性問題を修正。この他にも「ムーンウォーカー」
+  「ギャラクシーフォース2」など多くのゲームに影響していました
+ - コアのコンパイル時の自動設定を修正して、LP64プラットフォーム(64-bit Linuxなど)
+   で、LLP64(64-bit Windows)と32-bitプラットフォームと同じコードパスを使用します。
+
+- magmaxドライバにセーブステート追加。[Svante Gerhard]
+
+- perfrmanのBGM速度修正。[Mamesick]
+
+- i8051コアのda_a命令の実装を修正。[Special LIU]
+
+- チートエンジン大改造の第3弾: [ShimaPong]
+  注：以前のコマンドコードは削除して、Optionsメニューから新規に保存してください
+ * オペレーション:
+   - プログラムスペースへの直接アクセスを実験的に追加。ROMコードのカスタム処理
+      (segas16b.cなど)をハックできます。ただしいくつか問題があります。
+     また、プログラムスペースのウォッチポイント表示も追加。
+   - 新処理"Write if Match"を追加。追加データフィールドに保存された値に読み込み
+     値が一致したときだけ、チートエンジンが値を書き出します
+ * サーチメニュー:
+   - 3つめのサーチモード"Minimum Search Mode"を追加。以前のモードよりもシンプル
+     なものです。また、ui_clearキーでのサーチメモリの初期化と、このモードで矢印
+     キーでの値編集を追加
+   - "View Last Results"、"Restore Reslut"、"Region Selection"をadvanced search
+     メニューに追加
+ * リザルトビューア:
+   - HazeMDのsms.cのように検索領域が無い場合はMAMEがクラッシュするので
+     このメニューは開かないでください
+   - 左右の矢印キーでページ切り替えできるように改良。また、このメニューのキーを
+     いくつか変更
+   - 結果の無いページのスキップを改良。ただし、最初と最後のページの結果が無くて
+     もスキップしないので、まだ不完全
+ * コードローディング:
+   - デフォルトで旧フォーマットのロードをしないように変更。必要な場合は、Options
+     メニューの"Load Old Format"を選んでください
+ * 入力:
+   - Enable/Disableメニューのアクティベーションキーセーブを修正
+   -ウォッチコード追加用のキー処理を、ウォッチリストメニューからチートリストに修
+    正。ウォッチリストメニュー内ではCTRL + save cheatキーで動作します。
+   - ui_clearキーを値編集時(データクリア)とウォッチリストメニュー(全ウォッチポイ
+     ントのリセット)で有効化
+ * オプション:
+   - 内部データチェック用のデバッグオプション初期版を追加
+   - コマンドコードのセーブ追加。Optionsメニューのsave cheatキーでコマンドコードを
+     保存できます
+ * その他:
+   - クイックメニュースイッチ追加。ui_zoom in/outのキーに設定しています。
+     この機能は、Enable/Disable、Add/Edit、Search、Watchpointメニューでも動作し
+     ます
+  - メニューの一部項目について配置を修正.
+
+- Win32のOSDコードでchar文字列を使っていた部分を、TCHAR文字列を使うようにコンバー
+  ト。[Nathan Woods]
+
+- airbustrドライバのROMパッチを削除; 代わりにウォッチドッグを追加。
+  [David Haywood]
+
+- 6526 CIA (Amiga)エミュレーションのワンショットタイマーモードを再実装。
+  [Ernesto Corvi]
+
+- ゼロリフレッシュレートのバリディティチェック追加。[Nathan Woods]
+
+-「カルテット」「カルテット2」のデフォルトDIPスイッチを修正。[Alex Jackson]
+
+- troangelのグラフィック描画を修正。[Robiza]
+
+- 逆アセンブラのチェックが厳しくなって引っかかった項目を修正。[Aaron Giles]
+
+-「Funny Strip」「Rebus」のプロテクトチェックにパッチ。でもどちらもまだ動作せず。
+  [Tomasz Slanina]
+
+- -createconfigで、FILEではなくmame_fileを使ってINIを出力するように変更。
+  [Nathan Woods]
+
+- tetriunkドライバのグラフィック改良。[Tomasz Slanina]
+
+- MSM5235チップ関係のIremサウンドハードのコピペバグを修正。[Mamesick]
+
+-「Toki / JuJu伝説」の表示領域修正。[Mamesick]
+
+- Toshiba TMP90840/TMP94640 CPUコアを追加。[Luca Elia]
+
+- msm6242リアルタイムクロックを独自ファイルに移動。[Luca Elia]
+
+- dynaxドライバのblitterROMバンキングを改良。[Luca Elia]
+
+-「ラピッドヒーロー」の効果音追加(サンプルのバンキングが間違っていました)。
+  [Luca Elia]
+
+- tiaエミュレーションのリセット問題を修正。[Nathan Woods]
+
+- MESSサウンドコアの残りをMAMEのコアソースに追加。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Ms. Pac-Man/Galaga - 20 Year Reunion [Nicola Salmoria]
+麻雀 イフ [Luca Elia]
+麻雀 立直 (海賊版) [Luca Elia]
+麻雀 天開眼 (海賊版) [Luca Elia]
+Live Quiz Show [Luca Elia]
+Pool 10 (Italia) [Roberto Fresca]
+Tortuga Family (Italia) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Booby Kids (Italian manufactured graphic hack) [David Haywood]
+エアバスター (海賊版) [David Haywood]
+戦球 (US) [Arzeno Fabrice]
+Darth Vader [Tomasz Slanina]
+Rタイプ (World) [Stefan Lindberg]
+パズループ2 (Euro 010302) [Razoola, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Moonwar (prototype on Frenzy hardware) [Lord Nightmare]
+BanBam / ぺったんピュー [David Haywood, Brian Troha]
+Double Dealer [Tomasz Slanina]
+Sky Lancer [Luca Elia]
+麻雀 天神牌 [Luca Elia]
+麻雀 雷神牌 DX [Luca Elia]
+麻雀 天開眼 Part 2 [Luca Elia]
+麻雀 天開眼 [Luca Elia]
+Cow Race [Luca Elia]
+Mongolfier New (Italia) [Roberto Fresca]
+Soccer New (Italia) [Roberto Fresca]

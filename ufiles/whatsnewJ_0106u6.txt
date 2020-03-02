@@ -1,0 +1,81 @@
+0.106u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+wboysys2_0106u4gra [Canim]
+
+
+
+ソースの変更点
+--------------
+- MSVCでのx64コンパイルサポートのマイナーな修正。[Malice]
+
+- astdeluxとomegraceのビルトインオーバーレイを新レンダシステム用に更新。
+
+- mcr68ドライバの入力を修正。[Peale]
+
+- 新デバッガのカスタムレジスタリストを修正。[Tim Schuerewegen]
+
+- GCC 4.xでV60コアがきちんと動作するように一時的な対応（GCC 4.1.1でテスト）。
+  [R. Belmont]
+
+- drc blitterを改良。[Olivier Galibert]
+
+-「Polygonet Commanders」の改良: [R. Belmont]
+ * Z80のIRQ/NMIを修正
+ * メモリマップを新しい方法に更新
+ * ネットワークステータスビット追加。起動テストをパスしてDSP56kが未実装命令コードでク
+   ラッシュするまでうまく動作します
+
+- Atari/Max-A-Flexドライバを今風にするため、いろいろなクリーンアップ。[Nathan Woods]
+
+- Sega multi-32ドライバでマルチスクリーンをサポートするようにアップデート。
+  [Aaron Giles]
+
+- 新レンダラの不具合に集中するため、とりあえずマルチスレッディングを無効にしました。
+  インフラ部分は全てそのままなので、window.cのENABLE_THREADSフラグを立てれば有効にで
+  きます。[Aaron Giles]
+
+- レンダターゲットの設定時に“フィットするように拡大”するのをサポート。この結果、
+  “-keepaspect”オプションを再追加しています。[Aaron Giles]
+
+- プレスケールエフェクトに固定機能を追加。これにより必要以上に大きなテクスチャを生成
+  しようとしなくなります。プレスケールの段階でフィルタがかからないように明示的にレン
+  ダステートをリセットする必要があります。また、一部のビデオカードでフィルタがかから
+  ないように、StretchRectの使用方法を修正しました。[Aaron Giles]
+
+- レンダターゲット設定時のピクセルの縦横比の動作を修正（誤った方向に訂正されていまし
+  た）。[Aaron Giles]
+
+- スレッドプライオリティロジックをticker.cから本来の場所であるwinmain.cに移動しました。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Pasha Pasha 2 [Pierpaolo Prazzoli]
+Rock Tris [Pierpaolo Prazzoli]
+麻雀クリスタル（X-TAL）7 / Mahjong Diamond 7 [Luca Elia]
+ジャンピューター'96 (Japan) [Luca Elia]
+わたしはすずめちゃん [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+スペースフューリー (revision B) [Highwayman]
+Double Point (Dong Bang Electron) [David Haywood]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Red Corsair [David Haywood]
+Puzzle Star? (Sang Ho) [David Haywood, Tomasz Slanina]
+Sexy Boom [David Haywood, Tomasz Slanina]
+Super Free Kick [David Haywood]
+High Seas Havoc [David Haywood]
+Bombs Away [David Haywood, Andrew Gardner]

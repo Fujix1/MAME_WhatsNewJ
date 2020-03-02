@@ -1,0 +1,508 @@
+0.207 2019-02-27
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 07231: [クラッシュ/フリーズ] (megadriv.cpp) megadriv [jpond]: jpond - ゲームが開始しない。(Tafoid)
+- 07230: [DIP/入力] (taito_l.cpp) horshoes: 操作がおかしくなっている。(Osso)
+- 07225: [サウンド] (snk6502.cpp) Most machines in snk6502.cpp: BGMがかなり壊れている。(Osso)
+
+
+新規動作可能マシン
+------------------
+Auto Response Board [hap, Berger]
+Backgammon Challenger [hap, balrog, Lord Nightmare]
+Barbie Dance Party [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Disney Princess (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+Dora the Explorer - Race to Play Park (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+Dragon Ball Z (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+Esselte Studium AB Modulab [Edstrom]
+ゲーム&ウォッチ: ファイア [algestam, Eduardo Flores, WNivek, and dosmeow]
+ゲーム&ウォッチ: スヌーピーテニス [algestam]
+HP 9825T [F.Ulivi]
+HiPaiパラダイス2 [Zoinkity]
+Intellect-02 [hap, Alex_LG]
+Ms. Pac-Man 5-in-1 (Ms. Pac-Man, Pole Position, Galaga, Xevious, Mappy) (JAKKS Pacific TV Game, Game-Key Ready)
+  (07 FEB 2005 A SKU F) [Sean Riddle, Peter Wilhelmsen, anonymous]
+Nicktoons (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+Play TV SSX Snowboarder (NTSC) [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Play TV Snowboarder (White) (NTSC) [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Spider-Man (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+Wheel of Fortune (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+
+
+新規動作可能クローン
+--------------------
+パワーホイールズ / Double Axle (US) [Evan Korzon, Jordan Eldredge, Brian Troha, Smitdogg, The Dumping Union]
+Fidelity Elite Avant Garde (model 6081, English) [hap, Berger]
+Fidelity Elite Avant Garde (model 6081, French) [hap, Berger]
+Fidelity Elite Avant Garde (model 6081, German) [hap, Berger]
+Fidelity Elite Avant Garde (model 6081, Spanish) [hap, Berger]
+Fidelity Elite Private Line (red version, English) [hap, Berger]
+Fidelity Elite Private Line (red version, French) [hap, Berger]
+Fidelity Elite Private Line (red version, German) [hap, Berger]
+Fidelity Elite Private Line (red version, Spanish) [hap, Berger]
+ギャルズパニックS -エキストラエディション- (Asia) [Juergen Probe]
+ゴーストチェイサー電精 (SNES bootleg, set 2) [iq_132, Jorge Silva, The Dumping Union]
+The Glob (Pacman hardware, Magic Electronics Inc. license) [jordigahan, ClawGrip]
+戦神 -SENJING- / Guardian Storm (horizontal, Australia) [xodaraP]
+Island (090806 Entertainment) [MetalliC]
+Keks (110816 Russia) [MetalliC]
+Keks (110816 World) [MetalliC]
+リーサルエンフォーサーズ (ver EAD, 11/11/92 10:52) [caius]
+Pasha Pasha Champ Mini Game Festival (Korea, set 2) [twistedsymphony]
+Play 2000 (Super Slot & Gran Tesoro) (v7.0i) (Italy) [Peter Wilhelmsen, Morten Shearman Kirkegaard, caius, David Haywood]
+Pirate (090803 Entertainment) [MetalliC]
+ライデンファイターズ2 -オペレーションヘルダイブ- (Japan set 4) [Sugoi Helsinki]
+レッドクラッシュ (Suntronics) [coolmod]
+Rise of the Robots (prototype, older) [Phil Bennett]
+Sweet Life (090720 Entertainment) [MetalliC]
+System-80 (50 Hz) [AJR]
+X-MEN (4 Players ver JEA) [Artemio Urbina, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+Mattel Classic Sports [Sean Riddle, David Haywood, Ryan Holtz]
+Play TV Snowboarder (Blue) (NTSC) [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Tiger Game.com [Robbbert]
+
+
+動作可能に昇格したクローン
+--------------------------
+ConnecTV Snowboarder (Blue) (PAL) [Sean Riddle, Peter Wilhelmsen, David Haywood]
+ConnecTV SSX Snowboarder (PAL) [Sean Riddle, Peter Wilhelmsen, David Haywood]
+双戯龍 II  -ザ・リベンジ- (Japan) [Layer]
+ナイツ・オブ・ザ・ラウンド (bootleg) [Robbbert]
+Play 2000 (Super Slot & Gran Tesoro) (v4.0i) (Italy) [Peter Wilhelmsen, Morten Shearman Kirkegaard, caius, David Haywood]
+
+
+
+新規追加された未動作マシン
+--------------------------
+35 in 1 Super Twins [Sean Riddle]
+ADM-31 Data Display Terminal [Bitsavers]
+Bandit (US)
+  [coolmod, Phil Bennett, Bryan McPhail, Moffitt, rtw, gamezfan, Dane Biegert, Candy Wolff, Henrique Areias Pontes, Sean Sutton,
+  Surgeville, Evan Korzon, Charles MacDonald, Smitdogg, The Dumping Union]
+Beena [David Haywood]
+C2 Color (China) [zhongtiao1]
+愛ちゃんに挑戦! エキサイトピンポン (Japan) [Sean Riddle, Peter Wilhelmsen]
+Champion 85 [PinMAME]
+DEC 2000 Model 300 AXP [Patrick Mackinlay, Sean Riddle]
+DEC 2000 Model 500 AXP [Patrick Mackinlay, Sean Riddle]
+DECpc AXP 150 [Patrick Mackinlay, Sean Riddle]
+Domyos Fitness Dance (Domyos Interactive System) [Sean Riddle, Peter Wilhelmsen]
+Dream Life [Sean Riddle]
+e-pitchマイク (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+エキサイトボクシング (Japan) [Sean Riddle, Peter Wilhelmsen]
+I Can Play Guitar [Sean Riddle, anonymous]
+LeapPad (Germany) [Sean Riddle]
+Let's! TVプレイ 超人気スポット!ころがしほーだい たまごっちりぞーと (Japan) [Sean Riddle, Peter Wilhelmsen]
+Let's! TVプレイ NARUTO 忍者体感 だってばよ! [Peter Wilhelmsen, Sean Riddle]
+The Magician (20210111, NSW/ACT) [Heihachi_73]
+My First LeapPad (UK) [Sean Riddle]
+NEOプリント - Millennium Multi Shot Edition (World) (T4i 3.07) [Porchy, The Dumping Union]
+NEOプリント - Spring '98 (T4i 3.07)
+  [malcor, hammy, Anonymous, Dane Biegert, Sean Sutton, Renato Mucciarelli, Moffitt, Smitdogg, The Dumping Union]
+NEOプリント - Spring Ver. 4 (Japan) (T4f 1.00)
+  [malcor, hammy, Anonymous, Dane Biegert, Sean Sutton, Renato Mucciarelli, Moffitt, Smitdogg, The Dumping Union]
+NEOプリント - 水族館バージョン (Japan) (T4i 2.00)
+  [malcor, hammy, Anonymous, Dane Biegert, Sean Sutton, Renato Mucciarelli, Moffitt, Smitdogg, The Dumping Union]
+NEOプリント - うさぎフレーム (Japan) (T4i 3.07)
+  [malcor, hammy, Anonymous, Dane Biegert, Sean Sutton, Renato Mucciarelli, Moffitt, Smitdogg, The Dumping Union]
+Let's! TVプレイ 体感格闘ワンピースパンチバトル -海賊王にキミがなる- (Japan) [Sean Riddle, Peter Wilhelmsen]
+Play TV Baseball (NTSC) [Sean Riddle, Peter Wilhelmsen]
+Play TV Basketball [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Play TV Soccer [Sean Riddle, Peter Wilhelmsen]
+反射陶酔ゲームポピラ2 (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+Winnie the Pooh - Piglet's Special Day (JAKKS Pacific TV Game, Game-Key Ready) [Sean Riddle, anonymous]
+ザビックス・ミュージック&サーキット (XaviXPORT) [Sean Riddle, Peter Wilhelmsen]
+Zeus IG900 20-in-1 (US?) [Sean Riddle, Peter Wilhelmsen]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Advanced Bridge Challenger [hap]
+ボギー'83 / Boggy '84 (bootleg, set 2) [f205v]
+Connectv Basketball [Sean Riddle, Peter Wilhelmsen, David Haywood]
+Crazy Monkey 2 (100618 Russia) [MetalliC]
+Fidelity Electronics Elite Avant Garde (model 6114-5) [anonymous]
+ザ・キング・オブ・ルート66 (prototype) [coolmod, The Dumping Union]
+Love And Berry - 3rd-5th Collection (China, Ver 1.001) (MDA-C0071) [Jia DaWei, tenyuhuang, MetalliC]
+Queen Bee (Israel, Ver. 100) [Cristiano-MDQ]
+Queen Bee (SA-101-HARD) [Cristiano-MDQ]
+Queen Bee (Ver. 114) [Cristiano-MDQ]
+Roll Fruit (100924) [MetalliC]
+琉球 (Japan) (FD1094 317-5023A) [anonymous]
+Star Wars (1.06, Display A0.46) [Gore Daimon, Alexandre Rocha]
+TI-83 Premium CE (Boot Code 5.1.5.0014) [Julian Lachniet, critor]
+TI-83 Plus Silver Edition (bootleg) [Julian Lachniet, critor]
+TI-84 Plus C Silver Edition (Boot Code 4.2) [Julian Lachniet, critor]
+V.Smile Motion (US) [Ryan Holtz]
+バーチャNBA (prototype, 15.11) [coolmod, The Dumping Union]
+World Class Bowling Tournament (v1.30) [Brian Troha, The Dumping Union]
+Wyse Technology WY-60 (set 2) [AJR]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_flop_clcracked:
+  2400 A.D. (cleanly cracked), Ace Detective revision 2 (cleanly cracked), A Brand New View (cleanly cracked),
+  A Christmas Adventure (cleanly cracked), A Newbery Adventure - A Wrinkle in Time (cleanly cracked),
+  A Treasure Hunt of Facts (clealy cracked) - addition and subtraction [4am, Firehawke]
+apple2_flop_orig:
+  A Mind Forever Voyaging R77 / 850814, Apple Panic, Archon II: Adept, Boa, Bruce Lee, Conan, The Factory, Frontline, Gremlins,
+  The Kingdom of Facts, MIRV, Monty Plays Scrabble 4.0, Mr. Do, Photar, Rearguard, Rendezvous with Rama, Roadblock, Sea Fox,
+  The Snapper, Space Raiders version 2, Swashbuckler, Track and Field, Trivia Fever, Where in Time is Carmen Sandiego v1.1
+  [4am, Firehawke]
+apricot_flop:
+  Burn-In Test 3.4 (TES404), dBASE II/86 2.43, Expansion RAM Test 1.0 (TES904), Mouse Test 2.0 (TES903), SuperCalc 3 1.00
+  [actapricot.org]
+  Microsoft Windows 1.03 [Dirk Best]
+arb: Sargon 2.5 [hap, Berger]
+ekara_japan:
+  Artist Selection Volume 15 - Keisuke Kuwata (Japan) (EC0077-ATS), ETZ (Japan) (EC0069-ETZ),
+  J-Pop Mix Volume 26 (Japan) (EC0060-JPM), J-Pop Mix Volume 28 (Japan) (EC0062-JPM), J-Pop Mix Volume 30 (Japan) (EC0065-JPM),
+  J-Pop Mix Volume 31 (Japan) (EC0066-JPM), J-Pop Mix Volume 32 (Japan) (EC0067-JPM), J-Pop Mix Volume 35 (Japan) (EC0071-JPM),
+  J-Pop Mix Volume 37 (Japan) (EC0074-JPM), J-Pop Mix Volume 38 (Japan) (EC0075-JPM), J-Pop Mix Volume 40 (Japan) (EC0078-JPM),
+  J-Pop Mix Volume 41 (Japan) (EC0080-JPM), MKC volume 1 (Japan) (EC0073-MKC)
+  [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_a: A-5 Pichi Pichi Pitch Karaoke Party (Japan) [Peter Wilhelmsen, Sean Riddle]
+ekara_japan_bh:
+  BH-02 Best Hit Collection (Japan), BH-03 Best Hit Collection (Japan), BH-05 Best Hit Collection (Japan),
+  BH-06 Best Hit Collection (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_d:
+  BHT Volume 8 (Japan) (DC0001-BHT), BHT Volume 9 (Japan) (DC0003-BHT) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_g:
+  BAT Volume 3 (Japan) (GC0007-BAT), mini-moni Volume 1 (Japan) (GC0008-MIN) (set 2),
+  mini-moni Volume 1 (Japan) (GC0008-MIN) (set 1), mini-moni Volume 2 (GC0014-MIN), TV Pop Volume 6 (Japan) (GC0017-TPJ)
+  [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_gk: GK-1 - Detective Conan (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_m:
+  Artist Mini Volume 4 (w-inds) (Japan) (MC0004-ATM), Artist Mini Volume 7 (untranslated artist) (Japan) (MC0012-ATM),
+  Artist Mini Volume 8 (BoA) (Japan) (MC0014-ATM), KSM Mini Volume 2 (Japan) (MC0006-KSM)
+  [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_p:
+  TV Pop Volume 2 (Japan) (PC0002-TPJ) ('World Trade Center' image removed), TV Pop Volume 2 (Japan) (PC0002-TPJ) (set 1)
+  [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_s: Challenge Artist Volume 1 (Japan) (SC0018-SAI), Kids' Challenge Volume 1 (Japan) (SC0003-xxx)
+  [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_sp:
+  SP-03 Super Cartridge (Japan), SP-04 Super Cartridge (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+ekara_japan_web: e-kara Web cartridge 12M (used, with 7 Songs) (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+fidel_sc6: SC6: original program [hap]
+gamate: Fortress of Fierceness [Peter Wilhelmsen]
+ibm5150:
+  Batman: The Movie, Bubble Bobble (3.5"), Budokan - The Martial Spirit (Big Games release),
+  Gunboat: River Combat Simulation (Hit Squad release), Ivan "Ironman" Stewart's Super Off Road (16 Blitz release) (3.5"),
+  Lagaf': Les Aventures de Moktar - Vol 1: La Zoubida, Monty Python's Flying Circus (3.5"),
+  The Simpsons - Bart vs. the Space Mutants, The Simpsons - Bart vs. the Space Mutants (Hit-Squad release), Spot, WWF Wrestlemania,
+  Xenon (16 Blitz Plus release) (3.5"), Zool (Big Games release) [ArcadeShadow]
+ibm5170: Micro Machines, The Secret of Monkey Island (Italian) [ArcadeShadow]
+intellect02: Chess [hap, Alex_LG]
+jakks_gamekey_dp: Snow White and the Seven Dwarfs - Memory Chase & Rescue Race [Sean Riddle, anonymous]
+jakks_gamekey_mv: Black Cat & Doc Ock [Sean Riddle, anonymous]
+jakks_gamekey_nk:
+  Nicktoons Vollyball & Birdie Putt, Spongebob Sponge Pop & Snowball Showdown (15 AUGUST 2005 D) [Sean Riddle, anonymous]
+jakks_gamekey_nm:
+  New Rally X & Dig Dug (01 APR 2005 A SKU E) [Sean Riddle, Peter Wilhelmsen, anonymous]
+  Pac-Man & Bosconian & Rally X (11 JUL 2005 A SKU I) [Sean Riddle, anonymous]
+pcx_flop:
+  CES-BD V1.0/PC-X, CES-BD V1.2/PC-X10, HIT-BD-2 V1.0/PC-X, INFORMIX-D-B-2 V1.0/PC-X, MULTIPLAN-BD-2 V1.0/PC-X, SINIX-B V1.0/PC-X,
+  SINIX-UP-BD V1.2/PC-X [Stefan Stapelberg]
+sega_beena_cart: Fresh Pretty Cure [Sean Riddle, TeamEurope]
+sorcerer_cass:
+  Arrows and Alleys (16k version), Ghost Town, Magic Maze, Munch, Pirate Adventure, Strange Odyssey, Wilderness, Z80 Disassembler
+  [Robbbert]
+vgmplay:
+  Bio Miracle Bokutte Upa (Family Computer), Blazing Tornado (Arcade), Bombaman Extra Ammo (MSX2),
+  Data East's Hoops (Deco MLC System), Dead Connection (Taito F1 System),
+  Densetsu no Ogre Battle Gaiden - Zenobia no Ouji (Neo Geo Pocket Color), Exvania (Namco NA-1),
+  From TV Animation Slam Dunk - Super Slams (Arcade), Geograph Seal (Sharp X68000), Gridiron Fight (Arcade),
+  Laplace no Ma (Sharp X68000), Magical Crystals (Arcade), Marvel Super Heroes vs Street Fighter (CP System II),
+  Mega Man II (Nintendo Game Boy), Mega Man III (Nintendo Game Boy), Megablast (Taito F2 System),
+  Mr. Robot and His Robot Factory (Atari 400, 800), Naious (Sharp X68000), Neural Gear (Sharp X68000), Pepsiman (Sigma B-98),
+  Smash Ping Pong (Family Computer Disk System), TwinBee (Sharp X68000), Uncharted Waters 2 - New Horizons (Sharp X68000),
+  Vigilante (Irem M75), Vigilante (TG-16) [Tafoid]
+vsmile_cart:
+  Alphabet Park Adventure (USA, alt), Alphabet Park Adventure (USA, alt, Rev. 2?), Disney's Little Einsteins (US, Rev. 5?),
+  Disney/Pixar Cars - Rev It Up in Radiator Springs (USA, alt), Disney/Pixar Toy Story 2 - Operation: Rescue Woody! (USA, alt),
+  DreamWorks Shrek the Third - Arthur's School Day Adventure (USA, alt), Marvel Spider-Man & Friends - Secret Missions (USA),
+  Nick Jr. Blue's Clues - Collection Day (USA), Nick Jr. Go Diego Go! - Save the Animal Familes! (US, Rev. 2?),
+  Nickelodeon Dora the Explorer - Dora's Fix-it Adventure (USA, alt 2), Noddy - Detective for a Day (USA),
+  Scooby-Doo! - Funland Frenzy (USA, alt), Superman - The Greatest Hero (USA), Thomas & Friends - Engines Working Together (USA),
+  V.Smile PC Pal Island (USA, Rev. 3?), V.Smile Soccer Challenge (USA) [Sean Riddle, TeamEurope]
+  Disney's The Lion King - Simba's Big Adventure (USA), Disneys Winnie the Pooh - The Honey Hunt (USA) [Sean Riddle]
+
+
+動作可能に昇格したソフトリスト項目
+----------------------------------
+jakks_gamekey_nk: Soccer Shootout & Juego De Futbol De Dora & Dora's Star Mountain Adventure [David Haywood]
+jakks_gamekey_sw: Turret Defense & Yoda's Escape [Sean Riddle, Peter Wilhelmsen, Ryan Holtz]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+apricot_flop:
+  apricot Networks VB1.3 F-Series (Beta Release), apricot Networks VB1.3 PC/Xi (Beta Release), apricot Networks VR1.3 F-Series,
+  apricot Networks VR1.3 PC/Xi, Lotus 123 (Release 1A), MSD 2.7.0 (Winchester Test), POINT 32 Network Diagnostics,
+  POINT 32 VB1.2 (Beta Release), POINT 32 VR1.1, POINT 32 VR1.2, Winchester Data Integrity Check 1.1,
+  Winchester Data Integrity Test 4.0 (TES002), Winchester Factory Formatter 2.1 (TES004) [actapricot.org]
+c2color_cart: Di 4 dan: Anhei Shili Zai Lin, Di 5 dan: Shenmi De Longzu Zhi Wang [Peter Wilhelmsen, zhongtiao1]
+ekara_japan_a:
+  A-1 Pichi Pichi Pitch vol.1 (Japan), A-4 Pichi Pichi Pitch Pure Chapter 1 (Japan), A-7 Pichi Pichi Pitch Pure Chapter 3 (Japan)
+  [Peter Wilhelmsen, Sean Riddle]
+hx20_rom: Forth [Nigel Barnes]
+icanguit_cart: Guitar Favorites [Sean Riddle, anonymous]
+jpopira_jp: JP-01 (Japan), JP-02 (Japan) [Sean Riddle, Peter Wilhelmsen, David Haywood, ShouTime]
+leapfrog_leappad_cart:
+  Leap und die Welt der Dinosaurier (Germany), Tad's Good Night (UK) [Sean Riddle]
+  - Great Reader Series - Dinosaurs Before Dark (UK), Bob der Baumeister - Bob und Heppo: Alles im Griff! (Germany),
+  Das Angel-Abenteuer (Germany), A Day at Moss Lake (Germany), Disney Huepf, Tigger, huepf! (Germany),
+  Disney Prinzessin - Prinzessinnen-Geschichten (Germany), Englisch Kurs - Let's go 1 (Germany),
+  Englisch Kurs - Let's go 2 (Germany), Leap's Pond - Activity & Game Book (UK), Little Amadeus (Germany),
+  Music - Mother Goose Songbook (UK), Pre Math - Tad goes shopping (UK), Pre Reading - Thomas the Really Useful Engine (UK),
+  Reading - Disney's Bounce, Tigger, Bounce (UK), Shrek (Germany), Spongebob Schwammkopf - Meeres-Geschichten (Germany),
+  Vocabulary - Richard Scarry's Best Little Word Book Ever! (UK) [TeamEurope]
+leapfrog_mfleappad_cart:
+  I Know My abc's (UK) (Dec 18 2002), I Know My abc's (UK) (Feb 12 2002), The Foot Book - Based on the Book by Dr. Seuss (UK),
+  Joy Joy - The Jet Plane - High-Flying Adventures (UK), Leap's Big Day (UK), Thomas & Friends - Thomas and the School Trip (UK),
+  Vroom! Vroom! - On the Go (UK) [TeamEurope]
+monon_color: Ji jia xuanfeng-gedou dashi (set 2), Xiyangyang yu huitailang-juezhan mie xing [Peter Wilhelmsen, zhongtiao1]
+vsmile_cart: V.Smile Art Studio (USA) [Sean Riddle, TeamEurope]
+vsmilem_cart:
+  Action Mania (US, Rev. 4?), Action Mania (US, Rev. 6?), Disney Handy Manny (US, Rev. 2?), Disney Mickey Mouse Clubhouse (US),
+  Disney's Little Einsteins (US, Rev. 2?), Disney's Little Einsteins (US, Rev. 5?), Disney/Pixar Cars 2 (Ger),
+  Disney/Pixar Wall-E (USA, Rev. 2?), DreamWorks Monsters vs. Aliens (US, Rev. 3?), Fuer immer Shrek (Ger),
+  NASCAR Academy - Race Car Superstar (US), Nickelodeon Dora the Explorer: Dora's Fix It Adventure (US, Rev. 3?),
+  Nickelodeon Ni Hao Kai Lan - Happy Chinese New Year! (US), Shrek Forever After (US), TinkerBell (US, Rev. 2?), Toy Story 3 (Ger)
+  [Sean Riddle, TeamEurope]
+
+
+追加・更新された翻訳
+--------------------
+Portuguese (Brazil) [Wellington Uemura]
+
+
+ソースの変更点
+--------------
+- z8: LD IR,Rオペコードの逆アセを修正。INCW/DECWがRnではなくRnを表示するように変更。[AJR]
+
+- tv955kb: リセットコントロール入力を非アクティブで起動。[AJR]
+
+- scn2674: 列バッファリングとタイミングの改良: [AJR]
+ * 列バッファリングDMAのオプショナルな読み込みコールバックを追加
+ * MBC出力追加
+ * BREQとVBLANK出力タイミングを訂正
+ * 文字の点滅とカーソルの点滅タイミングを改良
+
+- ay31015: 実機には無い初期ボーレートの生成を削除。[AJR]
+
+- trs80.cpp: HT-1080Zを50Hzのタイミングに変更。[AJR]
+
+- cosmac: DMAサイクル後にデバッガで命令をスキップオーバーしないよう変更。[AJR]
+
+- scn2674: 行ごとに空行を表示。[AJR]
+
+- pcx: 黒地に白のモードで縦線が出るのを修正。[AJR]
+
+- wy50: キーボードエミュレーションの暫定実装。[AJR]
+
+- vt100, ms6102: CAPS LOCKキーをトグル動作に変更(このシステムでは機械的に切り替える)。[AJR]
+
+- tv950: ALPHA LOCKキーをトグル動作に変更(このシステムでは機械的に切り替える)。[AJR]
+
+- -nonvram_saveもイメージデバイスのバッテリNVRAMにセーブしないよう変更。[AJR]
+
+- wyse.cpp: WY-55とWY-60ドライバを分離し、プログラムROMのスクランブル解除。[AJR]
+
+- dec0.cpp: トラックボール入力サポート。[Angelo Salese]
+
+- 多くのデバイスとドライバで省略した整数型とシンプル版のりードライとハンドラシグネチャを使用するように変更。[cam900]
+
+- dcheese.cpp: MCFGマクロを削除。ランタイム時のタグ参照削減。名称改善。不要コード削除。[cam900]
+
+- ay8910.cpp: AY8930拡張モードについて記載。ログ処理改良。冗長なコードの解消。[cam900]
+
+- ics2115.cpp: 16ビットハンドラをig2011.cppドライバからデバイスに移動。コードスタイルをより統一。[cam900]
+
+- es5506.cpp, esqpump.cpp: クロックレートの変更をサポート。サンプルレートも同期を維持。[cam900]
+ * その他コードのクリーンアップとノートの追加
+
+- mystwarr.cpp, tmnt.cpp, zr107.cpp: ランタイム時のタグ参照と不要コードの削減。[cam900]
+
+- qs1000.cpp: 内部CPUのアクセサ追加とghosteo.cpp、limenko.cpp、vegaeo.cppでの使用箇所を整理。[cam900]
+
+- namcona1.cpp: 冗長なコードの削除とノートの追加。[cam900]
+
+- tms34010.cpp: I/Oレジスタを内部アドレスマップに移動。register_postloadの使用廃止。[cam900]
+
+- nova2001.cpp: MCFGマクロと冗長コードの削減。名称の改善。const変数の使い方改良。[cam900]
+
+- 315_5124.cpp: 内部PSG実装と、register_postload使用廃止。[cam900]
+
+- megaplay.cpp, megatech.cpp, segae.cpp: MCFGマクロの一部削除とノートの追加。[cam900]
+
+- sega8_slot.cpp: MCFGマクロの削除。[cam900]
+
+- es8712.cpp: MSM5205がデバイスファインダや参照つき設定できるように変更。[cam900]
+
+- scripts/src/netlist.lua: インデント付けの修正。[cam900]
+
+- cococart: シンプルにしたシグネチャによるハンドラのインストールをサポート。[cam900]
+
+- MCFG_DEVICE_DISASSEMBLE_OVERRIDEマクロを完全に削除。[cam900]
+
+- coco12.cpp, coco3.cpp: MCFGマクロを一部削除。[cam900]
+
+- dgn_beta.cpp, palm.cpp: MCFGマクロを完全に削除。[cam900]
+
+- device_memory_interface.rst: ソースで改名されたマクロの名称を更新。[cam900]
+
+- timekpr.cpp: コードを整理。[cam900]
+
+- tandy2k: グラフィックアダプタとマウスをサポート。[Carl]
+
+- "over-sleep"の計算を指定のディレイとは独立するように変更。[Celelibi]
+
+- Netlistライブラリの更新: [Couriersud]
+ * makefileでclang-tidyをサポートし、推奨された変更を実施
+ * コードのリファクタリング。マクロをC++にコンバートし、ステートセーブのクリーンアップ
+ * スタンダードライブラリとは独立してデバイス生成の順序を設定
+ * スタートアップストラテジを設定可能に変更
+ * plibをC++11のalignas指定子を反映するようにし、アライメントヒントをコンテナクラスに追加
+
+- SDLキーボードマップ処理修正。古いコードの整理。ドイツ語キーボードマップを更新。[Couriersud]
+
+- vii.cpp: "Dora the Explorer - Nursery Rhyme Adventure (JAKKS Pacific TV Game, Game-Key Ready)"のタイトル修正。[David Haywood]
+ * 以前は誤って"Dora the Explorer - Race To Play Park (JAKKS Pacific TV Game, Game-Key Ready)"としていた
+
+- xavix: グローバルなタイル反転実装。[David Haywood]
+
+- i8089: DRQなしの16ビットターゲットDMA転送を修正。ログ処理無効化。[Dirk Best]
+
+- apricot: マウスとWinchesterコントローラを追加。I/Oデバイスマップと拡張バスの割り込みをサポート。[Dirk Best]
+
+- Western Digital WD1010-05 MFMハードディスクコントローラをエミュレート。[Dirk Best]
+
+- didact.cpp: 内部アートワークつきでModulab MC6802ベースの教育システムを追加。[Edstrom]
+
+- ins8154.cpp: ビットレジスタのアクセスを修正。[Edstrom]
+
+- hphybrid.cpp: メモリサイクルとオペコードフェッチを見えるようにするコールバック追加。[F.Ulivi]
+
+- apple2: 不明だったフロートバス読み込み修正。ジョイスティックとパドルのキャリブレーション改善。[Golden Child]
+
+- ti85.cpp: ti83pcev15、ti84pce、ti84pcev15にBIOS追加。コードの整理。[Julian Lachniet]
+
+- tms9995: 対応するラッチを正しいときにクリアすることでスプリアスな割り込み1/4を修正。[Michael Zapf]
+
+- tms9901: 同期クロック入力追加と、TI-99ドライバでの実装(カセットが不安定だったのを修正)。[Michael Zapf]
+
+- ドキュメントビルド時、SVG画像をPDFにコンバートするのをサポート。[O. Galibert]
+
+- ichiban.cpp: 命令コードとデータの分離方法が判明。[O. Galibert]
+
+- astrcorp.cpp: astoneagの復号処理の第一レイヤーが判明。[O. Galibert]
+
+- xc1700e.cpp: Xilinx XC1700シリーズシリアルPROMをエミュレート。[Patrick Mackinlay]
+
+- チートファインダプラグインの使い勝手改善: [Pugsy]
+ * ビジュアルインジケータの改良
+ * チートファインダメニューに自動ポーズ機能追加
+ * テスト書き込み値を事前に定義したリストから選択可能
+ * チートの出力フォーマット追加
+
+- g65816: WDMオペコードの長さを2バイトに訂正。システムが処理できるようにコールバック追加。[R. Belmont]
+
+- apple2: AppleWin的な内部メモリフィル追加(Joustのハング修正)。[R. Belmont]
+
+- sbrain: 50Hz BIOSハック追加。[Robbbert]
+
+- apple2: 8ビットApple IIシステムの逆アセンブリを拡張: [R. Belmont]
+ * Monitor ROMエントリポイントのシンボリック名、I/Oローケーションと汎用ゼロページローケーションを表示
+ * コール名と一緒にProDOSコールを表示で、完全にステップオーバー可能
+
+- vii.cpp: mattelcsの難易度選択ビット判明。[Ryan Holtz]
+
+- vsmile_cart: 後半の8Mwordカセットサポート。[Ryan Holtz]
+
+- sgi_mc_device: VDMAの暫定サポート。[Ryan Holtz]
+
+- SGI Newportのグラフィック更新: [Ryan Holtz]
+ * 後方スパン、追加のコマンド設定のサポート。ウィンドウチェックの修正
+ * 64ビットのリードライトハンドラを使用するよう変更。グラフィックのDMAの修正
+ * 論理命令とポップアッププレーンの暫定サポート
+ * 垂直ブランクの動作とカーソルパレットの修正。Scr2ScrをXYWindowに合わせて修正
+ * ColorRedのコンテンツ転送を書き込み時のColorIに実行
+ * カラーインデックスのMSB処理の暫定追加
+ * キャプチャをオフラインで見ることができるようにログ処理追加
+ * 書き込みマスキングとxsave演算の修正
+ * 線の1pxオーバーシュート、X/Y起点が更新されない現象、無効なパレット値が書き込まれるのを修正
+ * DIDエントリ処理追加(buttonflyでのパレット問題修正)
+ * 影のDDAとその他コマンド設定の基本サポート(jot修正)
+ * ダイレクトRGB処理追加(IRIXログイン画面とアイコンで使用)
+ * ダブルバッファソース値シフト修正(buttonflyの点滅を修正)
+ * Bresenhamの線描画でX/Yが入れ替わっていたのを修正(buttonflyのグラフィック位置修正)
+
+- 8042kbdc: 定期的にマウスをチェックするタイマを追加(IRIXのマウス修正)。[Ryan Holtz]
+
+- r4000: ABS.SとABS.Dの修正(IRIX X11サーバのクラッシュ修正)。[Ryan Holtz]
+
+- hpc3: チャンネル0-3のオーディオDMAをトリガ(IRIXアプリ開始時のハングを修正)。[Ryan Holtz]
+
+- osd/sdl: "accel" SDL 2Dアクセラレートビデオ出力を再度有効化。[schnitzeltony]
+
+- imgtool: DEC RT-11ファイルシステムでリードオンリーをサポート。[shattered]
+
+- indigo.cpp: LG1 "Light"グラフィックをその他のシステムと共有するためデバイス化。[tyfighter]
+
+- nscsi_cd.cpp: エミュレーションを無効化するベンダー固有のコマンドIRIXに対応する派生デバイスを追加。[tyfighter]
+
+- sgi_mc_device: VDMA uTLB処理を修正。[tyfighter, Ryan Holtz]
+
+- フィルタUIがアクティブのとき、ディレクトリを抜けるとクラッシュするのを修正(GitHub #4596)。[Vas Crabb]
+
+- aristmk6: BIOSの選択肢を覚えられる名前に指定。[Vas Crabb]
+
+- 64*64->128の積算を共有のユーティリティ関数として追加。[Vas Crabb, Patrick Mackinlay]
+
+- testkeys: マルチモニタ構成で、画面領域の外側やツールバーの後ろ側にならないようウィンドウを中央に配置。[Vas Crabb]
+
+- osd/windows: 初期ウィンドウ位置を一つのモニタのワークエリアに制限。[Vas Crabb]
+
+- SDLキーボード入力のブラジル版ABNT2キーボードマップの更新。[Wellington Uemura]
+
+- taito_z.cpp:「パワーホイールズ / Double Axle」のスタンドアロン版を特定し、そのDIPスイッチを訂正。[Brian Troha]
+
+- naomi.cpp: clubk2kpのプログラムROMを吸い直し。[coolmod, MetalliC]
+
+- seta.cpp: msgundambのROM5を吸い直し(グラフィック修正)。[Ed Cross, The Dumping Union]
+
+- triforce.cpp: ドキュメントの更新。ゲーム年度の訂正。ゲーム名を統一。[f205v]
+
+- chihiro.cpp: ドキュメントの拡張と訂正。[f205v]
+
+- naomi.cpp: ドキュメントの更新。[f205v]
+
+- zn.cpp:「クールボーダーズアーケードジャム」のPLDを吸出し。[f205v]
+
+- クリーンにクラックしたApple IIのフロッピーイメージを別なソフトリストに移動。[Firehawke]
+
+- dccons.cpp: Katana Dev.BoxチェッカーROM v0.71を吸出し。[Ioncannon]
+
+- freekick.cpp: gigasbのROM配置をドキュメント化。[Kevin Eshbach, The Dumping Union]
+
+- hiscore.datを更新。[Leezer]
+
+- jazz.cpp: 未使用のラムダキャプチャコンパイラ警告を修正。[maximumspatium]
+
+- warriorb.cpp: warriorbのPAL吸出し。[Mike Moffitt, coolmod, The Dumping Union]
+
+- xavix.cpp:「ザビックスバスフィッシング」のSEEPROMが持つI/Oマイコンコードのコードを吸出し。[Sean Riddle]
+
+- c2colorのドキュメント改良。[zhongtiao1]

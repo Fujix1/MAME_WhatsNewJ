@@ -1,0 +1,95 @@
+0.108u3
+-------
+
+
+ソースの変更点
+--------------
+- SSVゲーム、twineag2、ultrax、dynagearの“普通のスプライト”オフセット改良。
+  [robzia]
+
+- lethalenドライバの変更が追加されていなかったのを追加。[David Haywood]
+
+- デバッガ改良: [Andrew Gardner]
+ * 逆アセンブリウィンドウをTABで切り替える機能追加
+ * dasmビューにカーソル追加とナビゲーションキー実装
+ * 逆アセビューにフォーカスがあるときF4で'ここまで動作'追加
+ * 逆アセビューにフォーカスがあるときF9で'ブレイクポイント'のON・OFF追加
+ * メモリビューのキーボードナビゲーション改良
+
+- エッジケースでサウンドコードがクラッシュするのに対応。[David Haywood]
+
+- 新しいwbmlbgセットでの背景ROMロード修正。[David Haywood]
+
+- findoutドライバのtriviaとクイズゲームのDIPスイッチをオーバーホールと修正。
+  [wolf676]
+
+- airbustrドライバにPORT_DIPLOCATION追加。[Roberto Fresca]
+
+- TIA-MC1ドライバの改良: [Eugene Sandulenko]
+ - ドキュメント修正
+ - ゲームカウンタとコインロックアウト実装
+ - セーブステートサポート追加
+
+- 継続モードの6840カウンタ動作修正。[El Condor]
+
+-「Robby Roto」の不明DIPスイッチが一部判明。[wolf676]
+
+- arkanoidドライバで海賊版を改善する大更新: [Steph]
+ - 'arkblock'と'arkblock2'セットを入れ替え
+ - リネームしたセット :
+    * 'arkbl2' -> 'arkmcubl'
+    * 'arkbl3' -> 'arkgcbl'
+ - ゲーム名を一部変更
+ - 以下のセットからフラグ削除:
+    * 'arkbloc2' (元 'arkblock')
+    * 'arkgcbl' (元 'arkbl3')
+    * 'paddle2'
+
+- 起動時のマルチスレッド競合状態を修正。[Nathan Woods]
+
+- サンプルレート設定に最低限のチェック追加。[Firewave]
+
+- nmg5.cドライバの「Wonder Stick」のDIPスイッチ修正と、DIPでロケーション設定追加。
+  [Brian Troha]
+
+- MPU4ドライバの大更新: [El Condor]
+ - VFDコードのリバースクロッキングサポート
+ - 6840で周波数が指定されていないときはカウンタクロックを動作させないように変更
+ - AGEMAMEでの動作が改良されるように大幅なリワーク
+ - MPU4ビデオの動作が少し改良
+ - 6850acia.cを廃止。専用のドライバと置き換え
+
+- core.makでfile2str.exeを確実に削除するようにアップデート。[Nathan Woods]
+
+- ROMロード用オプション、ROM_IGNORE()追加。これはROM_CONTINUE()と同様に、どこか
+  らもデータを読み込む必要が無いときに使います。すでにROMの大きな部分があって、
+  その一部分だけを使う場合に使用できます。solomon.cに使用例があります。
+  [Aaron Giles]
+
+- 旧デバッガ削除。[Aaron Giles]
+
+- Machine構造体にdriver_dataメンバを追加。グローバル変数ではなく、ドライバがデー
+  タを保持します。また、MDRV_DRIVER_DATAマクロを追加して、起動時にコアがこの構造
+  体を配置できます。AM_BASE_MEMBERとAM_SIZE_MEMBERは、AM_BASEとAM_SIZEと似ていま
+  すが、driver_dataに関係する構造体メンバを指定します。Turboドライバを新機能の使
+  用例として更新しました。[Aaron Giles]
+
+- Turboドライバをさらにクリーンアップ: [Aaron Giles]
+ * アナログスプライト描画向上のため横解像度をを倍に設定
+ *「Buck Rogers / ズーム909」と「サブロック3D」の描画を改善
+
+
+
+新規クローンセット
+------------------
+ソロモンの鍵 (US) [Bobby Conover]
+Commando / 戦場の狼 (bootleg) [ClawGrip]
+ビームインベーダー (set 2) [Peter Townson]
+
+
+
+追加された未動作ゲーム
+----------------------
+Connect 4 [El Condor]
+PlayMan Poker (Germany) [Roberto Fresca]
+Big Boy [David Haywood]

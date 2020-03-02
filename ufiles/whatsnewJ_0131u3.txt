@@ -1,0 +1,255 @@
+0.131u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03101: [サウンド] jantotsu: リーチのときにツモとしゃべる。(Angelo Salese)
+- 03196: [DIP/入力] daisyari: ねーちゃんショーの後にリセットする。(Tafoid)
+- 02329: [グラフィック] iganinju, plusalph and others: スプライト表示ラグが激しい。
+         スプライトバッファの問題？(Angelo Salese)
+- 03190: [ドキュメント] 86lions: R/Bの値を入れ替えると、色が修正される模様。(Angelo Salese)
+- 03149: [クラッシュ/フリーズ] All sets in cps3.c: Access Violationエラー。(Angelo Salese)
+- 03187: [ドキュメント] scin: ゲームのタイトル名には、Superがつく。(Fabio Priuli)
+- 03176: [グラフィック] cheekyms: 画面右側に移動してボタンを押すと、キャラクタのグラフィックが乱れる。
+         (Pierpaolo Prazzoli)
+- 03182: [サウンド] Many sets in system1.c: 音が出ない。(Angelo Salese)
+- 03178: [DIP/入力] dragngun: 照準が画面左上に張り付いて動かせない。(Fabio Priuli)
+
+
+ソースの変更点
+--------------
+-「グランドクロス」のOKIバンキング修正。[Angelo Salese]
+
+-「グランドクロス」で基本的なADPCMサポート。[Angelo Salese]
+
+-「女子バレーボール」のタイトル画面表示を修正。[Angelo Salese]
+
+- System 2ゲームのサウンドミュートを修正。[Aaron Giles]
+
+- マージしたROMのチェックで、親セットの全ROMソースをチェックしていなかったため、デバ
+  イスのROMがマージされていないとされる問題を修正。[Atari Ace]
+
+- artmagic.cとrunaway.cにセーブステート追加。[Xander]
+
+-「ロボコップ」に新しく吸い出したPROMを追加。[Irongiant]
+
+- 最近追加されたコード部分にstaticチェックを追加。[Atari Ace]
+
+- lottofunのコインロックアウト追加。[Luigi30]
+
+- MPU4.cのランプ出力を改良。50Hz AC電源のピーク時のみ書き直しするように変更。
+  [AGEMAME]
+
+- megatech.cにカセット情報追加と、ROM定義の間違いを訂正、またこれらの並び順を修正。
+  [Smitdogg]
+
+- チートファイルで、<<と>>のエイリアスとしてLSHIFTとRSHIFTを追加。[Pugsy]
+
+- TriforceにReadMe追加。[Guru]
+
+- Sega Model 3とI/OボードにReadMe追加。[Guru]
+
+- m6502ファミリのコールバック設定をCPU設定部に移動。[Wilbert Pol]
+
+- オプショナルなオフラインビューア、IVY用のフレームキャプチャ出力をHOLLYエミュレーショ
+  ンに追加。[MooglyGuy]
+
+- NaomiのビデオRAMアクセスを32-bitと64-bit領域に分割。実際のミラーリング方法はまだ不
+  明。[David Haywood]
+
+- psattackのCFカード再吸い出しとCHD作成用にIDメタデータ追加。[Guru]
+
+- H8シリーズMCUのアップデート: [R. Belmont]
+ - 8ビットタイマと、H8/33334のフリーランニングカウンタを実装
+ - bid #imm, @Rd命令を追加
+ - 割り込みとシリアルポートの実装
+
+- Namco System 23の更新: [R. Belmont]
+ - I/Oボードの実装変更とドキュメントの追加。「タイムクライシス2」で、H8/3334ベースの
+   TSS-I/Oボードで時々ハンドシェイクが成功するものの、タイミングの問題がまだあり
+
+- Namco System Super 22の更新: [R. Belmont]
+ - SPOT RAMの再実装 -「トーキョーウォーズ」で一部に依存
+ - 0.120から未初期化のRAM領域のせいでスプライト色がランダムになったのを修正(問題をデ
+   バッグしてくれたPhil Bennett氏に感謝)
+ - GuruなReadmeを更新
+
+-「エイリアンズ」のP2入力修正。[stephh]
+
+-「Gladiator / 黄金の城」のコインエイジ修正。[Tafoid]
+
+- wc90b.cで起きていたサウンド不具合修正。また、NMIのネスト化、MSMサウンドの改良、メモ
+  リマップを現在のスタンダードにコンバート。[Angelo Salese]
+
+- Olivier Galibert氏の方式に従って、YMF271のLFO周波数テーブルの202エントリ(とコメント)
+  を修正。[Brian Troha, Roman Scherzer]
+
+-「ドッグファイト」(Thunderbolt)のromdefにbpromタイプと共に基板のROM配置を追加。
+  [Brian Troha]
+
+-「バトルゾーン」のROMファイル名を修正。[Andrew Welburn]
+
+-「スーパークラウンズゴルフ」でMSMの基本的なサポートとNMI生成の修正。画面反転用bitの
+  発見と実装、メモリマップのクリーンアップ。[Angelo Salese]
+
+- Jaleco Mega System 1ドライバのスプライトバッファリングを実装。[Angelo Salese]
+
+-「Euro League」のクロック速度修正。[Mike Coates]
+
+-「ジャントツ」のADPCM停止フラグを修正。またドライバのルーチンをクリーンアップ。msmサ
+  ンプルにヒューリスティックテーブル追加。MSM周波数修正。[Angelo Salese]
+
+-「スーパー上海 ドラゴンズアイ」にサウンド実装。[Angelo Salese]
+
+-「Mexico 86」ドライバのDIPスイッチ不具合修正と、単体基板の4人プレーモードを有効化。
+  [Angelo Salese]
+
+- mwgadrivドライバのメインCPUとサウンドCPUの通信タイミングを改善。[Wilbert Pol]
+
+-「スーパー上海 ドラゴンズアイ」で女性表示画面のちらつきを修正。もう一つのsshangha用
+  にメモリマップを分割。親セットのサウンド修正。[Angelo Salese]
+
+- sqixuにI8751 ROMを追加。[Dr. Decapitator, Nicola Salmoria]
+
+- sqix/sqixa海賊版の吸い出し不良MCUをオリジナルと比較して修正。[Nicola Salmoria]
+
+-「テトリス」(アルカノイド基板)のコインロックアウト修正と、色は正確なため、
+  GAME_WRONG_COLORSフラグの削除。[Angelo Salese]
+
+-「がんばれ珍さん！大勝負」のMSMを実装。[Angelo Salese]
+
+-「プロ野球入団テスト トライアウト」の背景色修正と、コイン投入時のNMI発生をクリーンアッ
+  プ。[Angelo Salese]
+
+-「Mazer Blazer」ドライバをクリーンアップ。[Angelo Salese]
+
+-「プロ野球入団テスト トライアウト」」の前景色オフセットを修正。ゲームの色は100%正確
+  になったはず。また、スプライトの水平反転とスクロールの問題修正、また画面無効化フラ
+  グを追加。[Angelo Salese]
+
+- プロジェクト内で、割り当てだけされて実際には使われていない変数を無効化。
+  [Oliver Stoeneberg]
+
+- touchmasterドライバから、タッチスクリーン用のパルス入力を削除。これにより、
+  Centipede Returns (tm4k)、breakout3k (tm3k)、wordsearch (tm8k)、その他ドラッグ動作
+  が必要なゲームがプレイ可能。例えば、ワードサーチゲームで開始文字から終了文字まで選
+  択範囲をハイライトさせたりが、これまでのパルス入力ではできませんでした。
+  [Mike Green]
+
+-「ひげ丸」のクロック速度を訂正。[Stefan Lindberg]
+
+- mirage.cのBGM用OKIサウンドチップ周波数を調整。[Angelo Salese]
+
+-「Jail Break / マンハッタン24分署」「ニンジャウォーリアーズ」「オペレーションウルフ」
+ 「レインボーアイランド」にReadMe追加。[Guru]
+
+-「ミラージュ妖獣麻雀伝」のサウンドバンキング修正。[Angelo Salese]
+
+-「Mirax」のカラーPROMデコードと、ビットプレーン修正。[Angelo Salese]
+
+- CPUは実際にはリセットにある程度の時間が必要なため、68000/68010で、リセット後に適切
+  なサイクル数を使うように変更。[Aaron Giles]
+
+- Sega System 16Aの変更: [Aaron Giles, Dr. Decapitator]
+ * quart21とbodyslamにMCU追加
+ * これらのゲームにMCUを実装
+ * シミュレートしたMCUを使うゲームを"プロテクト未エミュレート" にマーク。MCUがシミュ
+   レーションよりも明らかに多くのことを行っているため
+
+- 頭文字AとBのドライバで、全てのメモリマップからSMH_*を削除。[MooglyGuy]
+
+- Segaドライバにセキュリティカスタムを追加 (http://www.higenekodo.jp/sega_n.htmより)。
+  [Yasuhiro Ogawa]
+
+- Namco 50xx、51xx、52xx、53xx、54xx、06xxを正しいデバイスにコンバート。[Aaron Giles]
+
+- DERIVED_CLOCK()マクロ追加。子デバイス用に、親デバイスからクロックを取得するもの。
+  [Aaron Giles]
+
+- レーザーディスクインタフェースで、ROM_NAME()とMACHINE_DRIVER_NAME()マクロを使うよう
+  に改良。[Aaron Giles]
+
+- Namco 52xxと53xxデバイスで、動作シミュレーションから実際のMCUを走らせるように変更。
+  bosco、digdug、poleposでこれらを正しく実装。[Aaron Giles]
+
+-「Bronx」で出ていたバグを修正。[Angelo Salese]
+
+-「アイドル雀士スーチーパイスペシャル」のADPCM PALシャッフルを推定。音は改善したもの
+  の、これが100%正確かどうかは不明(実機との比較テストが必要)。[Angelo Salese]
+
+-「ポールポジション」のメモリマップにミラーを追加。[Aaron Giles]
+
+- DIPスイッチの変更: [kanikani]
+ - scontraとthunderxにDIPLOCATOINを追加
+ - DEF_STR(Difficult、Very Difficultなど)を追加。使用するドライバの更新
+
+- MB88xx CPUに内部メモリマップと内部クロック分周を追加。旧式なメモリマップと、決め打
+  ちしたクロック分周を削除。[Aaron Giles]
+
+- 番号でCPUを参照しているドライバで、引き続きタグによる参照へ変更。[Fabio Priuli]
+
+-「ビートマニアIIDX」の初期作業。まだまだ作業がいっぱい。[smf]
+
+- MB88xxの変更と修正: [Aaron Giles]
+ - 内部タイマをサポート; プリスケーラは「ポールポジション」のサンプル再生周波数を元に
+   推定
+ - 外部カウンタサポート
+ - シリアル入力読み込みの基本メカニズムを追加; 完全実装まではいっていませんが、起動時
+   のSIピンサンプル化には十分な模様です
+ - TSTS/TSTVでそれぞれのフラグをクリアするよう修正
+ - CIとCYIで、reg-immではなくimm-regを演算するよう修正
+ - 偽のPC値を予防するため、RTI/RTSに対してPAレジスタをマスキング
+
+- ARM7_DEBUG_COREを有効にしたときのコンパイルを修正。
+  [Reijo Tomperi, Oliver Stoeneberg]
+
+- ゲームの画面方向に基づいたhorizont.ini、またはvertical.iniのパースをサポート。
+  [Krick]
+
+- System16と18の海賊版の改善。一部は前よりも症状が悪いものの、将来的な改良のための基
+  礎は改善。[David Haywood]
+
+- cppcheckで検出したメモリリークの可能性を修正と、verinfoにerrormessageも追加。
+  [Oliver Stoeneberg]
+
+- TWINKLEハードウェアにGuruなReadMeを追加。[Guru]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+アクアジェット (Rev. AJ2 Ver.B) [Guru, R. Belmont, Phil Bennett]
+
+
+
+新規クローンセット
+------------------
+Wizard Fire / ダークシールII (Over Sea v2.1) [Irongiant]
+US AAF ムスタング (TAB Austria bootleg) [Klaus Sommer]
+カオスヒート (World) [Tormod / Brian Troha]
+ブラッディロア (Japan) [D. Alves, Smitdogg, Dumping Union]
+ファイターズインパクト (Japan) [TH60]
+エアガイツ (Japan) [Uki]
+スーパークイックス (World, Rev 2) [Stefan Lindberg]
+High Impact Football (rev LA5 02/15/91) 
+  [Tormod, Smitdogg, Dumping Union]
+Intruder [Smitdogg, jmurjr, ranger_lennier]
+プロスポーツ (alternate) [Smitdogg] -- not working
+Forgotten Worlds / ロストワールド (World) [Corrado Tomaselli]
+Cherry Bonus III (alt) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+アルペンレーサー2 (Rev. ARS2 Ver.A) [Guru]
+トーキョーウォーズ (Rev. TW2 Ver.A) [Guru, R. Belmont, Phil Bennett]
+Microman Battle Charge [Guru]
+Technical Bowling [Guru]
+Enchanted Forest (E - 23/06/95, Local) [AGEMAME]
+Golden Pyramids (B - 13-05-97, USA) [AGEMAME]
+Queen of the Nile (B - 13-05-97, NSW/ACT) [AGEMAME]
+Super Cherry Master / New Cherry Gold '99 [David Haywood]
+Super Cherry Master / Super Cherry Gold [David Haywood]
+Super Cherry Master / Grand Cherry Master [David Haywood]

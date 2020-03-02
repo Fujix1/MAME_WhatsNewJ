@@ -1,0 +1,447 @@
+0.193
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06785: [インターフェイス] (coco3.cpp) Any driver that allows one to browse the host file system: ピリオドを含むディレクトリ名に変更できない。(cuavas)
+- 06780: [サウンド] (midtunit.cpp) Williams ADPCMサウンドボードの音量バランスについて。(hap)
+- 06683: [グラフィック] (surpratk.cpp) suratk: 表示領域が狭すぎる。背景回転が実装されていない。(Robbbert)
+- 05902: [クラッシュ/フリーズ] (gba.cpp) gba [bombtour]: ゲームが固まりスタートできない。(R. Belmont)
+- 06784: [サウンド] (bagman.cpp) bagman, sbagman: ゲーム開始時にやられた音が鳴り続ける。(AJR)
+- 06779: [クラッシュ/フリーズ] (coco3.cpp) ZenixのフロッピーディスクをマウントするとMAMEがクラッシュする。(Duke)
+
+
+新規動作可能マシン
+------------------
+4-in-1 [Joe Magiera]
+Apollo 13 (Tiger handheld) [hap, Sean Riddle]
+Batman Forever - Double Dose of Doom (Tiger handheld) [hap, Sean Riddle]
+Battletoads (Tiger handheld) [hap, Sean Riddle]
+かるきゅーん (Japan, prototype)
+  [David Haywood, ShouTime, gamez fan, Sacrilego, Paul Vining, Jeffrey Gray, Fabien Marsaud, Jarrod Wright, Darksoft, Rod_Wod,
+  Sean Sutton, Surgeville, The Dumping Union]
+Chess King Master [hap, Berger]
+Fidelity Designer Mach III Master 2265 [hap, yoyo_chessboard]
+Fonas 3 in 1: Football, Basketball, Soccer [hap, Sean Riddle]
+インベーダー2000 [hap, Sean Riddle]
+HP 2645A [F.Ulivi]
+In Your Face (North America, prototype)
+  [ShouTime, Darksoft, Ryan Holtz, Surgeville, Sean Sutton, gamez fan, Smitdogg, The Dumping Union]
+Joker Poker With Hi-Lo Double-Up [Joe Magiera]
+Karnov (Tiger handheld) [hap, Sean Riddle]
+MC Hammer: U Can't Touch This (Tiger handheld) [hap, Sean Riddle]
+Mortal Kombat (Tiger handheld) [hap, Sean Riddle]
+Nightmare Before Christmas (Tiger handheld) [hap, Sean Riddle]
+Robocop 2 (Tiger handheld) [hap, Sean Riddle]
+Slot (unknown bootleg?) [Alessandro Ghirardi, Lorenzo Fongaro]
+Space Harrier II (Tiger handheld) [hap, Sean Riddle]
+Street Fighter II (Tiger handheld) [hap, Sean Riddle]
+テレパチ フィーバーライオン (V1.0) [Rod_Wod, Hammy, The Dumping Union]
+The King of Fighters '98: Ultimate Match HERO (China, V100, 09-08-23)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+The Shadow (Tiger handheld) [hap, Sean Riddle]
+Vulcan XL 25 [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+A-Blast (Japan) [system11, The Dumping Union]
+Amigo (アミダー海賊版, set 2) [f205v, The Dumping Union]
+Attack (ディフェンダー海賊版) [ARPA, Recreativas.org, The Dumping Union]
+ブラッドブラザーズ (US) [Bill D., The Dumping Union]
+Blue's Journey / ラギ (ALH-001) [Razoola]
+ファンタジー (Germany, set 2) [Corrado Tomaselli, The Dumping Union]
+Fidelity Designer Mach IV Master 2325 [hap, yoyo_chessboard]
+G.I.ジョー (Asia, AA) [coolmod, The Dumping Union]
+Galaxian Growing Galaxip / Galaxian Nave Creciente (Recreativos Covadonga Spanish bootleg)
+  [ARPA, Recreativas.org, The Dumping Union]
+Jolly Card (Italian, bootleg) [Team Europe, Rock Shebbich]
+Coleco Head to Head Hockey (COP420L version) [hap]
+Coleco Head to Head Soccer (COP420L version) [hap]
+Oriental Legend 2 (V101, Oversea) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Oriental Legend 2 (V103, Oversea) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Oriental Legend 2 (V104, Oversea) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Robin Hood (Tiger handheld) [hap, Sean Riddle]
+Super Bagman (Itisa, Spain) [f205v]
+SWTPC 6800 Computer System (with MIKBUG) [AJR]
+洗脳ゲーム テキパキ (location test)
+  [ShouTime, Mouloud Bessaad, Dulleron, Christian Ricolleau, Marisol Nunez Serrano, Renato Mucciarelli, Jeffrey Gray, John Wilke,
+  Darksoft, Ryan Holtz, Smitdogg, The Dumping Union]
+Twin Brats (set 1) [caius, The Dumping Union]
+West Story (ブラッドブラザーズ海賊版, set 2) [Osso, caius, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+ビートマニア IIDX 4thスタイル (GCA03 JAA) [smf, R. Belmont, Sarah Purohit]
+ビートマニア IIDX 6thスタイル (GCB4U JAB) [smf, R. Belmont, Sarah Purohit]
+ビートマニア IIDX 7thスタイル (GCB44 JAA) [smf, R. Belmont, Sarah Purohit]
+ビートマニア IIDX 8thスタイル (GCC44 JAA) [smf, R. Belmont, Sarah Purohit]
+ビートマニア IIDX サブストリーム with DDR 2nd クラブバージョン 2 (984 A01 BM) [smf, R. Belmont, Sarah Purohit]
+怒首領蜂 大往生 魂 (V201, China) [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Knights of Valour 2 New Legend / 三国戦紀2 -乱世英雄- (V302, China) 
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Oriental Legend 2 (V104, China) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+San Francisco Rush: The Rock (boot rom L 1.0, GUTS Oct 6 1997 / MAIN Oct 16 1997) [Ted Green]
+
+
+動作可能に昇格したクローン
+--------------------------
+アクションファイター (FD1089B 317-unknown) [David Haywood]
+アクションファイター (FD1089B 317-unknown, analog controls) [David Haywood]
+アクションファイター (System 16B, FD1089A 317-0018) [David Haywood]
+アクションファイター (System 16B, FD1089B 317-unknown) [David Haywood]
+アクションファイター (System 16B, FD1089B 317-unknown, analog controls) [David Haywood]
+Agat-7 [shattered]
+ビートマニア IIDX 6thスタイル (GCB4U JAA) [smf, R. Belmont, Sarah Purohit]
+Knights of Valour 2 New Legend / 三国戦紀2 -乱世英雄- (V300, China)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Knights of Valour 2 New Legend / 三国戦紀2 -乱世英雄- (V301, China)
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Oriental Legend 2 (V101, China) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Oriental Legend 2 (V103, China) [Jeremy Romine, Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood, MetalliC]
+Tazz-Mania (Arfyc / Rodmar bootleg) [Ivan Vangelista]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Chess Champion: Delta-1 [hap, Berger]
+Golden Hexa [Yohji, Smitdogg, The Dumping Union]
+Green Lizard (AHG1623, US) [Roberto Fresca]
+Hexa President [Yasu]
+Honkey Tonk - Cash Express (BHG1455, US) [Roberto Fresca]
+Keep Your Hat On (BHG1204, US) [Roberto Fresca]
+Multi Game IV (V.Ger 3.44) [Team Europe]
+Ninja Gaiden (Tiger handheld) [hap, Sean Riddle]
+コナミグラフィックコンピュータ ピクノ [Team Europe, SSJ, Robbbert]
+コナミグラフィックコンピュータ ピクノ2 [Team Europe, SSJ, Robbbert]
+Pitch Hitter - Baseball Challenge [unknown]
+Real Battle Super Phoenix Mahjong (Version 4.1) [Peter Wilhelmsen, The Dumping Union]
+しゅりけんボーイ [rod_wod, The Dumping Union]
+ハイレートDVDシリーズ18 撮られちゃったの -AV監督編- [system11, ShouTime, The Dumping Union]
+Wild Africa (AHG1535, US) [Roberto Fresca]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Boot Scootin' (AHG1547, US) [Roberto Fresca]
+Bumble Bugs (CHG0479-99, US) [Roberto Fresca]
+Chicken (01J01886, NSW/ACT) [Roberto Fresca]
+Chicken (RHG0730-99, US) [Roberto Fresca]
+Creature from the Black Lagoon (L-4) [PinMAME]
+デンジャラスカーブス (Ver 2.9 O) [Muddymusic, Porchy, The Dumping Union]
+デスクリムゾンOX (Rev A) [Jorge Valero, ClawGrip, DU]
+Enchanted Forest (AHG1615, US) [Roberto Fresca]
+Enchanted Forest (JHG0415-99, US) [Roberto Fresca]
+Ericsson Step/One [Fredrik Ohrstrom]
+Filthy Rich (English) [Roberto Fresca]
+Inca Sun (01J01946, Venezuela) [Roberto Fresca]
+Panasonic JB-3000 [Edstrom]
+King Galah (AHG1625, US) [Roberto Fresca]
+Mine, Mine, Mine (NHG0416-99, US) [Roberto Fresca]
+Money To Burn (English) [Roberto Fresca]
+Mountain Money (BHG1464, US) [Roberto Fresca]
+Penguin Pays - Cash Express (AHG1544, US) [Roberto Fresca]
+Penguin Pays (OHG0417-02, US) [Roberto Fresca]
+Penguin Pays (OHG0417-03, US) [Roberto Fresca]
+Queen of the Nile (AHG1608, US) [Roberto Fresca]
+Queen of the Nile (GHG4091-03, US) [Roberto Fresca]
+Reel 'Em In (English) [Roberto Fresca]
+San Francisco Rush 2049: Tournament Edition Unlocked [rtw, Stig Remnes]
+Striker Xtreme (1.01 Italy) [PinMAME]
+Triumph-Adler alphatronic P2 [rfka01, helwie44]
+Triumph-Adler alphatronic P2U [rfka01]
+Triumph-Adler alphatronic P30 [rfka01, helwie44]
+Wild Cougar (AHG1531, US) [Roberto Fresca]
+Wild Cougar (NHG0296-07, US) [Roberto Fresca]
+Wild Cougar (NHG0296-99, US) [Roberto Fresca]
+Winning Bid (English) [Roberto Fresca]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+cd32:
+  Akira, Banshee, Chambers of Shaolin, Fire Ice - The Daring Adventures of Cool Coyote, Rise of The Robots, Seek And Destroy,
+  Shadow Fighter [EoceneMiacid]
+gmaster: Car Racing, Move It [SSJ, PeT]
+ibm5150:
+  Advanced Dungeons & Dragons - Curse of the Azure Bonds (V1.0), Advanced Dungeons & Dragons - Pool of Radiance (5.25"),
+  Super Hang-On [ArcadeShadow]
+  Echecs 3D (French) [breiztiger]
+  A-10 Tank Killer (1.1), A-10 Tank Killer (1.5), IBM Personal Computer DOS (Version 1.10, Master diskette),
+  IBM Personal Computer DOS (Version 2.00, Master diskette), IBM Personal Computer DOS (Version 2.10, set 3) [Justin Kerk]
+ibm5170:
+  Ontrack Disk Manager [Curt Coder]
+  1869 - Erlebte Geschichte Teil I (German), 3000 Icons for Windows, Classic Road 2, Gravis Utilities V2.1,
+  Gravis UltraSound (GUS) Installation - V3.53, Lotus 1-2-3 Release 3 (5.25"), Lotus 1-2-3 Release 3.1,
+  MS-DOS (Version 6.2/V, Upgrade) (Japanese) [Justin Kerk]
+ibm5170_cdrom:
+  Noi Siamo Angeli (Italian), Pompei AD LXXIX [Arena80.it]
+  We Are Angels: Ein Engel schlaegt zu! (German) [archive.org]
+  Alien Rampage (v1.13), Crusader - No Remorse (v1.23), Iron Blood, Prototype, Rise 2 Resurrection - Director's Cut, Sideline,
+  Turrican II - The Final Fight [EoceneMiacid]
+  The UltraSound CD, The UltraSound Experience [Justin Kerk]
+  Arabian Kid, Claw (Japan v1.2), Doka-chan no Building Panic (Japan), Doom II for Windows 95 (Japan), Electronic Popple (Japan),
+  Golly! Ghosts! Goal! (Japan), Halloween Harry in Zombie Wars, Iwatobi Penguin Rocky & Hopper DeJig Puzzle (Japan), Orgaslave,
+  Pauly Mouse (Japan), PoiPon (Japan), Segata Sanshirou Choujin Densetsu, Silkroad Hoshi no Shima no Monogatari,
+  Space Invaders for Windows, W.Pressure (Japan) [Rod_Wod]
+  Lexmark Z22 / Z32 Color Jetprinter, Mustek Power of Scanning, Rayman (US v1.21), Viper -V16- RISE (International),
+  Viper -V16- Imagine (International) [The Onion Knight]
+  Alien Incident (Eng, Fre, Ger, Fin) (v1.30) [unknown]
+lynx: Ponx [anonymous]
+pce_tourvision:
+  ファイナルソルジャー, PC原人, スプラッターハウス, 天聖龍, 虎への道, バイオレントソルジャー [system11, The Dumping Union]
+psx:
+  超時空要塞マクロス 愛おぼえていますか  (Japan), ファイヤープロレスリングG (Japan) (v1.1), グラディウス外伝 (Japan) (v1.1),
+  ガンナーズへヴン (Japan), 北斗の拳 世紀末救世主伝説 (Japan), 実況おしゃべりパロディウス - フェーエバーウィズミー (Japan),
+  帰ってきたサイボーグクロちゃん (Japan), マクロス デジタルミッションVF-X (Japan), マクロスVF-X2 (Japan),
+  スーパーロボット大戦α外伝 - プレミアムエディション (Japan), スーパーロボット大戦α外伝 - 初回限定盤 (Japan),
+  スーパーロボット大戦α外伝 (Japan) (v1.1), スーパーロボット大戦コンプリートボックス (Japan), スーパーロボット大戦F (Japan),
+  スーパーロボット大戦F完結編 (Japan), ザナック×ザナック (Japan) [EoceneMiacid]
+ti95_cart: Mathematics Library, Statistics Library [unknown]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+cd32:
+  Alien Breed - Special Edition + Qwak, Alien Breed 3D, Alien Breed - Tower Assault, Alfred Chicken, The Chaos Engine,
+  The Classic Lotus Trilogy, Disposable Hero, Project-X + Ultimate Body Blows, Super Putty, Total Carnage [EoceneMiacid]
+fmtowns_cd: 維新の嵐, 三国志II, 斬3 - 天運我にあり [Reuental]
+ibm5150: IBM Personal Computer DOS (Version 1.10) (Master diskette, alt) [Justin Kerk]
+ibm5170:
+  Lotus 1-2-3 Realease 3 (3.5") [Curt Coder]
+  1942 - The Pacific Air War, AIV Networks (German), Gravis UltraSound BONUS Software Installation v. 1.52 [Justin Kerk]
+ibm5170_cdrom:
+  Boorp's Balls, Geo ~The Iron Age~ (Japan), Heart of Darkness (Japan v1.1.05), Jake Burst (Japan), Kung-Fu Hero Akimbo Lee,
+  Moon Dragon (Japan), Twinbee Paradise In Donburi Shima [Rod_Wod]
+  Zyclunt [EoceneMiacid]
+  King's Quest - La Maschera dell'Eternita [The Onion Knight]
+pcfx:
+  アマチュア提供 CD-ROM, バトルヒート, きゃんきゃんバニーエクストラDX, デア ラングリッサーFX, 同級生2, ドラゴンナイト4, 
+  ファーランドストーリーFX, ファイアーウーマン纏組, ふしぎの国のアンジェリーク, 女神天国II, Piaキャロットへようこそ!!,
+  卒業IIネオジェネレーションFX [EoceneMiacid]
+picno:
+  アニメ絵日記, 漢字倶楽部, モンタージュ, ピクノアートパズル,PICNO de 123, PICNO de ABC, PICNO de あいうえお,リアルモンタージュ,
+  しらゆきひめ物語 [Team Europe, SSJ]
+
+
+追加・更新された翻訳
+--------------------
+French [SSTSylvain]
+Italian [theheroGAC]
+Portuguese (Brazil) [Wellington Uemura]
+
+
+ソースの変更点
+--------------
+- swtpc: 2つのシステム(SWTBUGとMIKBUG)に分離し、SS-50 I/Oバスの試験版を追加。[AJR]
+
+- et3400: リセットキーとSegment Testの入力を追加。[AJR]
+
+- 特定の設定で、-listdevicesのサブデバイスが出力されないのを修正。[AJR]
+
+- m6809: 偉大なるMC6809/MC6809Eデイバスで、タイプとクロック分周器が混乱している問題を処理スタート。[AJR]
+
+- 汎用のリップルカウンタデバイスを追加。[AJR]
+
+- Seals 8K SCメモリボードをS-100バスエミュレーションに追加。[AJR]
+
+- 表示されるキーの名前にランダムにクエスチョンマークが出るのを修正。[AJR]
+
+- igs036crypt.cpp: kof98umhをサポート。ARM CPUがアップロードするフォーマットと互換性のあるキーテーブルを作成。[Andreas Naive]
+
+- i386: x87のバグ修正とFERRのサポート。[Andrey Merkulov]
+
+- i8087: Fanucドライバで解析を妨げていた不具合を修正。[Andrey Merkulov]
+
+- route16.cpp:「T.T.マージャン」にプレイヤー2入力を追加。[Angelo Salese]
+
+- vgmplay.cpp: YM2608 OPNAをサポート。[Angelo Salese]
+
+- attache816: 8086のMCFG_QUANTUM_PERFECT_CPUを有効化 - RAMディスク書き込み時のデッドロックが解消。[Barry Rodewald]
+
+- z180: Z180_RCR_REFWを修正。Wait State Generator (DCNTL)のサポート。[BartmanAbyss]
+
+- i8087: 独立した8087デバイスを作成。[Carl]
+
+- pet: ビデオRAMのミラーリングを修正。[Curt Coder]
+
+- weststory: 海賊版のフォーマットに変換することでスプライトデータと、およびそこから何がスクランブルされているのかをの検証。
+  [David Haywood]
+
+- micro3d: DrMathとVGBボードに診断ターミナル追加。[Dirk Best]
+
+- prodigy: 基本的なLAYからSVG XSLTへのフィルタ追加。[Edstrom]
+
+- myb3kの更新: [Edstrom]
+ * ISA8バス追加。FDCをISA8カードに移動。COMカードと2つの新しいFDCカード追加
+ * PIT、PIC、DMA、PPIデバイスを追加
+ * クロック、クリスタル、スイッチの訂正
+ * ROMを実部に合わせてBIOSとキャラクタジェネレータに分割
+ * OEM版のEricsson Step/OneとPanasoic JB-3000を追加(ROMは未吸い出し)
+
+- myb3k.cpp: キーボードとオーディオ修正 - DOS 1.25起動とBASICのデモが動作可能。[Edstrom, Fredik Ohrstrom, Mattis Lind]
+
+- trs80m2kb.cpp: 不足していたキーボードコントローラROM追加。[Edstrom, Sean Riddle]
+
+- セーブステートを元に仮の巻き戻し機能を追加。[feos]
+
+- myb3k: キーボードデバイス追加と、Ericsson Step/Oneキーボードのサポート。[Fredrik Ohrstrom]
+
+- hp9845: 内部プリンタのハイレベルエミュレーション追加。[F.Ulivi]
+
+- CP-450とCD-6809 CoCo FDCの修正とメタデータ改善。[Felipe Sanches]
+
+- omti8621: MAMEの古いバージョンと互換性を保つため、短いdiskというカスタムインスタンス名を使用。[Hans Ostermeyer]
+
+- apollo_kbd: 仮想NUM LOCKトグルをデバイス内で処理。[Hans Ostermeyer]
+
+- Atmel AIC: ほとんどの機能を実装。[MetalliC]
+
+- ymz774の改善: [MetalliC]
+ * シーケンサとSQCの実装、SEQ/SQCセーブステートの修正
+ * チャンネル音量の遅延遷移追加
+ * チャンネル/SEQのポーズとリジュームを実装
+
+- ymz770: CHAN/SEQ "keep playing"コマンドを実装。[MetalliC]
+
+- tms9995: RESET時のREADYチェックを修正(auto-waitstate)。[Michael Zapf]
+
+- GENie、BGFX、BXの更新と、分離されたためBIMGの追加。[Miodrag Milanovic]
+
+- 逆アセンブラを独立したクラスにコンバート。[O. Galibert]
+ * すべてのアーキテクチャはunidasmで利用可能。また、ページされたノンリニアプログラムカウンタのサポートが改善
+
+- emumem: アドレスシフトでのaddress_space::directをテンプレート化。[O. Galibert]
+ * address_space、またはdirect_read_dataで{read|write}_*に渡されるアドレスは、バイトオフセットから論理アドレス値に変更
+
+- ide: 16ビットと32ビットCSアクセスの曖昧さを解消。非空間CSアクセスメソッド追加。[O. Galibert]
+
+- memory: apple2ドメインの空間パラメータを削除。[O. Galibert]
+
+- interpro: CPUとMMUの改善。[Patrick Mackinlay]
+ * ほとんどのクリッパーCPUとMMU例外を実装
+ * C300命令の完成とC400に向けた調整
+ * CAMMUのダイナミックトランスレーションの改良とフォールトの追加
+ * C300 CAMMUをリファクタリングして、命令とデータインスタンスを分離
+ * 設定可能なIOGAとSRバスメモリアクセス
+
+- dp8510: National Semiconductor DP8510 BITBLT処理ユニットデバイスエミュレータ追加。[Patrick Mackinlay]
+ * InterPro GTファミリのグラフィックボードで使用
+
+- nscsi: 問い合わせに対しCHD identメタデータを使用。[Patrick Mackinlay]
+
+- Aristocrat MK5の更新: [Roberto Fresca]
+ * 以下のセットを吸い出し直し。チェックサム正常化と起動可:
+    Inca Sun (DHG1577, US), Loco Loot (AHG1513, US), Unicorn Dreaming (BHG1584, US).
+ *「Margarita Magic」セット2は吸い出し不良と判明したので削除
+
+- riscpc: rpc600のROMロード修正。[R. Belmont]
+
+- twinkle: waveramバンキングとDMAの修正 - ほとんどのセットがほぼプレイ可能。[R. Belmont, Sarah Purohit]
+
+- gba: 各種ミラーの追加と、バイト幅のVRAM/PROM/OAMアクセスを修正。[R. Belmont]
+
+- fmtownsの改良: [r09]
+ * 水平方向のスクロールと位置取りを改良
+ * Data Westゲームで勝手にますうカーソルが動くのを修正
+ * 半分サイズスプライトとスプライトの回転処理を改良
+ * カナ入力の修正と不明キーの追加
+
+- TMS9995: デバッガのDOコマンドを修正。[Robbbert]
+
+- Cortex: 不完全でもシステムが使えるように改良。[Robbbert]
+
+- Amatic Multi Game IV: プログラムROMの復号化。正しいキーの追加。新しいマシン設定(Switched Multi Game IIIでも使用)。3つ目の8255 
+  PPI追加。[Roberto Fresca]
+
+- mc1502: BIOS 7.2とTODOリストの追加。[shattered]
+
+- agat7: 840KBフロッピーのHLE追加とマイナーな修正。動作可能。[shattered]
+
+- twinkleの更新: [smf]
+ * RF5C400のクロックを資料に合わせて変更。RF5C400に8MBのダミーRAM追加。音再生を正確にするためバンキングの調整
+ * LEDフォントを参照資料を元に改良。ランプとDIPスイッチのマッピング。基本的なアートワークの追加
+
+- twinkle: セキュリティカセットのパディングを0x00から0xffに変更。4thと5thの吸い出し、シリアルナンバーのスクラブ。[smf, Guru]
+
+- RF5C400の更新: [smf]
+ * device_rom_interfaceを使用するように変更
+ * 外部メモリレジスタのセーブとリストア
+ * 静的変数をデバイスステートに移動
+ * osd_printf_debugのコメントアウトを修正
+ * チャンネルレジスタ0x0Fのリードとライトチャンネル用スケルトン追加(「ビートマニアIIDX」系で使用)
+
+- 680x0のメンバ変数がパブリックでないようにリファクタリング。[smf]
+
+- VERBOSEが設定されないかぎりログタイマーのセーブとロードを停止。[smf]
+
+- seattle: sfrushとsfrushrkのギアシフト追加。[Ted Green]
+
+- atlantis/vegas: DENVERとDSIO DCSオーディオのバンキング修正。[Ted Green]
+
+- et3400: ディスプレイラベルとクリッカブルキーパッドを含むレイアウトビューの改良(github issue #2862)。[Vas Crabb]
+
+- arm7の変更:
+ * 16ビットロードのずれを修正(MoochMcGeeさん報告感謝)。[Vas Crabb]
+ * IGS036 CPUをARM946から派生(ARMv5TにMPUを追加したARM9実装)。[David Haywood]
+ * LDMIA/STMIAを32ビットバウンダリに整列。[endrift, R. Belmont]
+ * ARM9の動作に合わせて、メモリアクセスのずらし。[MetalliC]
+
+- pgm2.cppの変更:
+ * orleg2用で、RTCのティック作成と不要になったパッチの削除。[MetalliC]
+ * デバッグ機能についてドキュメント化。[MetalliC]
+ * kov2nlとorleg2で、igs036エミュレーションがアップロードされた復号テーブルを使うように変更。[David Haywood]
+ * 内部ROMが存在するものについてはゲームごとにアップロードされたスプライト復号キーを使用。[MetalliC, David Haywood]
+ * ICRW simの改良。[MetalliC, Lord Nightmare]
+ * メモリカードをイメージデバイスに変換し、ROMセットにデフォルトのカードイメージを追加。[MetalliC, David Haywood]
+ * ddpojhで、RAMをROMとして扱う方法から、RAMから直接コードを走らせるように変更。[David Haywood]
+
+-「バトライダー」のオーディオCPUクロックを修正(32MHz/6が正しい)。[Alex Marshall]
+
+- mario.cpp: mariooがリビジョンGと確認。不明なPROMがメインCPUのメモリマップデコードPROMと判明。[Bryan McPhail]
+
+- cps1.cpp: yi22b.1a PAL吸い出しと、1941jのlwio.12eの吸い出し内容確認。[caius, robotype]
+
+- stlforce.cpp: twinbratとクローンセットのOKIクロックを訂正。[caius]
+
+- gngprot: 正しいキャラクROMを追加。[chris @ windy gaming, Joe Magiera, nightmaretony]
+
+- ironhors.cpp: クロックの計測。[Corrado Tomaselli]
+
+-「In Your Face」の手作りなプライオリティPROM追加。[dink]
+
+- aristmk5: レイアウトの更新。[Heihachi_73]
+
+- alphatpx: キーがさらに判明。[helwie44]
+
+- pc_vga.cpp: 左シフトCRTCスタートアドレスをモード依存化。DOSBox-Xさんに感謝(githubの#2954)。[MoochMcGee]
+
+- play_2.cpp: ziraのcop402 ROMを更新。[PinMAME]
+
+- cps1.cpp, kenseim.cpp: ioc1 PALの論理処理を未プロテクトデバイスから実際に吸い出したものに置き換え。[Porchy, The Dumping Union]
+
+- alphatpx: サウンドエミュレーション追加。[rfka01]
+
+- alphatpx: エミュレーションとドキュメントにいろいろな改良。[rfka01, helwie44, Carl]
+
+- compc.cpp, pc10iii: BIOS v4.35cの追加とキャラクタ生成ROMのマッチング。[rfka01]
+
+- tispeak:「スピーク&スペル」1978 MCU ROMの正しいものを追加。[Sean Riddle]
+
+- segae.cpp:「ハングオンJr.」のROMラベルを訂正。[ShouTime]
+
+- 複数システムの年代を訂正:  [sjy96525]
+ * シアター6 ギャラクシアン3 プロジェクトドラグーン、 LD麻雀 No.4 しゃぼん玉、マスターズゴルフ、オペレーションサンダーハリケーン
+   パカパカパッション、パニックパーク、それいけ！アンパンマン ポップコーンこうじょう、バーチャストライカー2 バージョン'99
+
+-「ランディングギア」「ハイパービシバシチャンプ」「サラリーマンチャンプ」の操作を改良。[sjy96525]
+
+- LUAコンソールがリクエストされたときにコンソールプラグインがない場合、致命的エラーを発生(以前はクラッシュ)。[Sylvain Glaize]
+
+- cdi.cpp: quizard3のMCUを腑分けと吸い出し。[Team Europe]

@@ -1,0 +1,303 @@
+0.135u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03535: [ドキュメント] 3stooges: ボタン入力定義の間違い。P1のキーがP2、P2がP3、P3が
+         P1のものにそれぞれ入れ替わっている。(David Haywood)
+- 02734: [クラッシュ/フリーズ] videocba, videodad, blckjack: OKを押した直後にクラッシュ
+         する。(Firewave)
+- 00941: [サウンド] tp84: SN76496が更新されてから、ゲームスタート音楽が正しく再生され
+         ない。(Lord Nightmare)
+- 03494: [ゲームプレイ] batridc, batrid, batridk, batridu: ゲストプレイヤー、スペシャ
+         ルコース、プレイヤーセレクトのDIP設定のON/OFFが逆。(Fabio Priuli)
+- 02155: [DIP/入力] mole: ボタンマッピングが間違っている。(M.A.S.H.)
+- 03498: [グラフィック] sengekis, sengekisj: 3面と5面でレイヤープライオリティ不具合。
+         (David Haywood)
+- 03509: [グラフィック] galpans2, galpans3, panicstr: 入力テスト画面のテキストが拡大
+         されている。(David Haywood)
+
+
+ソースの変更点
+--------------
+- YMF271コアのLFO情報を更新。[Brian Troha, Nicola Salmoria]
+
+- sbrkout3とsbrkoutの親子関係を修正。[Lord Nightmare]
+
+- machine/psx.cからマジックナンバーを削除して#definesに置き換え。[Harmony]
+
+- TMS32010逆アセンブラで、16進数値の表記方法をMotorola方式とIntel方式の混合から、常に
+  Intel式を使うよう変更。[Lord Nightmare]
+
+- Z80: 割り込みモード0のNOPチェック追加。これにより、ei / halt / diのようなコードが正
+  常動作。もっとよい解決策は、モード0での任意の命令をサポートすることでしょう。
+  [Dirk Best]
+
+- igs017.cの更新: [Luca Elia]
+ - IGS031ベースのゲームに統合 (igs_m68.c、tarzan.c)
+ - タイルのX反転とビデオ無効化を実装
+ - mgcsのホッパーシミュレーションを追加
+ - mgdhの復号化
+
+- starzanとtarzanaのほぼ完全な復号化。[iq_132]
+
+-「ポールポジション」の海賊版(「トップレーサー」)にNamcoカスタムがあることについて
+  ドキュメント追加。これを持たない海賊版からNamcoデバイスを削除。[David Haywood]
+
+- DSP56156 CPUコアとplygonet.cにセーブステート追加。[Andrew Gardner]
+
+- SN76489/AのPRNGウェーブフォームを正しいものに更新(開始部分の0bitの欠落と、SN76489の
+  ウェーブフォーム開始部が実機で検証した結果0ではなく全て1)。SN94624を追加(SN76489と
+  同様)。[Lord Nightmare, plgDavid (David Viens)]
+
+- IGS blitterべースゲームの更新。[Luca Elia]
+ - ドライバ名をigs011.cに変更して、クリーンアップ
+ - セット名を中国語タイトルに合わせて変更
+ - lhb、lhb2、wlccにホッパーを実装
+ - ryukobouを復号化
+
+- i386コアの修正: [Barry Rodewald]
+ * Nested Taskフラグと、I/O Privilegeフラグを追加。実装はされていませんが、セットとリ
+   セットが可能です。80389やその後のCPUの検知に使用できます
+ * ENTER命令を実装
+ * プロテクトモードではIRQベクタを8バイトで扱うよう変更。また、ゲートデスクリプタが
+   386割り込みかトラップゲートのとき、スタックへプッシュするアドレスを32-bitに変更(ま
+   た、プロテクトモードで、リアルモードのときは常に16-bit)
+
+-「モールアタック」のデフォルトマッピングやコメント、情報の修正。[M.A.S.H./Tafoid]
+
+- puyojがRev BセットでROM名が正しいことを確認。[Smitdogg, Dumping Union]
+
+- Super Novaのスプライト縮小処理を改良。「ギャルズパニックS2」と「閃激ストライカー」
+  で使用。[David Haywood]
+
+-「麻雀ベガス」のDIPスイッチ改良。[nightsoil]
+
+- skimaxx.cの背景グラフィックス(blitter)、サウンド、入力のエミュレーション追加。
+  [Luca Elia]
+
+- Z80、i8237、i8257 DMAでdevcbを使うよう再構成。[Curt Coder]
+
+-「サッカースーパースターズ」のRGB555パレットRAMフォーマットを修正。[Angelo Salese]
+
+- read8/write8コールバックで子CPUを使えるように変更。[Curt Coder]
+
+- Jaleco Mega System 32の更新: [David Haywood]
+ * Charles McDonald氏のノートを元に、正しいRAMサイズを追加
+ * tetrisp2と同じ方法で、プライオリティ処理を実装
+ * カスタムミキシングにより影を追加(gametngk、tetrip / tp2m32が大幅改善)
+ * f1superbの背景に使われてる、異なるタイルマップレイアウトを追加
+ * nuapeteより、f1superbのノートとIRQ生成コードを追加
+
+-「Tournament Solitaire」 (pcat_dyn)の改良: [luigi30]
+ * 新バージョンtoursolを追加。既存版をtoursol1に改名して、新しいのをtoursolに設定
+ * toursolの年度を1995に変更
+ * toursolのCPU速度を40MHzに設定
+
+- konamigxのレンダリングの改良多数。特に、「サッカースーパースターズ」と
+  「Rushing Heroes」が改善。[David Haywood, Angelo Salese]
+
+-「Rushing Heroes」の入力バッファコピープロテクトを実装。ゲームは表示不具合が多いもの
+  の、なんとかプレイ可能。[Angelo Salese]
+
+- Konami GX type 4プロテクションシード$d15を修正。「Run & Gun 2 / スラムダンク2」のス
+  プライトバンクのプロテクトに使用。[Angelo Salese]
+
+-「スラムダンク2」のスプライトROMローディングを修正。[David Haywood]
+
+- RSPコアのBLTZAL命令を追加。[angrylion]
+
+-「ストライクガンナー」の入力について、各プレイヤーに3つ目のボタンを追加。これにより2
+  人プレー時に合体可能。[Tafoid]
+
+-「コスミックエイリアン」に色違いありのマーキング。色修正が必要な件をドライバに記載。
+  XTAL値を追加して使用するよう変更。[Lord Nightmare]
+
+- Greyhoud製ゲームの色修正。[Mariusz Wojcieszek]
+
+-「Final Gorodi」「Wyvern Wings」が再び動作するよう修正。[Brian Troha]
+
+-「Forte Card」ドライバののmc6845実装とグラフィックのデコーディング修正。
+  [Angelo Salese]
+
+-「Joker Poker」ドライバのデュアルレイアウトを削除とMapベースのビデオレジスタ追加、透
+  過表示の問題を修正。[Angelo Salese]
+
+- MC680x0の更新: [R. Belmont]
+ - PMMU/コアインタフェースで、PMMUが全てのcop 0命令とするように再作業
+ - PMMU命令の逆アセを改良
+ - 68LC040の試験サポート
+ - 030/040のEC/LC変数の逆アセンブリを修正
+
+-「Jackpot Cards」のNVRAMチェックにパッチ追加。ゲームはプレイ可能ですが、設定がセーブ
+  できないので動作は不可になっています。[Angelo Salese]
+
+- 古くからある、sn76489とその派生型のサンプルアベレージング方法を元にしたSTEPベースの
+  クロッキング演算を削除。これによりコードがかなりシンプル化。出力を0ライン以上のみか
+  ら、バイポーラに変更。最近追加されたSN94624用に、get_safe_token関数にステートメント
+  追加。[Lord Nightmare]
+
+- N64 RDPの修正多数。[angrylion, Ziggy, Gonetz, Orkin, DrgnMndd, Harmony]
+
+- toaplan2 V25のクリーンアップ。「バツグン」のV25有効化とその他のゲームの復号化テーブ
+  ル追加。[David Haywood]
+
+-「バツグン」のV25Sメモリマップを改良。CPUの通信を修正。RAMフラグをクリアするIRQ、ま
+  たそれに関連した命令コードの割り出しと実装が必要。[Angelo Salese]
+
+- Greyhound製ゲームの実装: [Mariusz Wojcieszek]
+ -「Super Poker」にDIPスイッチ追加
+ -「Sports Authority」の入力改善
+
+- サウンドチップのタグについて、それがサウンドチップだとわかるように拡張("ay"を
+  "aysnd"に、"fm"を"fmsnd"に、など)。[Aaron Giles]
+
+- MIPS3 TLBの修正: [Aaron Giles]
+ - TLB fill例外を正しい状況で発生させるよう修正
+ - TLB例外が、Contextの下位4ビットを破棄しないよう修正
+ - EXLビットセット例外が常にベクタ0x180にいくよう修正
+ - vtlbコードバグで、事前に登録された固定ページ範囲の履歴が失われるのを修正
+ - 特定の状況で、MIPS3がVTLBから間違ったページ範囲をクリアする動作を修正
+ - 48未満のTLBサイズをサポート
+ - TLBMOD例外についても、正しくBadVAddrを設定するよう修正
+
+- NCR7496の派生型をsn76496.cに追加。現在確認済みのチップがどれかわかるようにコメントを
+  更新。その他コメントのクリーンアップ。[Lord Nightmare]
+
+- N64の64-bitでのクラッシュを修正。[Harmony]
+
+- peplusとvideopkrドライバで、アウトオブバウンズな配列アクセスがあったので修正。
+  [Oliver Stoeneberg]
+
+- findout.cとgetrivia.cをgei.cに統合。[Mariusz Wojcieszek]
+
+- DRCログが壊れていたのを修正。[Aaron Giles]
+
+- PowerPC 603トランスレーションについて、最初の処理後に無限ループに入らないように修正。
+  [Aaron Giles]
+
+- 以下のドライバでデータ構造体追加とセーブステートのサポート: [Fabio Priuli]
+  pandoras.c, marineb.c, m10.c, m14.c, m52.c, m57.c, m58.c, m62.c, m63.c, 
+  travrusa.c, adp.c, n8080.c, atarifb.c, astinvad.c, avalnche.c, battlex.c,
+  carjmbre.c, popper.c, spaceg.c, bankp.c, battlane.c, blockade.c, blueprnt.c, 
+  brkthru.c bsktball.c, hexa.c
+
+- 以下のドライバにデータ構造体追加: [Fabio Priuli]
+  Added driver data struct to espial.c, zodiack.c, 4enraya.c, 1942.c, 1943.c, ace.c, 
+  albazc.c, arabian.c, aeroboto.c, astrof.c, ambush.c, angelkds.c, arkanoid.c. 
+
+- model3.cのfatalerror()を、デベロッパフレンドリなlogerror()に変更。また、dayto2peが
+  再び起動可能。[Phil Bennett]
+
+- hng64:「サムライスピリッツ2 -アスラ斬魔伝-」のI/Oシミュレーション通信を改良。入力と
+  ゲーム動作が可能。[Angelo Salese]
+
+- drivers/m63.cのインクルードファイルをaudio/fghtbskt.cに統合。[Fabio Priuli]
+
+- gamegear/smsで問題が起きるため、SN76496のR->OldNoiseを削除。ノイズタップも合わせて
+  変更。gamegear/smsのXORとXNORの関係を再変更。Justin Kerk氏が確認。また、同氏提供の
+  サンプルにより、gamegearのノイズタップを検証。gamegear用にsn76496.cでステレオサウン
+  ドサポート。[Lord Nightmare, Justin Kerk]
+
+- デフォルトのデータサイズやデータが不要なドライバ用にMDRV_EEPROM_NODEFAULT_ADDマクロを
+  追加。[Fabio Priuli]
+
+- 20pacgalでEEPROMデバイスを使うよう更新。きちんとしたセーブステートのサポートにはも
+  う少し作業が必要(ROMバンキングメカニズムを扱うため)。[Fabio Priuli]
+
+- galgbiosでEEPROM_NODEFAULTを使うよう更新。[Fabio Priuli]
+
+- EEPROMデバイスにPORT_CUSTOM(eepromdev_bit_r)を追加。[Fabio Priuli]
+
+- memsetの引数順を修正(Beledgol氏の指摘)。[Fabio Priuli]
+
+- 以下のゲームのクロックとVSyncの確認、及び変更: [Corrado Tomaselli]
+  Aerofighters / ソニックウイングス (vsyncのみ), Power Spikes / スーパーバレー'91,
+  ターボフォース (vsyncのみ), Guzzler/スイマー (同一基板), エクセリオン,
+  Karate Champ Vs. / 対戦空手道
+
+- hng64: MCUシミュレーションを書き直し。以前よりクリーンな感じ。[Angelo Salese]
+
+- hng64:「ビーストバスターズ セカンドナイトメア」のMCUシミュレーションの改良と、
+  入力系の追加。ゲームプレーモードまで到達可能。[Angelo Salese]
+
+- hng64:「Samurai Shodown 64 / 侍魂 -サムライスピリッツ-」
+ 「サムライスピリッツ2 -アスラ斬魔伝-」のプログラムカウンタベースルーチンを削除。最初
+  のコイン入力のみ可能。その後ハング。[Angelo Salese]
+
+- drw80pkrをdrw80pk2に改名。後期版で、MN管轄域専用の模様。[Jim Stolis]
+
+- drw80pkrをTeam Europeからの古いものに置き換え。[Team Europe]
+
+- drw80pkrのいろいろなグラフィック改善と色修正。ゲームがさらに動作して、表示が改善。
+  さらに、グラフィックとメモリの整理や初期の入力サポート。[Jim Stolis]
+
+- hng64:「Samurai Shodown 64 / 侍魂 -サムライスピリッツ-」のキャラクタ画面が表示され
+  るよう改良。その後ハング。[Angelo Salese]
+
+- appooh.cとboxer.cにdriver_data構造体を追加。boxerのビデオエミュレーションを
+  drivers/boxer.cに統合。[Fabio Priuli]
+
+- Konami GX Type 3/4ゲームにデュアルスクリーン出力を追加。[David Haywood]
+
+- video/dec0.cのNULLポインタ参照の可能性があったのを修正。[Oliver Stoneberg]
+
+- bionicc.cにセーブステート追加。[Fabio Priuli]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+超級大滿貫II [Luca Elia, Pierpaolo Prazzoli, Guru, Xing Xing]
+滿貫大享 [Luca Elia, Guru, The Dumping Union]
+Touche Me [David Haywood]
+Skimaxx [Luca Elia, Phil Bennett]
+Dream 9 Final [Angelo Salese, David Haywood]
+サッカースーパースターズ [David Haywood, Angelo Salese]
+Rushing Heroes [David Haywood, Angelo Salese]
+Run & Gun 2 / スラムダンク2 [David Haywood, Angelo Salese]
+Super Poker [Mariusz Wojcieszek]
+GEI Multi Game [Mariusz Wojcieszek]
+Sport Authority [Mariusz Wojcieszek]
+Oh！牌ピ〜 [Takahiro Nogi]
+桃源郷 [Takahiro Nogi]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+スーパーストリートファイターII -ザ・ニューチャレンジャー- (Hispanic 930911) [Artemio]
+サイレントスコープ (JZD) (未動作) [Guru}
+Tarzan (V107) (未動作) [iq_132]
+麻雀 龍虎榜 (Japan, V030J) [Luca Elia, Guru, Dyq, Bnathan]
+アルチメイトテニス (Japan) [David Haywood, Aaron Giles]
+The Big Breakfast (5 sets) [AGEMAME Development]
+ギャルズパニックS -エキストラエディション- (Korea) [Choi Sung Ho]
+ライトブリンガー (Ver 2.20 1994/04/08) [Choi Sung Ho]
+マッドクラッシャー (Japan) [David Haywood, Andrew Welburn]
+コスミックエイリアン (first version) [Andrew Welburn, Lord Nightmare]
+ダンジョンズ&ドラゴンズ -シャドーオーバーミスタラ- (Hispanic 960223) 
+   [Artemio Urbina, David Haywood]
+Mega Man 2: The Power Fighters / ロックマン2 -ザ・パワーファイターズ-
+   (Hispanic 960712) [Artemio Urbina, David Haywood]
+ラストデュエル (Japan) [Chack'n, Team Japump!!!]
+Joker Poker (Version 16.04BI 10-19-88, Joker Poker ICB 9-30-86) 
+   [Mariusz Wojcieszek]
+Joker Poker (Version 16.03BI 5-10-85, Poker No Raise ICB 9-30-86) 
+   [Mariusz Wojcieszek]
+Amuse (Version 30.08 IBA) [Mariusz Wojcieszek]
+アールタイプII (Japan, revision C) [Andrew Welburn]
+ポパイマン (hack) [Team Japump!!!]
+Steraranger (ムーンクレスタ海賊版) [Siftware]
+
+
+
+追加された未動作ゲーム
+----------------------
+Mega Man 2: The Power Fighters / ロックマン2 -ザ・パワーファイターズ-
+   (Hispanic 960712) [Artemio]
+Super Tarzan [f205v, Mirko Buffoni, iq_132]
+麻雀 念力乎 SP [Guru, Dyq, Bnathan]
+プリント倶楽部2 (U 970921 V1.000) [Guru, Angelo Salese]
+プリント倶楽部2 Vol. 3 (U 990310 V1.000) [Guru, Angelo Salese]

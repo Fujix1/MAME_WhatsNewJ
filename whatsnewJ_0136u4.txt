@@ -1,0 +1,375 @@
+0.136u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03268: [ステート保存/再生] All sets in galaga.c: セーブステートを使っていると、2回
+         目のプレイ時にクレジットが無限になる。(couriersud)
+- 03698: [コンパイル] NOWERRPR=1の設定で、-fno-strict-aliasingの指定が外れてしまう。
+         (couriersud)
+- 03749: [クラッシュ/フリーズ] All sets in micro3d.c : [デバッグ限定] デバッグビルド
+         でのアサート。(couriersud)
+- 03746: [システムコア] [デバッグ限定] オーバーロードしたoperator newとoperator
+          delete動作が厳しすぎてMacOSでクラッシュする。(couriersud)
+- 03748: [ドキュメント] ncv1, ncv2 and clones: ゲーム名は"Classics Collection"ではな
+         く"Classic Collection"。(Tafoid)
+- 03634: [グラフィック] quantum: 時々無関係な線が表示される。(MathisRosenhauer)
+- 03739: [クラッシュ/フリーズ] backgamn: 起動時にOKキーを押すと、Access Violationエラー
+         でクラッシュする。(Fabio Priuli)
+- 03249: [その他] motoxgo, timecrs2b: エラーメッセージ"H8/3xx: Unknown opcode (PC=2) 
+         100"が表示される。(R. Belmont)
+- 03740: [クラッシュ/フリーズ] atomicp, snapper: セーブステートエントリが重複している
+         というメッセージが表示される。(Tafoid)
+- 03699: [クラッシュ/フリーズ] masterw: TILT画面が表示され、起動しない。
+         (Fabio Priuli)
+- 03697: [その他] bigrun: グラフィックとBGMの不具合あり。(Mamesick)
+- 02960: [グラフィック] speglsht: アトラクトモードでクラッシュを繰り返す。(Mamesick)
+- 03034: [DIP/ 入力] scross, scrossu: 左右の操作が逆になっている。(M.A.S.H.)
+- 03731: [DIP/ 入力] ixion: 砲台を時計回りに回せない。(M.A.S.H.)
+- 03727: [その他] spiders: ディスクリートサウンド部分のソースにミスタイプ。(M.A.S.H.)
+
+
+
+ソースの変更点
+--------------
+- video_configからwindow configを削除。[couriersud]
+
+-「Mortal Kombat 3」(メガドライブ海賊版)のプレイヤー2入力とボタン4-6をマッピング。
+  [Mariusz Wojcieszek].
+
+- {megadriv} staticを削除したコンパイルを修正。[Miodrag Milanovic]
+
+- global new/deleteオペレータをemualloc.hのインラインに移動。特定アーキテクチャでのリ
+  ンクエラー防止のため。[couriersud]
+
+- emualloc全般のマイナーなクリーンアップと整理。[Aaron Giles]
+
+- namcops2のアップデート: [Guru]
+ *「キン肉マンマッスルグランプリ」と「太鼓の達人9」をSystem 256に移動
+ * netchu02、soulcl2a、tekken4b、tekken51、sukuinuf、soulclb3のDVDイメージを追加
+
+- TI PSG(sn76489系統)で、ピリオドレジスタが0のときのノイズと矩形波周期を最長に修正。
+  ホワイトノイズフェーズ/XORの問題修正: 全てのチップがXORを使っているようなので、ノイ
+  ズXOR/XNORの選択を削除。[Lord Nightmare, Michael Zapf, PlgDavid]
+
+- unclepooの基本的なDIP(ライフ・コインエイジ・テストモード)追加とプレイヤー2の操作修
+  正。[Tafoid]
+
+- Z80-DMA割り込みの実装。[Curt Coder]
+
+- emu/sound/disc_mth.cのバグ修正。spiders.cのショット音に関係していたもの。[MASH]
+
+- sn76489のマイナー修正: ノイズタップが正確でなかったのでsn94624に合うように変更(実チッ
+  プでのテストが必要)。不要なコードの削除とコメントの修正。[Lord Nightmare]
+
+- ui.c、ui.h、windows/input.c: [Miodrag Milanovic]
+ * MESSで使っていたui_use_new_uiのチェックを削除
+ * ui_mess_handler_ingameを正しい場所に移動。これによりデバイスUIコールバックが再動作
+ * メニューバーのトグル動作を削除(MESS関係)
+
+- info.c: print_game_categoriesをinfo.cに移動。どのドライバからでも使用可能にするため。
+  [Miodrag Milanovic]
+
+- unclepooのZ80コードの検証を元にドライバノートを追加。[Stephh]
+
+- k051649.c: デバイスリセットのループ用の正しくないコードを修正。[Fabio Priuli]
+
+- z80ctc: Z80CTCリードハンドラを修正。[Tim Schuerewegen]
+
+- Z80-PIO実装部の完全な書き直し。ハンドシェイク信号のエミュレーション精度向上。この結
+  果、以前の間違った方法を利用しているMerit製Megatouchゲームが動作不可。[Curt Coder]
+
+- attckufo: MESSよりMOS6560デバイスエミュレーションを取込み、これまでのカスタムオー
+  ディオ・ビデオエミュレーションを削除。[Fabio Priuli]
+
+- 音声・ビデオの問題を修正するため、表示領域とタイマースピードを訂正。[Angelo Salese]
+
+- hexa.cをarkanoid.cドライバに統合。[Tafoid]
+
+- meritm.c: 動作しなくなったV9938割り込み対策としてスキャンラインタイマーベースの
+  vblank割り込みを追加。Megatouchゲームが再び動作可能。[Curt Coder]
+
+- zaxxon.c:「イクシオン」(prototype)の入力修正。[MASH]
+
+- i386: i386コアの小修正。LLDT命令の修正。これはLDTRベースで値を正確に制限し、LDTの使
+  用を修正します。[Barry Rodewald]
+
+- deniam.cドライバに正確なirq ackを実装。[Angelo Salese]
+
+-「Big 10」にirq ack実装。[Angelo Salese]
+
+-「Aeroboto / フォーメーションZ」にirq ack実装。[Angelo Salese]
+
+- segas32.c:「スタジアムクロス」の入力修正。[MASH]
+
+- hexa: arkanoids.cに残りのコードも統合。[Fabio Priuli]
+
+- skyfox.c: driver_data構造体とセーブステート追加。[Fabio Priuli]
+
+-「カダッシュ」に最低限のZ180コミュニケーションCPUを実装。[Angelo Salese]
+
+- デバッガのエクスプレッションからMIPSレジスタ名がアクセスできるように変更。
+  [Olivier Galibert]
+
+-「Lucky Girl」(New HW)の改良。[Angelo Salese]
+
+- debugint.cのバグ修正: DelキーとBSキーで終端の文字を削除するよう修正。[sz72]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  lkage.c, lockon.c, lsasquad.c
+
+- liberate.cにセーブステート追加。[Fabio Priuli]
+
+- ins8154エミュレーションをMESSからMAMEに移動。将来的に必要。[Dirk Best]
+
+- H8: 同時IRQソースのアサート時におけるスタックトラッシュを修正。[R. Belmont]
+
+- namcos23の更新: [R. Belmont, Olivier Galibert]
+ * motoxgoとtimecrs2はシンクアップとエミュレートしたJVS I/Oボードとコミュニケート可能
+ * VBLトグル動作まで全ゲーム修正
+ * 将来のために、データとポイントROMチェックをドキュメント化
+
+- es5506.c: ES5505とES5506の両方にセーブステート追加。[Fabio Priuli]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  attckufo.c, m79amb.c, macrossp.c, marinedt.c, markham.c, mayumi.c, mcatadv.c
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  madmotor.c, mazerbla.c, mikie.c, mjsister.c, mogura.c, mole.c, momoko.c
+
+- namcos23:「パニックパーク」でmotoxgoのI/Oボード使用。[R. Belmont]
+
+- namcos23 更新: "Gorgon"ハードウェアサポートの改良。[R. Belmont]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  megazone.c, meijinsn.c, mermaid.c
+
+- namcos23: ドキュメントの改良。POST失敗の修正。[R. Belmont]
+
+- exerion, exeriont, exerionb (exerion.c driver) : [stephh]
+ * DIPスイッチと入力の修正(Z80コードの検証)
+
+- namcos23の更新: [R. Belmont]
+ * Guru氏の計測したクロックとシンクロ値をドキュメント化
+ * Gorgon JVS I/O基板を追加。「ファイナルハロン」がさらに動作
+
+- H8: bildとbist命令を追加。[R. Belmont]
+
+- namcos23: Gorgonにnvram追加。finlflngがさらに動作。[R. Belmont]
+
+- ins8154: devcbコール使用とクリーンアップ。[Dirk Best]
+
+- Namco Super System 23: RAM、チップ、データROMマッピングを大量に追加。
+  [O. Galibert, R. Belmont]
+
+- 実機での測定値に合わせ、「テクモワールドカップ90」のメインZ80CPUを8MHzに、vsyncを
+  59.17Hzに、「ハードヘッド」のサウンドZ80を8MHzに、vsyncを59.10Hzに変更。
+  [Corrado Tomaselli]
+
+- f1gp、f1gp2、「スーパーフォーミュラ」のボタン1と2が入れ替わっていたのを修正。これら
+  はJAMMAの通常基板でブレーキボタンは22番、アクセルは23番なので、それぞれボタン1と2に
+  なる。[Corrado Tomaselli]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  matmania.c, metlclsh.c, mexico86.c, mouser.c, mrflea.c, mrjong.c, munchmo.c, 
+  mwarr.c
+
+- 以下のドライバにdriver_dataクラス追加: [Fabio Priuli]
+  mgolf.c, minivadr.c, mosaic.c, mrdo.c
+
+- mugsmash.cのセーブステート有効化(既に全てセーブされていたため)。[Fabio Priuli]
+
+- hng64: サブページテクスチャインデックシング追加。roadedgeとxrallyのテクスチャルック
+  アップが多く修正。[Andrew Gardner]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  news.c, nightgal.c, nycaptor.c
+
+- 以下のドライバにdriver_dataクラス追加: [Fabio Priuli] 
+  nitedrvr.c, nmg5.c
+
+- othunder.cのセーブフラグを有効化(全て正しくセーブされていたが、Taitoビデオチップが
+  デバイス化されたときに追加し忘れた模様)。[Fabio Priuli]
+
+- pic8259: pic8259_set_irq_lineをpic8259_irX_w書き込みラインハンドラに合わせて再配置。
+  [Dirk Best]
+
+- pic8259: devcbコールを使うよう更新。[Dirk Best]
+
+-「Lucky Girl」(New version)のグラフィック修正。[David Haywood]
+
+- deco16icタイルマップチップのデバイス版を実装。[Fabio Priuli]
+
+- 以下のドライバをデバイス版ビデオチップを使うよう変更: [Fabio Priuli]
+  backfire.c, boogwing.c, dietgo.c, mirage.c, pktgaldx.c, simpl156.c, supbtime.c, 
+  tumblep.c
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  dietgo.c, mirage.c, pktgaldx.c, supbtime.c, tumblep.c 
+
+- hng64 : 内蔵のカメラマトリックスエミュレーションをより正確化。[Andrew Gardner]
+
+- 全てのdriver_data構造体をシンプルなコンストラクタとstaticの割り当て関数を持つクラス
+  に変更。[Aaron Giles]
+
+- MDRV_DRIVER_DATAを、サイズ指定からリファレンスのdriver_data::allocに変更。この関数
+  はドライバデータの割り当て用に呼び出されます。これにより、ステートデータにオブジェ
+  クトデータを埋め込み、正しく初期化が可能になります。[Aaron Giles]
+
+- デバイスリスト作成後のドライバデータ割り当てについて、ドライバデータが作成されたと
+  きにデバイスが見つけられるように移動。[Aaron Giles]
+
+- wardner, wardnerj, pyros (wardner.c driver) : [stephh]
+ * DIPスイッチと入力の修正(Z80コードの検証)
+
+- 以下のドライバをデバイス版のdeco16ビデオチップを使うように更新: [Fabio Priuli]
+  cbuster.c, cninja.c, dassault.c, funkyjet.c, rohga.c, vaportra.c
+
+- deco32.cをdeco16ic.cから独立(描画ルーチンのみで必要だったもの)。また、不要になった
+  deco16ic.cを削除。[Fabio Priuli]
+
+- avgdvg: バグ03634を修正。「テンペスト/Quantum」のちらつき低減。[Mathis Rosenhauer]
+
+- pit8253: devcbコールを使うように更新。その他クリーンアップ。[Dirk Bst]
+
+- decodevをdeco16icに改名。[Fabio Priuli]
+
+- funkyjet.cにdriver_dataクラス追加。[Fabio Priuli]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  vaportra.c, tumbleb.c
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  backfire.c, boogwing.c, cbuster.c, cninja.c, dassault.c, dblewing.c, deco156.c, 
+  rohga.c, simpl156.c
+
+- twincobr, twincobru, ktiger, gulfwar2 (twincobr.c driver) : [stephh]
+- fshark, skyshark, hishouza, fsharkbt (twincobr.c driver) : [stephh]
+ * DIPスイッチと入力の修正(M68000とZ80コードの検証)
+
+- fshark, skyshark, hishouza, fsharkbt (twincobr.c driver) : [stephh]
+ * DIPスイッチと入力の修正(M68000とZ80コードの検証)
+
+- MAMEでの、F10キーのデフォルト割り当てを速度制限の切り替えに修正。MESSでは新・旧UI設
+  定があるため#ifdef MESSが必要。[Miodrag Milanovic]
+
+- Naomiのアップデート: [R. Belmont, David Haywood, Andreas Naive, 
+  Deunan Knute, Guru, ANY]
+ * gram2000関係のROMミラーリング修正
+ * 実行時復号処理の仮実装。復号化と解凍処理は未サポートのため、一部ゲームでは代わりに
+   まだトロイの木馬データをロード
+
+- naomi: 復号メソッド2の修正。ゲームキーをさらに追加。[Deunan Knute, R. Belmont]
+
+- namcos23.c: IRQテストコードについてコメント追加。[O. Galibert]
+
+- src/ods/sdlのインクルード部を整理。[couriersud]
+
+- エラー画面の制御に十分なvblankを実装。[O. Galibert]
+
+- namcos23: Gorgonゲームがサービスモード外で動作。finlflngのサウンドROMロード修正。
+  [R. Belmont]
+
+namcos23: comment the probable dips a tad better [O. Galibert]
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  ohmygod.c, ojankohs.c, olibochu.c
+
+- 以下のドライバにdriver_dataクラスとセーブステート追加: [Fabio Priuli]
+  oneshot.c, onetwo.c, orbit.c, othello.c,othldrby.c
+
+- 以下のドライバにdriver_dataクラスを追加: [Fabio Priuli]
+  nemesis.c, nyny.c
+
+- Funworldドライバの改良。[Roberto Fresca]
+ *「Jolly Joker」のグラフィックと色修正
+ *「Jolly Joker」(98bet)のゲーム名変更
+ * 最大BET数が40のクロアチア版「Jolly Joker」を追加
+ * ROM_LOAD部にハードウェアについての解説とテクニカルノートを追加
+ *「Jolly Card Professional 2.0」に外部のデフォルトNVRAM追加
+ * テクニカルノートの更新
+
+- MACSドライバにBIOS/カセットROMバンク切り替えを実装。これにより「着せ替え麻雀」のプ
+  ログラムロジックが改善。[Angelo Salese]
+
+- MACSドライバのコイン入力ラッチ対策を削除。[Angelo Salese]
+
+- snes.c: マイナーな整理。[Fabio Priuli]
+
+- namcos23: データROMのマッピングを修正。[O. Galibert]
+
+- rallybik, truxton (toaplan1.c driver)  [stephh]:
+ * DIPスイッチと入力の修正(M68000とZ80コードの検証)
+
+- snes.c: MESS側で一部のSNESゲームが動作しないため、mult/divの実装を一時的に巻き戻し。
+  [Fabio Priuli]
+
+- namcos23: timecrs2cがテストモードまで動作。[O. Galibert]
+
+- バグ3698を修正。[couriersud]
+
+- カスタムnamcoデバイス(50,51,53)とgalaga.cのセーブステートを修正。また、バグ番号
+  03268も修正。[couriersud]
+
+- naomi: GD-ROMゲームで実際のPIC吸い出しを使うように変換。[David Haywood]
+
+- MAME専用のSoftFloatライブラリを追加。[John R. Hauser]
+
+- kingdrby.cとcowrace.cドライバを統合。[Angelo Salese]
+
+- namcos23: TC2テストモードで入力動作。[R. Belmont]
+
+- namcos23: 光線銃I/Oボードのドキュメント追加。[Guru]
+
+- hng64 : ハードウェアライティングの実装開始。[Andrew Gardner]
+
+- zerowing, zerowing2 (toaplan1.c driver) [stephh] :
+ * DIPスイッチと入力の修正（M68000とZ80の検証)
+
+-　namcos23:「タイムクライシスII」のコイン入力修正。[R. Belmont]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+モータルコンバット3 (メガドライブ海賊版)
+  [Mariusz Wojcieszek, Patrick McCarron, Smitdogg, The Dumping Union]
+Bug Fever (5 sets) [Brian Troha, Dumping Union]
+Uncle Poo 
+  [Team Europe, Dumping Union, Rene Single, David Haywood, Angelo Salese]
+Champion Number [f205v, David Haywood, Angelo Salese]
+
+
+新しく追加されたクローンセット
+------------------------------
+ピットファイター (rev 9) [B. Sparks, Smitdogg, The Dumping Union]
+タイムクライシスII (TSS4 Ver.A, Super System 23) [Guru]
+プッシュマン (Top Tronic license)
+  [MrGoodwraith, Ren?\195?\169 Single, Smitdogg, The Dumping Union]
+Blades of Steel (Version L)
+  [R. Mucciarelli, Phil Bennett, Smitdogg, The Dumping Union]
+Touchmaster 4000 (v6.03 Standard)
+  [jeremymtc, Brian Troha, Smitdogg, The Dumping Union]
+Alien Invasion [Andrew Welburn, Brian Troha, The Dumping Union]
+ソウルキャリバー (SOC14/VER.B) [Guru]
+Jolly Joker (40bet, croatian hack) [Roberto Fresca, Team Europe]
+Touchmaster (v2.2-01 Standard) [S. Austin, Smitdogg, The Dumping Union]
+Smash [Trevor Brown]
+Xメン - チルドレンオブジアトム (Japan 950105) [Razoola]
+Maya (set 1) [Team Europe, Dumping Union, Rene Single, David Haywood]
+キングダービー (台湾海賊版) [Team Europe, Dumping Union] (not working)
+Cherry Master (Watermelon bootleg / hack) [William Ostronic] 
+Cherry Master (Fun USA v2.5 bootleg / hack) [William Ostronic]
+Aracnis (Scorpion海賊版、ムーンクレスタ基板) [f205v]
+The Pit (海賊版、ムークエーサー基板) [Andrew Welburn, David Haywood]
+サファリ (set 2, 海賊版?) [f205v] 
+ムーンクレスタ (Nichibutsu UK) [Andrew Welburn]
+アームドポリスバトライダー (台湾版 Revision A) [Anonymous]
+
+
+追加された未動作ゲーム
+----------------------
+L.A.マシンガンズ [ANY]
+オーシャンハンター [ANY]
+Royal Gum [Siftware]

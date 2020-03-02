@@ -1,0 +1,229 @@
+0.122u8
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+stadhero0122u3gra [RansAckeR]
+wboy3_0119u3gra [RansAckeR]
+zerohour0122u6gra [RansAckeR]
+strahl0122u6yel [Mamesick]
+cmv801_0116gra [RansAckeR]
+
+
+
+ソースの変更点
+--------------
+- 廃止予定、または使用を推奨しない構造体を含む、deprecat.hを追加。アイディアとし
+  ては、ドライバ作成時の作業を増やして、他の方法を探すのを促すことにあります。
+  これらの構造体を必要とするものにdeprecat.hの#includeを追加。これらのファイルか
+  ら大量の不要な#includeを削除。[Zsolt Vasvari]
+
+-「スターファイアー」ドライバをシンプル化。[Zsolt Vasvari]
+
+- drawgfxの変更: [Zsolt Vasvari]
+ - copybitmap_remapとccopyscrollbitmap_remapが未使用なので削除
+ - コメントアウトされて古くなったコードを削除
+ - 一部のコメントを修正
+ - copybitmap_coreからTRANSPARENCY_NONEケースを削除。絶対起こらないため
+ - TRANSPARENCY_BLENDとTRANSPARENCY_BLEND_RAWをcopybitmapから削除。透過モードの
+   enumが変更されたのでソースツリーの再コンパイルが必要
+ - TRANSPARENCY_NONE_RAW、TRANSPARENCY_PENS_RAW、TRANSPARENCY_PEN_TABLE_RAWが使
+   われていないので削除
+ - copybitmapとcopyscrollbitmapを変更。透過の有り無しでそれぞれ2バージョンを作成
+
+- masaoのクラッシュ修正。[couriersud]
+
+- 以前のi0851タイマー修正で、より正確なIE SFRを使うように訂正。[Jim Stolis]
+
+- jedi.cを更新: [Zsolt Vasvari]
+ - ゲームのビットマップを直接操作するようにビデオコードを変更
+ - バックグラウンドの描画と同時にスムージングが起きるように変更
+
+- CPSドライバで、最低限ドライバ情報で正しいクロックが表示されるよう修正。
+  [David Haywood]
+
+- m62.cの変更: [couriersud]
+ * レジスタ値修正(22K→2.2K) - spelunkrとkidnikiのPCB写真より
+ * タイルとスプライトのカラーPROMの両方でCSラインが有効という前提を元に、
+   レジスタネットワークの演算を変更
+
+- crgolfのビデオコードをシンプル化。[Zsolt Vasvari]
+
+-「ペンギンブラザーズ」「パズルDEボーリング」の基板配置を高解像度写真を元に追加。
+  Seta2ハード全てに50MHzOSCがあるため、seta2.cの68301のベースクロックを50MHz/3
+  (16.66666MHz)に訂正。他のOSC(28MHzと32.53047MHz)はそのほかのチップ用。
+  [Brian Troha]
+
+- lelandドライバのビデオコードシンプル化とセット名の調整。[Zsolt Vasvari]
+
+- Sega C2ドライバのテーブルを同等のものに置き換え。[Nicola Salmoria]
+
+- CROSS_BUILD=1でm68kmake.exe、verinfo.exe、png2bdc.exe、file2str.exeのビルドを
+  省略していないかのチェックを追加。linux上でmingwを使ったMAMEのビルドを有効化。
+  [couriersud]
+
+- Iremドライバの更新をいろいろ: [Aaron Giles]
+ * m52とm62サウンドボードと変数を正しくタグ付け
+ * 関連ドライバを全て更新
+ * メモリマップをマージ
+ *「10ヤードファイト」のビデオタイミング訂正
+ * troangelをタイルマップにコンバート
+ * 定義部をヘッダファイルに移動
+ * mpatrol、yardでresnetをカラーに使うよう更新
+ * mpatrol -> m52に改名
+ * troangel -> m57に改名
+ * yard -> m58を改名
+
+- 20pacgalドライバについて、ドライバステートを含めてクリーンアップ。ROMミラーリ
+  ングの改良を試みたものの失敗。[Zsolt Vasvari]
+
+- 古いスタイルのカラーテーブル廃止の一環として、多くのドライバからカラーテーブルを
+  削除: gotya, gyruss, ampoker, circusc, clshroad, champbas, 1943, lucky8,  
+  olibochu, yamato, appoooh, bking, bladestl, blueprnt, carpolo, centiped, 
+  cop01, cosmic, ddrible, irobot, ace, alpha68k, arabian, bfm_sc2, carjmbre,
+  cclimber, cherrym2, combatsc, contra, fastlane, hcastle, labyrunr, cham24, 
+  multigam. [Zsolt Vasvari]
+
+-「ヒットジアイズ」に存在しない2つ目のM6295を削除。チーム選択画面などのサウンド
+  が鳴らないのを修正。「ヒットジアイス」「バイオレンスファイト」で同じサウンド
+  CPUメモリマップを共有。[Philip Bennett]
+
+- 以下のドライバについて、マニュアルを元にDIPスイッチを改良: [RansAckeR]
+  wboy, chplft, extdwnhl, zingzip, zaxxon, congo, vanguard, zarzon,
+  nibbler, segag80r.c, yard, kaneko16.c
+
+-「ロックン3」のサウンドROM検証と名称の訂正。PCBレイアウトをサウンドROMのみに追
+  加。[Brian Troha]
+
+-「タイムパイロット」のサウンドボードの実装をクリーンアップ:  [Aaron Giles]
+ * 完全なメモリマップ
+ * フィルタロジックの複製に必要なmachineドライバの部分的な削除
+ * 関係するドライバを全て更新
+
+-「タイムパイロット」「ツタンカーム」ドライバをクリーンアップ: [Aaron Giles]
+ * 可能な部分のクロックを訂正
+ * メモリマップ統合
+ * メモリマップの完全デコード
+ *「タイムパイロット」のハックなスプライト描画を部分アップデートに置き換え
+ * セーブステートサポート
+ *「Power Surge」のパッチ削除。マップしないハンドラコントロールと置き換え
+ *「ツタンカーム」は1フレームおきのIRQで60fps動作
+ *「ツタンカーム」のIRQ ackを修正
+ *「タイムパイロット」のNMI生成を修正
+
+-「プーヤン」ドライバのクリーンアップ。セーブステート、完全なメモリマップ、NMI生
+  成、など。「タイムパイロット」と揃えるため、表示を反転。[Aaron Giles]
+
+- 6840割り込み処理ついて、最近の6821の変更と同じように動作するよう変更。これに応
+  じてMPU4ドライバも更新。「Scorpion 2」ドライバをMPU4のコーディングスタイルに合
+  わせて更新。[James Wallace]
+
+- Kanekoの書類を元にgalpani2ドライバの不明DIPが全て判明。両CPUのメモリマップ統合。
+  グラフィックROMペアの再配置。[Luis Faria]
+
+- 1942.c、1943.cのDIPスイッチを改良。segas16a.c、segas16b.c、system16.cのDIP改良
+  と、マニュアルを元にDIP配置追加。[RansAckeR]
+
+- *_gettotalcycles()と*_gettotalcycles64()の違いを削除。全関数で64-bitの結果を返
+  します。全ての呼び出しもとを更新。[Aaron Giles]
+
+- SCSP FM音源をさらに改良。[kingshriek]
+
+- cpu_getiloops()とcpu_scalebyfcount()をdeprecat.hに移動。この発生が必要な箇所に
+  #include "deprecat.h"を追加。cpuexec.c/.hを最新のコアスタイルにクリーンアップ。
+  inptport.cの拡張INPヘッダをクリーンアップ。cycles_currently_ran()に及ぶ
+  externalを削除。v9938コードで事実上同じなcycles_currently_ran()をmame_rand()に
+  置き換え。[Aaron Giles]
+
+- seta.cの約半分のゲームにDIP配置追加。[Brian Troha]
+
+- champbasのカラーPROMを削除。TRANSPARENCY_COLORの代わりにTRANSPARENCY_PENSを使
+  用。回路図を元に、パレットバンクセレクタを実装。ただし、実際にコードで使用され
+  ているかは不明。タイトル画面に合わせてセット名を変更。baseballが"Base Ball"と
+  綴られているのはこれが原因です。[Zsolt Vasvari]
+
+- equitesドライバのマイナーなクリーンアップ。メモリマップのマージなど。
+  [Aaron Giles]
+
+- 新オプションVIDEO_UPDATE_SCANLINEを追加。表示される各スキャンライン毎に呼び出
+  されるVIDEO_UPDATEを指定します。timepltで、手作業でこれを実装している部分を削
+  除。他にも多くのドライバでこれを利用できるはずです。[Aaron Giles]
+
+- stream_get_sample_rate()、stream_get_time()、stream_get_sample_period()を追加。
+  これらの関数はまだテストしてないので、最初に使うときはちゃんとした結果を返すか
+  確認して下さい。streams.hを最新のコアスタイルに更新。[Aaron Giles]
+
+- 全Z180ゲームでのリセットクラッシュを修正。いろいろなビジーループと存在しない最
+  適化をZ180コアから削除。[Zsolt Vasvari]
+
+-「バーディーキング3」の色訂正。ROM名の訂正。カラーデコードをresnetコードを使う
+  ように切り替え。[Zsolt Vasvari]
+
+- rockola.cドライバをクリーンアップ。全ゲームのDIPスイッチ修正。ゲームについての
+  記述追加。[stephh]
+
+- exidy440オーディオコードについて、MC3417/18エミュレーションを直接使えるように
+  再構成。HC55516オーディオコードをサポートするため、MC3418の改良型追加。
+  [Zsolt Vasvari]
+
+- Williamsドライバで、VIDEO_UPDATE_SCANLINEを使うよう更新。32bppで画面内のパレッ
+  ト改良をキャッチするようコンバート。不要なリード・ライトハンドラを削除。
+  [Aaron Giles]
+
+- circusc、gyruss、gotyaについて、resnetコードで色改良。[Zsolt Vasvari]
+
+-「ロックオン」の大幅改良。NEC V20/V30コアに入力のPOLL処理を追加。
+  [Philip Bennett]
+
+- デバッガ関係のコードを、新しいmakefineの定義(DEBUGGER)に依らず、新しいコンパイ
+  ル時の定義(ENABLE_DEBUGGER)を設定するように変更。これにより、MAME_DEBUGはデバッ
+  ガを有効にするという意味を持たなくなり、アサートやドライバ内のデバッグコードを
+  有効にするなどという、デバッグ機能を有効にするだけになります。また、memory.hの
+  OPベースによる様々なプロテクトレベルを削除し、常にフル領域チェックが有効になる
+  ようにしました。[Aaron Giles]
+
+- H8/30xx CPUに命令追加: [Luca Elia]
+  or.l ERs, ERd
+  rotl/shal.l ERd
+  not.l/neg.l ERd
+  exts.w Rd
+  sub/or/xor.l #Imm:32, ERd
+  bset/bnot/bclr.b Rn, @ERd
+  bst/bist.b #Imm:3, @ERd
+  bnot.b #Imm:3, @ERd
+
+- H8/3007とH8/3044のメモリマップ付き派生版を追加。H8/3007タイマーの初期型実装。
+  [Luca Elia]
+
+- AM_WRITE(MWAx_RAM)のショートカットとしてAM_WRITEONLYを追加。[Aaron Giles]
+
+-「カンガルー」ドライバのクリーンアップ。[Aaron Giles]
+ * MB8841のドキュメント化(コード取り出しには腑分けが必要)
+ * ビデオタイミングの訂正
+ * 完全なメモリマップ
+ * ビデオロジックのシンプル化とより正確に改良
+ 
+-「Risky Challenge / ぐっすんおよよ」の命令コード改良。[robiza]
+
+- bing.cにDIP配置追加。[RansAckeR]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Wheels Runner [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+Lock-On (rev. C) [Philip Bennett]
+Progressive Music Trivia (Question set 4) [Andrew Gardner]
+
+
+
+追加された未動作ゲーム
+----------------------
+パズLET (Japan) [Luca Elia]
+Galaxy Games BIOS [Andrew Gardner]

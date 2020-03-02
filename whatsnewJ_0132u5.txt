@@ -1,0 +1,117 @@
+0.132u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03250: [DIP/入力] empcity and clones: クレジットが設定の2倍入る。(Luigi30)
+- 03309: [クラッシュ/フリーズ] All Sets in ojankohs.c: 効果音、ボイスが再生されるとゲームがクラッシュする。(Tafoid)
+- 03308: [クラッシュ/フリーズ] overdriv: RAMチェック画面でリセットがかかる。(Tafoid)
+- 03235: [グラフィック] timecris and clones: グラフィック表示がかなりおかしくなっている。(Skeleton081983)
+- 03299: [システムコア] tehkanwcc: ROM定義の重複や間違いがある。(Roman Scherzer)
+- 03305: [グラフィック] blockout, blckoutj, blckout2: ブロックマスターの文字が化けている。(Fabio Priuli)
+- 00772: [ゲームプレイ] burnforc: 画面左から現れるパワーアップボーナスはL、W、CL、M、Hのどれかになるはずだが、
+         MAMEでは常にLになる。Namcoのプロテクトチップ関係の問題で乱数生成がうまくいっていないと思われる。(hap)
+- 02197: [ゲームプレイ] rthun2, rthun2j, finehour: 黒画面のままでゲームが始まらない。(Phil Bennett)
+- 03298: [コンパイル] MSVCでコンパイルするとdevintrf.c:128行目で警告が出る。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- DIPSWのアップデート。[kanikani]
+ - jjsquawkのデフォルト設定を修正。ゲームをIMPERFECT_SOUNDに設定。その他ノートを追加
+ - toypopとliblbrablにDIPLOCATION追加
+
+- Intel 8255A PPI:
+ - I8255Aデバイスの新実装。ゼロから書き直しにより、モード1と2でのハンドシェイクを正し
+   くサポート
+ - sg1000a.cで新デバイスの方を使うように再構成
+
+- Konami Viper全ゲーム用のCFとNVRAM再吸い出しとドライバの更新。[Guru, Angelo Salese]
+
+-「アクアジェット」のサンプルROMロードオフセットを再修正。[Phil Bennett]
+
+- tmmjprdの画面マスキングと左画面のドローコール修正。[Angelo Salese]
+
+-「Quake Arcade Tournament」ドライバのハードについて記述を追加。
+  [vidpro1, Andrew Gardner]
+
+- レーザーディスクコアのphilipsコード部に、ビデオデータが足りないときは0を返すメカニ
+  ズムを追加。GottliebとCliff Hnagerドライバでは外部でデコードを行うため、動作をこの
+  ように変更。[Aaron Giles]
+
+-「Cliff Hanger」ドライバにマイナーな改良を2箇所。割り込みタイミングの修正(インタレー
+  スを考慮していなかった)で、再生不具合の修正とディスクテストをパス。SHA1追加と、ゲー
+　ム動作可能にマーキング。[Aaron Giles]
+
+-「ファイナルラップ2」「ファイナルラップ3」を動作可能に昇格。単純にアナログ入力の初期
+  化が必要なだけだったため(「ファイナルラップR」と同じ手順)。[Angelo Salese]
+
+- 64-bitインデックスのビットマップ基本サポートをbitmap.cに追加。この結果、ビットマッ
+  プフォーマットの列挙部が入れ替わったため、完全な再コンパイルが必要です。
+  [Aaron Giles]
+
+- 新機能-burninを追加。これは、ゲーム画面の表示の過程における明るさの全体量を表すPNG
+  イメージを生成することができあます。このPNGはフェイクの"ベゼル"として、アートワーク
+  システムを使って画面にオーバーレイ出来ます(アルファは0.1か0.2程度の低さ)です。これ
+  により、画面の焼き付きをシミュレートできます。[Aaron Giles]
+
+- -crsshairpathオプション名の綴りを修正。[Aaron Giles]
+
+- pr8210シリアルプロセス処理をもう少しロバストに変更。[Aaron Giles]
+
+- US Copyright Searchesを元に、「Mighty Monkey」(とクローンセット)の年代を修正。
+  [Braille]
+
+- ARM7の更新: [R. Belmont, Ryan Holtz]
+ - 複数のアーキテクチャバージョンをサポート準備
+ - ARM9 CPU型追加 (ARMv5TE)
+ - システムコンプレッサ、MMUの作業途中版追加
+
+- core_fload()のリソースリークを修正。[Aaron Giles]
+
+- taitognドライバにflashv2.u32 (v2 bios)を追加。[Joerg Hartenberger]
+
+- MAMEのIDEドライバにIDEロック機構を追加。これによりgnet v2 biosゲームでが正常動作 
+  (idectrl.c / idectrl.h, taitogn.c)。 [Joerg Hartenberger]
+
+-「富士山バスター / Shogun Warriors」を更に改良: [David Haywood, Tomasz Slanina]
+ - 起動コマンドテーブルのデコードを調べたところ、デコードテーブル0x80が正しくデコード
+   できていない。2番目のバイトスクランブルが謎。そのため、抽出したデータを使用中
+ -「富士山バスター / Shogun Warriors」の入力を正しくマッピング
+ - キャラクタ選択画面用に日本版(fjbuster)で使用しているデータブロックをデコード。ブロッ
+   ク0x40はmcu ブロック/テーブル0x41と基本的に同じものだが、暗号化方法が異なる(バイ
+   トシフトではなく、インライン暗号テーブル+追加オーバーレイテーブル)
+
+-「Jokey Club II」のノートを更新。[David Haywood, Gerald]
+
+-「Fruits & Bunny」のPROMを確認。[f205v]
+
+- 巨大ファイルを各ファイルのハッシュ付きで分割する新ツール追加。[Aaron Giles]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Cliff Hanger [Aaron Giles, Warren Ondras, Ernesto Corvi]
+Cobra Command (M.A.C.H. 3 conversion) [Aaron Giles, Warren Ondras]
+おてなみ拝見ファイナル (V2.07JC) [Joerg Hartenberger]
+Back Fire (Tecmo) [Tirino73, David Haywood]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Witch Card (german?) [Team Europe / Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Shootout Pool [f205v]
+Multipede [Angelo Salese]
+コブラコマンドー (Data East LD) [Angelo Salese]
+ロードブラスター (Data East LD) [Angelo Salese]
+タイムトラベラー [Angelo Salese]
+Super Cherry Master [Team Europe / Dumping Union] (不完全セット)

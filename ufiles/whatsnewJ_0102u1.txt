@@ -1,0 +1,63 @@
+0.102u1
+-------
+
+
+ソースの変更点
+--------------
+* kaneko16ドライバの修正: [Pierpaolo Prazzoli]
+ - タイルマッププライオリティ修正
+ - スプライトプライオリティ修正
+ - コインカウンタ追加
+ - スプライトタイプ1を使うゲームで、正しいパレット塗りつぶし追加
+ - ソースコードでSebV氏指摘の通りberlwallとberlwaltを入れ替え
+
+* winallocコード使用時にMSVCでコンパイルするときの問題修正。[Nathan Woods]
+
+* 68705 MCUをシミュレーションから海賊版「Knight Boy」のものに置き換え。
+  MCUコードを使用し続けるため「Knight Boy」を追加。[Nicola Salmoria]
+
+*「クルージンワールド(rev L1.3)」の不良ROMを再吸い出し。[Guru]
+
+* i386の逆アセンブラ引数を一部unsignedに変更。[Nathan Woods]
+
+* mame.iniオプションの出力について空白を入れるように修正。[Nathan Woods]
+
+*「Wheels & Fire」の改良。blitterの一部解読。[David Haywood, Tomasz Slanina]
+
+* Ricoh RF5C400の超超初期版エミュレーション追加。[Ville Linde]
+
+* mamecore.hに新しい数学関数追加。また、プラットフォーム固有変数でOSDレイヤーを
+  オーバーライドできる仕組みも追加:
+  count_leading_zeros, count_leading_ones, fixed_mul_shift
+  TMS32031コアで最初の2つを使うように更新。[Aaron Giles]
+
+* Windows版のblitterについて、no-executeをサポートするシステムでアクセス違反の可
+  能性があったため、osd_alloc_executable()で割り当てられる配列を使うように変更。
+  [Aaron Giles]
+
+* VoodooドライバのLOD演算の問題修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Dark Horse [Luca Elia]
+バーチャボウリング (Japan) [Luca Elia]
+Honey Dolls [David Haywood]
+
+
+
+新規クローンセット
+------------------
+レッドクラッシュ (set 2) [chaneman]
+スタックコラムス (World) [Arzeno Fabrice]
+イチダントアール (Korea) [David Haywood]
+Knight Boy [Nicola Salmoria]
+Dragon World [Luca Elia]
+Billiard Academy Real Break (Europe) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Fred Flintstones' Memory Match [Brian Troha]

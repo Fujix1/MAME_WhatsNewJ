@@ -1,0 +1,77 @@
+0.89u3
+------
+
+全般的な改良点：
+----------------
+
+■Model 3のクリーンアップ。[R.Belmont]
+    - mpc105ブリッジにinit追加
+    - VS2 CROMをシンクロ
+    -「セガラリー2」「バーチャロン2」のVROMが無かったのを修正
+    -「バーチャストライカー2 '99」のセット追加。vs2v991のROM修正
+    -「バーチャロン2 v5.4g」「デイトナUSA2」「ダートデビル」追加
+
+■Model 3 / PPCの更新。[Ville Linde]
+    - PPC603エミュレーションのバグを大幅修正。特にFPU関係
+    - MPC105エミュレーションを改善
+    - 53c810 SCSIエミュレーションの初期版追加で「ロストワールド」でReal3Dに
+      必要なものを全てダウンロード
+    -「スカッドレース」輸出版追加
+
+■Sega System16の更新。[Aaron Giles]
+    * atomicpのサウンド実装（今のとこテンポは推測）
+    * 表示系以外の共通ハード用にmachine/segaic16.cを新規作成
+    * 初期版の積算/比較機能をここに移動
+    * Theirry氏の情報に基づいて更新; altbeastはサウンド用に暗号化Z80が必要
+    * Thierry氏によるeswatjの更新を追加
+    * 16B/18ゲームのリセットバグを修正
+    * パレットエントリ数を取得するためsegaic_init_paletteを変更
+
+■altbeas2で使っている暗号化Z80、MC-8123B 317-0066の解読。[Nicola Salmoria, 
+  Dave Widel]
+
+■Sega X-Boardゲームの操作系実装。[David Haywood]
+    smgp, rachero, abcop
+
+■prehisleドライバにコインカウンタ追加。[Pierpaolo Prazzoli]
+
+■「フラワー」のグラフィック残り修正。[Bryan McPhail]
+
+■「スーパーマン」のグラフィック修正。[Bryan McPhail]
+
+■「アトミックロボキッド」のオーバードロー修正？[Pierpaolo Prazzoli]
+
+■PPC/Model3の32bit整数について、コンパイラ系の問題があったのを修正。
+  [Lawrence Gold]
+
+■Pokey乱数生成でレコーディングを使って動作改良（実際の改善事項は未確認）。
+ [Juergen Buchmueller]
+
+■デバッガでアクティブなCPUが指定されていないときのデフォルトをトレースに変更。 
+  [Nathan Woods]
+
+■「ノーティボーイ」「ポップフレーマー」のカクテルモードサポート。[HobbesAtPlay]
+
+■jrpacmblをjrpacmanドライバに移動。[MASH]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Progressive Music Trivia [Pierpaolo Prazzoli]
+Trivia Master [Pierpaolo Prazzoli]
+レーシングヒーロー [Gerald, David Haywood]
+
+(「ABコップ」「スーパーモナコGP」も“動作可能”ですが、まだひどいトラブルがあり
+ます）
+
+
+新規クローンセット：
+--------------------
+ブラッドブラザーズ (set 2)
+サイバーポリスE-スワット (Japan) [Thierry]
+
+
+新規未動作ゲーム：
+------------------
+ラインオブファイヤー (Japan) [Charles Macdonald, bmoto]
+    操作未実装、Xボードエミュレーションの問題あり

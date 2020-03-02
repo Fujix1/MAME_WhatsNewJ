@@ -1,0 +1,75 @@
+0.144u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04550: [ステート保存/再生] 20pacgal and clones.: -autosaveを有効にしてロードすると
+         リセットがかかる。(Tafoid)
+- 00287: [グラフィック] ikki: ゲーム内でのスプライトのちらつきは0.120u1で修正されたが、
+         デモシーンなどで別なちらつきが発生している。(Angelo Salese)
+- 04554: [DIP/入力] gghost: プレイヤー1が勝手に右へ動く。(hap)
+- 04552: [グラフィック] ssf2t and clones: イントロシーンで、画面の切り替わりのとき化
+         けたグラフィックが表示される。(hap)
+- 04358: [クラッシュ/フリーズ] roughrac, sgmast: スタートしようとするとフリーズする。
+         (Angelo Salese)
+- 04553: [クラッシュ/フリーズ] All games in toypop.c: 画面にゼロが表示されてフリーズ
+         する。(Angelo Salese)
+- 04551: [ゲームプレイ] mastkin: irq_mask_wは0x10B7でONにする。(Angelo Salese)
+- 04548: [ステート保存/再生] Many games in mappy.c: -autosaveを使うと正しくロードされ
+         ない。(Angelo Salese)
+- 04549: [クラッシュ/フリーズ] All games in toypop.c: 初期化時に固まる。
+         (Angelo Salese)
+- 04547: [ゲームプレイ] digdug, galaga: ゲーム内容やサウンドに問題がある。
+         (Angelo Salese)
+
+
+
+ソースの変更点
+--------------
+- CES Classicドライバに、表示系、サウンド、基本I/Oを追加。ゲームはある程度プレイ可能。
+  [Angelo Salese]
+
+- コアからdeprecat.hとフレームIRQハックを完全に削除。ドライバの変更点については以下を
+  参照: http://mamedev.emulab.it/kale/fast/files/deprecat_removal.zip
+  [Angelo Salese]
+
+- SliverをRAMDACデバイスにコンバート。[Angelo Salese]
+
+- ay8910_reset_w()関数を追加。「ジョイフルロード / Munch Mobile」でAYをオンザフライで
+  リセットするのに使用。[Lord Nightmare, Angelo Salese]
+
+- ファイル名が長すぎるときのエラー処理を追加。[Chad]
+
+-「ジョイフルロード」ドライバで、実機を元にIRQとNMI生成を修正。[Tomasz Slanina]
+
+- CPS-1の更新: [Team CPS-1]
+ * 以下のPALを追加: LWCHR.3A, ST22B.1A, STF29.1A, TK22B.1A, VA24B.1A, YI24B.1A
+ * wofchで、これまで吸い出し不良だったEPROM TK2(CH)_07.9Aを正しいものに置き換え
+ * wof、wofa、wofj、wofchのROMラベルと配置を修正。Q-Sound PALと基板の情報を追加
+   (Kold666)
+ * captcommとクローンセット: CCPRG.11DをNO_DUMPに設定。吸い出されていたのは
+   CCPRG1.11D (Kold666)
+ * dinoj、punisherjのROMラベルと配置を修正。Q-Sound PALを追加
+ * sfzch、sfzbchのグラフィックとサウンドROM、ラベル、配置を修正
+ * 細かい整理
+
+-「Paint & Puzzle」で正しいVGAコアを使うように変換。[Angelo Salese]
+
+-「バーディ」のPROM追加。[f205v, Corrado Tomaselli]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Keith Courage In Alpha Zones [Mariusz Wojcieszek]
+Alien Crush [Mariusz Wojcieszek]
+パックランド (United Amusements PC Engine) [Mariusz Wojcieszek]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+イグジーザス (TAD License) [f205v, Robotype]
+ガズラー (Swimmer Conversion) [Kevin Eshbach]
+天地を喰らうII -赤壁の戦い- / Warriors of Fate (921031 ETC) [boredstu]

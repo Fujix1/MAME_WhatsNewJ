@@ -1,0 +1,149 @@
+0.145u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00485: [サウンド] gotcha: 説明の女性の声が途切れる。以前は正しく動いていた。(hap)
+- 04764: [ドキュメント] sfight2 and clones.: 正しいゲーム名は"Street Fighter II"。
+- 04761: [クラッシュ/フリーズ] waveshrk: OK画面後にクラッシュする。(Aaron Giles)
+- 04760: [クラッシュ/フリーズ] cobram3: OK画面後にクラッシュする。(Aaron Giles)
+- 04758: [クラッシュ/フリーズ] gal3: OK画面後にクラッシュする。(Aaron Giles)
+- 04757: [クラッシュ/フリーズ] majorpkr: OK画面後にクラッシュする。(Aaron Giles)
+- 04756: [クラッシュ/フリーズ] littlerb: OK画面後にクラッシュする。(Aaron Giles)
+- 04754: [クラッシュ/フリーズ] All sets in qdrmfgp.c: OK画面後にクラッシュする。
+         (Aaron Giles)
+- 04752: [クラッシュ/フリーズ] All sets in atarigt.c, atarigx2.c: OK画面後にクラッ
+         シュする。(Aaron Giles)
+- 04751: [クラッシュ/フリーズ] All sets in darkhors.c: OK画面後にクラッシュする。
+         (Aaron Giles)
+- 04750: [クラッシュ/フリーズ] btoads: OK画面後にクラッシュする。(Aaron Giles)
+- 04749: [クラッシュ/フリーズ] grndtour: OK画面後にクラッシュする。(Aaron Giles)
+- 04748: [クラッシュ/フリーズ] ninjakun: OK画面後にクラッシュする。(Aaron Giles)
+- 04747: [クラッシュ/フリーズ] All sets in psikyo.c: OK画面後にクラッシュする。
+         (Aaron Giles)
+- 04746: [クラッシュ/フリーズ] All sets in midzeus.c, seattle.c, vegas.c: OK画面後に
+         クラッシュする。(Aaron Giles)
+
+
+ソースの変更点
+--------------
+- m68kの改良: [Hans Ostermeyer]
+ * BFINS、BFEXTU、BFEXTSが8ビット分の数を8ビットとしてフェッチするよう修正
+   (Domain/OS 10.3.5のページ境界でのクラッシュが解決)
+ * SoftFloatのlog関数と、m68kのFLOGNP1、FLOGN、FLOG2、FLOG10命令を追加
+
+- kinstb, ffight2b, iron, denseib, sblast2b (snesb.c) [stephh] :
+ * DIPスイッチとコイン入力修正(5A22コードの検証より)
+
+- PGM、Scorpion 4/5、Astra Fruit Machine: [David Haywood]
+ * 以前追加したPGM関係を少し改良
+ * bfm_sc4/sc5のサウンドROMを再編成
+ * astrafr.cのノート、コード、別リビジョン追加
+
+- nbmj8891.c: hanamomoのフォントグラフィック修正。[Takahiro Nogi]
+
+- uPD1990AC: STBがハイのとき、CSxビットのみをラッチ。[R. Belmont]
+
+- proconn.c:  [David Haywood]
+ * 取りあえずNULLコールバックを設定した基本デバイス定義を追加。後の作業に備えてフレー
+   ムワークを設定
+
+- globalfr.c: ドライバ内のクローンセット向けROM分割やデバッグ機能を改善するため、VFD
+  の改良と、サポートタイプを増やすためにステッパーモーターの作業。[James Wallace]
+
+- ecoinf3.c  [David Haywood]
+ * 8255追加(基板上にいくつあるか不明なので、多すぎるかも)と、VFD設定をどこで書き込ん
+   でいるかを解析
+
+- silvmil.c: 既知のDIPスイッチとDIP配置追加。クロック速度を実際の基板上にあるOSC値か
+  ら得るように変更。[Brian Troha]
+
+-「雷電II」に似たSeibu基板のスプライト復号化処理を改良: [Andreas Naive]
+ *「ゼロチーム」をサポート
+ * アルゴリズムがよくわかるようにコードをリファクタリング
+
+- Jalecoの「ステッピングステージスペシャル」を改良: [Luca Elia]
+ * メモリマップ、ROMロード修正、入力追加
+ * スプライト実装、テキストレイヤーのハック
+ * デバッガを使ってブート可能な感じ
+
+- icecold.c  [Sandro Ronco]
+ * このゲームにはメカニカルな部分があるため、完全にはプレイできません。ただし、入力待
+   ちがある最終部分まではプレイできるかも
+ * MESSからi8279デバイスをインポートして、センサーモードとニブルマスクをサポート
+ * シンプルなレイアウト追加と、入力ポートの定義
+
+- 68307のシリアルエミュレーション改良と、ログ出力追加。bfm_sc4.cのハック削除。
+  [David Haywood]
+
+- Meycoドライバの改良: [Roberto Fresca]
+ * 全ゲームの入力を修正
+ * ボタンランプのサポート
+ * 全ゲーム用の内部コントロールレイアウトを作成
+ * メカニカルカウンタの追加
+ * 全ゲームを動作可能ステートに昇格
+ * mdrawpkraのROMを基板写真を元に改名
+ * ドライバ名をmeyc8080.cに変更
+ * テクニカルノート、ゲームついての情報を追加
+
+- Imagetek I5000サウンドエミュレーションテスト版。[hap]
+
+- Scorpionゲームに独自リールとキー設定を指定する作業開始。これは、起動時の
+  'reel errors'をパスしたり、リールを無限にスピンさせるのに必要です。また、
+  68307のものも作業。[David Haywood]
+
+- turbo.cでi8279デバイスを使うように変更。[Sandro Ronco]
+
+- SC4ゲームのアトラクトモードでメッセージがゴミグラフィックで上書きされないようにコマ
+  ンド処理を改良。[James Wallace]
+
+-「Scorpion 4」のランプについて初期作業と、セットをさらに整理。[David Haywood]
+
+- gotcha.cとData East海賊版スプライトの類似点を発見。また、「Silver Millennium」にも
+  たまたま似た実装があったため、この情報をもとにそれぞれを更新。[David Haywood]
+
+- リール関係のリファクタリングと、少ない作業でより多くの機能を使えるようにレイアウト
+  の改良。[David Haywood]
+
+- CPS-3の更新: [Team CPS-1]
+ * jojoba 990927のCDカタログ番号修正、及びCHDの改名
+ * ゲームテーブルの整理
+
+- amaticmg.c: 暗号解析。[Andreas Naive]
+
+- paradise.c:「Penky」の難易度DSW訂正と、スキャンしたピンとDIPマニュアルにあった別の
+  DSW設定についてノート追加。[Brian Troha]
+
+- gumbo.c: ドライバ内の全ゲームにDIP配置追加。[Brian Troha]
+
+- sliver.c:「Sliver」のDIPスイッチ情報追加、訂正、配置追加。[Brian Troha]
+
+- sangho.c:「Sexy Boom」「Puzzle Star」のDIPスイッチ情報と配置追加。[Brian Troha]
+
+- pokechmp.c: マニュアルを元にDIPスイッチの修正と配置追加。[Brian Troha]
+
+- sangho.c:「Sexy Boom」の難易度設定DIPスイッチを修正、及び検証。[stephh]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Silver Millennium  [Bonky0013, David Haywood]
+Draw Poker - Joker's Wild (Standard) [hap, Roberto Fresca]
+Draw Poker - Joker's Wild (02-11) [hap, Roberto Fresca]
+
+
+新しく追加されたクローンセット
+------------------------------
+Zeke's Peak  [Sandro Ronco]
+Hot Mind (Fit of Fighting Hardware) [f20v] (NOT WORKING)
+
+
+追加された未動作ゲーム
+----------------------
+Knights of Valour: Aoshi Sanguo / Sangoku Senki: Aoshi Sanguo (ver.
+  202CN, 海賊版)
+ニンジャアサルト[Guru, Deunan Knute]
+Golden Arrow [hap, Kevin Mullins]
+Star Trek: Voyager [R. Belmont, Mr. CAST, Smitdogg, The Dumping Union]

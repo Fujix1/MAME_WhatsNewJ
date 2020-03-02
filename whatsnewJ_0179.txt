@@ -1,0 +1,369 @@
+0.179
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06409: [ゲームプレイ] (nightgal.cpp) ngtbunny: 上がると止まる。(Angelo Salese)
+- 06338: [DIP/入力] (mz2000.cpp) mz2000, mz2200: キーボードエミュレーションが不完全。(AJR)
+- 03045: [インターフェイス] ドライバ名とゲーム名が同じ場合、個々のiniファイルを作成できず、常にドライバのiniファイルとして扱われる。(Robbbert)
+- 06404: [グラフィック] (namcona1.cpp) emeralda: 表示領域が小さすぎる。(Angelo Salese)
+- 05006: [グラフィック] (gb.cpp) gameboy [f1race]: グラフィック不具合あり。レースコースが正しく表示されない。(Wilbert Pol)
+- 06391: [クラッシュ/フリーズ] (bnstars.cpp) bnstars1: ハングまたはクラッシュする。(Osso)
+- 06110: [ドキュメント] (nbmj8688.cpp) kaguya2f: 年代が1989になっているが画面では2001年。(system11)
+
+
+新規動作可能マシン
+------------------
+Fidelity Designer 2000 [yovan]
+Fidelity Elite Avant Garde 2100 [hap, anonymous]
+Istrebiteli [IgorR76, MetalliC]
+Splendor Blast II [ShouTime]
+Ocean to Ocean (Medal) (DECO Cassette MD) (No 10 / Ver 1 Japan) [Joseph, the Game Preservation Society, David Haywood]
+麻雀旋風 [system11, David Haywood]
+Super Two In One [Edstrom, David Haywood]
+Canon Multi 8 [hap, Sean Riddle]
+ゲームロボット九/Mego Fabulous Fred [hap, Sean Riddle]
+VeriFone Tranz POS terminal [Ryan Holtz]
+
+
+新規動作可能クローン
+--------------------
+デッド・オア・アライブ2 [defor]
+ボンジャックツイン (prototype? with adult pictures, set 2) [Sugoi Helsinki]
+Ocean to Ocean (Medal) (DECO Cassette MD) (No 10 / Ver 6 US) [Joseph, the Game Preservation Society, David Haywood]
+スプレンダーブラスト (set 2) [Stefan Lindberg]
+スプレンダーブラスト (set 3) [caius, robotype]
+レディーメーカー [system11]
+Demon's World / ホラーストーリー (set 2) [Sugoi Helsinki]
+Teenage Mutant Ninja Turtles (Asia 4 Players, version ?) [Abelardo Vidal, The Dumping Union]
+Greyhound Electronics Poker (Version 50.02 ICB, set 4) [any]
+銀河帝国の逆襲 / UniWar S (Karateco) [MASH]
+ビデオハスラー (bootleg, set 3) [f205v]
+Fidelity Sensory 9 Playmatic S [anonymous]
+Fidelity The Excellence (model 6080) [hap, yovan]
+Fidelity The Excellence (model EP12) [anonymous]
+Fidelity The Par Excellence (model 6083) [anonymous]
+
+
+
+動作可能に昇格したマシン
+------------------
+
+
+
+動作可能に昇格したクローン
+--------------------------
+パワードリフト (Japan, Link Version) [Angelo Salese]
+戦え原始人 ジョー＆マック (Japan, bootleg) [AJR]
+Fidelity Elite A/S Challenger [hap]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Big Casino [Guru]
+Crazy Dou Di Zhu II [Guru, Dyq, Bnathan]
+Tarzan Chuang Tian Guan (V109C, set 1) [Guru, Dyq, Bnathan]
+Time Scanner (TS 2.0, Magnet System, prototype) [David Haywood, Ricky2001, ArcadeHacker, IFW]
+イグジーザス (EX 1.0, Magnet System, prototype) [David Haywood, Ricky2001, ArcadeHacker, IFW]
+ザインドスリーナ (SC 3.0, Magnet System, prototype) [David Haywood, Ricky2001, ArcadeHacker, IFW]
+Puzzle Yutnori [system11, David Haywood]
+Grande Fratello (Ver. 1.7) [f205v]
+龍雀 ＜ロンジャン＞ [system11]
+Super Triv Quiz I [any]
+Humlan's Lyckohjul (Sweden, Ver. 402) [Edstrom, Robert Quenet]
+Aceex 2814 modem [Joakim Larsson Edstrom]
+Akai AX80 [Arashikage, R. Belmont]
+Burroughs EF315-I220 teller terminal (ANZ) [Vas Crabb]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Stargate (rev.5) [PinMAME]
+ウィングウォーR360  [Ordyne, The Dumping Union]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+- gameboy.xml: Pokemon - Cock Version (Bootleg) [Zeipher]
+- apple1.xml: Wumpus, Extended Monitor [Dagarman]
+- apple2.xml:
+  ProDOS v2.4.1 [John Brooks]
+  Gumball, Jumpman, Tapper [4am]
+  UniDOS 3.3 Plus v2.0.1, UniDOS Plus v2.1
+  Gamemaker, Hardball, The Heist, Law of the West, Master of the Lamps, Paper Models - The Christmas Kit,
+  Pipe Dream, Portal, Racter, Rambo First Blood II, Shanghai, Where in Time is Carmen Sandiego v1.1 [TRex]
+- apple2gs.xml:
+  UniDOS 3.3 Plus v2.0.1, UniDOS Plus v2.1
+  Thexder v1, Cribbage King / Gin King v1.01 [TRex]
+  segacd.xml: rewritten replacing many sets with more well-documented dumps [FakeShemp]
+
+- snes.xml: update for various redumped games [Alex Jackson, byuu]
+- x68k_flop.xml:
+  Blade of The Great Elements (Test Version), Phalanx (Sample Version), Mahjong Gensoukyoku II - 
+  Mahjong Fantasia -The 2nd Stage The World of X68000 - Formula X, The World of X68000 -
+  Fortress Attack & GJ, The World of X68000 - Logic Rush & Ah! Ohimesama!,
+  The World of  X68000 II - C Ryoku Kensa, The World of X68000 II - Cynthia, The World of X68000 II -
+  Rush! & Useful, The World of X68000 II - T-94X [Wayder]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+x68k_flop.xml:
+ Login Disk & Book Series - X68000 Kessaku Game-sen
+
+
+
+ソースの変更点
+--------------
+- aristmk5: ARISTROCRAT_MK5_BIOS定義が無かったのを修正。[MASH]
+
+- core: 0.179開発サイクル用の新システムフラグ追加: [Angelo Salese]
+ * MACHINE_NODEVICE_MICROPHONE - 未エミュレートなマイク;
+ * MACHINE_NODEVICE_CAMERA - 未エミュレートなカメラ;
+ * MACHINE_NODEVICE_PRINTER - 未エミュレートなプリンタ;
+ * MACHINE_NODEVICE_LAN - 未エミュレートな複数筐体のリンク機能;
+ * MACHINE_NODEVICE_WAN - 未エミュレートなネットワーク機能;
+ * MACHINE_FLAGSをFATAL/WARNIGN/BTANBのメインカテゴリに強制
+
+- sh2: sh7604用のbus/sci/wdtデバイス書きかけ追加。[Angelo Salese]
+ * Sega Saturn版の「Daytona USA CE」が修正
+
+- cischeat:「ワイルドパイロット」のいろいろな入力系バグ修正。[Angelo Salese]
+ * 光線銃をADスティックに変更
+ * プレイヤー2の入力追加
+ * コインを入れてないのにプレイ開始できていた偽のスタートボタンを修正
+
+- mjsenpu: 麻雀パネル追加。[Angelo Salese]
+
+- core: 文字列変換オーバーロード [a|w|t|utf8]_from_[a|w|t|utf8_]string(xyz.c_str()) を追加。[Nathan Woods]
+
+- imgtool: いろいろな変更とモダン化: [Nathan Woods]
+ * Mac: 64ビットシステムで符号なしオーバーフローエラーが起こしていたのを修正
+ * イメージのオープンや生成失敗時にモジュールのclose()コールバックが呼び出されるのを修正
+ * imgtool_partition、imgtool_image、imgtool_streamなどをC++化
+ * 多くのポインタを参照に変更
+ * 可能な箇所ではstd機能を使用
+
+- coco: required_ioport_arrayとoptional_ioportを使うように変更。[Nathan Woods]
+
+- omv1000: 2つめのジョイスティック削除。[einstein95]
+
+- 6809: 命令途中でコアが割り込まれた時の逆アセンブリを修正。[smf]
+
+- core: デバッガで、全CPUがSTATE_GENPCBASEをエクスポートし、全てにたいしてsafe_pcbase()を確実に使用するように変更。
+  これにより、割り込み可能なCPUが正しく動作する。[smf]
+
+- pc: Sound Blaster16について、diagnose.exeでの16ビットオーディオを修正。[smf]
+ * この修正は128k DMAの場合にページの最下位ビットをアドレスの最上位ビットと置き換える
+ * southbridge、cs4031、wd7600、ngen、atデバイスに適用される
+
+- ide: ATAPI CD-ROMドライバにヘッドフォン追加。[smf]
+
+- ay8910: 上位アドレスチェック実装。[smf]
+ * 現時点では設定変更できないが、IDを0以外に設定して工場に注文できた
+
+- chdman: addmeta --valuefileを正しいwrite_metadataを呼び出して修正。[smf]
+
+- dac: 使用されている様々なDACのドキュメント化を開始。[smf]
+ * ataxx: DACがひとつは実装されず、もうひとつは2つのアドレスに実装されていたことによるサウンドチャンネルの不足を修正
+ * bestbest: アドレス指定が間違っていたことにより高音ノイズが起きていたのを修正 (DAC2つが実装されず、別の2つは2つのアドレスに
+   実装されていた)
+ * cchasm: 両方のDACに同じbitを与えていたせいでノイズが起きていたのを修正
+ * cheekyms: サウンドトリガを 1x8-bit DACではなく、8x1-bit DACとして実装することで音質が少し向上
+ * galeb: http://www.deltasoft.com.hr/retro/galebemu.htm をもとにサウンドを実装して修正
+ * ハードドライビン: (ドライバ内全ゲーム) 12ビットコントロールを改良。ただしまだセンタリングがずれる
+ * mea8000: サウンドデバイス化
+ * megaphx: フォーマット違いによるノイズ混じりなサンプルを修正
+ * microvsn: write_signed8()の使い方が間違っていたせいで起きていた音程違いを修正
+ * seicross: 4-bit DACのサンプルのパックされたニブルに変更
+ * spaceg:「スペースインベーダー」のサンプルを使ってとりあえず音追加
+ * suna8: 4-bit DACのサンプルのパックされたニブルに変更
+ * vcombat: dcオフセットの削除が間違っていたため銃声の間にノイズがあったのを修正
+ * vectrex: フォーマット間違いによるサンプルノイズ修正
+ 
+- wheelfir: サウンド、EEPROM、アナログステアリングホイール、ブレーキペダル修正
+
+- osd: HLSL/BGFXの問題修正。[Jezze]
+ * -intoverscanを使ったときのターゲットテクスチャの面積を修正 (スキャンラインとシャドウマスクの見た目が直る)
+ * target_scaleとscreen_count uniformsを追加
+ * -intoverscanを使った場合、角丸をを画面境界に整列 (シングル画面のみ)
+
+- d3d9: フルスクリーンからウィンドウモードに切り替えたときのnull参照例外を修正。[Jezze]
+
+- d3d9: 描画時間を減らすため一部パスのレンダターゲットのクリアを無効化。いずれにしてもテキストは透過で描画。[Jezze]
+
+- d3d9/bgfx: デフォーカスエフェクトをワンパスにし強度を2.0に制限。[Jezze]
+
+- norautp: bjpokerにPROM、PAL追加し、PCBレイアウトを更新。[Guru]
+
+- various: いろいろなスペルミスを修正。[Jordi Mallach]
+
+- various: 麻雀ドライバの修正いろいろ。[system11]
+ * homedata: 基板タイプの情報追加
+ * nbmj8688: kaguya*、secoloveのDIPスイッチ追加。全ゲームにDIP配置追加
+ * nbmj8891: hanamomo、scandalのDIPスイッチ修正・改善
+ * nbmj9195: renaiclbとgal10renのDIPスイッチ修正
+ * niyanpai: 4psimasyのDIPスイッチ修正
+ * niyanpai: mhhonbanの年代と製造元修正
+ * srmp6: DIP配置追加
+ * ssv: hypreac2のDIPスイッチ修正
+ * mjsister: DIPスイッチ修正
+
+- ninjakd2.cpp: mnightを海外版に置き換え。mnightjはKawakusライセンス。[frsj8112, system11]
+
+- hp9845: 修正いろいろ: [F.Ulivi]
+ * hp9845b_stateクラスを別ファイルに移動
+ * irq/sts/flgビット処理をI/Oスロットの追加可能なように改良
+ * I/Oスロット追加
+ * HP98035 RTCカード実装
+
+- hphybrid: 間接的なEXE命令を修正。[F.Ulivi]
+
+- neogeo: irrmaze V2 ROMの再吸い出しとROMローディング修正。[Brian Hargrove, Razoola]
+
+- model1: wingwar360の起動時クラッシュを修正。[David Haywood]
+ * いまのところ、コイン投入後セーフティーバーが降りるの待ち続けてハングする
+ * swaの最近の変更によりwingwarの当たり判定は壊れている
+
+- model1: 起動用のnetmercを十分とるように修正。ただしまだ様々な問題があるためプレイは不可。[David Haywood]
+
+- model1: レンダーリストのスキャンコードについて、アクセスをRAMサイズに限定しポインタマスの使用を少なくすることで安全化。
+  [David Haywood]
+
+- mjsenpu: 払い出しボタンとホッパーを実装。[David Haywood]
+
+- decocass: 使用するBIOSタイプにより全セットにUS/Japanのタグ付け(A = Japan, B = US/World)。[David Haywood]
+
+- decocass: BIOSを選択可能とし、「Ocean to Ocean」を追加。[David Haywood]
+
+- cmi2x: エンベロープターミナルフラグ診断を修正。[Ryan Holtz]
+
+- 6840ptm: シングルビット出力のWRITE8をWRITE_LINEに変更。[Ryan Holtz]
+
+- cmi2x: MAST/TIM診断テストを修正。[Ryan Holtz]
+
+- v1050: 8214 PICUの実装修正と動作可能ステートに再昇格。[Ryan Holtz]
+
+- tranz330: VeriFone Tranz 330 POSターミナルの部分的に動作可能なドライバを追加。[Ryan Holtz]
+ * モデムは未エミュレートだが、有意義な方法によりインタラクト可能
+
+- ds1386: Dallas DS1386-8KとDS1386-32Kタイムキーパー追加 (ほぼ未テスト)。[Ryan Holtz]
+
+- ie15: hblankの判定の処理高速化のためにタイマーを使用。[Ryan Holtz]
+
+- rainbow: いろいろな変更: [Bavarese]
+ * 中解像度モードを修正
+ * Rainbow-100 BのColor　Graphics Optionを実装開始
+ * 注意: 高解像度とベクタモードは未修正のバグあり
+
+- Midwayレイアウトにクリック可能ボタン追加とコードの整理。[Risugami]
+
+- seattle:「サンフランシスコラッシュ」のレイアウト追加。[Risugami]
+
+- mjsister: 入力の修正 [AJR]
+ * 難易度のDIPスイッチ判明
+ * サービスモード用のDIP以外の入力追加
+
+- cninjabl2: スプライト追加。タイトル変更; 既知問題ありで動作可能に昇格。[AJR]
+
+- witch: "Hopper Active"の処理コードを修正。[AJR]
+
+- core: キーボード系の改良。[AJR]
+ * キーパッド入力に共通して見られるBS、TAB、00、000キーを追加; SDLはこれらを認識するがDirectInputはできない
+ * Keypad 00とKeypad 000を一部ドライバの入力リストに割り当て
+ * "cancel"キー用のSDLキーコードを追加
+ * キーパッドのキーをナチュラルキーボードの代わりに追加
+
+- core: ソフトリセットでデバイスのクロックを返さないように変更。[AJR]
+ * マシン初期化時、NVRAMのロード直後に各自のフェーズにおけるRTCを与える
+ * RTCのフィーチャーフラグをオーバーライド定数に変更
+ * rtc_clock_updatedを必須オーバーライド化
+
+- ui: 入力メニューのオプション項目に括弧追加。[AJR]
+
+- amusco: 改善いろいろ; WORKINGに昇格 [AJR]
+ * 入力系がほぼ完全に解明
+ * サービスモード用の点滅カーソル追加
+ * IRQタイミングが壊れていたせいで動作しないコインをハック
+ * パレットは要改善
+ * mc6845: カーソルの点滅状態用リードバック追加
+ * pit8253: ログメッセージからデバイス名を削除
+
+- デバッグダンプコマンドに6番目のパラメータとして行サイズを追加。[AJR]
+
+- zodiac: 入力タイプをキーボー丼に変更。[AJR]
+ * PORT_CHAR追加
+ * 物理的なボタンレイアウトのノート追加
+
+- mz80b, mz2000: マーナーな変更いろいろ。[AJR]
+ * MZ-80Bをmz2000.cppドライバに移動(エミュレーションは未動作のまま)
+ * キャラクタレイアウトのオーバーホール、ヨーロッパ版と日本版のキーボードレイアウトを別設定化(MT #6338)
+ * キー名にGRPHとカナを追加
+
+- octopus: 変更いろいろ: [Barry Rodewald]
+ * オンボードシリアルCOMMコントローラ追加
+ * シリアルベクタポート追加
+ * 拡張RAM修正、256kをデフォルト化
+ * RTCからのIRQシグナルを反転
+ * Centronicsパラレルポート追加
+ * ソフトウェアリスト追加
+
+- x68k: 初期のX68000 CZ-600CEから吸い出したIPL ROMを追加。X68000のデフォルトに設定。[The Dumping Union, Barry Rodewald]
+
+- linenoise: Visual Studioでのビルド修正。[dankan1890]
+
+- mac: オリジナルのMacのオーディオ出力をハードウェアのように動作するよう書き換え。[R. Belmont]
+
+- osd: 製品とインスタンスのDirectInputデバイスIDを統合。これによりデバイス名の曖昧さが解消。[Tomer Verona]
+
+- sms: FMモードの「アウトラン」サウンド修正。[Enik Land]
+
+- core: swpath追加。ルーズなソフトウェアのローケーション指定が可能。[Robbbert]
+
+- rc702: CTC割り込み修正。[Robbbert]
+
+- accexx: 1995 Accexx 28.8モデムのスケルトンドライバ作成開始。[Joakim Larsson Edstrom]
+
+- z80scc: 改善をいろいろ。[Joakim Larsson Edstrom]
+ * zbus_rとzbus_wのソフトレフト・ライトモードをサポート
+ * 不完全なリードレジスタマップを含む改良機処理を改善
+ * 外部CTSとDCD割り込みを追加
+ * デバイスリセット値を改善
+ * SWI ACKコマンド追加
+ * WR9、RR2、RR3の処理を改良・修正
+ * WR7'レジスタ追加
+ * Tx処理改良。Tx FIFO追加。NMOSとCOMS用の1スロットTx FIFOという特別なケースを含む
+
+- z80scc: IACKとリセットの改良 [Joakim Larsson Edstrom]
+ * RR2のリードによりIACK追加
+ * z80daisy_iackがベクターが見つからない、またはWR9 VISにより無効にされているときは-1を返すよう変更
+ * SCCドキュメントに合わせてz80daisy_retiコードを削除
+ * デファクトのリセット値を削除し、SCCドキュメントの値に置き換え
+
+- 8530scc: タイポの修正(System 7がMacドライバ起動、またX68000のマウス動作)。[CharlesJS]
+
+- s3: PinballサウンドROMをゲーム個別のサウンドROMに置き換え。[barakandl]
+ * Williams System 3/4 Pinballs affected: World Cup, Contact, Disco Fever and Phoenix
+
+- es5506: 修正いろいろ。[Christian Brunschen]
+ * 現在のページが一定範囲内の時のグローバルレジスタのリードバック修正
+ * 実機同様、ボイスを長さゼロのループ動作に変更
+ * これらの変更で、VFXとSDシリーズシンセのTranswaveの再生が修正
+
+- stv: Taiwan 97/05/15 v1.14 BIOS追加。[Corrado Tomaselli]
+
+- hiscore.dat: 更新。[Leezer]
+
+- 8042kbdc: SGI Indy/Indigo 2ドライバのキーボード修正。[Carl]
+
+- mcr: dpokerのサウンドROMを再吸い出し。[Sean Rider]
+
+- core: UNIT64、UNIT32、UNIT16、UNIT8ではなく、スタンダードなuint64_t、uint32_t、uint16_t、uint8_tを使用。[Miodrag Milanovic]
+ * INTについても同様
+
+- SDL(Linux/Mac/BSD)ビルドのALT+ENTERによるフルスクリーン切り替えを修正。[Hans Ostermeyer]

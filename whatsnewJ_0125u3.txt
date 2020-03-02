@@ -1,0 +1,238 @@
+0.125u3
+-------
+
+
+MAMETesters Bugs Fixed
+----------------------
+- 01827: [Interface] galaga: DIP設定がcfgファイルから正しく読み込まれない。(Aaron Giles)
+- 01837: [DIP/Input] 入力定義が見あたらない。(Aaron Giles)
+- 01039: [Interface] trog: チートエンジンでのメモリ領域制限。(ShimaPong)
+- 01690: [Graphics] goldstar, goldstbl: グラフィックの不具合。(Fabio Priuli)
+- 01153: [Speed] clshroad: 速度が遅い。カロリーバーが点滅する。(Nicola Salmoria)
+- 00267: [Graphics] clshroad: プレイヤーのグラフィックが化ける。(Nicola Salmoria)
+- 01692: [Graphics] athena: スプライト表示がおかしい。(robiza)
+- 01834: [Graphics] fitegolf, countryc: 表示不具合。(robiza)
+- 01780: [Graphics] pingpong: レベル選択の矢印が表示されない。(Nicola Salmoria)
+- 01822: [Interface] OSDメニューでリフレッシュレートを表示しようとするとクラッシュする。(Aaron Giles)
+- 01830: [DIP/Input] All sets in m58.c: 条件別のコインエイジDIPが正しく動作しない。(Aaron Giles)
+- 01836: [DIP/Input] qcrayon2: ジョイスティック操作に設定したときの条件別入力設定が正しくない。(Aaron Giles)
+- 01833: [Graphics] spikes91: テキストレイヤーが表示されない。(David Haywood)
+- 01832: [DIP/Input] finalgdr: コインが入らない。(David Haywood)
+- 00240: [Gameplay] galaga88: ヒット率が正しく計算されていない。(Nicola Salmoria)
+- 01741: [Graphics] ldrun4: スプライトが右に2ピクセルずれて表示されている。(Nicola Salmoria)
+- 01816: [DIP/Input] onetwo, onetwoe: クレジットとサウンドの問題。(David Haywood)
+- 00245: [DIP/Input] tomahawk: カクテルモードのプレイヤー2の操作が独立していない。(Nicola Salmoria)
+- 01735: [Graphics] sf2m4, sf2m5, sf2m6, sf2m7, sf2yyc, sf2koryu: 動作しない。(Nicola Salmoria)
+- 00070: [Misc.] nettoqc: ゲーム中のメッセージが表示される。(couriersud)
+- 01756: [Sound] 800fath, knockout, marine, triplep: サウンドが鳴らない。(couriersud)
+- 01825: [Interface] DIPメニューの1番上にサービスモードがあるゲームで、TabキーがF2キーと同じ動作をする。(Aaron Giles)
+- 00407: [Misc.] qtono2: ゲームオーバー画面で"layer c000 contact MAMEDEV"のメッセージが表示される。(Nicola Salmoria)
+- 00237: [Sound] jumping: 実機では、オリジナルのレインボーアイランドと同じテンポ。(Nicola Salmoria)
+- 00208: [Original Reference] monymony: 実機でクロックを計測。TMS5200のクロックに違いを発見。(Nicola Salmoria)
+- 01776: [Misc.] pzloop2, pzloop2j: "write to CPS-A register 24 contact MAMEDEV"のメッセージが表示される。(Nicola Salmoria)
+- 01755: [Misc.] mmatrix, mmatrixj: CPS-B read port 10のメッセージが表示される。(Nicola Salmoria)
+- 01823: [Graphics] digdug, xevious, galaga + all clones: カクテルモードで、プレイヤー2のスプライトがずれている。(couriersud)
+- 01826: [Graphics] All sets in mappy.c: プレイヤー2のカクテルモード表示がおかしい。(couriersud)
+- 01819: [Misc.] "Coinlock disabled coin x"のメッセージが起動時に表示される。(couriersud)
+- 01828: [DIP/Input] Most sets in taito_f3.c driver: コインロック情報が消えない。(couriersud)
+- 01719: [DIP/Input] bking, bking2, bking3: プレイヤー1と2のスタートボタンがダブっている。(couriersud)
+
+
+
+ソースの変更点
+--------------
+- onetwo.cのデフォルトDIPスイッチ変更。共用コインスロットモードが壊れたか、コー
+  ドが間違っているかのどちらか。[David Haywood]
+
+- 古いreadmeファイルや既に見つからないデータを元にしたドライバのドキュメントを更
+  新。[Andrew Gardner]
+
+- COP420の命令、JSRP、LBI、LQID、SKTを修正。「Draco」のサウンド動作。さらに、XAS
+  とINIL命令も修正。拡張命令のサイクルカウントも修正。CKOの汎用入力追加。
+  [Curt Coder]
+
+-「American Poker II」ドライバを改良: [Roberto Fresca]
+ - カラールーチンをresnetシステムに切り替え
+ - レジスタネットワークダイアグラム追加
+ - 統合クリスタル値定義に移行
+ - WATCHDOG_TIME_INITを、ヘルツからミリ秒ベースに変更
+ - その他マイナーなクリーンアップと修正
+ - テクニカルノートを更新
+
+- peplusドライバの変更: [Jim Stolis]
+ * コインインのタイミングを更新
+ * DUARTのメモリアドレス領域を拡大
+ * 入力ポートビットのオーバーラップを修正
+
+- PORT_IMPULSEの処理を修正。古いコードでは、最低でも指定されたフレーム数の間、強
+  制的に入力をアサートしましたが、ボタンを押し続けるとアサートし続けてしまいまし
+  た。修正によりアサート期間は指定フレーム数だけになりました。[Nicola Salmoria]
+
+- 80286 CPUコアのメモリアクセス修正。これによりi286.hは廃止。また、逆アセンブル
+  時にクラッシュしないようCPUINFO_INT_MAX_INSTRUCTION_BYTESを変更。[Wilbert Pol]
+
+- UIがアップしたとき、切り替えスイッチが値を失わないように動作を変更。またこれら
+  は、マルチビットDIPスイッチで全ての選択肢を切り替えるようなケースでも使えます。
+  新関数input_field_select_next_setting()とinput_field_select_previous_setting()を
+  追加。これらは、DIPスイッチ間でプロパティを繰り返すのに使用します。条件付きポー
+  トが動作するケースの処理を修正。独自の実装から、これらを呼び出すようにuimenu.cを
+  変更。[Aaron Giles]
+
+- DIPスイッチ設定でENTERを押すとデフォルト設定に戻るようuimenu.cを変更。これは
+  OSDスライダの動作と同じ感じです。[Aaron Giles]
+
+- EEPROM_*をeeprom_*に改名。全ドライバをこれに合わせて更新。本物の
+  eeprom_interface構造体はtypedef化。[Aaron Giles]
+
+- eepromビット読み込みにPORT_CUSTOMを追加。ビットを強制的に挿入していたカスタム
+  リードハンドラを持つのに替えて、自身の入力ポートで指定するように一部のドライバを
+  アップデート。また、同様にチケット払い出し機のコールバックにもPORT_CUSTOMを追
+  加。dcheeseでこれを使用。将来的には、これ以外の多くのドライバでも新しい
+  PORT_CUSTOMを使って、ハッキーな入力ポート読み込み処理を廃止できます。
+  [Aaron Giles]
+
+- uimenu.cでメニューのセパレータを指定するテキストを変更。これ用の#define追加。
+  [Nathan Woods]
+
+- tokenize.hにTOKEN_SKIP_*マクロを追加。[Aaron Giles]
+
+- 入力ポートのトークン化時にエラーレポート処理について、これまではすぐに致命的エ
+  ラーを出していたのを、バッファを満たすように変更。これで無効なトークンを問題な
+  くスキップできるはずです。また、トークン化の際のエラー検知も強化。初期化コード
+  でエラーを出力し、入力ポートが全く構成できない場合のみ致命的にするよう更新。
+  [Aaron Giles]
+
+- pacman.c、gottlieb.c、cps1.c、megadriv.c、segae.cで、入力ポートビットがダブっ
+  ていたのを修正。[David Haywood]
+
+- 入力ポートでNULLなセットをサポート。空ドライバで使用。[Aaron Giles]
+
+- cpu_getiloops()が正しくない値を返すのを修正。[Nicola Salmoria]
+
+- gijoeがクラッシュしないように更新。オリジナルのコードが何をしようとしていたの
+  かは不明。[David Haywood]
+
+- suprpoolをよりマッチしたハードに移動。ROMロードの修正と、PCBコンポーネントのリ
+  スト追加。[Roberto Fresca]
+
+- 8257 DMAのオートロードモードを実装: [Miodrag Milanovic]
+ * オートロードモードをサポート
+ * カウント演算のバグ修正
+
+- dkong.cの入力ポートビットの重複を修正。[couriersud]
+
+- MIPSコアの変更: [Aaron Giles]
+ - mips3_config -> mips3_configに改名
+ - 全てのドライバを新しい名前に更新
+ - MIPS3DRC_STRICT_COP0フラグを削除。廃止しました
+ - マイナーなクリーンアップ
+ - 実装専用ステートを、コアMIPS3ステートに付属するポインタへ移動
+ - ポインタからコンテキストの切り替え時間短縮のため、大きなコンテキストを削除
+
+- CPUインタフェースのトランスレートコールバック動作を変更: [Aaron Giles]
+ - コールバックが、ユーザ・スーパーバイザモードか、また、読み・書き・フェッチア
+   クセスか、デバッグ用フラグかなどを示すための意図的な引数を追加
+ - 全ての呼び出し元で、正しい値を渡すように更新
+ - 全CPUコアを新プロトタイプに更新
+
+- UMLを更新: [Aaron Giles]
+ - 新命令SETCを追加。ソースビットからキャリーフラグを指定しあｍす
+ - 新命令BSWAPを追加。値のバイトを入れ替えます
+ - C、x86、x64バックエンドで新命令をサポート
+ - 逆アセンブラで新命令をサポート
+
+- DRCフロントエンドの変更: [Aaron Giles]
+ - PCが0か~0のエッジケース処理バグを修正
+ - 特権命令を示す新しいフラグ追加
+
+- 新オプション-snapnameを追加。これは、スナップショットのネーミングテンプレートを
+  指定します。詳しくは、config.txtを参照。[Aaron Giles]
+
+- astring用関数、astring_del、astring_replace、astring_replacecを追加。
+  [Aaron Giles]
+
+- service_coin_lockout_w関数は意味がないため削除。zaxxonドライバで、コイン有効化
+  ラインを正しく処理するように更新。[Nicola Salmoria]
+
+- ある状況で、間違ってcfgファイルからDIP設定が読み込まれるバグを修正。
+  [Aaron Giles]
+
+- セーブ・ロード時のために入力ポート用の内部デフォルトを追加。[Aaron Giles]
+
+- チートシステムを大幅更新: [ShimaPong]
+
+  * 新チートフォーマットをサポート(実験的)
+     - 新操作追加
+        PDWWrite, RWrite, VRWrite, CWrite, Move, Branch, Loop, Popup
+     - 新オプション追加
+        ValueSelectNegative, Return, AddressReadFrom, DataReadFrom
+     - チート変数追加
+        Write、Move命令でデータを保存して、各フィールドからアドレスまたはデータを
+        読み込み可能
+     - 条件チェック追加
+        CWrite, Branch, Popup命令用
+     - 新カスタムコード追加
+        Separator, Layer
+     - 共有コードサポート [MESSのみ]
+        一つのゲームに対し、複数のマシンでコードを共有
+
+  * スタンダードコードとラベルセレクト、またはユーザセレクトをミックス可能
+
+  * ラベル選択コード用にラベルセレクタメニュー追加
+
+  * 複数行のコメント用にコメント表示を拡張
+
+  * チートリストとウォッチポイントのコマンドメニュー追加
+     このメニューでチートコマンドを簡単に選択できます
+
+  * デバッグビューメニューを追加 [デバッグビルドのみ]
+     内部情報をデバッグチートシステムに表示します
+
+  * 一部のメニューにui_draw_menu()によるユニークセパレータをサポート
+
+  * ユーザ定義の検索領域追加
+     チートデータベースからフリーなメモリ領域を指定できます
+
+  * 予期しない動作を防ぐため、チートコードのエラーチェックを強化。エラーコードは
+    ロックします。このコードを選択すると、コードアクティベータではなく、アナライ
+    ザが動作します
+
+  * キーボード無しでの値入力を改良
+     チートエディットキーで新しい入力システムになります
+     左右キーで、エディットカーソルを移動、上下キーで値を変えます
+
+  * オプションメニューにチートコマンド、save、reload、resetを追加
+
+  * 検索でアドレスシフトをサポート
+     TMS340*0 CPUゲーム(「Trog」「スマッシュTV」など)のデフォルト領域を検索可能
+
+  * 関数ポインタ、cheat_menu_handlerを使ってチートメニューの処理を改良
+
+  * フォーマット文字列テーブルを統合した形で追加
+
+  * Neo GeoとTMS34010用のデフォルト検索領域ハックは不要なので削除
+
+  * MAMEのコーディング規則を元にコードを改良
+     - 関数、構造体、定数の改名
+        多すぎるので完全ではありません
+     - よく使われる関数をインラインにコンバート
+     - 0、またはNULLの比較を修正
+     - いくつかの関数のプロトタイプを追加
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+ビートマニア ザ・ファイナル (ver JA-A) [Chizzy]
+Player's Edge Plus (XP000112) White Hot Aces Poker [hammer300]
+ChuckECheese's Match Game [Exodus]
+Coronation Street Quiz Game [Phil Bennett]
+
+
+
+新規クローンセット
+------------------
+Fred Flintstones' Memory Match (5 new sets) [Exodus]
+マイティー！パン (Euro 001010) [Bonky]
+ダイナマイト刑事 / Dynamite Cop (USA, Model 2C) [The Guru]
+Atomic Boy / ワイリータワー (revision B) [Stefan Lindberg]

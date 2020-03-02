@@ -1,0 +1,119 @@
+0.88u1
+
+全般的な改良点：
+----------------
+
+■Namcoゲームのアップデート。[Phil Stroffolino]
+    - NB1ゲームのプライオリティ修正
+    - Namco System 2でPOSIRQサポートにより、各ゲーム毎のハック削除
+    -「メタルホーク」のタイルサイズのハックも不要
+    - System 2ハードのブランク画面（ウィンドウ）サポート
+    - System 2のレンダリングでスプライト・タイルマップ間の直交性を考慮
+
+    MAME Testersの修正項目：
+      nebulray066gre (とりあえずの修正。実際の動作は不明)
+      namcosx36rc2gre (System2について)
+      finehour053gre
+      ordyne080u1gre
+      rthun237b16gre
+
+■i960の修正。[R.Belmont, Stephan Cecchinel]
+    atanrとlogeprのエラー修正
+
+■FD1094エミュレーションの改良。[Charles MacDonald, Nicola Salmoria]
+    動作可能セット追加 (eswatu, fpoint, goldnaxc, cltchitr)
+
+■「Mighty Warriors」のスクロールオフセットと雨の表示プライオリティ修正。
+  [Pierpaolo Prazzoli]
+
+■「Steel Force」のEEPROMサポート追加。[Pierpaolo Prazzoli]
+
+■修正いろいろ。[Curt Coder]
+    *「1943」
+    drivers/1943.c
+    vidhrdw/1943.c
+
+    - タイルマップにコンバート
+    - ドライバのクリーンアップ
+    - メモリマップの統合
+    - マニュアルを元に入力/DIPスイッチを修正
+    - 1943jの名称を"1943: Midway Kaisen (Japan)"に変更
+    - 1943kaiの名称を"1943 Kai: Midway Kaisen (Japan)"に変更
+
+    *「ガンスモーク」
+    drivers/gunsmoke.c
+    vidhrdw/gunsmoke.c
+
+    - タイルマップにコンバート
+    - ドライバのクリーンアップ
+    - メモリマップの統合
+    - マニュアルを元に入力/DIPスイッチを修正
+    - GUNSMOKE_HACKとフェイクのDIPを削除
+
+    *「ブループリント」
+    drivers/blueprnt.c
+    vidhrdw/blueprnt.c
+    
+    - 回路図に基づいてクロックを修正。音程が高くなりました
+    - タイルマップにコンバート
+    - メモリマップのマージ
+    - マニュアルを参考に入力/DIPを修正
+    - 回路図を元にROM名を修正
+    - クリーンアップ
+    - 2H/4Hのクロック訂正
+    
+    *「ナイトドライバー」
+    drivers/nitedrvr.c
+    machine/nitedrvr.c
+    vidhrdw/nitedrvr.c
+
+    - ギア/道路の表示用ハック削除
+    - メモリマップ統合
+    - 回路図を元にクロック修正
+    - 初期リビジョンのROM情報追加
+    - 回路図を元にROM名を修正
+    - クリーンアップ
+
+    *「1942」
+    drivers/1942.c
+    vidhrdw/1942.c
+    
+    - メモリマップの統合
+    - マニュアルを参考に入力/DIPスイッチの修正
+
+
+■「リブルラブル」のカスタムIOチップ番号を確認。[Shaun Stephenson]
+
+■jalmah.cの改善。[Angelo Salese]
+    最初のバージョンのプロテクトを更に改善。urashima/mjzoomin/daireikaが起動
+    可能になりました。色不良（データはMCUコードから取得）、タイルマップ位置
+    の間違い（RANGEレジスタを使っているが、更に調べる必要あり）など
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Twin Brats [Pierpaolo Prazzoli]
+    サウンドバンキング不完全
+
+B.C. Story [David Haywood]
+
+クラッチヒッター [Charles MacDonald, Nicola Salmoria, David Haywood]
+    サウンドは不完全。表示不具合あり
+
+D.D.クルー [Charles MacDonald, Nicola Salmoria, David Haywood]
+    サウンドは不完全。あちこちに表示不具合あり
+
+Ping Pong Masters '93 [David Haywood]
+    サウンドは未エミュレート
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+-----------------------------------------------------------
+フラッシュポイント (Japan, Original) [Charles MacDonald, Nicola Salmoria]
+
+戦球 (set 2) [Fabrice Arzeno]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+System18ゲーム数本

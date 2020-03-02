@@ -1,0 +1,280 @@
+0.133u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03240: [クラッシュ/フリーズ] topracra: エラー"devcb_resolve_read8: unable to find input port 'IN0L'"が出る。(couriersud)
+- 03426: [サウンド] wtennis: ボールの音が鳴らない。(Tafoid)
+- 03422: [グラフィック] porter: 画面中央部分のグラフィックが表示されない。(Tafoid)
+- 03421: [クラッシュ/フリーズ] samuraia, sngkace: Access Violationエラー。(hap)
+- 03420: [クラッシュ/フリーズ] espial, espialu, netwars: Access Violationエラー。(hap)
+- 03416: [クラッシュ/フリーズ] bradley: DISCRETE_ADJUSTMENT_TAGで終了する。NODE_88のタグが正しくない。(couriersud)
+- 03418: [クラッシュ/フリーズ] dday, ddayc: コイン投入後にAccess Violationエラーで落ちる。(M.A.S.H.)
+- 03025: [サウンド] bzone, bzone2, bzonec: 実機と比較すると、いくつかの効果音の再生される箇所が異なっている。(couriersud)
+- 03413: [コンパイル] [64bit限定] 64-bitコンパイル時の警告表示。(Aaron Giles)
+- 03391: [その他] popn2 & bmclubmx: CHDのバージョンがV3。(hap)
+- 03073: [サウンド] scorpion, scorpiona, scorpionb: 音が鳴らない。(couriersud)
+- 03075: [サウンド] explorer: 音が出ない。(couriersud)
+
+
+
+ソースの変更点
+--------------
+- ディスクリートサウンドの更新: [couriersud]
+ - DISCRETE_TRANSFORMのコメント修正
+ - 指定式が不良の場合に致命的エラーを発生
+ - DISCRETE_RCDISC3のバグ2つを修正
+ - DISCRETE_FILTER_SW関係のバグを修正:
+    - イテレータを削除
+    - CD4066内部抵抗は音の増幅を大きく影響します。これは、VCCとタイプ(74HC、74HCV、
+      CD4066など)によって変化します。現在の設定は「スクランブル」が"大体正しく"なるも
+      のです
+ - ディスクリートタスク用のプロファイリングコードを追加
+ - 入力ノードのバッファにストリームを使用するためのDISCRETE_INPUT_BUFFERを追加。多く
+   の書き込みが発生するノードの入力に対しては、ディスクリートモジュール全体で
+   stream_updateが起き、効率が著しく下がるのを防ぐことが出来ます。データはバッファリ
+   ングされ、一度に多くのサンプルを処理することが可能です
+ - コアモジュール(出力、タスク)用のコンテナとしてdisc_syc.cを追加
+ - ディスクリートwavとcsvログ出力をノード扱いに変更
+ - デバイスの開始と停止時に呼び出すDISCRETE_STARTとDISCRETE_STOP関数を追加
+ - この副作用として、ログのオーバーヘッドもプロファイリングで計測されます
+ - DSO_TASK_ENDは自身の依存度リストを作成します
+    - DSO_TASK_END()でのタスク終了処理をシンプル化
+ - RC_(DIS)CHARGE_EXPにnode引数追加
+ - 必要に応じて定数を追加
+ - デッドコードを削除
+
+-「Royal Card Pro v2」のカラーBPROMが正確であることを確認。[Brian Troha]
+
+- sound.cとinput.cを非グローバル化。[Atari Ace]
+
+-「Noraut Poker」ドライバの改良: [Roberto Fresca]
+ * CPUクロックをクリスタルの8分の1に訂正
+ * PPI-2、PC0-PC2からの新しいI/Oラインを3本発見。これらはハンドシェイクラインと混合
+ * noraut12ゲームにREADOUTボタンを追加
+ * メインのマインドライバを2種類のNorautシステムをカバーするように分割
+ * noraut11で、PPI-2、PC0-PC2出力を一部サポート
+ * その他のI/Oラインの解明
+ * ハンドシェイクラインをシミュレートするためのハンドラ追加。PPI-2経由での実際のサポー
+   トが必要
+ * テクニカルノートの更新
+ * norautpとnorautjpのREADOUTボタンをそれぞの場所にリルート
+ * ビデオRAMアクセスを全てPPI-2経由に変更(今のところ、ハンドシェイクはバイパス)
+ * 3番目のPPI接続後にnorautマシンドライバを再統合
+ * Low Level Hopperマニュアル入力を追加
+ * 外部ハードウェア用のマシンドライバ追加。a14とa15のアドレスラインをカットする2つの
+   ジャンパあり
+
+- i386のADC/SBBのcaryy/borrowフラグを修正。[Gabriele Gorla]
+
+- PIC16C5x CPUコアの修正: [Quench]
+ - 間接アドレッシングは、特殊用途のメモリマップ位置には考慮されません
+ - 'iorlw'命令は、Wレジスタではなくメモリに結果をセーブしていました
+ - 'tris'命令は、Poert-Cが実装されていないPICモデルで、Port-Cを変更しません
+
+-「BigTwin」に難易度設定のDIPスイッチ追加。[Quench]
+
+- speedbalで、バッテリーバックアップ2KB RAM追加とデフォルトハイスコアの修正。
+  [Pierpaolo Prazzoli]
+
+-「Shogun Warriors / 富士山バスター」の修正:
+ -「Shogun Warriors / 富士山バスター」の動作に必要なテーブルを抽出 [Tomasz Slanina]
+ -「Shogun Warriors / 富士山バスター」の復号化とテーブルデータの検証 [David Haywood]
+ -「Shogun Warriors / 富士山バスター」のグラフィックROM2つをBAD_DUMPに設定
+   [David Haywood]
+ -「ビィラップボーイズ」用の関数で両方のゲームを動作させるため、一時的に当たり判定に
+   ハックを追加 [David Haywood]
+
+- SuperFXの更新: [Anonymous]
+ - LMULT/FMULT命令の逆アセンブリを修正
+ - LDW/LDBを使用した読み込みの修正
+ - STW/STBを使用した書き込みの修正
+ - SBCキャリー処理を修正 
+ - GETC ROMアクセスの動作を修正
+ - MESSのSuperFXゲームで一部表示が可能
+ - PLOTとRPIX動作の一部修正で、「Star Fox」「Vortex」で多くのグラフィックスが表示可能。
+   ただしポリゴンはまだ
+
+- kanoko16の復号化関数について、各ビット動作の解明と個別ゲーム用の参照を削除すること
+  でシンプル化。その結果、再び復号化テーブルをベースにするよう変更。処理結果が同じく
+  なることを確認済み。[David Haywood]
+
+- kaneko16に吸い出し直したu6グラフィックROMを追加。ゲイシャとスモウが修正。[Guru]
+
+-「サーカスチャーリー」の速度低下を修正: [couriersud]
+ - ディスクリート部で、1サンプル毎に更新を避けるためSOUND_DACデバイスでバッファを使用
+ - これはTestersの 03104で指摘された、デモサウンドのDIPスイッチをONにするとアトラクト
+   モードでCPU使用率が上がることについての対応です。個人的にはこれはバグとは考えてな
+   くて、今回のは実装の最適化です
+
+-「Shogun Warriors / 富士山バスター」のサウンドバンキングを修正。[David Haywood]
+
+- CIA6526とCIA8520で、別の方法によりTODを実装。[robiza]
+
+- kaneko16のグラフィックデコーディングの小バグ修正と、サウンドバンキングが正しくない
+  ことについての古いコメントを削除。[David Haywood]
+
+- SuperFXの更新: [Harmony]
+ - 速度向上のため多くの関数をインライン化
+ - メモリバッファリングが一部良くないので削除。後ほど再追加予定
+ - ASR命令の動作を修正
+ - MESS側の変更追加に伴い、「Stunt Race FX」がプレイ可能。また、「Vortex」も表示が大
+   幅改善
+ - RAM、ROMバッファリングを実装
+ - さらに関数をインライン化
+ - デバッグ用の出力を削除
+ - 外部IRQラインコールバックの定義機能追加と、65C816への実装
+ - HIB命令のフラグ演算を修正
+ - SNESマシンドライバにSuperFXを実装
+ - ADC、ADCI、SBC、SBCI命令のキャリー処理を修正。多くのSNES SuperFXバグが修正
+
+- デバッガに基本的なチート検索機能を追加。さまざまなメモリサイズでの検索が可能。
+  [Sandro Ronco]
+
+- チートメニューに'Reload All'オプション追加。[Pugsy]
+
+- チートメニューからのチートコメント表示を有効化。スペースキーで表示を切り替え。
+  [Pugsy]
+
+- twin16の影を少し濃く表示するよう変更。[hap]
+
+- 新関数mame_fclose_and_open_next()を追加。これはファイルを閉じて、次の有効なファイルを
+  検索パスに対して検索します。動作のため、fileio.cを内部的に再構成しました。
+  [Aaron Giles]
+
+- チート検索で、検索パス上にある全てのチートファイルから読み込むように変更。このため、
+  項目の重複が起きやすくなります。重複チート用フィルタのコードはありますが、テキスト
+  のみのチートに対してフィルタロジックがあいまいなため、今のところ無効にしてあります。
+  [Aaron Giles]
+
+- M377xx: バンク0にないときのCLB/SEBを修正。[R. Belmont]
+
+- AVR8コアの命令を大幅修正。[Harmony]
+
+- MIPSコアのレジスタ別名を有効化。[Harmony]
+
+- 68681 DUARTにループバックモードとカウンタタイマモード3と6を追加。MESSのdectalkでセ
+  ルフテストをパス。[Lord Nightmare]
+
+- SNESの更新: [R. Belmont, Harmony]
+ - SuperFXゲームでのROMロード動作を訂正
+ - 一部のSuperFX 2ゲームで必要なROMミラーリングをさらに追加
+ - 特定のビット制限があるSuperFXのレジスタ動作を訂正。「Doom」「Yoshi's Island」
+  「Dirt Trax FX」「Voxel Demo」で表示系が動作
+ - S-DD1エミュレーションの改良。ただしS-DD1を使うゲームはまだ起動不可
+
+- MESS用に、Zilog Z8 CPUコアを予備実装。[Curt Coder]
+
+- 現在特に開発がされていないドライバで、ファイルを書き出すものをクリーンアップ。また
+  LOGERRORにメッセージを出力するものをコメントアウト。[Tafoid]
+
+- SNES S-DD1チップエミュレーションの大幅修正。SFA2と「Star Ocean」はまだ起動不可。
+  [Harmony]
+
+-「Golden Poker」ドライバ: [Roberto Fresca]
+ *「Witch Card」を2セット追加
+ *「Witch Card」(german set 1)の入力について再作業
+ *「Witch Card」(english, witch game, lamps)用の新しい入力系作成
+ * 両セットにランプ追加
+ * 最低BET数と50/60Hz切り替え追加
+ *「Witch Card」(german set 2)のDIPスイッチ情報追加
+
+-「GTI Poker」の不足ROM追加。[Team Europe, Dumping Union]
+
+- Naomi/Atomiswaveのビデオハード更新: [David Haywood]
+
+  領域指定配列は基本的には処理しており、描画場所の蓄積バッファデータを、タイルリスト
+  で指定されたタイルに沿ってフレームバッファにコピーします。これは処理的にはまだ完全
+  はタイルベースのレンダリングではなく、実フォーマットのデータやデータポインタを書き
+  出しています。しかし、これは方向性としては間違っていません。
+
+  フレームバッファ書き込みと読み込みの両方でサポートされているのは、現在565フォーマッ
+  トだけです。蓄積バッファは常に8888で、データは指定されたフォーマットにコンバートさ
+  れます。実際の蓄積バッファは32x32でタイル毎にフィルタリングされています。現状はフル
+  スクリーンのみです。
+
+  表示更新では、指定されたフレームバッファの読み込みパラメータ(今のところ565のみ)を使
+  用して、フレームバッファを表示します。これによりAtomiswaveのBIOS画面の出力と、レン
+  ダリング出力の共存が可能です。
+
+- scherrymにPROM追加。[Team Europe]
+
+- Jaguarの更新: [Robbbert]
+ - RGB 24-bitピクセル追加(「Iron Soldier」用)
+ - 拡大縮小ビットマップに深度0と1を追加(「Disere Skiing」用)
+ - PITサポートのための準備
+
+- vandykebの起動と動作が可能。[iq_132]
+
+- 更に解析を進めるため、「Little Robin」の'vdp'書き込みにverboseデバッグログ出力追加。
+  [David Haywood]
+
+- connect4のレイアウト改良。[AGEMAME]
+
+-「Black Touch '96」「Poke Champ」のスプライト用グラフィックデコードでのプレーン順序を
+  修正。[David Haywood]
+
+-「Black Touch '96」のスプライトエミュレーションを改良(まだ不完全)。[David Haywood]
+
+- i386コアの16-bitモードでのLOOP命令を修正。[Gabriele Gorla]
+
+- Chihiro基板についての記載とチェックサムを追加。
+  [Alex's Rom Dumping Project, Mr Mudkips, Philip Burke]
+
+- unidasmでバイト値を二重にカウントするバグを修正。[Aaron Giles]
+
+- Naomi/Atomiswaveのメジャーアップデート:
+ - AtomiswaveのコインスロットとDreamcastの標準コントローラをエミュレート。特に他の問
+   題がない光線銃以外のゲームがプレイ可能 [R. Belmont]
+ -「燃えろジャスティス学園」「ヘビーメタルジオマトリックス」「WWFロイヤルランブル」
+  「ギガウイング2」「トイファイター」「ギルティギアX」のプロテクションデータ追加
+   (全てプレイ可能ですが、Naomi系全般の問題のためまだGAME_NOT_WORKING付きです)
+   [R. Belmont, Guru, Deunan Knute, Cah4e3]
+ - 吸い出し不完全なものを完了: ダービーオーナーズクラブII、スラッシュアウト、
+   WWFロイヤルランブル、ギガウイング2、燃えろジャスティス学園、ワイルドライダーズ、
+   バーチャファイター4(カートリッジ版)
+   [Guru]
+
+- osd_profiling_ticks()をget_profile_ticks()に改名。実装部分をeminline.hとei*関数のの
+  インライン関数に移動。[couriersud, Aaron Giles]
+
+- CPU_DISASSEMBLEプロトタイプにoptions引数を追加。今のところ、デバッガは常に0を渡しま
+  す。unidasmで、optionsに渡すためのモードパラメータを受けとるように更新。
+  [Aaron Giles]
+
+- 照準位置の元データから画面へ非線形マッピングをする関数を定義する
+  PORT_CROSSHAIR_MAPPER()を追加。[Aaron Giles]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Shogun Warriors / 富士山バスター [David Haywood, Tomasz Slanina, Luca Elia]
+Cal Omega - Game 7.4 (Gaming Poker, W.Export) [Roberto Fresca, Team Europe]
+けろけろけろっぴのいっしょにあそぼう [Team Japump!!!, Hau]
+ドルフィンブルー [R. Belmont, Guru]
+ザ・ランブルフィッシュ [R. Belmont, Guru]
+三国戦記 -七星転生- [R. Belmont, Guru]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+Karate Champ / 空手道 (US, VS version set 2) [Siftware]
+Strong X (ストラテジーX 海賊版) [Siftware]
+モータルコンバット (Turbo 3.1 09/09/93, hack) [Jonathan Hughes, Patrick McCarron]
+Narc (Rev 2.0) [Volker Hann, Team Europe]
+Witch Card (english, witch game, lamps) [Roberto Fresca, Team Europe]
+Master Ninja (忍者龍剣伝 海賊版) [f205v, David Haywood] (NOT WORKING)
+
+
+追加された未動作ゲーム
+----------------------
+ミスタードリラー2 (DR22 Ver.A) [Guru]
+ザ・ハウス・オブ・ザ・デッド2 [Guru]
+スーパーメジャーリーグ'99 -ゴートゥーザドリームパーク- [Guru]
+ガンサバイバー2 -バイオハザード・コードベロニカ- [Guru]
+クラブカート -ヨーロピアンセッション- [Guru]
+ザ・キング・オブ・ファイターズ ネオウェーブ [R. Belmont, Guru]
+ネオジオバトルコロシアム [R. Belmont, Guru]

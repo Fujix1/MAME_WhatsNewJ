@@ -1,0 +1,61 @@
+0.98u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+absoluteanalog098u2gra [Anssi]
+
+
+
+ソースの変更点
+--------------
+* MCRゲームの改良: [Aaron Giles]
+ -「Journey」のカセットサンプル実装
+ -「Journey」のスプライト色修正
+ - MCR 1/2/3ドライバの統合と全基板のドキュメント追加
+
+* サンプル再生のポーズ・再開を追加。[Aaron Giles]
+
+* DECO156ドライバの大幅な変更及び修正: [David Haywood]
+ - EEPROMを正しく実装
+ - サウンドROMデコーディングとバンキングの修正
+ - タイルバンキングの修正
+ - プライオリティ修正
+
+* ARMコアの未アライン32bitリード修正。[Tomasz Slanina]
+
+*「キャプテンアメリカ」が壊れていた原因のARMコアのバグ修正。そのほかのものも修正。
+  [Bryan McPhail]
+
+*「ダブルウイングス」のスプライトレンダリング修正。[David Haywood]
+
+*「Phraze Craze」の問題用ROM読み込み修正と、新しくわかった情報に基づいて修正をい
+  くつか。[Pierpaolo Prazzoli]
+
+*「ネクストスペース」の効果音修正。[MASH]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Double Cheese [Aaron Giles]
+Chain Reaction [David Haywood]
+マジカルドロップ [David Haywood]
+Osman [David Haywood]
+Super Triv [Pierpaolo Prazzoli]
+チャーリー忍者 [David Haywood]
+Romar Triv [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+キャノンダンサー (Japan) [David Haywood]
+Cannonball set 2 [David Widel]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Pit Boss [Pierpaolo Prazzoli]

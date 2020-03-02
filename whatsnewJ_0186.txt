@@ -1,0 +1,583 @@
+0.186
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06558: [インターフェイス] agat7 and others: mame -verifyromsが動かない。(npwoods)
+- 06591: [インターフェイス] Most sets in agat.cpp, c64.cpp, c128.cpp, ec184x.cpp, iskr103x.cpp, ksys573.cpp, pet.cpp, poisk1.cpp, ti99_4ev.cpp: -listxml出力時に例外発生。(npwoods)
+- 06589: [グラフィック] (namcos1.cpp) puzlclub: タイトル画面がおかしくなっている。(Osso)
+- 06575: [デバッガ] DEBUGGER: symlistコマンドを使うとクラッシュする。(npwoods)
+- 06587: [サウンド] (model1.cpp) vf: サウンドが鳴らない。(AJR)
+- 00599: [DIP/入力] (m72.cpp) poundfor: 矢印が動かないのでメニュー画面で他のボクサーを選べない。(AJR)
+- 06103: [ドキュメント] (taitopjc.cpp) optiger: 正しいゲーム名は"Operation Tiger (Ver 2.14 O) "
+- 06560: [クラッシュ/フリーズ] (coco3.cpp) All sets in coco12.cpp, coco3.cpp: ソフトリストから読み込むとエミュレータが固まる。(npwoods)
+- 06555: [クラッシュ/フリーズ] (apple2.cpp) All sets in apple2.cpp, apple2e.cpp: ezcgi9938かezgui9958をスロットにマウントすると致命的エラーが起こる。(AJR)
+- 06547: [クラッシュ/フリーズ] (tv990.cpp) All sets in tv990.cpp: [デバッグ限定] エミュレート開始時にアサート。(Robbbert)
+- 06544: [クラッシュ/フリーズ] (didact.cpp) can09: [デバッグ限定] エミュレート開始時にアサート。(Robbbert)
+- 06542: [クラッシュ/フリーズ] (toratora.cpp) All set in toratora.cpp: [デバッグ限定] エミュレート開始時にアサート。(Robbbert)
+- 06541: [クラッシュ/フリーズ] (laserbat.cpp) laserbat, lazarian: [デバッグ限定] エミュレート開始時にアサート。(Robbbert)
+- 06540: [クラッシュ/フリーズ] (hh_tms1k.cpp) bshipb: [デバッグ限定] エミュレート開始時にアサート。(Robbbert)
+
+
+新規動作可能マシン
+------------------
+Fidelity Sensory Chess Challenger 6 [hap, yoyo_chessboard]
+Game & Watch: Mario's Cement Factory [hap, Sean Riddle, JonasP]
+Gunstar Heroes (Mega Play) [colour thief, brizzo]
+Hashire Patrol Car (J 990326 V1.000) [BillD, ShouTime, rtw, Sean Sutton, Smitdogg, MetalliC, The Dumping Union]
+Jang Taku (V 1.3) [system11, The Dumping Union]
+Jockey Club II (v1.12X, older hardware) [Luca Elia, Gerald (COY), ANY]
+Minitel 2 [Jean-Francois DEL NERO]
+Novag Constellation Forte (version A) [Berger]
+Player's Edge Plus (PS0629) Double Hot Peppers Slots [Brian Troha]
+Revenger '84 (newer) [Andrew Welburn, Craig Anstett, Angelo Salese]
+Space Cyclone
+  [David Haywood, Nicolas Francfort, Sean Sutton, Tourniquet, ShouTime, Anonymous Donator, ranger_lennier, David Stevens,
+  Mr. Goodwraith, John Wilke, Paul Vining, Ryan Gatto, rtw, Jan Stuhler, Rod_Wod, Elliott Kipper, Greg Stout, *=/STARRIDER\=*,
+  Ross Esposito, Paul Gaulton, Chris Heflin, Anonymous Donator from Switzerland, Fabien Marsaud, Surgeville, krick, B2K24,
+  Anonymous Donator from Italy, David Jorge, Andrea Babich, Ciacchi Stefano, Mucci, gamez fan, Brian Troha, VFR750P, anonymous,
+  Mr. Anonymous from Outer Space, InsertMoreCoins, Game Preservation Society, dax_PL, Russell Howard, Peter Wilhelmsen,
+  Sebastien Monassa, f205v, Smitdogg, Gerald (COY), Brian Sutherland, The Dumping Union]
+Zone 60 (Jungle Soft / Ultimate Products (HK) Ltd) [RebeccaRGB]
+
+
+新規動作可能クローン
+--------------------
+Bagman (Taito) [ShouTime, The Dumping Union]
+Bucky O'Hare (ver JAA) [ShouTime, The Dumping Union]
+キャディラックス -恐竜新世紀- (Asia TW 930223) [yuic]
+キャプテンシルバー (Japan, revision 1) [Apocalypse, The Dumping Union]
+Craft II+ [Datassette, R. Belmont]
+ドットリマンJr. [hap]
+Heathkit H-19 w/ ULTRA ROM [Mark Garlanger]
+特殊部隊ジャッカル (bootleg, Rotary Joystick) [f205v, The Iron Goat]
+Jockey Club II (v1.01, older hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v1.10X, older hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.03X RC, older hardware, prototype) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.00, newer hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.01X, newer hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.04, newer hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.20X, newer hardware) [Luca Elia, Gerald (COY), ANY]
+キングオブボクサー (Japan) [ShouTime, The Dumping Union]
+麻雀野郎 [BET] (Japan, set 2) [system11, The Dumping Union]
+Mandinga (bootleg of Amidar) [Josele Fernandez]
+スターフォース / Mega Force (US) [ShoutTime, The Dumping Union]
+MegaTouch XL 6000 (Version r04) [arbee]
+マウストラップ (version 4, bootleg) [f205v]
+Nebulous Bee [Ivan Vangelista]
+ニブラー (rev 7) [CraftyMech]
+点棒争奪麻雀　お雀子クラブ (Japan, set 2) [Yasuhiro Ogawa]
+ポンピングワールド / Pang (bootleg, set 5) [Gerald (COY), ShinobiZ]
+Penky (Italian) [ShouTime, The Dumping Union]
+フェニックス (Hellomat Automaten bootleg) [unknown]
+ラスタンサーガ (Japan Rev 1) [Michel BLANCO]
+リアル麻雀牌牌 (Japan, older) [system11, The Dumping Union]
+私立ジャスティス学園 -LEGION OF HEROES- (Japan 971216) [ShouTime, The Dumping Union]
+スペースウォー (Leisure and Allied) [Kaizen]
+Space Wipeout [Andrew Welburn]
+スピーク＆スペル (Spanish, prototype) [hap, Sean Riddle, David Viens]
+スタースイープ (World, STP2/VER.A) [Coolmod/Bill D]
+スーパーストリートファイターII -ザ・トーナメントバトル- (Asia 931005) [idc/Team Avalaunch]
+タタコット (JA 951128 V1.000) [BillD, ShouTime, Sean Sutton, Anonymous Donator, Smitdogg, The Dumping Union]
+トップランディング (Japan) [ShouTime, The Dumping Union]
+Touchmaster 2000 (v4.XX3 Spanish Evaluation) [Brian Troha, The Dumping Union]
+Touchmaster 3000 (v5.02 Spainish) [Brian Troha, The Dumping Union]
+Touchmaster 3000 (v5.XX Standard AMOA Evaluation) [Brian Troha, The Dumping Union]
+ワンダーボーイ (set 6, 315-5179) [Mathieu Patard]
+
+
+動作可能に昇格したマシン
+------------------------
+7 Smash [David Haywood]
+魂斗羅 (handheld) [hap, Sean Riddle]
+ゲーム&ウォッチ: ボクシング [hap, Sean Riddle]
+ゲーム&ウォッチ: ドンキーコングII [hap, Sean Riddle, Reinier]
+ゲーム&ウォッチ: ミッキー&ドナルド [hap, Sean Riddle, O. Galibert]
+グラディウス (handheld) [hap, Sean Riddle]
+ヒーテッドバレル (World version 3) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+レジオネア (World) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+Lone Ranger (handheld) [hap, Sean Riddle]
+麻雀野郎 [BET] (Japan, set 1) [Guru, Ivan Vangelista]
+MegaTouch XL (Version R1, prototype?) [R. Belmont]
+MegaTouch XL 6000 (Version r07) [R. Belmont]
+ミクロマン バトルチャージ (J 990326 V1.000) [MetalliC]
+Poker Genius [AJR]
+Technical Bowling (J 971212 V1.000) [MetalliC]
+Teenage Mutant Ninja Turtles (handheld) [hap, Sean Riddle]
+トップガン (handheld) [hap, Sean Riddle]
+
+
+動作可能に昇格したクローン
+--------------------------
+ギャラクシーウォーズ (Taito) [Kaizen]
+ヒーテッドバレル (Electronic Devices license) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+ヒーテッドバレル (US) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+ヒーテッドバレル (World old version) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+ヒーテッドバレル (World version 2) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+Jockey Club II (v1.00, older hardware) [Luca Elia, Gerald (COY), ANY]
+Jockey Club II (v2.05, newer hardware) [Luca Elia, Gerald (COY), ANY]
+レジオネア (Japan) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+レジオネア (US) [O. Galibert, Angelo Salese, David Haywood, Tomasz Slanina, David Graves]
+MegaTouch XL 6000 (Version r02) [R. Belmont]
+T.T.ディフェンダー [ShouTime]
+
+
+
+新規追加された未動作マシン
+--------------------------
+A-Plan [Guru]
+Acorn Communicator [R. Belmont]
+Betting Zoo - Mr. Cashman (0251064, US) [Heihachi_73]
+BPM Microsystems BP-1200 [Lord Nightmare]
+Buccaneer (0252523, US) [Heihachi_73]
+Canyon Rose (AHG1463, US) [Heihachi_73]
+Chrysler Electronic Voice Alert (11-function) [hap, Sean Riddle, David Viens]
+Cyber Arcade 120-in-1 [David Haywood]
+Diamond Destiny (AHG1533, US) [Heihachi_73]
+Dragon Treasure (Rev B) (GDS-0030B) [f205v, rtw]
+Dream Hunting (US) [ShouTime, The Dumping Union]
+Football Power [ArcadeHacker, The Dumping Union]
+Fortune Fever (BHG1566, US) [Heihachi_73]
+Hog Wild (US) [ShouTime, The Dumping Union]
+InterAct 32-in-1 [David Haywood]
+InterAct 8-in-1 [David Haywood]
+Jumping Beans (0100161V, NSW/ACT) [Heihachi_73]
+Lexibook Compact Cyber Arcade [David Haywood]
+Mushiking The King Of Beetles 2004 Second (Japan) [f205v, rtw]
+One For All (0101503V, New Zealand) [Heihachi_73]
+Quest of D Oukoku no Syugosya Ver. 3.02 [ShouTime]
+Quest of D The Battle Kingdom [ShouTime]
+Return of the Samurai (10117211, NSW/ACT) [Heihachi_73]
+Royal King Jang Oh 2 (v4.00 1984 Jun 10th) [system11, The Dumping Union]
+Scatter Magic III (0452569, US) [Heihachi_73]
+Shoot Away II [R. Belmont, Surgeville, Sean Sutton, Smitdogg, The Dumping Union]
+Sweet Liberty Deluxe (AHG1575, US) [Heihachi_73]
+V-Dog (prototype) [David Haywood]
+Wild Coyote (AHG1515, US) [Heihachi_73]
+dreamGEAR 75-in-1 [David Haywood]
+dreamGEAR My Arcade Portable Gaming System (DGUN-2561) [David Haywood]
+dreamGEAR Wireless Motion Control with 130 games (DGUN-2500) [David Haywood]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Bachelorette Party (BHG1579, US) [Heihachi_73]
+Big Ben (20126911, NSW/ACT) [Heihachi_73]
+Big Red (1J009211, NSW/ACT) [Heihachi_73]
+カプコンVS. SNK 2 -ミリオネアファイティング2001- / Capcom Vs. SNK 2 Mark Of The Millennium 2001 (GDL-0008)
+  [rtw, Eunice Rodriguez, Surgeville, Jacob Kesinger, Smitdogg, The Dumping Union]
+Cash Crop (0300447V, NSW/ACT) [Heihachi_73]
+Dragon Treasure (Rev A) (GDS-0030A) [f205v, rtw]
+Dynamite Jack (CHG1562, US) [Heihachi_73]
+Enchanted Forest - Cash Express (CHG1536, US) [Heihachi_73]
+Geisha - Jackpot Carnival (0351033, US) [Heihachi_73]
+Helen of Troy (1J008311, NSW/ACT) [Heihachi_73]
+Inca Sun (DHG1577, US) [Heihachi_73]
+King Penguin (20109021, NSW/ACT) [Heihachi_73]
+Koala Mint (CHG1573, US, set 2) [Heihachi_73]
+Loco Loot (AHG1513, US) [Heihachi_73]
+Margarita Magic (EHG1559, US, set 2) [Heihachi_73]
+Mountain Money (BHG1465, US) [Heihachi_73]
+Mountain Money - Cash Express (AHG1629, US) [Heihachi_73]
+Party Gras (AHG1568, US) [Heihachi_73]
+Peacock Magic (0151352, US) [Heihachi_73]
+Penguin Pays (0300113V, NSW/ACT) [Heihachi_73]
+Pompeii (0151158, US) [Heihachi_73]
+Queen of the Nile (0301059V, Holland) [Heihachi_73]
+Queen of the Nile Special Edition (20102811, NSW/ACT) [Heihachi_73]
+Special Forces Elite Training (v01.02.00) [ShouTime, R. Belmont, The Dumping Union]
+Star Trek: Voyager (stand-up version 1.002) [ShouTime, The Dumping Union, R. Belmont]
+Sun & Moon (0251303, US) [Heihachi_73]
+Super Bucks II (0300006V, NSW/ACT) [Heihachi_73]
+Teenage Mutant Ninja Turtles (1.04) Germany [PinMAME]
+スリルドライブ2 (ver JAA)  [ShouTime, The Dumping Union]
+Toucan Tango (0301388V, Holland) [Heihachi_73]
+Unicorn Dreaming (BHG1584, US) [Heihachi_73]
+Wild Thing (0201176V, NSW/ACT) [Heihachi_73]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+cgenie_cass: Colour Frog, Synthesizer (TCS), Colour-Zap Ver 1.0 (TCS), DIG-BOY (TCS) [Juergen Buchmueller]
+ibm5150:
+  Arkanoid 2: Revenge of Doh, Crime Wave, Prince of Persia (5.25", v1.1), Operation Wolf, Terminator 2: Judgment Day [ArcadeShadow]
+  Ferrari Formula One, Savage [breiztiger]
+ibm5170: Dark Seed, The Secret of Monkey Island [ArcadeShadow]
+ibm5150, ibm5170: Many IBM PC-DOS sets [Justin Kerk]
+t1000: MS-DOS (Version 2.11, Tandy version 02.11.24), MS-DOS (Verson 3.30, Tandy Version 03.30.20) [Justin Kerk]
+z80ne_cass: 27 known titles in 1200, 600 and 300 Baud variants [Reagan Roush]
+z80ne_flop: 39 known titles [Reagan Roush]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+gba_ereader: Doubutsu no Mori Card-e (Series 1 and Series 2 cards) [Shideravan]
+
+
+Translations added or modified
+------------------------------
+Hungarian [Lothar Serra Mari]
+
+
+ソースの変更点
+--------------
+- seibucop.cpp:「レジオネア」「ヒーテッドバレル」のシーンバグ修正(異なる138eを使用)。[Angelo Salese]
+
+- epos.cpp:「The Dealer」「Revenger '84」「Beastie Feastie」ハードの変更: [Angelo Salese]
+ * RAMベースの色修正
+ * バックアップRAMのサポート
+ * 画面反転のサポート
+
+- m14.cpp:「PTリーチ麻雀ゲーム」を動作できるよう改良: [Angelo Salese]
+ * ボールとパドル画面の描画、フライヤーを元に緑の背景、画面反転の追加
+ * リーチボタン追加と入力ラベルの更新
+
+- k054321: デバイスとして実装。[O. Galibert, Phil Bennett]
+
+- z180: Coverityで検出されたタイポの修正。[O. Galibert]
+
+- 他のデバイス用にクロックを生成するデバイスのメカニズムを追加: [AJR]
+ * set_unscaled_clockとset_clock_scaleが、デバイスを開始しないかぎりnotify_clock_changedを呼び出さないよう変更
+ * オーナーから派生したクロックが、オーナーのクロック変更に合わせて更新するように変更。設定時を含む
+ * clock_update_delegate型を追加。デバイスが生成した、動的な変更が行われるクロック出力を表す
+   - I8085AのCLK出力でモデル実装
+
+- uPD4701デバイスを部分的に書き直し、Segaゲームで一部実装。[AJR]
+
+- cabel(トラックボール版)、calibr50、eaglshot、horshoes、poundfor、wwallyjにuPD4701Aデバイスを追加。[AJR]
+
+- segae.cpp: PPIとコインカウンタ追加。[AJR]
+
+- MC-8123をデイバイスに変更。[AJR]
+
+- megatech.cpp: フリープレーの不具合修正。[AJR]
+
+- arabfgt: プロテクトMCUのシミュレーションを本物のプログラムエミュレーションに置き換え。[AJR]
+
+- taito_l.cpp: MB8421を増加、HOLD_LINEを現象(evilstonのサウンドが改善)。[AJR]
+
+- acommand: タイルマップデバイス使用。[AJR]
+
+- daytona: フィードバックドライバボード追加(ROMを含む)。[AJR]
+
+- fresh: サウンド一部追加。[AJR]
+
+- liberate.cpp: PSGは全てAY-3-8912A。[AJR]
+
+- mrflea: 内部ボードのコミュニケーションにPPIを使用、sub割り込みにPIC使用。[AJR]
+
+- model1.cpp: vfでサウンドが出なくなる競合状態の対策。[AJR]
+ * I/Oボードのエミュレーションが不完全なせいで起動前にswaのエラーメッセージが起きていたもの
+
+- UIの検索文字列をクリアしたときに検索ができなくなるバグを修正。[AJR]
+
+- ソフトリストの全てのケースで、画像情報用に長い名称、製造元、年度、ファイルタイプなどをコピー。[AJR]
+
+- -listromsでROMが不要な場合にユーザフレンドリーなメッセージを出すように変更。[AJR]
+
+- romcmpの改良: [AJR]
+ * プレーンなASCIIテキストをそういうものとして判定
+ * ROMが各半分で同じデータを持つ場合、それのハッシュをプリント
+ * バッファオーバーランが起きないよう改善
+ * アドレスマスクの計算で、ファイルサイズを2の累乗としないように変更
+
+- linenoise-ngをよりシンプルな異なるUTF-8パーサを使うものに置き換え。[Carl]
+
+- plugins/console: サジェストの補完を改良。[Carl]
+
+- luckgrln.cpp: 7smashのDIPスイッチとレイアウト追加で動作可能に昇格。[David Haywood]
+
+- VT03(NESクローン)サポートの準備ステップ: [David Haywood]
+ * 派生クラスがベーシックモードをサポートするためにPPU機能を拡張できるよう改良
+ * VT03 PPUの派生版とマシンドライバ追加
+ * nes.xmlからmc_dgearをこのドライバに移動し、吸い出しを何本か追加
+ * cybar120の拡張スプライトアドレッシングをサポート
+
+- mitchell.cpp: NVRAMのセーブを修正。[David Haywood]
+
+- scyclone.cppの更新 - 動作可能に昇格: [David Haywood]
+ * スプライト色と星空の仮バージョン追加(点滅なし、星の位置は微妙)
+ * ハードウェアのコリジョン機能をドキュメント化
+ * 画面反転の仮サポート
+ * サウンド追加 - ディスクリート部分は未実装
+ * セーブステートをサポート
+
+- ojankohs: 入力処理の書き直し: [Dirk Best]
+ * プレイヤー2の操作追加
+ * 存在しないキーを確認して削除
+ * DIPスイッチ配置を全ゲームに追加。不明DIPスイッチの解析
+ * コードのクリーンアップと訂正、ランタイムのタグマップ検索を削除
+
+- chinsan、igspoker、jackie、megaphx、thief、upscopeでPPIを実装。[Dirk Best]
+
+- chinsan: mayumiドライバと統合。全般的な改良とクリーンアップ: [Dirk Best]
+ * 入力系のクリーンアップ、フリップフロップ追加、統計ボタン追加
+ * コインエイジとデモサウンドのDIPスイッチが判明
+ * YM2203のクロックをより本物と思われる10MHz/8に指定
+ * 割り込みイネーブル、画面反転、NVRAMの実装
+
+- thief: XTALの検証と、マシン設定のクリーンアップ。[Dirk Best]
+
+- megaphx: PIC16C54 MCUシミュレーションを実際の吸い出しを使ったエミュレーションに置き換え。[Dirk Best]
+ * DIPスイッチもクリーンアップ。DIP配置追加。ドキュメント追加
+
+- SN54/74166 8ビットパラレルイン/シリアルアウトシフトレジスタデバイスを追加。[Dirk Best]
+
+- ym2203: 致命的エラーでクラッシュするのを修正。[Dirk Best]
+
+- emupal: エラー処理追加と、パレット領域名のオーバーライドができるよう変更。[Dirk Best]
+
+- カスタムパレットのインストール関数を、正しい標準コールバックに置き換え。[Dirk Best]
+
+- ui: タイルマップビューアでpage up/downキーで異なるタイルマップカテゴリに切り替え可能。[Dirk Best]
+
+- via6522の更新。外部クロックのサポート: [Joakim Larsson Edstrom]
+ * シフターのリファクタリング、バグの修正、機能の追加
+ * シフターIRQタイミングがサイクル単位で正確になるよう調整
+ * フランクタイマー値の修正。これによりvectrexの不具合は完全に修正されないものの改善
+
+- z80scc: Reset Tx割り込み保留コマンド実装(virtpool修正)。[Joakim Larsson Edstrom]
+
+- Seiko S-29X90 16ビットEEPROMをサポート。[Luca Elia]
+
+- Seta ST-0020の更新: タイルマップ4つと切り替え可能解像度追加 - ST-0032ビデオはST-0020と同等。[Luca Elia]
+
+- jclub2.cpp:「Jockey Club II」の更新: [Luca Elia]
+ * ソフトウェアリビジョンによりセットを分割
+ * デフォルトEEPROM追加と、手順のドキュメント化
+ * I/Oの完成とオンスクリーンキーボードのレイアウト追加
+ * サウンドコミュニケーション追加
+ * 背景と色の修正
+
+- チケットディスペンサーにホッパー風モードを追加。[MetalliC]
+
+- ti99: 周辺機器処理の改善: [Michael Zapf]
+ * bus/ti99サブツリーの再構成、クラスを名前空間に移動、ti99関連をti99xからti99/internalに移動
+ * gromport.cppをデバイス別のファイルに分割、"gromport"を自身のバスとして導入
+ * PEB付きコンソールコネクタ"ioport"をスロットオプションとして追加 - PEBはTI-99/4/4A/8に接続する必要あり
+
+- ソフトリストの評価前にINIファイルからhashpasオプションを引き出すハックを追加。[Nathan Woods]
+
+- ハッシュデータ長がゼロのとき、イメージ識別コードが空ベクタにアクセスする問題を修正。[Nathan Woods]
+
+- CoCo: 6883 SAMがルートデバイスのクロックを操作するよう変更。CoCoデバイスで派生したクロックを使用するよう変更。[Nathan Woods]
+
+- ram_deviceのクリーンアップ: [Nathan Woods]
+ * 特定のオプションをアクセス可能にし、クライアントからRAM文字列のパース負荷を解放
+ * device_validity_check()からコマンドライン引数のバリデーションを移動
+
+- imgtoolのアップデート: [Nathan Woods]
+ * バリディティコードのクリーンアップと、Windowsでstd::wc(out|err)とprintfのミックスが好まれないため、std::wcerrへ移行
+ * listfiltersコマンドの問題修正
+ * imgtool ←→ CHD HDブリッジの超基本的な修正(まだまだ作業必要)
+ * C++11でstd::strinへの直接書き込みができるためCHDメタデータロードをシンプル化
+
+- Windowsオプションの修正: [Nathan Woods]
+ * 冗長な";global_inputs"を削除
+ * 省略形"yuqp"の曖昧さを解消 - YIQフェーズカウントは"yiqpc"に変更(YIQピクセルクロックスケールはまだ"yiqp")
+
+- Auxiliary verbの処理をクリーンアップ: [Nathan Woods]
+ * 解析したスロット/イメージオプションが-romidentを詰まらせるバグを修正
+ * -romidentに引数が渡されなかったときのクラッシュを修正
+ * verb処理が文字列のベクタを引数としてとるように変更
+ * -listslots/-listmediaがスロットオプションを指定すると動作しなくなっていたバグを修正
+
+- コマンドライン引数のスペースやクオートを残すよう変更。INIオプション値のみ。[Nathan Woods]
+
+- ランタイムでソフトウェアリストからreset_on_loadデバイスをロードするとき問題が起こるのを修正。[Nathan Woods]
+
+- クリーンアップとモダン化いろいろ: [Nathan Woods]
+ * C++以前のスロットオプションメニューのトレースを改良し、匿名名前空間に完全なプライベートコードを移動
+ * タグをとるパターンをラップするdevice_slot_interface::slot_name()を追加
+ * running_machine::schedule_[load|save]()で、'const char *'ではなく'std::string &&'をとるように変更
+ * running_machine::saveload_scheduleをスコープ付きenumにコンバート
+ * core_options::parse_ini_file()の'int ignore_warnings'パラメータを'bool ignore_unknown_options'に変更
+ * std::[min|max]()への移行にともない、attotime.hのmin/maxを廃止
+
+- cgenie: フロッピーインタフェースでソフトリストからのROMロードを修正。[Nigel Barnes]
+
+- wicat: フロッピードライブの追加とソフトリストの接続(未動作)。[Nigel Barnes]
+
+- z180: DREQとTEND信号をサポート。dma0カウントとDREQ処理を修正。[BartmanAbyss]
+
+- ソフトリストのロードバグを2つ修正: [Robbbert]
+ * 複数パートのソフトリスト項目がロードされている、または単一パート項目が同じメディアタイプを複数持つシステムにロードされている
+   時にリセットすると致命的エラーが起こるもの
+ * INIファイルで存在しないイメージが指定されていると致命的エラーが起こるもの(不良イメージをイジェクトし、以前の動作をリストア)
+
+- xbox/chihiroの更新: [Samuele Zannoli]
+ * PCIデバイスを新しいPCIバスフレームワークに移動
+ * USB機器スロットデバイスを作成
+
+- seattle, vegas: ドライバを新しいPCIバスシステムに更新。[Ted Green]
+
+- iteagle: セーブステートのサポート。[Ted Green]
+
+- vrc5074: Nile 4 System Controllerデバイスを新たに追加。[Ted Green]
+
+- Dodge ManとBattle Crossで、グラフィックデコードの問題修正とパレット生成を改良。[Tomasz Slanina]
+
+- hcd62121: rotateとshift命令の改良; COMとPORTレジスタを確認; unidasm設定を修正。[Wilbert Pol]
+
+- H8の改善: [BartmanAbyss]
+ * eepmov.bを修正(r4lの代わりにr4hを使用)
+ * 非自動リクエストDMA(DREQ edge、DREQ level)のサポート
+ * H8/300Hのサポートをh8_dmaに追加(これまではH8/300Sのみサポート)
+ * H8/3002にDMAチャンネルとRTMCSRレジスタを追加
+
+- HD6345の部分的に正確なレジスタマッピングを追加。[BartmanAbyss]
+
+- hp9845: HPフォーマットの8"フロッピーディスクで使われている HPIフロッピーフォーマットをサポート。[F.Ulivi, A.Kueckes]
+
+- hp9895: HP9845ドライブのエミュレート時に起こるsegfaultを修正(丸めエラーで発生)。[F.Ulivi]
+
+- hp9845: 表示の改善とソフトキーのサポート: [F.Ulivi]
+ * 45Cのテキストビデオを改善、45Cと45Tのグラフィックカーソル改良、45Cと45Tのソフトキーを実装
+ 
+- hp9845: テープからメモリテスターをロードするときのシステムフリーズを修正。[F.Ulivi]
+
+- starshp1: 船が爆発するときの動作を正しくするため、ハックを削除。[Frank Palazzolo]
+
+- N64 RSP DRC: さらに別の箇所でもPCを12ビットでラップ。[Happy]
+
+- French Minitel 2 Terminalをサポート: [Jean-Francois DEL NERO]
+ * TS9347ディスプレイプロセッサのファミリをサポート
+ * 表示領域の修正
+ * EF9345/TS9347が右下境界に文字を描画するときランダムにクラッシュするのを修正
+
+- 6800の間違った命令長/プログラムカウンタの動作修正と、無効なオペコードの改名。[Jean-Francois DEL NERO]
+ * goupil g1 Basicが動作可能
+
+-「ぱたぱたパニック」の音声サンプルROMマッピング修正とタイトル訂正。[Katsuhiko Kagami]
+ * 以前はオークションの説明が間違っていて「あっちむいてホイ」になっていた
+
+- InterProの改善 - ip2800がFDMプロンプトまで起動。memdiagテストの失敗多数あり: [Patrick Mackinlay]
+ * CPU/MMUのsswバグ修正
+ * nscsiサポート
+ * MMUアドレストランスレーションの追加
+ * デバイスのメモリマップを拡張
+ * IRQとDMA処理の改善(まだ不完全)
+ * SGAレジスタをさらにstub out、SRARBを追加
+ * ncr5390.cppでNCR53C94をサポート追加
+ * start/stopユニットコマンドをt10spc.cppに追加
+
+- ポーズ中もエミュレートが動き続けるEmscriptenポートの問題を修正。[Steven Hugg]
+
+- CoCo: John Linville氏開発のGame Master Cartridgeをスロットデバイスとして追加。[Tim Lindner]
+
+- Netlistライブラリの更新: [Couriersud]
+ * Solver.PARALLELパラメータの定義を変更 - 0: 並列性なし 1: 1プロセッサ並列; >1: nサブセットを並列で解決
+ * OPENMPをリファクタリング - OPENMP命令は全てpomp.hでテンプレート化
+ * 16ビットGalois LFSRジェネレータ追加(「チーキーマウス」の熱ジャンクションノイズをシミュレート)
+
+- cheekyms: netlistベースのディスクリートオーディオエミュレーション追加。DACを置き換え。[Vas Crabb, Couriersud]
+ * 回路図の高画質スキャンを提供してくれたSam Grechさんに感謝
+
+- monymony, jackrabt: 1B11132サウンドボードのメロディセクションのアナログ処理にnetlist追加。[Vas Crabb]
+ * ソース電流に入力が可能なTTL Schmittトリガモデルを追加
+ * netlistのtromba(トランペット)セクションにあったタイポをCouriersudさんのおかげで修正
+ * Cassa(バスドラム)は、現在のシミュレーションでは不具合があるので未接続
+ * SEとスピーチとメロディのミキシングはnetlist外で行っており、相対レベルはたぶん間違っている
+
+- 広範囲なモダン化とクリーンアップ: [Vas Crabb]
+ * staticなデータ(ショートネーム、フルネーム、ソースファイル)をデバイスからデイバスタイプに移動
+ * staticなクラスをMACHINE_CONFIG_STARTから出し、MACHINE_CONFIG_FRAGMENTとMACHINE_CONFIG_DERIVED_CLASSを不要に
+ * ゲームドライバとマシン設定を他のデバイスと同じ方法に変更
+ * デバイスメンバでマシン設定をサポート。これにより、多くの内部ハンドラをプロテクト、またはプライベート化可能
+ * デバイスで内部的に使用される定数をヘッダからソースファイルに移動
+ * 多くの定数をスコープ付きenumに変更、また定数と型のスコープを削減
+ * 多くのコールバックセッターでパラメータを転送
+ * _[A-Z]で始まるか、アンダースコアを連続で2個含むせいで順序が逆になっていた名前の整理
+ * 多くのデバイスをよりわかりやすい名前に変更、デバイスタイプとクラスをより汎用的な名称に変更
+ * fantasy soundとMicroprose 3D noiseをデイバスステートクラスから解放
+ * DECO BSMT2000のreadyコールバックを関数ポインタからデバイスデリゲートに変更
+ * 多くのデバイスでタグマップを後から検索する方法からサブデバイス用のオブジェクトファインダを使うように変更
+ * TI-990からTI-99の分離とバスタイプによる分類
+ * TI-99バスでスロット/カードインタフェースを正しく使用するように変更
+ * FM、SID、SCSP DSP、EPIC12、VoodooコアをC++らしい表現に変更
+ * PSG付きのYMチップ用ボイラープレートを削除
+ * Z180テーブル割り当て/セットを少し安全に改良
+ * Z80DARTチャンネルとSNES PPUのカプセル化を改良
+ * 汎用キーボードとターミナルで、スペース/オフセット/マスクが関係していないためWRITE8ではなくデバイスデリゲートを使うよう変更
+ * 派生デバイスがサイズを指定できるように、ターミナルデバイスが動的にバッファを割り当てるよう変更
+ * Samsung ARM SoCデバイスの共有部分のブレイクアウトを開始
+ * src/emuでの前方宣言を整理と、古いものの削除
+ * #includeガードを多くのヘッダに追加。既存のものを定数化 
+ * emu.hプリフィクスヘッダからほとんど使われていない出力とPTYインタフェースを削除
+
+- auxiliary verbの改良: [Vas Crabb]
+ * -listromsでデバイスセットをサポート(例、mpu401やm68705p3)
+ * -listroms、-verifyroms、-listxmlで複数名称/パターンをサポート
+ * -validateでデバイスの短縮名称が32文字を超えていないかチェック
+ * -listxmlがスロットデバイスをルートデバイスではなく、スロットの子としてインスタンス化するよう変更
+ * デバイスタイプのパフォーマンスを改善
+
+- 多くのデバイスでメンバ関数のマシン設定を使用するようコンバート。[Vas Crabb, Ivan Vangelista]
+
+- exidy.cpp: mtrapの海賊版PROMを吸い出し不良として追加。[f205v, Ivan Vangelista]
+
+- Sharp SM590 CPUコアの仮バージョン追加。[Lord Nightmare, hap]
+
+- QSound/DL-1425: 最近のデキャップより、ROMとコメントの更新。[Lord Nightmare, Siliconpr0n, superctr, Quench]
+
+- Williams Special Chip 1/2: ピンアウト図追加。SC1とSC2の動作についてのコメント修正。[Sean Riddle, Lord Nightmare]
+
+- Irem audio: 汎用ラッチをより正確なエミュレーションに置き換え: [Lord Nightmare]
+ * サウンドラッチに不足していたD7修正、device_resetを明確なラッチに設定; サウンドCPUの割り込みがエラーでクリアされるケースが修正
+
+- epos.cppの更新: [Lord Nightmare]
+ * ROM名/コメントの訂正と、基板写真を元にROMタイプを追加
+ * ROM番号より、revngr84がrevengerより新しいセットであることを明記
+ * Tristar 9000ハードウェアのAY-3-8910ポートAマルチプレクサを実装
+ * 回路図よりTirstar 8000ハードウェアでAY-3-8912を使うように変更
+
+- BP1200: SM48Dソケットモジュールをほぼトレース。[Lord Nightmare]
+
+- Williams Maydayのプロテクトが未エミュレートで、現在はハックであることを明記、及びフラグ追加。[Lord Nightmare]
+
+- GENie Luaスクリプトのクリーアップと、ヘッダファイル名の訂正。[dankan1890]
+
+- お気に入りメニューからマシンを開始した場合、必要に応じてソフトリストが現れるように改良。[dankan1890]
+
+- scyclone.cpp: 不良ROM再吸い出し、PROM吸い出し。[ShouTime]
+
+- williams.cpp: defenderjの不良ROMを再吸い出し。ゲーム動作可能。[ShouTime]
+
+- stv.cpp: epr_17951a BIOSのマスクROMバージョンをドキュメントに追加。[ShouTime, The Dumping Union]
+
+- Japan Dreamcastのフラッシュ吸い出し。[rtw]
+
+- segas18.cpp:「シャドーダンサー」のサウンドCPU ROM後期版を吸出し。メインプログラムEPRラベルのドキュメント化。[rtw]
+
+- by68701.cpp: flashgdnp1の不足ROM追加。[PinMAME]
+
+- aristmk4, aristmk5, aristmk5: セット追加とドキュメント改良。[Heihachi_73]
+ * UNIXシステムへFTPモードAで送信していたため、ROMがかなり化けていた
+
+- Taito Power JCとTaito Type Zeroのゲーム名を更新。[sjy96525]
+
+-「WAR ファイナルアサルト」と「ロードバーナーズ」の動作する操作系を追加。[sjy96525]
+
+-「タタコット / Critter Crusher」の光線銃操作を改良。[sjy96525]
+
+- hh_tms1k.cpp: cnbaskbのゲーム名にあったスペルミスを修正。[Dagarman]
+
+- xbox: 吸い出し不良だったMCPX 1.0 ROMを正しいチェックサムを取るものと置き換え。[Mark Riley]
+
+- Amiga: A1000で正しいサイズにしたブートROMを使用(マスクROMは内容よりかなり大きい)。[Guru]
+
+- royalmah.cpp: mjyarouを再吸い出しし、Z80が一つしかないことを確認。[Guru]
+
+- dsoccr94: 重複したDIPスイッチを削除。[Bad A. Billy]
+
+- r9751: ターミナルキーボードのコールバック追加。[Brandon Munger]
+
+- luaエンジンのドキュメントを更新。[Dan Amador]
+
+- hiscore.datを更新。[Leezer]
+
+- video_manager::throttle_until_ticksでの最小スリープ時間の制約を削除。[057a3dd61f99517a3afea0051a49cb27994f94d]

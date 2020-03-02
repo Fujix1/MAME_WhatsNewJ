@@ -1,0 +1,87 @@
+0.101u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+bigkarnk0101u2gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* u1の更新で不具合の出たゲームを修正。まだ問題が少しあるものの、ほとんどのゲーム
+  は動作するようになってます。[Aaron Giles, with contributions from El Condor, 
+  R. Belmont, Ville Linde]
+
+*「ミサイルコマンド」「バトルゾーン」にステートセーブ初期版追加。[Buddabing]
+
+*「Pop's Pop's」のDIP修正。[Sonikos]
+
+*「ウッドペッカー」の入力修正。[Pierpaolo Prazzoli]
+
+* PowerPCコアで新しい逆アセンブラのスタイルを使うよう更新。[Nathan Woods]
+
+* 最近のMESS PCエミュレーションコードを統合。[Nathan Woods]
+
+* -listxml出力のDTDを修正。[Oliver Stoneberg] 
+
+*「Egg Hunt」のスプライトバンキング、タイルバンキング、サウンドバンキング、DIPス
+  イッチ2つ修正。[Pierpaolo Prazzoli]
+
+* 6502ファミリーを新逆アセンブラのスタイルに更新。m6510とm4510CPUコアに内部メモ
+  リマップ追加。m4510でアドレス変換用フック追加。[Nathan Woods]
+
+* ステッピングとsteps_until_stopの値が高いとき、デバッガの表示更新頻度を下げまし
+  た。これで"step #10000"のようなコマンドが以前より使い物になるはずです。
+  [Nathan Woods]
+
+* MESSのUIコードがPキーとESCキーのインターセプトを阻害していたのを修正。
+  [Lawrence Gold]
+
+* 0サイズのmallocのチェックと不実行追加。[Nathan Woods]
+
+* i86とi286コアを新しいi386逆アセンブラにフック。[Nathan Woods]
+
+* MIPS3ダイナミックリコンパイラにMMUサポート追加。デフォルトで再び有効にしてます。
+  ダイナミックリコンパイラにダイレクト高速RAMアクセスとオプションのホットスポッ
+  トの最適化を追加。以前のMMUコンパイラに比べてほとんどのゲームの動作速度が向上
+  しています。[Aaron Giles]
+
+* FPUデコードと、i386逆アセのその他のマイナーな問題を修正。[Aaron Giles]
+
+* デバッガにホットスポット検知機能のベースを追加。"help hotspot"とタイプすると
+  動作の詳細が表示されます。[Aaron Giles]
+
+* デバッガのメモリサブシステムへ実装法をクリーンアップ。それぞれのCPU切り替え毎
+  に、リード・ライト毎にコールバックの呼び出しをデバッガが照会します。これにより
+  ウォッチポイントのトラッキング効率の向上と、ホットスポットの検知など非ウォッチ
+  ポイントのデバッグができます。[Aaron Giles]
+
+* 暗号化されたCPUメモリの配置と管理方法を変更しました。以前は  
+  memory_set_opcode_base()を使って復号化した命令コードへの単一のポインタを設定し
+  ていましたが、この方法では多くの制限がありました。そこで、RAM全てとROM系の領
+  域をバンクに割り当て、メモリシステムがバンク毎に復号化した命令をトラッキング
+  するようにしました。暗黙のバンク（メモリマップ内のマーク付RAM、またはROM）につ
+  いては、新関数memory_set_decrypted_region()で、アドレス空間のどの領域に復号化
+  した命令コードが含まれるか、またどこの復号化命令コードが生きているかを設定しま
+  す。明示的なバンクでは、新関数memory_configure_bank_decrypted()が
+  memory_configure_bank()と同じ動作をしますが、復号命令コードポインタはバンクを
+  基準にして指定します。全ドライバを新システムに更新して、旧システムは削除しまし
+  た。[Aaron Giles]
+
+* 新しいメモリコードハンドリングにより、メモリシステム全体から"RAMROM"のサポー
+  トを削除できました。また、CPUが復号化する領域を単に制限するだけに全ドライバを
+  更新しました。[Aaron Giles]
+
+* activecpu_dasm()とcpunum_dasm()で、更新された逆アセンブラがあるのを検知して、
+  クラッシュする代わりに呼び出しを止めるように修正。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ストリートファイターEX 2 (ASIA 980312) [Corrado Tomaselli]
+バツグン (set 2) [Parodier]
+Glass (Ver 1.0 set 2) [Corrado Tomaselli]
+Golden Tee Royal Edition Tournament (v4.02) [Brian Troha]

@@ -1,0 +1,148 @@
+0.78u1
+------
+
+ソース全般の変更：
+------------------
+
+■以下のゲームのOKIサウンド（とその他）を修正。[Quench]
+    Diverboy (diverboy.c)
+    爆裂ブレイカー (kaneko16.c)
+    アクアリウム (aquarium.c)
+    Funny Bubble (funybubl.c)
+
+■「アシュラブレード」にSEとBGMを完全に追加。[R.Belmont]
+
+■「ビデオピンボール」にディスクリートサウンド追加。[Derrick Renaud]
+
+■「Truco-Tron」にDACサウンド追加。[Tomasz Slanina]
+
+■「クロスパング」のグラフィック修正とサウンド追加。[Pierpaolo Prazzoli]
+
+■以下のゲームに未使用のPROMを追加。[Stefan Jokisch]
+    rallyx (rallyx.c)
+    acedrvrw (namcos22.c)
+    millpac (centiped.c)
+    sci (taito_z.c)
+
+■Moon Patrolドライバのアップデート。[Stefan Jokisch]
+    - Williamsセットに新しいPROM追加
+    - IREMセットのPROMサイズ変更
+    - ROMのリネーム
+    - タイルマップシステムにドライバをコンバート
+    - 256x64のグラフィックレイアウトを生成することで、背景描画を簡略化
+    - 回路図を元にビデオ部分のマイナーな修正
+
+■「機動戦士ガンダム EXレビュー」の修正。[Tomasz Slanina]
+    - EEPROM (68301パラレルポート)の実装と初期化を追加
+    - 言語設定のDIPを追加
+
+■ST-Vエミュレーションを改善。[Mariusz Wojcieszek]
+    - VDP2のカラーオフセットレジスタを使ったカラーバンクモードを使用してスプライトカ
+      ラーの演算するように修正しました。これで「紫炎龍」の修正が不要になり、
+      「バーチャファイターキッズ」と「ウィンターヒート」のスプライトカラーも正確にな
+      りました
+    -「プリクラ大作戦」がプレイ可能になりました
+    -「プリクラ大作戦」では、xsize=0またはysize=0のゆがんだスプライトを描画しようとし
+      てクラッシュしていました。マニュアルによるとこれらは使用できないことになってい
+      るので、無視するようにしています
+    - スレーブでスプライトを動作させるためのMINITが不明でしたが、0x01000000ではなく
+      0x01406f40のアドレスを使えばよいことがわかりました。この方法が実機のものなのか、
+      ハックなのかは分かりませんが、個人的にはアドレス全部の範囲(0x01000000 - 
+      0x017fffff)がMINITに利用できると思います。prikuraで使うアドレス一つ分だけの
+      MINITを追加しました
+    - Point 1のスプライトカラーを修正
+    - VDP2の変更:usrintf_showmessage()のコールをコメントアウトしました
+
+■Data East MLCの改善。[Bryan McPhail]
+    ビデオ描画がいろいろな面で改善しています。
+    「アベンジャーズインギャラクティックストーム」はキャラクタ付きでプレイ可能ですが、
+    CPUコアのバグがゲーム自体に影響しています。「キャプテンアメリカ」の反転が一番目立
+    つものです。原因探しのお手伝いや修正歓迎です。他にも、未動作のゲームを何本か追加
+    してます。
+
+■実行中でもドライバ側からリフレッシュレートを変更できるように更新。[Aaron Giles]
+
+■Namco 8080のクリーンアップ。[Nicola Salmoria]
+    - geebee.cとwarpwarp.cは基本的に同じハードデザインなので統合。drivers/geebee.c、
+      machine/geebee.c、vidhrdw/geebee.cは不要です
+    - NavaloneをNavaroneに改名。“the guns of Navarone”にあるように、多分こっちが正
+      しいと思います
+    - kaiteinをkaitei、kaiteiをkaiteikにして、Namco版をメインセットにしました。これに
+      ついての話は出てなかったと思いますが、確かサードパーティによるプロトタイプをナ
+      ムコが買い取って完全に書き直したもののはずです
+    - 全ゲームのDIPと入力を修正
+    - sosとkaiteinのボールサイズを修正。kaiteinの銛が岩のように見えていたので
+    -「ワープ＆ワープ」のハックを削除。フライヤーによると画面左下にはボールがあって正
+      解
+
+■いろいろな修正。[Nathan Woods]
+    src/chd.c:
+        - Metrowerks製コンパイラ用の応急処置
+
+    src/x86drc.c:
+    src/x86drc.h:
+        - 命令定義をいくつか追加
+        - CPUIDからCPUのフラグを取得するコールを追加
+
+    src/windows/ticker.c:
+    - 上で追加したコールによって置き換えられたコンパイラ別のフィーチャリーディン
+      グ用アセンブラコード
+
+■TESTDRIVER関係で残っていたものを完全に消去。[Paul Priest]
+
+■BIOS ROMをinfo.cに追加する必要がないように変更。[Paul Priest]
+
+■「ファイナルラップ2」のオブジェクトROMの読み込みを修正。[Brian Troha]
+
+■「Black Dragon / ブラックタイガー」海賊版のROMを正しい物に置き換え。
+   [Stefan Jokisch]
+
+■「スペースファイアーバード」のサンプル追加。[Chris Hardy]
+
+■DIPスイッチが消えないので、toaplanドライバからIPF_CHEATをいくつか削除。[Mamesick]
+
+■「Lady Frog」の難易度DIPを修正。[Nicola Salmoria]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+プリクラ大作戦 [Mariusz Wojcieszek]
+    src/drivers/stv.c
+
+ワイルドパイロット [Pierpaolo Prazzoli]
+    src/drivers/cischeat.c
+    表示関係にいろいろ問題あり。サービスボタンがスタートボタンと兼用
+
+Target Balls [Luca Elia]
+    src/drivers/paradise.c
+
+International Cup '94 / ハットトリックヒーロー '94 [David Haywood]
+    サッカーゲームの親子関係も少し変更
+    src/drivers/taito_f3.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+PGMのクローン数本
+
+Run & Gun / スラムダンクの追加セット [Brian Troha]
+
+Qバート (Us Set 2) [Smitdogg]
+
+
+削除ゲーム / セット：
+---------------------
+
+New Rally-X (vertical hack) [removed by Stefan Jokisch]
+    グラフィックハック（タイルと表示を回転）はサポートする価値なし
+
+
+新規未動作 / クローンゲーム：
+-----------------------------
+
+スタジアムヒーロー'96 [Bryan McPhail]
+スカルファング - 空牙外伝 [Bryan McPhail]
+    src/drivers/deco_mlc.c
+    Encrypted (Deco 156)

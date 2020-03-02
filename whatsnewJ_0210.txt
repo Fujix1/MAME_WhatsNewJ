@@ -1,0 +1,824 @@
+0.210 2019-05-30
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 07335: [メディアサポート] (comx35.cpp) comx35p,comx35n: カセットをロードできない。(Robbbert)
+- 07287: [サウンド] (jr100.cpp) jr100, jr100u: キーを押すとすごい音がする。(Robbbert)
+- 07334: [DIP/入力] (microtan.cpp) microtan: BASICを使おうとするとメモリ不足になる。(Robbbert)
+- 07332: [ゲームプレイ] (galaxian.cpp) zigzagb, zigzagb2: 2人プレーをはじめると固まる。(AJR)
+- 07325: [グラフィック] (sbowling.cpp) sbowling: プレイヤー2のグラフィックがバグっている。(Osso)
+- 07315: [その他] (model2.cpp) rchase2, gunblade, topskatr, srallyc, manxtt: サービスメニューの設定が保存されない。(Duke)
+- 05553: [DIP/入力] (royalmah.cpp) mjdiplob: DIPスイッチ設定の情報。(kamilz)
+- 05447: [グラフィック] (studio2.cpp) studio2 and clones: グラフィック不具合多数発生。
+- 02932: [グラフィック] (tutankhm.cpp) tutankhm, tutankhms: アトラクトモードとハイスコア画面の背景に星空が表示されない。(couriersud)
+- 07232: [クラッシュ/フリーズ] (studio2.cpp) studio2: 正しく起動できない。(Robbbert)
+- 07326: [クラッシュ/フリーズ] (cosmicos.cpp) cosmicos: 画面に表示されない。(Robbbert)
+- 07319: [インターフェイス] (tmc600.cpp) tmc600s2: キーボードが動作しない。(Robbbert)
+- 07316: [クラッシュ/フリーズ] (vgmplay.cpp) vgmplay: スライダーを選択するとクラッシュする。(jkm900)
+- 07323: [グラフィック] (alpha68k.cpp) timesold and clones: タイトル画面が化けている。(Olivier Galibert)
+- 07314: [クラッシュ/フリーズ] (homedata.cpp) mjikaga: ゲーム起動後すぐに白画面で固まる。(Osso)
+- 07317: [DIP/入力] (zorba.cpp) zorba: キーボードが動かない。(pmackinlay)
+- 07310: [グラフィック] (route16.cpp) route16, route16a, route16c: マップのグラフィックがずれている。(Robbbert)
+- 07309: [クラッシュ/フリーズ] (8080bw.cpp) invrvnge, invrvngegw: ウォッチドックがゲーム開始後数秒で有効になる。(AJR)
+- 07307: [サウンド] (snes.cpp) snes: オートセーブを有効にするとサウンドの不具合が起こる。(Osso)
+- 07296: [メディアサポート] (neogeocd.cpp) neocdz: ディスクを識別できない。ゲームをプレイ不可。(AJR)
+- 07297: [DIP/入力] (namcos22.cpp) aquajet, dirtdash, tokyowar: Namco SS22アナログ操作が反応しない。(AJR)
+- 06242: [グラフィック] (cgenie.cpp) cgenie [labyfear]: 迷路のマップが表示されない。(Duke)
+- 07286: [メディアサポート] (spectrum.cpp) spectrum and clones: TZXカセットイメージからSabre Wulfをロードできない。(AmatCoder)
+
+
+新規動作可能マシン
+------------------
+Computer Chess (Mattel) [hap, Sean Riddle]
+Gradius (Bubble System) [ArcadeHacker, Bryan McPhail]
+Parker Brothers Starting Lineup Talking Baseball [hap, Kevin Horton]
+Parker Brothers Superstar Lineup Talking Football [hap, Kevin Horton]
+Player's Edge Plus (X000403P+XP000013) 4 of a Kind Bonus Poker [Brian Troha]
+Player's Edge Plus (X000556P+XP000038) Dueces Joker Wild Poker [Brian Troha]
+SciSys Chess Partner 2000 [hap, bataais]
+SKB Kontur Krokha [shattered]
+Tronica Shuttle Voyage [Sean Riddle, avlixa]
+Tronica Space Rescue [algestam]
+
+
+新規動作可能クローン
+--------------------
+倉庫番デラックス / Boxy Boy (World, SB2) [Corrado Tomaselli, The Dumping Union]
+カーニバル (upright, PIT8253 music) [hap, Andrew Welburn]
+ディアハンティングUSA V4.4.1 (Japan) [Brian Troha, The Dumping Union]
+Elektronika Merry Cook [algestam]
+Fidelity Electronics Chess Challenger 10 (model CCX) [bataais]
+ゲーム&ウォッチ: クライマー (crystal screen) [algestam]
+ガンネイル (bootleg) [xodaraP, sylphia]
+レイフォース / Gunlock (Ver 2.0O 1993/12/15) [Action Jackson]
+Jack Potten's Poker (set 11, German, W.W.) [Roberto Fresca, TeamEurope]
+Jack Potten's Poker (set 12, no Double-Up) [Roberto Fresca, TeamEurope]
+快傑ヤンチャ丸 / Kid Niki (bootleg) [Bonky0013]
+牌砦 ＜とりで＞ (Japan, VG460 PCB) [twistedsymphony]
+ムーンクレスタ (bootleg set 4) [Darran, The Dumping Union]
+Ms. Pac-Man (Impeuropex bootleg) [Corrado Tomaselli]
+Player's Edge Plus (PP0550) Joker Poker (Two Pair or Better, set 2) [Brian Troha]
+ガンバァール / Point Blank 2 (World, GNB2/VER.A) [Guru, smf]
+ガンバァール / Point Blank 2 (World, GNB2/VER.A alt) [Guru, smf]
+Royal Card Part-Two (Nichibutsu HW, Ver. 1.02) [Roberto Fresca, TeamEurope]
+ストリートファイターEX2 (Euro 980312) [Jorge Silva]
+スーパーボブルボブル (bootleg, set 6) [Bonky0013]
+スーパーコブラ (encrypted) [TeamEurope]
+Tetris (D.R. Korea, set 2) [Fabrice Arzeno, The Dumping Union]
+Touchmaster 7000 (v8.04 Germany) [Alex Meijer, The Dumping Union]
+ビューポイント (prototype) [Brian Hargrove]
+
+
+動作可能に昇格したマシン
+------------------------
+バブルシステムBIOS [ArcadeHacker, Bryan McPhail]
+Eckhard Schiller BCS 3 rev 2.4 [Robbbert]
+Electronic Milton [hap]
+Heath Company Heathkit H8 Digital Computer [Robbbert]
+Institut Ivo Lola Ribar Lola 8A [Robbbert]
+RCA COSMAC Microkit [Robbbert]
+
+
+動作可能に昇格したクローン
+--------------------------
+EC-1840 [shattered]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Cricket [@LosTrastosDeXaX, ClawGrip]
+Ensoniq TS-10 [R. Belmont, DBWBP.com]
+MegaTouch XL Titanium (Version r0?, cracked) [C. Ward, R. Belmont]
+Motorola MVME-162 [Edstrom, Bitsavers]
+Percussion Freaks 2nd Mix (GE912 VER. KAA) [Windy Fairy, smf]
+Power Sled (Slave, Revision A) [Phil Bennett]
+Ensoniq TS-12 [R. Belmont, DBWBP.com]
+ゲーム&ウォッチ: シェフ [algestam]
+セガネットワーク対戦麻雀MJ3 エボリューションファームウェアアップデート (GDX-0023) [Wiggy2k]
+セガ四人打ち麻雀MJ (Update Disc Ver.1.008, Japan) (CDP-10002B) [Wiggy2k]
+SpongeBob SquarePants Ticket Boom [brizzo, MetalliC]
+スターホース2002 (sound, Export/Taiwan) [CoolFox, MetalliC]
+Star Rider [Vas Crabb, Matt Ownby, TrevEB]
+Super Mini-Boy [Roberto Fresca, TeamEurope]
+Telex Computer Products Telex 274-61C Sixteen Station Control Unit [Al Kossow, Bitsavers]
+Video Technology Video Painter (PAL) [ClawGrip, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+80286 Standard System (SARC RC2015 chipset) [rfka01, AJR]
+Abit FU340 [rfka01, AJR]
+Asus PCI/I-486SP3G [rfka01, AJR]
+Asus PCI/I-A486S [rfka01, AJR]
+Asus PVI-486AP4 [rfka01, AJR]
+Asus PVI-486SP3 [rfka01, AJR]
+Asus VL/EISA-486SV1 [rfka01, AJR]
+Asus VL/I-486SV2G [rfka01, AJR]
+Biostar MB8433-UUD-A [rfka01, AJR]
+Commodore Business Machines DT386 [rfka01]
+Commodore Business Machines DT486 [rfka01]
+Commodore Business Machines Laptop C286LT [rfka01]
+Commodore Business Machines Laptop C386SX-LT [rfka01]
+Commodore Business Machines PC 45-III [rfka01]
+Commodore Business Machines PC 50-II [rfka01]
+Commodore Business Machines PC 60-III [rfka01]
+Commodore Business Machines PC 70-III [rfka01]
+Commodore Business Machines SL 286-16 [rfka01]
+Commodore Business Machines Tower 386 [rfka01]
+Commodore Business Machines Tower 486 [rfka01]
+Compaq SLT/286 [rfka01]
+CX Technology CX SXD [rfka01, AJR]
+Cycle Warriors [Sugoi Helsinki]
+Dell Computer Corporation System 200 [rfka01]
+Dolphin Treasure (0101250V, Queensland) [Dam0, Heihachi_73]
+Elitegroup Computer Systems ECS-386/32 [rfka01, AJR]
+Elitegroup Computer Systems UM386 (Rev 1.1) [rfka01, AJR]
+Everex Systems EV-1806 [rfka01, AJR]
+First International Computer 486-VIP-IO [AJR]
+First International Computer 486-VIP-IO2 [AJR]
+Forex Computer Company unknown 386 AT clone with Forex chipset [rfka01, AJR]
+Indian Dreaming (0101340V, Queensland) [Dam0, Heihachi_73]
+J-Bond A433C-C/A450C-C [rfka01, AJR]
+KT Technology KT216WB5-HI Rev.2 [rfka01, AJR]
+LM-103S [rfka01, AJR]
+Magitronic Technology Magitronic B233 [AJR]
+MAT286 Rev.D [AJR]
+NCR PC-8 [rfka01]
+Nixdorf Computer AG 8810 M15 [rfka01]
+Nixdorf Computer AG 8810 M16 CGA version [rfka01]
+Nixdorf Computer AG 8810 M16 VGA version [rfka01]
+Nixdorf Computer AG 8810 M30 [rfka01]
+Nixdorf Computer AG 8810 M55 [rfka01]
+Nixdorf Computer AG 8810/25 CPC - PC01 [rfka01]
+Olivetti M290 [rfka01]
+The Phantom of the Opera (3.1) [Gerald (COY)]
+パワースレッド (Main, hack of Relay) [Phil Bennet, MetalliC]
+パワースレッド (Relay, Revision A) [Phil Bennet]
+Shuttle Computer InternationalHOT-409 [rfka01, AJR]
+Siemends-Nixdorf PCD-3Nsx [rfka01]
+Siemends-Nixdorf PCD-4H, PCD-4M [rfka01]
+Siemends-Nixdorf PCD-4ND [rfka01]
+Siemends-Nixdorf PCD-4NL [rfka01]
+Toptek Micro Computer 286 Turbo [AJR]
+Triumph-Adler Walkstation 386DX [rfka01]
+Triumph-Adler Walkstation 386 SX [rfka01]
+unknown 286 AT clone (HT12/A chipset) [rfka01, AJR]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_flop_clcracked:
+  Concentrate on Words and Concepts (cleanly cracked), Concentrate on Words and Concepts II (cleanly cracked),
+  Concentration (cleanly cracked), Conflict in Vietnam (Version 2) (128K enhanced) (cleanly cracked),
+  Conglomerates Collide (cleanly cracked), Congo (cleanly cracked), Congo Bongo (cleanly cracked),
+  Conquering Worlds (cleanly cracked), Consonant Carnival (cleanly cracked), Contraction Concentration (cleanly cracked),
+  Converting Fractions and Percents - Problems with Percents (cleanly cracked),
+  Correct Behavior - The Mexican Way (cleanly cracked), Counting Coins (cleanly cracked), Counting Patterns I (cleanly cracked),
+  Counting Patterns II (cleanly cracked), Countries of the World (cleanly cracked), Cranston Manor (cleanly cracked),
+  Crazy Mazey (cleanly cracked), Create Lessons (cleanly cracked), Create with Garfield Deluxe Edition (cleanly cracked),
+  Create-Spell It (cleanly cracked), Creative Play (cleanly cracked), Creativity, Unlimited (cleanly cracked),
+  Creature Chorus (cleanly cracked), Creature Magic (cleanly cracked), Creatures of the Night (cleanly cracked),
+  Crime Stopper (cleanly cracked), Crime Wave (cleanly cracked), Cross Country California (cleanly cracked),
+  Crossbow (cleanly cracked), Crossfire (cleanly cracked), Crown of Arthain (cleanly cracked), Crozzzwords (cleanly cracked),
+  Crusade in Europe (128K version) (cleanly cracked), Crusade in Europe (64K version) (cleanly cracked),
+  Crush Crumble and Chomp (cleanly cracked), Crypto Cube (Revision 2) (cleanly cracked), Crypto Cube 1984 (cleanly cracked),
+  Crystal Caverns (cleanly cracked), Cubit (cleanly cracked), Curious George Visits The Library (cleanly cracked),
+  Customized Alphabet Drills (cleanly cracked), Cut and Paste (cleanly cracked), Cutthroats (Revision 23) (cleanly cracked),
+  Darkhorn (cleanly cracked), Dave Winfield's Batter Up (cleanly cracked), Deadline (Revision 18) (cleanly cracked),
+  Deadline (Revision 26) (cleanly cracked), Death in the Caribbean (cleanly cracked), Decimal Dungeon (cleanly cracked),
+  Decimals (Version 1.2) (cleanly cracked), Decimals - Multiplication and Division (Version 3.1.6) (cleanly cracked),
+  Decimals Practice (cleanly cracked), Deck the Halls with Random House Software (cleanly cracked),
+  Delta Drawing (Version 3.33) (cleanly cracked), Demolition Division (1985) (cleanly cracked),
+  Demolition Division (Version 1982.0) (cleanly cracked), Demolition Division (Version 1982.1) (cleanly cracked),
+  Design Your Own Home - Architectural Design (1986) (cleanly cracked),
+  Design Your Own Home - Interior Design (1987) (cleanly cracked), Design Your Own Home - Landscape Design (cleanly cracked),
+  Design Your Own Train (cleanly cracked), Designasaurus (Version 2.12) (cleanly cracked), Destroyer (cleanly cracked),
+  Developing Basic Writing Skills Level I (cleanly cracked), Developing Basic Writing Skills Level II (cleanly cracked),
+  Diagramming Grammatical Relationships (cleanly cracked), Dig Dug (Datasoft) (cleanly cracked), Dino Spell (cleanly cracked),
+  Dinosaur Days (cleanly cracked), Discover (cleanly cracked),
+  Discovering the Scientific Method - Snigs, Flirks, and Blorgs (cleanly cracked), Diskovery Word Bird (cleanly cracked),
+  Dividing Fractions (cleanly cracked), Division Made Easy (cleanly cracked),
+  Division One Digit Divisor No Renaming (cleanly cracked), Division One-Digit Divisor One Renaming (cleanly cracked),
+  Division Shooting Gallery (Version 1.5) (cleanly cracked),
+  Division of 1, 2, 3 Digits by 1 Digit Numerals No Remainders (cleanly cracked), Dogs and Puppies (cleanly cracked),
+  Don't Quote Me and Adjective Scramble (cleanly cracked), Donald Duck's Playground (cleanly cracked),
+  Dondra - A New Beginning (cleanly cracked), Double 'N' Trouble (cleanly cracked), Double Trouble (cleanly cracked),
+  Dr. Peet's Talk-Writer (cleanly cracked), Dr. Peet's Talk-Writer ABC Discovery (cleanly cracked), Dragon Fire (cleanly cracked),
+  Dragon Mix (1982) (cleanly cracked), Dragon Mix (Revision 0) (cleanly cracked), Dragon's Keep (cleanly cracked),
+  Drug Alert (Revision 0) (cleanly cracked), Drug Alert (cleanly cracked), Early Bird (cleanly cracked),
+  Early Discoveries - Observation and Classification (Version 09.23.85) (cleanly cracked),
+  Early Elementary (Compu-Tations) (cleanly cracked), Early Emerging Rules - Negation (cleanly cracked),
+  Early Emerging Rules - Plurals (cleanly cracked), Early Games - Matchmaker (cleanly cracked),
+  Early Games - Music (cleanly cracked), Early Heroes of the Bible (cleanly cracked),
+  Early Skills (Version 06.05.86) (cleanly cracked), Earth Orbit Stations (cleanly cracked),
+  Earthquake San Francisco 1906 (cleanly cracked), EasyGraph (cleanly cracked), Grammar Gremlins (1987) (cleanly cracked),
+  Seven Cities of Gold (cleanly cracked), Stickybear Printer (Revision 2) (cleanly cracked) [4am, Firehawke]
+apple2_flop_orig:
+  Adventureland (Version 2.0/416), The Arcade Machine, Battlezone, Blister Ball and Mad Bomber, Buzzard Bait,
+  The Count (Version 2.1/115), The Crimson Crown, Cutthroats (Release 23), Dueling Digits, Elite, Firebug, Fore,
+  Gold Rush (1982) (Sentient Software), Gorgon, Hacker, Heavy Barrel, Impossible Mission, Juggler, Locksmith 4.1, Magic Spells,
+  Micro Invaders, Microsoft Adventure, Mission Impossible (Version 2.1/306), Neptune, Pirate Adventure (Version 2.1/408),
+  The Print Shop Companion (Version 1.2), Robotwar, The Sands of Egypt, Sorcerer of Siva, Space Warrior, Stationfall (Release 107),
+  Strange Odyssey (Version 2.1/119), Tass Times in Tonetown, Top Fuel Eliminator, Trinity (Release 11), Typing Tutor,
+  Voodoo Castle (Version 2.1/119), Where in Europe is Carmen Sandiego, Wishbringer (Release 68 / 850501), Zork II (Revision 7),
+  Zykron Hearts [4am, Firehawke]
+c64_cart:
+  The Final ChessCard (Eng, v0.9/v1.0) [hap, Ratuv]
+  The Final ChessCard (Ger, v1.3/v1.5) [hap, DDI]
+c64_flop: The Final ChessCard [hap, Forum64.de]
+cd32:
+  Amiga CD32 - Volume 1, Amiga CD32 - Volume 2, Amiga CD32 Gamer - Volume 1, Amiga CD32 Gamer - Volume 2,
+  Amiga CD32 Gamer - Volume 3, Amiga CD32 Gamer - Volume 4, Arcade Pool, Arcade Pool (Alt), ATR: All Terrain Racing [FakeShemp]
+cgenie_cass:
+  Abenteuerland, Adressdatei II, Africa, Ballon, Basic-Packer 2.13 (alternate), Benchmark Test, Botschaft, Bruecke, Bumm Bumm,
+  CIA-Agent, Cave Man, Charset, Chess Machine, Crazy Chaser, Deathstar, Deathtrap, Defender, Der Flohwalzer, Dez-Hex,
+  Die Juwelen des Grafen Dracula, Die Physik des Transistors, Disastrous Villa, EBASIC (32k version),
+  Editor fuer definierbare Zeichen, Empire, ExReversic, Extended Copy, Extra-Basic, Fast Food, Genie I II / TRS 80 Cassettenlader,
+  Gorilla, Hektik (alternate), Horror Castle, House of Death, Joker Poker, King, Kniffel, Labyrinth of Fear,
+  Las Vergas Spiel-Automat, Laender-Quiz, Madtree, Mord im Zeppelin, Mysterious Tavern, NODOS 80, Nato Morsing Standard Code, Peng,
+  Primzahlsuche, Real-Compiler, Santa Paravia und Fuimaccio, Schiff des Grauens, Schnick Schnack Schnuck,
+  Screen Editor (incl. Adventure screen), Shift Transformation, Sprite-Editor, Tape-Edit, Trash-Man, Utilities Package Ver. 2.0,
+  Wurm, Zalaga [Dirk Best]
+ibm5170: The Final ChessCard [hap]
+neogeo: Viewpoint (prototype) [Brian Hargrove]
+ngpc:
+  Rockman - Battle & Fighters (Jpn, Demo), Sonic the Hedgehog - Pocket Adventure (World, Oct 22 1999 Prototype) [The Hidden Palace]
+pcw: CP/M Plus v1.4 (Swe) work copy [Edstrom]
+pencil2: Treasure Hunt / Le Plongeur a la Recherche du Tresor [silicium.org, David Viens]
+specpls3_flop:
+  1943, 3D Pool, 6-Pak Vol 1, The Alkatraz Protection System v 2.2, Answer Back Factfile 500 - General Science, Arcade Muscle,
+  Ball Breaker, Bionic Commando, Chart Attack, Crack Down (Spa), DICE v2.0, Fun School 4 For The Under-5s,
+  G1WVN ZX Pak Term v3.0 Beta Test, Granny's Garden, Hercules - Slayer Of The Damned, Judge Dredd, Lords Of Chaos Expansion Kit One,
+  Lords Of Chaos Expansion Kit One (alt), M3 Unlock, Mercs, Motor Massacre, Navy SEALs, Obliterator (alt), Outcast,
+  Outlet issue 058, Outlet issue 063, Outlet issue 075, Outlet issue 076, Outlet issue 078, Outlet issue 085, Outlet issue 117,
+  Pirate, Platinum, Puffy's Saga, Rock Star Ate My Hamster, Shoot-Out, Skate Crazy, Skate or Die, The Spanish Tutor,
+  The Star Wars Trilogy, Starship Quest + Helvera - Mistress of the Park, Strider, The Sunflower Number Show, Switchblade, SWIV,
+  Tiger Road, Tops and Tails, Ultimate Play The Game: The Collected Works, Winners
+  [Antonio M, Fede Jerez, Gorski, Jaime Gonzalez Soriano, Jose Manuel, Marino Arribas, Metalbrain, robcfg, Simon Owen, Syx, Zup,
+  TZX Vault, ICEknight]
+  Coin-Op Hits [Dlfrsilver, ICEknight]
+  4 Soccer Simulators (Spa) [Gorski, ZXdenied, ICEknight]
+  LC-10 Colour Screen printer v 1.1 (+2a/+3) [Guy Bearman, ICEknight]
+vsmile_cart:
+  The Batman - Gotham City Rescue (UK), Disney Aladdin - Il magico mondo di Aladdin (Italy),
+  Disney Topolino - Le Magiche Avventure di Topolino (Italy), Disney's Cinderella - Cinderella's Magic Wishes (UK),
+  Disney's The Little Mermaid - Ariel's Majestic Journey (UK), Disney/Pixar Cars - Rev It Up in Radiator Springs (UK),
+  Disney/Pixar Toy Story 2 - Operation-Rescue Woody! (UK), DreamWorks Shrek - Het Verhaal Van Draakje (Netherlands),
+  Noddy - Detective for a Day (UK), Spider-Man & Friends - Missioni Segrete (Italy),
+  Thomas & Friends - Engines Working Together (UK), Winnie the Pooh e la caccia al miele (Italy) [Walter Agazzi]
+
+
+Software list items promoted to working
+---------------------------------------
+c64_cart: The Final ChessCard (Ger, v0.9/v1.0) [hap]
+cd32: Alfred Chicken, Arabian Nights [FakeShemp]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+cd32:
+  Amiga CD32 Gamer - Volume 5, Amiga CD32 Gamer - Volume 6, Amiga CD32 Gamer - Volume 7, Amiga CD32 Gamer - Volume 8,
+  Amiga CD32 Gamer - Volume 9, Amiga CD32 Gamer - Volume 10, Amiga CD32 Gamer - Volume 11, Amiga CD32 Gamer - Volume 12,
+  Amiga CD32 Gamer - Volume 13, Amiga CD32 Gamer - Volume 14, Amiga CD32 Gamer - Volume 15, Amiga CD32 Gamer - Volume 16,
+  Amiga CD32 Gamer - Volume 17, Amiga CD32 Gamer - Volume 18, Amiga CD32 Gamer - Volume 19, Amiga CD32 Gamer - Volume 20,
+  Amiga CD32 Gamer - Volume 21, Amiga CD32 Gamer - Volume 22 [FakeShemp]
+cgenie_cass: Exterminator II: The Mad Menagerie, Super Star Treck [Dirk Best]
+ekara_japan_ac: KR-1 Kirarin Cartridge Vol.1 (Japan) (AC0009-KIR) [Sean Riddle, David Haywood]
+gameboy: Game Boy Test Cartridge (Euro, USA) [ClawGrip]
+icanguit: Barbie Guitar Party (K9901), Rock 101 (K9906) [Sean Riddle, David Haywood]
+leapfrog_leappad_cart:
+  Disney Princess - Princess Stories (UK), Disney's Pooh Gets Stuck (UK),
+  Leap 1 - Reading - Cartoon Network Scooby-Doo! and the Disappearing Donuts (UK),
+  Richard Scarry's Best Little Word Book Ever! (UK), Sed de Saber - Libro 1 - Spanish as a second Language Edition (UK),
+  Sed de Saber - Libro 2 - Spanish as a second Language Edition (UK),
+  Sed de Saber - Libro 3 - Spanish as a second Language Edition (UK),
+  Sed de Saber - Libro 4 - Spanish as a second Language Edition (UK),
+  Sed de Saber - Libro 5 - Spanish as a second Language Edition (UK),
+  Sed de Saber - Libro 6 - Spanish as a second Language Edition (UK), Toy Story 2 (UK) [TeamEurope]
+vsmile_cart:
+  Bob The Builder - Bob's Busy Day (UK), DreamWorks Shrek the Third - Arthur's School Day Adventure (UK),
+  Scooby-Doo! - Funland Frenzy (UK), Scooby-Doo! - Funland Frenzy (UK, Rev. 1?),
+  Thomas & Friends - Engines Working Together (UK, Rev. 1?) [Walter Agazzi]
+
+
+ソースの変更点
+--------------
+- 非常に暫定的なIntel 82355バスマスターインタフェースコントローラデバイス追加。[AJR]
+
+- miniboy7: ランプ点滅修正。[AJR]
+
+- ti89, ti89t, ti92p, v200: フラッシュメモリタイプとサイズを修正。[AJR]
+
+- unidasm: -skipで0xから記述すれば16進数の値を使用可能。[AJR]
+
+- m68000: SPとPCの初期値をメモリから読み込むのを、リセット中からリセット後に変更。[AJR]
+ * 多くのドライバで正しいベクタをロードするために、CPUを追加リセットが不要に
+
+- z100の改良: [AJR]
+ * レジスタのキャッシュによる対策ではなく、CRTC経由での描画に変更。PROMモジュールを使用してビデオRAMをマッピング
+ * 8253タイマと関連する割り込み、カーソル、ビデオ割り込み、セントロニクスポートの実装
+ * キーボードをローレベルエミュレーションに変更。キークリックとビープ音追加
+ * クロックを多数訂正
+
+- m68705: 存在しないポートラッチとディレクションレジスタにデバッグステートを登録しないように変更。[AJR]
+
+- Adaptec AIC-565デバイスを追加。[AJR]
+
+- Toshiba T6963Cと関連するLCDコントローラの暫定エミュレーション。[AJR]
+
+- bmcbowl: 不足していたビデオ関連の割り込み追加とVIAクロックの再考察。[AJR]
+
+- 5clown: 不可視な設定テーブルへのアクセス方法をドキュメント化。[AJR]
+
+- pk8020.cppの更新: [AJR]
+ * バンクアドレスデコードに使うプログラマブルロジックデバイスをエミュレート
+ * シリアルポート/USARTの実装を改造。セーブステートサポート。コードの整理
+
+- z8000: セーブステートサポート。コードの整理。[AJR]
+
+- raiden2.cpp, r2dx_v33.cpp: スプライトRAMバッファリング追加(zeroteamの起動時点滅を修正)。スプライトのソートDMA改良。[AJR]
+
+- polepos.cpp: セーブステートをサポート。[AJR]
+
+- i186周辺機器レジスタの改良: [AJR]
+ * 内部周辺機器レジスタへの非整列アクセスとバイト書き込みについて、謎だけどもドキュメント化された動作をエミュレート
+ * オフィシャルのレジスタニューモニクスをさらに使用
+
+- i386: 非整列アクセスの分割を改善(プログラムフェッチを除く)。[AJR]
+
+- at386, at486: メインボードの分離とドキュメント化を開始。[AJR]
+
+- Advanced Storage Concepts ASC-88 SCSIアダプタを暫定エミュレート。[AJR, minuszerodegrees.net]
+
+- マシン入力メニューのソート動作を改良。[AJR]
+ * 同じタイプの入力は名前でソート。キーボードのキーは割り当てられたキャラクタコードでソート
+
+- mc68340: 割り込みベクタリング修正。[AJR]
+
+- z80netf: キーボード設定のエラーを修正。[AJR]
+
+- tzx_cas.cpp: データブロック間に1msポーズ(MT07296を修正)。[AmatCoder]
+
+- cntsteer.cpp:「カウンターステア」のPROM吸出し追加。暫定的なカラーPROMのデコード処理追加。[Anonymous, Angelo Salese]
+
+- 多くのデバイスやドライバで、不要なハンドラ引数とトランポリンハンドラを削除。[cam900]
+
+- flkatck.cpp: 6809 CPUタイプの分類とクロックソースの訂正。[cam900]
+
+- tc0280grd.cpp, atarirle.cpp, tms57002, igs_m027.cpp, cubeqcpu.cpp: コードの整理。[cam900]
+
+- asic65.cpp, atarigen.cpp, deco_irq.cpp, taitoio.cpp: 読み込みの副作用を正しく抑制。コードの整理。[cam900]
+
+- k033906.cpp: レジスタとRAMユニットの割当てをスタート時に繰り下げ。コードの整理。[cam900]
+
+- igs017_igs031.cppの更新: [cam900]
+ * パレットを内部化。PIAタグを設定可能化。セーブステートをサポート
+ * リージョンとメンバ名の改良。コードの整理
+
+- k052109.cpp, vendetta.cpp, rungun.cpp, konamigx.cpp, moo.cpp, gijoe.cpp, dec8.cpp, gal3.cpp: コメントの訂正。[cam900]
+
+- k054156_k054157_k056832.cpp, xmen.cpp: コメントのコードを更新。[cam900]
+
+- konmedal.cpp: サウンド出力ルーチンを修正。[cam900]
+
+- wswan.cpp: device_video_interfaceが画面を取得するように改良。[cam900]
+
+- dgpix.cpp: ランタイムでのタグ参照削減。描画をクリップ領域に制限。コードの整理。[cam900]
+
+- cedar_magnet*.cppの更新: [cam900]
+ * ランタイムでのタグ参照削減。フレームバッファの割当てをスタート時に繰り下げ
+ * コードの無駄を削減と整理
+
+- igs017.cpp, igs011.cpp, mlanding.cpp: ランタイムでのタグ参照削減。無駄の削除。コードの整理。[cam900]
+
+- taito_helper.cpp, pc080sc.cpp, tc0080vco.cpp: マスクされたプライオリティ実装。コードの整理。[cam900]
+
+- k053246_k053247_k055673.cpp: 冗長性さの解消とコードの整理。[cam900]
+
+- overdriv.cpp: オブジェクトDMAマッピングの訂正。[cam900]
+
+- 1945kiii.cpp: フリッカー動作の訂正。ノートの更新。コードの整理。[cam900]
+
+- deco16ic.cpp: マスクされたプライオリティ実装。コードの整理。[cam900]
+
+- tc0110pcr.cpp: device_palette_interfaceの実装。コードの整理。[cam900]
+
+- ninjaw.cpp, warriorb.cpp: 異なるタイルを使う画面のグラフィックデコードを分離。コードの整理。[cam900]
+
+- dec8.cpp: srdarwinのスプライトとタイルマップ間プライオリティ修正。[cam900]
+
+- taitoair.cpp, fcombat.cpp: グラフィックデコード処理の単純化。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- taitoio_yoke.cpp: ランタイムでのタグ参照削減。[cam900]
+
+- taito_h.cpp: グラフィックデコードの単純化。冗長なコードの整理。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- taito_o.cppの更新: [cam900]
+ * グラフィックデコーディングの単純化。ランタイムでのタグ参照削減。冗長なコードの整理
+ * parentjのメタデータ訂正。ノートの更新。コードの整理
+
+- blockout.cpp: パレットをフォーマットハンドラを使う方法に変換。描画動作の改善。メンバ名の改良。コードの整理。[cam900]
+
+- galgames.cpp: セーブステートをサポート。副作用の抑制。コードの整理。[cam900]
+
+- legionna.cpp: グラフィックデコーディングの単純化。冗長性の解消。バンク切り替え時にタイルマップを要更新にマーク。コードの整理。
+  [cam900]
+
+- rohga.cpp, taito_x.cpp, klax.cpp: グラフィックデコーディングの単純化とコードの整理。[cam900]
+
+- tecmosys.cpp: グラフィックデコーディングの修正。[cam900]
+
+- gunbustr.cpp, superchs.cpp, undrfire.cpp: グラフィックデコーディングの単純化。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- alpha68k.cpp: グラフィックデコーディングの単純化。サウンドROMバンキング修正。コードの整理。[cam900]
+
+- deckarn.cpp: 設定のシンプル化。カラー・プライオリティマッピングのコールバック追加。コードの整理。[cam900]
+
+- groundfx.cpp, rastan.cpp, slapshot.cpp: グラフィックデコーディングの単純化。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- xexex.cpp: オーディオエミュレーションの問題についてノートに記載し参照へのリンク追加。[cam900]
+
+- vgmplay.cpp: 音量の問題修正。ステレオ出力の修正。[cam900]
+
+- limenko.cpp: スプライト描画の整理。描画動作の修正。コードの整理。[cam900]
+
+- decbac06.cpp: プライオリティ描画を可能に。コードの整理。[cam900]
+
+- taito_z.cpp: グラフィックデコーディングの単純化。register_postloadの廃止。冗長性の解消。コードの整理。[cam900]
+
+- namcona1.cppの更新: [cam900]
+ * 全てのタイルを要更新にマークしないように改良。関連するビデオレジスタが書き込まれたときにパレットを設定するよう変更
+ * 読み込みの副作用を正しく抑制。register_postloadを廃止。グラフィックデコーディングの単純化。コードの整理
+
+- decmxc06.cpp: カラー・プライオリティマッピング用のコールバック追加。設定の単純化。コードの整理。[cam900]
+
+- dec0.cpp: プライオリティ描画実装。[cam900]
+
+- kaneko_tmap.cpp: グラフィックのデコーディングの内部化。コードの整理。[cam900]
+
+- tc0080vco.cpp: グラフィックデコーディングとスプライト描画ルーチンのの内部化。設定の単純化。コードの整理。[cam900]
+ * ノートの拡張と更新
+
+- taito_f2.cppの更新: [cam900]
+ * ランタイムでのタグ参照削減
+ * サウンドプログラムのバンキング修正
+ * グラフィックデコーディングの単純化。冗長性の削減。コードの整理。ノート追加
+
+- namco_c355spr.cpp: グラフィックデコーディングの内部化。コードの整理。[cam900]
+
+- kaneko_spr.cpp: グラフィックデコーディングの内部化。コードの整理。[cam900]
+
+- namcos2_sprite.cpp: グラフィック選択処理のシンプル化と修正。コードの整理。[cam900]
+
+- namcos2.cpp: グラフィックデコーディングのシンプル化。[cam900]
+
+- galastrm.cpp: グラフィックデコーディングの単純化。コードの整理。ノートの追加。[cam900]
+
+- kaneko16.cpp: バッファされたスプライトRAM動作の修正。ノートの追加。[cam900]
+
+- seibucats.cpp, seibuspi.cpp: グラフィックデコーディングの単純化。DMA描画の修正。コードの整理。[cam900]
+
+- seibucats.cpp: タイルマップを持たないマシンの設定を分離。サウンドルーチンの修正。ノートの追加。[cam900]
+
+- pgm.cpp, pgmprot_*.cppの更新: [cam900]
+ * スプライトの描画をクリップ領域に制限。タイルリージョンサイズの訂正
+ * ランタイムでのタグ参照削減。読み込みの副作用を正しく抑制。スタート・リセットメンバの整理。冗長性の削減
+ * グラフィックデコーディングの単純化。クラスメンバを必要に応じてプロテクト・プライベート化。コードの整理。コメントの訂正
+
+- cave.cppの更新: [cam900]
+ * ppsatanで、各画面のグラフィックデコーディング、パレット、ビットマップを分離
+ * sailormnの3つ目のタイルマップについてセーブステートを修正
+ * 複数のチップが同じ画面に描画したときのスプライト混合を部分的に実装
+ * リードの副作用を正しく抑制。ランタイムでのタグ参照削減。コードの整理。ノート追加
+
+- segaic16_road.cpp: 設定のシンプル化。ハードコードなtakeを削除。リードの副作用を抑制。コードの整理。[cam900]
+
+- ms32.cpp, bnstars.cpp, tetrisp2.cpp: ネイティブなROM構成を使ってグラフィックデコーディングするよう改良。ノートの更新。[cam900]
+
+- viewgfx.cpp: グラフィックビューアでパレットのアルファ値を表示。[cam900]
+
+- machine/segaic16.cpp: パレットの影とハイライトの処理をパレットライトハンドラに移動。コードの整理。[cam900]
+
+- 315_5124.cppの更新: [cam900]
+ * 正しいレベルのルックアップテーブルを追加。315-5313にSMS互換のカラーモードを追加
+ * コードの整理。ノートの追加
+
+- 315_5313.cppの更新: [cam900]
+ * 32ビットダイレクトカラー描画に変換。3ビットカラーモードを実装
+ * セーブステートの修正。外部パレットモードの修正。コードの整理
+
+- mega32x.cpp: device_palette_interfaceを実装。カラールックアップを使うように変換。コードの整理。[cam900]
+
+- sknsspr.cpp: jchanの参照動画へのリンク追加。[cam900]
+
+- jchan.cpp: スプライト遅延の修正。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- jalblend.cpp: アルファテーブルをパレットに移動。動作の改良。コードの整理。[cam900]
+
+- dreamwld.cpp: ビデオRAMのデータ型を訂正。ラインRAMをメモリシェアに変換。コードの整理。[cam900]
+
+- stvvdp2.cpp: タイルマップの透過ペンが無効なときのブレンド処理を修正。透過処理の改良。コードの整理。[cam900]
+
+- stvvdp1.cpp: 透過、グローシェーディング、エンコード動作の修正。スプライト制限の修正。ノート追加。コードの整理。[cam900]
+
+- avgdvg.cpp: ハードコードされた絶対タグの削除。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- omegrace.cpp: リードの副作用を正しく抑制。[cam900]
+
+- audio/jaguar.cpp: DSPのクロック速度からシリアルタイマレートを正しく導出。[cam900]
+
+- jaguar.cppの更新: [cam900]
+ * 68EC020ゲームでバンクされたROMを持たないものはメモリマップから削除
+ * 事前に演算したYCCルックアップのパレットデバイスを追加
+ * 現在のクロック周波数からGPUタイマレートを導出
+ * コメントの更新
+
+- igs022.cpp: ハードコードされた絶対タグの削除。ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- momoko.cpp: ランタイムでのタグ参照削減。コードの整理。[cam900]
+
+- rebound.cpp: パフォーマンスについてのヒントを追加。[Couriersud]
+
+- Netlistライブラリの更新: [Couriersud]
+ * ほとんどのロジックデバイスに電源端子を追加。負のサプライレールがGNDに接続されているという前提は削除
+ * バリデーションチェックの追加と判明した問題の対応
+ * nltoolでバリデーションサポート
+ * パッケージ内の論理コンポーネントについて、数値からアルファベットな識別に変更
+ * 環境変数またはコマンドラインオプションによる、ランタイムパフォーマンス情報の有効化機能追加
+ * netlistのパースコードが明示的にロケールを設定するよう変更
+ * コンストラクタが例外を投げたとき、plibがメモリリークするのを修正
+ * コンパイル時、統計情報のキューを無効化するオプション追加。無効化時にはプリントするのも停止する
+ * 7448真理値表をマクロファイルに移動。電源端子追加
+ * nltool -v --versionでコンパイル時オプションの評価を表示
+ * J-Kタイプのフリップフロップ回路に、真理値表のステート使用例追加
+ * 9316で出力アレイを使うように変更
+
+- pong.cppの更新: [Couriersud]
+ * グラフィック要素の配置を改良するため、pongとpongfの水平解像度を増加
+ * breakoutのSLOW_BUT_ACCURATEモードを修正し、ノートを追加
+
+- tutankham.cpp: 星空背景の実装。色の改良。[Couriersud, Guru]
+ * Konami 084と海賊版の星背景を実装。マシンコンフィグから選択可能
+ * 色を「ギャラクシアン」ベースに変更
+
+- c64のアップデート: [Curt Coder]
+ * BusCard IEEE-488/Centronicsインタフェースカセットデバイスを追加。BusCard IIカセットのスケルトンデバイス追加
+ * ゼロページロケーションとKernalベクタの逆アセンブリを拡張
+ * BusCardのLORAMを拡張ポートインタフェースにルーティング
+
+- abc80: Owoco Super Smartaidデバイスのスケルトン追加。[Curt Coder, Anders Sandahl]
+
+- c64: Westfalia Technica 1531クローンROM追加。[Curt Coder, dec_hl]
+
+- cosmac: 長いブランチ命令のタイミング修正。[Curt Coder]
+
+- c1541: 大量の1541クローンセット用ROM追加。[Curt Coder]
+
+- TV Gameの作業中: [David Haywood]
+ * 新しいu'nSP CPUコアとGCM394システム・オン・チップの作業中(smartfpとwrlshuntで使用)
+ * コードの解析より、GCM394ビデオレジスタのロケーションについてドキュメント化開始
+ * GCM394ビデオDMAとスプライト描画の実装開始
+
+- cgenieの更新: [Dirk Best]
+ * カラーRAMのアクセス修正
+ * フロッピードライブコントローラタイプとクリスタルを確認。BIOSオプションにDOSのバージョンを更に追加
+ * ソフトウェアリストの整理
+
+- vtech1: カセット入力の極性を修正。[Dirk Best]
+
+- multi16の更新: [Dirk Best]
+ * メタデータの修正。モデルリストを含むノートを追加
+ * PIT、フロッピードライブコントローラ、フロッピードライブを追加
+ * CRTコントローラタイプをHD6845に訂正。RAWスクリーンパラメータ追加。3ビットRGBパレット追加
+
+- splus.cpp: spset005、spset015、spset026の開始時にセグメンテーションフォールトが起こるのを修正。[Dirk Best]
+
+- hotblock: I2C EEPROMを実装。[Dirk Best]
+
+- 315_5649.cpp: リセット時にI/Oラインを入力に設定(MT0715を修正)。[Dirk Best]
+
+- punchout: 汎用のグラフィックデコードレイアウトを使用。[Dirk Best]
+
+- pzletime.cpp: 静的とダイナミックパレットを分離。画面更新関数でダイレクトRGBカラーを使うよう変更。[Dirk Best]
+
+- quizo.cppの更新: [Dirk Best]
+ * ROMバンキング、ビデオRAMバンキングの整理。画面更新関数でダイレクトRGBカラーを使うよう変換
+ * クロックがクリスタル値を使うように変更。2つ目のコイン入力追加。DIPスイッチのドキュメント追加
+
+- flopimg.h: グローバルな名前空間の整理。[Edstrom]
+
+- pcw.xml: スウェーデン版のCP/M v1.04を追加 - スウェーデン語のキーボードマッピングとエラーメッセージ追加。[Edstrom]
+
+- force68k.cpp: 最新のファームウェアをデフォルトに設定。CPU-1の内部レイアウトの作業開始。[Edstrom]
+
+- 6850acia.cpp: デフォルトではverboseログを停止。[Edstrom]
+
+- diablo1300の更新: [Edstrom]
+ * マイクロコードとテーブルROMを追加。コールバックインタフェースの解析開始
+ * コンディショなるジャンプJNCとXLAT命令からのテーブルROMオフセットを修正
+
+- screen.cpp: 部分的な線の描画のときのscreen_device::update_now()を修正。ピクセルアクセサを現在の画面のビットマップを使うよう変更。
+  [Enik Land]
+
+- Luaエンジン: マシンフラグをアクセス可能に変更。ドキュメントコメントの訂正と拡張。[feos]
+
+- DS1994 1ワイヤリアルタイムクロック、バックアップRAMデバイスを追加。Amatic Multi Gameシステムに実装。[Grull Osgo]
+
+- by35.cppサウンドの改良: [hackbar]
+ * Bally AS3022、Sounds Plus、Sounds Good、Cheap Squeakサウンドボードをサポート
+ * AS8888サウンドシステムを正しいデバイスに変換
+ * コードのリファクタリングと整理
+
+- m6800: 6801の割り込みが起きなかったバグを修正。[hackbar]
+
+- ビルトインの連射機能より多機能な自動連射プラグインを追加。[Jack Li]
+
+- galaga.cpp: 星空のルックアップテーブルをGalois LFSRの実装に置き換え。[Jindrich Makovicka, Wolfgang Scherr, Couriersud]
+
+- X11光線銃サポートの改良: [Kiall Mac Innes]
+ * デフォルトでX11 XInputをサポートするようにビルドオプションを変更
+ * Linuxでの光線銃設定を追加
+ * デフォルトでWii Remote用ハックを無効化
+
+- mazerbla.cpp: 意図しないパレットサイズの減少を修正。[MASH]
+
+- NCR 5380デバイスをアーケードサブターゲットビルドに追加。[MASH]
+
+- i960: logrとexprオペコードを実装(「パワースレッド」で使用)。[MetalliC]
+
+- sharc: compute_fcopysignを実装。[MetalliC]
+
+- chihiro.cpp: サテライトDVDのドキュメントを更新。[MetalliC]
+
+- tms9901の更新: [Michael Zapf]
+ * 8ビットユニットからシングルビットへ入力ラインリードを変更
+ * デクリメンタが初期値がゼロでもカウントを続けるよう修正
+ * クロックが有効のときはINT3入力がかならず無効になるよう設定
+
+- sam6883: 32K RAMを64Kモードでミラー(Dunjunzが32/64Kのチェックをするときのセグメンテーション違反を修正)。[Nigel Barnes]
+
+- bbc: ATPL AutoPrommerとUser Port Splitterデバイスを追加。PMS Genie ROMデバイスの実装。[Nigel Barnes]
+
+- coco12.cpp: CTSリージョン$C000-$FEFFのハンドラを追加。カセットによるこの領域のデバイス実装が可能。[Nigel Barnes]
+
+- dragon.cppの更新: [Nigel Barnes]
+ * ナチュラルキーボードモードでのカーソルキーを修正
+ * Premier Spritesボードをサポート
+
+- coco2: 全てのcoco/dragon拡張テバイスがCTSハンドラを使用するように変更。[Nigel Barnes]
+
+- mu50: エミュレーションの改良。SWP00デバイスを追加。[O. Galibert]
+
+- m680x0: コードジェネレータをPythonに変換しリファクタリング。[O. Galibert]
+
+- RAM自動シェアリングの削除に備えたて依存ドライバの修正。[O. Galibert]
+
+- vsnes.cpp: 回路図を元に海賊版のZ80インタフェースを再実装(ただし未動作)。[R. Belmont, Kevin Horton]
+
+- apple2: CD-ROMをつないでディスクが入っていないとSCSIカードのブートで長時間ハングするのを修正。[R. Belmont]
+
+- mac.cpp: SEとClassicの不足音声修正。[R. Belmont]
+
+- 8080bw.cpp:「Invader's Revenge」にサウンド追加。[Robbbert, Andrew Welburn]
+ * invrvngegwのサウンドROMは吸出し不良
+
+- jr100.cpp: スピーカーを修正。余分なビーパーを削除。カセットセーブの修正。CPUについてのノート追加。[Robbbert]
+
+- h8.cpp: カセットの修正。リセットボタン追加。動作可能に昇格。[Robbbert]
+
+- lola8a.cpp: 不足のキー追加。ノート追加。動作可能に昇格。[Robbbert]
+
+- poly880: 起動シーケンス修正。マシンは起動可能。[Robbbert]
+
+- mc6847.cpp: PALの色にじみエミュレーション追加。[robcfg]
+
+- goldnpkr.cpp: 入力の修正。potnpkrjのデフォルトのNVRAMとボタンランプ追加。[Roberto Fresca]
+
+- miniboy7.cppの更新: [Roberto Fresca]
+ * ボタンランプの順番を修正
+ * PIA入力の重畳についてドキュメント化。ノートの追加
+ * Super Mini-Boyをサポート
+
+- IndyとIndigo2ドライバで、基本的なSGI GIOスロットデバイスをサポート。[Ryan Holtz]
+
+- SGI Newportグラフィックの更新: [Ryan Holtz]
+ * GIOスロットカードデバイスに変換。8ビットXLと24ビットXLバージョンあり
+ * 4bppのRGBフレームバッファディスプレイをサポート
+ * ディザリングのサポート。シェードレンダリングモードを修正
+ * Metro Blastのデモで使われているモードを追加
+ * RGB/CI以外でのScr2Scrfブロック転送をサポート(ポップアップメニューが修正)
+ * シングルピクセルのラインイテレーションをサポート
+ * さらにコマンド設定をいくつか追加(SceneViewを修正)
+ * start_y advancementが上に移動する処理を修正。スパンモードZパターンニングも修正
+ * 12および24bppのRGBフレームバッファモードを追加
+ * ホストデータポートのリードバック処理を修正
+ * 4、12、32bppホストリードをサポート
+ * RGBモードのカラーフェッチを修正
+ * 12bppのディザリング追加
+ * いろいろな関数から不要引数を削除
+ * ファストクリアなカラーパッキングを修正。パックされたカラー関数のスプラッティングを修正
+ * アルファブレンドをサポート
+ * 整数ラインの再実装と、SGI REX3のドキュメントにある疑似コードを元に正しい整数ラインをサポート
+ * Length32処理のオフバイワンを修正
+ * spanモードでstart_yが間違って進むのを修正
+ * フレームバッファリードアウトに12ビットCIモード追加
+ * 基本的なオーバーレイ・アンダーレイサポート(未テスト)
+ * Length32グラフ処理をライン描画に追加
+ * コマンド処理の統合 - 動作改善と高速化してるはず
+ * ファストクリアモードを修正
+ * 実際のタイミングパラーメータを元に、可視エリアと画面サイズを設定
+ * ビデオRAMテストとファストクリアのバグを修正
+ * COLORHOSTモードビットの処理を改良
+ * HOSTRWアクセス時のピクセルフォーマット変換を修正
+
+- sgi_mc: フィルモードのDMAがメモリアドレスを進めないのを修正。[Ryan Holtz]
+
+- SGI VINO(Video In, No Out)チップのスケルトンデバイス追加。[Ryan Holtz]
+
+- SGI HPC3の更新: [Ryan Holtz]
+ * intstatレジスタとDAC音量制御追加
+ * Indy (Guinness)とIndigo2 (Full House)バージョンに分離
+ * Full Houseモードでの、2つ目のSCSIコントローラ処理を修正
+ * シリアルEEPROM実装を修正 - Indigo2で起動音が再生
+ * SGI IDEテストを一部修正
+
+- SGI IOC2の更新: [Ryan Holtz]
+ * マップ可能な割り込みチェックを修正 - IRIX 6.5インストーラがキーボード入力時にハングするのを修正
+ * System IDレジスタ処理を修正 - IndyとIndigo2が正しく判別可能
+
+- r4000: バスエラー機能追加。[Ryan Holtz]
+
+- ec1840: 別なマザーボードデバイスを追加。動作可能に昇格。[shattered]
+
+- MISP3 DRC: ブランティディレイスロットから命令をフェッチするときのTLBのミスを修正。[Ted Green]
+ * 以前はブランチ条件が成立していてもブランチになっていなかった
+
+- OS-9のディスクイメージでリードライトをサポート。[Tim Lindner]
+
+- JVCディスクイメージフォーマットで、セクタインタリービングを修正。[Tim Lindner]
+
+- coco_multi.cpp: Multi-Pakの切り替え時、ROMアップデートハンドラを呼び出し。[Tim Lindner]
+
+- AMD/Plessy 2812 FIFOデバイスを追加。[Vas Crabb]
+
+- IBGR 4444フォーマットをpalette_deviceに追加。[Vas Crabb]
+
+- Konami System 573デジタルI/Oシステムで暗号化MP3オーディオサポート: [Windy Fairy]
+ * MAME自体で実装されるまで、一時的にminimp3 MP3デコーディングライブラリを使用
+ * 復号化と再生のハイレベルエミュレーション追加
+
+- segahang.cpp:「ハングオン」(ライドオン)セットのROMラベルを検証。[Andrew Welburn, The Dumping Union]
+
+- bus/a800: Atari 800フロッピーコントローラROMを吸出し。[Atari Age]
+
+- konamim2.cpp: totlvicaのCD-ROMを吸い直し。[AWBACON / Video Game Esoterica]
+
+- bublbobl.cpp: sboblboblfセットのグラフィックROMを吸い直し。[Bonky0013]
+
+- oneshot.cpp: CPUとオーディオコンポーネントのクロック修正。[caius, The Dumping Union]
+
+- mosaic.cpp: mosaicのPICマイクロコンピュータを腑分けして吸出し。[Caps0ff, caius, The Dumping Union]
+
+- by35.cpp: Bally FrontierのDIPスイッチ名追加。多くのマシンの間違ったDIPスイッチ名を修正。[d e]
+
+- wpc_95.cpp: afm出力のタイポ修正。[d e]
+
+- castool: 使用法メッセージんで最初の引数をコマンド名に使用。[Dan Church]
+
+- msx: Yamaha SFG05サウンドカセットの別版ROMを追加。[David Viens]
+
+- lb186: RAMディスクBIOS追加。[Don Maslin Archive]
+
+- naomi.cpp:「セガ四人打ち麻雀MJ」のDESキーをブルートフォース。[f205v]
+
+- seta.cpp:「クレイジーファイト」の基板ドキュメントを改良。[Guru]
+
+- m68000: Macのシステムソフトを破壊することなくDomain/OSの動作するのを妨げていたMMUの問題を修正。[Hans Ostermeyer]
+
+- 3c505: Apollo DIPスイッチのラベルを修正。[Hans Ostermeyer]
+
+- z100: 8041キーボードコントローラプログラム吸出し。[Herb Johnson]
+
+- specpls3_flop.xml: メタデータの改善と訂正。[ICEknight]
+
+- ti85.cpp: CE計算機のOSバージョンを訂正。[Julian Lachniet]
+
+- hiscore.dat: 最新の変更に合わせて更新。[Leezer]
+
+- at.cpp: at、at386sx、at386、at486の追加BIOSバージョン。[rfka01, minuszerodegrees.net]
+ * at、atvga、neat、at386sx、ct386sx、at386、at486、ficpio2のコメントにBIOS文字列追加
+
+- Commodore PC-Iをpc.cppからcompc.cppに移動。動作可能なBIOSバージョンを追加。[rfka01]
+
+- genpc.cpp: pc用に追加のBIOSバージョン。[rfka01]
+
+- at.cpp: 8742キーボードコントローラを吸出し。[rfka01]
+
+- clickstart.cpp: キーボードのマイクロコンピュータについてノート追加。[Sean Riddle]
+
+- cromptons.cpp: ffruitsのタイムキーパーを吸出して追加。[SpinalFeyd, The Dumping Union]

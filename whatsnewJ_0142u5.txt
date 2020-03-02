@@ -1,0 +1,239 @@
+0.142u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04356: [クラッシュ/フリーズ] Some games using MC6845: 黒画面でハングする。(wilbert)
+- 04363: [クラッシュ/フリーズ] rsgun: "-bios jp"を設定するとクラッシュする。
+- 04311: [ステート保存/再生] kov2, martmast: セーブステートを2回続けてロードするとフ
+         リーズする。(Aaron Giles)
+- 04360: [DIP/入力] upscope + others: 入力ポートのPORT_CENTERDELTA設定が、
+         PORT_KEYDELTAの値を上書きしてしまう。(galibert)
+- 04330: [ステート保存/再生] btime and clones: セーブステートの読み込みに不具合がある。
+         (Aaron Giles)
+- 04359: [インターフェイス] All sets with PORT_DIPLOCATIONs: DIP配置設定が全ておかし
+         くなっている。(galibert)
+- 04331: [ステート保存/再生] digdug and clones: セーブステートが正しく読み込まれない。
+         (Aaron Giles)
+- 04327: [ステート保存/再生] galaxian, frogger, many others: セーブステートのロード直
+         後にリセットがかかる。(Aaron Giles)
+- 04333: [ステート保存/再生] Many games in m92.c: ラスタ割り込みが有効なときに保存し
+         たセーブステートが正しく動作しない。(Aaron Giles)
+- 04305: [クラッシュ/フリーズ] vmetal, vmetaln: OK直後にクラッシュする。
+         (Angelo Salese)
+- 03948: [クラッシュ/フリーズ] mvsc: 親セットのみ、エンディングのスタッフロールでゲー
+         ムがリセットする。(Alex Jackson)
+- 04361: [HLSL] HLSLを使うと画面がずれる。(MooglyGuy)
+- 04357: [システムコア] arcwins, eforest, fhunter, fhuntera and all sets in 
+         twincobr.c: -strで時間指定しても、実際とは異なる時間動作する。(wilbert)
+- 04339: [ゲームプレイ] All sets in segahang.c: グラフィック不具合や音が出ないなど。
+         (Aaron Giles)
+- 03445: [クラッシュ/フリーズ] znpwfv: ゲーリー・オブライトを選んでゲームを始めようと
+         するとクラッシュする。(Angelo Salese)
+- 03872: [クラッシュ/フリーズ] vmahjong: ゲームの選択画面でクラッシュする。
+         (Angelo Salese)
+- 03205: [クラッシュ/フリーズ] pblbeach, fhboxers: イントロシーンでハングする。BGMは
+         鳴り続けていて、クレジットも投入できる。(Angelo Salese)
+- 04352: [クラッシュ/フリーズ] xexex: マスクROMテスト中にクラッシュする。(MooglyGuy)
+
+
+ソースの変更点
+--------------
+-「ファイナルアーチ」のIC13テストが失敗するのを修正。[Angelo Salese]
+
+-「ファイナルアーチ」「サンドアール」でマルチカートリッジを修正。[Angelo Salese]
+
+- HLSLのクリーンアップ。aux texcoordの削除、ハードウェアバーテックス処理が出来ない
+  ローエンドカード向けにソフトウェアによるバーテックス処理を復活、不要な
+  tristrip->trilist分割を削除。チップセット内蔵型と機能的にぎりぎりのカードでのD3D機
+  能の復元。[Ryan Holtz, Ashura-X]
+
+-「Gigaman 2 / ロックマン2」のグラフィックとサウンドROMを吸い出し。
+  [f205v, Smitdogg, The Dumping Union]
+
+- PlayStation GPUをデバイス化。[smf]
+
+- Atari System 1とAtari G1ドライバで、ボタンの実際の使用目的を示すため、PORT_NAMEを追
+  加。[Tafoid]
+
+- inptport.c - キーボードキャラクタの初期化修正。[Tom Clayton]
+
+- konicdevなど: 053250をモダンデバイス化。[O. Galibert]
+
+- Sega Saturn / ST-Vのピクセルクロックをより正確なものに改良。[Angelo Salese]
+
+- メインIRQ関数へのSCSPを外部書込みライン関数へ移動。「グルーブオンファイト」
+ 「イントロDonDon」のサウンド不具合修正。[Angelo Salese]
+
+- ダブルインタレースモード時のST-Vでのウインドウエフェクトを修正。「バーチャル麻雀」
+  のグラフィックが修正。[Angelo Salese]
+
+- Sega Saturn / ST-Vの一部環境で起きていた起動時のクラッシュを修正。
+  [Oliver Stoneberg]
+
+- build/verinfo.cの未解放なバグ修正。[Oliver Stoneberg]
+
+- megatech.c: 確認済みラベルの追加。[ElBarto]
+
+- PlayStation GPUで、4点ポリゴンをトライアングルへ分割処理。[smf]
+
+- Naomiのドキュメント更新。[f205v]
+
+- 4rosesと4rosesaで、MC6845関連のクラッシュがあったのを修正。[Roberto Fresca]
+
+- TMS52xx: 実機がおそらく動作していると思われる方法に近づけるため、パルス励起コードを
+  デフォルトで無効化。またコメントの更新。[Lord Nightmare, Neill Corlett]
+
+- HLSLのアップデート: [Ryan Holtz, Bat Country Entertainment]
+ * 意図しないピクセルのスミアを防ぐため、シェーダチェーンでのポイントサンプリングに切
+   り替え
+ - これにより、シャドウマスクとスキャンラインのアライメントなどが修正され、オーバーサ
+   ンプリングされない解像度で出ていた虹色の縞模様がかなり低減されます。
+
+- SCU DSPのexecuteフラグにあったうっかりバグを修正。[Angelo Salese]
+
+- タイマー内のSMPC intbackコマンドを移動し、SMPCマスクIRQ用のパッチを削除。
+  [Angelo Salese]
+
+- Sega Master SystemとMegadrive/Genesisで使っているsn76489の派生版の名称について、
+  SMSIIIから技術的に正確なSEGAPSGに改名。このPSGはmark 3では使われていないため。
+  [Lord Nightmare]
+
+- Sega Saturn / ST-Vハードウェアでの、hblank間隔を訂正。
+  [Angelo Salese, Corrado Tomaselli, Charles MacDonald]
+
+- ertictac/poizone: 音関係を超改良(まだ不完全)。[R. Belmont, Heihachi_73]
+
+- SEGA System Eで、SEGAPSG sn764xxに切り替え。このシステムでは、SEGAPSGを内蔵する、
+  SEGA 315-5124 VDPを使用しているため。これにより音が少し改善。[Lord Nightmare]
+
+- Sega System Eの改善。xtal.hに切り替え、mc8123のコメント修正、PCBダイアグラム分類、
+  z80bのxtal検証。[Lord Nightmare, Charles MacDonald]
+
+- i286 - タッピングによる287エミュレーションを有効化。[Carl]
+
+- idectrl - ドライバ初期化時のエラーステータスをクリア。[Carl]
+
+- mc6854.cにHD6345 CRTC-IIの派生版を追加。[Curt Coder]
+
+- idectrl - verify no retryコマンドを実装。[Carl] 
+
+- i86 - imul命令を修正。[Carl]
+
+- ローレベル入力のアップグレード。input_codes、input_items、input_devices、input_seqs
+  用の各クラスを作成。新たに、マシンのグローバルステートを保持し、machine.input()経由
+  でアクセスするためのinput_managerクラスを作成。また、デバイスのインデックスを0-16か
+  ら0-255に拡大。以前の動作毎にデバイスのインデックスが変わる状態に対して、OSDから明
+  示的にデバイスのインデックスを指定可能。[Aaron Giles]
+
+- HLSLのアップデート: [Ryan Holtz, Bat Country Entertainment, austere, SoltanGris42]
+ * 任意の解像度でスクリーンショットを描画する機能を追加
+ * 任意の解像度でAVIビデオ出力する機能を追加(音は無し)
+ * 43タップ幅のFIRベースなNTSCフィルタを追加。Y、I、Q周波数レスポンスの調整可能
+ * 現在の画面高さ比をもとにしたスキャンラインの他に、ピクセルの高さ比をもとにした調整
+   可能なスキャンライン機能追加
+  - ダイナミックな解像度変更をするドライバで動作中にVRAMのメモリリークによりメモリ不
+    足が起きていたのを修正
+
+- mc146818 RTCのIRQコールバックを実装。[Carl]
+
+- UNSP CPUコアのリセットを修正。[Robbbert]
+
+- V20コアのPOP、POPF、PUSHFとフラグを修正。[Carl, Alex Jackson]
+
+- memory: レガシーオブジェクトとハンドラを同一構造体に保持。[O. Galibert]
+
+- memory: レガシーオブジェクトとハンドラをset_delegateパラメータとしてパス。
+  [O. Galibert]
+
+- memory: 幅変換関数を同じソース幅のものと統合。[O. Galibert]
+
+- memory: 取り得る全てのデリゲートサイズを網羅した構造体を作成。[O. Galibert]
+
+- memory: メインアクセスとサブアクセスからデリゲートを分離。[O. Galibert]
+
+- memory: アブアクセスのデリゲート化情報をスロット毎に分割。[O. Galibert]
+
+- memory: memdumpファイルが各サブネットの情報を含むように変更。[O. Galibert]
+
+- memory: 衝突しているサブユニットマスクの整理と残っているマスクがないかをテストする
+  ツールメソッドを追加。[O. Galibert]
+
+- memory: map_rangeとhandler_read/write()を一つに統合。[O. Galibert]
+
+- memory: ハンドラ追加時の、エントリアクセスをプロキシ化。[O. Galibert]
+
+- memory: unitmaskをプロキシ化。[O. Galibert]
+
+- memory: map_range関数を、エントリマッピングが固定されたものと、動的に割り当てするも
+  のの2つに分割。[O. Galibert]
+
+- memory: プロキシ管理を、独自のものからハンドラのリストに変更。[O. Galibert]
+
+- memory: サブユニットのみのハンドラだけで動作するハンドラコピー関数追加。
+  [O. Galibert]
+
+- memory: 同一アドレスでの異なるサブユニットにおける別々のハンドラが使用可能。
+  [O. Galibert]
+
+- memory: depopulate_unused()を実装。[O. Galibert]
+
+- pic8259 - エッジトリガと非特定EOIを修正。[Carl, Miodrag Milanovic]
+
+- uPD7801/uPd7810 CPUコアのSKIT_F0命令を追加。[Angelo Salese]
+
+- HLSLコードを単独ファイルのd3dhlsl.c/.hに分離。drawd3d.cもヘッダ2つへ分割。
+  [Ryan Holtz, Bat Country Entertainment]
+
+- nec逆アセンブラ - 解釈が曖昧な場合は"byte/word ptr"のみを表示(i386の逆アセンブラと
+  同様)。[Alex Jackson]
+
+-「セガツーリングカーチャンピオンシップ」にモータードライブ基板のROMを追加。
+  [RetroRepair]
+
+-「スーパークラウンズゴルフ」にPPI8255を2つ実装。[Angelo Salese]
+
+- emuopts: confirm_quitオプションを追加(デフォルトはオフ)。オンのときは、ESCを押すと
+  直接終了せずに確認が画面に出ます。[MamePlus Team, Mamesick, Fabio Priuli]
+
+- i86: リセット時の初期CSを修正。[Alex Jackson]
+
+- memory: 速度的な理由から、gcをrefcounterに変更。[O. Galibert]
+
+- セーブステート前の匿名タイマチェックが逆だったのを修正。また、永続的な匿名タイマ無
+  視してしまうバグを修正。タイマのログ取得コードを追加し、ステートのリストア時と、
+  セーブ時の両方でタイマログ取得。これにより、最近発生していたセーブステートの不具合
+  はほとんど直ったはず。[Aaron Giles]
+
+- Neogeo ROM名の整理開始。ほとんどはチップラベルとソケットラベルの方法にもとづいて、
+  .bin拡張子の削除。[Johnboy]
+
+- OkiM6376サウンドチップにエコーエミュレーション追加。[J. Wallace]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Baryon Future Assault [Corrado Tomaselli, f205v, The Dumping Union, David Haywood] 
+Reality Tennis [Tomasz Slanina, Antonio 'Peluko' Carrillo, Smitdogg, 
+  The Dumping Union]
+Fruit Bonus '06 - 10th anniversary [Brian Troha, Smitdogg, The Dumping Union]
+Super Ball (Version 1.3) [David Haywood, Brian Troha, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Dream Crown (Set 2) [Yohji, Smitdogg, The Dumping Union]
+ハーレーダビッドソン＆L.A.ライダーズ (Rev.B) [Gerald (COY), Smitdogg,
+  The Dumping Union]
+モトクロスゴー！ (MG2 Ver.A) [Gerald (COY), Smitdogg, The Dumping Union]
+脳力向上委員会 (プロトタイプ) [Yohji, Smitdogg, The Dumping  Union]
+Pit Boss Superstar (9221-10-00A) [Siftware]
+Arctic Thunder v1.002 [J. Wilke, ranger_lennier, gamerfan, Smitdogg,
+  The Dumping Union] (NOT WORKING)
+
+
+追加された未動作ゲーム
+----------------------
+パニクルパネクル [dopefishjustin, Smitdogg, The Dumping Union]
+New Hi-Lo Poker [Smitdogg, The Dumping Union]

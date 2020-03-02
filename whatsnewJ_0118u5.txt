@@ -1,0 +1,102 @@
+0.118u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mappyc0118u1red [Aaron Giles]
+mappy0116u2gre [Aaron Giles]
+namcona1c057red [Atari Ace]
+9ballsh3097red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- memconv.hについて、リトルエンディアンとビッグエンディアンのどちらでも、基本的
+  にどんな幅(8/16/32/64)同士でのコンバートもできるように更新。また、とてもよく使
+  われるマッピングについて、スタブを作成するマクロを、1:1の方法、または
+  LSB/MSB/LSW/MSWスタイルの両方について追加。[Ernesto Corvi]
+
+- CuboCD32/Amigaの更新: [Ernesto Corvi]
+ - CDROMコントローラの実装完了。ゲームの起動が可能です
+ - 扱いやすさのため、Akikoコード全体をmachine/cudocd32.cに移動
+ - CDROMコントローラとドライバにCDDAサポート追加
+ - AGAチップセットのシステムで、CIAのビット0を接続しなくしました。これは以前、
+   Overlayピンに接続されてました
+ - BLTDDATが自身の値を返すように更新。これは読み出し可能なレジスタで、今までは
+   扱っていません
+ - 転送バッファとシフトレジスタが空であるのを反映するため、リセット時にSERDATRレ
+   ジスタを初期化
+
+- PowerPC 601をサポート。[Ville Linde]
+
+- -listxmlのPLDリージョンを修正。[MASH]
+
+- CPUとサウンドチップタイプの比較を、0ではなく、CPU_DUMMYとSOUND_DUMMYとで行うよ
+  うに全て変更。また、sndti_tosndnum()を使っているところで、sndti_exists()が適切
+  なものは置き換え。[Atari Ace]
+
+- CHDインターフェイスストラクチャを削除。CHDのファイルI/Oは、コアファイルルーチ
+  ンを使用します。システムの残り部分もこれに合わせて更新。この結果、分割したCHD
+  が使えなくなります。[Nathan Woods]
+
+- 新コアライブラリユーティリティモジュール、palette.cをパレット管理用に追加。
+  エミュレータ専用のパレットコードをemupal.cに改名して、コアライブラリの先頭に来
+  るよう、再構成。[Aaron Giles]
+
+- ビットマップにパレットを付属させる機能をコアに追加。デフォルトでの16ピクセルビッ
+  トマップの安全地帯は、ほとんどのドライバで不要なため削除しました。新関数、
+  bitmap_alloc_slop()を追加、呼び出し元で指定したslop値のビットマップを作成でき
+  ます。[Aaron Giles]
+
+- gfx_element.colortableエレメントを削除して、新しいcolor_baseエレメントに置き換
+  え。これはグローバルなカラーオフセットを指定します。これにより、パレットとグラ
+  フィックコード間にあったやっかいな依存関係を無くし、システムからOddポインタ演
+  算を大量に取り除くことができます。[Aaron Giles]
+
+- Machine->pens、Machine->colortable、Machine->remapped_colortableの誤用を防ぐた
+  め、constとしてタグ化。誤用があったドライバの修正と、将来のクリーンアップのた
+  めに、残りのタグ付け。[Aaron Giles]
+
+- emupal.cに新しいカラーテーブル管理用関数を追加。これらの関数で、
+  TRANSPARENCY_COLORが使用中(基本的に、ペンマスクがTRANSPARENTCY_PENS)の場合に、
+  コアパレットのカラーテーブルを管理できます。pacman、mappy、toypop、その他ドラ
+  イバ数本で新関数を使うように更新。[Aaron Giles]
+
+- docastleの描画コードを超シンプル化。[Aaron Giles]
+
+- gcc 4.2.1でビルドするときのエラーと警告を修正。[Aaron Giles]
+
+- 新関数、render_target_set_max_update_rate()を追加。OSDレイヤーから、MAMEに対し
+  てターゲットのリフレッシュレート(または、最大値がないときは0)を知らせます。
+  次のダイナミック速度調整パラメータを使えるようにします。[Aaron Giles]
+
+- 新パラメータ -refreshspeed (短縮は-rs)を追加。画面の最低リフレッシュレートを効
+  率的にキープするよう、-speedパラメータを動的に調整します。[Aaron Giles]
+
+- x86emit.hに命令コードエミッタを更に追加。[Aaron Giles]
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Last Fighting [Luca Elia]
+美笑雀 [Luca Elia]
+アマンドピンキー [Luca Elia]
+麻雀カフェタイム [Luca Elia]
+岩谷テンホーの麻雀コミック劇場 Vol.1 [Luca Elia]
+スーパーイーグルショット [Tomasz Slanina, pSXAuthor]
+Date Quiz Go Go Episode 2 [Pierpaolo Prazzoli]
+ダンシングステージ フィーチャリング ドリームズカムトゥルー [smf]
+
+
+新規クローンセット
+------------------
+エックスメン チルドレン・オブ・ジ・アトム (Japan 941222) [Nicola Salmoria]
+Quintoon (UK, Game Card 95-750-206) [James Wallace]
+
+
+追加された未動作ゲーム
+----------------------
+スーパーリアル麻雀PI [Luca Elia]
+ダンスダンスレボリューションエクストリーム [smf]

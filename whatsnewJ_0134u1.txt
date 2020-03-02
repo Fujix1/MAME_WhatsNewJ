@@ -1,0 +1,245 @@
+0.134u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02565: [サウンド] All Sets in zaccaria.c: TMS5200は不完全な実装になっている。(couriersud)
+- 03443: [サウンド] brapboys, brapboysj: BGMのサンプル音ループがおかしい。(hap)
+- 03439: [サウンド] chinagat and clones: OKI6295サウンドの音程が高すぎる。(sasuke)
+- 03435: [コンパイル] openSUSE 11.1 x86環境で、警告gcc warning for src/emu/sound/ymf271.cがでる。(hap)
+
+
+ソースの変更点
+--------------
+- MESS用にCDP1863/CDP1864サウンドデバイスを追加。[Curt Coder]
+
+- Norautディスクリートサウンドシステム: C1の値を(PPI-1 PC6ラインとDarlingtonアレイか
+  ら)実機確認値に合うように変更。これにより555出力が正確になるハズ。[Roberto Fresca]
+
+- 多くのディスクリートサウンドモジュールからEnable入力を削除。
+  [couriersud, Derrick Renaud]
+
+- driftoutのパッチを巻き戻し。理由について次のコメントを参照: [hap]
+  http://www.mametesters.org/view.php?id=3356
+
+- Naomi/AWの更新:
+ *「パワーストーン2」「トイファイター」のプロテクトを実装。[R. Belmont, Guru, Cah4e3]
+ *「ヘビーメタルジオマトリックス」の不良ROMを吸い直し。[Guru]
+ *「バーチャファイター4」(カセット版)の不良ROMを吸い直し。[Guru] 
+ *「クラブカート: ヨーロピアンセッション」を再吸い出し。[Guru]
+ * Atomiswaveハードウェアのドキュメントを更新。[Guru]
+
+-「Atomic Point」のCPUクロックを検証。[Stefan Lindberg]
+
+- Amatic製暗号化付きギャンブルハードウェア用新ドライバ。このシステムはカスタムCPUベー
+  スで、グラフィックスは復号化しましたが、ビットプレーンは2枚しか実装しています。必要
+  なデバイスは全てドライバ内に追加してますが、プログラムROMを正しく復号化してCPUの種
+  類が分かるまではコメントアウトしておきます。暗号化スキームについてはドライバのノー
+  トを参照して下さい。[Roberto Fresca]
+
+- ヘルパ関数device_find_child_by_tagを追加。[Curt Coder]
+
+- i386: rep命令後のオーバーライドプリフィクス処理を改良。[Gabriele Gorla]
+
+-「Mirax」のクロック周波数を訂正。[Stefan Lindberg]
+
+- lr35902 CPUコアの変更: [Wilbert Pol]
+ - DI+HALTバグの処理方法を改良
+ - CPU halt時に割り込みが行われない場合に、割り込みフラグをクリアしないよう変更
+
+- m68k: *BSDとMac OS Xでシグナルコンテキストをセーブしないよう変更。
+  [scarlet, R. Belmont]
+
+-「ヘルファイアー」のBPROM名訂正と、使用BPROMタイプについてドキュメント追加。
+  [Brian Troha]
+
+- タスク後にMSVC専用ファイルを削除するように変更。[Curt Coder]
+
+- z80dmaの改善: [Angelo Salese]
+ - 読み込みシーケンス開始コマンド追加と、基本的なステータス読み込みを実装
+ - ポートA/Bタイミングのコンティニューとリセットコマンドを追加
+ - IRQ有効化/無効化、強制レディ、status byte再初期化コマンドを実装
+ - 読み込み開始コマンドを修正
+ - リセットコマンドを実装
+ - ポート転送動作修正版
+ - portA書き込みのデクリメントステップモード追加と理論的なバグ修正
+ - サーチモードの予備サポートと、WR3マスクバイトのバグ修正
+ - DMA有効化/無効化コマンド使用時のreadyフラグを修正
+
+- インラインアセンブリ"=A"が32bitのgccでしかサポートされていないようなので、64bitセー
+  フな_get_profile_ticksを追加。[couriersud]
+
+- bsnesからCapcom CX4を移植(オリジナルのコードは、zsKnight氏、anomie氏、Nach氏)。
+ 「Mega Man X2」「同X3」がMESSで動作。バグあり。[Harmony]
+
+- TMS5110_CMD_TEST_TALKを部分実装: [couriersud]
+ - ドキュメントによると、CTL1のステータス読み込みのために発行するする必要がある模様
+ - cvsドライバでこれが必要
+
+- [SNES] DSP1エミュレーションのバグを修正。「スーパーマリオカート」がMESSで再動作。
+  [Fabio Priuli]
+
+- CVSの改良: [couriersud]
+ - スピーチCPUの実装
+ - ctlとpdc書き込みを固定実装していた一時コードを削除
+ - s2650のセンス入力としてtmsのROMクロックを使用。darkwarの起動時ボイスが再動作
+ - サウンドとスピーチでラッチを一つのみ使用
+ - dac3に393Hzシグナルを実装
+ - 基板写真によると、サウンドボードにディスクリート回路がある模様。このため、まだ不明
+   なサウンドがあるようなので全てのゲームにGAME_IMPERFECT_SOUNDを設定
+ - 4bit DACは不明のまま
+
+- tms5110の改良: [couriersud] 
+ - ctlポートのステータス読み込みについて入出力を実装
+ - 入出力を、TALK STATUSコマンド後にクロッキングにより切り替え
+ - 新しくtms5110_ctl_rをサポートするようドライバを更新
+ - Rom Clock信号をご開帳
+
+- ym2612/3834: 最新情報にあわせて更新。[Eke-Eke, Nemesis]
+ - LFO変数をchip構造体に移動
+ - チャンネル演算の前にSSG-EGを更新するよう変更
+
+- dsp56456逆アセンブラのいろいろな問題を修正。[Andrew Gardner]
+
+- nova2001ドライバでDIP_LOCATIONSを使うように更新。マニュアルにある部分は、スイッチ動
+  作の解明と検証。[Fujix, Tafoid]
+
+- ARM7TDMI ThumbモードでのNEG Rd,Rs命令逆アセを修正。[Harmony]
+
+- SNESドライバのS-DD1を修正;「ストリートファイター Alpha 2」がプレイ可能。
+  「スターオーシャン」でハング前にグラフィックの解凍動作。[Harmony]
+
+- S2650の改良: [couriersud]
+ - フラグ出力ライン用にS2650_FO_PORTにフェイクポートを追加
+ - CHECK_IRQ_LINEをインライン化
+ - IRQ処理の検証(Quench氏協力)
+
+-「プラネットハリアーズ」の吸い出し完了。[Guru]
+
+- bsnesからSPC7110を移植。[Harmony]
+
+- bsnesからST010を移植。[Fabio Priuli]
+
+- MESSで既存のST010ゲームがハングする問題を修正。[Harmony]
+
+- herbiedkと8ballactのプロテクトエミュレーションの進展。個別ゲーム専用のプログラムカ
+  ウンタチェックは不要。[couriersud]
+
+- MC68681 DUARTの外部ボーレートをサポート。[R. Belmont]
+
+- tms5220のRS・WSラインインタフェースを実装: [couriersud]
+ - tms5220を元に、RS/WSとREADYのハンドシェイクをエミュレートします。READYラインを読み
+   込むドライバでは多分これを使った方がよいと思われます
+ - 注意: READYのハンドシェイクをCPUで行う場合、CPUのの待ちをシミュレートするため、十
+   分なサイクルを消費する必要があります。これの実装も必要です
+
+- zaccaria.cの更新: [couriersud]
+ - tms5220のパッチ削除
+ - tms5220のRS/WS/READY新インタフェースを実装
+ - dac1も削除して、ay2、チャンネルBの減衰制御で置き換え
+
+- INIファイルの順序を明示的にプロパティ経由にするよう設定。[Rene Single]
+
+- F6キーでのチート切り替え動作を修正。[Pugsy]
+
+-「V-V」基板のクロックを訂正。[Corrado Tomaselli]
+
+- チート検索にバイトスワップを追加。[Sandro Ronco]
+
+- 使用可能スロットうち半分をバンクで占有できるよう変更。明示的なバンクはバンク番号64
+  まで拡張。[Aaron Giles]
+
+- tms5220全ラインを(READ|WRITE)_LINE_DEVICE_HANDLERに変更: [couriersud]
+ - アクティブローラインを示す接尾語qを追加
+ - 合わせて全てのドライバを更新
+ - トランポリン関数を削除
+
+- TMS5220Cの派生版をtms5220.cに追加: [Lord Nightmare]
+ - implemented reset for TMS5220C if /RS and /WS are pulled down 
+    together
+ - Lord Nightmareのemail追加と、ソースコメントの訂正
+ - TODOセクションを作成
+
+- gauntletとfirefoxで"新型"tms5520インタフェースを使うように更新。[couriersud]
+
+- ディスクリートの更新: [Derrick Renaud]
+ - DISCRETE_LOGIC_SHIFTを追加 - 汎用シフトレジスタ
+ - DISCRETE_BIT_DECODEで、INTにクリップされない正しい電圧を適用するように修正
+
+-「Sky Raider」 - 一部ディスクリートサウンド化。[Derrick Renaud]
+
+- SNES: CG RAMレンダリングアドレスを修正。[Angelo Salese]
+
+- 6532riotをdevcbインタフェースにコンバート: [couriersud]
+ - 全ドライバの更新
+ - 必要に応じて、ドライバをRS/WS tms5220インタフェースにコンバート
+ - 多くのトランポリン関数を削除
+
+- XTAL_32_768kHzの間違ったXTAL値を訂正。[ArcadeNUT]
+
+- DISCRETE_74LS624の最適化で、dkongjrとmarioを高速化。[Derrick Renaud]
+
+- SNES: DMAレジスタ読み込みの設定違いの修正。[Angelo Salese]
+
+- Atomiswaveキーをさらにシンプル化。[Andreas Naive]
+
+- i8085: [Curt Coder]
+ - RIM命令で、RST5.5とRST6.5ピンの現ステータスを示すように変更
+
+- dkongjrで、並列ディスクリートタスクを使用。[couriersud]
+
+- #ifdef LSB_FIRSTを同等のマクロに置き換え。[Atari Ace]
+
+- Neo Geoの更新: [JohnBoy]
+ - 初期のAES版動作を元にセット名を変更
+      tophuntraをtophuntrhに改名、正しいs1を追加
+      kof97aをkof97hに改名
+      bstarsをbstarshに改名
+ - neocup98に正しいc1を追加
+ - androdunに正しいm1とv1を追加(MVS版レイアウト)
+ - lastbld2を新版に設定
+ - pbobblenaが海賊版と判明したので、pbobblenbに改名。ROMを"正しい"チップラベル名に変
+   更
+ - mslug4のp1を改名。ノートを参照
+
+- photon2のコイン用DIPスイッチ追加。1コインにつき、1分から6分を選択可能。また、海賊版
+  の元になったオリジナルゲームについての情報を追加。[David Haywood]
+
+- listxmlの変更: [Oliver Stoeneberg]
+ - rom/diskエントリーに"optional"フラグを追加
+ - 使用されていない"disppose"フラグをDTDから削除
+
+- Neo Geoレンダリングのマイナーな最適化とクリーンアップ。[Christophe Jaillet]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ターゲットパニック [Phil Bennett, Tormod, The Dumping Union]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+バトルガレッガ (Taiwan / Germany) (Thu Feb 1 1996) [Tormod, The Dumping Union]
+アンダーカバーコップス (US) [Corrado Tomaselli]
+X-MEN (2 Players ver EAA) [Corrado Tomaselli]
+Mirax (set 2) [Stefan Lindberg]
+ヘルファイアー (1P Ver, alt) [Stefan Lindberg]
+カントリーガール (Japan set 2 with Nichibutsu copyright) [Siftware]
+Vulcan Venture / グラディウスII (Older Ver.) [Brian Troha, Dumping Union]
+モータルコンバットII (rev L3.0) [bulldawg, Smitdogg, Dumping Union]
+イグジーザス (Japan, dedicated) [Stefan Lindberg, Phil Bennett]
+ベースボールスターズ プロフェッショナル (set 1) [JohnBoy]
+メタルスラッグ4 (set 2) [JohnBoy]
+
+
+
+追加された未動作ゲーム
+----------------------
+ネットセレクト競馬 ビクトリーハロン [Guru]
+ネットセレクト サラリーマン金太郎 [Guru]
+Amatic Unknown Slots Game [Roberto Fresca, Team Europe]
+Multi Game I (V.Ger 2.4) [Roberto Fresca, Team Europe]
+Multi Game III (V.Ger 3.5) [Roberto Fresca, Team Europe]

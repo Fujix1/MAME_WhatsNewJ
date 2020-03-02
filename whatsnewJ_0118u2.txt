@@ -1,0 +1,79 @@
+0.118u2
+-------
+
+お知らせ：60Hzより高い周波数で表示できないディスプレイを使っていて、サウンドが
+途切れる場合は、-speedオプションを試してみてください。これにより、モニタのリフ
+レッシュレートに収まるように、MAMEのエミュレーション速度を少し遅らせます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+boogwing0118yel [Aaron Giles]
+starblad0113u3red [Atari Ace]
+mgakuen0106u1red [Atari Ace]
+
+
+
+ソースの変更点
+--------------
+- nemesisドライバの調子がおかしかったのを修正。[Atari Ace]
+
+- chdmanのCD生成コードの修正を改良。[smf]
+
+- amspdwy.cドライバのamspdwyのDIPスイッチを修正。amspdwyaとは少し違う模様。
+  [stephh]
+
+- HP Saturn CPUコア逆アセンブラを修正。[Wilbert Pol]
+
+-「Trivia Genius」のクロック速度と色修正。[Lord Nightmare]
+
+- Taitoドライバで、共通の入力ポート定義を使うようにクリーンアップ。[stephh]
+
+-「ポールポジション」で、ハードコードしていた不要な定義を削除。[Alex Jackson]
+
+- bombjackのDIPスイッチ改良。[stephh]
+
+- BFMゲームのデフォルトレイアウトがVFDを表示しないように変更。[James Wallace]
+
+- TMS5220エミュレーションを更に改良と、TMS5110コアとの共通化。[Lord Nightmare]
+
+- INIファイルの解析について、<inipath>/sourceにあるソースファイルのINIを最初に
+  行うよう変更。これは、ソース名とゲーム名が同じ場合のINIファイルのあいまいさを
+  なくすためのものです。もし、INIファイルが<inipath>/sourceに見つからないときは、
+  従来通り<inipath>内を探します。[Aaron Giles]
+
+-「雷電」のメモリマップをマージ。「雷電II」のCOPエミュレーションコードをクリーン
+  アップ。[Aaron Giles]
+
+- エミュレーション全体の速度制御を試験的に追加。これにより、オリジナルと比べてど
+  のくらいの速度でエミュレートするかを指定できます。-speed 1.0は普通の速度、
+  -speed 2.0は2倍速、-speed 0.5は半分の速度となります。この結果、サウンドの音程
+  もずれます。60.60Hzで動作する初期のNamcoゲームを走らせるなら、-speed 0.99とす
+  れば60Hz以下で動作します。使っているモニタが60Hzよりも高いリフレッシュレートを
+  サポートしていない場合には、この設定でサウンドが途切れるのを防ぐことができます。
+  この機能が使えそうなときは、将来のバージョンで、使っているモニタのリフレッシュ
+  レートを常に下回るように自動で速度を制御する-speedリフレッシュパラメータを追加
+  するかもしれません。[Aaron Giles]
+
+- V30のビット命令の逆アセンブリを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+El Grande - 5 Card Draw [Roberto Fresca]
+
+
+
+新規クローンセット
+-------------------
+Kickman [Aaron Giles]
+Trivia ? Whiz (Edition 3 - Vertical) [Pierpaolo Prazzoli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Big Apple Games [Pierpaolo Prazzoli]
+Thayer's Quest [Andrew Gardner]

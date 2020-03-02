@@ -1,0 +1,157 @@
+0.103u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+midres056gre [Bryan McPhail]
+ddragon077u3red [Bryan McPhail]
+airbustr37b9gre [Pierpaolo Prazzoli]
+turbofrc0103gre [Pierpaolo Prazzoli]
+turbofrc37b1gre [Pierpaolo Prazzoli]
+
+
+ソースの変更点
+-------------
+
+-「フェニックス」の効果音#2のバグ修正。[Hans Andersson]
+
+- NeoGeoの更新: [http://neosource.1emulation.com/forums/]
+ *「餓狼伝説2」- プロテクトのエミュレート
+ *「King of Fighters 10th Anniversary」 - オンザフライでSRAMタイルを更新するコー
+   ド追加
+ * CCTHD2k3 - グラフィックと色の修正
+ * その他のNeoGeoセットをサポートするコード追加
+
+-「Mat Mania / エキサイティングアワー」のDIP修正。[Roberto Fresca]
+
+- 閏年の計算を修正。[William Krick, smf]
+
+- Sync Refresh / Waitvsync / Triplebufferの変更: [Alan Kamrowski II]
+
+ * waitvsyncコードについて、vblankの開始点を待つように変更しました。以前は、
+  vblank期間かどうかをチェックして、そうでなければ単に待つだけの動作でした。この
+  方法では2つの問題があります。ひとつは、syncrefreshが有効な場合、十分な時間があ
+  るとひとつのvblank間に複数のフレームが描画されていたことです。このため、
+  syncrefreshを使うと、ゲーム速度が上がったり、CPUに負荷がかからないと速度が落ち
+  たりなどの現象が見られました。二つ目の問題は、コードが調べていたのはvblank内か
+  どうかだけだったので、再トレースラインがときどき見られたことです。vblankのどこ
+  にあるかは調べなかったので、vblankの終わりだった場合、モニタにフレームが描かれ
+  るときにはvblankを越えてしまうこともありえます
+
+ * ゲーム速度が95%以上のときだけwaitvsyncが有効になる制限を削除しました。この制
+  限は、ゲーム速度によってwaitvsyncがONになったりOFFになったりする現象を起こす
+  だけでした。もし、waitvsyncを有効にして動作速度が遅くなっても、正常動作です
+
+ * syncrefreshとtriplebufferが同時に使用されるとき、MAMEはwaitvsyncも動作させま
+  す。triplebufferのコードがこれを管理して、waitvsyncコードで再トレースをMAMEに
+  待たせるのは時間の無駄で、一部のハードではタイミングの問題も起こります。
+  triplebufferが有効な場合は、既にtriplebufferによって行われているので、
+  waitvsyncを実行する必要はありません。
+
+
+- monzagp.cの綴り間違い修正。[Brad Oliver]
+
+- ddenlovr.cのドキュメントをクリーンアップ。[Brian Troha]
+
+-「S.S. Mission」「Air Attack」のDIPスイッチ修正。[Brian Troha]
+
+- Data East 156 (ARM)ベースのゲームの改良: [Various]
+ *「ナイトスラッシャーズ」にサウンド追加 [Tomasz Slanina]
+ *「ワールドカップバレーボール'95」と「バックファイア！」にサウンド追加
+   [Pierpaolo Prazzoli]
+ * Data East MLCドライバのスプライト反転を修正。これにより「アベンジャーズ・イン・
+   ギャラクティックストーム」のグラフィック修正 [Tomasz Slanina]
+ *「ワールドカップバレーボール'95」がスタートするようにARM CPUコアを改造
+   [Tomasz Slanina]
+ * 156 / ARMコプロセッサにBCD命令追加。上記のゲームで必要 [David Haywood]
+ * Data East MLCゲームのサウンド修正 [David Haywood]
+ *「バックファイア！」を単独ドライバに分けて、グラフィックの改良とデュアルスク
+   リーンサポート [David Haywood]
+ *「バックファイア！」のサウンドデコーディングを修正 [David Haywood] 
+ * ARMコアのクリーンアップ [Bryan McPhail]
+
+- fileio.cのバッファーオーバーランを修正。[Lawrence Gold]
+
+- i486 CPU用パッチ。[Nathan Woods]
+ src/cpu/i386/cycles.h:
+ src/cpu/i386/i386.c:
+ src/cpu/i386/i386dasm.c:
+ src/cpu/i386/i386ops.h:
+ src/cpu/i386/i486ops.c:
+    * XADD、INVLPG、CMPXCHG命令を実装
+    * opcodeテーブルの定数を訂正
+
+- H6280のアップデート。[Rob Bohms]
+ src/cpu/h6280/h6280.c:
+ src/cpu/h6280/h6280.h:
+ src/cpu/h6280/h6280ops.h:
+ src/sound/c6280.c:
+ src/sound/c6280.h:
+    * Tフラグエミュレーション追加
+    * readコールの修正
+
+- デバッガの改良。[Nathan Woods]
+ src/debug/debugcmd.c:
+ src/debug/debugcpu.c:
+ src/debug/debugcpu.h:
+ src/debug/debughlp.c:
+   * コマンド“gtime”追加;“go”コマンドと似ていますが、指定時間後にブレークし
+     ます
+
+-「WWFスーパースターズ」の周波数訂正。[Phil Bennett]
+
+- spec2kにサンプルバンキング追加。[Pierpaolo Prazzoli]
+
+- Airbusterドライバをいろいろ改良。[Pierpaolo Prazzoli]
+
+- Namco NA-1で本物のBIOSを使うように更新。[R.Belmont, Charles MacDonald]
+
+- M37710の修正。[R.Belmont]
+ * SBCBにアドレッシングモードをさらに追加
+ * キャリーフラグをクリアするようにMPYを修正
+ 
+- Namcoドライバのエンディアンの問題を修正。[R.Belmont]
+
+- Lovely CardsとLovely Pokerドライバを統合。[El Condor]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ワールドカップバレーボール'95 [Bryan McPhail, David Haywood]
+Hoops '96 / Hoops / ダンクドリーム'95 [Bryan McPhail]
+Quintoon [ReAnimator / AGEMame]
+Pokio [ReAnimator / AGEMame]
+Slots [ReAnimator / AGEMame]
+Paradice [ReAnimator / AGEMame]
+Pyramid [ReAnimator / AGEMame]
+Golden Crown [ReAnimator / AGEMame]
+ロックントレッド 1 (海賊版) [Justin Lee Turner]
+ロックントレッド 2 (海賊版) [Justin Lee Turner]
+ロックントレッド 3 (海賊版) [Justin Lee Turner]
+ロックントレッド 4 (海賊版) [Justin Lee Turner]
+Twin Action [Luca Elia, David Haywood]
+アームチャンプII [Luca Elia, The Guru]
+Mahjong The Mysterious World [Luca Elia]
+Air Attack [Pierpaolo Prazzoli]
+SNK VS. Capcom SVCカオス [http://neosource.1emulation.com/forums/]
+ザ・キング・オブ・ファイターズ2003 [http://neosource.1emulation.com/forums/]
+サムライスピリッツ零 / Samurai Shodown 5 [http://neosource.1emulation.com/forums/]
+
+
+
+新規クローンセット
+------------------
+エイリアン3 ザ・ガン (US) [Arzeno Fabrice]
+マジカルクリスタルズ (World, newer) [Uncle Tom]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Last Fighting [R.Belmont]
+The Crystal Maze [AGEMame]
+Turnover [AGEMame]
+Skill Trek [AGEMame]
+The Mating Game [AGEMame]

@@ -1,0 +1,165 @@
+0.148u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03873: [その他] (megaplay.c and megatech.c): 出力されるNVRAMの内容が正しくなく、本
+         来はBIOS側の設定を保存しなければいけない。(Fabio Priuli)
+- 05139: [色/パレット] (ssv.c) ryorioh: 色がおかしい。(Angelo Salese)
+- 05179: [Interface] -burninオプションが動作していない。(Fabio Priuli)
+  
+
+
+ソースの変更点
+--------------
+- QTデバッガの修正:
+ * 新しいメモリウィンドウをアクティブなCPUにフォーカスして開始
+ * ユーティリティウィンドウを一旦開いて閉じた後、ステップ動作しても再び開かないように
+   変更 [Andrew Gardner]
+
+- shangha3.c:「上海III」「へべれけのぽぷーん」「ブロッケン」のDIP配置追加。
+  [Brian Troha]
+
+- m6502: ほとんど未テストのマルチディスパッチテーブルサポート。[O. Galibert]
+
+- coolridr:「Clang」の新バージョンでのコンパイル不具合対策。[Phil Bennett]
+
+- k053260デバイスのモダン化。[Andrew Gardner]
+
+- M740 CPUファミリの更新: [R. Belmont, O. Galibert]
+ * T=1命令を全てサポート
+ * COMと、加算機のみ版のINCとDECを追加
+
+- namcos2:「スティールガンナー2」で正確なC68(M37450) I/O MCUを使用。
+  [R. Belmont, Guru, Charles MacDonald]
+
+- aristmk4.c:  [Heihachi73]
+ *「Caribbean Gold」(動作可能)の追加。コメントの整理とEPROM番号の追加。
+  「Caribbean Gold」については、入力系の変更が少し必要。起動時にドアエラーが出るが、
+   コイン入力を押すとエラーは消えて、メモリリセットとコイン入力が可能になる
+
+ * また、「Caribbean Gold 2」[cgold2]でcgoldのグラフィックROMを使うことで表示改善
+   (cgold u8とu9をcgold2のu20とu45に置き換え)。ゲームはプレイ可能(これらのゲームでい
+   くつか違うタイルがあるのを除く)
+
+ *「Caribbean Gold II」「Fortune Hunter」を動作可能ステートに昇格。eforestとarcwinsの
+   昇格以来動作していたが、フラグは外されていなかった
+
+- Mitsubish M50740/50741 MCUをサポート。[R. Belmont]
+
+- exidy.c: gcc-4.9で判明したアウトオブレンジアクセスを修正。[Juergen Buchmueller]
+
+- beezer.c: gcc-4.9で判明したアウトオブレンジアクセスを修正。[Juergen Buchmueller]
+
+- device_tコンストラクタにショートネームとソースファイル位置用引数を追加。
+  [Miodrag Milanovic]
+
+- spu: cdda割り込み追加。[Carl]
+
+- sf2m3, sf2m8 - 残りの表示不具合修正で、WORKINGステートに設定。[Robbbert]
+
+- sf2m1、dinopic、dinopic2、punipic、punipic2、punipic3の改良。[Robbbert]
+
+- shangha3.c:「上海III」のクロックスピード訂正とその他の記述を追加。[Brian Troha]
+
+- XとY軸を符号付き11ビットで処理。「リッジレーサーレボリューション」のロード時に未使
+  用のビットを設定していた。[smf]
+
+- M740: Aレジスタのbbs/bbcの逆アセンブリを訂正。[R. Belmont]
+
+- tms5220.c: 腑分けにより正確なtms5200チップROMを追加; 5200、5220、5220cで使用し、ボ
+  イスの音質が大幅に向上。[digshadow, Sarayan, Lord Nightmare]
+
+- M740: seb x,A/clb x,Aの逆アセンブリを修正。[R. Belmont]
+
+- ドット、線分、三角のX、Y座標を符号付き11ビットとして処理。これによりMESSの
+ 「Zaynac X Zaynac」(fc版)のスプライトが修正。[smf]
+
+- QTデバッガ: メモリビューのチャンクサイズ比を正しくレポートするように修正。ignoreコ
+  マンドで、無効なCPUをレポートするのを訂正。コメントシステムで、オペコードのCRC32に
+  関連するいかれたコードを修正。[Andrew Gardner]
+
+- 315_5124.c: パレットの改良。[Enik Land]
+
+- i960:「ゼロガンナー」で必要なcvtilrを追加。[R. Belmont]
+
+- tms5220.c: 5220cと5200の腑分けを元にSpeak Externalの小修正とドキュメントの更新。
+  [Lord Nightmare, digshadow]
+
+- gaplus.c:「ギャプラス / Galaga 3」セットの問題修正。[Brian Troha]
+
+- 一部ゲームとpse bios v2.2で間違ったテクスチャが表示されるのを修正するため、dma割り
+  込み発生までの時間短縮。[smf]
+
+- psxgpu_device::update_screenがボーダーエリアをクリアするように変更。[smf]
+
+- 結果が最大領域を超える場合のGTE A1/A1/A3フラグ演算を修正。GPFとDPCTが全てのsfとlm値
+  で動作可能。[smf]
+
+- namcos23: ハードウェアのreadmeを更新。[Guru]
+
+- drawd3d.c - YIQ使用時のパフォーマンス改善と、prescale_xとprescale_yの変更が色に影響
+  しないよう修正。[Just Desserts, Robert Tuccitto]
+
+- GTE GPL & DCPLオペコードについて、旧ツリーから変更部をポートすることにより修正。
+  [smf]
+
+- royalcrdpのデフォルトNVRAM追加でゲームが起動可能。動作可能ステートに設定。
+  [Peter Ferrie]
+
+- magicrd2bとmagicrd2cのデフォルトNVRAM追加でゲームが起動可能。動作可能ステートに設定。
+  [Peter Ferrie, Roberto Fresca]
+
+- TMS5100と5200シリーズ: tms5100、tms5200、tms5220、tms5220cの腑分けとchirpテーブルの
+  検証についてドキュメント追加。LPCテーブルは未検証。[digshadow, Lord Nightmare]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Bases Loaded (Prototype, PlayChoice-10) [Lost Levels]
+Sex Appeal (Version 6.02) [Brian Troha, The Dumping Union]
+Caribbean Gold (3VXEC449, USA)  [Heihachi73]
+Caribbean Gold II (3XF5182H04, USA)  [Heihachi73]
+Fortune Hunter (2XF5196I01, USA)  [Heihachi73]
+Fortune Hunter (2XF5196I02, USA)  [Heihachi73]
+Magic Card II (green TAB or Impera board)  [Peter Ferrie, Roberto Fresca]
+Magic Card II (blue TAB board, encrypted)  [Peter Ferrie, Roberto Fresca]
+Royal Card v2.0 Professional  [Peter Ferrie]
+
+
+新しく追加されたクローンセット
+------------------------------
+Virus (Dr. Mario prototype, PlayChoice-10) [Lost Levels]
+Hit The Six (Project) (set 3) [launton]
+(U.S.) Games V18.5 [Bad A Billy, Smitdogg, The Dumping Union]
+Magic Johnson's Fast Break (Arcadia, V 2.7)
+  [Kevin Eshbach, The Dumping Union]
+ハングオン (older?) [cmonkey]
+デイトナUSA Special Edition (Japan, Revision A) [Ordyne]
+デイトナUSA (Japan, Turbo hack, set 2) [Any, The Dumping Union]
+ギャプラス (GP2) [Any, The Dumping Union]
+サイドバイサイド (Ver 2.7 J) [Guru]
+カプコン VS. SNK -ミレニアムファイト2000- (JPN, USA, EXP, KOR, AUS)
+  [Porchy, The Dumping Union]
+ライデンファイターズJET (Single Board, set 1)
+  [Tormod, Smitdogg, The Dumping Union]
+モトクロスゴー！ (MG1 Ver. A) [Any, The Dumping Union]
+The Pit Boss (2214-03, U5-1C) [Brian Troha, The Dumping Union]
+Riviera Hi-Score (2131-08, U5-2D) [Brian Troha, The Dumping Union]
+ロストワールド / Forgotten Worlds (USA, B-Board 88618B-2, Rev. AA) [system11]
+ギャプラス / Galaga 3 (GP3) [system11]
+モトクロスゴー！ (MG1 Ver. A, set 2) [Any, The Dumping Union]
+カルノフ (US, rev 6) [system11]
+サイクルウォリアーズ, set 1 [system11]
+
+
+追加された未動作ゲーム
+----------------------
+Winning Streak (Version 1.1) (Coinworld) [albaki77]
+Fruit Star (encrypted) [Team Europe, Roberto Fresca]
+Crackin' DJ Part 2 [ShouTime, f205v, The Dumping Union, R. Belmont]
+マッスルボマー / Saturday Night Slam Masters (海賊版 with PIC16C57)
+  [ANY, The Dumping Union, Robbbert]
+Mars TV [ShouTime, f205v, R. Belmont]

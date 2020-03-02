@@ -1,0 +1,327 @@
+0.136u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03667: [インターフェイス] デフォルト、またはゲーム毎の.cfgファイルが正しくセーブさ
+         れない。KEYCODEが欠けているため、キー設定が保存されない。(Aaron Giles)
+- 03671: [サウンド] fcrash: サウンドに不具合がある。(Mamesick)
+- 03663: [グラフィック] tgm2, tgm2p: 起動時の警告画面は黒ではなく本来は青になる。
+
+
+ソースの変更点
+--------------
+- vsnetscrのグラフィックROMを正しい物に置き換え。[Team Japump, Dumping Union]
+
+- デバッグビルドのメモリ割り当て問題を修正。[Aaron Giles]
+
+- BIGENDIAN用のmakefile自動テストを追加。ちょっとハック気味。[couriersud]
+
+-「サイバータンク」のサウンドROMを再吸い出し。[Antonio Gonzalez Jr., Dumping Union]
+
+- psikyoshの改良: [PsikyoFan]
+ * スキャンライン単位のスクロール・ズーム、コラム単位のエフェクトを追加。これを有効に
+   するとパフォーマンスがかなり落ちます。s1945ii、s1945iiiの警告フラグを削除。
+   s1945iiiは正確かどうか検証が必要で、X軸ズームは推測
+ * ビデオレンダリングはほとんど完成。画面反転のみ未実装(また、タイルマップへのコンバー
+   トもいつか)。ラインエフェクトはライン単位のアルファ、プライオリティ、バンクを重視。
+   この結果、darakuのテキストがハック無しで動作
+ * 全てのゲームがプレイ可能な速度になるよう、いろいろな最適化
+ * 上のdarakuハックのせいでsoldividのラストボスエフェクトが動かなかったのを修正
+ * 実ハードでの計測を元に正確な拡大縮小エフェクト実装
+
+- cybertnkの改良: [Angelo Salese]
+ * スプライトの高さ修正
+ * X反転とY方向のマイナオフセット実装
+ * ズームのテスト版実装
+
+- sdl.makの書き直し: [couriersud]
+ - make 実施に TARGETOS=freebsd を指定
+ - opengl、x11、デバッガ向けのモジュラ化
+ - ターゲット専用設定をほとんどパラメータ化
+ - 任意でmameデバッガ付きwin32をビルドするための GTL_INSTLL_ROOT を追加
+ - On targets supporting "-m64" and "-m32" use them.
+ - unix ppc ターゲットでは -Dpowerpc を自動で付加
+
+- Windowsでのスタックウォークを改良。スタックウォーク処理にStackWalk64を使用して、ロ
+  グ出力を整理。シンボルのルックアップとソース/行情報の取得にシステム関数を使うのも予
+  定。[Aaron Giles]
+
+- subsino.cの改良: [Roberto Fresca]
+ (共通):
+ - CPUクロックを 1.5MHzに低減
+ - 入力系の再構成
+ - 各ゲームの情報やテクニカルノートを追加
+ - ランプサポート
+ - ドライバを少しクリーンアップ
+
+ 「Victor 5」:
+ - M6295をマッピングしたものの、サンプルROMが無いのでコメントアウト
+ - キーイン、キーアウト、ペイアウト、統計、設定の入力追加
+ - コイン、キーイン、キーアウトカウンタを追加
+ - ベットとコイン信号が連続してコイン詰まりが起きないように制限
+ - 完全なコインエイジと、キーインDIPスイッチを追加
+ - メインゲーム、ダブルアップレートのDIPスイッチを追加
+ - 最低ベット数のDIPスイッチを追加
+ - 最大ベット数のDIPスイッチを追加
+ - デモBGMのDIPスイッチを追加
+ - ボタンランプのレイアウト追加
+
+ 「Victor 21」:
+ - M6295をマッピングしたものの、サンプルROMが無いのでコメントアウト
+ - ベットx10、キーイン、キーアウト、統計、設定の入力追加
+ - コイン、キーイン、キーアウト、ペイアウトカウンタ追加
+ - ベットとコイン信号が連続してコイン詰まりが起きないように制限
+ - 完全なコインエイジと、キーインDIPスイッチを追加
+ - メインゲームレートのDIPスイッチを追加
+ - 最低ベット数のDIPスイッチを追加
+ - デモBGMのDIPスイッチを追加
+ - ボタンランプのレイアウト追加
+
+ 「Poker Carnival」 (crsbingo):
+ - チェンジカード、キーイン、キーアウト、統計、設定の入力追加
+ - コイン、キーイン、キーアウト、ペイアウトカウンタを追加
+ - ベットとコイン信号が連続してコイン詰まりが起きないように制限
+ - 完全なコインエイジと、キーインDIPスイッチを追加
+ - ダブルアップレートのDIPスイッチを追加
+ - 最低ベット数のDIPスイッチを追加
+ - 最大ベット数のDIPスイッチを追加
+ - カードグラフィックのDIPスイッチを追加
+ - ダブルアップタイプのDIPスイッチを追加
+ - ボタンランプのレイアウト追加
+
+ 「Super Rider」,「Super Moto」:
+ - 統計と設定の入力追加
+ - コインカウンタ追加
+ - メインゲームとダブルアップレートのDIPスイッチを追加
+ - ダブルアップとコントロールタイプのDIPスイッチを追加
+ - コインエイジとデモサウンドのDIPスイッチを追加
+ - ボタンランプのレイアウト追加
+
+ 「Shark Party」:
+ - 統計と設定の入力追加
+ - コインカウンタ追加
+ - メインゲームとダブルアップレートのDIPスイッチを追加
+ - ダブルアップ、コインエイジ、デモサウンドのDIPスイッチを追加
+ - ボタンランプのレイアウト追加
+
+- テンプレートクラス tagged_list を作成。これは、タグマップのシンプルなリストを管理し
+  ます。メモリ領域、入力ポート、デバイスでこのクラスを使うように変更。デバイスについ
+  ては、typenextとclassnextフィールドをメソッドで変更し、動的に次のアイテムを検索しま
+  す。多くのマクロでこの機能を使うように変更して、かなりの数のヘルパー関数が不要にな
+  りました。[Aaron Giles]
+
+- device_find_child_by_tag() を device->subdevice() に置き換え。
+
+- An29000 CPUコア追加。[Phil Bennett]
+
+- osdcomm.hからstdlib.hを削除: [couriersud]
+ - 必要に応じて、#include stdlib.h を追加
+ - Solarisビルドを修正
+ - Win32でのOSD=sdl用unidasmビルドを修正
+
+- ツールで必要に応じてstdlib.hをインクルード。[couriersud]
+
+- コアライブラリファイルで、必要に応じてosd_malloc/osd_freeを使うように変更。
+  [couriersud]
+
+- makefileにcheckautodetectターゲットを追加。[couriersud]
+
+- makefileで=0に指定しなくても、zlibとexpatが動的リンクできるように変更: 
+  make BUILD_ZLIB=0 BUILD_EXPAT=0 [couriersud]
+
+- vsnetのスプライトとROZ位置を改良。[David Haywood]
+
+- 以下のドライバでdriver_data構造体を使うように変換: [Atari Ace]
+ - bigstrkb, mugsmash, pass, sbugger, sderby, shadfrce, shootout, silkroad, spbactn, 
+   sslam, stlforce, taitojc, tunhunt, welltris, wwfsstar, xyonix
+ - 39in1, safarir, sbowling, shougi, skeetsht, skyarmy, sliver, spoker, spool99, 
+   srmp5, srmp6, ssingles, sstrangr, sub, supdrapo, superdq, supertnk, suprgolf
+
+- hng64: 低解像度テクスチャデコードを実装。これまでの赤色と緑色のポリゴンが全てテクス
+  チャ処理されました。[Andrew Gardner]
+
+- 長年の設計不具合を訂正: デバイス設定ステートをランタイムデバイスステートから分離: 
+  [Aaron Giles]
+
+ * 存在しているデバイスのステートを表す running_device クラスを新しく追加。これらの 
+   running_device リストは machine->devicelist にあり、running_machine がインスタンス
+   化されたときに作成されます
+
+ * 設定ステートへアクセスするには、設定への参照を返す device->baseconfig() を使用しま
+   す
+
+ * machine->devicelist 内の running_device リストは、machine->config->devicelist 内の
+   デバイス設定リストに対して1:1の対応になり、ほとんどのナビゲーションオプションは両
+   者で等しく動作します(クラスによるスキャン、型など)
+
+ * ほとんどの箇所で、ドライバは const device_config ではなく running_device オブジェ
+   クトとして扱わます。実際には、このパッチを行うため、以下のようなグローバル検索と置
+   換を行いました:
+
+      const device_config -> running_device
+      device->static_config -> device->baseconfig().static_config
+      device->inline_config -> device->baseconfig().inline_config
+
+    また、この結果起きたコンパイルエラーも修正しています
+
+ * device_get_info_* を削除し、get_config_* メソッドに置き換え
+
+ * get_runtime_* に running_device からランタイムステートへアクセスするメソッドを追加
+
+ * DEVICE_GET_INFO コールバックには device_config * のみが渡されます。つまり、トーク
+   ンやランタイムステートには全くアクセスできませんが、ほとんどの場合これで問題ありま
+   せん
+
+ * DEVICE_GET_RUNTIME_INFO コールバックを追加。これには、ランタイム時に有効なデータに
+   アクセスするための running_device が渡されます。将来的にはメカニズムの簡素化のため、
+   これは廃止予定です
+
+ * メモリ領域のハンドオフをメモリサブシステムからデバイスにクリーンアップ
+
+- astringの変更で起きていた、cfgファイル出力時にトークンが不正になるバグを修正。
+  [Aaron Giles]
+
+- デバッガメモリビューでメモリ領域が正しく列挙されなかったバグを修正。また、ディスク
+  領域に対して空白領域を作成しないように変更。[Aaron Giles]
+
+- Guru氏印のReadmeをtrackfldに追加。[Curt Coder]
+
+- CIA 6526インタフェースの再構成。SP/CNTコールバック追加。シリアル転送の修正。
+  [Curt Coder]
+
+- devintrfの残り部分をクラスに変換して、管理関数をこれらのクラスメソッドに移動。コア
+  内のものを除くと、もっとも影響範囲が大きなものは device_reset() から 
+  device->reset() への変更。[Aaron Giles]
+
+- makefileにOS/2の自動検出を追加。[couriersud]
+
+- PTR64=0の設定により、PTR64の自動検出を抑制できるように変更。32bit/64bit混合ターゲッ
+  トで64bitとして自動検出される場合、PTR64=0とすることで32bit実行ファイルをビルドさせ
+  ることができます。[couriersud]
+
+- makefile/sdl.makでOpenBSDをサポート。PTR64(amd64を使用)のXBSDの検出を修正。
+  [couriersud]
+
+- 非NULLトークンが、間違ってデバイスの開始を意味していたバグを修正。これにより、
+  -video ddrawの問題が修正。[Aaron Giles]
+
+- vsnesのバンク設定をRAM設定に置き換え。バンク設定は変更されないため。[Aaron Giles]
+
+- 未処理の割り込みフィルタですぐに終了するよう変更。クラッシュ発生時に 
+  SetErrorMode() を使うとダイヤログボックスが現れるのを防ぐことができます。
+  [Aaron Giles]
+
+- pgm.cで、メモリテストエラーを起こしていたミスタイプを修正と、コメントの訂正。
+  [XingXing]
+
+- デバイス設定ステートのダイレクトアクセサを作成。今のところ、get info 関数を経由で呼
+  び出し。古いコールラッパ用マクロは削除。[Aaron Giles]
+
+- 用途を明確にするため、CPUINFO_ から DEVINFO_ までのエイリアスを削除。さらに数カ所で
+  新アクセサを使うように変更。[Aaron Giles]
+
+- drgninjaセットを純正のData East基板から吸い出したものに置き換え。[dlfrsilver]
+
+- dec0ドライバにMEC-M1基板レイアウトを追加。またクロックとROM名の更新。[Guru]
+
+- hng64: 変換専用ジオメトリ型0102を部分的に復号。これによりレースゲームでの道路部分、
+  burikiのリング端部、burikiのアトラクトモードでの廊下が表示。[Andrew Gardner]
+
+- "misc"の復活: [couriersud]
+ - sdlmisc_<targetos>.cを再追加。これは、osd_break_into_debugger などのスタブを作成す
+   る特定ツールで必要です。もしこれを別ファイルで用意しない場合、リンクステージが成り
+   立ちません
+ - OS/2パッチを適用 [Credit: KO Myung-Hun]
+ - #includeのクリーンアップ。可能な箇所でstdlib.hを削除
+ - osd_mallocの改名
+ - SDLモニタモードが必要な場合自動で設定。プラットフォームに関係なく共通です
+
+- GTKデバッガの更新: [couriersud]
+ - glade-2でdebug.gladeファイルの編集が再び可能
+ - glade-2で作成したファイルの編集が不要
+ - 全てのアクティブハンドラは親ウィンドウのポインタを渡す
+ - c++/c ウィンドウ割り当てが交錯しないようにmallocをosd_mallocに変更
+ - カーソル位置まで実行(メインビュー)
+ - 一時的なメモリ編集(メモリビュー)
+ - Windows版のようなキー処理(上、下など)を実装
+ - TabとESCはまだ未処理
+ - win32と同等な機能
+ - コードを更に検証・書き直し・シンプル化
+ - コメントヘッディングを更に追加
+ - gcc-4.4のコンパイル警告修正(gcc-4.2では検知されないもの)
+ - 個々のビューサイズ調整用の横分割バー
+ - win32デバッガに合わせて最小高さを調整
+
+- ARM: SA-1110のテストサポート。[R. Belmont]
+
+- deco32のクロックを全て検証、及びHuC6280のクロックをCharles McDonald氏のノートに基づ
+  き訂正。このゲームで使用しているARM CPUがData East 101カスタムであることについてノー
+  トを追加。[Corrado Tomaselli]
+
+- 以下のタイトルで76489A派生版を使用するように変更(所有基板で確認): 
+  [Corrado Tomaselli]
+  「グリーンベレー」、「Do Run Run / ミスターDo! VS ユニコーン」、
+  「Jail Break / マンハッタン24分署」、「少林寺への道」、「イーアルカンフー」
+
+- sn76489aの周期ノイズを再修正(とコードのシンプル化)。サンプルベースでより実チップに
+  近くなったはずです。また、正確なクロック分周エミュレーションを追加したので、少し遅
+  くなっています。[Lord Nightmare, PlgDavid, Kold666]
+
+- MC6845使用ドライバで、ポップメッセージを使用可能。[Curt Coder]
+
+- 64-bitビルドのクラッシュを防ぐため、ms32ドライバ開始時にRAMとビットマップが必ずクリ
+  アになるよう改良。[David Haywood]
+
+- HD63484 ACRTCをデバイスに変換。[Fabio Priuli]
+
+- hng64: sams64のカメラが動くようにハッキング。[Andrew Gardner]
+
+- mchampdxのクラッシュを修正。[Fabio Priuli]
+
+- s14001a: コメントを更新; キーキーするノイズを削除(コードはまだ残してあり、他の問題
+  が修正されるまで#define内に隠しています)。[Lord Nightmare]
+
+-「ディー・デイ」(Jaleco)のPROMを吸い出し。[Chack'n, Team Japump]
+
+-「ディー・デイ」(Jaleco)の背景とスプライト色を修正。[Angelo Salese]
+
+- UIメニューインタフェースを変更: [couriersud]
+ - 全てのUI関数でrender_containerの使用を前提するよう変更
+ - render_container_get_uiを参照する全てのマクロを削除
+ - ui_menu_allocでメニューを描画するコンテナを渡すように変更
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+F-15 Strike Eagle (2 sets) [Phil Bennett]
+Battle of the Solar System (rev. 1.1) [Phil Bennett]
+Tank Battle (prototype rev. 4/21/92) [Phil Bennett]
+Fortune I (PK485-S) Draw Poker [Jim Stolis]
+ヴァーサスネットサッカー (5 sets) [David Haywood]
+Island 2 (060529, banking address hack) [David Haywood]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+インセクターX (Japan) [Gyrovision, Gatinho, Smitdogg, Dumping Union]
+バイパーフェイズ1 =U.S.A= [Keven Eshbach, Dumping Union]
+Cube Quest (12/30/83) [Bill K]
+
+
+
+追加された未動作ゲーム
+----------------------
+King Tut (Australia) [David Haywood]
+Money Bank (Australia) [David Haywood]
+Penguin Adventure (海賊版) [Mariusz Wojcieszek]
+Quarter Horse Classic [Siftware, Mariusz Wojcieszek]
+ピン桐 8 [Gyrovision, Smitdogg, The Dumping Union]
+ポーカーレディース (Censored 海賊版) [David Haywood]
+Gundam Wing: Endless Duel (SNES 海賊版) 
+   [N. Francfort, manliodp, Smitdogg, The Dumping Union]
+Mortal Kombat 3 (メガドライブ版 海賊版) 
+   [Patrick McCarron, Smitdogg, The Dumping Union]

@@ -1,0 +1,403 @@
+0.156
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05780: [グラフィック] (raiden2.c) raiden2 and clones: 画面パラメータとリフレッシュ
+         レートについて。(Angelo Salese)
+- 05646: [クラッシュ/フリーズ] (megatech.c) mt_soni2: スタート後すぐにクラッシュする。
+         (David Haywood)
+- 05306: [クラッシュ/フリーズ] (asteroid.c) llander, llander1: 言語設定のDIPスイッチ
+         を変更すると画面がフリーズするかゲームがクラッシュ。(mariuszw)
+- 00135: [その他] (dynax.c) quiztvqq: ゲームを立ち上げると"Backup Error"と表示される。
+         リセットすると"Backup OK"と表示されるが、再起動するとまたエラーになる。
+         (Osso)
+- 05781: [ドキュメント] (cps2.c) hsf2, hsf2a, hsf2j: タイトルの2がローマ数字でなくア
+         ラビア数字になっている。(Alex Jackson)
+- 05395: [色/パレット] (tmnt.c) cuebrick: サービスモードの色チェックに表示される色が
+         間違っている。(Alex Jackson)
+- 04990: [画面反転/カクテルモード] (tumbleb.c) fncywld, jumpkids, tumbleb, tumbleb2: 
+         画面反転をONにしてもスプライトはそのまま表示される。(Osso)
+- 03590: [色/パレット] (rockrage.c) rockrage, rockragea, rockragej: ボーナスアイテム
+         を落とす敵を倒した時の色が異なる。(Alex Jackson)
+- 05760: [チートシステム] (funworld.c) rcdino4: [デバッグ限定] 初期化中にアサート。
+- 05776: [クラッシュ/フリーズ] (tx1.c) buggyboy, buggyboyjr: 起動後にクラッシュする。
+         (Robbbert)
+- 02523: [グラフィック] (twin16.c) vulcan, gradius2, gradius2a, gradius2b: アトラクト
+         モードの過去のボスシーンでボスが表示されない。(Alex Jackson)
+- 04742: [クラッシュ/フリーズ] (neodrvr.c) kog: ソフトリストからkogを起動すると致命的
+         なエラーが起こる。(David Haywood)
+- 05769: [ゲームプレイ] (taitogn.c) otenki: ゲームが起動しない。(smf)
+- 05741: [DIP/入力] (centiped.c) centiped3: プレイヤー2のスタートボタンが無い。
+         (Tafoid)
+- 05740: [DIP/入力] (vsnes.c) cstlevna: マニュアルによるとDIPスイッチ5と6はボーナス点
+         だが動作していない。
+
+
+ソースの変更点
+--------------
+
+-「アルカノイド」とAstrocorpハード用のSCREEN_RAW_PARAMSを追加。[Angelo Salese]
+
+- Alpha 68kハード用のSCREEN_RAW_PARAMSを追加。[Angelo Salese]
+
+-「ドラッグレース」のL8に同期PROM追加。[Matt]
+
+- PSE製「Desert Patrol」のスケルトンドライバ追加。吸い出し済のPROMについてドキュメン
+  トを追加するため。[Dave Widel, gregf]
+
+- rspdrc: 積算処理時の加算器アクセスを最適化。[MooglyGuy]
+
+- lpc: スケルトンACPI。[O. Galibert]
+
+- pentium: マジック0x66プリフィクスをさらにサポート。[O. Galibert]
+
+- dec0.c / dec8.c画面のRAWパラメータ値改良。[Angelo Salese]
+
+- i6300esb: レジスタのドキュメント更新。[O. Galibert]
+
+- steppers: emu/machineに移動。[Ramiro Polla]
+
+- steppers: 絶対位置追加。[Ramiro Polla]
+
+- pentium: BIOSがXMM4をコールスタックとして使うときの問題を修正。[O. Galibert]
+
+- pentium: lindberghの動作をさらに進めるための修正。[O. Galibert]
+
+- pci: smbusの超ハック版追加。[O. Galibert]
+
+- PCIランドの実験。[O. Galibert]
+
+- memory_shareとmemory_regionの整合性が合わない問題を修正:
+  前者のwidth()メソッドは幅をビット(8, 16, 32, 64)で返し、後者はバイト(1, 2, 4, 8)で
+  返していた。そこで、両クラスにbitwidth()とbytewidth()メソッドを追加し、呼び出し元を
+  どちらか適当なものに全て置き換え。memory_regionsが暗黙的に整数ポインタにキャストさ
+  れるのも安全ではないので廃止。領域にアクセスする全デバイスとドライバで、可能な箇所
+  をregion_ptr_finderに置き換え、その他の箇所は明示的にbase()を呼び出すようにした。
+  [Alex Jackson]
+
+- タイルマップシステムでgfx_element::total_colors()を注意するように変更。タイルマップ
+  のグラフィックエレメント用に間違ったtotal_colorsを使っているドライバやデバイスを修
+  正。[Alex Jackson]
+
+-「ルナーランダー」に言語ROM追加。[Mariusz Wojcieszek]
+
+- rsp: RSPインタプリタコアが再び機能するように修正。[MooglyGuy]
+
+- プライオリティマスク付き描画(pdrawgfx)についてのドキュメント追加; 便利な定数も追加。
+  [Alex Jackson]
+
+-「Alien Invaders」のスクリーンショットを元に基本的なレイアウト追加。[Tafoid]
+
+- Naomi-M4復号処理にセキュリティPICの読み出しを使用。[Andreas Naive]
+
+-「フェラーリF355」(オリジナル、リンク無しデラックス版)のUSA BIOSを追加。
+  [Andy Geezer]
+
+- テンプレートファイルファミリのプロパティ改良。readme追加とBSD-3-Caluseによるライセ
+  ンス。[Angelo Salese]
+
+- Kaneko製Fly Boy/Fast Freddieの基板写真を元に、正しいxtal追加でドライバのクロック正
+  常化。[Lord Nightmare, albolo]
+
+- ゴルゴ13: サービスモードのトグルモードを修正。[Angelo Salese]
+
+- naomi.c, chihiro.c, triforce.c:  [f205v, Metallic]
+  表示系の変更にともなう新しい情報を追加
+
+- i82875p: ホストブリッジfun。[O. Galibert]
+
+- pci: 汎用的なマッピング。[O. Galibert]
+
+- i6300esb: マッピングの冗長性拡大。[O. Galibert]
+
+- tmaster.c: プロテクト済のTouchMaster全ゲームのキーをリバースエンジニアリング;
+  プロテクトハックを削除。[Peter Ferrie]
+
+- cbombers: TC0480SCPのテキストレイヤー色を修正。[Alex Jackson]
+
+- pci: 再マッピングの通知を追加。[O. Galibert]
+
+- upd7810.c:  [Ramiro Polla]
+  - ADCの改善
+  - 割り込みハンドラの整理とエッジトリガ化
+  - 拡張タイマ・イベントカウンタ割り込みを設定
+  - 拡張タイマ・イベントカウンタ出力の修正とエクスポート
+
+- mario.c: タイルとスプライトの両方に正しく影響するようにMonitorスイッチを修正。
+ [Alex Jackson]
+
+- DRC UMLの逆アセンブリログ出力を制御するコマンドラインオプション -[no]drc_log_umlを
+  追加。これにより再コンパイルなしでDRC UML逆アセログ出力が可能。[Oliver Stoneberg]
+
+- DRCネイティブ逆アセンブリログ出力を制御するコマンドラインオプション 
+  -[no]drc_log_nativeを追加。これにより再コンパイルなしでDRC ネイティブ逆アセログ出力
+  が可能。[Oliver Stoneberg]
+
+- calomega.c: tugboat.c(Cal Omega基板をかなり改良したもの)との類似点からカラーエミュ
+  レーションを改善。[Alex Jackson]
+
+- SEGA YBoard: モニタ動作フィードバック用のポートビットをマッピング。
+  [Felipe Sanches]
+
+- naomi.c: F355を再吸い出し。[Andy Geezer]
+
+- pci: さらに作業。fd228にある未エミュレートのpslldqに到達。[O. Galibert]
+
+-「ハードドライビン」の様々な基板タイプをデバイス化。これにより
+ 「Race Drivin' Panorama」のサイドスクリーンが実装可能。車種選択時に画面がおかしくな
+  るので今のところオフ。[David Haywood]
+
+- rspdrc: ドキュメント化されていないVADDB、VACCB、VSUBB、VSUCB命令を追加。[MooglyGuy]
+
+- rspdrc: BREAKオペコードを再コンパイルするときにLinux版がクラッシュするのを修正。
+  [MooglyGuy, Firewave]
+
+- mips3: 符号付き値の左シフト問題を修正。[MooglyGuy]
+
+- rsp: 符号付き値の左シフト問題を修正。[MooglyGuy]
+
+- drgw2hk用の正しいパッチ。[iq_132]
+
+- OS/2ビルドの修正。[KO Myung-Hun]
+
+- upd7220: ブレゼンハムによる線分描画。[Carl]
+
+- n64: VRSQL/VRCPLで負の値の処理方法を修正。[MooglyGuy]
+
+- rsp: VNOP、VNULL、VRSQ命令を追加。[MooglyGuy]
+
+- n64: RSPのHALT解除時MIPSタイムスライスを中断。RSPテストを多数修正。[MooglyGuy]
+
+- segas18.c:「ハンマーアウェイ」のDIPスイッチ補完。[Brian Troha]
+
+- rdp: 1サイクルモードでもLOD演算を実行。テストいっぱい修正。[MooglyGuy]
+
+- mips3drc: Generate -0.0 for NEG.S/D of 0.0 as FNEG does not on x86 [MooglyGuy]
+
+- mips3drc: ROUND.L、TURNC.L、CEIL.L、FLOOR.Lを符号拡張。[MooglyGuy]
+
+- rspdrc: BREAKオペコードで目標アドレスをサポート。[MooglyGuy]
+
+- naomi.c:  samba2k, ringout - マスクROMのサイズとラベルの訂正。
+  [Arzeno Fabrice, MetalliC]
+
+- パワードリフト: 安全スイッチ用ポートビット。
+
+- G-LOC: 体感筐体のリミットスイッチ関連のポートビットをマッピング。
+
+- ギャラクシーフォースII: gforce_output_cb1追加(モーター制御関連PORTCビットの一部につ
+  いて意味づけを選択すると思われる値が書き込まれている)
+
+- ギャラクシーフォースII: モーター動作の上下左右限界スイッチにおけるフィードバック信
+  号を提供するのに使用されるポートビットをマッピング。
+
+- i386: 拡張ダウンスタックのコール。[Carl]
+
+- i386: iopl < 3のときv86モードでsoftintがGPフォールト。[Carl]
+
+- twin16.c: PALの均衡を元にビデオミキシングを書き直し。「魔獣の王国」イントロ、
+  「グラディウスII」の後半ステージとエンディングのスプライト・背景プライオリティ修正。
+  [Alex Jackson]
+
+- pic8259: プライオリティとsfnm。[Carl]
+
+- segaufoの更新: 改良版レイアウト追加 + ufo800動作可 + ufo21のupdサウンド追加 + 
+  修正いろいろ。[hap]
+
+- Man pages (*nix): タイポ修正とバージョンを0.155に更新。
+
+- ATAフラッシュカードのシークタイムをゼロにしてバグ05769を修正。[smf]
+
+- naomi.c: kingrt66でflashcartではなく本物のMaskROMカートレイアウトとラベル使用。
+  [Arzeno Fabrice]
+
+-「エリア88」と「ストライダー飛竜」のCPS-1 PALを手で作成。[Palindrome]
+
+- i386: TSSへのコール用にセグメント存在チェック修正。
+
+- i386: tssをビジーに設定。[Carl]
+
+- PSX sioでdevcbを使うよう変更。[smf]
+
+- calchase: Tridentメモリクロック、ビデオクロック、LUTDACレジスタをマッピング。
+
+-「Solar War」をプレイ可能な状態で追加。ただし問題あり。レイアウトの作業が必要で、コ
+  インが動作しない。そのため、デフォルトでフリープレイに設定している。また、
+  「Solar Warrior / ザインドスリーナ」の名前をsolarwarからsolrwarrに変更。両ゲームに
+  DIP配置追加。[Tafoid]
+
+- スクリーンショットのバイリニアフィルタを制御するオプション -[no]snapbilinear を追加
+  (デフォルトでON)。主にテスト用で、デバッグを早くするため。-aviwriteも早くなるかも。
+  [Oliver Stoneberg]
+
+- upd7220: 斜めったキャラクタ。[Carl]
+
+- sonson.c:「ソンソン」のオーディオCPUを実機測定値に修正。[Corrado Tomaselli]
+
+- psychic5.c:「サイキック5」のオーディオCPUを実機測定値に修正。[Corrado Tomaselli]
+
+-「Super Ranger」「エアバスター」のクロックとVSYNCを検証。[Corrado Tomaselli]
+
+- peplus.c: CAPX2172カラーPROMをAce$ Bonusセットに追加して色を修正。[BrianT]
+
+- 有効なネットワークアダプタをリスト表示する-listnetworkオプション追加。
+
+- winpcap: プロジェクトにWinPCapヘッダ追加。
+
+- windows.mak: Windowsビルド中にWinPCapヘッダをインクルード; MSVCのデバッグビルドでの
+  警告を止めるため。
+
+- FIRQとNMI処理を入れ替え、Maygay M1オペレーションを改善。
+
+- jumpingセットから残りPALを追加。[Porchy]
+
+- naomi.c:  [Arzeno Fabrice]
+ - HOTD2 プロトBIOS追加
+ -「クラブカートプライズ」のラベル修正
+
+- SDL: OS/2ビルド以外でSDL2をデフォルトに設定。[R. Belmont]
+
+- ロードマップ通り、USE_NETWORK Ethernetエミュレーションをデフォルトで有効化。
+  [R. Belmont]
+
+- upd7220: compisとdmv用の出力改善。[Carl]
+
+- gts3.c : スイッチ追加。設定後ゲームプレイ可能。
+- gts3.c : ANとDMDディスプレイに分離。
+- gts80b.c : ディスプレイ動作可能。[Robbbert]
+
+- model3: レンダリングの改良。[Ville Linde]
+  - 透明トライアングルを別々のパスで描画
+  - ビューポートのプライオリティを実装
+
+- calomega.c: 不明DIPスイッチの修正。[Brian Troha]
+
+- amiga.c: チップRAMへのバイト幅不明アクセスに、これまでのドライバ固有の実装を
+  やめ、Aaronたんのmemory_arrayクラスを使用。また、カスタムチップのレジスタを、メモリ
+  シェアから配列で持たせる方法に変更。[Alex Jackson]
+
+- calchase.c:  [Peter Ferrie]
+  -「Eggs Playing Chicken」の不明DIPスイッチ実装で動作可能に昇格。
+    CMOSエラーはSキーでスキップする。emm386.exeエラーはSキーか待つとスキップする(エミ
+    ュレーションの問題ではない)。"Coin 2"はコイン入力の他、ゲーム開始に使用する。"P1
+    スタート"キーはブレーキ。
+
+- calchase.c, gamecstl.c, midqslvr.c, queen.c, savquest.c, taitowlf.c, voyager.c, 
+  xtom3d.c:  [Peter Ferrie]
+  - IntelコンポーネントはMXTCではなくMTXC
+
+- intelfsh.c:  [Jon Sturm]
+  - AMD 29F400T、AMD 29F800T、FUJITSU 29F160Tをサポート
+
+- darius.c: DIP配置追加と新しく追加したUSセットのコインエイジ修正。[Brian Troha]
+
+- tturfのサウンドROM修正。[ShouTime]
+
+- region_ptr_finderを追加。これはメモリシェアを検索するshared_ptr_finderをROM領域の検
+  索にしたもの。既存のmemory_region_finderとは異なり、オーバーヘッドなしで型キャスト
+  なしでどのようなデータ型にもアクセスができる。また厳しく型チェックも可能。
+  required_region_ptr<UINT32>を指定すれば、ROM領域ROM_REGION32でなければならず、それ
+  以外の領域は見つからない。基本的にregion_ptr_findersはmemory_region_findersよりもす
+  ぐれているので後者を使っているドライバには書き換えをオススメする。[Alex Jackson]
+
+- 多くのサウンドデバイスで、サンプルROM領域をdevice_start()を使ってマニュアルで調べる
+  方法から、required_region_ptrを使うやり方に変更。
+  これにより、例えばOKIM6376をROMなしで放置することはできなくなった(一部のスロットマ
+  シン用スケルトンドライバで行っていた)。
+  MAMEは不明領域がある場合、以前はクラッシュしていたが現在は起動時にメッセージを表示
+  する。[Alex Jackson]
+
+- twin16: スクロールレイヤーをタイルマップ化(固定テキストレイヤーは既にされていた)。
+  その他いろいろなクリーンアップとモダン化。[Alex Jackson]
+
+- コマンドラインからセーブステートをロードする前にタイムスライスを開始しないよう変更。  [Alex Jackson]
+
+- supduck.c: 残ライフ、デモサウンド、ゲームサウンドのDIPスイッチ、DIP配置追加。
+  [Brian Troha]
+
+- Capcomの更新: [any]
+ - SF2海賊版の間違った情報修正と動作改善
+ -「トップシークレット / Bionic Commando」の海賊版から8571 MCUを吸い出し。
+
+- k054156: セーブステートが外部ラインスクロールRAMを含めビデオRAM全てを保存;
+ 「リーサルエンフォーサーズ」のセーブステートを修正。[Alex Jackson]
+
+- devfindをさらに追加。[Alex Jackson]
+
+- i386: m_lockの初期化をi386_common_init()に移動し、常時初期化。
+
+- i6300esb: もっともっともっと。[O. Galibert]
+
+
+新しく追加されたクローンセット
+---------------------------------
+スーパーブレイクアウト (Canyon and Vertical Breakout, prototype) [Mariusz Wojcieszek]
+カダッシュ (Japan, version 2) [ShouTime, The Dumping Union]
+カダッシュ (Japan, oldest version) [ShouTime, The Dumping Union]
+ビリヤードアカデミーリアルブレイク (Europe, older) [system11, The Dumping Union]
+Sauro (Recreativos Real S.A. license) [Edcross & Rockman (from Aumap)]
+ダンクショット (Rev C, FD1089A 317-0022) [ShinobiZ & COY]
+Atari Tetris (bootleg set 3) [Guru]
+ファイヤートラップ (US, set 2) [Corrado Tomaselli]
+Play Girls 2 (bootleg) [system11, The Dumping Union]
+Ave Fenix (Recreativos Franco) [Enricnes]
+西遊釋厄傳2 / Oriental Legend 2 (V101, China) [bytestorm] (not working)
+三国戦紀2 -乱世英雄- / Knights of Valour 2 New Legend (V300, Taiwan) [bytestorm] 
+  (not working)
+Magic Bubble (Adult version, YS-0211 PCB) [caius, The Dumping Union]
+バトルバクレイド アンリミテッドバージョン (China) (Tue Jun 8 1999)
+  [Bill D, The Dumping Union]
+ビジランテ (World, Rev E) [system11, The Dumping Union]
+中国龍II / Dragon World II (ver. 100H, Hong Kong [Hokg Kong]) [rtw] (not working)
+Player's Edge Plus (X002173P+XP000038) Ace$ Bonus Poker [BrianT]
+Player's Edge Plus (PP0040) Standard Draw Poker (International) [BrianT, Ken R]
+Player's Edge Plus (PP0042) 10's or Better [BrianT, Ken R]
+Player's Edge Plus (PP0043) 10's or Better (International, set 2) [BrianT, Ken R]
+Player's Edge Plus (PP0060) Standard Draw Poker (set 3) [BrianT, Ken R]
+Player's Edge Plus (PP0429) Joker Poker (Aces or Better, set 2) [BrianT, Ken R]
+Player's Edge Plus (IVC006) Clear EEPROM Chip [BrianT]
+Player's Edge Plus (Set004) Set Chip [BrianT]
+Player's Edge Plus (KE0017) Keno [BrianT] (not working)
+Player's Choice (MG0252) Multi-Game [BrianT] (not working)
+JT-104 [Unknown]
+アルカノイドリターンズ (Ver 2.02A 1997/02/10) [Bill D, The Dumping Union]
+ドンキーコング (Spanish Crazy Kong bootleg) [Marcos75 (from AUMAP)]
+Galaxy Monsters (Laguna S.A. Spanish bootleg of Space Invaders)
+  [Arcade Vintage ( http://arcadevintageshop.blogspot.com.es/ ), Ricky2001]
+Botanic (English / Spanish)
+  [Arcade Vintage ((http://arcadevintageshop.blogspot.com.es/ ), Ricky2001]
+クラブカート (Rev C)  [Arzeno , The Dumping Union] (not working)
+Windjammer (021216) [MetalliC]
+トロン (Germany) [MikeMcBike]
+S.V.G. - Spectral vs Generation (M68k label V101TW)
+  (ARM label V101TW, ROM 06/20/05 S.V.G V100) [ShouTime] (not working)
+ダライアス (US) [Andrew Welburn]
+雷電II (Switzerland) [rtw, Smitdogg, Kranser, Mucci, Dullaron, B2K24,
+  The Dumping Union]
+
+
+新規追加ゲーム
+--------------
+Pit Boss Megatouch (9234-20-01) [Brian Troha, Mariusz Wojcieszek, The Dumping Union]
+Alien Invaders [Seth Soffer, David Haywood, Mariusz Wojcieszek]
+ハンマーアウェイ (prototype) [( Atro - from Neo-geo.com aka Rui Baptista )
+ ( _rm_ - from Neo-geo.com aka Ricardo Marques)  
+ ( 1up - from Neo-geo.com aka Daniel "casebres" )]
+Solar War (Anonymous)
+ポップンミュージック1 (ver AA-A) [smf]
+Super Duck [system11, David Haywood]
+
+
+追加された未動作ゲーム
+----------------------
+ウエスタンドリーム (Yasuhiro, hap)
+Club Pacman [Roberto Fresca, ytsejam] (dual inputs not mapped)
+ソニック・ザ・ヘッジホッグ2 (メガドライブ版海賊版) [caius, The Dumping Union]
+Cute Fighters [system11]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Teenage Mutant Hero Turtles (UK 4 Players, set 3) [caius, The Dumping Union]

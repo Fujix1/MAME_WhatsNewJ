@@ -1,0 +1,368 @@
+0.199
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 07032: [グラフィック] (ddragon.cpp) ddragon, ddragon2 and all clones: 画面右端のスプライトが欠ける。(hap)
+- 06980: [ステート保存/再生] (spec128.cpp) specpls3: ステート保存できない。(AJR)
+- 07020: [DIP/入力] (lwings.cpp) trojan and clones: DIPスイッチの番号が間違っている。(Tafoid)
+- 07010: [DIP/入力] (missile.cpp) missile and clones: DIPスイッチのトラックボールサイズの設定が反転してる。(Tafoid)
+- 07017: [サウンド] (galaxian.cpp) kingball, kingballj: キングの声が正しく再生されない。(Osso)
+- 07007: [サウンド] (renegade.cpp) renegade, kuniokun: しばらくプレイするとBGMが止まる。(AJR)
+- 07006: [メディアサポート] (at.cpp) atvga, at386, at486: [バグかもね] フロッピーを読めない。(crazyc)
+- 06988: [クラッシュ/フリーズ] (kinst.cpp) kinst: アトラクトモードで固まる。(Osso)
+- 06992: [DIP/入力] (hornet.cpp) sscope and clones: アナログ入力が動作しない。(tedgreen)
+- 06989: [サウンド] (champbas.cpp) champbb2j: AY-3-8910が鳴っていない。(cuavas)
+- 06984: [グラフィック] (esd16.cpp) jumppop, jumppope: 最初の面のグラフィックが表示されない。(AJR)
+- 06983: [サウンド] (mtouchxl.cpp) mtchxl6k (possibly others): サウンドのテンポが速すぎる。(crazyc)
+
+
+新規動作可能マシン
+------------------
+El Fin Del Tiempo [Esther Barranco, ARPA, Juegos 2.0, Recreativas.org, Roberto Fresca, The Dumping Union]
+Geneve 9640 Mod [Michael Zapf]
+Megatouch 7 Encore Edition (9255-90-01 R00, Standard version) [Brian Troha, The Dumping Union]
+Player's Edge Plus (X000827S+XS000002) Red, White & Blue Slots [Brian Troha]
+Player's Edge Plus (X002149P+XP000038) Triple Bonus Poker [Brian Troha]
+R-Zone: Battle Arena Toshinden [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+Apple //e (Spain) [AJR]
+バブルメモリーズ : The Story Of Bubble Bobble III (Ver 2.5A 1996/02/21) [Arnaldo Abrantes, Pascal Costa]
+Come-Cocos (Ms. Pac-Man) (Cocamatic bootleg) [Darksoft]
+Galaxy Wars II (ディフェンダー海賊版) [Juan Romero, Recreativas.org, The Dumping Union]
+ゴーストパイロット (prototype) [Brian Hargrove]
+Golden Tee Golf (Joystick, v3.3) [hammy, The Dumping Union]
+Gran Rally (ポールポジションIIスペイン製海賊版) [Jordi Beltran Casany, Recreativas.org, The Dumping Union]
+ハットトリックヒーロー'95 (Ver 2.6Asia 1994/11/17) [Artemio Urbina, The Dumping Union]
+Hidden Catch (World) / Tul Lin Gu Lim Chat Ki '98 (Korea) (pcb ver 3.02) [hammy, The Dumping Union]
+ジャンプコースター (World) [ShouTime, The Dumping Union]
+三国戦記 武将争覇 / 三國戰紀2 群雄争覇 / 三國戰紀2 飛龍在天 /  Knights of Valour 2 Plus - Nine Dragons
+ (ver. M200XX, 200, 100CN) [300wins, Bill D., The Dumping Union]
+メタルスラッグ3 (NGM-2560, earlier) [Razoola]
+Player's Edge Plus (PP0472) Deuces Wild Poker [Brian Troha]
+Player's Edge Plus (X000057P+XP000038) Deuces Wild Poker (Stratosphere Players Club) [Kemel Haidar, Brian Troha]
+ライデンファイターズ (US, newer) [Arzeno Fabrice, The Dumping Union]
+ストライカーズ1945 (World, unprotected) [Blackfish, brizzo, rtw]
+Titan (Pac-Man hack) [Craig Anstett, CraftyMech]
+バイパーフェイズ1 (New Version, Germany) [Arzeno Fabrice, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+War Mission (WM 4/6/87) [Jordi Beltran Casany, Recreativas.org, ArcadeHacker, David Haywood]
+
+
+動作可能に昇格したクローン
+--------------------------
+ヘッドオン (Sidam bootleg, set 2) [Angelo Salese]
+ヘッドオン2 (Sidam bootleg) [Angelo Salese]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Hikaru Check ROM Board [coolmod]
+Mad Dog II: The Lost Gold (3DO hardware) [incog, The Dumping Union]
+Olympia Olytext 20 [Robbbert]
+Shootout at Old Tucson (3DO hardware) [incog, The Dumping Union]
+Visual 550 [Al Kossow]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Air Hockey (6.12?, encrypted) [unknown]
+ALG 3DO Bios [Mr Invader]
+ドンキーコングバナナキングダム (satellite) [Will Richardson, Bill D, The Dumping Union]
+フェラーリF355チャレンジ (twin/deluxe, prototype) [coolmod]
+パワーストーン2 (bootleg) [Arzeno Fabrice, rtw]
+ぷよぷよフィーバー / Puyo Pop Fever (World) (GDS-0034) [Arzeno Fabrice, rtw]
+ステークスウィナー -GI完全制覇への道- (early development board) [ResO]
+The Bally Game Show (LG-6) Germany [PinMAME]
+The Bally Game Show (LU-3) Europe [PinMAME]
+アヴァロンの鍵 (client) (Rev C) (GDT-0006C) [rtw, ShouTime]
+アヴァロンの鍵 弐 -鍵聖戦- (client) (Rev A) (GDT-0019A) [rtw, ShouTime]
+アヴァロンの鍵 弐 -鍵聖戦- (server) (Rev A) (GDT-0018A) [rtw, ShouTime]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+hp9k3xx_flop:
+  300 series Mainframe Tests, 300 series Terminal Emulator, AMS Utilities for 200/300 series, BASIC 4.0 Compiler,
+  BASIC 5.0 Compiler, CS/80 Exerciser, Digital Filter Design, HP BASIC 4.0, HP BASIC 5.1, HP BASIC 6.4, HP Museum Basic 5 Boot Disc,
+  HP Pascal 3.22, HP-UX 5.1, Interactive Test Generator, Techwriter, Texteditor for 200/300 series, Wordwise 300 [Sven Schnelle]
+ibm5150:
+  DR DOS 6.0 (French), DR DOS 6.0 Business Update (French, 3.5"), DR DOS 6.0 Business Update (French, 5.25") [breiztiger]
+  PC Games #3, Spontaneous Assembly (Version 2.0) [Foone Turing]
+ibm5170: Excel (Version 2.10) [darksabre76]
+neogeo:
+  Ghost Pilots (prototype) [Brian Hargrove]
+  Metal Slug 3 (NGM-2560, earlier) [Razoola]
+pc98:
+  2601 - Teikoku Kidoubutai no Koubou, 3tsu no Negai, 714 MIDI Jr., 714 MIDI Special, 88 Kantai Monogatari, 98 Eiwa Jiten,
+  98 Stadium, 98 Stadium 2 - Shouko no Chousen, PC-9801N/NS/NV Teiban Free Software Shuu - 98NOTE no Hissu Aminosan
+  [Neo Kobe Collection]
+sorcerer_cass: Checkers, Cross-Up, How The West Was Won, Lazer Fire, Mine Field, Nuclear Reaction, Pie Lob [Robbbert]
+squale_cart: The Squale Intro [Jean-Francois DEL NERO / HxC2001]
+
+
+動作可能に昇格したソフトリスト項目
+----------------------------------
+pc98: 0x0F exp.3, 177, The 4th Unit 2 [Carl, r09]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+ibm5170_cdrom: Jaxis (Japan) [SpinalFeyd]
+neogeo: ステークスウィナー -GI完全制覇への道- (early development board) [ResO]
+
+
+ソースの変更点
+--------------
+- esb: ROMロードのバグ修正。[AJR]
+
+- taito_b.cpp: TC0180VCUが割り込みソースだと判明。コールバックに変更(タイミングはまだ推測)。[AJR]
+
+- keytronic_pc3270: INT0ライン極性を修正 - tosh1000のキーボードエラー修正。[AJR]
+
+- exidy.cpp, victory.cpp: オーディオデバイスの完全なカプセル化。[AJR]
+
+- atetrisb3: サウンド用のマイクロコントローラを実装。[AJR]
+
+- i8275 DMAの改良: [AJR]
+ * キャラクタバッファをフィル処理からFIFOキャラクタを除外
+ * "end of DMA"のコントロールコードを渡したキャラクタひとつまでDMAを拡張
+
+- wicat: 割り込み処理の改良で表示不具合を低減。[AJR]
+
+- balsente.cpp: X2212デバイス2つのNVRAMを分離。[AJR]
+
+- jedi: ドライバのオーバーホール: [AJR]
+ * 2つの4ビットX2212デバイス間でNVRAMを分離
+ * デフォルトNVRAMを使ったときにチェックサムが無効になるよう改良 (製造元のハイスコアをインストールするため)
+ * サウンドラッチのモダン化
+ * TMS5220を駆動するためWSQハンドラを使用
+
+- vta2000: スピーカーサウンド追加。[AJR]
+
+- balsente.cpp: サウンドコミュニケーション用にACIAデバイスを使用。[AJR]
+
+- x2212: メモリインタフェース削除とコードの整理。[AJR]
+
+- tms9928a: device_palette_interfaceを使用して内部パレットをアクセス可能に変更。[AJR]
+
+- dynax.cpp: "Rev.2"のblitterをデバイスとしてカプセル化。[AJR]
+
+- cidx628: 再び表示が動作するよう修正。[AJR]
+
+- tatsumi.cppの改良: [Angelo Salese]
+ *「ラウンドアップ5」のダメコードを削除してソフトリセットを修正
+ *「ラウンドアップ5」の縦テキストスクロール追加
+ *「アパッチ3」で、スプライトのアウトオブバウンズな色修正(木と建物)
+ *「ラウンドアップ5」でプレー後のマップ画面で表示プライオリティ修正
+ *「ラウンドアップ5」に背景ビットマップレイヤー追加
+ *「ラウンドアップ5」の道路のクリッピング改善
+ *「サイクルウォリアーズ」で、ソフトリセット時にサブCPUがストールしないよう修正
+ *「サイクルウォリアーズ」「ビッグファイト」の行・列スクロールレジスタの選択を追加
+ *「サイクルウォリアーズ」「ビッグファイト」の影のスプライト追加
+ *「サイクルウォリアーズ」「ビッグファイト」のOKIステータスを反転 - 前者の"we got 'em"ボイスが修正
+ *「サイクルウォリアーズ」「ビッグファイト」でタイル単位の高プライオリティと透過有効化ビットを実装 - 不具合が改善
+ *「サイクルウォリアーズ」「ビッグファイト」のカラーバンク修正 - フェードエフェクトとCRTテスト色修正 
+ * 背景のページラップ処理適用 - 「サイクルウォリアーズ」「ビッグファイト」のいろいろな不具合修正
+ * 特定のレジスタが有効なとき影を反転(「ビッグファイト」のディスコストロボライトで使用)
+
+- ninjakd2.cpp:「オメガファイター」で敵が弾を撃たないのを修正する試み。[Angelo Salese]
+
+- taitosj.cpp: kikstartの入力ボタン追加。[Angelo Salese]
+
+- trucocl.cpp: 複数コインの入力が可能。[Angelo Salese]
+
+- cischeat.cppの改良: [Angelo Salese]
+ *「ビッグラン」でj，道路とスプライトのプライオリティと、かなり前から起きていた色の不具合修正
+ *「ビッグラン」の資料に合わせてBGMの周波数調整
+ *「ワイルドパイロット」のスプライトDMA実装 - 点滅が修正
+ *「キャプテンフラッグ」にバックアップRAM追加
+
+- ms1_tmap.cpp: まともなデフォルト値にVRAMを初期化 -「ビッグラン」でバックペンが見える不具合修正。[Angelo Salese]
+
+- jalmah.cppの改良: [Angelo Salese]
+ * Mega System 1のタイルマップデバイスを使用して表示系の書き直し
+ *「浦島まあじゃん」のプレイ中のプライオリティ修正(点数表示など)
+ *「浦島まあじゃん」のスクロール時部分アップデードをエミュレート - 勝利時のアニメーション修正
+ *「浦島まあじゃん」の色プロテクト修正(女画面とテストモード)
+ *「浦島まあじゃん」「麻雀ちゃんねるズームイン！」「麻雀大霊界」用のサウンドバンキング用のスニペット追加
+
+- cyclemb.cpp:「サイクルマー坊」のスプライトサイズ拡大。不足していたスプライトが修正(プレイ方法画面など)。[Angelo Salese]
+
+- AppVeyorビルド用設定追加。[balrog]
+
+- riscv64でのビルドをサポート。m68000のmakefileがVERBOSEビルドプションを見るように変更。[Belegdol]
+
+- senjyo.cpp: starforcの背景色スワップを単純化。[cam900]
+
+- seta.cpp: タイルマップバンキングの単純化。出力ファインダの追加。[cam900]
+
+- ms32.cpp: CPUタイプの判別。オーディオCPUクロックの修正。[cam900]
+
+- fmtowns.cpp: スピーカー出力レベルの修正。[cam900]
+
+- vis.cpp: サンプルレートの分周器修正。[cam900]
+
+- megaplay.cpp: ノートの追加と、オーバーレイビットマップの拡大縮小がダメなのでグラフィック不完全フラグ追加。[cam900]
+
+- cybertnk.cpp: コードの重複とランタイム時のタグマップ参照を削減。サウンド出力修正。ノート追加。[cam900]
+
+- rltennis.cpp: オブジェクトファインダにコンバート。[cam900]
+
+- sf.cpp, ninjakd2.cpp: コードの重複とランタイム時のタグマップ参照を削減。[cam900]
+
+- dreamwld.cpp: マイクロコントローラのドキュメント化と、マイクロコントローラのROM領域サイズ修正。[cam900]
+
+- williams.cppのクリーンアップ: [cam900]
+ * ランタイム時のタグマップ参照削減。タグの改良。コードの重複解消
+ * 割り込み用のinput_mergerと、出力用のoutput_finder追加
+ * パレットをデバイス化
+
+- m92.cppの更新とクリーンアップ: [cam900]
+ * コードの重複とランタイム時のタグマップ参照を削減。マシン設定とアドレスマップを分離
+ * EEPROMのセーブとロードにNVRAMデバイスを使用
+
+- neogeo.cpp: ノート追加とkof2003のメタデータ修正。[cam900]
+
+- powerins.cppのクリーンアップ: [cam900]
+ * コードの重複とランタイム時のタグマップ参照を削減
+ * ROMロード処理のクリーンアップ
+ * 縦方向のブランク割り込みを画面のvblankコールバックにコンバート
+
+- 20pacgal.cppのクリーンアップ: [cam900]
+ * パレットをデバイスに変更
+ * ランタイム時のタグマップ参照削減と、スタート時に割り当ての遅延
+ * クリップした領域に描画を限定
+
+- ddragon.cppのクリーンアップ: [cam900]
+ * ランタイム時のタグマップ参照をオブジェクトファインダに置き換え
+ * dasrktowrのバンク切り替えをaddress_map_bank_deviceにコンバート
+ * ADPCM ROMのマッピング修正
+
+- pgmprot_igs027a_type2.cpp: martmastのメタデータ修正。[cam900]
+
+- alpha68k.cpp: ランタイム時のタグマップ参照を低減。タグをより使えるものに改良。バンキング改良。[cam900]
+
+- shangha3.cpp: OKIバンキングのクリーンアップ。[cam900]
+
+- snk.cpp: ランタイム時のタグマップ参照を低減。countrycのマシン設置とアドレスマップを分離。[cam900]
+
+- Discordプレゼンスプラグイン追加。[Carl]
+
+- witch.cpp:「競輪王」のボーナス面後、グラフィックのゴミが残るのを修正してみた。[David Haywood]
+
+- フロッピーエミュレーションをより安定化。ビットストリーム処理の改良。[John Keoni Morris, Peter Ferrie, O. Galibert]
+
+- markham.cppの更新: [kazblox]
+ * banbamのプロテクトシミュレーションを改良 - まだ不完全だがグラフィックは全て正しく表示されクラッシュも解消
+ * Phol Bennetさんのコメントや自分で調べた結果、マイクロコントローラのプログラムは正常吸出し
+
+- PlayStation GPU: 不足していたプリミティブの追加。[krom]
+
+- buggychl.cpp: 回路図よりマイクロコントローラのクロックを3MHzに変更。ノートの追加。[Lord Nightmare]
+
+- TMS5220の更新: [Lord Nightmare]
+ * 未使用のtime_to_readyとcycles_to_ready関数を削除
+ * m_buffer_lowとm_buffer_emptyフラグが割り込みステート設定前に更新されないという競合状態を修正
+ * VSMを接続しないと、Speak VSMコマンドがエンドレスに無音を生成する問題を修正
+ * デバッガ読み込みの副作用を鎮圧
+ * readyシグナルのアサートな条件を修正。適切なときにFIFOのゼロ化
+
+- Apple II: Echo IIのりードライトフラグと、ハードウェアのトレースを元に書き込みラッチ再実装。[Lord Nightmare, Tony Diaz]
+
+- alien.cpp: Pingu's Ice Block用に手作りのブートROM追加。既知ゲームのドキュメント化。[MetalliC]
+
+- geneve: ブートROMの選択用BIOSオプション追加。genmodを別マシン化。[Michael Zapf]
+
+- upd765: IDスキャン失敗時にST1.NDをクリア。ヘッドロードディレイ実装。ログの改良。[Michael Zapf]
+
+- debugger: go_exceptionのコマンド追加。アドレストランスレーションを考慮したセーブとロード。[Patrick Mackinlay]
+
+- sonydriv: Apple IIgsとMacドライバの3.5"ドライブのディスク切り替え問題を修正。[R. Belmont]
+
+- zaurus.cpp: 新しいPXA255外部デバイスインタフェースに変更。[Robbbert]
+
+- apc: ランタイム時のタグマップ参照を削減。[Ryan Holtz]
+
+- kbdc8042: 基礎的なPS/2マウスのサポート。[Ryan Holtz]
+
+- indy_indigo2: Newportグラフィックエミュレーションでマウスカーソルをサポート。[Ryan Holtz]
+
+- 39in1: Intel XScale PXA255周辺機器を別々のデバイスに分離。[Ryan Holtz]
+
+- mips3: Emotion Engineコアのオペコード用逆アセンブラ追加。[Ryan Holtz]
+
+- vgmplay: 再生操作と状態表示を追加。[Ryan Holtz, Tafoid, Vas Crabb]
+
+- sblaster: ダイレクトDACモード実装 - Scream Tracker 2.2でテスト成功。[shattered]
+
+- ec1841: マウスエミュレーション追加(Logitechバスマウスプロトコル)。[shattered]
+
+- Dreamcast: GD_LEND が残りバイトではなくDMAで送信されたバイトを返すよう変更 -「デイトナUSA 2001」が起動可能。
+ [snickerbockers]
+
+- 中解像度カラーグラフィックカードHP98543をエミュレート。[Sven Schnelle]
+
+- hp9k_3xxの改良: [Sven Schnelle]
+ * キーボードのマイクロコントローラのパーツ番号を修正
+ * フロッピー起動が動作するようになったので、デフォルト設定からBASIC ROMカードを削除
+ * NMIラインをキーボードコントローラに接続
+ * 共通のマシン設定を分離
+
+- HP9122フロッピードライブをエミュレート。[Sven Schnelle]
+
+- m68000: divs命令のcarryフラグを修正。パック命令を修正。[Sven Schnelle]
+
+- 6840ptm: 8で割るモードを修正。[Sven Schnelle]
+
+- topcat: ウインドウムーバーの改良とカーソル処理のバグを修正。[Sven Schnelle]
+ * hp9k_3xxで起動後、Pascalやその他のソフトで表示が可能
+
+- voodoo: テクスチャアドレスマスキングを復活 - warfaでのsegmentation faultを修正。[Ted Green]
+
+- hornet: gradius4用に独立したDIPスイッチ追加 - terabrstとsscopeで、デフォルトでガンコントローラが使用可。[Ted Green]
+
+- DCS オーディオの更新でsf2049がかなり動作に近づく。[Ted Green]
+
+- ROM BIOSマクロをより直感的に使えるよう改善。選択できないBIOS ROMのバリディティチェック追加。[Vas Crabb]
+
+- マシン設定の改良: [Vas Crabb]
+ * addrmap.hの重複したコードを減らし、メモリマップのより多くの箇所でオブジェクトファンダをサポート
+ * アドレスマップにおいて、オーナーデバイスへの暗黙の参照を許可
+ * アドレスマップを指定するシンタックスと、マクロを使わずマシン設定で画面を更新する関数の改良
+ * メンバ関数名のオーバーロードを軽減 - 望ましいオーバーロードを選択するマクロヘルパ無しではあまり意味がない
+ * クリスタルの値を検証するとき浮動小数点イプシロンを考慮
+
+- 出力コードのバルクリファクタリングをクリーンアップ。[Wilbert Pol]
+
+- asteroid.cpp:「アステロイドデラックス」Revision 3の変更をドキュメント化。難易度のDIPスイッチ設定を修正。[Brian Troha]
+
+- naomi.cpp:「F355チャレンジ2」のプログラムROM別吸出しを追加。[coolmod]
+
+- polepos.cpp: grallyの不足PROMを吸出し、他の海賊版のものと一致することを確認。
+ [Jordi Beltran Casany, Recreativas.org, The Dumping Union]
+
+- bking.cpp: bkin2のROMラベル更新。[Kevin Eshbach, The Dumping Union]
+
+- pc98ソフトウェアリストの更新: [r09]
+ * 現在のMAMEでソフトを再テスト
+ * タイトルの訂正とディスク名を実際のものに修正
+ * DOSの必要なソフトの使い方を追加
+ * オリジナルに含まれてなく、ユーザ側で作成するユーザディスクを削除
+ * CDソフトウェアリストに既に存在するCDゲーム用のフロッピーを削除
+ * ノートにFDDフォーマットが未サポートとあったのを削除
+
+- neogeo.cpp: Japan NEO-MVH MV1C BIOS追加。[Razoola]
+
+- alien.cpp:「ピングーのアイスブロック」のCompactFlashカードを吸い直し。[ShouTime, Dane Biegert, The Dumping Union]

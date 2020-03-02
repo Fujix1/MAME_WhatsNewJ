@@ -1,0 +1,64 @@
+0.95u1
+------
+
+■Irem M92のDIPスイッチ修正。[Brian Troha]
+
+■VCでコンパイルするときのエラー修正パッチ。[Bryan McPhail]
+
+■リンク時の警告修正。[Lawrence Gold]
+
+■更新いろいろ。[Nathan Woods]
+    src/cpu/hd6309/6309ops.c:
+    src/cpu/hd6309/6309tbl.c:
+        - 6309のSEXW命令修正
+
+    src/fileio.c:
+        - FILETYPE_SCREENSHOTにMESS用オプション追加
+
+■「Best League」のアップデート。[Pierpaolo Prazzoli]
+- タイルマップとスプライトのオフセット修正
+- 表示エリア修正
+- DIPスイッチ修正
+- OKIバンキング追加
+- スプライトの巻送り追加
+- スプライトのカラーマスキング追加
+
+■SemiComのDIPスイッチ修正。[Sonikos]
+
+■「Excelsior」のアップデート。[Pierpaolo Prazzoli]
+- スプライトプライオリティ修正
+- ビットマップサイズ切り替え追加（100%と50%）
+
+■MegaplayのDIP修正。[Barry Rodewald]
+
+■V60 DIVFS命令コード修正。[Sebastien Chevalier]
+
+■Flashの更新。[smf]
+- フラッシュチップのステートセーブ実装
+- 16bitフラッシュチップのブロック消去修正
+- フラッシュチップの最大数増加
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+クラックダウン [Charles MacDonald, David Haywood] (表示系の問題アリ)
+Sonic the Hedgehog 2 (Megaplay) [David Haywood] (Genesisエミュレーションの不具合
+  あり)
+フォトY2K [Olivier Galibert, ElSemi]
+
+麻雀ちゃんねるズームイン [Angelo Salese]
+麻雀革命 [Angelo Salese]
+麻雀革命II - プリンセスリーグ [Angelo Salese]
+アイドル雀士スーチーパイスペシャル [Angelo Salese]
+
+
+新規追加クローンセット：
+------------------------
+ピンボールアクション (set 3, encrypted) [Nicola Salmoria]
+
+鉄拳3 (TET2/VER.A) [smf]
+エアガイツ (EG2/VER.A) [smf]
+ソウルエッジ Ver. II (SO3/VER.C) [smf]
+
+Red Hawk / ステッガー1 (海賊版) [tirino73, David Haywood]
+ (オリジナルと同じ問題あり。基板はシンプルなのでプロテクトのせいなのかは不明。調査必要)

@@ -1,0 +1,307 @@
+0.164
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05949: [クラッシュ/フリーズ] (msx.c) expert11 [hero]: H.E.R.O.が起動しない。(Wilbert Pol)
+- 05997: [クラッシュ/フリーズ] (amiga.c) a500, a500p, a1000, a1200, a2000, a3000, a4000, a4000t, a600, cd32 and clones (all): ADFリードクラッシュ。(Olivier Galibert)
+- 03064: [その他] (segas24.c) hotroda, hotrodj, sspirits, sgmast, bnzabros: システム24のディスクゲームで、ブックキーピングや設定データがクリアされない。(David Haywood)
+- 05991: [グラフィック] (snk.c) chopper and clones: 表示領域が少し小さい。(system11)
+- 05988: [グラフィック] (tmnt.c) lgtnfght and clones: 表示領域が小さすぎる。(system11)
+- 05593: [グラフィック] (thunderx.c) scontra scontraj: 画面下側が実機より8ピクセル狭い。(system11)
+- 05594: [グラフィック] (tmnt.c) blswhstl, detatwin: 実機より表示領域が狭い。(system11)
+- 05979: [速度] (rainbow.c) jumping, jumpinga: クロック分周の間違いにより音程が少し異なる。(system11)
+- 05973: [グラフィック] (crimfght.c) crimfght and clones: 画面の表示領域が小さい。ただしくは320x224と思われる。(system11)
+- 01444: [サウンド] (seta2.c) gundamex: BGMが右チャンネルからしか出ない。(system11)
+- 01943: [サウンド] (seta2.c) pzlbowl: 音量バランスが右に寄っている。(system11)
+- 05711: [グラフィック] (msx.c) cf3300, expertdp, svi738 (and possibly all MSX and MSX2): [バグかもね] "Riyadh by Bandwagon"のデモが正しく動作しない。(Wilbert Pol)
+- 05986: [システムコア] (msx.c) All sets in msx.c: フルパスを使うとkせっとマッパが検出されない。(Wilbert Pol)
+- 05981: [グラフィック] (aerofgt.c) turbofrc: 3面と6面でスプライト表示順位の不具合。(Mamesick)
+- 04405: [グラフィック] (seta.c) tndrcade + others: Seta001Aビデオ実装後、レイヤーオフセット起きているものがある。(Mamesick)
+- 04877: [グラフィック] (seta.c) usclssic: 表示が右側にずれている。(Mamesick)
+- 00317: [グラフィック] (seta.c) daioh: アトラクトモードの地球のグラフィックの一番下部分に余計な線が出ている。また、ボムのグラフィックが半分ちらつく。(Mamesick)
+- 05959: [サウンド] (alpha68k.c) kyros, kyrosj: 効果音が一部鳴らない。(Mamesick)
+- 05968: [グラフィック] (hornet.c) gradius4, nbapbp: ほとんどの色やグラフィックがおかしくなっている。(MooglyGuy)
+- 05318: [クラッシュ/フリーズ] (djmain.c) bm1stmix and other: CHDディスクエラーが起きて起動しない。(peterferrie)
+- 04918: [画面反転/カクテルモード] (dooyong.c) gulfstrm, lastday and clones: 画面反転すると表示が左にずれる。(Osso)
+
+
+ソースの変更点
+--------------
+- memory: 復号済ベースのサポートを削除。代わりにアドレス空間を使用。[O. Galibert]
+
+- atarisy2: Slapsticでハンドラの直接アップデートが不要に。[O. Galibert]
+
+- dsp56k: 不要になった直接アップデートハンドラを削除。[O. Galibert]
+
+- namcos1: 直接アップデートハンドラを使った最適化を削除。後日別な方法で実施予定。
+  [O. Galibert]
+
+- psx: クイックロードを削除。後で別な方法で処理予定。[O. Galibert]
+
+- apple2gs: 不要な直接アップデートハンドラを削除。[O. Galibert]
+
+- spc1000セントロニクスプリンタポートを追加。[Miso Kim]
+
+- topland: 背景のグラデーション修正。[O. Galibert]
+
+- Unitron AP II: Apple 2のブラジル製クローン。[Felipe Sanches]
+
+- M1COMMの更新。S32COMMの最初のコミット。[SailorSat]
+
+- Polymax Maxxi: Apple 2のブラジル製クローン。[Felipe Sanches]
+
+- validity: 基本的な符号付き整数演算テストをコアバリデーションに追加。[Alex Jackson]
+
+- idehd.c: タイムアウト回避のため、IDEのリードフィルタイムを縮小。[Peter Ferrie]
+
+- kidnikiの速度調整で音質向上。netlistにロジックファミリを指定するLOGIC_INPUTを追加。
+  改良版AY8910ポートモデリングで使用。[Couriersud]
+
+- m68k: '020キャッシュエミュレーションのコーナーケースを修正。[Hans Ostermeyer]
+
+- 3c505: 実機の構成を反映して、オプションROMをカードに移動。[Hans Ostermeyer]
+
+- apollo: マウスエミュレーション改良。[Hans Ostermeyer]
+
+- MCFG_FORCE_NO_DRCを追加。[MooglyGuy]
+
+-「五月陣戦」(Aleck64)の不良ROMを再吸い出し。内部チェックサム一致。
+  [Brizzo, theboy181, Zoinkity]
+
+- pet_flop.xml: Commodore SFD-1001テスト・デモディスクの別版追加。[Curt Coder]
+
+- Netlistのコンパイル設定
+ * std=c++98 -Wall -Wpedantic -Wextra -Wno-long-long
+    -Wno-variadic-macros と
+ * std=c++11 -Wall -Wpedantic -Wextra [Couriersud]
+
+- Arkanoid.c: ROMナンバリングリスト追加。「アルカノイド」(US, Romsetar License)版の基
+  板写真をもとに正しいROMラベルと情報を追加。[Brizzo, Lord Nightmare]
+
+- マクロオブジェクト登録とnetlistへの動的インクルード機能追加。これにより、マクロライ
+  ブラリの作成へさらに一歩進む。真理値表とパッケージラッパー記述てきるどんなICも
+  netlistシンタックスで記述可能となった。[Couriersud]
+
+- m20: 8086 apb [Carl, rfka01, Christian Groessler]
+
+- firebeat: グラフィックチップエミュレーションを完全に書き直し。[Ville Linde]
+
+- SIZET_PRINTF(）に引数を組み込むことで、size_tの使用を識別。これは型セーフでコンパイ
+  ラ次第では正しい64ビット処理が可能。[Couriersud]
+
+- 実際にclcok (nw)を使うようSAA1099ドライバを修正。Game-Blaster/SB1.0 のクロックを
+  7.159mhzに変更。[NewRisingSun]
+
+-「Congo Bongo」で使うMM5837ノイズジェネレータを追加。[Couriersud]
+
+- pet_cass.xml: テープ追加。[Dagarman] 
+
+- pet_flop.xml: ディスク追加。[Dagarman]
+
+-「Congo Bongo」をさらに改良+不足ファイル2つ追加で問題なくnetlistのパース可能。
+  [Couriersud]
+
+- DEC Rainbow: 共有RAMへのZ80アクセス、モーターON/OFFシグナル、ROMラベルを修正。
+  [Karl-Ludwig Deisenhofer]
+
+- winfile.c: ソフトウェアリストからロードしたディスクイメージにセーブするとクラッシュ
+  するのを修正。[Curt Coder]
+
+- g64_dsk: イメージヘッダで定義されているトラック数を優先。[Curt Coder]
+
+- c128_flop.xml: Paperback Writer 128、Term Paper Writer、The Great War、
+  Your Personal Financial Planner 128ディスクイメージ追加。[Curt Coder]
+
+-「Congo Bongo」のドキュメント更新。ゴリラのサウンド動作。パフォーマンスが30%から170%
+  に改善。./nltool -c run -f nl_examples/congoBongo.c -t 2 でテスト可能。その他改良と
+  バグ修正。[Couriersud]
+
+- m68k: unalignedなPC相対アクセスを修正。[O. Galibert]
+
+- scfinals: 正しいデフォルトEEPROM追加。[O. Galibert]
+
+- NSS Super Mario World IC1の2つめのROMラベル変種追加。[byuu]
+
+- peoplepc: pc.cから分離して動作可能に改良。[Carl]
+
+- peoplepc: 新ROM。[rfka01]
+
+- gaialastのプロテクトデータ検証。[system11]
+
+- CD4XXX、74XXチップファミリ用のマクロライブラリ作成。今後真理値表とDIPPINSで記述でき
+  る全てのデバイスを含む予定。[Couriersud]
+
+- SDL: 0.160で起きたアスペクト比の不具合修正。[Hans Ostermeyer]
+
+- mayacセットのPROM訂正で色の修正。[system11]
+
+- thedealr.c: コインエイジ、最大ベット数、払い出し、ダブルアップ、ジャックオアベター、
+  フィーバーモードのDIPスイッチ解明。[Brian Troha]
+
+- sdk80.c: デバイスの実装開始: [MooglyGuy]
+ * i8251 USARTとRS232デバイス実装。内部シリアルターミナル、またはホストマシンで動作す
+   るターミナルプログラムを含むスタンダードなRS232スロットを使用可能。
+ * USARTボーレート選択スイッチ追加。
+
+- chihiro.c: "セガネットワーク対戦麻雀 MJ3 エボリューション"のDESキーをブルートフォー
+  ス。[f205v]
+ 
+- jvs13551.c: Sega 838-13683と837-13551 JVS I/O MCUファームウェアの吸い出し。
+  [Soyandroid]
+
+- VK100.c: 回路図よりPROMの位置を訂正; PROM一つを吸い出し不良に設定。[Lord Nightmare]
+
+- VK100: 回路図をもとにさらに作業。セルフテストはまだあまり進まない。[Lord Nightmare]
+
+- "Harem"のスピーチ実装。セーブステート追加。色の検証。[Luca Elia, tirino73]
+
+- sdk80.c: ビデオボード制御PROM追加。動作可能に昇格。[MooglyGuy]
+
+-「ワールドヒーローズパーフェクト」(Sega Saturn)のSMPCにおけるTHコントロールモードを
+  修正。[Angelo Salese]
+
+- SCSP EXTSパラレルポートへのCD-DAルーチングを追加。Sega Saturn版CD-ROMプレイヤーのイ
+  コライザ修正。[Angelo Salese]
+
+- "1942p"の改良:
+ * このセットの正確なサウンドROMを吸い出し。[mastercello]
+ * 新しいサウンドROMで必要な異なるメモリマップを実装。[David Haywood]
+ * Tecfri製をプロトタイプではなく海賊版に再設定
+ * このバージョンの割り込み生成を修正。パワーアップのスクロールが修正。
+   [David Haywood]
+
+- NetBSDサポートを復活。[Thomas Klausner]
+
+- n64: 早送りしたときのクラッシュを修正。[MooglyGuy]
+
+- VK100: 回路図よりコメント欄のメモリマップデコーディング用ダイアグラム修正。
+  [Lord Nightmare]
+
+- firebeat: 基本的なSPUボードのエミュレーション追加。[Ville Linde]
+
+- rspcp2: gcc-compatibleのalign宣言を作成。[O. Galibert]
+
+- slqz3の外部ARMコードを復号化。[iq_132]
+
+- a7800: 0x2800ミラーリング動作修正。[Mike Saarna, Robert Tuccitto]
+
+- Commodore VIC-1515プリンタ。[Curt Coder]
+
+- Commodore VIC-1520プロッタ。[Jim Brain, Curt Coder]
+
+- zookeeperセットにROM配置追加。[Lord Nightmare]
+
+-「モータルコンバット」Yawdin海賊版のサウンド改善。[Luca Elia]
+
+- ツールにnvwavを追加。nlwavはnetlistログをwavファイルにコンバートするもの。
+  [Couriersud]
+  使用例:
+
+  ./nlwav -i netlist.log_RO.1.log -o tt.wav
+
+  ./nlwav -h
+
+- Commodore 1526/MPS-802/4023プリンタ。[Curt Coder]
+
+- c128: PARTNER 128カートリッジ用スケルトン追加。[Curt Coder]
+
+- ti99: MFM低レベルハードディスクエミュレーション追加。レガシーフロッピー削除。
+  [Michael Zapf]
+
+- 315_5124.c: 一時レンダリングに使うダイナミックRAMのセーブを回避したため、解像度の変
+  更毎にランタイムで再配置されるRAMとセーブステートは一致しない。
+
+- shadfrce: ランタイムタグルックアップの削除とビデオレンダリングの最適化で0.161以前の
+  速度を取り戻し。[David Haywood]
+
+- dreamwld.c: 基板テストをもとに表示領域、ラインスクロールモード、タイルマップサイズ
+  などを修正。cutefght、rolcrush、bayronなどの表示改善。[David Haywood]
+
+- sm510: Sharp SM510 MCUコアの初期版。[hap]
+
+- tb303: 基本的なボタン入力とext、RAMの実装。[hap]
+
+- ソフトウェアリストにgamekingの吸い出しを追加。[Team Europe]
+
+- famiclone biosセット追加。[Team Europe]
+
+- 以下のドライバでセーブステート追加・完成・有効化:
+  decos32.c, destroyr.c, gstriker.c, itech8.c, namcona1.c, namcond1.c, namcos86.c, 
+  naughtyb.c, nbmj9195.c, paranoia.c, pcktgal.c, poolshrk.c, sbowling.c, spbactn.c,
+  spdodgeb.c, starcrus.c, tank8.c, tapatune.c, ttchamp.c, vicdual.c [Osso]
+
+
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Intel SDK-80 [Nigel Barnes, MooglyGuy]
+Gaia - The Last Choice of Earth [David Haywood, system11]
+The Dealer (Visco Games)
+  [Luca Elia, Fabrice Arzeno, Porchy, rtw, The Dumping Union]
+Mahjong Magic Lamp (v. JAA02) [Dyq, Guru, Luca Elia]
+麻雀 大中華圏 (Japan, D115) [Dyq, Guru, Luca Elia]
+麻雀 ゴージャスナイト (Japan, TSM003-01) [Dyq, Guru, Luca Elia]
+The Round Up [Brian Troha, The Dumping Union]
+モンキーマジック [Smitdogg, *=/STARRIDER\=*, BrianT,  russ h., Mucci, Justin Kerk,
+  Bigster, Dave France, Dulleron, Nicolas Francfort, f205v, Gilby, rtw, gregf,
+  Andy Welburn, Shoutime, MooglyGuy, balrog, Gor, The Dumping Union, Dirk Best]
+
+
+新しく追加されたクローンセット
+------------------------------
+The Rumble Fish 2 (prototype)
+  [Brizzo, MetalliC, Coolmod, The Dumping Union]
+エックスメンVS.ストリートファイター (USA 960910) [kawaks]
+ターボ (encrypted, program 1363-1365 rev B) [Andrew Welburn]
+ターボ (encrypted, program 1363-1365) [Andrew Welburn]
+Indianapolis (bootleg of Turbo) [f205v]
+サンセットライダーズ (4 Players ver JAD) [Fraspe]
+Quizard (v1.0) [TeamEurope] (and reorganized sets)
+Vendetta / クライムファイターズ2 (Asia, 4 Players, ver. Z) [Fraspe]
+Karate Blazers / 闘神ブレイザーズ (bootleg) [Gerald (Coy) and Thierry (ShinobiZ)]
+Run and Gun / スラムダンク (ver EAA 1993 9.10, prototype?) [caius, mastercello]
+Maya (set 4, clean) [system11]
+ホットロッド (Japan, 4 Players, Floppy Based, Rev C) [Ordyne]
+バース -オペレーションサンダーストーム- (Japan Resale Ver. 920714)
+  [Alex Cmaylo, The Dumping Union]
+ホットチェイス (set 2)
+忍 (Datsu bootleg, set 2) [Andrew Welburn]
+ミッドナイトレジスタンス (Joystick bootleg) [Guru]
+スーパーコブラ (Stern Electronics) (encrypted, KONATEC XC-103SS CPU)
+  [Kevin Eshbach, David Haywood]
+モータルコンバット (Yawdim bootleg, set 4) [Marco, Guru]
+Gang Hunter / リードアングル [Smitdogg, The Dumping Union]
+Spatter / 三輪サンちゃん (315-5099) [Andrea Palazzetti]
+フェニックス (Assa, Spanish bootleg) [Rockman & Edcross]
+Ave Fenix (Laguna, Spanish bootleg of Phoenix) [Rockman]
+Vautour (bootleg of Phoenix) (Z80 CPU, single PROM) [system11]
+花とおじさん [BET] (ver 1.00, 1991/08/23) [AeroCityMayor]
+Power Spikes / スーパーバレー'91 (Italian bootleg) [Manual Assoni]
+NFL Blitz '99 (ver 1.2, Aug 28 1998) [SiftWare]
+カリフォルニアスピード
+ (Version 1.0r8 Mar 10 1998, GUTS Mar 10 1998 / MAIN Mar 10 1998) [jmurjr]
+PuzzLove (Korea) [system11]
+Bubble Bobble II / バブルシンフォニー (Ver 2.6O 1994/12/16) 
+  [rtw, Team Europe, The Dumping Union]
+Crush Roller (Famaresa PCB) [Rockman, Edcross] (not working, different protection?)
+
+追加された未動作ゲーム
+----------------------
+Microdigital ONYX: new colecovision prototype (unreleased).[Felipe Sanches]
+Daruma DS348 dot-matrix printer skeleton driver. [Felipe Sanches]
+Aqua Stage [MooglyGuy, Smitdogg, Charles MacDonald, The Dumping Union]
+セガネットワーク対戦麻雀MJ3 エボリューション (Rev B) (GDX-0021B) [Andy Geezer]
+麻將 双龍搶珠3 [Dyq, Guru]
+Konami Top Gun [hap, Sean Riddle]
+Konami TMNT [hap, Sean Riddle]
+ゲームウォッチ: Gミッキー&ドナルド [hap, Sean Riddle, segher, O. Galibert]
+ジャングラー(学研) [hap, Kevin Horton, Rik]
+ザクソン(バンダイ) [hap, Kevin Horton, Rik]
+ウルトラマン(バンダイ) [hap, Kevin Horton, Rik]
+ペンゴ(バンダイ) [hap, Kevin Horton, Rik]
+バーガータイム(バンダイ) [hap, Kevin Horton, Rik]
+NBA Showtime Gold / NFL Blitz 2000 (ver 3.0) (Sports Station?) [?]
+

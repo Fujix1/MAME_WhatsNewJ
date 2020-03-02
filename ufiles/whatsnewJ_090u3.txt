@@ -1,0 +1,61 @@
+0.90u3
+------
+
+■Segaアップデート。[Aaron Giles]
+    変更点:
+    - hangon、sharrier、endurorで、正確な道路レイヤーとスプライト拡大縮小
+    - shangonbの名称をアップグレード版の海賊版なのでshangupbに変更
+    - Gerald氏の「スーパーハングオン」セット追加。shangonbとshangonc
+    -「スケバン雀士竜子」（両方のバージョン）のグラフィック修正。操作はまだ
+
+■新コマンドラインパラメータ-screen追加。画面が2つ以上のときにどの画面に描画する
+  かを指定。[Chris Kirmse]
+
+■サウンドのアップデート[Derrick Renaud]
+
+    * sound\namco52.cにフィルタリング回路追加とストリームベースにコンバート
+    * bosco, galaga, polepos, xevious - Namco52サンプルプレーヤに正確なフィ
+      ルタ追加と、回路図を元に音量調整
+    * polepos - エンジン音に正しいフィルタ追加
+    * asteroidなどの増幅率が0.90で変になったのを修正
+    * montecar - クラッシュ音に正しいフィルタ追加
+    * bsktball - コンポーネント値コードにコンバート
+    * abaseb   - 歓声のフィルタのコンポーネント値を訂正
+
+■「Tazz-Mania」海賊版の星空を削除（実際に無いため）。[Pierpaolo Prazzoli]
+
+■「バトルガレッガ」に条件付きのDIPスイッチ追加。[Barry Rodewald]
+
+■Arcadiaのアップデート。[Mariusz Wojcieszek]
+    - 画面のアップデートをスキャンラインベースに変更
+    - スプライトレンダリングの改良、クリッピングの修正
+    - hold-and-modify表示モード追加
+    - ar_sdwrで1MBチップRAMを使うように変更。もっと調査が必要
+
+■u2でVrender0のサウンドがこわれていたのを修正。[Lawrence Gold]
+
+■PPCコアのコンパイラ警告を修正。[Lawrence Gold]
+
+■SHA1を追加。[Steve Ellenoff]
+
+■回路図を元にRastanドライバをクリーンアップ。[Nicola Salmoria]
+    ADPCMをMSM5205で再生するように変更
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Erotictac [Tomasz Slanina (色修正:Nicola Salmoria)]
+    動作速度が違う、グラフィックの問題あり
+
+SportTime Table Hockey (Arcadia) [Mariusz Wojcieszek]
+Sidewinder (Arcadia) [Mariusz Wojcieszek]
+Space Ranger (Arcadia) [Mariusz Wojcieszek]
+
+
+新規クローンセット：
+--------------------
+Top Racer (set 3) [Steve Ellenoff]
+Ant Eater (GB set) [Pierpaolo Prazzoli]
+スーパーハングオン (2セット) [Aaron Giles]
+グレート1000マイルラリー2 USA [David Haywood]
+ネオジオBIOS (Japan S1)

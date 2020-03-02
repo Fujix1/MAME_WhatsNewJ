@@ -1,0 +1,39 @@
+0.93u2
+------
+
+サウンド関係の修正は少しです。テストは続けてください。ただし、whatsnew.txtに
+あるもの以外はu1に比べるとあまり変更されていません。今回は、クリーンアップと
+セットの追加がメインです。
+
+----
+
+■m48t58 / m48t58y エミュレーション追加。hornetなどで使用。[smf]
+    slapshot / operation wolf 3 / itech32で実装
+
+■MESS用のuserintrfパッチ。[Nathan Woods]
+
+■-wavwriteを修正。[Derrick Renaud]
+
+■0.93のリンク警告修正。[Lawrence Gold]
+
+■「イグジーザス」のDIP修正。[Nicola Salmoria]
+
+■「リターンオブザインベーダー」のライフ表示修正。[Nicola Salmoria]
+
+■「グレートソードマン」のDIPスイッチ＋ゲーム名修正。[Nicola Salmoria]
+
+■「オペレーションウルフ」のサウンド修正。[Nicola Salmoria]
+
+■「スーパークイックス」の2人プレイ修正。[Nicola Salmoria]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+パズループ2 [Andreas Thorsé, Razoola]
+
+
+新規追加クローンセット：
+------------------------
+SPIの追加セット [Bladerunner, Flatliner, The Sheep & Tormod]
+Ring King / キングオブボクサー (Woodplace version) [Pierpaolo Prazzoli]
+ピットファイター (version 5) [Pierpaolo Prazzoli, MAN]

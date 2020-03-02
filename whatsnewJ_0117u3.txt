@@ -1,0 +1,91 @@
+0.117u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+headon0117u2ora [Aaron Giles]
+numpadremap0117u2gra [Aaron Giles]
+joystick0117u2gra [Aaron Giles]
+NewUI0117u2ora [Aaron Giles]
+mtrap0117u2ora [Aaron Giles]
+verifyroms0117u2ora [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+
+- Naomiドライバにセットアップコードを更に追加。[R. Belmont]
+
+- powerinsドライバのDIPスイッチ改良。[BisonSAS]
+
+- System 572ドライバに基本的なCD-ROM切り替え機能追加。「Best of Cool Dancers」と
+ 「Club Version」に実装。DIP配置追加。フェイクのスイッチを設定メニューに移動。
+  [smf]
+
+-「2 Minute Drill」ドライバにビデオハードエミュレーション追加とサウンドサポート。
+  [Tomasz Slanina]
+
+- TIAエミュレーションに、オプショナルなVSyncコールバック追加。画面設定を動的に変
+  更可能。[Wilbert Pol]
+
+- 古くなった関数名のクリーンアップ。[Atari Ace]
+
+- CreateWindowEX()で、win_create_window_ex_utf8()を呼び出すように変更。文字列の
+  変換を不要に。[Nathan Woods]
+
+- KonamiGX BIOSが単体で動作するように修正。オペレータにROMボードを接続するように、
+  文字列が表示されます。[Alex Jackson]
+
+- ハードリセットとソフトリセット用のデバッガコマンド追加。[Nathan Woods]
+
+- コンマとピリオドを追加した、14セグメントと16セグメントLEDを追加。vacfdispを
+  コンポーネントドライバに分割。システムはBD1に加えて、Rockwell 10937（別名 
+  MSC1937）と10957をサポートします。関連したドライバは全て、新コードと新レイアウ
+  トに置き換えました。[James Wallace]
+
+- 64bitビルドのエラーをいくつか修正。[Aaron Giles]
+
+- 汎用ツールから、ビルドツールを分離。ビルドツールはサブディレクトリ build/に配
+  置。[Aaron Giles]
+
+- 汎用モジュールastring.c追加。任意長の文字列割り当てと基本操作をサポートします。
+  [Aaron Giles]
+
+- assemble_x_strings()関数を、astringで置き換え。astringsを使うべきところを置き
+  換え。[Aaron Giles]
+
+- 新ツール、src2htmlを追加。MAMEのソースツリーを、リンク、キーワードとコメントの
+  色分けをしたHTMLフォーマットにコンバートします。[Aaron Giles]
+
+- メモリプールコードを、より汎用的なリソースプールへコンバート。MAMEの内部タイマー
+  トラッキングと、セーブステート登録で新システムを使うように変更。[Aaron Giles]
+
+- キーコード名から一部分のアンダースコアを削除。KEYCODE_0_PADは、KEYCODE_0PADと
+  なります。これは、マルチキーボードを判断するとき取り違えないようにするためです。
+  この変更により、かなり古いcfgファイル用の不完全な後方互換性は削除しました。
+  そのまま動作するものと、しないものがあります。また、これにより、既存のctrlr
+  ファイルも動作しません。新しいものを提供する予定です。[Aaron Giles]
+
+- タイルマップインターフェイスのクリーンアップ。タイルマップタイプタイプ定数を、
+  ただのTILEMAP_*から、TILEMAP_TYPE_*でプリフィクスしたenumに置き換え。tile_info
+  構造体から未使用のメンバを削除。[Aaron Giles]
+
+
+
+新規クローンセット
+-------------------
+クロスブレイズ (Japan) [Stefan Lindberg]
+シャドーフォース (Japan Version 2) [Stefan Lindberg]
+ディグダグ (Sidam 海賊版) [David Haywood]
+Dance Dance Revolution Best of Cool Dancers [smf]
+
+
+
+追加された未動作ゲーム
+----------------------
+アストロンベルト [Andrew Gardner]
+Cobra Command (Sega LaserDisc Hardware) [Andrew Gardner]
+Galaxy Ranger [Andrew Gardner]
+スターブレイザー [Andrew Gardner]

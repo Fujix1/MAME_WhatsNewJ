@@ -1,0 +1,194 @@
+0.80u2
+
+ソース全般の変更：
+------------------
+
+■Sega 16-bit系ゲームドライバの更新。[Charles MacDonald, http://cgfm2.emuviews.com]
+
+(03/18/04)
+- eswatのROMをきちんと吸い出されたものに置き換え。ゲーム自体はプロテクトのためプレイ
+  不可
+-「エースアタッカー」をsystem16.cに移動。System18ではありません
+- tturf, tturfu, tturfbl（サンプル無し), fpointbl, fpointbjにサウンド追加
+-「登竜門」のRAMテスト修正
+-「登竜門」「タイムスキャナー」のドライバをクリーンアップ
+-「ウォーリーを探せ」（wwally）追加。プロテクトでプレイ不可
+- System18のサンプルROMバンキング修正。今のところ動作しているゲームには影響はないもの
+  の、他のものが解析されたときに役立つはず
+- RF5C68Aの周波数訂正（7.15 MHz -> 8.00 MHz）
+- Z80のクロック訂正（8.192 Mhz -> 8.00 MHz）
+- shdancblのサウンドハードを少しクリーンアップ
+
+(03/15/04)
+-「ハングオン」で2つ目の68000ROMのテストが通るように修正
+-「ハングオン」のスプライトRAM、タイルRAM、共有RAMサイズ修正でRAMテスト動作
+- 共有RAMと道路のRAM修正、道路の表示レイヤーが動作
+-「ハングオン」のI/Oハードをきちんとエミュレート。パッチが不要になったのとテストモー
+  ドのクラッシュが修正
+- aurail、riotcity、bayrouteでsys16_sprite_shionobiを使うように変更
+- altbeast、riotcity、bayroute、aurailドライバをクリーンアップ（エラーログのゴミ出力、
+  未使用の入出力など）
+- “追加”のRAMをドライバから削除して、sys16_tilebank_wに置き換え
+- sys16_sprite_shinobiのスプライト拡大処理を修正（「ヘビーウェイトチャンプ」のスプライト配置修正）
+- スプライトリストのパースを修正（「ヘビーウェイトチャンプ」の出力テスト修正）
+-「シャドーダンサー」（Rev.B）を追加
+- shdancer, shdancrj, shdancbl, shdancrbの動作が速くなるのを修正
+- shdancer, shdancrj, shdancbl, shdancrb, moonwlkb, astormblにIPチップとVDPエミュレー
+  ションを部分的に追加
+- shdancrbのDATSU製海賊版サウンドハード追加と、サウンドのクラッシュ修正
+- shdancblのスプライトローディングを修正
+- shdancblドライバのクリーンアップ。表示で一カ所だけ変なところがある以外は完全動作
+- sys16_paletteram_w修正とsys16_dactypeの削除
+- 影、ハイライト部分の色が正確になるようにres_net.hのルーチンからパレットを生成するよ
+  うに変更
+
+■ディスクリートサウンドシステムのアップデート。[Aaron Giles, Derrick Renaud]
+
+(Aaron)
+
+* 内部の大幅なクリーンアップとノード生成方法の改良
+* 555タイマーのバグのせいで「Hit Me」の変なノイズが出ていたのを修正
+* アナログアジャスター用の新型入力ポートタイプ追加
+* この新入力ポートタイプを使うようにディスクリートサウンドアジャスターのOSDインターフェースを変更
+* NODE_ADJUSTMENTが入力ポートから値を取得するように変更
+* 設定ファイルにアジャスタの値が保存される機能追加
+* アジャスタを使う全部のゲームで新システムを使うように変更
+
+(Derrick)
+
+ディスクリートサウンドの変更
+============================
+* 読みやすいようにコードのクリーンアップを継続中
+
+新規追加ディスクリートモジュール
+================================
+* DISCRETE_OP_AMP_OSCILLATOR - コンポーネント値で有効になるオペアンプの発振器回路
+* DISCRETE_OP_AMP_VCO - コンポーネント値で有効になるオペアンプの電圧制御発振器（VCO）回路
+
+ゲームドライバの更新
+====================
+* Aaron氏によるDISCRETE_ADJUSTMENTの変更を使うようにゲームを更新
+
+
+■修正をいろいろ。[Nathan Woods]
+
+src/fileio.c:
+src/fileio.h:
+src/windows/fileio.c:
+    - MESS用のファイルタイプをFILETYPE_CRCからFILETYPE_HASHに変更
+
+src/hash.c:
+src/hash.h:
+    - hash_data_insert_printable_checksum()追加
+    - Made things more const correct
+
+
+■Nintendo 8080ベースのゲームを更新。[Stefan Jokisch]
+
+全ゲーム：
+
+- CPU速度修正
+- メモリマップ統一
+- ROMラベル変更
+
+スペースフィーバー / SFハイスプリッター / スペースランチャー：
+
+- ROMセットの名称変更：
+    Space Fever color => Space Fever
+    Space Fever b & w => Space Fever High Splitter
+-「SFハイスプリッター」を「スペースフィーバー」から独立
+-「SFハイスプリッター」のROM読み込み修正（セット一つのサウンドROMが不良）
+- カラーのサポート（「スペースランチャー」はカラーPROMの吸い出しが必要）
+- 赤画面点滅の実装（プレイヤーがやられたとき）
+- レーザーキャノンが赤く光るのを実装（プレイヤーが撃ったとき）
+- UFOの色が周期的に変わるのを実装
+- SN76477の正確な実装（要チェック）
+- I8035サウンドCPUの正確な実装
+-「ハイスプリッター」「スペースランチャー」にボーナスライフのDIP追加
+- カクテルモード追加
+- チェック用ROMの配置をドキュメント化
+
+シェリフ / Bandido:
+
+- SN76477の効果音のスケジューリングを修正（ショットとヒット）
+-「Bandido」に2つ目のコイン入力追加
+-「Bandido」でカクテルモードの操作が未使用なので削除
+- I8035サウンドCPUを正確に実装
+- ニセのカラーオーバーレイを「Bandido」から削除
+- スクリーンショットをふまえて色を追加。ただしPROMは要吸い出し
+- カラー効果実装（3面以降の赤いハートなど）
+- 画面の点滅を実装（プレイヤーがやられたとき）
+- チェック用ROMの配置をドキュメント化
+
+ヘリファイア:
+
+- ボーナスライフのDIP修正
+- 背景星空のパターンを修正。フライヤーのショットで確認
+- 背景星空のプライオリティ修正
+- ポーズとフレームスキップに関係した表示系のバグ修正
+- サウンドCPUを正しく実装（他のゲームとは異なる）
+- カクテルモードを一部サポート
+- IMPERFECT_GRAPHICSとNO_CACKTAILフラグ追加
+- 表示と音のエフェクトはまだいろいろ動作していません。以前動作していたのに動かなくなっ
+  てるのもあります。できるだけ早めに再追加する予定です
+
+■タイマー絡みの修正をいろいろ。「シークレットエージェント / SlySpy」の問題など。[Aaron Giles]
+
+■32010の更新で問題が起きていたのを修正。[Quench]
+
+■HuC6280などのバグ修正。[Bryan McPhail]
+
+■「タスクフォースハリアー」を改善。[Tomasz Slanina]
+- スプライトレンダリング修正
+- 背景スクロール用のハック
+- プロテクトによる問題に対応するパッチ
+
+  ゲームはまだプレイできません（操作系がまだ動きません）。
+  マッピングが間違ってるかプロテクトによる問題かも（例えばプレイヤー2のボタンは起動中
+  なら動作、サービスモードに入れるなど）
+
+■ST-Vの更新。[Angelo Salese]
+  ビットマップの透過処理修正とRGB0レイヤー追加（スクロール/ROZエフェクトはまだ）
+  また、ウィンドウエフェクトの超初期版の実装（shanhigwのタイルベースのスプライト表示
+  用）
+  VDP1 PTMレジスタのサポートが無くなっていたので再追加
+
+■Capcom Bowlingドライバのクリーンアップとリセット時のクラッシュを修正。[Aaron Giles]
+
+■IREM GA20の更新。[R.Belmont]
+  チャンネルステータスのリードバック追加で、「R-TYPE Leo」プレイ時に時々ボイスが
+  おかしくなっていたのを修正
+
+■「スターウォーズ」のコードを以前の動作するバージョンに巻き戻し。
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+Rock 'n' Roll Trivia (part 2) [Pierpaolo Prazzoli]
+Scooter Shooter [Pierpaolo Prazzoli]
+Dynamic Dice [Tomasz Slanina] - ギャンブルゲームかも
+ラブリーカード - ギャンブルゲームのようだが、テーマがギャンブル
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+2020年スーパーベースボール (set 2) (2020bba) [HPMAN]
+Spinner (Spiders bootleg) [Pierpaolo Prazzoli]
+ジャイロダイン (Crux license?) [Pierpaolo Prazzoli / f205v]
+Griffon [Pierpaolo Prazzoli]
+Blaster (early 30 wave version)
+
+
+新規未動作/クローンゲーム：
+---------------------------
+
+CPS2未動作クローン版
+Swinging Singles [Tomasz Slanina] - 作業はほとんど手つかずの状態
+Taiwan Chess Legend [Tomasz Slanina] - 一部のみ解読
+パラレルターン [Tomasz Slanina] - Jalecoプロテクトチップは未エミュレート
+Change Lanes [Phil Stroffolino, Jarek Burczynski, Tomasz Slanina] - Taito初期の謎ハード
+中国龍3スペシャル / Dragon World 3 - プロテクト未エミュレート
+撃墜王 / Zero Target [Bryan McPhail, Pierpaolo Prazzoli, David Haywood] - 未解析
+Counter Steer [Bryan McPhail, Pierpaolo Prazzoli, David Haywood] - 未解析

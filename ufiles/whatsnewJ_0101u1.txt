@@ -1,0 +1,72 @@
+0.101u1
+-------
+
+注意: このバージョンではメモリシステムで大幅な変更を行いました。そのため多くの
+ゲームが動作しなくなっていると思われます。見つけた場合は
+http://www.mametesters.orgに報告をしてください。
+
+
+MAMETestersの修正バグ
+---------------------
+galpanic0100u4yel [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* 53C810をSCSIフレームワークに統合。[Tomas Karlsson]
+
+*「Final Tetris」「グレートラグタイムショー」「B.C. Story」「Metal Saver」のサウ
+  ンドバランス調整。[sonikos]
+
+*「Q*バート」の"knocker connection"修正。[Kevin Jonas]
+
+* M37710, C352, NamcoNAサウンドの改善。[cync]
+
+* CPS1の周波数を実基板を測定した値に訂正。[Philip Bennett]
+
+* メモリシステムの大幅な変更。RAMエリアが与えられたCPUに対してmemory_region以外
+  に割り当てられないようにしました。RAMがメモリ領域からオフセットした処理をして
+  いるドライバは動作しません。[Aaron Giles]
+
+* ダイナミックなボリューム変更が正しくリストアされるように、ステートセーブ情報を
+  ストリームに追加。残念ながら、これにより既存のセーブステートとの互換性がなくな
+  りました。[Aaron Giles]
+
+* HC55516サウンドチップ及び、Williamsサウンドボードにステートセーブ追加。mcr3.c
+  とmcr68.cドライバにステートセーブ追加でGAME_SUPPORTS_SAVEフラグ付加。
+  [Aaron Giles]
+
+* timer_alloc_ptr系のタイマについて、ポインタ引数が割り当てタイムとして供給され、
+  変更出来ないように変更。これにより、これらのタイマでのステートセーブサポートが
+  簡単になります。[Aaron Giles]
+
+* m6809 CPUコアのステートセーブ登録がされてなかったのを修正。[Aaron Giles]
+
+* 匿名タイマが全部クリアされるまでステートロードを保留するように変更。これにより、
+  ロード直後のデータ破壊とタイマー作動の問題を修正。[Aaron Giles]
+
+* Williamsサウンドボードのクリーンアップと完全なマッピング。ステートセーブも追加。
+  [Aaron Giles]
+
+* オールドWilliamsドライバにステートセーブ追加。GAME_SUPPORTS_SAVEを付加。 
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Chewing Gum [f205v]
+
+
+
+新規クローンセット
+------------------
+パズループ (Korea) [Corrado Tomaselli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ゲットバス [Ville Linde, Guru]
+スカッドレースプラス [Ville Linde, Guru]

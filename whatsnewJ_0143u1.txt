@@ -1,0 +1,172 @@
+0.143u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 00335: [DIP/入力] quasar: 2人プレーゲームなのにプレイヤー3のスタートボタンがマッピ
+         ングされている。(Tafoid)
+- 00042: [DIP/入力] oigas: キーボードでパドル操作する場合、右キーを押すとボールと同じ
+         X軸の位置にジャンプする。右キーを押しっぱなしにすれば、ボールが落ちることは
+         ない。(Tafoid)
+- 04412: [ドキュメント] dynabb: 年代は1997年。
+- 04387: [サウンド] All sets in renegade.c: ADPCMボイスが出ない。(hap)
+- 04380: [クラッシュ/フリーズ] sfish2, sfish2j: OK画面後にクラッシュ。(R. Belmont)
+- 04409: [ドキュメント] motoraid: ゲーム名は"Motoraid"ではなく"Mortor Raid"。また製造
+         年は1997。
+- 04248: [クラッシュ/フリーズ] All sets in naomi.c: サービスモードに入ろうとすると固
+         まる。(Olivier Galibert)
+- 04407: [クラッシュ/フリーズ] jdredd, jdreddb: スプラッシュ画面後、黒画面のままにな
+         る。(micko)
+- 04402: [サウンド] Drivers using BSMT2000 Sound: 音が出ない、または壊れている。
+         (micko)
+
+
+ソースの変更点
+--------------
+- COSMAC CPUデバッガのPC修正。[Curt Coder]
+
+- CP1610 - マスク可能な割り込みのラッチを抑制。[H@P]
+ * 割り込み不可時のマスク可能割り込みは発生しません
+ * ActivisionのDreadnaught Factorを修正(MESSのintvドライバ)。
+
+- 以下のドライバでdeprecat.hの使用部を削除: [Angelo Salese]
+ * megaplay.c
+ * olibochu.c
+ * panicr.c
+ * paradise.c
+ * psychic5.c
+ * pturn.c
+ * rabbit.c
+ * subs.c
+ * tmmjprd.c
+ * tunhunt.c
+ * vulgus.c
+ * xmen.c
+ * xorworld.c
+
+- oldsplusのプロテクトシミュレーションを改良。[Creamy Mami]
+
+-「The Crystal Maze: Team Challenge」系ゲームのビデオタイミング改良。これでパレットの
+  不具合がほぼ解消。[J. Wallace]
+
+- Neo-Geoの変更いろいろ: [Johnboy]
+ * janshin - p1を置き換え。以前のものは吸い出し不良
+ * MVS/AESバージョンのタグ付け、タグ付け直し
+ * カセット毎の使用基板についてドキュメント作成開始
+ * チップラベルやソケットラベルの命名方法に従い、.bin拡張子の削除
+
+- Naomi: M4ライブ復号処理を実装。[R. Belmont, Deunan Knute, Andreas Naive]
+
+- vigilant.c:「ビジランテ」「Kickle Cubele / 迷宮島」のコインモード1と2をサポート。
+ 「Buccaneers」「Kickle Cubele / 迷宮島」のDIP配置追加。[Brian Troha]
+
+- zaxxon.c:「フューチャースパイ」のDIP配置追加。[Brian Troha]
+
+- xxmissio.c:「XXミッション」のDIP配置追加。[Brian Troha]
+
+- wwfsstar.c:「WWFスーパースターズ」のDIP配置追加。[Brian Troha]
+
+- wallc.c:「ウォールクラッシュ」のDIP配置追加。[Brian Troha]
+
+- vulgus.c:「バルガス」のDIP配置追加。[Brian Troha]
+
+- vball.c:「Vボール」のDIP配置追加。[Brian Troha]
+
+- NEC DSPコアが正しいov1とs1 aluフラグ(及びSGNレジスタコンテンツ)を生成するように更新。
+  [Lord Nightmare, Segher, byuu, Cydrak]
+
+- idectrl - コマンド0x70(SEEK)を実装して、jdreaddとjdreddbが再び起動可能。
+  [Miodrag Milanovic]
+
+- Naomiの更新: [R. Belmont, Angelo Salese]
+ * BIOSの序列を修正し、rev Hをデフォルトに設定
+ *「イルベロ」「シューティングラブ。2007」の画面回転設定を修正
+ * BIOS Hのマイナーな互換性の問題を修正と、アイドルスキップ追加
+
+- Naomni/Triforce/Chihiroのドキュメント整理と更新。[f205v, R. Belmont]
+
+- addrmap: メインマップにデバイスソースのメモリマップ追加。[O. Galibert]
+
+- naomi: maple-dc用のデバイスマップ使用。[O. Galibert]
+
+- addrmap: 便利なエラー検出機能追加。[O. Galibert]
+
+- Naomi 2 BIOSのアイドルスキップ追加。[Angelo Salese]
+
+- HOTD2のアイドルスキップ追加。[Angelo Salese]
+
+-「ハウス・オブ・ザ・デッド2」の光線銃入力実装。(使用しているPVRが違うため)表示系の問
+  題はあるがプレイ可能。[Angelo Salese, O. Galibert]
+
+-「クレイジータクシー」「ダイナマイトベースボールNAOMI」「ゾンビリベンジ」
+ 「ジャンボサファリ」「18ホイーラーズ」「エアラインパイロット」
+ 「コンフィデンシャルミッション」「モンキーボール」「ザ・メイズ・オブ・ザ・キングス」
+ 「シャカっとタンバリン」の正しい操作系を実装。[Angelo Salese, O. Galibert]
+
+- 0555 KRGB TAからFBへの変換を追加。「リングアウト4x4」で使用。[Angelo Salese]
+
+- UPD7725をさらに修正。新コードは正しく動作するはず。また、未初期化の変数を修正。
+  [Lord Nightmare, Wilbert Pol]
+
+- i386: 修正いろいろ: [Barry Rodewald]
+ * タスク切り替え時、セグメントレジスタの前にLDTをロード
+ * STI直後の命令後にIFを設定
+ * 一つの命令に対するMOV SSかPOP SSのあと、IFをリセット
+ - modrm < 0xc0のときのLSL命令を修正
+
+- nvram - マルチBIOSでデフォルト以外のBIOSを使った場合、システム用のnvramは、
+  システム名_BIOS番号.nvとして保存します。デフォルトの場合は以前と同じです。
+  [Miodrag Milanovic] 
+
+- ROM名の修正いろいろ: [Kevin Eshbach]
+ *「スーパーザクソン」のROM名訂正
+ * Bally SenteサウンドボードROM名更新とデートコード追加
+ *「Name That Tune」セット2のROM名更新
+ *「Stompin'」のROM名、未吸い出しのPAL、カートリッジタイプをそれぞれ更新。デートコー
+   ドの追加
+ *「Rescue Raider」(最初のセット)のROM名、未吸い出しPAL更新、非カートリッジのマーク追
+   加、デートコード追加
+ *「Gimme a Break」のデートコード追加
+ *「Trivial Pursuit」(Genus I)セットのデートコード追加
+
+-「Crystal Maze」系ゲーム用のかなり正確なレイアウト追加で、ついにプレイ可能。
+  [J. Wallace]
+
+- インラインアセンブリの一部についてシンタックスを修正。[Balrog]
+
+- NEC CPUコアにhalt命令を実装。[Wilbert Pol, Alex Jackson]
+
+- HOTD2基板のI/Oボード用EPROMを吸い出し。[Guru]
+
+- 2つ目のSH-4を動作させるためATV Trackに着手。[Samuele Zannoli]
+
+- SH-4 CPUコアで、プロセッサと外部デバイス間のDMA転送をサポート。[Samuele Zannoli]
+
+- naomibdデバイスで、スタートアップ時にメガバイトで指定したパラメータを元にGDROMデー
+  タ用のメモリを割り当てるよう改良。[Samuele Zannoli]
+
+- unidasmツールの新コマンドを2つ追加: [Samuele Zannoli]
+ * skip <n>: ファイルの先頭から<n>バイトをスキップ可能にする
+ * count <n>: 逆アセンブルする範囲を<b>バイトに限定する
+
+- Neo-Geoのカートリッジ毎の使用基板とROM名の整理をさらに追加。[Johnboy]
+
+
+新しく追加されたクローンセット
+------------------------------
+Pit Boss Megatouch II (9255-10-01 ROD, Standard version)
+  [Brian Troha, The Dumping Union]
+コスモポリス ギャリバン (12/26/1985) [Stefan Lindberg, The Dumping Union]
+ミサイルコマンド (rev 3) [Joe Barbara]
+
+
+追加された未動作ゲーム
+----------------------
+Tap-a-Tune [Mariusz Wojcieszek, Phil Bennett, R. Belmont]
+Asian Dynamite (ダイナマイト刑事EX) [The Dumping Union]
+シューティングラブ。2007 [The Dumping Union]
+アカツキ電光戦記 Ausf. Achse [The Dumping Union]
+Illvelo (Illmatic Envelope) [The Dumping Union]
+ポカ☆スカ ゴースト！ [The Dumping Union]
+バブルシステムBIOS [Guru, Angelo Salese]

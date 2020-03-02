@@ -1,0 +1,658 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.104</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.104.txt</div>
+	<div class="main">
+<div class="wn">
+0.104
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+centiped0103u3ora
+
+
+
+ソースの変更点
+--------------
+- 0.103u5の変更に合わせてtiny.makを修正。[Derrick Renaud]
+
+-「スターウォーズ 帝国の逆襲」のNVRAM処理を修正（テストモードのみ影響）。
+  [Mathis Rosenhauer]
+
+- coinmstr.cゲームの質問ROMを復号化。[Nicola Salmoria]
+
+- djboyドライバにプロテクトの情報をさらに追加。[Phil Stroffolino]
+
+- NeoGeoをさらにクリーンアップ。[David Haywood]
+
+- Phoenixディスクリートサウンド - 実機に従いR22を470Ωに変更。これでディスクリー
+  トサウンドに残ってる不具合は修正されるはずです。ショットと爆発ノイズはディスク
+  リートエミュレーションがまだ必要です。[Derrick Renaud]
+
+- vscfdispモジュールに16セグメント描画コード追加。[El Condor]
+
+- Z80デバッガで8bitのA,B,C,D,E,H,Lレジスタ対応。[Nicola Salmoria, Aaron Giles]
+
+- 全てのコアとWindowsファイルで、コピーライト表示を確保。[Aaron Giles]
+
+- mame.makのファイルをさらに入れ替え; 正確さを期すため再クリーンビルドしてくださ
+  い。[Aaron Giles]
+
+- 配布ソースからデフォルトのデバッガ以外のフォントを削除。[Aaron Giles]
+
+- デバッガでのレジスタビューサイズの計算を修正。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Lord of Gun (USA) [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+Trivia ? Whiz (Vertical versions) [Pierpaolo Prazzoli]
+Trivia ? Whiz (Edition 4) [Pierpaolo Prazzoli]
+Phraze Craze (Sex Kit) [Pierpaolo Prazzoli]
+Police Trainer (Rev 1.0) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+黄飛鴻 [Luca Elia]
+
+
+
+0.103u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+esb065gre [Mathis Rosenhauer]
+
+
+
+ソースの変更点
+--------------
+- turbofrc37b1greの再修正。他のゲームで問題が起きていたため。
+  [Pierpaolo Prazzoli]
+
+-「Cookie & Bibi」のマイナーな色問題修正。[David Haywood]
+
+- Hyperstoneコアのアップデート: [Pierpaolo Prazzoli]
+ * ディレイのネスト削除
+ * 改良版ディレイブランチサポート
+ * ディレイ命令ではPCの遅延を使うべきなので、ディレイ命令でのPCの動作を修正（こ
+   れにより、ソフトウェア命令コードも実行ができる）
+
+- NeoGeoゲームのウォッチドッグを実装して、ハックを大幅に削除。[David Haywood]
+
+- klondkpの3面終わりでハングするのを修正。[Pierpaolo Prazzoli]
+
+-「連珠貴族」「ねらってチュー！」「五月陣戦2」の入力、及び後者2つのDIPスイッチ修
+  正。[Sonikos]
+
+- auto_mallocについて、メモリ使用量を減らし、ハードコードによる割当数の最大数制
+  限を持たないように改良。また、コード中でのauto_mallocの使用状況を調べて、不要
+  なNULLチェックを削除（auto_mallocは失敗時にNULLを返さないため）。[Atari Ace]
+
+- MAX_OPEN_FILESにヒットしたとき、osd_fopenが正しい値を返したとしてエラー報告す
+  るのを修正。[Nathan Woods]
+
+- i386逆アセンブラで、一部のバイトオペランドがsignedではなくunsignedになるように
+  変更。[Nathan Woods]
+
+- ディスクリートサウンドの更新: [Derrick Renaud]
+ * DISCRETE_CSVLOGモジュール追加。ディスクリートノードのCSV（カンマ区切り）デー
+   タとしてログ取り可能
+ * MDRV_SOUND_ADDで指定されているクロックを使うようにディスクリートコアを改良。
+   指定クロックが0の時は、ディスクリートエミュレーションはオーディオサンプルレー
+   トクロックをデフォルトに使用
+ * Phoenix Effect 2サウンドをオシロスコープのデータにさらに正確に合うように改良。
+   Phoenixディスクリートクロックレートを120000に固定して、速度の代わりにノイズを
+   減らして以前より正確なシミュレーションが可能
+ * DISCRETE_NOTEモジュールで音が1カウントずれていたバグを修正
+
+- レジスタリストに表示されないレジスタをサポート。i386のAXなどのレジスタで役に立
+  ちます。これによりAXはexpressionで使用してもレジスタリストには表示されません。
+  また単純にレジスタ名の先頭に'~'をつけると表示しないようにできます。
+  [Nathan Woods, Aaron Giles]
+
+- i386コアの隠しレジスタであるx86の8bitと16bit系レジスタをサポート。
+  [Nathan Woods]
+
+- ESBのBGM修正。IRQ周波数と分周率を回路図に合うように更新。[Mathis Rosenhauer]
+
+- rocktrv2のDIPスイッチ改良。[Chaneman]
+
+- グラフィックデータの割り当てをデコーディングと分離。これによりu4で起きていたク
+  ラッシュの修正とデコード進捗状況のレポートも可能になる予定。[Aaron Giles]
+
+- makefile全体のクリーンアップ。rules.makは削除して、cpu.makとsound.makで置き換
+  え。またmame.makの再編成。makefilesは全部コメントにしたので、フォローが簡単に
+  なっているはずです。[Aaron Giles]
+
+- アートワークの拡大縮小機能について、関係する全ピクセルを正しく計算するように書
+  き直し。この結果、高解像度のアートワークを低解像度に縮小したときの画質が改善し
+  ます。拡大時のバイリニアフィルタについてはそのままです。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Hidden Catch (World) [Pierpaolo Prazzoli]
+Fortress 2 Blue Arcade [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+NeoGeoの海賊版をいくつか [Razoola, David Haywood]
+ジャンボ尾崎のスーパーマスターズ (Japan) [Team Japump]
+Miss Puzzle (Nudes) [Brian Troha]
+
+
+
+0.103u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+xevious083gre [MASH]
+
+
+
+ソースの変更点
+--------------
+
+- Intel i386/i486/Pentiumのアップデート: [Nathan Woods]
+ * A20マスク実装の修正
+ * デバッガのトランスレートコールバックにA20マスクを追加
+ * Pentiumの命令コードCMPXCHG8B実装
+ * XADDの修正と、8ビットと16ビットの変数サポート
+
+-「Top Shooter」のスプライト修正。ゲーム自体はまだプレイ不可。[Tomasz Slanina]
+
+- デバッグビュープロパティコードを、voidポインタからunionのプロパティ値としてパ
+  スするように変更。strict aliasingについてコンパイラにひっかからないようにする
+  ため。[Nathan Woods]
+
+- WIndowsコアとMESSで、ビットマップへのリソース割り当ての問題があったのを修正。
+  [Nathan Woods]
+
+- 不要なvideo_stopとmachine_stopルーチンを大量に削除。[Atari Ace]
+
+- exit()コールをさらにいくつかosd_die()にコンバート。[Oliver Stoneberg]
+
+-「Ninja Spirit / 最後の忍道」とSega System 16bドライバでJAMMAのボタン順に合うよ
+  うに修正。[Corrado Tomaselli]
+
+- Hypeerstoneコア修正: [Pierpaolo Prazzoli]
+ * ディレイのネストを削除
+ * ソフトの命令コードがディレイスロットでの命令が出来ないよう設定
+
+- 以下のディスクリートモジュールの追加と変更: [Derrick Renaud]
+ * DISCRETE_WAVELOG - ディスクリートノードのログを.wavファイルとして保存して、ス
+   コープの波形と比較しやすくします
+ * DISCRETE_OUTPUT - 16ビットのWAVレベルの最終ゲインパラメータ追加（以前のVOL設
+   定は、前回のサウンド書きなおしのときに無効化）
+
+- 8751ベースの「獣王記」セットにグラフィックバンキング追加。[David Haywood]
+
+- kdynastgでの面開始時の表示不具合修正。[Pierpaolo Prazzoli]
+
+-「ダークミスト」「パニックロード」のグラフィックを復号化。[Nicola Salmoria]
+
+- stream_set_sample_rate()コール追加と、TMS5110, TMS5220, ES5505/6, BSMT2000,
+  AY8910, POKEY, ITA, Sega PCM/Multi-PCM, SN76496, OKIM6295, YMZ280Bの各コア
+  のサウンドコードでそれぞれのネイティブなサンプルレートで出力するようにコンバー
+  ト。これにより、サウンドコアシステムが出力レートへオーバーサンプリング、または
+  再サンプリングすることが可能。[Aaron Giles]
+
+- CHDファイルアクセスルーチンをfileio.cに移動。[Aaron Giles]
+
+- アサートマクロをmacecore.hに追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Laser Battle/Lazarian [Pierpaolo Prazzoli]
+Cat and Mouse [Pierpaolo Prazzoli]
+KlonDike+ [Pierpaolo Prazzoli]
+Alien Arena
+Crowns Golf in Hawaii [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ジャウスト (Solid Green Label) [Reznor007]
+スペースイントルーダー (Japan) [Tomasz Slanina, Guru]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Galaxia [David Haywood]
+
+
+
+0.103u3
+-------
+
+
+ソースの変更点
+--------------
+
+- H8/Last Fightのアップデート: [R. Belmont]
+ * (H8) ベクターの読み込みを24bitに制限
+ * (H8) SHLL.W, EXTU.L, SUBS.L #1, SUBS.L #4の命令コード追加
+ * Guru氏によるreadme追加
+ * 全部のROMをロード
+ * スタック用にRAMをマッピング
+
+- wcvol95とhvysmashで16bit decoタイルマップを使うようにコンバート。
+  [David Haywood]
+
+- wcvol95を修正するため、ARMコプロセッサにBCDコードの掛け算を追加。
+  [David Haywood]
+
+- 0.103u2でNeoGeo関係が混乱していたのをクリーンアップ。[David Haywood, Razoola]
+
+- 非Windowsシステム用に4GB以上のCHDファイルサポートをchdmanに追加。
+  [Lawrence Gold]
+
+- 閏年の計算を修正。[William Krick]
+
+-「スーパーバーガータイム」「空牙」「クルードバスター」でdecoタイルマップを使う
+  ようにコンバート。[David Haywood]
+
+- NeoGeoのビデオシステム書き直し; ラスタと非ラスタゲームの区別を削除と、コードの
+  大幅クリーンアップ。[David Haywood]
+
+- clowns, clowns1, bowlerのDIPスイッチ改良。[Bob Seidel]
+
+- CPUINFO_PTR_DEBUG_SETUP_COMMNADS追加: CPU独自のコマンドをセットアップするよう
+  にCPUに伝えるために呼び出されるコールバック [Nathan Woods]
+
+- i386コアデバッガにSegBase()とSegLimit()関数追加。[Nathan Woods]
+
+-「ナイトスラッシャーズ」のサウンドバランス改良。[MAME Italia]
+
+- Deco MLCゲームの改善（スプライトバッファリング、タイルバンキング修正、クリアカ
+  ラー修正、スプライトクリッピング追加、ARM割り込みバグ修正）。このドライバでサ
+  ポートされていないのは「スタジアムヒーロー」のグラウンドに使われているラスタ
+  表示のみ。[Bryan McPhail]
+
+-「ハングオン」のステレオサウンドルーチン修正。[Mamesick]
+
+- PCキーボードコードをクリーンアップ。[Nathan Woods]
+
+- memory_installを追加。これは、特定のバス幅に対して特定ではないもの(?)です（静
+  的ハンドラのみで、関数ポインタ用ではない)。[Nathan Woods]
+
+-「Ping Pong Masters'93」にサウンド追加。[Tomasz Slanina]
+
+-「クレイジーバルーン」のサウンドをディスクリートシステムを使うようにコンバート。
+  [Derrick Renaud]
+
+- Namco System 22のメジャーアップデート: [Phil Stroffolino]
+ * 本物のマスターDSP BIOSを実装。多くのゲームが動作、または以前問題があったもの
+   もグラフィック表示可能; その結果ハックを大量に削除
+ * ランタイム時に設定可能な割り込みハンドラを実装。さらにゲーム独自のハックを削
+   除
+ * ビデオハードについてのドキュメント追加と改良
+ *「アルペンサーファー」のプロテクトエミュレートとポイントROMのニセロードを修正。
+   ただしまだゲームには問題あり
+
+-「ワイルドウエスタン」のボーナス画面修正。馬がスクロールしてこない部分。
+  [Nicola Salmoria]
+
+- bfm_sc2ドライバの入力をクリーンアップ。[El Condor]
+
+- 古いデバッガで、TMS32010などのwordアドレスCPUの表示を修正。以前は完全に壊れて
+  ました。[Alex Jackson]
+
+- OSDからデバッガのブレークキーを分離。別のものとしてプログラム可能にしました。
+  またブレーク使用時の新デバッガの動作を修正して、コマンドラインにテキストが出な
+  いようにしました。[Aaron Giles]
+
+- デバッガ内のアドレスマスキング処理とディスプレイ修正。
+  [Aaron Giles, Nathan Woods]
+
+- ファンクション使用時の表示エンジンの動作順を修正。[Aaron Giles]
+
+- ADSPコアでタイマーサポートと、DCSゲームへの実装。[Aaron Giles]
+
+- Voodooで更新いっぱい。Voodoo BansheeとVoodoo 3をサポート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+バックファイア！ [David Haywood]
+スカルファング 空牙外伝 [Bryan McPhail]
+Thunder Hoop [Pierpaolo Prazzoli, Mike Coates, Brian Troha]
+X-Files [Pierpaolo Prazzoli]
+King of Dynast Gear [Pierpaolo Prazzoli, Guru]
+名人戦 [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Demon's World / ホラーストーリー (first edition) [Corrado Tomaselli]
+The Couples (Set 3) [f205v]
+Dragon World / 中国龍 (World, V0300) [f205v]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Poizone [Chris Hardy, David Haywood]
+
+
+
+0.103u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+midres056gre [Bryan McPhail]
+ddragon077u3red [Bryan McPhail]
+airbustr37b9gre [Pierpaolo Prazzoli]
+turbofrc0103gre [Pierpaolo Prazzoli]
+turbofrc37b1gre [Pierpaolo Prazzoli]
+
+
+ソースの変更点
+-------------
+
+-「フェニックス」の効果音#2のバグ修正。[Hans Andersson]
+
+- NeoGeoの更新: [http://neosource.1emulation.com/forums/]
+ *「餓狼伝説2」* プロテクトのエミュレート
+ *「King of Fighters 10th Anniversary」 * オンザフライでSRAMタイルを更新するコー
+   ド追加
+ * CCTHD2k3 * グラフィックと色の修正
+ * その他のNeoGeoセットをサポートするコード追加
+
+-「Mat Mania / エキサイティングアワー」のDIP修正。[Roberto Fresca]
+
+- 閏年の計算を修正。[William Krick, smf]
+
+- Sync Refresh / Waitvsync / Triplebufferの変更: [Alan Kamrowski II]
+
+ * waitvsyncコードについて、vblankの開始点を待つように変更しました。以前は、
+  vblank期間かどうかをチェックして、そうでなければ単に待つだけの動作でした。この
+  方法では2つの問題があります。ひとつは、syncrefreshが有効な場合、十分な時間があ
+  るとひとつのvblank間に複数のフレームが描画されていたことです。このため、
+  syncrefreshを使うと、ゲーム速度が上がったり、CPUに負荷がかからないと速度が落ち
+  たりなどの現象が見られました。二つ目の問題は、コードが調べていたのはvblank内か
+  どうかだけだったので、再トレースラインがときどき見られたことです。vblankのどこ
+  にあるかは調べなかったので、vblankの終わりだった場合、モニタにフレームが描かれ
+  るときにはvblankを越えてしまうこともありえます
+
+ * ゲーム速度が95%以上のときだけwaitvsyncが有効になる制限を削除しました。この制
+  限は、ゲーム速度によってwaitvsyncがONになったりOFFになったりする現象を起こす
+  だけでした。もし、waitvsyncを有効にして動作速度が遅くなっても、正常動作です
+
+ * syncrefreshとtriplebufferが同時に使用されるとき、MAMEはwaitvsyncも動作させま
+  す。triplebufferのコードがこれを管理して、waitvsyncコードで再トレースをMAMEに
+  待たせるのは時間の無駄で、一部のハードではタイミングの問題も起こります。
+  triplebufferが有効な場合は、既にtriplebufferによって行われているので、
+  waitvsyncを実行する必要はありません。
+
+
+- monzagp.cの綴り間違い修正。[Brad Oliver]
+
+- ddenlovr.cのドキュメントをクリーンアップ。[Brian Troha]
+
+-「S.S. Mission」「Air Attack」のDIPスイッチ修正。[Brian Troha]
+
+- Data East 156 (ARM)ベースのゲームの改良: [Various]
+ *「ナイトスラッシャーズ」にサウンド追加 [Tomasz Slanina]
+ *「ワールドカップバレーボール'95」と「バックファイア！」にサウンド追加
+   [Pierpaolo Prazzoli]
+ * Data East MLCドライバのスプライト反転を修正。これにより「アベンジャーズ・イン・
+   ギャラクティックストーム」のグラフィック修正 [Tomasz Slanina]
+ *「ワールドカップバレーボール'95」がスタートするようにARM CPUコアを改造
+   [Tomasz Slanina]
+ * 156 / ARMコプロセッサにBCD命令追加。上記のゲームで必要 [David Haywood]
+ * Data East MLCゲームのサウンド修正 [David Haywood]
+ *「バックファイア！」を単独ドライバに分けて、グラフィックの改良とデュアルスク
+   リーンサポート [David Haywood]
+ *「バックファイア！」のサウンドデコーディングを修正 [David Haywood] 
+ * ARMコアのクリーンアップ [Bryan McPhail]
+
+- fileio.cのバッファーオーバーランを修正。[Lawrence Gold]
+
+- i486 CPU用パッチ。[Nathan Woods]
+ src/cpu/i386/cycles.h:
+ src/cpu/i386/i386.c:
+ src/cpu/i386/i386dasm.c:
+ src/cpu/i386/i386ops.h:
+ src/cpu/i386/i486ops.c:
+    * XADD、INVLPG、CMPXCHG命令を実装
+    * opcodeテーブルの定数を訂正
+
+- H6280のアップデート。[Rob Bohms]
+ src/cpu/h6280/h6280.c:
+ src/cpu/h6280/h6280.h:
+ src/cpu/h6280/h6280ops.h:
+ src/sound/c6280.c:
+ src/sound/c6280.h:
+    * Tフラグエミュレーション追加
+    * readコールの修正
+
+- デバッガの改良。[Nathan Woods]
+ src/debug/debugcmd.c:
+ src/debug/debugcpu.c:
+ src/debug/debugcpu.h:
+ src/debug/debughlp.c:
+   * コマンド“gtime”追加;“go”コマンドと似ていますが、指定時間後にブレークし
+     ます
+
+-「WWFスーパースターズ」の周波数訂正。[Phil Bennett]
+
+- spec2kにサンプルバンキング追加。[Pierpaolo Prazzoli]
+
+- Airbusterドライバをいろいろ改良。[Pierpaolo Prazzoli]
+
+- Namco NA-1で本物のBIOSを使うように更新。[R.Belmont, Charles MacDonald]
+
+- M37710の修正。[R.Belmont]
+ * SBCBにアドレッシングモードをさらに追加
+ * キャリーフラグをクリアするようにMPYを修正
+ 
+- Namcoドライバのエンディアンの問題を修正。[R.Belmont]
+
+- Lovely CardsとLovely Pokerドライバを統合。[El Condor]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ワールドカップバレーボール'95 [Bryan McPhail, David Haywood]
+Hoops '96 / Hoops / ダンクドリーム'95 [Bryan McPhail]
+Quintoon [ReAnimator / AGEMame]
+Pokio [ReAnimator / AGEMame]
+Slots [ReAnimator / AGEMame]
+Paradice [ReAnimator / AGEMame]
+Pyramid [ReAnimator / AGEMame]
+Golden Crown [ReAnimator / AGEMame]
+ロックントレッド 1 (海賊版) [Justin Lee Turner]
+ロックントレッド 2 (海賊版) [Justin Lee Turner]
+ロックントレッド 3 (海賊版) [Justin Lee Turner]
+ロックントレッド 4 (海賊版) [Justin Lee Turner]
+Twin Action [Luca Elia, David Haywood]
+アームチャンプII [Luca Elia, The Guru]
+Mahjong The Mysterious World [Luca Elia]
+Air Attack [Pierpaolo Prazzoli]
+SNK VS. Capcom SVCカオス [http://neosource.1emulation.com/forums/]
+ザ・キング・オブ・ファイターズ2003 [http://neosource.1emulation.com/forums/]
+サムライスピリッツ零 / Samurai Shodown 5 [http://neosource.1emulation.com/forums/]
+
+
+
+新規クローンセット
+------------------
+エイリアン3 ザ・ガン (US) [Arzeno Fabrice]
+マジカルクリスタルズ (World, newer) [Uncle Tom]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Last Fighting [R.Belmont]
+The Crystal Maze [AGEMame]
+Turnover [AGEMame]
+Skill Trek [AGEMame]
+The Mating Game [AGEMame]
+
+
+
+0.103u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+upsidedown0103yel [Mamesick]
+
+
+
+ソースの変更点
+-------------
+- Berzerkドライバの大幅なクリーンアップと書き直し: [smf]
+ * メモリとIOのリード・ライトマップを統合
+ * ビデオRAMとMagic RAMで同じメモリを共有
+ * frenzyのメモリマップにnvram実装
+ * 回路図を元に、9個の74LS153についてMagic RAMのシフタ・フロッパをエミュレート
+ * 回路図を元に、2個の74LS181のMagic RAM ALUをエミュレート
+ * データシートの論理回路を元に74LS181のエミュレーション追加。ロジックモードと演
+   算モードをサポート
+
+-「Thunder Strike」の割り込み、表示領域、ラスタ更新を修正。[Bryan McPhail]
+
+- ARMコアのアップデート: [Bryan McPhail]
+ * ソフトウェア割り込みの修正
+ * モード変更のバグ修正
+ * コプロセッサの予備サポート
+
+- Decoの修正: [Bryan McPhail, Pierpaolo Prazzoli] 
+ * Deco MLCビデオハードがほとんどの部分でほぼ完成。ただし、DE156チップに付いてい
+   る演算用コプロセッサが未エミュレートのため、きちんと動作するゲームはまだなし
+ * Deco 32:「ナイトスラッシャーズ」はサウンドが無いのを除けばほぼ完璧
+ * Deco 32:「タトゥーアサシン」のグラフィック修正
+ * Deco 156:「ヘビースマッシュ」がほぼ完成
+
+- ソース内の定数変数の多くをstaticに設定。[Atari Ace]
+
+- H2680/PCEの修正いっぱい: [Rob Bohms, Charles MacDonald]
+ * スプライトがバッファ外でも描画できたのを修正
+ * VRAMからVRAM DMAを追加 (Charles)
+ * h6280の修正を多数 (Charles)
+ * VRAMの128Kの領域全体へのアクセスを正しく処理する関数を追加 (Charles)
+ * ハードウェアのページからI/Oバッファビットを追加
+ * ミラーリングを正しくサポートするためh6280のIRQレンジを修正
+ * h6280のIRQをPCエンジンに実装
+ * スプライト間のプライオリティ修正
+ * 部分的に16スプライトの制限を実行
+
+- デバッガコマンド traceflush 追加。[Nathan Woods]
+
+- v810コアの境界外の配列書き込みを修正。[Atari Ace]
+
+- BCDとデータ関係の関数をmamecore.hに移動。[Nathan woods]
+
+-「Triple Hunt」のSE実装。[Derrick Renaud, Stefan Jokisch]
+
+-「Super Model」のOKI周波数修正。[Sonikos]
+
+- PowerPC MMUコード追加。ただしModel 3ゲームが壊れているのでMESSでのみ有効化。
+  [Nathan Woods]
+
+-「Grand Tour」のグラフィックレイヤープライオリティ修正。[Tomasz Slanina, Guru]
+
+-「スターウォーズ」のマスボックス乗算機能について回路を元に書き換え。
+  [Mathis Rosenhauer]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ナイトスラッシャーズ [Bryan McPhail]
+ヘビースマッシュ - ハイパーハンドボール [Bryan McPhail]
+アベンジャーズ・イン・ギャラクティックストーム [Bryan McPhail]
+Power Instinct Legends / 豪血寺外伝 - 最強伝説 [Brian Troha, 
+ Pierpaolo Prazzoli, Guru]
+シャトルインベーダー [Tomasz Slanina]
+麻雀 大中華圏 [Luca Elia, Guru, bnathan]
+
+
+
+新規クローンセット
+------------------
+Pasha Pasha Champ Mini Game Festival [Pierpaolo Prazzoli]
+Thunder Strike (Newer) [Bryan McPhail]
+Super Star Battle [Pierpaolo Prazzoli]
+Quiz (Revision 2.1) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+ミラックス [Tomasz Slanina]
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

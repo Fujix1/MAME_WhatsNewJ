@@ -1,0 +1,204 @@
+0.142u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03368: [グラフィック] shienryu: タイトル画面前のコピーライトやゲームID、パテントな
+         どが表示されない。
+- 01994: [クラッシュ/フリーズ] birdtry: 第1ホール終了後にゲームがフリーズする。
+         (Angelo Salese)
+
+
+ソースの変更点
+--------------
+- dec0ドライバにscreen rawパラメータとirq ackを追加。「バーディトライ」の1番ホールで
+  のハング修正と、「バルダーダッシュ」のフェードイン・アウトエフェクトが改善。
+  [Angelo Salese]
+
+- Funworldドライバのアップデート: [Roberto Fresca]
+ * Video Klein製の「Witch Royal」を完全サポート
+ * ホールドボタンが真ん中になるようにボタンのランプレイアウトを作り直し
+
+- AM_BASEマクロが生まれる原因をなくすため、atarimoビデオコアから外部変数を削除。
+  [Atari Ace]
+
+- astrocde/kaneko16/namcos23/suprnovaをdriver_deviceにコンバート。[Atari Ace]
+
+- Taito F3のビデオチップ(TC0630FDP)を16ビット並列に変更。[Angelo Salese]
+
+-「2 Minutes Drill」ドライバでTaito F3ビデオチップに変更してグラフィックが大幅改善。
+  [Angelo Salese]
+
+-「2 Minutes Drill」用に、IRQ ACKの追加とサウンドチップタイプをYM2610Bへ変更。
+  [Angelo Salese]
+
+- bikinikoのDVDイメージを吸いだし。[alien_mame, The Dumping Union]
+
+- Taito F3のサッカーゲーム(「Taito Cup Finals / ハットトリックヒーロー'93 / 
+  International Cup '94 / Taito Power Goal / ハットトリックヒーロー'95」)の観客のグラ
+  フィックについて、もっとよい情報が見つかるまで一時的な対応。[David Haywood]
+
+- softlist: ソフトウェアリストの処理を内蔵UIから単独ソースに移動して、コードをFile 
+  Managerの処理コードと同じように変更。[Fabio Priuli]
+
+- CPS-3のアップデート: [Team CPS-1]
+ *「ストリートファイターIII -ニュージェネレーション」Hispanic BIOS ROM CD版を追加
+ * 新しいカートリッジリージョンやCDリビジョンを判断するのに必要となる、既知の全リリー
+   スの詳細リストを追加
+ * 新しいカタログ番号を使ってCHDを改名
+
+- uiswlist.c: 内蔵UIのソフトリストエントリについて、ZIP名順かゲーム名順かの切り替えを
+  追加。また、ソート対象に応じてキー入力マッチングを切り替え。[Fabio Priuli]
+
+- sc61860 cpu - クラッシュとクリーンアップの修正。将来的なコアデバッグに備えて、内部
+  RAMアクセスを関数呼び出しに置き換え。[Atari Ace]
+
+- cartslot.c/chd_cd.c: ソフトリストのsharedfeat(例: 'compatibility')をテストするコー
+  ルバック関数と、警告メッセージ表示をサポート。cdi.cを使用例として更新。
+  [Fabio Priuli]
+
+-「3 Super 8」のプログラムROMを復号化。[Lord Nightmare, Kevtris]
+
+- cassette.c/flopdrv.c: ディスプレイ情報のコールバック関数をサポート。
+  [Miodrag Milanovic]
+
+- corona/galaxian/namcos21/namcos22/namcos23/psikyosh/quizo/sigmab98をdriver_deviceに
+  コンバート。[Atari Ace]
+
+- scramble/galaxoldをdriver_deviceにコンバート。[Atari Ace]
+
+- オーディオデバイスの追加:  [Atari Ace]
+ * exidy440/m72/segasndをレガシーデバイスにコンバート
+ * cage/dcs/williamsの変数をデバイス同様にするため内部で再構成。今後のデバイスコン
+   バートのため。AM_BASEマクロも削除
+ * taito_en has minor changes to eliminate an AM_BASE macro.
+
+-「3 Super 8」のエミュレーションを大改良。NMIのアクナレッジメカニズムを「Super Poker」
+  ドライバに実装。[Angelo Salese]
+
+- i286 - プロテクトモードのバウンダリーチェックを修正。[Miodrag Milanovic]
+
+- naomibd: NetBSDでのシステムマクロと衝突するのを修正。[Thomas Klausner]
+
+-「4 En Raya」のPAL風PROMリードバックを実装。[Angelo Salese]
+
+-「ぷるるん」の音程とテンポを実機ビデオに合わせて修正。[Tafoid]
+
+- tms5220.c: コメントの更新とスタンダードでない特徴の定義。[Lord Nightmare]
+
+- 8237dma - カスケードモードをサポート。[Wilbert Pol]
+
+- pic8259 - カスケードモードをサポート。全デバイスのインタフェースを更新。
+  [Miodrag Milanovic]
+
+- upd7725.c: p0とp1出力ビットをデバイスラインとして実装; INT入力ラインのテスト実装。
+  [Lord Nightmare]
+
+- mamedriv.cを、ビルドツールで生成される新しいドライバリストメカニズムに置き換え。こ
+  れにより、エミュレータコア側でドライバ名を各行に羅列した
+  src/$(TARGET)/$(SUBTARGET).lst ファイルを必要とします。CとC++のコメントは使えます。
+  新しいmakelistビルドツールがこのファイルを解析してドライバ名を抽出、ソートして
+  コアが使用するdrivlist.cというファイルを生成します。[Aaron Giles]
+
+- osdコア関数osd_malloc_array()を追加。これは、osd_malloc()と同一ですが、配列用のもの
+  です。全ての呼び出し元を適切な形に更新しました。Windowsのアロケータが、配列スタイル
+  の割り当てに対しては、ガードページのみを使うように変更。これにより、デバッグビルド
+  で、もう一度有効にすることができます。[Aaron Giles]
+
+- 有効なドライバリストへのアクセスをラップする静的クラス、driver_listを追加。makelist
+  側であらかじめソートしてあるためドライバの検索が高速化。[Aaron Giles]
+
+- ドライバリストのイテレーション用ヘルパークラス、driver_enumeratorを追加。このクラス
+  では、基本的なフィルタリングとイテレーションをサポートし、 machine_configsの一時
+  キャッシュも提供します。[Aaron Giles]
+
+- clifront.cのCLI処理コードを全てラップするcli_frontendオブジェクトを作成。全てのコー
+  ドでdriver_enumeratorを利用するように更新、またはシンプル化。[Aaron Giles]
+
+- audit.cのチェック関数を全てラップするmedia_auditorオブジェクトを追加。全ての使用箇
+  所を新インタフェースに更新。新チェック機構は、デバイスが保持するROMを見つけるという
+  意味から、romloadコードからは少し遅れています。そのため、新しいROMロードコードがで
+  きるまでは、一部の事柄について間違った報告をする可能性があります。[Aaron Giles]
+
+- ドライバ単位のsearchpathコンセプトを追加。ほとんどデバイスのsearchpathはデバイス名
+  を縮めたものです。driver_devicesについては、searchpathはdriver[;parent[;bios]]とな
+  ります。このsearchpathはROMローダーがROMを見つけるのに使用される予定です。今のとこ
+  ろメディアのオーディット用だけに使っています。[Aaron Giles]
+
+- 情報生成関数を全てラップするinfo_xml_creatorオブジェクトをinfo.cに作成。ファイルを
+  C++にコンバートして入力処理コードをクリーンアップ。[Aaron Giles]
+
+- model2.c:「トップスケーター」(USA)のリビジョンレベルを訂正。[The Dumping Union]
+
+- Konami Viperドライバの改良いろいろ。[Ville Linde]
+
+- midqslvr: ハードウェアの情報を追加。[O. Galibert]
+
+- ステッパーモーターのシミュレーションでリバーススピンをサポート。[James Wallace]
+
+- mpu4.c: MOD 4 OKIプログラムカードROMバンキングのドキュメント化と、BwBキャラクタライ
+  ザエミュレーションを改良。[James Wallace]
+
+- Intel 8257 DMA命令のI/Oアドレスを修正。[Curt Coder]
+
+- OS Xでの非ネイティブSDLビルドを修正。[Paulo Cabral]
+
+- Added "Mandatory artwork is missing" error [Oliver Stöneberg]
+
+- 16ビットデバイスのコールバックを実装。[Curt Coder]
+
+- MacOSXでのフォント読込みを修正。[Couriersud]
+
+- デリゲート2.0の実装。デリゲートをよりフレキシブルでシンプルに使えるように再デザイン。
+  NULLオブジェクトと結びついたデリゲートへの移行のため、proto_delegatesを全て削除。
+  自然なシンタックスをサポートするフロントエンドテンプレートの追加と、オブジェクト型
+  へのポインタに代えて、参照パラメータを取る静的関数をサポート。システム全体の使用箇
+  所をこの新シンタックスに更新。[Aaron Giles]
+
+- DIRECT_UPDATE_HANDLERで、システム内の他のものと同様にmachineへの参照を取るように変
+  更。呼び出し元を全て更新。[Aaron Giles]
+
+- FUNC()マクロで、渡される項目の前に自動で&を追加するように変更。これは透過的に行われ
+  ますが、一方で関数名ではなく変数を渡しているケースを補足できるという効果もあります。
+  名前が正しく提供されるように、このようなケースを修正しました。また、FUNC(NULL)が動
+  作しなくなったため、FUNC_NULLマクロを追加しました。[Aaron Giles]
+
+- tms5220.c: 完全補間ハックを部分的に修正。デフォルトでは無効。[Lord Nightmare]
+
+- segas24: Atari Aceが残したヴォゴン人の詩を整理開始。cgfm氏の解析に基づいた新しい
+  タイミング処理の実装。「ゲイングランド」がフリープレイモードでスタック。
+  [O. Galibert]
+
+- tms5220.c: 完全補間ハックの残りを修正。0.140以前のように動作。[Lord Nightmare]
+
+- tms5220.c: 完全補間ハックを少し改良して、阻止フレーム後のノイズが減少。
+  [Lord Nightmare]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Major Poker (v2.0) [Roberto Fresca, Tomasz Slanina, Rob Ragon]
+Witch Royal (Export version 2.1) [Roberto Fresca, Team Europe]
+Water-Nymph (Ver. 1.4) [Team Europe, Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+サイレントスコープ (ver xxC, Ver 1.30)  (not working) [Alex Romero]
+ストリートファイターIII - ニュージェネレーション (Hispanic 970204)
+ [Bill D., The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Racing Jam: Chapter 2 (EAE) [RetroRepair]
+スリルドライブ (EAA) [RetroRepair]
+エイリアン・ザ・アーケード メダルエディション
+  [Yohji, Tormod, Smitdogg, The Dumping Union]
+Home Run Classic [Mariusz Wojcieszek]
+Country Club Classic [Mariusz Wojcieszek]
+Trap Shoot Classic [Mariusz Wojcieszek]
+ファミコンボックス [Kevin Horton]
+MPU3 Unit Test (Program 5) [James Wallace]
+Hyper Viper [James Wallace]

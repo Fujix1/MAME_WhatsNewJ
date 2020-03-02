@@ -1,0 +1,273 @@
+0.145u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04668: [インターフェイス] megatech, stvbios: ファイルマネージャメニューからカート
+         リッジを選択するとクラッシュする。(micko)
+- 04689: [ドキュメント] ep_pkni: 正しいゲーム名は"Phoenix Knights (The) (Global) 
+         (EPOCH)"
+- 04688: [ドキュメント] sc2rock: 正しいゲーム名は"How Big's Your Rock? (Global) 
+         (Scorpion 2/3)"
+- 04687: [ドキュメント] ep_milhr: 正しいゲーム名は"Who Wants To Be A Millionhare? 
+         (Global) (EPOCH)"
+- 04683: [ドキュメント] hb_mrmon: 正しいゲーム名は"Mr. Money (Qps)"。
+- 04682: [ドキュメント] hb_ydd: 正しいゲーム名は"Yabba-Dabba-Dough (Qps)"
+- 04680: [ドキュメント] sc4qmodo and clones: 正しいゲーム名は"Quazzi Mo' Dough (Qps) 
+         (Scorpion 4) (set 1)"
+- 04690: [ドキュメント] ep_beavr and clone: 正しいゲーム名は"Casino Beaver Las 
+         Vegas! (Global) (EPOCH, set 1)"
+- 04685: [DIP/入力] yosakdon, yosakdona: プレイヤーの操作ができない。(Tafoid)
+- 04675: [DIP/入力] steeltal and clones: ヘリコプターが勝手に横に動いてしまう。
+         (Phil Bennett)
+- 04672: [サウンド] radrad: [バグかもね] ショット音がおかしい。(hap)
+- 04673: [色/パレット] springer: ウサギの色が間違っている。(M.A.S.H.)
+- 04666: [サウンド] spacelnc: DACサウンドが一つ鳴っていない。(hap)
+- 02580: [クラッシュ/フリーズ] dirtfoxj: スタートカウントダウン後にゲームがフリーズす
+         る。(Phil Bennett)
+- 04655: [グラフィック] All sets in stv.c: グラフィックがかなりおかしくなっている。
+         (hap)
+
+
+
+ソースの変更点
+--------------
+-「クールライダーズ」のテキストレイヤーで少し改善。[Andrew Gardner]
+
+- m68k: 68040 MMUの改良。[O. Galibert]
+
+- i386: DOS4GW 1.97の修正。[Carl]
+
+- i386: トラップフラグのサポート。[Carl]
+
+- オブジェクト指向でバス信号が使える、新型でモダンなSCSIの実装。[O. Galibert]
+
+- IDEコントローラで、2つのスロットをサポート。現在使用しているデバイスはスロットデバ
+  イスとして作成。[Miodrag Milanovic]
+
+- Namco System 21/2の変更: [Phil Bennett]
+ * C148 IRQプライオリティレジスたの書き込みにより、以前の割り込みステートをクリアする
+   ように変更(dirtfoxjとwinrunで必要)
+ *「ウイニングラン鈴鹿グランプリ」のセット名をwinrungpに変更
+ * winrungpとwinrun91を動作可能に昇格
+
+- tsamurai.c: クロックと音程を修正。[Takahiro Nogi]
+
+- N64 RDPエミュレーションに、マルチスレッドレンダラpolynew.hを追加。速度が1.6〜2.8倍
+  高速化。[Ryan Holtz]
+
+- 30testのレイアウトを、実際の筐体をより再現するように改良。[hap]
+
+- LZMAコーデックと.7zコンテナをサポート。[David Haywood, R. Belmont]
+
+- SDL-2.0に対してコンパイルが通るようにSDL OSコアを更新: [couriersud]
+ * SDLチームが1.3から2.0へ移行し、同時にSDL1.2とSDL2.0が共存できるような変更がされま
+   した。SDL2.0のインクルードファイル全ては /usr/include/SDL2 に配置しています
+ * コード内に#ifdef .. #includeが大量発生しないように、sdlinc.hを追加
+ * scalemodeは、ウィンドウ単位の設定ではなくなりました
+ * YUVレンダリングのバグ修正
+ * SDL_GetClipboard (SLD2.0)を使用
+ * README_SDL20.txtを更新
+ 現在、SDL 2.0は*nix系のみのサポートです。お手伝い募集中
+
+- N64の安定性に関わるいろいろな修正。[Ryan Holtz]
+
+-「スティールタロンズ」: 操作系の修正と、特定の場所でゲームのリセットを起こしていた
+  MSPスピードハックを削除。[Phil Bennett]
+
+- NMK16のプライオリティ修正。[Raiden II Project Team]
+
+- N64: PIFアクセスの部分的な修正。さらに多くのゲームでカセットのSRAM、FlashROM、
+  EEPROM、コントローラパックを認識。[Ryan Holtz]
+
+- 68040: fsaveオペコードを修正。[O. Galibert]
+
+- osd/sdlでトラックボールをサポート。[Couriersud]
+
+- SDL2.0でテストキーが動作するように修正。キーマップで、SDL1.3とSDL2.0のマッピングを
+  両方保持。km-de.txtを例として更新。[Couriersud]
+
+- CHD/chdmanの大幅な更新:  [Aaron Giles]
+ CHDのバージョン番号を4から5に更新しました。これにより、CHDの差分diffファイルは動作し
+ ないことになります。既存diffのデータをキープしたい場合は、CHDのdiffと元のCHD両方を用
+ 意して、次のコマンドで更新して下さい:
+
+ rename diff\game.dif diff\game-old.dif chdman copy -i　
+ diff\game-old.dif -ip roms\game.chd -o diff\game.dif -op roms\game.chd
+ -c none
+
+ 今回の変更における詳細は次の通りです:
+
+ CHDの新バージョン5を定義しました。新しい機能と動作は次の通りです:
+
+  * 最大4つまでのコーデックをサポート; 各ブロックで4つのうち1つを使用可能
+  * 新しくLZMAコーデックを追加。全般的にzlibよりも高性能です
+  * 新しくFLACコーデックを追加。主にCD用です(ただし、どこでも使用可能です)
+  * AVHuffコーデックで、音声にFLACを使えるようにアップグレード
+  * 新しくHuffmanコーデックを追加。ほぼ圧縮不能なブロックのキャッチに使用
+  * 圧縮CHDはさらに省サイズ化のため、圧縮マップを使用
+  * CHDで"ユニット"のサイズを使用可能; 各ハンクは1つ以上のユニットを保持します(一般に
+    は、ハードディスク/CD用のセクタにマッピング)
+  * 親CHDに対する差分処理はユニット単位で行い、圧縮率を大幅に向上
+
+ chd.cの書き直し、及びモダン化。CHDバージョン3より前のサポートを終了。また、バージョ
+ ン3/4は読み込みのみサポート。新しいCHDの作成では、ファイルをオープンしたままにします。
+ ユニットとバイトレベルでの読み書き用メソッドを追加し、マニュアルでの処理が不要になり
+ ました。また、astringとdynamic_buffersを渡すメタデータアクセスメソッドも、インタ
+ フェースをシンプルにするため追加しました。コンパニオンクラスのchd_compressorは、完全
+ なマルチスレッドによる圧縮処理になり、複数ハンクの検証や圧縮は独立して並列に処理され
+ ます。コーデックの実装を単一のchdcodec.*ファイルに独立させました。
+
+ harddisc.cとcdrom.cについては、chd_fileクラスのキャッシュとバイトレベルリードライト
+ 機能を利用するように更新しました。cdrom.c(とchdman)では、ハンクの境界ではなく、4フ
+ レームの境界に対してCDを割り当てます。これにより、ハンクサイズにかかわらず、SHA1ハッ
+ シュが同一になります。
+
+ chdma.exeを完全に書き直し、位置的なパラメータから適切なオプションへ切り替えました。
+ "chdman help"とすればコマンドリスト、"chdman help <command>"とすれば各コマンドのヘル
+ プを表示できます。重複して不要なコマンドを多く削除し、より柔軟な操作が可能になってい
+ ます。基本的な対応は次の通りです:
+
+ 旧: chdman -createblankhd <out.chd> <cyls> <heads> <secs>
+ 新: chdman createhd -o <out.chd> -chs <cyls>,<heads>,<secs>
+
+ 旧: chdman -createuncomphd <in.raw> <out.chd> .... 
+ 新: chdman createhd -i <in.raw> -o <out.chd> -c none ....
+
+ 旧: chdman -verifyfix <in.chd> 
+ 新: chdman verify -i <in.chd> -f
+
+ 旧: chdman -merge <parent.chd> <diff.chd> <out.chd>
+ 新: chdman copy -i <diff.chd> -ip <parent.chd> -o <out.chd>
+
+ 旧: chdman -diff <parent.chd> <compare.chd> <diff.chd>
+ 新: chdman copy -i <compare.chd> -o <diff.chd> -op <parent.chd>
+
+ 旧: chdman -update <in.chd> <out.chd>
+ 新: chdman copy -i <in.chd> -o <out.chd>
+
+
+ コアのテンプレートクラスを保持するため、coretmpl.hを追加。現在はdynamic_array<>クラ
+ スだけが定義されています。これは、与えられたオブジェクトの配列のような動作をしますが、
+ アペンドやリサイズができます。また、dynamic_bufferをdynamic_array<UINT8>として定義し、
+ バイトの任意バッファを保持します。これらが多く使われればと思います。
+
+ 共通のハッシュ化メソッドと、これらのハッシュの演算をラップするクリエータクラスを定義
+ するための、新しいコアヘルパ、hashing.c/.hを追加。将来的には、コアのエミュレータハッ
+ シュ化コードをこれらを使って再実装します。
+
+ ビットバッファヘルパをC++クラスに分割し、そのパブリックヘッダを独自にbitstream.hへ移
+ 動。
+
+ huffman.c/.hをC++に更新し、標準的ではない方法での使用に備え、インタフェースをより柔
+ 軟なものへ改良。また、圧縮率を少しでも上げるため、静的なツリーのハフマン圧縮を追加。
+
+ FLACのインタフェースをC++のラッパーとして単純化したflac.c/.hを作成。次の予定は、サン
+ プルサウンドデバイスをモダンデバイス化し、FLACファイルの読み込みに使用すること。
+
+ avcomp.*をavhuff.*に改名し、C++化。さらに、FLACをオーディオエンコードメカニズムとし
+ てサポート。古いハフマンオーディオはデコードのみをサポート。
+
+ dynamic_bufferへロードを行うcore_floadの改良型を追加。
+
+ ワークキューがWORK_QUEUE_FLAG_HIGH_FREQオプションで指定して作成されてる場合を除き、
+ プロセッサの最大数を制限しないようwinwork.cを少し改良。ただ、もう少し調整が必要な模
+ 様。
+
+ aviil.cで、AVIファイルを読み込んだときのエラーを修正。
+
+- Aleck 64ゲームでテキストが表示されなくなる問題を修正。[Ryan Holtz]
+
+- N64ドライバのメモリ使用量を軽減。 [Ryan Holtz]
+
+- N64コードに64DD RTCと割り込みを実装。[Ryan Holtz, kammedo]
+
+- N64ハードのウォームリセットをサポート。[Ryan Holtz]
+
+- -romidentが.7zアーカイブで動作するように修正。[David Haywood]
+
+- 新しいCHDコーデックCD-FLAC追加: これは、FLACでより最適にCDデータをシャッフルするか
+  を定義してあります。FLACのラッパーについては、どれくらいデコードが終わったかを知ら
+  せるためのコールバックを実装しました。また、デフォルトではCDについてCD-FLACコーデッ
+  クを使用するようにchdmanを変更しました。[David Haywood]
+
+- ハンクのサイズがCD互換じゃない場合、CD-FLACコーデックの初期化が失敗するように変更。
+  [Aaron Giles]
+
+- 既存の出力ファイル検出を統合。また、抽出ファイルの検出も追加(--forceが必要)。事後に
+  ファイルが削除されないよう、チェックをtry/catch間から取り出し。[Aaron Giles]
+
+- オールゼロ検出を書き込みパスに移動。書き込み確認には圧縮パスのhunk_infoを使用。
+  [Aaron Giles]
+
+- 実セット名に合わせて、サンプルパック名をalphamc07→equites、aristmk4→3bagflvtに変
+  更。[Tafoid]
+
+- dma8237: 未初期化な変数の修正。[Hans Ostermeyer]
+
+- mc146818: 以前のApolloハックを削除、32768 Hzに修正、更新。[Hans Ostermeyer]
+
+- m68k: FSGLMUL/FSGLDIVの修正と、MMUの改良。[Hans Ostermeyer]
+
+- m68k: CINVを少し改良。[Hans Ostermeyer]
+
+- namcos23: ドキュメントの更新。[Guru]
+
+- vamphalf.c:「Diet Family」のスピードアップを正しく処理。[Dave Haywood]
+
+- N64 SP/DP/CPU commを正確に改良。[Ryan Holtz]
+
+- SAMPLESをモダンデバイス化。呼び出し元も更新。FLACの読み込みはFLACのラッパーで処理。
+  サンプルリストのチェック処理用ロジックを集中させるため、samples_iteratorクラスを追
+  加。[Aaron Giles]
+
+- 古いサンプルベースの処理に依存していた未完成なvotraxデバイスを作り直し。完全な実装
+  を行うまでは、現在のものに対して異なるクライアントをルーティングを行えば、最終的に
+  サンプルを再生するだけでもよかったものです。これについても調べる予定です。
+  [Aaron Giles]
+
+- パイプ越しの疑似TTYアクセス関数を追加。[Carl]
+
+- 長さがゼロのトライアングルをレンダリングしないようにN64 RDPを修正。[Ryan Holtz]
+
+- Sega Model 2の更新: [Brian Troha]
+*「ダイナマイトベースボール」の吸い出しと実装
+*「ダイナマイトベースボール97」をdynabb97に改名
+* dynabb97のマスクROM4つの名前をマニュアルに合わせて修正
+* 細かなクリーンアップと修正
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ウイニングラン [gamerfan, Smitdogg, The Dumping Union]
+大相撲 (DECO Cassette)
+  [Charles MacDonald, Dr. Spankenstein, Kevin Eshbach, T. Huff, SteveS,
+  E. Page-Hanify, Hikari, ArcadeDude, F. Bukor, N. Francfort, jmurjr, 
+  arcade-history.com, ThumB, Hurray Banana, Paratech, Xiaou2, Cornishdavey,
+  A. Costin, M. Ponweiser, Tormod, Rambo, Smitdogg, The Dumping Union]
+Diet Family [Dr. Spankenstein, Paratech, joe35car, tormod, M. Hoenig,
+  Mosquito2001, M. Ponweiser, M. Viste, Phil Bennett, N. Francfort, A. Costin,
+  J. Finney, gamerfan, Smitdogg, The Dumping Union]
+功夫老師 [hap]
+ウイニングラン 鈴鹿グランプリ [Phil Bennett]
+ウイニングラン'91 [Phil Bennett]
+
+
+新しく追加されたクローンセット
+------------------------------
+スペースインベーダー Part II (Brazil) [Marcello Mancini]
+プリント倶楽部2 アースリミテッド神戸 (Print Club Custom) (J 970808 V1.000)
+  [f205v, ranger_lennier, dopefishjustin, Yohji, Smitdogg, The Dumping Union]
+Eyes (海賊版セット) [f205v, Antro]
+JoJo's Bizarre Adventure (990927) / ジョジョの奇妙な冒険 
+  [Layne, Smitdogg, The Dumping Union]
+Wyvern Wings (alt) [RetroRepair]
+ダイナマイトベースボール [Layne, Yohji, hap, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+ソウルサーファー (Rev A) [f205v. The Dumping Union]
+頭文字Dアーケードステージ Ver.3 (Export) [f205v, The Dumping Union]

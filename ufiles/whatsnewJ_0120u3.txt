@@ -1,0 +1,84 @@
+0.120u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+neodriv0117u3red [Hairu]
+kof10th0120u2yel [Robbbert]
+6800basedgames0120u2red [Curt Coder]
+mpatrol0120u2yel [Curt Coder]
+
+
+
+ソースの変更点
+--------------
+- x86とPPC用両方のインラインアセンブリをクリーンアップ。mul32ファミリのアセンブ
+  リを32ビットx86に追加。また、64ビットGCCのコンパイラ警告について修正。これ以外
+  は以下の通り: [Vas Crabb]
+ * PowerPC、SSE2のx86用に単精度の逆数近似コードを追加
+ * eigccx86.hに他のTBD関数を全て追加
+ * eigccppc.hのコードについて、コンパイラが64ビット命令が利用できる場合に使用し
+   ないように条件付け
+
+- グローバルな名前空間の整理をさらに進めるため、static qualifierの追加と、シンボ
+  ルのリネーム。主に一般名称や、staticとextern両方のシンボルが対象です。
+  [Atari Ace]
+ * K053247_ramを完全にstatic化。xmen.cで値取得にK053247_export_configを使用
+ * DS1991_STATEとDSP_TYPEのemumが使われていないので削除
+ * cps3.cとthayer.cでデッドコードがあったのでコメントアウト
+
+- ほとんど全ての入力ポート定義をstatic化。[Aaron Giles]
+
+- GAMEBマクロを廃止。[Atari Ace]
+
+- 新インライン妥当性チェックのキャスティング問題修正。[R. Belmont]
+
+- サウンドコアのビルド関係の改良: [Atari Ace]
+ * SCSPのmame/dirver/stv.cへの依存性を無くし、単体でビルト可能
+ * WAVEのMESSコードへの依存性を明示化して、MESSとは独立してビルト可能
+ * VOTRAXをSAMPLESから独立してビルド可能
+ * YM2612コアを、YM3248コアを含まずにビルト可能
+ * BUILD_とHAS_マクロが不要なものを削除
+ * 他のFMコアに合わせて、3812intf.cでHAS_マクロに替えて、BUILD_を使用
+
+- SSVゲームにDIP配置追加。[Vas Crabb]
+
+- SH4コアのエラー修正と、ストアキューとDMAの基本部を実装。外部デバイスでのDMA転
+  送をシミュレートする関数追加。[Samuele Zannoli]
+
+- polynew.cで新しくクアッドレンダリングをサポート。midvunit.cでこれを使うように
+  コンバート。以前から悩まされていたレンダリング関係の問題が数多く修正。
+  [Aaron Giles]
+
+- Zクリッピングロジックをpolynew.cに追加。namcos22でこのコードを使うようコンバー
+  ト。namcos22について、よりローレベルなパイプライン全体でクアッド処理して、
+  polynew.cへ結果を渡すように変更することで大幅に簡略化。[Aaron Giles]
+
+- model3.cで新ポリゴンコードを使うように更新。また、シンプルにするため、ローレベ
+  ルな実装を大幅変更。[Aaron Giles]
+
+- eminline.hに新関数を2つ追加: atomic_increment32, atomic_decrement32
+  [Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Every Second Counts [Philip Bennett]
+Treble Top [Philip Bennett]
+Quizvaders [Philip Bennett]
+
+
+
+新規クローンセット
+------------------
+エクスターミネーション (Japan) [Corrado Tomaselli]
+Gang Busters (set 2) / クレイジーコップ [Patrik Styrnell]
+Trog (rev LA5 03/29/91) [icronnya77]
+
+
+
+追加された未動作ゲーム
+----------------------
+Inquizitor [Philip Bennett]

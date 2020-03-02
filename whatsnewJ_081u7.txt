@@ -1,0 +1,88 @@
+0.81u7
+------
+
+ソース全般の変更：
+------------------
+
+■ST0016ドライバにサウンド追加。[R.Belmont, Tomasz Slanina]
+    「ねらってチュー！」「連珠貴族」でサウンドあり
+
+■クリーンアップいろいろ。[Lawrence Gold]
+
+■チェックサムが無いハードディスクの問題をいくつか修正。[smf]
+
+■「Karate Blazers / 闘神ブレイザーズ」「ターボフォース」「雷電II」のDIP修正。
+  [Brian Troha]
+
+■Megaplayの改良。[Barry Rodewald, GreyRogue]
+
+■SPI / 386のアップデート。[Ville Linde]
+    -「E雀ハイスクール」で欠けていたキー追加
+    - レイヤー有効化のレジスタ追加
+    - 新型のi386逆アセンブラ追加。Dasm386では不正確な部分がありました。また、
+      i86が無くてもi386コアをコンパイルできるようになりました
+    - Dallas DS2404 (RTC/CMOS)エミュレーションの初期版追加
+    -「ライデンファイターズ2」単体版と2000版に93C46 EEPROMエミュレーション追加。
+      実装はまだ
+    - i386/Z80のインターリーブを改善。短いポーズが入った場合に有効なはず
+    - i386コアの修正。SPIシステムゲームには影響なし。MESSで効果があるはず
+
+■386の改良。[Nathan Woods]
+    src/cpuexec.c:
+       - MAME_DEBUGが定義されているときに、CPUコアがネガティブサイクルカウントを
+         実行したときにエラーとするチェックを追加
+
+    src/cpu/i386/i386.c:
+       - EIPレジスタ変更時のi386_set_info()のバグ修正
+    
+    src/cpu/i386/i386dasm.c:
+    src/cpu/i386/i386op32.[c|h]:
+    src/cpu/i386/i386op16.[c|h]:
+    src/cpu/i386/i386ops.c:
+       - GCC以外のコンパイラで起こるエラーを修正
+       - 以下を実装：ES, BOUND, DAA, DAS, AAS, INSB, INSW, OUTSB, OUTSW, 
+    LES, LDS, HLT, LSS, LFS, LGS, IMUL with a 32 bit adjustment,
+
+■386の改良。[Ville Linde]
+    - DS・SSセグメントのプリフィクス追加。FSとGSはsegment_FS、segment_GSに改称
+    - INTO命令追加
+    - AAS命令コードのレグレッションテストと修正（Intelのドキュメントとは違った
+      動作？）
+    - AAA命令コード追加（動作正確）
+    - AAD/AAM命令コード追加
+    - CMC命令コード追加
+    - ドキュメントに無いSETALC命令コード追加
+    - groupFE_8から実際には無いPUSH8命令を削除。なんてこったい ;-)
+    - SHLD/SHRD命令コードのレグレッションテストと修正
+    - AFフラグ演算の修正
+    - SUB/DEC命令コードのAFフラグを修正
+    
+■Beatorizer (海賊版)の改良。 [smf]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ツインイーグル2 [Olivier Galibert]
+
+Megaplay : Sonic the Hedgehog [Barry Rodewald, GreyRogue]
+Megaplay : Tecmo World Cup [Barry Rodewald, GreyRogue]
+Megaplay : Golden Axe 2 [Barry Rodewald, GreyRogue]
+    Megaplayにはまだ少し問題あり(コインを入れなくてもコンティニューできるなど)
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+Ninja (Sega Ninjaのクローン) [Pierpaolo Prazzoli]
+
+Area 51 (R3000 Version) [Brian Troha]
+    still needs speedup finding
+
+
+新規未動作/クローンゲーム：
+---------------------------
+スーパーパン (Japan)
+    新しい解読キーが必要
+
+Battle Balls / 戦球 (Asia)
+

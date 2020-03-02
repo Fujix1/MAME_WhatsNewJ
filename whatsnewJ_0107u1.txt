@@ -1,0 +1,90 @@
+0.107u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+timecrsa0100u1gra [Luigi30]
+inputduplication0106u7gra (nyny, joust, lghost, hyhoo) [Luigi30]
+lastduel0106u7gra [Luigi30]
+jdreddp0106u1gra [Luigi30]
+bzone0104u7gra [Aaron Giles]
+pturn0104u7gra [ShimaPong]
+tsamurai0103gra [Aaron Giles]
+pause0102gra [BUT]
+mameini0107ora [Aaron Giles]
+omegafc0107yel [Aaron Giles]
+s2650_0106u11ora [Minuous]
+syvalion0107yel [Aaron Giles]
+congo0107red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- サンプルについて、ハードウェアコアへの依存関係を削除。[Andrew Gardner]
+
+- champbwlで、背景を緑色に表示するために必要な背景の透過度フラグについて、正しい
+  と思われる修正を追加。[Pierpaolo Prazzoli]
+
+- MagicFlyドライバの更新: [Robert Fresca]
+ - MC6845の解析 ($0800-$0801にマッピング)
+ - MC6845レジスタに基づいて画面サイズを修正
+ - MC6845レジスタに基づいて表示エリアを修正
+ - グラフィックROMリージョンを訂正
+ - NMI/VBlankの問題を解決。アトラクトモード動作
+ - CPUクロックを625kHzに変更
+ - テクニカルノートに新しく分かったことを追加
+ - magicflyのPALをNO_DUMPに指定 (リードプロテクトされている)
+
+- 68000コアのメモリ書き込みオーダリングバグを修正。[Charles MacDonald]
+
+- PPC602専用のOPとレジスタ追加。[Ville Linde]
+
+- NEW_RENDER定義と、旧レンダリングシステムサポート用コードを全て削除。不要なコー
+  ドを大幅にクリーンアップ。[Aaron Giles]
+
+- ユーザインターフェースを新レンダリングシステムに依存するように大規模な書き換え。
+  UIを複数に分割 (ui.c, uimenu.c, uigfx.c)。コードは前よりも読みやすくなってきて
+  います。[Aaron Giles]
+
+- ui_popupをコード全般でpopmessageに改名して、mame.cに実装。これによりほとんどケー
+  スでコアドライバとユーザインターフェース間の依存関係を無くすことができます。
+  [Aaron Giles]
+
+- メッセージが目立つように重要な警告の背景を赤く変更。[Aaron Giles]
+
+- DirectDrawレンダリングでベクターゲームがクラッシュするのを修正。[Aaron Giles]
+
+- 現状の画面パラメータをscreen_state構造体へ統合。
+  Machine->visible_area[num] は Machine->screen[num].visarea へ、
+  Machine->refresh_rate[num] は Machine->screen[num].refresh になっています。
+  [Aaron Giles]
+
+- 新関数 configure_screen() を追加。各スクリーンの幅、高さ、表示領域、リフレッシュ
+  レートを制御します。この関数により、ゲームドライバの指定よりも大きな幅と高さを
+  指定できます。そのため、ドライバで最大幅と高さを指定する必要はなくなりました。
+  代わりに幅と高さの典型値を指定できます。この関数は以前のset_visible_area()と
+  set_refresh_rate()に代わるもので、前者はconfigure_screen()を呼び出すように書き
+  換え、後者は完全に削除しました。
+  [Aaron Giles]
+
+- オーバースキャンと他のエフェクトの動作を変更。画面の幅と高さは全体のビットマッ
+  プサイズを制御します。画面の表示エリアは空白にならない境界（及び、以前通り
+  デフォルトの表示エリア）を指定します。[Aaron Giles]
+
+- 線から四角への変換ルーチンを他の汎用関数同様にコアのrender.cへ移動。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+TomCat (Star Wars hardware, prototype) [Mathis Rosenhauer]
+Poke Champ [David Haywood]
+
+
+
+新規クローンセット
+------------------
+ダンジョンズ＆ドラゴンズ シャドーオーバーミスタラ (Brazil 960223) [Brian Troha]

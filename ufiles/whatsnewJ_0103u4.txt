@@ -1,0 +1,83 @@
+0.103u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+xevious083gre [MASH]
+
+
+
+ソースの変更点
+--------------
+
+- Intel i386/i486/Pentiumのアップデート: [Nathan Woods]
+ * A20マスク実装の修正
+ * デバッガのトランスレートコールバックにA20マスクを追加
+ * Pentiumの命令コードCMPXCHG8B実装
+ * XADDの修正と、8ビットと16ビットの変数サポート
+
+-「Top Shooter」のスプライト修正。ゲーム自体はまだプレイ不可。[Tomasz Slanina]
+
+- デバッグビュープロパティコードを、voidポインタからunionのプロパティ値としてパ
+  スするように変更。strict aliasingについてコンパイラにひっかからないようにする
+  ため。[Nathan Woods]
+
+- WIndowsコアとMESSで、ビットマップへのリソース割り当ての問題があったのを修正。
+  [Nathan Woods]
+
+- 不要なvideo_stopとmachine_stopルーチンを大量に削除。[Atari Ace]
+
+- exit()コールをさらにいくつかosd_die()にコンバート。[Oliver Stoneberg]
+
+-「Ninja Spirit / 最後の忍道」とSega System 16bドライバでJAMMAのボタン順に合うよ
+  うに修正。[Corrado Tomaselli]
+
+- Hypeerstoneコア修正: [Pierpaolo Prazzoli]
+ * ディレイのネストを削除
+ * ソフトの命令コードがディレイスロットでの命令が出来ないよう設定
+
+- 以下のディスクリートモジュールの追加と変更: [Derrick Renaud]
+ * DISCRETE_WAVELOG - ディスクリートノードのログを.wavファイルとして保存して、ス
+   コープの波形と比較しやすくします
+ * DISCRETE_OUTPUT - 16ビットのWAVレベルの最終ゲインパラメータ追加（以前のVOL設
+   定は、前回のサウンド書きなおしのときに無効化）
+
+- 8751ベースの「獣王記」セットにグラフィックバンキング追加。[David Haywood]
+
+- kdynastgでの面開始時の表示不具合修正。[Pierpaolo Prazzoli]
+
+-「ダークミスト」「パニックロード」のグラフィックを復号化。[Nicola Salmoria]
+
+- stream_set_sample_rate()コール追加と、TMS5110, TMS5220, ES5505/6, BSMT2000,
+  AY8910, POKEY, ITA, Sega PCM/Multi-PCM, SN76496, OKIM6295, YMZ280Bの各コア
+  のサウンドコードでそれぞれのネイティブなサンプルレートで出力するようにコンバー
+  ト。これにより、サウンドコアシステムが出力レートへオーバーサンプリング、または
+  再サンプリングすることが可能。[Aaron Giles]
+
+- CHDファイルアクセスルーチンをfileio.cに移動。[Aaron Giles]
+
+- アサートマクロをmacecore.hに追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Laser Battle/Lazarian [Pierpaolo Prazzoli]
+Cat and Mouse [Pierpaolo Prazzoli]
+KlonDike+ [Pierpaolo Prazzoli]
+Alien Arena
+Crowns Golf in Hawaii [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+ジャウスト (Solid Green Label) [Reznor007]
+スペースイントルーダー (Japan) [Tomasz Slanina, Guru]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Galaxia [David Haywood]

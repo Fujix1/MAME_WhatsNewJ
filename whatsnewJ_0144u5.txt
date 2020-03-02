@@ -1,0 +1,180 @@
+0.144u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04594: [サウンド] All sets in wiz.c: BGMや効果音が出ない。
+- 04590: [サウンド] firebarr: BGMが固まる。ゲームはプレイ可能。(Alex Jackson)
+- 04589: [クラッシュ/フリーズ] mstworld: OK画面後Access Violationでクラッシュする。
+         (hap)
+- 04573: [ゲームプレイ] spangbl: デモプレイ中に早く死にすぎる。(hap)
+- 04584: [クラッシュ/フリーズ] Various sets in namcob1.c: 起動処理をパスしない、フ
+         リーズするなどの不具合あり。(hap)
+- 04582: [ゲームプレイ] bkrtmaq quiztou numanath swcourt swcourtj exvania exvaniaj:
+         セルフテストをパスできなかったり、フリーズする。(hap)
+- 04301: [サウンド] cobram3: Mach3の効果音が使われている。実際にはアップグレード時に
+         効果音のROMも交換する。(mariuszw)
+- 04581: [ゲームプレイ] brapboys: セルフテストのCRCチェックでループする。(hap)
+
+
+ソースの変更点
+--------------
+- kiwamesのロンとリーチのボタンが入れ替わっていたのを修正。[Angelo Salese, Fujix]
+
+- PC CGAデバイスエミュレーションをMESSからインポート。「Filetto」「Tetris(KR)」で使う
+  ように更新。[Angelo Salese]
+
+-「Tetris KR」の背景を実装。[Angelo Salese]
+
+- CGAのスーパーインポーズフラグをテストサポートして「Tetris KR」に実装。外部の背景画
+  像とCGAグラフィックの合成出力が動作。[Angelo Salese]
+
+-「Filetto」「Tetris KR」にブザーサウンド追加。[Angelo Salese]
+
+- CPS-1の更新: [Team CPS-1]
+ * slammastとクローンセットのMB63B.1A PAL吸い出しと追加 (Kold666)
+ * mbomberj、mbombrd、mbombrdjのQ-Sound ROMのラベルと配置を修正。Q-Sound PALも追加
+
+- 0x3d8 VGA読み込みの対策。「California Chase」のVGAカードを正しいモノに修正。
+  [Angelo Salese]
+
+-「サイキックフォース2012」の正しいVGAカードを実装(使用カードの情報をさらに募集中)。
+  [Angelo Salese]
+
+- Tourvision BIOS ver. 52を追加。[f205v, Corrado Tomaselli]
+
+-「Area 51:Site 4」のAtariロゴ色を修正。[Angelo Salese]
+
+- SCREEN_UPDATEとSCREEN_EOFコールバックのscreen引数を参照渡しに変更。SCREEN_EOFで不要
+  になったmachine引数を削除。driver_device video_eofオーバーライドが使われなくなった
+  のに伴い、その名残を削除。全てのマルチ画面ゲームで、各画面について別々の関数を使う
+  ように更新。[Aaron Giles]
+
+- i8251: データ送受信のコールバックを実装。[Barry Rodewald]
+
+- arm7: MMUパーミッションフォールトを実装。[Tim Schuerewegen]
+
+- arm7: ARM950T/ARM7500の正しいMMU IDコードレジスタ値を返すように修正。
+  [Tim Schuerewegen]
+
+- s3c24xx: Happy Fish 302-in-1とPalm Z22(mess)ドライバの大幅な変更。
+  [Tim Schuerewegen]
+
+- chdman: postgapのあるイメージの-extractcdを修正。CHDは再変換不要。[R. Belmont]
+
+- 386+ CPUコアでドキュメント化されているx87コプロセッサオペコードを全て実装。
+  [Angelo Salese]
+
+- bitmap_tとrectangleをクラス化。BITMAP_ADDR*マクロをbitmap->pix*関数に置き換え。
+  bitmap_fill()をbitmap->fill()に移動など、同様の変更。ビットマップフィールドはアクセ
+  サ経由でのみ利用可能。rectangleクラスについて、sect_rectを&=、union_rectを|=オペ
+  レータに置き換え。これらの変更に伴うクリーンアップ。[Aaron Giles]
+
+- Pentium CPUコアのRDMSRとWRMSRオペコード汎用関数を実装(MSRは未実装)。[Angelo Salese]
+
+-「Savage Quest」のデバイス実装。フロッピーエラーで停止。[Angelo Salese]
+
+- X-Tom 3dのデバイス実装。ソフトリセットでBOOTエラー発生。[Angelo Salese]
+
+- segae.c: src/emu/video/315_5124.cを使用するドライバ更新、及びモダン化。
+  [Enik Land, Wilbert Pol]
+
+- システム全体で、cliprect *をcliprect &に一括置き換え。これにより、cliprectがどの場
+  所でも強制化。全般的にcliprectは、ほとんどのドライバで既にビデオ側へ正しく渡されて
+  いたため、この変更は形式的なものです。私が行った以前の変更で、ビットマップは
+  cliprectを持つようになったので、ビットマップの境界でクリップしたい場合は、NULL(現在
+  は不許可)ではなくbitmap->cliprect()を渡します。[Aaron Giles]
+
+- 68HC05: CLR命令はキャリーフラグに影響しないよう更新。Freescaleのプログラマーズマ
+  ニュアルで確認。[R. Belmont]
+
+- QueenとMidway Quicksilverハードウェアの基本デバイスを実装。[Angelo Salese]
+
+- mcr.c: twotigerのステレオ8トラックテープのサンプル再生機能を追加。
+  [italie, Mr. Do, hap]
+
+- bitmap_t *をbitmap_t &に一括変換。この変更で、グローバルのSCREEN_UPDATEコールバック
+  とdriver_deviceの引数が一致。また、ドライバとモダンデバイスのビットマップをクリーニ
+  ングするためのallocate()とdeallocate()メソッドをbitmap_tに追加。[Aaron Giles]
+
+- m680x0: MMUメモリの廃棄処理を修正。[R. Belmont]
+
+- machine.generic.tmpbitmap、VIDEO_START(generic_bitmapped)、
+  SCREEN_UPDATE(generic_bitmapped)を削除。その場所にそれぞれscreen_deviceを配置。これ
+  は、SCREEN_UPDATE関数と、driver_device::video_updateオーバーライドが無い場合に、デ
+  フォルトビットマップを管理して、画面の更新に合わせて自動的にコピーを行う。このビッ
+  トマップは、追加したdefault_bitmap()メソッドで参照できる。[Aaron Giles]
+
+-「Funky Ball」のデバイスとフラッシュロードを実装。ゲームは今のところVoodooのカラー
+  DACレジスタチェックで停止。[Angelo Salese]
+
+- astringから古いC言語ベースのインタフェースを削除。現在、astringはクラスとしてのみ使
+  用。残っていた使用箇所(ほとんどがツール)でこのクラスを使うように更新。[Aaron Giles]
+
+- [MCS48] I8021/I8022クロック分周器を修正。[Curt Coder]
+
+- CPS-3の更新: [Team CPS-1]
+ *「ストリートファイターIII 3rdストライク」Euro版BIOSの吸い出しと追加で、2セットをア
+   ンロック
+ * リリース日に合わせて全セットを並べ直し
+ * マイナーな修正
+
+- ARM7:「39-in-1」海賊版の修正。[Tim Schuerewegen]
+
+- aquarium.c: リージョンハックを削除。BGMの音程修正。テストモード修正。[hap]
+
+- chdman: 入力型拡張を非ケースセンシティブ化。[R. Belmont]
+
+- OS/2の更新。[KO Myung-Hun]
+
+- 逆アセンブリ間違いのあったspc700のオペコードを4つ追加。[kevtris]
+
+- i386: RETFとIRETのスタックチェンジをプロテクトチェック後に移動。ARPLをプロテクト
+  モードのみに設定。セグメントレジスタへMOVするときのプロテクトチェックを追加。
+  [Barry Rodewald]
+
+- 古いBIOSを起動できるようにindectrlに遅延割り込みを追加。[Carl]
+
+- scsihd.c: セクター辺り256バイトの古いSASIドライバをサポートするため、セクタサイズを
+  CHDのメタデータから取得。これによりハードディスクイメージをサブデバイス化。
+  [Curt Coder]
+
+- ステッパーで、決め打ちのコードを使う方式から、実際の動作をシミュレートするように切
+  り替え作業を開始。[J. Wallace]
+
+- PGMドライバのクリーンアップ。[David Haywood]
+
+-「レインボーアイランド」ドライバのクリーンアップと、MESSとの名前の衝突を避けるためリ
+  ネーム。[David Haywood]
+
+- puzzli2のプロテクトシミュレーションを改良。[iq132]
+
+- uiimage/diimage: メニューのアホアホ化とコントロールレイヤーの追加。[O. Galibert]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Quizard 1.8 [Klaus Sommer, Team Europe, The Dumping Union]
+Quizard 2.3 [Klaus Sommer, Team Europe, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Rival Schools: United By Fate / 私立ジャスティス学園 (Euro 971117)
+  [Corrado Tomaselli, The Dumping Union]
+ストリートファイターIII 3rdストライク - ファイト・フォー・ザ・フューチャー- 
+  (Euro 990608) [Layne, Smitdogg, The Dumping Union]
+ストリートファイターIII 3rdストライク - ファイト・フォー・ザ・フューチャー- 
+  (Euro 990512) [Layne, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+USAプロバスケットボール (Tourvision PCE bootleg) [Clawgrip]
+サンダーブレード (Tourvision PCE bootleg) [Clawgrip]
+パワーリーグ4 (Tourvision PCE bootleg) [Clawgrip]
+ラスタンサーガ2 (Tourvision PCE bootleg) [Clawgrip, AUMAP]
+Quizard 3.4 [Klaus Sommer, Team Europe, The Dumping Union]
+Virtuality SU2000 [Phil Bennett, SailorSat]
+7 Smash [Yohji, Smitdogg, Charles MacDonald, The Dumping Union]

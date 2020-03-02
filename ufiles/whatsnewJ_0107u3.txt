@@ -1,0 +1,116 @@
+0.107u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+pignewt0106u3gre [Aaron Giles]
+ui_draw_text0.107u2red [Aaron Giles]
+blueprnt0107u2red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- benberobのDIPスイッチ改良。[Brian Troha]
+
+- 本物の「バブルボブル」MCUサポート。[Trinity, Nicola Salmoria]
+
+-「バーチャレーシング」のトラックルックアップを修正。ゲームはかなりプレイ可能に
+  近い状態。[Olivier Galibert]
+
+- konamigx.cのマイナーなクリーンアップと速度ハックを削除。[R. Belmont]
+
+- magicflyドライバを改良。グラフィックが全て正常にデコード・バンクされるようにな
+  りました。[Roberto Fresca]
+
+- 6840タイマーモジュールをさらに改良。MPU4ドライバを最新状態に更新。
+ 「Cosmic Chasm」で新システムを使うようにコンバート。[El Condor]
+
+- 65816/377xxのアップデート: [R. Belmont]
+ * ブロック転送命令を実際の両チップ上にあるように割り込み可能にしました (以前は
+   一つの命令コードで40万以上のサイクルが必要で、これは割り込みタイミングに明ら
+   かに影響していました)
+
+ * M377xxのブロック転送が65816より1バイト少なかったのを修正
+
+- 2612のDACサウンドレベルがまともになるように調整。[David Haywood]
+
+- Taito JCのアップデート: [Ville Linde]
+ * 全般的な改良
+ * TMS320C51コアに命令コードを追加
+
+- M2ドライバで、M2カーネルが起動するように改良。ただし、マルチプロセッサの問題が
+  あるためすぐハングします。[Ville Linde]
+
+- 紙幣投入用に入力ポートでIPT_BILL1を使うようにゲームを何本か更新。[ClawGrip]
+
+- Namco System 1、System 86、Baraduke、Pacland、Sky Kidドライバを正確にドキュメ
+  ント化、またMCUコードと接続。[Brian Troha]
+
+-“Native”ビューを“Pixel Aspect”に改名。人為的なアスペクト比ではないと混乱す
+  るのを防ぐため。[Aaron Giles]
+
+- UIスライダにビーム幅の調整を追加。[Aaron Giles]
+
+- Zaxxonドライバをさらにクリーンアップ・修正: [Aaron Giles]
+ * razmatazのサウンド修正
+ * 背景とスプライトの配置を訂正
+ * サンプルハンドリングのバグ修正
+ * 海賊版とクローン版が動作可能
+ * Segaユニバーサルサウンドボードにセーブステート追加
+
+- vidhrdw/generic.cで複数のドライバで利用できるように汎用のグラフィックレイアウ
+  トを追加。[Aaron Giles]
+
+- 新オプション-video noneを追加。ビデオシステムのオーバーヘッド無しでCPUのベンチ
+  マークに利用できます。[Aaron Giles]
+
+- GDI/ddrawモードでベクターゲーム描画時のクラッシュを修正。[Aaron Giles]
+
+- 混乱を防ぐために-artworkオプションを削除。アートワークを一切使用しない場合は、
+  -view standardを指定してください。[Aaron Giles]
+
+- 全部のウィンドウに適用されるオプション、-screen、-aspect、-resolution、-viewを
+  追加。これらの値は既存の-screen<n>、-aspect<n>、-resolution<n>、-view<n>によっ
+  て個別にオーバーライドできます。[Aaron Giles]
+
+- リフレッシュレート内で、サウンドサンプリングコードがトラック変更しないバグを修
+  正。[Aaron Giles]
+
+- Sega G-80ラスタゲームのクリーンアップと書き直しを開始。まだ作業中なので、バグ
+  は報告しないでください: [Aaron Giles]
+ * G-80ベクタゲームと同様に入力ポート処理をクリーンアップ
+ * クロック速度、表示速度を修正
+ *「スペースオデッセイ」の背景を当たり判定付きで再実装
+ *「ピッグニュートン」の背景を完全実装
+ *「モンスターバッシュ」の基板2枚を正しく接続
+
+- 新マクロ、PORT_SERVICE_DIPLOC追加。PORT_SERVICEとDIPLOCATIONの指定用。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Trivia ? Whiz (Edition 3) [Pierpaolo Prazzoli]
+Legend of Heroes [Pierpaolo Prazzoli]
+Super Bubble 2003 [Pierpaolo Prazzoli]
+ダムバスター [Norbert Kehrer]
+Catacomb [Mike Coates]
+
+
+
+新規クローンセット
+------------------
+ギャラガ (Midway set 1 with fast shoot hack) [David Widel]
+ヴァーサスネットサッカー (3 new versions) [R. Belmont, f205v]
+エースアタッカー (System 16A) [Arzeno Fabrice]
+アームチャンプII v2.6 [Gerald Coy]
+エースアタッカー (System 16A) [Arzeno Fabrice]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Casino 5 [Pierpaolo Prazzoli]

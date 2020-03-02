@@ -1,0 +1,510 @@
+﻿0.91
+----
+
+-「ペンゴ」修正 (u4で動作しなくなっていたもの)。[smf]
+
+- megasys1ドライバのインターリーブ増加。avspiritの速度修正。[David Haywood]
+
+- palette_get_color()が特定の場合に間違った値を返すのを修正。[Nicola Salmoria]
+
+- kaneko16.cがu4で動作しなくなっていたのを修正。[Sebastien Volpe]
+
+- デバッガの改良。[Nathan Woods]
+    src/debug/debugcmd.c:
+    src/debug/debugcpu.c:
+    src/debug/debugcpu.h:
+    src/debug/debughlp.c:
+    src/debug/debugvw.c:
+        - “source”コマンド追加。UNIXの同名のシェルコマンドと同じように
+           デバッガコマンドセットを読み込む
+        - debug_trace_printf()コール追加。デバッグ中にトレースファイルにテキ
+          ストを出力する
+        - コンパイラの警告を修正
+
+- Crystal Systemのリセットを修正。[ElSemi]
+
+- メモリシステムのミラーリングを改良。[Aaron Giles]
+
+- タイルマップコードとドライバから古いorientationコードを削除。[Aaron Giles]
+
+- Segaアップデート。[Aaron Giles]
+    segas16a:
+    * メモリマップにきちんとしたミラーリング追加
+    *「タイムスキャナー」のカクテルモードDIPを修正
+    *「SDI」を修正
+    
+    segas16b:
+    *「タイムスキャナー」のカクテルモードDIPを修正
+    *「SDI」を修正
+    
+    machine/segaic16:
+    * 複合3チップと分割3チップをサポート
+    * 基板を元にタイマー/比較チップの実装を修正
+
+    vidhrdw/segaic16:
+    * タイルマップ反転サポート
+    * 16Aと16Bのスプライトの反転サポート
+
+- outrunとoutrunaで前より改善したグラフィックROM使用。[David Haywood]
+
+- NeoGeoのグラフィックバグ修正。[Anonymous]
+
+- vasara2のDIPスイッチテキストを修正。[Mamesick]
+
+- popeyeのクラッシュと水の色修正。[Nicola Salmoria]
+
+-「VS.レッキングクルー」の色修正。[Roberto Gandola]
+
+- tnzsのハングするバグの回避方法を改良。[Nicola Salmoria]
+
+- PPCコア/Model 3ドライバの改良。[Ville Linde]
+    ステップ2.0ゲームの一部で、表示動作
+
+- MC68HC11 CPUコア。[Ville Linde]
+
+-「リーサルエンフォーサーズ」のアップデート。[R.Belmont]
+    修正/解決した項目:
+    - どちらのバージョンも起動可能
+    - タイルマップとスプライト表示
+    - サウンドが動作
+    - メモリマップの統一
+    - デジタル入力の追加 (DIP含む)
+
+    残りの作業:
+    - 色
+    - 光線銃の入力
+    - タイルマップの有効化/無効化
+    - プライオリティ
+    - K054000プロテクトチップの実装
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+ダチョラー [Pierpaolo Prazzoli]
+キックボーイ [Pierpaolo Prazzoli]
+    どちらもPROMと（色違いあり）音なし
+
+
+新規追加クローンセット：
+------------------------
+クラッシュロード (Status License) [Steve Rice, Pierpaolo Prazzoli]
+ゴールデンアックス デスアダーの復讐 (Japan) [Tormod Tjaberg]
+サンダークロス (World?) [Andreas Thorsén]
+プッシュマン (Korea) [Andreas Thorsén]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Tarzan (IGS)
+    未作業、ギャンブルゲームか？
+
+マジカルテトリスチャレンジ
+イレブンビート ワールドトーナメント
+    これらはN64ベース。ボードレイアウト用のスケルトンドライバ。
+    N64エミュレータ作者には役立つかも
+
+See See Find Out [Tomasz Slanina]
+    ほとんどOK。時々固まる
+
+
+
+0.90u4
+------
+
+- Segaアップデート。[Aaron Giles]
+    drivers/segahang.c:
+    * 列スクロールと行スクロールの制御を接続。ただし誰も使わないかも
+    * YM2151の音量アップ。R.Belmont氏より
+    * 6844の全ダンプの確認
+    
+    drivers/segaorun.c:
+    * ブレーキのLEDが動作せず
+    * YM2151のミキシング音量アップ
+
+    drivers/segas16a.c:
+    * カスタムI/Oの内部動作方法を改良
+    * N7751の動作タイミングが正常になるようにパスの書き直し
+    * mjleagueの操作サポート
+    * sjryukoaの操作サポート
+    * timescnaのDIPスイッチ実装
+    * ウォッチドッグの追加（一部のゲームで使用）
+    * 全ゲームの入力リストから未使用のものを削除
+    * YM2151の音量アップ
+
+    drivers/sega16b.c:
+    * カスタムI/Oの内部動作方法を改良
+    * sjryukoの操作追加
+    * timescnのDIPスイッチ実装
+    * YM2151の音量アップ
+
+    drivers/segas18.c:
+    * desertbrにプレイヤー3のスタートボタン追加
+    * ddcrewbの317-0184ダンプ追加
+
+    drivers/segaxbd.c:
+    * YM2151の音量アップ
+    
+    vidhrdw/segaic16.c:
+    * 新user_dataを使ってタイルマップ処理をクリーンアップ
+    * ピクセル単位で正確なスプライトスケーリングをSystem 16Bに追加
+    * これをもとにHang On、Space Harrier、16Aのスプライトシステムも改良
+    * Hang On/Space Harrierのロードチップのドキュメント修正
+
+    vidhrdw/segas18.c:
+    * メモリリーク修正
+
+- FD1089をアップデート。[Nicola Salmoria, Charles MacDonald]
+    解読ロジックを改良
+    「エンデューロレーサー」の完全なテーブル追加
+    「スーパーハングオン」のテーブルにデータ追加
+
+- 調整可能なメモリバンク数を24から32に増加。[Nathan Woods]
+
+- ST-Vのアップデート。[Angelo Salese]
+
+    - A-Busプロテクションの作業を始めました。これはカートリッジ領域のデータ
+      転送の一種です。詳しくstv.cをみてください。
+      現段階の実装でsssのキャラ選択画面が修正されてます。いずれ完成させる予
+      定です。いまのところエミュレーションの問題がいろいろ出ています
+     （例：rsgunの起動時、elandoreのテクスチャなどなど）
+
+    - タイマー1IQR処理の初期型を追加しました。pblbeachが起動するようになりま
+      したが、VDP-1エミュレーションが不完全なので動作はしません
+
+    - SH-2によるVDP-1のlong wordアクセスを無視するのは間違っているのが判明、
+      fhboxersのグラフィックエラーとpblbeachが起動しない原因になってました
+
+-「スペースウォー(レジャック)」のプレイヤー2操作追加。[Steve Ellenoff]
+
+- Pacmanドライバのアップデート。[Dave Widel]
+    セット追加:
+
+    jumpshtp: プロトタイプ、PokeMAMEから
+    vanvanb:  海賊版、初期版の模様
+    sprglobp: オフィシャルセットか「the glob」と間違ってマージされのかは不明
+    ctrpllrp: I consider this sig. since it came in it's own cab, and they 
+              did change some of the music.
+
+    その他の変更:
+
+    フルメモリマップ追加で「ミズパックマン」のエンディング修正
+    jumpshotのDIPスイッチ追加
+    セットは削除してませんが、個人的にどれがジャンクなのかとその理由を追加し
+    ました
+
+- Pacmanドライバのアップデート。[smf]
+    * pacman/pengo/jrpacmanで、同じパレットデコードとスプライトレンダリン
+      グを使うように変更
+    * pengoのサウンドとビデオハードの名前を先に使っているpacmanに変更
+    * タイルマップを使うようにコンバート
+    * メモリマップのマージ
+    * pacmanにROMミラーリング追加と、別なROMマップが必要なゲームの移動
+    * S2650ゲームのミラーリングを整理
+    * GAME()の行をハードと年度でグループ化
+    * jrpacmblをpengo.cに再移動
+
+-「ゴールデンアックス-デスアダーの復讐」のプロテクトをエミュレート。
+  [Charles MacDonald, David Haywood]
+
+- 65816逆アセンブラのエラー修正。[Nathan Woods]
+
+- デバッガのマイナーな修正。[Nathan Woods]
+    WM_KEYDOWNイベント用にVK_HOMEとVK_ENDのケースを削除。個人的に調べた限り、
+    デフォルトアクションはうまく動作しています。さらに、Shift+Homeと
+    Shift+Endも正しく処理されています
+
+- 麻雀入力用のスタンダードセット追加。[Aaron Giles]
+
+- Arcadiaのアップデート。[Mariusz Wojcieszek]
+    - マルチBIOSの設定を使うように変更
+    - TenPlay BIOSをサポート（10ゲームの基板より）
+    - 「Kickstart 1.3」の正しいイメージ追加 (512kではなく256k)
+    - ar_sdwrを0.5MBチップRAMに巻き戻しと、blitterでチップのRAM以上の書き込
+      みは廃棄するように変更
+
+-「オペレーションサンダーボルト」のアップデート。[Nicola Salmoria]
+    - 回路図を元に検証とコメント作成
+    - 外部ボリュームとパンコントロールをエミュレート
+    - othundrj追加 (リージョンバイトの変更)
+    - スタート時にゴミグラフィックが表示されるをとりあえずの修正
+      (othunder074u1gre)
+    - 同じく、エンディングのグラフィック位置がずれてるのも修正
+      (othunder074u1gre3)
+      でもなんで直ったかは全く不明。3回クリアしたけど、全然出なくなりました
+
+- タイルマップのアップデート。[Aaron Giles]
+    タイルマップにuser_dataフィールドを追加。tilemap_set_user_data()を呼び出
+    して、タイルマップの内部でこのフィールドをセットできます。レンダリング前
+    にこの値はtile_info.user_dataフィールドにコピーされるので、独自のタイル
+    マップコールバックで使うことができます
+
+-「Blood Warriors」のデータに備えてKanekoのアップデート。[Sebastien Volpe]
+
+-「四川省II」の解読中。[Pierpaolo Prazzoli]
+    注：まだ作業中
+
+- Erotictacドライバの更新。[Tomasz Slanina]
+    ビデオハードと割り込みの変更をいくつか
+    タイマー追加
+    タイトルアニメーションとゲーム速度の修正
+    サウンドについての情報追加
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+スケバン雀士竜子 [Aaron Giles]
+
+
+新規追加クローンセット：
+------------------------
+ショットライダー (新規マスタセット、シグマライセンス無し) [Pierpaolo Prazzoli]
+Jump Shot Engineering Sample [PokeMAME]
+バンバンカー (海賊版) [Dave Widel]
+Super Glob (パックマン基板) [Dave Widel]
+Caterpillar Pacman [Dave Widel]
+DDクルー (Euro, 2 players) [Andreas Thorsen, Thierry]
+オペレーションサンダーボルト (Japan) [Nicola Salmoria]
+
+
+
+
+0.90u3
+------
+
+- Segaアップデート。[Aaron Giles]
+    変更点:
+    - hangon、sharrier、endurorで、正確な道路レイヤーとスプライト拡大縮小
+    - shangonbの名称をアップグレード版の海賊版なのでshangupbに変更
+    - Gerald氏の「スーパーハングオン」セット追加。shangonbとshangonc
+    -「スケバン雀士竜子」（両方のバージョン）のグラフィック修正。操作はまだ
+
+- 新コマンドラインパラメータ-screen追加。画面が2つ以上のときにどの画面に描画する
+  かを指定。[Chris Kirmse]
+
+- サウンドのアップデート[Derrick Renaud]
+
+    * sound\namco52.cにフィルタリング回路追加とストリームベースにコンバート
+    * bosco, galaga, polepos, xevious - Namco52サンプルプレーヤに正確なフィ
+      ルタ追加と、回路図を元に音量調整
+    * polepos - エンジン音に正しいフィルタ追加
+    * asteroidなどの増幅率が0.90で変になったのを修正
+    * montecar - クラッシュ音に正しいフィルタ追加
+    * bsktball - コンポーネント値コードにコンバート
+    * abaseb   - 歓声のフィルタのコンポーネント値を訂正
+
+-「Tazz-Mania」海賊版の星空を削除（実際に無いため）。[Pierpaolo Prazzoli]
+
+-「バトルガレッガ」に条件付きのDIPスイッチ追加。[Barry Rodewald]
+
+- Arcadiaのアップデート。[Mariusz Wojcieszek]
+    - 画面のアップデートをスキャンラインベースに変更
+    - スプライトレンダリングの改良、クリッピングの修正
+    - hold-and-modify表示モード追加
+    - ar_sdwrで1MBチップRAMを使うように変更。もっと調査が必要
+
+- u2でVrender0のサウンドがこわれていたのを修正。[Lawrence Gold]
+
+- PPCコアのコンパイラ警告を修正。[Lawrence Gold]
+
+- SHA1を追加。[Steve Ellenoff]
+
+- 回路図を元にRastanドライバをクリーンアップ。[Nicola Salmoria]
+    ADPCMをMSM5205で再生するように変更
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Erotictac [Tomasz Slanina (色修正:Nicola Salmoria)]
+    動作速度が違う、グラフィックの問題あり
+
+SportTime Table Hockey (Arcadia) [Mariusz Wojcieszek]
+Sidewinder (Arcadia) [Mariusz Wojcieszek]
+Space Ranger (Arcadia) [Mariusz Wojcieszek]
+
+
+新規クローンセット：
+--------------------
+Top Racer (set 3) [Steve Ellenoff]
+Ant Eater (GB set) [Pierpaolo Prazzoli]
+スーパーハングオン (2セット) [Aaron Giles]
+グレート1000マイルラリー2 USA [David Haywood]
+ネオジオBIOS (Japan S1)
+
+
+
+
+0.90u2
+------
+
+-「バトルシティ」の色修正。[Roberto Gandola]
+
+- Arcadiaドライバを少し変更。[Nathan Woods]
+    src/drivers/arcadia.c:
+    src/includes/amiga.h:
+    src/machine/amiga.c:
+    - src/machi/amiga.cからArcadiaアーケードシステムとAmigaコンピュータ用の
+    コードをコールバックに再構成。これにより、src/machine/amiga.cから
+    #ifdef MESSを削除可能
+
+- ST-Vのアップデート。[Angelo Salese]
+    - VDP-1 RAMの読み込みバグ修正、SH-2よりbyteかwordのアクセス可能。long 
+    wordでは暗黙でアクセス不可。これにより「スティープスロープスライダーズ」
+    の起動部分の修正され動作可能です
+    - VDP-1 PTMの"draw by request"がkiwamesでスプライトのちらつきを起こして
+    いたので、今の状態が判明するまで古い方法に巻き戻し (clear_framebuffer?)
+    - ゲームヘッダの更新完了
+    - 表示エリアの間違いにより「バーチャルマージャン2」がサウンドRAMチェック
+    後にクラッシュしていたのを修正
+    - 倍密度インターレースモードでのウィンドウエフェクトバグを修正。
+    vmahjongとmyfairldのグラフィック修正
+    - 倍密度インターレースモードでのビットマップ配置の問題を推測で修正。
+    myfairldのNBG1の位置修正
+    -「バーチャルマージャンII」はサウンドをOFFにしたときだけ動作するようにな
+    りました。そのため、NOT_WORKINGステータスは外していません
+
+- サウンド機能追加。[Derrick Renaud]
+    Frank Palazzolo氏のDISCRETE_FILTER2コードをディスクリートシステム外で動
+    作するように変更。新機能についてはsound\filter.hを参照
+
+    OPアンプバンドパスフィルタ回路をsound\namco54.cに追加
+
+    ゲームドライバの変更
+    * bosco, galaga, polepos, xevious - 新Namco54ノイズソースに正しいフィル
+      タ追加
+
+-「Kid Niki / 快傑ヤンチャ丸」のプライオリティと最終面でクラッシュするのを修正。
+  [Nicola Salmoria]
+
+-「ロットロット」のプライオリティ修正。[Pierpaolo Prazzoli]
+
+-「スケバン雀士竜子」を解読。[Nicola Salmoria]
+
+- ARM7 CPUコア。[Steve Ellenoff]
+
+- G65816 CPUコア用パッチ。[Nathan Woods]
+    src/cpu/g65816/g65816.c:
+    src/cpu/g65816/g65816.h:
+    src/cpu/g65816/g65816ds.c:
+    src/cpu/g65816/g65816ds.h:
+    src/cpu/g65816/g65816op.h:
+    - コードのクリーンアップを少々; 一部の関数をstaticに変更と逆アセンブラ用
+    のステップオーバーとステップアウトをサポート
+
+- 6809dasm.cのコンパイル時に警告が出るのを修正。[Hans de Goede]
+
+- Model 3のアップデート。[Ville Linde]
+    PowerPCコア: 
+    - 割り込み処理改良。ネストした割り込みが正常動作
+    - PPC602を一部サポート
+    - メジャーなバグ修正
+    - 未実装だった命令の追加
+
+    53c810 SCSI:
+    - シングルステッピングモードのDMAを修正
+    - メモリムーブとDMAのコールバック追加
+
+    Model 3:
+    - Epson RTC-72421エミュレーション追加
+    - ポリゴンエミュレーション初期版追加
+    - サウンドエミュレーション初期版追加（まだ動作せず）
+    - あといっぱいありすぎて書ききれないくらい :) Step 1.xのゲームのほとんど
+    は何か表示されるようになりました
+
+- マルチポートレコーディングを修正。[Chad Hurwitz]
+
+- コンパイル時の警告を修正。[Lawrence Gold]
+
+- zlib 1.2.2にアップグレード。[Santeri Saarimaa]
+
+-「クリスタルキャッスル」に未使用のPROM追加。[Santeri Saarimaa]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ウイニングスパイク (EAA version)  [Fabrice Arzeno]
+
+(その他、Model 3ゲームもvs215などが良好に動作)
+
+
+
+0.90u1
+------
+
+私の留守中に0.90のリリースをまとめてくれたPierpaolo Prazzoli(Reip)氏に感謝。
+
+全般的な改良点：
+----------------
+
+- FD1089の解読。[Nicola Salmoria, Charles MacDonald]
+    - FD1089Aのエミュレーションは100%正確。他のCPUで確認が必要なので、
+      FD1089Bは99%くらい（現在サポートしているものについては100%正確）
+
+    - Charles MacDonald氏より317-0018（「アクションファイター」）、317-0022
+    （「ダンクショット」）、317-0168（「オーライル」）の完全なテーブル提供
+
+    - 暗号化されていないバージョンとの比較から得られた部分的なテーブル：
+    「エンデューロレーサー」「アレックスキッド」、317-0024（「タイムスキャ
+     ナー」）、317-0033（「エイリアンシンドローム」）、317-0027（「SDI」）
+     （完全なテーブルを得るには動作可能なCPUが必要）
+
+- Segaの大幅アップデート。[Aaron Giles]
+    * dunkshotのグラフィック修正と操作の実装
+    * sdiojの操作系実装
+    * timescnaのスプライト修正
+    * shangona, shangnleがプレイ可能
+    * toutrunの道路修正
+    * メモリマッピングコードを全部統一してmachine/segaic16.cに移動
+    * タイルマップ、スプライト、道路表示コードを全て統一して
+      vidhrdw/segaic16.cに移動
+    * ビデオ機能側のレジストレイアウトのドキュメントを改良
+
+    まだ作業中なので注意してくだい。「レーザーゴースト」のタイトルアニメー
+    ションの調子が悪くなってます。また、ddcrewのアトラクトモードの横列1ドッ
+    トにエラーが出てます。これらは既知ですので、すぐに対応する予定です
+
+- seabassが動作するようにST-Vの修正。[Angelo Salese]
+
+- UI=1のときwindows objからリソース取得（MAME32用）。[Chris Kirmse]
+
+-「ポラリス」のサウンド改善（実際の基板は回路図と異なる）。[Derrick Renaud]
+
+-「ポラリス」の雲スクロール方向を修正。[Pierpaolo Prazzoli]
+
+- enigma2の色修正。[Pierpaolo Prazzoli]
+
+- 新コンパイラでm6509の警告が出ないように修正。[Nathan Woods]
+
+- Arcadiaの更新。[Mariusz Wojcieszek]
+    - DMACONレジスタ書き込みを修正
+    - 横スクロール追加
+    - コインハンドリング改良
+    - blitternの塗りつぶし修正
+    - ar_dartが動作するように改良（サウンドエミュレーションを追加）
+    - スプライト組み合わせのレンダリング修正
+    - CIAレジスタの読み込み修正
+    - vblank/video更新のタイミング改良
+
+- mt_gngのROMロードを変更。[David Haywood]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Merlins Money Maze [Pierpaolo Prazzoli]
+    勝てない？
+
+Spot (Arcadia) [Mariusz Wojcieszek]
+Magic Johnson's Fast Break (Arcadia) [Mariusz Wojcieszek]
+World Darts (Arcadia) [Mariusz Wojcieszek]
+Xenon (Arcadia) [Mariusz Wojcieszek]
+
+シーバスフィッシング [Angelo Salese]
+    システム設定で1プレイヤーにセット
+
+ダンクショット [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+アクションファイター [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+
+Segaセットいろいろ [Nicola Salmoria, Charles MacDonald, Aaron Giles]
+    sdioj, shangona, shangnle, alexkidd
+
+Tazzmania (ギャラクシアン基板の海賊版) [Pierpaolo Prazzoli]

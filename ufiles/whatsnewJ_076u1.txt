@@ -1,0 +1,154 @@
+﻿0.76u1
+
+ソース全般の変更：
+------------------
+
+■ElSemi氏のSCSPコアを移植。ST-Vゲームのサウンドサポートを追加しましたが、今のところ
+  ほとんど音は出ません。「紫炎龍」は大体正確です。[R.Belmont]
+	src/sound/scsp.c
+	src/sound/scsp.h
+	src/sound/scsplfo.c
+	src/drivers/stv.c
+
+■ST-Vの表示関係（「紫炎龍」のスプライト色）やその他いろいろ修正。「コットン2」
+ 「コットンブーメラン」「ぷよぷよSUN」「コラムス'97」などは“見るだけ”なら可能。操作
+  は未実装。[David Haywood]
+	src/drivers/stv.c
+	src/vidhrdw/stvvdp1.c
+	src/vidhrdw/stvvdp2.c
+
+■Atariゲームの新セット追加と改善（以前のスピードハックは不要になったので削除しました。
+ 「サイバーボール」で両画面を表示するようにしてあります）。[Aaron Giles]
+	src/ いろいろ
+
+■変更いろいろ。[Nathan Woods]
+	src/sndintrf.c:
+	- MESS用サウンドインターフェースからwave_sh_stop()を削除
+
+	src/x86drc.c:
+	src/x86drc.h:
+	- X86命令用のマクロ追加
+	- drc_dasm()追加。MAMEのI386逆アセンブラでDRCコードを処理するため
+	デバッガで使用（この修正までコメントアウトしてました）
+
+	src/mame.h:
+	src/windows/config.c:
+	- 'GAMENOUN'と'GAMESNOUN'マクロ追加：“game”と“games”それぞれについて、
+	人が読んで分かるようなテキストにするために定義。
+	(MESSなら“system”と“systems”が使用可）
+
+■V60の改良 (LDTASK、STTASK、ABSFと\nが無かった部分)[Olivier Galibert]
+	src/cpu/v60/*
+
+■「ヘリファイア」にサウンド追加と背景エミュレーション改善。[Jarek Burczynski]
+	src/drivers/8080bw.c
+	src/sndhrdw/8080bw.c
+	src/vidhrdw/8080bw.c
+
+■WindowsのオンスクリーンディスプレイとD3Dの修正。[Leon van Rooij]
+	makefile:
+	windows\windows.mak:
+	 CFLAGSOSDEPEND追加。OSDコードだけをコンパイルするときに使用
+	(例：DirectXで、-Wno-strict-aliasingが必要なときなど)
+	 COMPILESYSTEM_CYGWINで、nasmとnasmwのどちらを使うかを決定
+	(cygwinはnasmを呼び出し)
+
+	windows\fileio.c:
+	 win32api 2.4で動作しなくなっていた#defineを修正
+
+	windows\snprintf.c:
+	 GCCのビルトインのものと変数名がかぶっていたのを修正
+
+	windows\blit.c:
+	windows\wind3d.c:
+	 ST-Vゲームを回転/反転させたときのバグ修正
+
+	windows\wind3d.c:
+	windows\window.c:
+	windows\window.h:
+	 ゲームドライバでイメージサイズが変更された場合、ウィンドウサイズ・プリ
+	スケール・RGB-AUTOエフェクトを変更できます
+
+■SegaPCMの修正。[Olivier Galibert]
+	音程の修正(15800Hzは間違いで、メインの4MHzを256で割ったのが正解でした)と、
+	サンプルROMから範囲外の値が設定された場合の対処。「パワードリフト」の
+	サウンドコードで、曲切替え時にセミランダムな値を渡しています。
+	src/sound/segapcm.c
+
+■tem2la1に正確な初期化処理追加。[Brian Troha]
+
+■ZaxxonドライバとCongoドライバを統合。[CUrt Coder]
+
+■harddisk.cを0.73の状態に巻き戻し。
+
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+
+ばくばくアニマル [David Haywood]
+	まだ表示不具合あり。サウンドは無し
+	src/drivers/stv.c
+	src/vidhrdw/stvvdp1.c
+	src/vidhrdw/stvvdp2.c
+
+鉄拳 [smf]
+鉄拳2 [smf]
+ソウルエッジ [smf]
+	(ソウルエッジVer IIは動作せず)
+ゼビウス3D/G (XV31/VER.A) [smf]
+プライムゴールEX (PG1/VER.A) [smf]
+	上の5本はどれもサウンド無し
+	src/drivers/namcos11.c
+	+ その他PSX系ファイル
+
+スーパースピードレース [Stefan Jokisch]
+	サウンド無し
+	src/drivers/sspeedr.c
+	src/vidhrdw/sspeedr.c
+
+Cosmo [Jarek Burczynski]
+	サウンド無し
+	src/drivers/8080bw.c
+	src/vidhrdw/8080bw.c
+
+3DサンダーセプターII [BUT]
+	背景無し
+	src/drivers/tceptor.c
+	src/vidhrdw/tceptor.c
+
+
+新規サポートクローンまたはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------------
+
+Atariクローン100本 [Aaron Giles]
+	* ロードランナー 2本
+	* ロードブラスター 8本
+	* ペーパーボーイ 2本
+	* 720° 5本
+	* スーパースプリント 6本
+	* チャンピオンシップスプリント 7本
+	* オールポインツバレッティン 7本
+	* ブラステロイド 2本
+	* サイバーボール 1本
+	* サイバーボール2072 3本
+	* トーナメントサイバーボール2072 1本
+	* スカル＆クロスボーンズ 3本
+	* ツービン 3本
+	* ビンジケーターズ 6本
+	* ザイボット 4本
+	* ハードドライビン 10本
+	* ハードドライビン コンパクト版 3本
+	* スタンランナー 9本
+	* レースドライビン 9本
+	* レースドライビン コンパクト版 7本
+	* スティールタロンズ 2本
+
+Superior Soliders (US) (パーフェクトソルジャーズ) [Chris Hardy]
+	src/drivers/m92.c
+
+Asterock (アステロイドのSidam海賊版) [Pierpaolo Prazzoli]
+	src/drivers/asteroid.c
+
+Sky Raiders (銀河帝国の逆襲の海賊版) [Pierpaolo Prazzoli]
+	src/drivers/galaxian.c

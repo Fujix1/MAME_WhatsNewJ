@@ -1,0 +1,491 @@
+0.139u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02449: [グラフィック] lethalen: タイル用の反転ビットが見つからない(P2のスター
+         ト画面、リロード指示)。
+- 04026: [グラフィック] combatscb: タイルマップの再ビルド時に表示不具合がいろい
+         ろ出る。(robiza)
+- 01215: [クラッシュ/フリーズ] combatscb: 3面でクラッシュする。また、キャラ化け
+         も頻発している。「Game Over」画面でもクラッシュが起きる。また、デモ画面
+         も何回も繰り返していると落ちることがある。
+- 00229: [色/パレット] truxton: タイトル画面の背景は緑色でコインを入れると青色に
+         なる。MAMEでは青いままになっている。(robiza)
+- 00949: [グラフィック] outzone: 6面の中間付近で、背景の一部が黒い四角になってい
+         る。(robiza)
+- 03203: [その他] All sets in docastle.c and mrdo.c: サービスモードに入ろうとす
+         るとエラーやフリーズ、動作不具合などが起こる。(Phil Bennett)
+- 04009: [ステート保存/再生] pacland and clones: ステート読み込みを行うとタイト
+         ル画面でのリブート、コインが入らない、音が出ないなどの問題が起こる。
+         (Phil Bennett)
+- 03858: [グラフィック] batsugun, batsuguna, batsugunsp, dogyuun: タイル間、タイ
+         ルとスプライト間のプライオリティ問題がある。(David Haywood)
+- 03718: [クラッシュ/フリーズ] shdancer: ステージ2-4でフリーズする。
+         (Phil Bennett)
+- 03881: [クラッシュ/フリーズ] minefld, rescue, aponow: 起動時にMAMEが固まる。
+         (Phil Bennett)
+- 03961: [クラッシュ/フリーズ] racedriv and clones: キャリブレーション後、ゲーム
+         起動中にリセットを繰り返す。(Phil Bennett)
+- 04006: [グラフィック] fixeightb: グラフィック全体がおかしい。(David Haywood)
+- 03755: [サウンド] soldivid: ステートをロードするとBGMが鳴らない。
+         (Phil Bennett)
+- 03820: [ステート保存/再生] batlbubl, bangball: -autosaveを使うとサウンドが変に
+         なったり、無くなったりする。(Phil Bennett)
+- 04004: [グラフィック] pballoon: 画面が左にずれている。(David Haywood)
+- 03986: [DIP/入力] All sets in enigma2.c: ほとんどのDIPスイッチ設定が動作してい
+         ない。(Phil Bennett)
+- 03730: [ステート保存/再生] parodius: -autosaveやセーブステートを使うとフリーズ
+         する。(Phil Bennett)
+- 04001: [ステート保存/再生] All sets in mappy.c: ステートを読み込むと音関係がお
+         かしくなる。(Phil Bennett)
+- 03994: [ステート保存/再生] All sets in dcheese.c: ステートをロードすると音が出
+         なくなる。(Phil Bennett)
+- 03992: [ステート保存/再生] btoads: ステートを読み込むとグラフィックが大きく乱
+         れる。(Phil Bennett)
+- 03991: [ステート保存/再生] bigevglf : ステートを読み込むと音がおかしくなる。
+         (Phil Bennett)
+- 03993: [ステート保存/再生] All sets in crshrace.c: ステートをロードすると音が
+         出なくなる。(Phil Bennett)
+- 03989: [ステート保存/再生] asterix and clones: セーブステートを読み込むと音が
+         出なくなる。(Phil Bennett)
+- 03998: [ドキュメント] bmiidx3: ゲーム名が間違っている。(M.A.S.H.)
+- 03978: [DIP/入力] cyclshtg, bronx: DIPスイッチに間違いがある。(stephh)
+- 03988: [ステート保存/再生] ace: ステートをリロードするとグラフィックがおかしく
+         なる。(hap)
+- 03996: [クラッシュ/フリーズ] All games in taito_x.c: 起動直後にクラッシュする。
+         (Atari Ace)
+
+
+
+ソースの変更点
+--------------
+- Signetics S2636のサウンドをサポート(MESSのVC4000サウンドを使用)。「Malzak」
+  「Galaxia」「Astro Wars」のサウンド実装。[Mariusz Wojcieszek]
+
+-「ライデンファイターズ2」(Asia, Metrotainment License)セットのROM名を基板写真を
+  元に訂正。[Lord Nightmare, Tormod]
+
+- zac2650.cにS2636サウンドを実装。[Mariusz Wojcieszek]
+
+- seibuspi.c: "FIX"グラフィックロードの修正。全てのプラットフォームで動作させる
+  には特定のENDIANが必要かも。新しいアジア版2本が動作可能。[Brian Troha]
+
+- seibuspi.c:「ライデンファイターズJET」(US, Single Board)が初回起動時に正しく起
+  動するようデフォルトEEPROM追加。[Brian Troha]
+
+- 非constのグローバル変数をコアから削除。[Atari Ace]
+
+- nycaptor, colt, cyclshtg, bronx (nycaptor.c) [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+
+-「Golden Poker」ドライバ: 60Hz/50HzモードのDIP選択を利用すると起こるタイルマッ
+  プの問題を修正。[Roberto Fresca]
+
+-「Genie」をサポート。これはVideo Fun Games Ltd.製の古い魔法のランプをテーマにし
+  たゲームです: [Roberto Fresca]
+ * グラフィックと色のデコード
+ * 正確な入力系
+ * ディスクリートサウンド
+ * デフォルトNVRAMのサポート
+ Xtal、CPUクロック、ディスクリートコンポーネントの値は実機でのチェックが必要。
+
+-「Noraut Joker Poker」(Prologic HW)の製造元をVideo Fun Games Ltd.に変更。
+  [Roberto Fresca]
+
+- K053260サウンドコアでセーブステートをサポート。[Phil Bennett]
+
+- MSM5232サウンドコアでセーブステートをサポート。[Phil Bennett]
+
+- TLC34076をデバイスにコンバート。[Phil Bennett]
+
+- toaplan2ドライバのクリーンアップとdriver_dataを使う形式にコンバート。
+  [Atari Ace]
+
+- topshootをmegadrvbドライバに統合(以前はgenesisb)。[Sonikos]
+
+- Aristocrat Mk-5に即席で作ったビデオルーチンを追加。[Angelo Salese]
+
+- Acorn Archimedes / Aristocrat MK-5: Force IRA/FIRQとタイマーチェックの未定義動
+  作を実装。これによりPOST中のCPUチェックが修正。[Angelo Salese]
+
+- Acorn Archimedes / Aristocrat MK-5ハードでI2Cアクセスを実装によりSRAMチェックを
+  修正。[Angelo Salese]
+
+- I2Cデバイスにクロックリードバックレジスタ追加。[Angelo Salese]
+
+- Acorn Archimedes / Aristocrat MK-5のサウンドDMAを修正。またドライバでサウンドを
+  サポート。[Angelo Salese]
+
+- VLM5030ドライバにICピンアウトを追加。依然として、VCU、RST(リセット以外の動作も
+  する)、MTEについてまだデータシートの翻訳が必要。[Lord Nightmare]
+
+- Erotictacハードウェアにサウンドを実装。ただし、メモリ管理が実装されていないの
+  で音は出ない。[Angelo Salese]
+
+- Aristocrat MK-5ハードウェアに2KHzタイマー追加。[Angelo Salese]
+
+- 報告されているGCC 4.5の問題修正にチャレンジ。[R. Belmont]
+
+- MEMC処理の致命的なバグ修正と、Aristocrat MK-5のマッピング用対策を削除。
+  [Angelo Salese]
+
+- Aristocrat MK-5のビデオエミュレーションを改良。最低機能のVIDC DMA転送、タイミ
+  ング、8bppモードを追加。[Angelo Salese]
+
+- YMF278Bコアでセーブステートをサポート。[Phil Bennett]
+
+- Accorn Archimedes/Aristocrat MK-5について、I/OデバイスのR/Wアクセスを書き直し。
+  [Angelo Salese]
+
+- SH-2コアに不足していたセーブステートレジストリエントリを追加。[Phil Bennett]
+
+- address_spaceをクラスにコンバートし、ほとんどのメンバをアクセサメソッドより背
+  後に移動。space->machineとspace->cpuは除く。
+　8le/8be/16le/16be/32le/32be/64le/64beへの外部参照を削除。外部アクセスは全て仮
+  想関数read_byte()、read_word()などを使って行います。エンディアンとバス幅の違い
+  はmemory.cに移動。また、大小のアドレス空間をサポートするため新しいaxisを追加。
+  これにより、18bit未満の空間を高速検索が可能。[Aaron Giles]
+
+- 新しいaddress_spaceクラス内のグローバルなメモリ操作用メソッド追加。古いグロー
+  バル関数を使ってるところを置き換え。[Aaron Giles]
+
+- 新モジュールdelegate.hを作成。これはMAME用のC++デリゲートを実装します。詳細に
+  ついてはオープニングコメント内にあります。デリゲートにより、あるクラスのメンバ
+  関数をコールバックとして使用できます。これにより、ほとんどのコールバックで
+  driver_dataフィールドのフェッチを無くすことが期待できます。デリゲートをホスト
+  する全てのクラスはbindable_objectから派生しなければいけません。現在、全ての
+  デバイスとdriver_dataは、暗黙的にそのベースクラスを経由しています。
+  [Aaron Giles]
+
+- アドレスマップのもう一つのマクロセットを追加。"emu.h"のインクルード前に
+  #define ADDRESS_MAP_MODERNをすると新マクロが使えるようになり、次のようなプロパ
+  ティがあります: [Aaron Giles]
+ * ADDRESS_MAP_START: 他のマクロが参照するdriver_dataクラス名を4番目にとります
+ * AM_READ/AM_WRITE/など: 最初に指定したdriver_dataクラスからメソッド名を取得す
+                          ることを前提にしています
+ * AM_READ_LEGACY/AM_WRITE_LEGACY: 昔のグローバルなstatic関数を呼び出すためのマ
+                                   クロです
+ * AM_BASE/AM_SIZE: driver_dataクラスからメンバ名を取得するのを前提にしています
+ * AM_BASE_LEGACY/AM_SIZE_LEGACY: グローバル変数への参照用です
+
+- リードライトハンドラ用のデリゲートを定義。この新デリゲートがaddress_spaceの参
+  照として、オフセット、データ、マスクと共に常に渡されます。デリゲートは、
+  driver_dataクラスとdeviceクラスのどちらのメソッドも参照できます。アドレスマッ
+  プでデリゲートを指定するには、emu.hのインクルード前に
+  #define ADDRESS_MAP_MODERNとします。これは、AM_READ/AM_WRITEマクロが
+  driver_dataクラスへのメンバ関数ポインタを必要するためです。アドレスマップで指
+  定されたデリゲートはオブジェクトを持たない原始的なデリゲートで、対応する
+  address_spaceが作成されたときにオブジェクトと結びつけられます。[Aaron Giles]
+
+- machine->m_nonspecific_spaceを追加。これは、アドレス空間が与えられていないよう
+  なレガシーケースで、新しいリード・ライトメソッドへaddress_spaceを渡すために必
+  要です。将来的には廃止できますが、今のところまだ必要です。[Aaron Giles]
+
+- 新しいaddress_spaceクラスに動的にデリゲートを設定するクラスを追加。この方法で
+  はデリゲートを事前にオブジェクトに結びつけておく必要があります。[Aaron Giles]
+
+- 新しいデリゲートの使用例として、beatheadのリードライトハンドラをbeathead_state
+  のメンバーに移動しました。この例では、static(address_map経由)とdynamic
+  (install_handlerコール経由)の両方のマッピングをデリゲートを使って行っています。
+  [Aaron Giles]
+
+- DIRECT_UPDATE_CALLBACK系もデリゲートに変更。全てのユーザ側を新しい関数フォーマッ
+  トに合わせて更新。また実装部をクリーンするため、通常の方法で引数を設定する
+  direct_read_dataのメソッド追加。全ユーザを更新。[Aaron Giles]
+
+- システム全体で"const address_space"を"address_space"に置き換え。以前にconstを
+  つけた目的は直接変更を防ぐためでしたが、private/protectedの方がよいためconstが
+  じゃまになりました。[Aaron Giles]
+
+- neodrvr.cの更新: [Johnboy]
+ * 以下のセットを改名: sengokh -> sengokuh, fatfursa -> fatfurspa,
+                       shocktra -> shocktroa kof99 -> kof99h, kof99a -> kof99
+ * wh2jを削除(C-ROMの配置違いのみでデータは同じ)
+ * sengoku3に正確なm1を追加
+ * 以下のROM_REGION "maincpu"を修正: twinspri, ghostlop, aof2, aof2a, fightfev, 
+   fightfeva
+ * irrmazeに正確なp1 ROMを追加
+
+- GP9001(toaplan VDPデバイス)でDEVICE_SELFを使うように変更。[David Haywood]
+
+-「3 Bags Full - 5VXFC790 (Victorian)」追加。このセットを親に設定。6つのビットプ
+  レーンのうち4つがマッチするため、NZセットと吸い出し不良なグラフィックROMを入れ
+  替え。[Roberto Fresca]
+
+- calomega.cドライバの改良: [Roberto Fresca]
+ *「Game 24.0」(Gaming Draw Poker, hold)を追加。プレイ可能
+ * システム903-905に50/60Hz出力周波数セレクタを追加。ただし、物理的にどういうも
+   のかは不明(スイッチ/ジャンパ/ブリッジ?)
+ * プログラムROMの徹底的な解析とリバースエンジニアリングの結果、スタートとNMIベ
+   クターをcomg080(Arcade Black Jack)に追加。ゲームのスタートが可能になり、正し
+   いNMIを出力します
+ * comg080 (Arcade Black Jack)の入力系を一から作成
+ * ベクターチェックプロテクトの一時的な対応
+ * システム毎にランプ回路を改良
+ * ゲームリストとテクニカルノートを更新
+ * comg080 (Arcade Black Jack)を動作可能ステートに昇格
+ * system 906IIIをサポート
+ * 正しいメモリマップ、CRTC、PIAマッピング
+ * PIAの仮サポート(多重化は未実装)
+ * 正確なR65C02 CPUを使用した正しいマシンドライバを追加
+ * ハードウェアスペックをドキュメント化
+ *「Game 51.08」(CEI Video Poker, Jack or Better)を追加。CEI 906IIIハードウェア
+   で動作。ゲームは動作不可
+
+- sm8500 CPUコアの修正。[Robbbert]
+
+- CEI 906 IIIシステムの改良: [Roberto Fresca]
+ * 906IIIメモリマップのドキュメントを訂正
+ * AY8912をマッピング
+ * AY8912の正しいインタフェースを追加。SW2をAY8912ポートに結合
+ * PIA0のportAを常時ポール。入力システムの動作解析のためデバッグハンドラを結合
+ * PIAのR/Wについてノート追加
+
+- Z80 DART割り込みをコンストラクタ時にクリア。[Curt Coder]
+
+- MESSよりHitachi HCD62121 CPUコアをインポート。[Curt Coder]
+
+- crospang, heuksun, bestri (crospang.c) [stephh] :
+ * DIPスイッチの改良(M68000コードの検証による)
+
+- Z80-DARTインタフェースについて、将来的にZ80-SIOの機能を実装できるよう拡張: 
+  [Curt Coder]
+ * チャンネルB用の別クロック入力を追加
+ * 両チャンネル用のSYNC入力と出力を追加
+
+- Toaplan2: Quench氏提供の回路を使ってデュアルVDPのミキシングを実装。まだ動作せ
+  ず。[David Haywood]
+
+-「ギャングウォーズ」の正しいグラフィックROM追加。海賊版セットをEuro版の親セット
+  に設定し、海賊版のグラフィックROMについてのノートを追加。[David Raingeard]
+
+-「帰ってきたチャンピオンベースボール / Super Champion Baseball」の未エミュレー
+  トなプロテクトについてドキュメント化。ゲームにGAME_UNEMULATED_PROTECTIONフラグ
+  追加。[Angelo Salese]
+
+- segaic16.c: 定義済みのデバイスとメモリに対する未サポートのリードライトアクセス
+  について、不成功のメモリマッピングレジスタアクセスではなく、オープンバスリード
+  か未マップライトとして扱うよう更新。[Phil Bennett]
+
+- address_spaceにマスク無し版のread_word/read_dword/read_qwordを追加。また、非整
+  列値として読み込みできる非整列変数も追加。コアハンドラを全ケースを扱うテンプレー
+  トとして書き直し。全てが正しいか確認するシンプルなユニットテストも同時に追加。
+  [Aaron Giles]
+
+- 68k、V60、i86、NECの各コアで不正列でリード・ライトするよう更新。[Aaron Giles]
+
+- ga2の復号化におけるメモリ管理を修正。[Aaron Giles]
+
+-「バツグン」についてToaplan2のVDPミキシングを修正。[David Haywood]
+
+- Toaplan2: タイルリミットハックを削除。VDPのミキシングが正しく行われるようになっ
+  たので不要です。[David Haywood]
+
+-「Arabian」Atari版のROMラベルを訂正。[The Dumping Union]
+
+- 内部プロファイラのコードを整理。[Aaron Giles]
+
+-「All American Football」セットの更新: [Phil Bennett]
+ * aafb: 不明だった03-28008.u93グラフィックROMを追加
+ * aafbb: 24015-02.u59を吸い出し不良に設定し、セットをGAME_NOT_WORKINGに格下げ
+
+- driver_Data_tで以下について仮想関数を宣言:
+ * machine_start, machine_reset
+ * sound_start, sound_reset
+ * palette_init, video_start, video_reset, video_update, video_eof
+
+　デフォルトでの実装は以前同様にマシンコンフィグ関数を経由します。しかし、
+  driver_data_tがこれらをオーバーライドするときは、代わりにこれが呼び出されます。
+  [Aaron Giles]
+
+- pre_save()とpost_load()にも仮想関数を追加。マシンドライバ専用のプリセーブ、プ
+  リロード機能を実装するとき、これまでのセーブステートシステムへのレジスタでは
+  なくこれらをオーバーライドして使用できます。[Aaron Giles]
+
+- beatheadで、MACHINE_DRIVER内のコールバックを指定する代わりに、この新型仮想関数を
+  使用。[Aaron Giles]
+
+- CPS-1の更新 [Team CPS-1]:
+ * 実機と合致するwillowjの正しいROMを追加。以前は親セットのものをコピーして使用
+ * knightsjの旧リビジョン版を追加。別ROMを使用
+ * kodjの旧リビジョン版を追加。別ROMを使用
+ *「ストリートファイターII CE」の新セットを追加
+ * kodjのラベル修正と、基板情報の確認
+ * qadjのラベル修正と、PAL及び基板情報の追加
+ * sf2uaのラベル修正と、基板情報追加
+ * マイナーなクリーンアップと修正
+
+- fastlane (fastlane.c) [stephh] :
+ * DIPスイッチと入力の修正(HD6309コードの検証による)
+
+- AAエミュレーションのいろいろな問題を修正。これにより現状のerticta.cで「Poizone」
+  が理論的には動作可能(まだ有効化してません)。[Angelo Salese]
+
+- firetrap, firetrapj, firetrapbl (firetrap.c) [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+ * コイン入力で"Coin A"と"Coin B"の設定を正しく反映するよう修正
+ * "firetrapj"のMCUシミュレーションを修正(初期化のみが異なっていた)で、ゲームが
+   プレイ可能
+
+- Z80DARTの変更: [Curt Coder]
+ * SIO専用の定数を追加
+ * 同期キャラクタ書き込みレジスタ追加
+
+- Z80: リセット時にIFF1とIFF2を0に設定。[Phil Bennett]
+
+- 7474を新型デバイスに更新。[Harmony]
+
+- 6522を新型デバイスに更新。[Harmony]
+
+- 6532 RIOTを新型デバイスに更新。[Harmony]
+
+- 6821 PIAを新型デバイスに更新。[Harmony]
+
+- 74123を新型デバイスに更新。[Harmony]
+
+- toaplan1/2デバイスをdriver_dataを使うようにコンバート。[Atari Ace]
+
+- listxmlの年度出力を修正(以前は'?'を含むとスキップしていた)。[Fabio Priuli]
+
+- karnov, karnovj, wndrplnt, chelnov, chelnovu, chelnovj (karnov.c) [stephh] :
+ * DIPスイッチと入力の修正(M68000コードの検証による)
+ * コイン入力で"Coin A"と"Coin B"が正しく動作するように修正
+
+- ドキュメントに基づき、T2パルスのカウントモードでもVIA 6522が割り込みを発生する
+  よう更新。[Miodrag Milanovic]
+
+- flytiger: 色修正。[Roberto Zandona', Angelo Salese]
+
+-「Acorn Archimedes」「Aristocrat MK-5」「Erotictac」ドライバのタイマーとIRQクリ
+  アを修正。[Angelo Salese]
+
+- mikie, mikiej, mikiehs (mikie.c) [stephh] :
+ * DIPスイッチと入力の修正(M6809コードの検証による)
+
+- 6526 CIAを新型デバイスに更新。[Harmony]
+
+- M48T02、M48T35、M48T58、MK48T08を新型デバイスに更新。[Harmony]
+
+- 6255via: シフトモード5(T2制御でのシフトアウト)をサポート。[Miodrag Milanovic]
+
+- mrflea (mrflea.c) [stephh] :
+ * DIPスイッチと入力の修正(Z80コードの検証による)
+
+- ertictac / poizoneドライバで共有AAデバイスを使うようコンバート。
+  [Angelo Salese]
+
+- デバイスを新スタイルにコンバートするのに必要なコピーとペーストの数を最小にする
+  ためマクロセットを追加。[Harmony]
+
+- ACIA 6850を新型デバイスに更新。[Harmony]
+
+- PTM6840を新型デバイスに更新。[Harmony]
+
+- naomi.c: Namco MASK B-F2Xカートリッジについての情報を追加。[f205v]
+
+-「Erotictac / Poizone」のサウンドを改良。[Angelo Salese, Phil Bennett]
+
+- 型安全性を確保するため、MACHINE_DRIVERをトークンからコンストラクタ関数へ逆コン
+  バート。レガシーデバイスがまだインラインデータを使っている場合は、デバイスの型
+  はチェックされません。新型デバイスは汎用のm_inline_dataにはアクセスしなくなり
+  ましたが、その代わりに汎用のdevice_configを特定のdevice configにダウンキャスト
+  するdevice configクラス内の静的関数へのコールをマッピングしてから、適切な値を
+  設定します。コンストラクタのコードがこれ以上増えないように、これはインラインで
+  は行われません。使用例はeeprom/7474/i2cmem/okim6295を参照。[Aaron Giles]
+
+- i8237 DMAを新型デバイスに更新。[Harmony]
+
+- 8255 PPIを新型デバイスに更新。[Harmony]
+
+- Chihiro.cの改良:  [Samuele Zannoli]
+ * CPUアドレス空間のトップにあるBIOSのマッピングを修正
+ * RAMサイズを128MBに更新
+ * SMBus処理を追加でBIOSが動作可能
+ * PCIバス上のデバイス用にプレイスホルダを追加
+ * デバッガに"jamdis StartAddress,Length"コマンド追加。これはハードウェアの基本
+   的な初期化を行うためにBIOSが使用する"jam table"命令を逆アセンブリします
+
+- i8257 DMAを新型デバイスに更新。[Harmony]
+
+- Dallas DS1302 RTCを新型デバイスに更新。[Harmony]
+
+- pachifev (pachifev.c) [stephh] :
+ * DIPスイッチと入力の修正(TMS9995コードの検証による)
+
+- Dallas DS2404 RTCを新型デバイスに更新。[Harmony]
+
+- Fairchild F3853 SMIを新型デバイスに更新。[Harmony]
+
+- SNKのいろいろなデイバスをdriver_dataを使うように更新。[Atari Ace]
+
+- i8243 Port Expanderを新型デバイスに更新。[Harmony]
+
+- INS 8154 RAM I/Oデバイスを新型に更新。[Harmony]
+
+- PCIバスデバイスが実ハードのようにツリー型に構成されるよう更新。
+  [Samuele Zannoli]
+
+- m6800 - フラグレジスタのbit 7と6の初期ステートを修正(ドキュメントより)。
+  [Miodrag Milanovic]
+
+- [toaplan1] タイルマップのミックスを改良(rallybikとdemonwld)。outzoneとvimanaの
+  バグが修正。[Robert Zandona']
+
+-「Super Poker」のROMマッピングを修正。セルフテストをパスするため、e2 ROMの吸い
+  出し不良フラグを削除。[Mariusz Wojcieszek]
+
+- toaplan1: demonwldのカスタムなビデオアップデートを削除。toaplan1と同じになりま
+  した。[Robert Zandona']
+
+- K033906 PCIブリッジデバイスを新型に更新。[Harmony] 
+
+- K056230 LANCデバイスを新型デバイスに更新。[Harmony]
+
+- combatscb: オフセットとプライオリティを修正。[Roberto Zandona']
+
+- lethalen: k053244レジスタを実装。[Roberto Zandona']
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ライデンファイターズ (Asia?, Metrotainment license) [anondumper]
+Genie [Roberto Fresca, Ogoun]
+どきどきアイドル スターシーカー
+  [Hurray Banana, cacis, Team Japump, David Haywood, The Dumping Union]
+3 Bags Full - 5VXFC790 (Victorian) [Roberto Fresca, Ogoun]
+Cal Omega - Game 8.0 (Arcade Black Jack) [Roberto Fresca]
+Cal Omega - Game 24.0 (Gaming Draw Poker, hold) [Roberto Fresca]
+ファイヤートラップ (Japan) [stephh]
+ロイヤルカード (Nichibutsu) [Roberto Fresca, Tomasz Slanina, Ogoun]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+パイオニアバルーン (Rock-Ola license)
+  [gamerfan, Smitdogg, The Dumping Union]
+Legion (レジェンドの海賊版) [Team Europe]
+Eco Fighters / アルティミットエコロジー (Phoenix Edition)
+ナイツ・オブ・ザ・ラウンド - 円卓の騎士- (Japan 911127, B-Board 89625B-1)
+  [Layne, john666, Ricky74, ranger_lennier, Smitdogg, The Dumping Union]
+ザ・キング・オブ・ドラゴンズ (Japan 910805, B-Board 89625B-1)
+  [Kevin Eshbach, takearushfan, M. De Pasquale, Smitdogg, 
+   The Dumping Union]
+ストリートファイターII' -チャンピオンエディション- (World 920513)
+  [john666, Smitdogg, The Dumping Union]
+ウィロー (Japan, Japanese)
+  [Layne, john666, C. Trutmann, Smitdogg, The Dumping Union]
+イーアルカンフー (GX361 conversion) [Team Europe]
+Super Poker (Version 10.15S) [anondumper]
+
+
+
+追加された未動作ゲーム
+----------------------
+Olympic Hot Stuff [Ogoun]
+Cal Omega - Game 51.08 (CEI Video Poker, Jacks or Better)
+  [Roberto Fresca, Dave Ormiston]
+Savage Quest [TrevEB]

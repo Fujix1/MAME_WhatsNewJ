@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.73</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.73.txt</div>
+	<div class="main">
+<div class="wn">0.73
+
+　今回はうちのハードにトラブルがあって完全なリストではありません。スイマセン。
+
+ソース全般の変更：
+------------------
+
+- ST-Vエミュレーションが大幅に進みました。「花組対戦コラムス」がプレイ可能で、
+  他のゲームについてもグラフィックが表示され出しています。
+  [Angelo Salese, David Haywood]
+	src/drivers/stv.c
+	src/vidhrdw/stvvdp1.c
+	src/vidhrdw/stvvdp2.c
+
+- MegaPlayの作業継続中（まだどれも完全に動きませんが、BIOSメニューはパスするよ
+  うになりました）。[Barry Rodewald]
+	src/drivers/segac2.c
+
+- System GX改善。主に未動作のゲームについて。[R.Belmont]
+	src/drivers/konamigx.c
+	src/vidhrdw/konamigx.c
+
+-「熱血高校ドッジボール部 / Super Dodge Ball」のMCUシミュレーションの改善。 
+  [Acho A. Tang]
+	src/drivers/sdodgeb.c
+	src/vidhrdw/sdodgeb.c
+
+- MESSとコードのバージョンが合うように変更。[Nathan Woods]
+
+- コアに8人プレイサポートの追加。[Stefan Jokisch]
+
+
+新規サポートゲーム：
+--------------------
+
+サクラ大戦 花組対戦コラムス [Angelo Salese, David Haywood]
+	MAMEによる最初のST-Vゲームです。システム自体のエミュレーション度はまだ初
+	期段階なので、いろいろな問題があります。またサウンドはまだありません
+	src/drivers/stv.c
+	src/vidhrdw/stvvdp1.c
+	src/vidhrdw/stvvdp2.c
+
+ウルトラ警備隊 - 空想特撮ゲーム / Ultra X Weapons [Tomasz Slanina]
+	グラフィックのオフセットと配置との問題あり
+	src/drivers/ssv.c
+
+ツインイーグル II [Tomasz Slanina]
+	src/drivers/ssv.c
+	オブジェクトの移動方向についてのプロテクトのため動作しません。
+	またこのせいで当り判定も不正確です。オフセットの問題は別として、
+	これについて誰か修正もらえると幸いです
+
+Super Trivia Master [Pierpaolo Prazzoli]
+	色不正確
+	src/drivers/strvmstr.c
+
+Sprint 8 [Stefan Jokisch]
+	src/drivers/sprint8.c
+	src/vidhrdw/sprint8.c
+
+
+新規サポートクローン：
+----------------------
+
+レディーバグ (ギャラクシアン基板の海賊版) [Mike Coates]
+	input ports incomplete
+	src/drivers/galaxian.c
+	src/includes/galaxian.h
+	src/machine/scramble.c
+
+Video Pool (ムンクレ基板) (ビデオハスラーの海賊版) [Mike Coates]
+	dipswitches incomplete
+	src/drivers/galaxian.c
+
+
+
+0.72u2
+
+ソース全般の変更：
+------------------
+
+- Megaplayを少し改善。BIOS画面が出るようになったものの、ゲームはまだ動作しません。
+  [Barry Rodewald]
+	src/drivers/segac2.c
+	src/includes/segac2.h
+	src/vidhrdw/segac2.c
+
+- ST-Vの改善をいろいろ。「花組対戦コラムス」でタイトルが一部表示（まだ有効にして
+  いないので、確認したい場合は自分で有効にしてください）。[Angelo Salese]
+	src/drivers/stv.c
+
+- DCSのスピードアップを削除。
+	src/sndhrdw/dcs.c
+
+- 68000 CコアのSBCD命令のバグを修正。[Acho A/ Tang]
+	モトローラによると、SBCD、ABCD、NVCD命令後の負符号(N)とオーバーフロー(V)
+	フラグの状態は“不定”とのこと。CコアではVフラグをランダムに設定し、Nフ
+	ラグを符号付き命令のように設定します。
+
+	viofightではSBCD命令後にこの2つのフラグに対して行列的な結果を要求するた
+	め、そうでない場合はループにはまります。そこで、Vフラグはゼロを返し、Nフ
+	ラグはASMコアと同じ桁上げをするようにしました。
+	src/cpu/m68000/m68k_in.c
+
+-「Mustache Boy」のコンティニュー画面修正と、速度改善。[Tomasz Slanina]
+	src/drivers/mustache.c
+
+- Konami関係の修正。[Acho A. Tang]
+	tmnt.c:
+	- qgakumonのリセットと画面が暗くなる問題
+	- tmnt2のステートロード/セーブ(まだ不完全)
+	- ssridersの斜め移動時のぶれ(要テスト)
+
+	konamiic.c:
+	- 境界条件とK007420のバグ修正
+
+	rockrage.c:
+	- 不良スプライトの修正
+
+	kncljoe.c:
+	- スクロール、クリッピング、スプライトの修正
+
+- Fuuki製ゲームの改善(プライオリティとBG色)。[Paul Priest]
+	src/drivers/fuukifg2.c
+	src/vidhrdw/fuukifg2.c
+	src/drivers/fuukifg3.c
+	src/vidhrdw/fuukifg3.c
+
+- OP_ROM/OP_RAMのオーバーフロー対策。[Nathan Woods]
+	このパッチはOP_ROM/OP_RAMのオーバーフローを防ぐ機能を追加します。
+	OP_ROM/OP_RAMが使っている有効なアドレスの範囲を調べるための変数、
+	OP_MEM_MINとOP_MEM_MAXを新しく追加しています。
+
+	memory.hの条件付きコンパイルでこの機能を有効にします。3つのモードがあり
+	ます:
+
+	CPUREADOP_SAFETY_NONE    - そのままを維持。範囲チェックはしません
+	CPUREADOP_SAFETY_PARTIAL - 最大アドレスに対してのみ範囲チェックをします
+	CPUREADOP_SAFETY_FULL    - 最大・最小の両アドレスに対して範囲チェックを
+	                           します
+
+	このパッチでは、CPUREADOP_SAFETY_FULL設定時にMAME_DEBUGが定義されていな
+	ければ、MAMEがCPUREADOP_SAFETY_NONEを使うようになっているので、リリース
+	版のMAMEには影響はないはずです。
+	また、MAMEデバッガ使用時にバンクの境界に近いコードを安全に逆アセンブル出
+	来るようにすることは、非常に便利だと思われます。
+
+	なお、この機能を有効にすると、若干パフォーマンスが上がります。
+
+- DIPスイッチの修正:
+	「1941」、バンク3の一番目 [Fabrizio Pedrazzini]
+	src/drivers/cps1.c
+
+	「テトリスプラス2」(MS32版) [Sonikos]
+	src/drivers/ms32.c
+
+	その他、いくつか
+
+-「熱血高校ドッジボール部」で、別な日本版の海賊版のPROMを使うようにしました。
+  多分、色関係の問題が修正されるはずです。
+	src/drivers/nkdodgeb.c
+
+- MESSより8080コアのアップデートを取り込み。
+	src/cpu/i8085/*
+
+- Hyperstoneコアの初期版追加。まだ、何かを動作させるまでにはなってません。
+  [Pierpaolo Prazzoli]
+
+-「ドラゴンブレイズ」で正しいサウンドROM使用。
+	src/drivers/psikyosh.c
+
+
+新規サポートクローン：
+----------------------
+
+ハードダンク (World)
+	src/drivers/multi32.c
+
+Super Bike (DK Conversion) [Pierpaolo Prazzoli]
+	src/drivers/dkong.c
+
+CPSクローン数本 [Razoola]
+	src/drivers/cps2.c
+
+
+新規サポートゲーム：
+--------------------
+
+モグラデッセ (筐体テスト用) [David Haywood]
+	サウンド無し (ディスクリート)
+	src/drivers/mogura.c
+
+スピードアタック [Angelo Salese, Pierpaolo Prazzoli]
+	色不良
+	src/drivers/speedatk.c
+	src/vidhrdw/speedatk.c
+
+MegaTech用セット数本 (ほとんどはまだ動作せず)
+	src/drivers/segac2.c
+
+
+
+0.72u1
+
+ソース全般の変更：
+------------------
+
+- Fuuki 16-bitドライバのラスタエフェクト用にPartial Updateを使うように変更。
+  [David Haywood, Paul Priest]
+	src/drivers/fuukifg2.c
+	src/vidhrdw/fuukifg2.c
+
+- System 16ドライバで起きている問題（サウンドバンキングなど）の一時的な修正。
+  ドライバ自体はまだ書き換え作業中のため、これはそれが出来上がるまでのマイナー
+  な修正。[Acho A. Tang]
+	src/drivers/sysetm16.c
+	src/vidhrdw/system16.c
+	src/vidhrdw/sys16spr.c
+
+- ドライバ内でDIPスイッチの定義が無いものについては、メニュー内に表示しないよう
+  変更。[Paul Priest]
+	src/usrintrf.c
+
+- 変更いろいろ。[Nathan Woods]
+	src/cpu/jaguar/jaguar.c:
+	- NORMI命令のバグ修正
+
+	src/cpu/mips/mips.c:
+	- マクロ機能からGCC固有のVarArgを削除
+
+	src/sound/tms5220.c:
+	src/sound/tms5220.h:
+	- TMS0285のサポート追加（TMS5220の旧型の改良版）
+
+	src/vidhrdw/jagblit.c:
+	src/vidhrdw/jaguar.c:
+	- Jaguar BlitterにSRCSHADEとDSTA2コマンドビット追加
+	- いろいろなコードのログ取りを追加
+	- #includeパスを一か所変更（MacのProjectBuilderのため）
+
+	src/vidhrdw/jagobj.c:
+	- ピクセルあたり1～2ビットのオブジェクト用に、pitch != 1になる
+      オブジェクト追加
+
+	src/harddisk.c:
+	src/harddisk.h:
+	- インターフェース回復用関数追加
+
+	src/ui_text.c:
+	src/ui_text.h:
+	- MESS用のUI文字列追加（#ifdef MESS内）
+
+	src/usrintrf.c:
+	- setdipswitches()コールをパラメータ化。これにより、IPT_*の値を変えるこ
+	  とで、DIPスイッチのようなメニューが簡単に作成できます（MESSではDIPス
+	  イッチメニュー風の設定メニューが多く使われています）
+
+	src/artwork.c:
+	- アートワークシステムが有効なのにアートワークが無い場合、UIを描画できる
+	  ように修正（MAMEの問題ではありません）
+
+	src/mamedbg.c:
+	- set_ea_info()のクリーンアップと、8ビットまたは16ビットのネガティブ
+	  オフセットがその手前に無関係なFFをもたないように修正。
+	- スキャンライン表示で、表示ONのときにレジスタが編集できなくなっていたバ
+	  グ修正を改良。
+
+	src/cpu/hd6309/6309dasm.c:
+	- 無効な命令コードが逆アセンブルされたときのメッセージを改善
+
+	src/artwork.c
+	src/artwork.h
+	- クローン版のクラッシュを修正
+
+	src/inptport.c:
+	- MESS用のIPT default設定を追加（#ifdef MESS内）
+	- input_port_allocate()について、デフォルトコード用のJOYCODE_a_BUTTON_b
+	  を定義するPORT_BITXの宣言部がJOYCODE_MOUSE_a_BUTTON_bについても行える
+	  ように改良。
+
+	src/input.c:
+	src/input.h:
+	- seq_set4()とseq_set_5()を追加
+
+	src/windows/video.c:
+	- render_frame()について、game_is_pausedが設定されているときに、
+	  throttle_speed()も呼び出すように変更。これにより、ポーズ中にMAMEがルー
+	  プに入らなくなりました
+
+-「TMNT2」と「サンセットライダーズ」に残っていたプロテクト系の問題、及び「コン
+  バットスクール」トラックボール版のクラッシュ、「エスケープキッズ」のスプライト、
+  「出たな！ツインビー」のスプライト、いくつかのゲームでのスプライト表示ラグ修正。
+   [Acho A. Tang]
+	src/drivers/combatsc.c
+	src/vidhrdw/konamiic.c
+	src/vidhrdw/konamiic.h
+	src/palette.c
+	src/palette.h
+	src/drivers/tmnt.c
+	src/vidhrdw/tmnt.c
+
+- 改善、クリーンアップ、修正など。[Acho A. Tang]
+	src/drivers/aeroboto.c
+	src/vidhrdw/aeroboto.c
+	src/drivers/bwing.c
+	src/vidhrdw/bwing.c
+	src/drivers/equites.c
+	src/vidhrdw/equites.c
+	src/machine/equites.c
+	src/drivers/halleys.c
+	src/drivers/sgladiat.c
+	src/drivers/sidearms.c
+	src/vidhrdw/sidearms.c
+	src/vidhrdw/spdodgeb.c
+	src/drivers/wecleman.c
+	src/vidhrdw/wecleman.c
+	src/drivers/wiz.c
+
+-「WC90」トラックボール版の背景修正。[Angelo Salese]
+	src/drivers/wc90.c
+	src/vidhrdw/wc90.c
+	
+-「Super Doubles Tennis」のサウンド修正。[Pierpaolo Prazzoli]
+	src/drivers/btime.c
+
+
+新規サポートゲーム：
+--------------------
+
+アシュラブレード [Paul Priest]
+	サウンド無し、プライオリティの問題あり
+	src/drivers/fuukifg3.c
+	src/vidhrdw/fuukifg3.c
+
+ガイアクルセイダーズ [Paul Priest]
+	src/drivers/cave.c
+
+Street Heat [Dave Widel]
+	src/drivers/dkong.c
+
+
+新規サポートクローン：
+----------------------
+
+8 Ball Action (DkJr Kit) [Pierpaolo Prazzoli]
+	src/drivers/dkong.c
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

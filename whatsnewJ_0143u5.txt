@@ -1,0 +1,137 @@
+0.143u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02700: [速度] pocketrc: ゲーム動作が速すぎる。BGMは正常。(hap)
+- 04477: [ドキュメント] naomi: 0.143u4で新しく追加したBIOSファイルのうち2つは既存ファ
+         イルとチェックサムが同じ。おかげでCLRMAMEの動作がおかしくなる。(Tafoid)
+- 04475: [グラフィック] quizmeku: 文字が表示されない。(M.A.S.H.)
+- 03641: [グラフィック] sspirits, gground: MAMEの速度が100%でフレームスキップが0でも
+         ゲームのフレームレートが半分になっている。(M.A.S.H.)
+- 03195: [ゲームプレイ] crkdown: ゲーム中にゴミ表示とスピード低下が起こる。(M.A.S.H.)
+- 00961: [サウンド] raidena: 音楽のチャンネルの中に、しばらくするとずれ出すものがある。
+         例えば、1面の真ん中あたりなど。親版のraidenでは起きない。(Kold666)
+- 04397: [HLSL] hlslのiniファイルがあると、起動時にフリーズする。(MooglyGuy)
+
+
+ソースの変更点
+--------------
+
+-「トップランディング」のダブルバッファ実装と3Dの色修正。[Angelo Salese]
+
+- naomi.c: 日本版Rev"A"BIOS、韓国版オリジナルBIOS、韓国版Rev"D"BIOS追加。
+  [gamerfan, Smitdogg, BrianT, The Dumping Union]
+
+- armedf.c:「テラフォース」(Japan)のスプライトROMを確認。[ShouTime]
+
+- dday.c:「D-Day」セットにDIP配置追加。[Corrado Tomaselli, Brian Troha]
+
+- m68k: MC68340(CPU32)の試験的サポート。また、C++化を容易にするための再構成。
+  [David Haywood]
+
+- m68k: 68340用の命令テーブルを使用。cpXXX命令については020/030のみ。040にCINV、CPUSH
+  命令を追加。[R. Belmont]
+
+- raiden2のROM組み合わせについてコメント追加、不明PALの未吸い出しマーク付け、一部セッ
+  トのIC配置を修正。[Lord Nightmare, Hammad, EdCosta]
+
+- HLSLの修正: [Ryan Holtz, Bat Country Entertainment]
+ * 新フラグ、-hlsl_ini_writeと-hlsl_ini_readを作成。前者はHLSL INIの書き込みを明示的
+   に有効にする。後者は同様に読み込みを有効にするもの
+ * カスタムINIファイル使用時に、絞り効果がなくなっていたのを修正
+ * 一部のゲームで斜めの継ぎ目が出るのを修正
+ * 蛍光シミュレーションが期待通りに動作するよう修正
+
+- model3.c:「スパイクアウトFE」の再吸い出し。ROMの確認とテストをしてくれたPhil 
+  Bennett氏とBart Trzynadlowski氏に感謝。[Dr. Spankenstein, wild eyed, Paratech, 
+  Layne, Lord Flux, atchoo, cbt, gatt9, tormod, BrianT, The Dumping Union]
+
+- ROMチェックで、サンプルが必要なゲームにだけサンプルチェック結果を出すように修正。
+  [Fabio Priuli]
+
+- -verifysamplesを使うとsegfaultが出るのを修正。[Fabio Priuli]
+
+- floppy: 少し改良。名称、詳細などをコンバータの固有プロパティ化。[O. Galibert]
+
+- Stern Whitestarの旧リビジョンを追加。[Miodrag Milanovic]
+
+-「エアインフェルノ」で、3Dの点について投影変換をテスト。
+  [Angelo Salese, Andrew Gardner]
+
+- es5503: モダンデバイス化。IRQタイミングの改良。[R. Belmont]
+
+- C352: 長さゼロのサンプルを再生しないように変更。[Phil Bennett]
+
+- M377xxの改良
+ * PULのリストア時モードビットを考慮 [hap, R. Belmont]
+ * PSH/PULのサイクルカウント処理を訂正 [R. Belmont]
+ * 乗除とゼロで割ったときの割り込みフラグを修正 [hap]
+ * ブレークポイントがバンク0外でも動作するように、デバッガフックにプログラムバンクを
+   渡すよう変更 [R. Belmont]
+ * 内部機器用の割り込みフラグ修正。バンク0以外を動作中のBBC/BBSを修正 [R. Belmont]
+ * その他割り込みタイミングとプライオリティの修正 [hap]
+
+- whitestar: モダン化、サウンドシステム追加。メインCPU部は未作業。[R. Belmont]
+
+- floppy: 新型のMFI(MESSフロッピーイメージ)をサポート。[O. Galibert]
+
+- mfi: smf氏の協力でフォーマットを修正。[O. Galibert]
+
+- amigafdc: モダン化。ただしまだ変更はなし。[O. Galibert]
+
+- floppy: 磁気セルを使用する内部フォーマットを変更。一時的に、amiga fdcのフルトラック
+  PLLビットエクストラクトを移動。[O. Galibert]
+
+- st_dsk: STフォーマットを追加。[O. Galibert]
+
+- tempest.c: ROMラベルの訂正。「テンペスト」rev 3用の改良型ハードウェアについてドキュ
+  メント追加。「テンペスト」のDIP配置追加。[Brian Troha]
+
+- globalfr: メモリマップをさらに記入。[R. Belmont]
+
+- Neo-GeoのゲームROMについてさらに作業: [Johnboy]
+ * カートリッジと使用基板についてさらにドキュメント化
+ * .bit拡張子をさらに削除
+ * pulstarに正しいv1を追加
+ * オリジナルのpgoalカートリッジを元にレイアウト修正
+
+- quizdaiskに再吸い出ししたc1/c2、v1を追加。[DsNo]
+
+- Chihiroエミュレーションの変更と改良: [Samuele Zannoli]
+ * IDEデバイス(idectrl.c)で、ハードディスクではなく別なハードウェアが接続されている
+   ケースをサポート
+ * PCデバイス、8259 pic、8253 pit、IDEコントローラの追加
+ * サブコマンド"jamdis"、"dump_string"、"dump_process"、"dump_list"、"help"に合わせて
+   "chihiro"コマンド追加
+ * smbusコントローラの更新。pic16lc、cx25871、eeprom smbusデバイスのスタブ追加
+ * 新規追加デバイス用にメモリマップを更新
+ * そのほかの領域サイズを修正
+ * smbus eeproの未吸い出し部にハック追加
+
+- gigaman2のグラフィックをデコード。[iq_132]
+
+- ppanのサウンド実装とレイヤーオフセットの修正。[iq_132]
+
+- speedspnのキャラクタ選択画面での表示不具合を修正。[iq_132]
+
+- cninjablのレイヤーイネーブルを修正し、動作可能。[iq_132]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+リッジレーサー2
+Free Kick [Charles MacDonald, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+1943 ミッドウェイ海戦 (Japan, Rev B) [Foul]
+ラッドラリー (Japan) [Arcadecomponents.com]
+ザ・キング・オブ・ファイターズ'97 (Korean release) [DsNo]
+
+
+追加された未動作ゲーム
+----------------------
+ファイティング武術＜ウーシュ＞ [Ville Linde, R. Belmont]

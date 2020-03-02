@@ -1,0 +1,109 @@
+0.111u3
+-------
+
+OSD移植者はOSDのコアルーチンへの変更点に注意してください。
+
+
+
+ソースの変更点
+--------------
+- tubepドライバにセーブステート追加。[Svante Gerhard]
+
+- steppersモジュールにセーブステート追加。[James Wallace]
+
+- SN76477インターフェースの残りの入力ピンを追加。ピンの値が定数の場合は、初期化
+  時に関数を呼び出す必要はなく、構造体で定義できるようになりました。76477を使用
+  する全てのドライバを更新しています。[Zsolt Vasvari]
+
+- ファイルI/O関数についてosdepend.hのものを優先させ、osd_tool.hからは削除。
+  openコマンドに新フラグOSD_FLAG_CREATE_PATHSを追加。[Nathan Woods]
+
+- OKIM6295のピン7ステート(内部分周器)を内部ストラクチャに移動。インターフェース 
+  設定時にピンステートを指定する全ドライバを更新。また、オリジナルの周波数が
+  /132か/165ではないとき、実際のピンステートは不明であるとコメント追加。
+  [David Haywood]
+
+- TokiドライバでDIPスイッチのビジュアル表示を追加。[Brian Oberholtzer]
+
+- wheelfirドライバのスプライト水平反転追加と、不要なハックを削除。
+  [Tomasz Slanina]
+
+- Unicodeサポートでの問題を修正。[Nathan Woods]
+
+- uimenu.cで、DIPスイッチバンク内に未使用のものがあっても表示するように変更。
+  該当するスイッチはグレイアウトして表示します。[Zsolt Vasvari]
+
+- Amigaのアップデート: [Ernesto Corvi]
+ - ラインモードのblitter修正
+ - Copperが奇数のメモリバスサイクル動作するように修正
+ - 表示データのフェッチがWordに揃っていないときの画面遅延オフセットを修正
+
+- チート検索修正。[stephh]
+
+- CPS2のCHDを復号化機能初期版と置き換え。[Andreas Naive, Nicola Salmoria]
+
+- バンクがauto_malloc()で割り当てられているメモリだけにセットされているかをチェッ
+  クするコードを追加。[Nathan Woods]
+
+- MESS用に入力ポートのトークン化を更新。DIPスイッチとは別の設定系スイッチのサポー
+  トをMAMEに追加。pacman.cでスピードアップオプションの設定をするように改良してい
+  ます。[Nathan Woods, Aaron Giles]
+
+- taito_lドライバの無効な配列アクセスを修正。[Atari Ace]
+
+- コンパイラの互換性についてのマイナーな調整。[Atari Ace]
+
+- u2での入力ポートとUnicodeの変更に伴う不具合とクラッシュを修正。[Aaron Giles]
+
+- コアOSD関数の定義をosdcore.hに分離。より広範囲なドキュメントを追加。
+  [Aaron Giles]
+
+- 新ライブラリosdcoreを作成。これはビルドされ各実行ファイルにリンクされます。
+  想定される全てのコンポーネント定義を、新しいヘッダファイルosdcore.hに移動しま
+  した。また全てにきちんとしたドキュメント追加。osd_tool.cは削除して、機能的に必
+  要な部分をosdcoreに移動しました。[Aaron Giles]
+
+- osdcoreの新インターフェースセットを定義。これはサブスレッドで実行する可能性が
+  ある、待ち行列アイテム用の抽象インターフェイスを生成し、Windows版ではこれらの
+  ルーチンを実装しましたが、まだテストはしていません。[Aaron Giles]
+
+- Windows OSDコアルーチンを以下の独立したファイルに分割:
+  windir.c  - ディレクトリ関係のコアOSD関数
+  winfile.c - ファイル関係のコアOSD関数
+  winmisc.c - その他のコアOSD関数
+  winsync.c - 同期関係のコアOSD関数
+  wintime.c - タイミング関係のコアOSD関数
+  winwork.c - スレッディング関係のコアOSD関数
+  [Aaron Giles]
+
+- 全てのOSDコアルーチンの最小限の実装に使用するosdminiディレクトリを新しく作成。
+  新規の移植作業のスタートポイントや、作業中の機能などに使用します。
+  [Aaron Giles]
+
+- chdmanのクリーンアップ。動作のノーマライズとエラーレポートの改良。
+  [Aaron Giles]
+
+- レーザーディスクエミュレーションについて、ディスクのエンコード方法、将来的な保
+  存方法をより完全な形で理解した上で、さらにアップデート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Thunder Heroes [Guru]
+
+
+
+新規クローンセット
+------------------
+だるま道場 (Korea) [Guru, David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Cobra Command [Andrew Gardner]
+ギャルズパニックII - クイズバージョン (Japan) [Guru, David Haywood]
+ギャルズパニックII' - スペシャルエディション (Japan) [Guru, David Haywood]
+Monster Zero [Pierpaolo Prazzoli]
+Unknown SemiCom Quiz [Guru, David Haywood]

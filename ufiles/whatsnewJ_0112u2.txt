@@ -1,0 +1,133 @@
+0.112u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+analog0112u1gra [Derrick Renaud]
+UItext0112u1yel [Aaron Giles]
+layout0112u1gre [Aaron Giles]
+pinbo0112u1gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- cidelsaドライバの改良: [Curt Coder]
+ - ステートマシンとしてCDP1802 CPUエミュレーションを書き直し
+ -「Draco」のDIPスイッチと入力修正
+ -「Destroyer」「Draco」にNVRAM追加（「Altair」には基板上にバッテリ無し）
+ - クロックを修正
+
+- spcenctrの宇宙船コントロールのマッピングを修正。[Canim]
+
+- プロジェクト全体で不要なヘッダファイルのインクルードを削除。[Atari Ace]
+
+- Namco 54xxの効果音にディスクリートフィルタ追加。また52xxの効果音にも将来の変更
+  に備えてフィルタを実装。[Derrick Renaud]
+
+- 出力システムでポーズのサポート: [Bob Seidel]
+ - MAMEがポーズしているが、クライアントからわかるようにOutputシステム経由で
+  "pause"のメッセージ送信を追加
+ - アイテムが最初に作成されたとき、そのステートを送るように変更
+ - ledutilでポーズステートを使うように更新
+
+- MillipedeドライバにカクテルモードとDIP配置追加。[Mike Haaland]
+
+- CPUS2キーをさらに追加で、全てのXORとそのサポートを削除。
+  [Nicola Salmoria, Andreas Naive]
+
+- ar_xeonドライバのスプライトがおかしくなっていたのを修正。[Ernesto Corvi]
+
+- Kanekoドライバの改良:
+ - bloodwar: [Gary Walkling, Sebastien Volpe]
+    * プロテクトデータの取り出し。まだ検証が必要
+    * 実機でのテストを元に当たり判定のシミュレート
+ - bonkadv: [Guru, Sebastien Volpe]
+    * プロテクトデータの完全検証: 2面と3面のタイルマップ色を修正
+    * MCUコマンド43を正しく実装
+
+- 680x0チップのMOVEC命令の動作を修正。逆アセンブラでも同様。[Ernesto Corvi]
+
+-「獣王記」セット2のサウンドROMを正しく指定。[Brian Troha]
+
+- FD1094キー2つでビット不良を修正。[Aaron Giles]
+
+- デバッガのバグで、アドレスシフトにより間違ったエンドオフセットが起きていたのを
+  修正。[Ville Linde]
+
+- コアユーティリティライブラリのコア機能の追加部分を移動。[Nathan Woods]
+
+- porkyにサウンド追加。[Tomasz Slanina]
+
+- フォントの拡大縮小を再度変更。24ピクセル以上の高さがあるものは古い方法でスケー
+  リングします。それより小さいものは、全体からのスケールファクタを使い、新しい方
+  法で調整します。[Aaron Giles]
+
+- FD1094のデコード段を少し最適化。[Aaron Giles]
+
+- 新モジュールをユーティリティライブラリlibutilに追加。一つは汎用のハフマンエン
+  コーディングモジュール。二つ目は、プラットフォームからは独立した形式でAVI
+  ファイルをリード・ライトするためのモジュール。三つ目は、ロスレスのA/V圧縮
+  モジュール。これら三つのモジュールにともない、圧縮オーディオとビデオのCHDを作
+  成できるように、CHDコードも変更しています。[Aaron Giles]
+
+- chdmanに新コマンド2つ追加: -createavはAVIファイルを未圧縮YUYフォーマットか、
+  HuffYUV圧縮のYUYフォーマットにコンバート。-extractavは圧縮オーディオとビデオを
+  含むCHDを未圧縮のYUYフォーマットのAVIファイルにコンバートします。[Aaron Giles]
+
+- 新オーディオ・ビデオ圧縮にレーザーディスクサポートの実装を完了。今のところは、
+  レーザーディスクデータのきちんとしたCHDはまだありません。ただし、これらが登場
+  すればサポートする体制は整いました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Altair [Curt Coder]
+Draco [Curt Coder]
+Wyvern Wings [Pierpaolo Prazzoli]
+長江 [Guru]
+アシュラバスター - エターナルウォリアーズ (Japan) [David Haywood, Guru]
+Blood Warrior / 大江戸ファイト [Sebastien Volpe]
+Deal 'Em (MPU4 Conversion Kit) [James Wallace]
+雀國志 - 覇王の采配 (Japan) [Guru]
+Dynamite Bomber (Korea) (Rev 1.5) [Guru, Pierpaolo Prazzoli]
+Search Eye 2 Plus V2.0 [Guru, David Haywood]
+
+
+
+新規クローンセット
+------------------
+ダンジョンズ＆ドラゴンズ - タワーオブドゥーム (Asia 940113) [Nicola Salmoria]
+エックスメン - チルドレンオブジアトム (Hispanic 950331) [Nicola Salmoria]
+Armored Warriors (Asia 940920) / パワードギア [Nicola Salmoria]
+ストリートファイターZERO (4セット) [Nicola Salmoria]
+ダンジョンズ＆ドラゴンズ - シャドーオーバーミスタラ (Brazil 960223) [Nicola]
+Mega Man 2: The Power Fighters (Asia 960708) / ロックマン2 [Nicola Salmoria]
+ストリートファイターZERO 2 (6セット) [Nicola Salmoria]
+エックスメンVSストリートファイター (7セット) [Nicola Salmoria]
+バトルサーキット (Asia 970319) [Nicola Salmoria]
+マーヴルスーパーヒーローズ VS ストリートファイター (2セット) [Nicola Salmoria]
+Super Gem Fighter: Mini Mix (Hispanic 970904) / スーパーパズルファイター [Nicola Salmoria]
+ハイパーストリートファイター2 (Japan 031222) [Nicola Salmoria]
+ギガウイング (Asia 990222) [Nicola Salmoria]
+1944 - ザループマスター (Japan 000620) [Nicola Salmoria]
+Progear (Asia 010117) / プロギアの嵐 [Nicola Salmoria]
+X-Men (4 Players ver JBA) [Brian Troha]
+餓狼 - Mark of the Wolves (海賊版) [David Haywood, JohnBoy]
+Puzzle Bang Bang (version 2.8 / 990106) [Guru]
+宇宙戦艦ゴモラ [Guru]
+
+
+
+追加された未動作ゲーム
+----------------------
+Candy Puzzle [David Haywood]
+Harem Challenge [David Haywood]
+Laser Quiz [David Haywood]
+Laser Quiz '2' Italy [David Haywood]
+Magic Premium [David Haywood]
+Laser Stixx [David Haywood]
+恋来 [David Haywood]
+スキーチャンプ [R. Belmont]

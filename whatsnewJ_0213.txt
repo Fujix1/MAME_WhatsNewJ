@@ -1,0 +1,616 @@
+0.213 2019-09-04
+----------
+
+MAMETestersの修正バグ
+---------------------
+- 07388: [グラフィック] (sms.cpp) smsj: グラフィックが表示されない。(hap)
+- 07401: [グラフィック] (nemesis.cpp) salamand and clones: スプライトがランダムにちらつく。(hap)
+- 07400: [インターフェイス] クリック可能なアートワークでダミー入力リスナが無視される。(hap)
+- 07398: [クラッシュ/フリーズ] (goldstar.cpp) mbs2euro: エミュレーション開始時に例外発生。(AJR)
+- 07379: [インターフェイス] アートワークのautoboundsで、originが0以上だと動作しない。(cuavas)
+- 07396: [DIP/入力] (tmnt.cpp) tmnt24pu: スタートボタンが動作しない。(Tafoid)
+- 07382: [デバッガ] セーブすると固まってメモリリークする。(hap)
+- 00148: [サウンド] (mappy.cpp) todruaga: 最初のクレジット音が鳴らない。2つ目以降は大丈夫。(Angelo Salese)
+
+
+新規動作可能マシン
+------------------
+The Destroyer From Jail (Korea) [system11, Angelo Salese, The Dumping Union]
+DVW Microelectronics Husky [Nigel Barnes, Phill Harvey-Smith]
+ゲーム＆ウォッチh: マリオズ ボンアウェイ [algestam, Mr. Do]
+Hegener + Glaser Mephisto [hap, Berger]
+Hegener + Glaser Mephisto II [hap, Berger]
+Hegener + Glaser Mephisto III [hap, Berger]
+Hegener + Glaser Mephisto Mirage [hap, Berger]
+Hegener + Glaser Mephisto MM I (ver. A) [hap, Berger]
+Hegener + Glaser Mephisto Mondial 68000XL [Sandro Ronco, Berger]
+Potten's Poker stealth with Breakout front game [Roberto Fresca, Grull Osgo, Pako Ortiz, Rockman, Recreativas.org]
+SciSys Superstar 28K [hap, Berger]
+
+
+新規動作可能クローン
+--------------------
+Block Out (Europe and Oceania) [ClawGrip, Recreativas.org]
+戦場の狼 / Commando (bootleg set 3) [Guru]
+クレイジーコングパートII (bootleg) [Corrado Tomaselli, The Dumping Union]
+Elektronika Space Bridge [algestam, Ryan Holtz]
+Exidy Inc Sorcerer (with Digitrio fdc) [Robbbert]
+Exidy Inc Sorcerer (with Dreamdisk fdc) [Robbbert]
+Hegener + Glaser Mephisto Amsterdam (Glasgow hardware) [Berger]
+Hegener + Glaser Mephisto Dallas 68000 (Glasgow hardware) [Berger]
+Hegener + Glaser Mephisto MM I (ver. B) [Achim]
+Joker Card (witch game) [Roberto Fresca, TeamEurope]
+Lady Liner (set 2) [Roberto Fresca, TeamEurope]
+New Lucky 8 Lines (set 8, W-4) [Roberto Fresca, TeamEurope]
+New Lucky 8 Lines (set 9, W-4, Eagle, licensed by Wing) [Roberto Fresca, TeamEurope]
+New Lucky 8 Lines Super Turbo (Hack) [Roberto Fresca, TeamEurope]
+Player's Edge Plus (X000057P+XP000038) Deuces Wild Poker (MGM Grand Casino) [Brian Troha]
+パンクショット (World 2 Players) [frsj8112]
+Richard Lang Mephisto London 16 Bit [Berger]
+ストリートファイターII' -チャンピオンエディション- (RE, bootleg) [ClawGrip, hammy]
+スーパー上海 ドラゴンズアイ (Korea) [TeamEurope, Brian Troha, The Dumping Union]
+Victor 5 [Roberto Fresca, TeamEurope]
+
+
+動作可能に昇格したマシン
+------------------------
+バーディートライ (Japan revision 2) [Dirk Best, TeamEurope, Ivan Vangelista]
+Casino Poker (Ver PM88-01-21, German) [Roberto Fresca, TeamEurope]
+Dulmont Magnum [Carl]
+Hasbro Dream Life (Version 1.0, Feb 07 2005) [Sean Riddle, David Haywood]
+Mindset Corporation Mindset Personal Computer [O. Galibert, Al Kossow]
+SciSys / Novag Chess Champion: Super System III [hap, Berger, MikeChess]
+SDガンダム三国志 レインボー大陸戦記 (Japan) [Angelo Salese]
+Tatung Einstein 256 [Nigel Barnes, jltursan]
+
+
+動作可能に昇格したクローン
+--------------------------
+SDガンダム三国志 レインボー大陸戦記 (Korea) [Angelo Salese]
+SWTPC swtpc S/09 Sbug + piaide [68bit]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Bonus Poker (Atronic) [Priit Laes]
+Bubble Torneo [TeamEurope]
+Colex VME-80186 [Al Kossow, Bitsavers]
+Digitek Micrologic 20 [ClawGrip, Dirk Best]
+Estron Juku E5101 [Dirk Best]
+Husky Computers Ltd Husky Hawk [Nigel Barnes, Phill Harvey-Smith]
+I C Money (Atronic) [Priit Laes]
+Microdar SPD [jordigahan, ClawGrip]
+Miss Americana (Bingo) [IPDB]
+Rock 'n' Roll [jordigahan, ClawGrip]
+SNES 4 Slot arcade switcher [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union, system11, Dirk Best]
+Wanted (Sega) [Jamesv833, SeanC]
+Wild Thing (Atronic) [Priit Laes]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Cyclopes (11/85) [IPDB, PinMame]
+Fish Tales (P-2) [IPDB, PinMame]
+Flash Gordon (French Vocalizer sound) [IPDB, PinMame]
+Husky Computers Ltd Husky Hunter [Nigel Barnes, Phill Harvey-Smith]
+Husky Computers Ltd Husky Hunter 2/16 [Phill Harvey-Smith]
+Lady Liner (encrypted, set 1) [TeamEurope, Roberto Fresca]
+Lady Liner (encrypted, set 2) [TeamEurope, Roberto Fresca]
+Lady Liner (encrypted, set 3) [TeamEurope, Roberto Fresca]
+Lady Liner (encrypted, set 4) [TeamEurope, Roberto Fresca]
+Lady Luck (Bellfruit) (Adder 5) [TeamEurope, jordigahan, ClawGrip]
+Lovely Cards (encrypted) [TeamEurope, Roberto Fresca]
+Magic Export (V.211A) [TeamEurope]
+ニューラッキーエイトライン (set 10, W-4, encrypted NEC D315-5136) [Roberto Fresca, Grull Osgo, TeamEurope]
+New Lucky 8 Lines Crown Turbo (Hack) [Roberto Fresca, TeamEurope]
+Police Force (LG-4) Germany [IPDB, PinMame]
+Power Instinct (USA, bootleg set 3) [hammy, The Dumping Union]
+Robocop (2.9) [IPDB, PinMame]
+スターウォーズ (US) [coolmod, Mike Moffitt, Phil Bennett]
+タイガーヘリ (bootleg set 4) [Sean Riddle, Brian Troha, The Dumping Union]
+El Trebol de la Suerte (Bellfruit) (Adder 5) [TeamEurope, jordigahan, ClawGrip]
+WWFロイヤルランブル (1.03 French) [IPDB, PinMAME]
+Yamaha MU100B [Alexander Troosh, R. Belmont]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_flop_clcracked:
+  The Addition Facts (cleanly cracked), Algebra Volume 3 (Version 1.0, 10 June 1982) (cleanly cracked), BackAid (cleanly cracked),
+  Beyond Castle Wolfenstein (Version 07/12/84) (cleanly cracked), BIG & little (cleanly cracked),
+  A Bird's Eye View of The Main Idea (cleanly cracked), Calendar Fun with the Lollipop Dragon (cleanly cracked),
+  Castle Wolfenstein (Version 06/19/84) (cleanly cracked), Dinosaur Days Plus (cleanly cracked),
+  The Division Facts (cleanly cracked), Dr. Ruth's Computer Game of Good Sex (cleanly cracked),
+  Draw Your Own Conclusions (cleanly cracked), Flashcards (cleanly cracked),
+  Flights Into Fiction: Classic Stories (cleanly cracked), Flights Into Fiction: Fairy Tales (cleanly cracked),
+  Focus on Physical Science: Chapter Review (Version 1.1) (cleanly cracked), Grid Designer (cleanly cracked),
+  Hinky Pinky (cleanly cracked), The Human Body: Circulation and Respiration (cleanly cracked),
+  KidWriter (German Level I, II) (cleanly cracked), Mission: Asteroid (cleanly cracked), The Multiplication Facts (cleanly cracked),
+  Muppet Slate (Version 1.01) (cleanly cracked), New Kid on the Block (Version 02.09.89) (cleanly cracked),
+  A Newbery Adventure: Charlotte's Web (cleanly cracked), NLP Tools Vol. 1 (Version 1.1) (cleanly cracked),
+  Phi Beta Filer (cleanly cracked), Poetry Express (cleanly cracked), Practicalc II XC (Version 2.00) (cleanly cracked),
+  Punctuation Put-On (cleanly cracked), Un Repas Francais (cleanly cracked), Roots/Affixes 1 (Version 09.14.87) (cleanly cracked),
+  The Subtraction Facts (cleanly cracked), Theorems and Proofs of Theorems (cleanly cracked), Troll Sports Math (cleanly cracked),
+  Verb Usage 3 (Version 01.31.89) (cleanly cracked), Wally's Word Works (cleanly cracked), What's The Big Detail (cleanly cracked),
+  Work Force II (Version 2.10) (cleanly cracked), Writer's Choice (Version 1.0) (cleanly cracked),
+  Zandar The Wizard (cleanly cracked), Zork I Demo (Catch A Butterfly) (cleanly cracked) [4am, Firehawke]
+  Chipwits [LoGo, Firehawke]
+apple2_flop_misc: Star Trek: The Kobayashi Alternative (Version 4.0) [anonymous]
+apple2_flop_orig:
+  Alge-Blaster Plus! (Version 1.0), The Ancient Art of War at Sea, Arcticfox, Battle Chess, Beach-Head, Beyond Castle Wolfenstein,
+  Black Magic, Castle Wolfenstein (1981 Version), Castle Wolfenstein (Version 06/19/84), Chipwits, Cranston Manor,
+  David's Midnight Magic, Escape (Bantam Publishing), Essex, Injured Engine, King's Quest, King's Quest II, King's Quest III,
+  King's Quest IV, Labyrinth: The Computer Game (Lucasfilm Games), Mabel's Mansion, Mindshadow, Mission: Asteroid, Moptown,
+  Puzzle Tanks, Race For Midnight, Return of Heracles, Sir Isaac Newton's Games, Soko-Ban,
+  Space Quest II: Vohaul's Revenge (Version 2.0A, interpreter 0.089), Times of Lore, Tip 'N Flip, Wizardry V: Heart of the Maelstrom
+  [4am, Firehawke]
+coco_flop:
+  512K CoCo 3 Memory Test, CoCo Max II (Input Selector Modified), CoCo Max II (Version 51016), CoCo Max III (Version 3.0),
+  CoCo Max III (Version 3.1), CoCo Newsroom, DeskMate (Version 1.00.00), DeskMate 3 (Version 1.00.00), Disk EDTASM,
+  Micro Works 16-Level Picture Display Utility, The Newspaper, Pitfall II: Lost Caverns, Telewriter-64
+  [TRS-80 Color Computer Archive]
+hp_ipc:
+  Demo Disc, HP-UX Communications & Maintenance A (VI), HP-UX Communications & Maintenance B (VII), HP-UX Documentation (X),
+  HP-UX Miscellaneous Tools (IX), HP-UX Nucleus (VIII), HP-UX Programmers Tools (I), HP-UX Software Development (II),
+  HP-UX Software Development (III), HP-UX Writers Tools A (IV), HP-UX Writers Tools B (V), RCS (Revision Control System),
+  Software Engineering Module - C Development Supplement (IV),
+  Software Engineering Module - Communication and Maintenance Tools (II),
+  Software Engineering Module - Programmers's and Miscellaneous Tools (I),
+  Software Engineering Module - Section 1 & 1m Documentation (V),
+  Software Engineering Module - Sections 2, 3, 4 and l Documentation (VI), Software Engineering Module - Writer's Tools (III),
+  System Disc Release 5.0.2 [shattered]
+ibm5150:
+  Chuck Yeager's Advanced Flight Trainer (3.5"), Chuck Yeager's Advanced Flight Trainer (5.25", French),
+  Empire - Wargame of the Century, Loom (5.25"), Lunar Explorer - A Space Flight Simulator, Mean 18, Mines of Titan,
+  Olivetti Prodest PC1 - Per Cominciare, Olivetti Prodest PC1 Games Collection 7, Olivetti Prodest PC1 MS-DOS 3.20 (Spanish),
+  Olivetti Prodest PC1 MS-DOS 3.20 / GW BASIC / Lode Runner, Olivetti Prodest PC1 coverdisk (1987 No. 1),
+  Olivetti Prodest PC1 coverdisk (1989 No. 1, Jan/Feb), Olivetti Prodest PC1 coverdisk (1989 No. 2, Apr/May),
+  Olivetti Prodest PC1 coverdisk (1989 No. 4, Aug/Sep), Olivetti Prodest PC1 coverdisk (1989 No. 5, Nov/Dec), P.H.M. Pegasus,
+  Pitstop II (3.5") [Justin Kerk]
+ibm5170:
+  Novell DOS 7 (3.5"), Novell DOS 7 (5.25"), Novell DR Multiuser DOS Release 5.1, blueflops-2.0.10, blueflops-2.0.11,
+  blueflops-2.0.12, blueflops-2.0.13, blueflops-2.0.14, blueflops-2.0.15, blueflops-2.0.2, blueflops-2.0.3, blueflops-2.0.4,
+  blueflops-2.0.5, blueflops-2.0.6, blueflops-2.0.7, blueflops-2.0.9 [Justin Kerk]
+juku: CP/M 2.2 [Bashkiria-2M, Dirk Best]
+mephisto_mm1: Mephisto HG 170 Opening Library [Achim]
+mindset_flop: Vyper [Al Kossow]
+pentagon_cass: Old Tower
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+smc777: Yakyuu-Kyou [TurboMajikon]
+specpls3_flop: Redshift
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+spectrum_betadisc_flop:
+  DreamWalker: Alter Ego 2 (Pentagon), Gravibots, Lirus, Log Cabin Dizzy (v1.04, English), Log Cabin Dizzy (v1.04, Russian),
+  Mighty Final Fight (v1.0), Mighty Final Fight (v1.1), Mighty Final Fight (v1.2), Mighty Final Fight (v1.2, Wally music hack),
+  MultiDude (Pengaton), Redshift, Sector: Invasion, Twinlight
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+spectrum_cass:
+  Aahku al Rescate (set 1), Aahku al Rescate (set 2), Aahku al Rescate (set 3, beta 01, April 2011),
+  The Adventures Of Jane Jelly - The Egg Diamond (set 1),
+  The Adventures Of Jane Jelly - The Egg Diamond (set 2, turbo loader, with trainer),
+  The Adventures Of Jane Jelly - The Treasure Of Hotmarmalade (set 1, Bumfun),
+  The Adventures Of Jane Jelly - The Treasure Of Hotmarmalade (set 2),
+  The Adventures Of Jane Jelly - The Treasure Of Hotmarmalade (set 3, turbo loader, with trainer),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin (set 1, Bumfun),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin (set 2, older),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin (set 3, turbo loader, with trainer),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin - Nightmare Version (set 1, Bumfun),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin - Nightmare Version (set 2, older),
+  The Adventures Of Jane Jelly - The Treasure Of Zedin - Nightmare Version (set 3, turbo loader, with trainer),
+  Altair (set 3, release 2, English), Altair (set 4, release 2, Spanish), Altair (set 5, English), Altair (set 6, Spanish),
+  Altair ZX (set 1, English), Altair ZX (set 2, Spanish), Alter Ego (set 3), Androide (2014, Pixelsoft) (set 2),
+  Androide (2014, Pixelsoft) (set 3), Antiquity Jones (set 2, v1.2), Antiquity Jones (set 3), Arcade Game Designer v1.0,
+  Arcade Game Designer v1.3, Arcade Game Designer v1.5, Arcade Game Designer v2.0, Arcade Game Designer v2.3,
+  Arcade Game Designer v2.4, Arcade Game Designer v2.6, Arcade Game Designer v3.0, Arcade Game Designer v3.3,
+  Arcade Game Designer v3.4, Arcade Game Designer v3.5, Arcade Game Designer v4.0, Arcade Game Designer v4.1,
+  Arcade Game Designer v4.2, Arcade Game Designer v4.3, Arcade Game Designer v4.4, Arcade Game Designer v4.5,
+  Arcade Game Designer v4.6, Astronaut Labyrinth (set 1), Astronaut Labyrinth (set 2, easy boss),
+  Astronaut Labyrinth (set 3, turbo loader, normal & easy boss, with trainer), Attack Of The RGBobots, B-Squared (set 1),
+  B-Squared (set 2), Baffo Jones, Baldy ZX (set 2), Bauble Blast!, Billy Box (set 1, English), Billy Box (set 2, French),
+  Blimpgeddon (set 1, v1.02, Final, QAOPM controls), Blimpgeddon (set 2, v1.02, Final, ESDFO controls), Blizzard's Rift,
+  Bluber (set 1, release 2), Bluber (set 2, release 2), Bluber (set 3, release 1), Bob The Space Janitor (version 2),
+  Bobby Carrot (set 1, v1.01, 128k), Bobby Carrot (set 2, v1.01, 128k), Bobby Carrot (set 3, v1.01, 48k),
+  Bobby Carrot (set 4, v1.01, 48k), Bomberman (2016, Cristian Gonzalez) (set 2, demo, v01),
+  Bomberman (2016, Cristian Gonzalez) (set 2, demo, v03), Booty - The Remake (set 1, v1.2, turbo loader),
+  Booty - The Remake (set 3, v1.2), Booty - The Remake (set 4, v1.2 - Black Edition, turbo loader),
+  Booty - The Remake (set 5, v1.2 - Black Edition), Booty - The Remake (set 6, v1.2 - Black Edition),
+  Booty - The Remake (set 7, v1.1, turbo loader), Booty - The Remake (set 8, v1.1), Booty - The Remake (set 9, v1.1),
+  Bounty - The Search for Frooge (set 1), Bounty - The Search for Frooge (set 2), Brian vs. The Bullies, A Broken Friend (set 2),
+  Bubble Frenzy, Bubble Monkey Bros, Cap'n Rescue (v3.0), Cap'n Rescue 2 - The Escape (v3.4), Car Wars (set 1, v1.1, English),
+  Car Wars (set 2, v1.1, Spanish), Car Wars (set 3, English), Car Wars (set 4, Spanish), Catch A Hare, Char Set Finder,
+  CharAde Editor & Demo, The Chard, Chessboard Attack (set 1, v1.2), Chip Rescue, Chopper Drop (set 2, release 2),
+  Christmas Cracker, Christmas Gift Hunt (set 1, v2.0, 128k), Christmas Gift Hunt (set 2, v2.0, 48k),
+  Christmas Gift Hunt (set 3, beta), Christmas Gift Hunt (set 4, ULA Plus), Chunk Zone, Clopit!, Code Zero (set 1),
+  Code Zero (set 2), Columns (set 2, Physical Version), Crappy Crates, The Dark (2016 cassette release), Davey-Dudds Loves Peas,
+  Dead By Dawn (set 2), Dead Flesh Boy (set 1, v2), Dead Flesh Boy (set 2, v2), Dead Flesh Boy (set 3, v1),
+  Dead Flesh Boy (set 4, v1, no loading screen), Deep Core Raider (set 1, v1.1), Deep Core Raider (set 2, v1.1),
+  Donkey Kong Jr. (2016, Gabriele Amore) (corrected jump), DragonBall - El desafio del Dr Gero (1994),
+  DreamWalker: Alter Ego 2 (set 1, 128k), DreamWalker: Alter Ego 2 (set 2, 48k), Dung Darach, F'n Balls (set 1, ULA rain fix),
+  Flash Beer Trilogy, Flynn's Adventure (set 3, tech demo 01-04-12), Flynn's Adventure In Bombland (set 1, v1),
+  Flynn's Adventure In Bombland (set 2, demo), Fn Balls (set 2, older), Forest Raider Cherry, Frank N Stein (set 3, pre-release),
+  Future Looter (set 1, release 2), Future Looter (set 2, release 1), Future Looter (set 3, demo 18122011), Genehtik (set 2),
+  Ghost Castles (cassettte version), Grumpy Santa (set 1), Grumpy Santa (set 2), Hunchy (1983, Mr. Micro),
+  Invasive Species (48k version), Jaws - The Text Adventure, Join, Knight Hero (Black version), Knight Hero (White version),
+  Knights & Demons, Knights & Demons DX (set 2), Knights (set 1), Knights (set 2, BASIC version), Knights (set 3, turbo loader),
+  Krap Park (set 1, fixed version, with screen magic), Krap Park (set 2, fixed version, without screen magic),
+  Krap Park (set 3, older, with screen magic), Krap Park (set 4, older, without screen magic), Kyd Cadet (set 2, v1.2),
+  Kyd Cadet II (set 2), Kyd Cadet III - The Eyeburx Plee (set 2), Laetitia, Little Dragon 2 (128k, AY Sounds),
+  Little Dragon 2 (48k), Little Dragon 2 - Hikoki's Cut, El Loco, Loco Bingo (set 2, RetroBytes demo),
+  Lost In My Spectrum (set 1, v2.0, 128k, English, turbo loader), Lost In My Spectrum (set 2, v2.0, 128k, English),
+  Lost In My Spectrum (set 3, v2.0, 128k, German, turbo loader), Lost In My Spectrum (set 4, v2.0, 128k, German),
+  Lost In My Spectrum (set 5, v2.0, 128k, Spanish, turbo loader), Lost In My Spectrum (set 6, v2.0, 128k, Spanish),
+  Lost In My Spectrum (set 7, v2.0, 128k, French, turbo loader), Lost In My Spectrum (set 8, v2.0, 128k, French),
+  Lost In My Spectrum (set 9, v2.0, 128k, Italian, turbo loader), Lost In My Spectrum (set 10, v2.0, 128k, Italian),
+  Lost In My Spectrum (set 11, v2.0, 128k, Portuguese, turbo loader), Lost In My Spectrum (set 12, v2.0, 128k, Portuguese),
+  Lost In My Spectrum (set 13, v2.0, 48k, English), Lost In My Spectrum (set 14, v2.0, 48k, German),
+  Lost In My Spectrum (set 15, v2.0, 48k, Spanish), Lost In My Spectrum (set 16, v2.0, 48k, French),
+  Lost In My Spectrum (set 17, v2.0, 48k, Italian), Lost In My Spectrum (set 18, v2.0, 48k, Portuguese), Micro Inc,
+  Mighty Final Fight (v1.1), Mike, The Guitar (set 1), Mike, The Guitar (set 2, turbo loader), Mike, The Guitar (set 3),
+  Mike, The Guitar - The Shooter, Moritz - The Dog That Caught The Car, Moritz Strikes Back, Moritz To The Moon, Mr Do!,
+  MultiDude (set 1, AY sounds), MultiDude(set 2, beeper sounds), Mysterious Dimensions, Mystery (set 1, 128k version),
+  Mystery (set 2, 48k version), Ninja Gaiden Shadow Warriors, Nirvana Engine, Old Tower (set 1, 128k), Old Tower (set 2, 48k),
+  The Order Of Mazes, Ossuary, Page And The Curse Of The Pharaoh, Page's Castle Quest (set 2), Pariboro,
+  Pentacorn Quest (set 1, English), Pentacorn Quest (set 2, Spanish), Percy Penguin (set 1, Vs3), Percy Penguin (set 2, demo, b68),
+  Pets vs Aliens Prologue (set 1), Pets vs Aliens Prologue (set 2), Pink Pills: Manic Moritz and the Meds, Pip The Pipistrelle,
+  Pooper Scooper, Pretty Gambler, PTM, Push 'n' Chase, Pyromania II: Chopper Rescue, Pyromania: Trial by fire, Quahappy (set 1),
+  Quahappy (set 2, turbo loader), Rabid Mower, Raw Battle, Red Planet (English), Red Planet (Spanish), Rediscovered Realms (set 1),
+  Rediscovered Realms (set 2), Redshift (set 1, turbo load), Redshift (set 2), Redshift (set 3), Rescue Lander,
+  ROVR - Remote Operated Vehicle Recovery (set 1), ROVR - Remote Operated Vehicle Recovery (set 2),
+  SIP - Special Intergalactic Painter (set 2), Sixteen Skirmish, Space Disposal (set 2), Speccy Bros - Nick & Tom, Speed Ball,
+  Stormfinch, Super Moritz, Tales Of Grupp, Tea-Leaf Ted (set 1, man version), Tea-Leaf Ted (set 2, bear version), Terrorlandia,
+  Terry The Turtle Vektor, The Time Of The End (set 2, side 1 only), Toofy In Fan Land (set 2), Toofys Winter Nuts (set 2, v1.2),
+  Xelda 1: Quest for the Golden Apple (set 1, English, ver 1.03), Xelda 1: Quest for the Golden Apple (set 2, English, ver 1.03a),
+  Xelda 1: Quest for the Golden Apple (set 3, Russian, ver 1.03a), Xelda 1: Quest for the Golden Apple (set 4, Russian, ver 1.03a),
+  Xelda 1: Quest for the Golden Apple (set 5, Spanish, ver 1.03a), ZX Destroyer, Zukinox (set 1, final cassette version),
+  Zukinox (set 2)
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+st_flop:
+  Highway Encounter (unreleased) [ICEknight]
+  Toi Acid Game (unreleased) [Jose Luis Correa, ICEknight]
+vsmile_cart:
+  Alfabet Pretpark (NL), Disney's Aladdin - De wonderwereld van Aladdin (Netherlands), Flitzers Schlaue Staedtetour (Germany),
+  Scooby-Doo! - Griezelen in het Pretpark (Netherlands), V.Smile Mein erster Mausklick (Germany),
+  Walt Disney's Assepoester - De wonderwereld van Assepoester (Netherlands) [TeamEurope]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+ibm5150:
+  Bobo, Captain Blood, Olivetti Prodest PC1 Games Collection 1, Olivetti Prodest PC1 Games Collection 6,
+  Olivetti Prodest PC1 HDU Install, Olivetti Prodest PC1 Mouse Driver [Justin Kerk]
+ibm5170:
+  blueflops-1.0.0, blueflops-1.1.0, blueflops-1.1.1, blueflops-1.1.2, blueflops-2.0.0, blueflops-2.0.1-pre1, blueflops-2.0.8
+  [Justin Kerk]
+spectrum_betadisc_flop: Bobby Carrot
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+spectrum_cass:
+  Booty - The Remake (set 2, v1.2), Mister Kung-Fu (set 1, v1.3), Mister Kung-Fu (set 2, v1.3),
+  Mister Kung-Fu (set 3, v1.3, Plus 2a / Plus 3), Mister Kung-Fu (set 4, Plus 2a / Plus 3)
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+spectrum_microdrive: Outlet (Issue 001 through 038)
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+spectrum_wafadrive: Spectral Writer
+  [TZX Vault, SPA2, Steve Brown, Andrew Barker, Paul Hurd, Tony Barnett, Claus Jahn, Donald Graham, Guy Bearman, Jose Luis Soler,
+  Krasimir Hristov, Andrew Blood, Dave Stevens, John Wilson, Edwina Brown, Walter Pooley, Tomaz Kac, Martijn van der Heide,
+  Ramsoft, Dunny, Woody, Mikie, anonymous]
+vsmile_cart:
+  Disney's Winnie de Poeh - De wonderwereld van Poeh (Netherlands), Disney/Pixar Ratatouille - Remy's Nieuwe Recepten (Netherlands),
+  Nick Jr. Dora the Explorer - Dora's Fix-it Adventure (USA), Scooby-Doo! - A Night Of Fright Is No Delight (Smartbook) (USA)
+  [TeamEurope]
+vsmilem_cart:
+  Disney Princess - The Princess and the Frog - Tiana's Big Dream (UK), Disney/Pixar Wall-E (Germany),
+  DreamWorks Monsters vs. Aliens (Germany), Mijn Puppy! (Netherlands), Nick Jr Dora - Dora's Reparatie Avontuur (Netherlands),
+  Nickelodeon Wonder Pets! - Save the Animals! (UK), Sport Games (Netherlands) [TeamEurope]
+
+
+ソースの変更点
+--------------
+- wd_fdc.cpp: SSOシグナル面選択に使われない場合にそなえてドライバ経由可能に変更。[68bit]
+
+- bus/ss50: 追加のSS-30カードをサポート。[68bit]
+ * MP-Tタイマー・カウンタ、MP-S2デュアルシリアルインタフェース、SS-30 DC5フロッピーインタフェース、PIA IDEハードディスクインタ
+   フェース
+
+- swtpc09.cppの更新: [68bit]
+ * UniFLEXフロッピーディスクイメージファイルをサポート
+ * SS-30バスを追加。ドライバからSS-30カード上の周辺機器を削除
+ * バンクメモリの実装
+ * CPUクロック速度の選択オプション追加。フロッピーのサポートに必要なSWTBUGパッチを追加
+ * DC5フロッピーコントローラをデフォルトスロットオプションに追加
+
+- formats/flex_dsk.cpp: wd177x_formatをベースクラスに使うように書き直し。[68bit]
+ * 単密度と倍密度のディスクをサポート。ブートセクタIDを自動的に検出しイメージファイルを書き込み
+
+- デバッガのメモリビューで、メモリ空間のアドレスシフトに対してチャンクが小さすぎるときでも正しいデータが表示されるよう変更。[AJR]
+
+- unidasmの更新: [AJR]
+ * r650c02、score7、unsp12、unsp20をサポート
+ * scudspとhd61700のアドレスシフトを修正
+
+- upd7810: ブレークポイントの修正とノートの追加。[AJR]
+
+- trocana: MSM6650デバイスの暫定版とテスト入力の追加。[AJR]
+
+- SGI CD-ROMをハードディスクとして認識させる変更を巻き戻し。indy_4610がSCSIテストに失敗するため。[AJR]
+
+- m65c02, r65c02: read-modify-write命令でメモリアクセスパターンを訂正。[AJR]
+
+- cosmacの更新: [AJR, hap]
+ * CDP1804/CDP1805/CDP1806の暫定的エミュレーション
+ * 追加命令セットのあるCDP1805の逆アセンブラサポート
+ * レジスタ名を従来型の番号による名前に変更
+ * P=XのときOUT命令の逆アセンブリに後続バイトをアタッチ
+
+- mc68hc11: ポート用の内部ラッチとディレクションレジスタを追加。[AJR]
+ * 内蔵周辺機器のレジスタハンドラ関数を分離し、各モデル用の個別I/Oマップを作成
+ * skeetsht.cppとtaitojc.cppから不要になったリードバックハンドラを削除
+
+- 追加機能のあるMC146818互換のリアルタイムクロックであるDS17x85シリーズのデバイスエミュレーション追加。[AJR]
+
+- pasopia.cpp: クロックとメタデータを訂正。[AJR]
+
+- mbs2euro: グラフィック化けと、画面領域外への描画をしようとするとクラッシュする可能性があるのを修正。[AJR]
+
+- legionna.cpp:「セイブカップサッカー」「SDガンダム三国志 レインボー大陸戦記」のスプライトプライオリティ修正。[Angelo Salese]
+
+- seibucop.cpp:「SDガンダム三国志 レインボー大陸戦記」の修正: [Angelo Salese]
+ * コマンド$c480のスプライトプライオリティビットが判明 (3面の中ボスが地面レイヤーに隠れるのを修正)
+ * X位置が想定する領域外のとき、スプライトDMA方向を増分しないよう設定(スプライトのクリッピング修正)
+
+- riscpc.cpp: 強制IRQのバグ修正 - rpc700でスーパーバイザプロンプトまで到達可能。[Angelo Salese]
+
+- galaxold.cpp:「ストラテジーX」3面の見えない弾を修正。[Angelo Salese]
+
+- pce.cpp: 拡張バックアップRAM「天の声バンク」をサポート。[Angelo Salese]
+
+- pc9801.cpp: Memory Switch (MEMSW)デバイスを正しくサポート。[Angelo Salese]
+
+- h6280.cpp: タイマーのプリロードジレスタに書き込むとき、現在のタイマーの値を上書きしないよう設定。[Angelo Salese]
+
+- VRender0デバイスのリファクタリング: [Angelo Salese]
+ * ビデオやその他の概念的に独立したオンボード周辺機器に対するカプセル化を改善
+ * 異なるVRender0ベースマシンをcrystal.cppから独自のソースファイルに移動
+ * screen_updateから切り替える描画/ディスプレイメモリバンクへの読み書きのもつれを解消 - スロットルなしで動作可能
+ * CRTコントローラのRAW画面パラメータ追加
+ * DMAのホールド機能と、マスクライト時のIRQを実装。P's Attackで使用
+ * Cross Puzzle Flashのローディング改良(いまのところSPUエラーでPOSTに失敗する)
+
+- nexus3d.cpp: デバッグトリックありでVRender3Dパイプラインフィルをするよな準備作業。[Angelo Salese]
+
+- axc51-core: AX208内部ROMシンボルの逆アセンブラサポート。[anonymous]
+
+- pcipc: 少しだけより使い物になるPCI S3 Virge/DXビデオカードを追加。[Barry Rodewald]
+
+- s3virge: PCIインタフェースの追加とリニアフレームバッファのサポート。[Barry Rodewald]
+
+- amstrad: Ram Electronics Music Machine MIDIとサンプラー拡張デバイスを追加。[Barry Rodewald]
+
+- システムrapidjsonを使用したビルドの修正。[Belegdol]
+
+- Ubuntu Bionicにtravis-ciの設定を適用。[Belegdol]
+
+- std::basic_string::c_str()での[[nodiscard]]警告に対策。[Billy Robert O'Neal III]
+
+- nmk16.cpp: 冗長なコードの削除とノートの更新。[cam900]
+
+- 315_5313.cppのアップデート: [cam900]
+ * 入力クロックからリフレッシュレートとタイマーを導出
+ * DMAの動作をシンプル化。megacd.cppとmega32x.cppをこれに応じて更新
+ * デバッガでの読み込み副作用を抑制。コードの整理。ノートの拡張
+
+- megadriv.cpp, segac2.cpp, calcune.cpp: 画面のリフレッシュレート修正とノート追加。[cam900]
+
+- megadriv.cpp: Z80 VDPアクセスサポート。VDPの音量バランス修正。[cam900]
+
+- seibu_crtc.cpp: ノートの更新。[cam900]
+
+- formats/m20_dsk.cpp: イメージファイルの書き込みをサポート。floptool用フォーマット追加。[Christian Groessler]
+
+- sh風シェルを使っているホストのcleansrcのターゲットを修正。[Christian Groessler]
+
+- bus/spectrum: 拡張バスにポストオペコードフェッチフック追加。ZX Interface 1で必要。[David Haywood]
+
+- vii.cpp: dreamlifでEEPROMサポート。[David Haywood]
+
+- policetr.cpp: RAMDACデバイスでパレット書き込みを処理 - ドライバ内のトランポリンは不要。[David Haywood]
+
+- spectrum_cass.xml: メタデータの訂正と整理。[David Haywood]
+
+- bionicc: ドライバの整理: [Dirk Best]
+ * ノートとToDoリストの整理
+ * pulse_input_lineを使うため、マスク出来ない割り込みを変更
+ * コインのロックアウトとアトリビュートRAMレイアウトをドキュメント化
+ * レイヤーで3ビット色を使うように訂正
+
+- Estron Juku E501のドライバ追加。[Dirk Best]
+ * タイマー、キーボード、5.25"フロッピーディスク実装
+ * 片面と両面のCP/Mフロッピーフォーマット追加
+
+- ml20: キーパッド入力、プレースホルダスピーカー、DIPスイッチ、シンプルな内部レイアウト追加。[Dirk Best]
+ * 追加のログ処理とCPUポートのドキュメント化開始
+
+- dec0.cpp: birdtryのマイコンを吸い出し、シミュレーションと置き換え。[Dirk Best, TeamEurope, Ivan Vangelista]
+
+- thedeep.cpp: thedeepのマイコンを実装しシミュレーションを削除。[Dirk Best]
+
+- limenko.cpp: spotty用のオーディオCPUを実装。[Dirk Best]
+
+- SNES 4スロットアーケードスイッチャーのスケルトンドライバ追加。mk2snsをこの新ドライバに移動。[Dirk Best]
+
+- dec8.cpp:「ラストミッション」のマイコンを吸い出して実装。[Dirk Best, TeamEurope, Brian Troha, The Dumping Union]
+ * コインエイジ設定も修正
+ * 日本版はいまのところUS版のマイコンプログラムのIDをパッチして使用
+
+- luaengine.cpp: サウンド出力バッファとサンプルレートをLuaスクリプトに公開。[feos]
+ * ドキュメントの訂正も
+
+- imgtool: Thomson BASICトーカナイザ追加。Thomson BASICを実装。動詞取得のために--filter=を渡すのを修正。[hadess]
+ * bastok.cppのフォーマットについてはAdrien Destuguesさんに感謝
+
+- popeye.cpp:「ポパイ」海賊版のプロテクトで使われている本物のPROMダンプを使用。[Joe Magiera, recreativas.org, smf]
+
+- imagedev/harddriv.cpp: HDIイメージファイルフォーマットをサポート。[Justin Kerk]
+
+- naomi.cpp, machine/awboard.cpp: Atomiswaveのキースケジューリングをシンプル化。20ビットキーファイルを削除。[MetalliC]
+
+- ti99: busmouseで入力変更時にアップデートをプッシュするよう変更。追加のマウスボタンは別の入力ライン経由に変更。[Michael Zapf]
+
+- core_optionsでデフォルトのコンストラクタ移動・割当オペレータを有効化。plugin_optionsのコードで使用。[Nathan Woods]
+
+- mameinfoのXML生成コードのパフォーマンス改善のためリファクタリング。[Nathan Woods]
+ * マシン情報のフラグメントを並列で生成
+ * コードフォーマットでI/Oストリームを使用し、冗長なコードを削減
+ * フィルタされたデバイスをショートネームでソート
+
+- Windowsで既存のウィンドウを最初のエミュレーションウィンドウに使用する-attach_windowコマンドラインオプション追加。[Nathan Woods]
+
+- Luaエンジンの更新: [Nathan Woods]
+ * フォーカスを持つエミュレーションのウィンドウと入力ウィンドウが同じスレッドを共有しているとき、MAMEに対して入力をキャプチャするよ
+   う支持する関数を追加
+ * Luaプラグインが必須のイメージデバイスを設定するメカニズムを追加
+ * 入力デバイスクラス、デバイス、デバイスアイテムを公開
+ * seq_poll_startが文字列として入力アイテムクラスを取るように変更
+ * 設定ロード前のフックを追加。デフォルトの入力ポート値を変更可能
+ * 追加のioport_fieldプロパティを公開。入力シーケンスのクリーニング機能も公開
+ * ioport_manager::type_group()とioport_field::keyboard_codes()を公開
+
+- CoCoのジョイスティックの名前を、「右ジョイスティック」と「左ジョイスティック」に正しく設定。[Nathan Woods]
+
+- einstein.cpp: einst256の不良MOS ROMを正しいものに置き換え。マシンの残りを実装。[Nigel Barnes, jltursan]
+
+- machine/tube.cpp: 256バイト転送モード修正。[Nigel Barnes]
+
+- nsc810: ポートビットのセットとクリアを実装。[Nigel Barnes]
+
+- hunter16.cpp: hunter1680のビデオRAMとレンダリングを追加。[Nigel Barnes]
+
+- hunter2.cpp: 妥当なRAMサイズのオプション追加。マイナーなキーボードの修正。[Nigel Barnes]
+
+- hd61830: number-of-charactersコマンドが偶数に切り上げよう変更。[Nigel Barnes]
+
+- mindset.cppの更新: [O. Galibert]
+ * 400-highモード追加。LEDを修正。blitter高速モード追加。サウンド追加
+ * 透過ビット修正
+ * モジュール追加。ステレオサウンドモジュール実装
+
+- mindset.cpp: CPU速度の修正、RS-232モジュールの実装。[O. Galibert, Al Kossow]
+ * RS-232モジュールは今のところ割り込みを未サポート
+ 
+- atronic.cpp: CPUタイプの特定とROMロードの修正。[Priit Laes]
+
+- apple2.cpp: 互換モデルでのSirius JoyPortと、4Play Joystick Cardをサポート。[R. Belmont]
+
+- imagedev/harddriv.cpp: 2MGイメージファイルフォーマットとRAWディスクイメージファイルをサポ—ト。[R. Belmont]
+
+- デジタイザ、カメラ等をシミュレートするため、PNGファイルを入力とするスチルフレームキャプチャイメージデバイス追加。[R. Belmont]
+
+- apple2: ComputerEyesのオリジナルゲームポートをサポート。[R. Belmont, Golden Child]
+
+- apple2gs: スローサイド同期のアグレッシブ度を低下(SHOWALL 3200が修正)。[R. Belmont]
+
+- gdbstubデバッガモジュール追加。外部デバッガをGDB Remote Serial Protocolを使用して接続可能。[Ramiro Polla]
+ * i386、arm7、ppc、z80、m6502をサポート
+
+- Solaris 2.11(非オラクル)でのビルド修正。[Rick V]
+
+- midvunit.cpp: リンクサポートようのスタブ追加。[Risugami]
+
+- subsino.cppの更新: [Roberto Fresca, TeamEurope]
+ *「Victor 5」と「Victor 21」のスピーチエミュレーション追加
+ * 不足していたサンプルROMを吸い出し
+ * バイポーラPROMの吸い出しは「Victor 5」用と確認
+
+- pokerout.cpp: ASCII 基板レイアウト追加。ノートの拡張。[Roberto Fresca]
+
+- dpb_brushproc: 20L10 PALとロジックの残りを実装(未テスト)。[Ryan Holtz]
+
+- SGI Newportグラフィックの更新: [Ryan Holtz]
+ * 外部ビューア向けログ処理コードの再実装
+ * 8-BPPオーバレイビット合成を修正
+ * ブレンド処理が壊れていたのを修正
+ * ビットレーン拡張追加。正しいダブルバッファアクセスに必要
+ * デフォルトのカラーアクセスをシンプル化
+
+- dsp56k: 関連クラス、ファイル、名前空間をDSP56156(DSP5600xじゃない)をエミュレートすることを示すように改名。[Ryan Holtz]
+
+- sec: Barcrest/Bell Fruit Serial Electronic Counter (SEC)をただしいMAMEのデバイスに変換。[Ryan Holtz]
+
+- seta.cpp: atehateの隠しテストメニューでナビゲーションをするために、ジョイスティックとボタンを使う設定オプション追加。[RyogaMasaki]
+
+- emu、frontend、precomile、dasm、オプションライブラリ用に、Visual Studioコンパイラでコンパイル済みヘッダを有効化。[Samuele Zannoli]
+
+- agat: Nippel Clockのスロットカードをサポ—ト。[shattered]
+
+- デバッガで復号化したKONAMI1オペコードを表示。[smf]
+
+- wd33c9x: ハードウェアのリセット動作を解析し、すべてのリセットでSCSI_STATUS_RESET割り込みを発生するように変更。[tyfighter]
+
+- mu100: v1.03 BIOSを吸い出し。[Alexander Troosh]
+
+- mu80: Wave ROMを追加。[Alexander Troosh]
+
+- mephisto_modular.cpp: BIOSオプションにPortoroseの32ビットプログラムROMを追加。[Berger]
+
+- tumbleb.cpp:「Magic Purple」の基板レイアウト追加。[Brian Troha]
+
+- dec0.cpp:「バーディートライ」の初期版が出てくるときに備えてリビジョン2に指定。[Brian Troha]
+
+- machine/awboard.cpp: Atomiswaveのチェックサムとキーについてノート追加。[brizzo, MetalliC]
+
+- dacholer.cpp:「ダチョラー」のカラーPROM吸い出し。[caius, The Dumping Union]
+
+- segasp.cpp:「テトリス・デカリス / Tetris Giant」のセキュリティPICマイコンを吸い出し。[CoolFox]
+
+- konamigv.cpp:「シンプソンズボウリング」のCD吸い直しとラベルの訂正。[emmanu888]
+
+- mystwarr.cpp: コメントにあるPALのKonami番号を訂正。[f205v]
+
+- dec0.cpp: dec0のメインボードPROMを吸い出し。[Guru]
+
+- sbrkout.cpp: メインCPUクロック周波数を検証。[Guru]
+
+- subsino.cpp:「G.E.A.」を「Victor 5」のハックされたクローンセットに設定。[MASH]
+
+- thedeep.cpp:「ザ・ディープ」の基板写真をもとにオーディオCPUを訂正。[MASH]
+
+- dogfgt.cpp: 基板写真をもとに、サウンドチップの型を修正。[MASH]
+
+- m72.cpp: lohtbのGALを吸い直し。[parramon]
+
+- model1.cpp:「スターウォーズ」(日本版)のmpr-16477.27を吸い直し、ROM配置を修正。[Phil Bennett]
+
+- segaybd.cpp:「パワードリフト」のPCM EEPROM配置を修正。[Phil Bennett]
+
+- hunter16.cpp: BIOSオプションに後期のhunter16 ROM v3.04を追加。[Phill Harvey-Smith]
+
+- at.cpp: BIOSを7種類追加。[rfka01]
+
+- genpc.cpp: ECD Professional Microcomputer BIOSをPCに追加。[rfka01]
+
+- at.cpp, genpc.cpp: BIOSの日付、バージョン、チップセットコメントを更新。[rfka01]
+
+- pc9801.cpp: PC9821ASのROMを吸い直し。[sampson]
+
+- dec0.cpp:「ドラゴン忍者 / Bad Dudes vs. Dragonninja」のマイコン吸い出しが正しいことを確認。「ヘビーバレル」(World)のマイコンを腑分
+  けして吸い出し。[TeamEurope, Brian Troha, The Dumping Union]
+
+- chinagat.cpp: 基板情報とノートの更新、及び訂正。[yukaritamura]
+

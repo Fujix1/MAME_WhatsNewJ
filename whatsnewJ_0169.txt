@@ -1,0 +1,402 @@
+0.169
+-
+
+MAMETestersの修正バグ
+---------------------
+- 06089: [クラッシュ/フリーズ] (tiki100.c) tiki100: 終了時に例外発生。
+- 04857: [クラッシュ/フリーズ] (playch10.c) pc_pinbt: コイン投入後固まる。(Osso)
+- 06111: [ドキュメント] MAME.lstでRolling Xtremeが未吸い出しになっている。
+- 06112: [ドキュメント] MAME.lstのSetaドライバが.cppでなく.cになっている。
+- 06109: [サウンド] (cave.c) metmqstr, guwange, esprade, donpachi: cave.cppのゲームはステレオではない。(system11)
+- 06092: [その他] (neogeo.c) neogeo [diggerma]: ファイルマネージャを使ってソフトリストから起動できない。(David Haywood)
+- 00363: [ゲームプレイ] (vsnes.c) balonfgt: 両方の画面を使ってプレイしようとすると、すぐにお互いの同期がとれなくなる。(David Haywood)
+- 03860: [DIP/入力] (vsnes.c) hogalley, vsfdf : 撃っても当たらない。(David Haywood)
+- 05618: [グラフィック] (dooyong.c) pollux: タイトル画面が動かない。(David Haywood)
+- 04222: [色/パレット] (dooyong.c) pollux, polluxa, polluxa2: エンディングのキャラクタの色がおかしい。(David Haywood)
+- 02844: [グラフィック] (megasys1.c) soldam: ハイスコア画面の文字が化けている。(David Haywood)
+- 00365: [その他] (megasys1.c) 64street: アトラクトモードでキャラクタが動かない。(David Haywood)
+- 00366: [その他] (megasys1.c) chimerab: アトラクトモード・操作説明画面が動作しない(David Haywood)
+- 05963: [グラフィック] (megasys1.c) tshingen, tshingna: モザイクエフェクトがかかっていない。(David Haywood)
+- 06098: [グラフィック] (segaybd.c) gloc: スタート後に表示順位のバグがある。(David Haywood)
+- 06067: [グラフィック] (megasys1.c) 64street, 64streetj: 敵を背景投げると表示が乱れる。(Angelo Salese)
+- 06093: [DIP/入力] (stv.c) ffreveng: ボタンが5つ必要なのに4つしか実装されていない。(David Haywood)
+- 06091: [クラッシュ/フリーズ] (pc9801.c) pc9801ux: 起動後7〜8秒でクラッシュする。(crazyc)
+
+
+ソースの変更点
+--------------
+- prose2kセットの内部日付コードを元に日付を修正。[Lord Nightmare]
+
+-「ホットチェイス」のBGMが壊れていたのを修正。[Angelo Salese]
+
+- rungun.c: '936 ROMリードバック追加。[Angelo Salese]
+
+- rungun.cpp: 表示プライオリティモードビット追加。タイトル画面の回転エフェクト修正。
+  [Angelo Salese]
+
+- rungun.cpp: シングル・デュアルモニタロジックの設定を修正。[Angelo Salese]
+
+-「Club Pacman / Lambada (Argentina)」の4a、1m、3mにあるバイポーラPROMを吸い出し。残
+  りは7fだけ。[Roberto Fresca]
+
+- EF9365ビデオコントローラスケルトン追加と、Squaleに接続。[Jean-Francois DEL NERO]
+
+- Club Pacman: 残りのカラーPROM吸い出しと追加。pacman/mspacmanのものと一致。
+  [Roberto Fresca]
+
+- Pacman Club: ゲームの年代とゲーム名変更。[Roberto Fresca]
+
+- EF9365ドライバの改良。Squaleのパレットとcharsetが修正。[Jean-Francois DEL NERO]
+
+- コアをC++14にコンバート開始。これにより、コンパイラはGCC 4.9.0以降、Clang 3.4.0以降、
+  VS2013以降のみのサポートとなる。[Miodrag Milanovic]
+
+- zn: ZN-1の開発版BIOS追加。[Guru, R. Belmont]
+
+- GameKingスケルトンドライバを書き直し。内部ROMの吸い出しと追加、起動とメニューだけ動
+  作。[Peter Trauner]
+
+- space trainのグラフィックROM修正。[f205v]
+
+- glass.cpp: 実機からもってきたOKI M2695でクロックとpin 7ステータスを検証。
+  [system11, The Dumping Union]
+
+- pet_rom.xml: MONJANA/1追加。[Ruud Baltissen]
+
+- Jaleco Megasystem 1の改良
+ * スプライトモザイクエフェクト追加(FBAのコードから移植) [iq_132, dink]
+   -「キメラビースト」だけで使用
+ * メインRAMで68kバイトの書き込みスメアリング使用 [David Haywood]
+   -「64番街」「キメラビースト」のアトラクトモード動作修正
+ * スプライトが尾を引くエフェクトのエミュレートと、スプライトクリアエフェクトのエミュ
+  レート試行 [David Haywood]
+   -「P47」のジャレコロゴで使用
+ * タイプBハードにメモリミラー追加 [Angelo Salese]
+   -「64番街」の背景修正
+ *「天聖龍」のPress Startの文字のラスタエフェクトを実装したが、ラインなどの設定方法が
+   謎のため今のところ無効に設定 [Angelo Salese]
+ *「ソルダム」の親セットと日本セットのハックを有効化。1つのレイヤーで16x16のタイルを
+   有効化し、8x8モードでも16x16タイルアドレスを使わせるもの。テストがさらに必要
+   [David Haywood]
+    - ハイスコアテーブルのテキストを修正
+ * RAWパラメータを使い、リフレッシュレートを56.19hzに変更 [Angelo Salese]
+    - 実機映像に一致
+
+- バンダイスーパーノートクラブのソフトウェアリスト追加。[Team Europe]
+
+- spc1000: カセットデッキのモーターON/OFF切り替えにタイミング差を使用。[Miso Kim]
+
+- sun3: 新しいZ80SCCデバイスとRS232移植版(未動作)に切り替え。[R. Belmont]
+
+- subhuntrに必要なためS2636を全て書き直し: [Vas Crabb]
+ * 正常動作にはRAWスクリーンパラメータとスキャンラインタイマからの呼び出しが必要
+ * 複製を含め、衝突と完了bitを正しく生成
+ * 背景とスコア表示サポート
+ * ライン周波数からオーディオトーンを生成
+ * スキャンライン毎にレンダリングするときは数倍高速
+
+- laserbat.cの改良: [Vas Crabb]
+ * ビデオタイミング修正
+ * シェルとエリアエフェクト実装
+ * レイヤー同士の水平位置のずれあり
+ * PLAビットストリームをデコードし、ビデオ合成に使用
+ * lazarianからlaserbatにPLAを追加し、吸い出し不良に設定
+ * catnmousからクローン版にPLAを追加し、吸い出し不良に設定
+ * 色修正 - 詳しくはソースのコメントを参照
+ * 入力修正 - カクテルモードのP2操作とDIPスイッチ16個全てが動作可能
+ * カクテルモードをサポート(Machine Configurationで設定、sense lineを使用)
+ * サウンドデータのラッチ条件を修正
+ * catnmousのオーディオCPUメモリマップとトレーシングプログラムによるROM読み込み修正
+ * トレーシングプログラムから推測されるcatnmousのオーディオCPUを実装
+ * サウンドとビデオハードのノートを追加
+ * laserbat、lazarian、catnmousがプレイ可能
+
+- k053252: 周波数クロックの変更が起きたときに内部画面ステートをリセット。
+  [Angelo Salese]
+
+- Konami GX BIOSのグラフィックデコーディングを修正。[Angelo Salese] 
+
+- k05555の書き込みアクセス修正。「リーサルエンフォーサーズ2」の文字色が修正。
+  [Angelo Salese]
+
+- Taito TC0780FPAを独自デバイスに分割。[Ville Linde]
+
+- mac: maciici用に実際の分割ROMを使用。[Guru]
+
+- メモリマップのバリディティチェックを再構成。[ARJ]
+
+- simple_listのコードをモダン化。[Vittorio Romeo]
+
+- x86.log.hとx86log.cppをモダン化。[Vittorio Romeo]
+
+- monzagp: クルマの入力と当たり判定を追加。[Sandro Ronco]
+
+- -verifyromsでmpu401やc2040fdcのようなサブデバイスを検証するように変更。[qmc2]
+
+- Namco FCAとFCB JVSIO MCUのファームウェアを部分的に吸い出し。
+  [Darksoft, MetalliC, Mitsurugi]
+
+- apollo: クリーンアップと改良: [Hans Ostermeyer]
+ * OMTI8621 ISAデバイスをPC版とApollo版に分割(Apollo版はBIOS拡張ROMが無い)
+ * OMTI8621のログ処理を整理
+ * ノードIDの自動設定ができるようOMTIボードのスロット番号を強制
+ * マウス感度調整
+
+- Squaleのフロッピードライブが動作。EF9365エミュレーション改良。
+  [Jean-Francois DEL NERO]
+
+- HLSL: デフォーカス改良、LCD画面修正、シャドウマスクとブルームを拡張。[ImJezze]
+
+ デフォーカスの強度をx/y同じにし、画面サイズから独立
+
+ デフォーカスを画面のサイズから独立させ、水平と垂直方向の比率を同じ強度に指定。
+ 非対称のデフォーカスカーネルを対照のカーネルに置き換え。デフォーカスを最大10に制限。
+ 向きと回転設定用のシェーダユニフォーム追加。液晶画面でのHLSLが修正。
+
+ ベクター画面の誤検出修正。シャドウマスクとブルーム機能の拡張。
+
+ * "Screen"と"Source"タイルモードを切り替えるためのシャドウマスクオプション追加
+   ("Screen"がデフォルト)
+ * "Addition"と"Darken"ブレンドモードを切り替えるためのブルームオプション追加
+   ("Addition"がデフォルト)
+ * シャドウマスクのアルファチャンネルは、反転したアルファ量に応じた背景色でフィル処理
+ * "Source"のタイルモードと"Darken"のブレンドモード時にSTN液晶をシミュレートするため
+   に組み合わせて使用可能なmonochrome-matrix.pngファイルを追加
+
+- qt5デバッガ移植。[O. Galibert]
+
+- EF9365ドライバの大幅更新: 表示機能を全てエミュレート。[Jean-Francois DEL NERO]
+
+- 全てのハードウェアベクター描画コマンドが動作。全キャラクタタイプ描画をサポート(水平、
+  垂直、タイトル、ズームなど)。 [Jean-Francois DEL NERO]
+
+ 512x512, 512x256 (EF9366), 256x256解像度のサポート。
+ 新しいユーザ設定: ビットプレーン数、表示解像度/モード
+ ベクターとキャラクタ描画のビジータイムを動的に生成
+ 修正いろいろとコードのクリーンアップ
+
+- gamate.cpp: 複数コンソールのBIOS ROM検証。
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard]
+
+- cps2.cpp:「アルティミットエコロジー / Eco Fighters」のスピナー入力をエミュレートし
+  てデフォルトで有効化。[David Haywood]
+
+- aquarium: ミュージックのバンク処理と表示プライオリティ修正。[David Haywood]
+
+- 内蔵デバッガの改良いろいろ: [Barry Rodewald]
+ * 閉じたウィンドウが本当に消えるように改良
+ * メニューオプションRunとHide Debuggerを追加
+ * 内部ウィンドウが重ならないように改良
+ * ウインドウ色がどぎつかったをの改良
+ * メモリウィンドウ追加
+ * -debugger_fontと_debugger_font_sizeを反映
+ * タイトルバーのサイズをデバッガフォントのものに変更
+ * ウィンドウエディタを関連するウィンドウの手前に表示するよう変更
+ * ウィンドウのタイトルやエディタ部からはみ出してテキストが描画されるを修正
+ * ウィンドウの描画順を修正
+ * 新しいウィンドウがカスケード表示されるように改良
+ 
+- デバッガのメモリビューで、データを32bit、64bit、80bitの浮動小数点で表示するように変
+  更。[Samuele Zannoli, R. Belmont]
+  
+- Raspberry Pi 2で、ビルドシステムが自動検出しクリーンビルドするように変更; 他のARM 
+  Linuxターゲットも動くはず。[Miodrag Milanovic, R. Belmont]
+
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------
+Glass (Ver 1.1, Break Edition, Version 1994) (unprotected) [system11]
+Panda Train (Novamatic 1.7) [f205v]
+Tomy Power House Pinball [hap, Sean Riddle]
+Joker Poker (Coinmaster set 1) [MASH]
+Mattel Dungeons & Dragons - Computer Labyrinth Game [hap, Sean Riddle]
+Spelling B (1978 version) [hap, Sean Riddle]
+Mr. Challenger [hap, Sean Riddle]
+スラムダンク / Run and Gun (dual screen) [Angelo Salese]
+ * 以前に動作可能に設定されていたが実際に動いてなかった
+Lazarian / Laser Battle [Vas Crabb]
+ * 上記のノート参照。以前はプレイできなかった
+キャプテンフラッグ (Japan) [Ryan Holtz, coolmod, Smitdogg, The Dumping Union, Luca Elia]
+
+Various Player's Edge Plus sets [BrianT]
+ - Player's Edge Plus (PP0733) Double Aces and Faces
+ - Player's Edge Plus (PS0047) Wild Cherry Slots
+ - Player's Edge Plus (PS0092) Wild Cherry Slots
+ - Player's Edge Plus (PS0358) Wild Star Red White & Blue Slots 
+ - Player's Edge Plus (PS0470) Triple Diamond Slots
+ - Player's Edge Plus (PS0628) Double Black Jack Slots
+ - Player's Edge Plus (PS0708) Double Cherry Bar Slots
+ - Player's Edge Plus (X002127P+XP000043) Double Bonus Poker featuring 'Your Property' Royals
+ - Player's Edge Plus (X002134P+XP000043) Faces 'n' Deuces Double Bonus Poker
+ - Player's Edge Plus (X002152P+XP000043) Blackjack Poker
+ - Player's Edge Plus (X002211P+XP000043) Double Double Bonus with 3 Jacks Poker
+ - Player's Edge Plus (X002236P+XP000043) Double Double Bonus with 3 Aces Poker
+ - Player's Edge Plus (X002279P+XP000057) Ace$ Bonus
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------
+リーサルエンフォーサーズ (ver EAA, 09/09/92 09:44) [caius]
+Orius (ver UAA) [Ryan Holtz, Smitdogg, The Dumping Union]
+ギャロップレーサー3 (Export) [Ryan Holtz, Smitdogg, The Dumping Union]
+Super Slam (set 3) [f205v]
+スーパーストリートファイターII ターボ(Hispanic 940223) [Artemio Urbina]
+ゾンビリベンジ (Rev A) [Ryan Holtz, Smitdogg, The Dumping Union]
+忍者くん 阿修羅の章 / Ninja Kid II (set 4) [system11]
+ハットトリックヒーロー'93 (Ver 1.0A 1993/02/28) [Bill D, The Dumping Union]
+スーパーマッスルボマー / Ring of Destruction: Slammasters II (Hispanic 940902) [Raul Delgado]
+Miss World '96 (Nude) (set 4) [system11]
+双戯龍 II ＜ダブルドラゴンII＞ -ザ・リベンジ- (US, bootleg) [system11]
+Space Chaser (Model Racing bootleg) [Piero Andreini]
+ストリートファイターII' -チャンピオンエディション- (M10 bootleg) [Robbbert, Marco]
+ストリートファイターII' -チャンピオンエディション- ('Taiwan' bootleg with PAL)
+  [rtw, Smitdogg, The Dumping Union]
+Pirates (set 2) [caius]
+メガドライブ / Genesis (USA, NTSC, with TMSS chip) [David Haywood]
+Space Train [f205v, David Haywood]
+アクアリウム (US) [funstuff]
+Knock Out! (bootleg) [Tirino73]
+Ameisenbaer (German, Galaxian hardware) [f205v]
+ドラゴン忍者 (bootleg with 68705) [f205v]
+
+Various Player's Edge Plus sets [BrianT]
+ - Player's Edge Plus (PP0060) Standard Draw Poker (set 3)
+ - Player's Edge Plus (PP0094) Standard Draw Poker
+ - Player's Edge Plus (PP0129) Joker Poker (Two Pair or Better)
+ - Player's Edge Plus (PP0189) Standard Draw Poker
+ - Player's Edge Plus (PP0190) Deuces Wild Poker (set 3)
+ - Player's Edge Plus (PP0265) 4 of a Kind Bonus Poker (set 3)
+ - Player's Edge Plus (PP0290) Deuces Wild Poker (set 2)
+ - Player's Edge Plus (PP0409) 4 of a Kind Bonus Poker
+ - Player's Edge Plus (PP0418) Standard Draw Poker
+ - Player's Edge Plus (PP0526) Deuces Wild Poker
+ - Player's Edge Plus (PP0540) Double Bonus Poker
+ - Player's Edge Plus (PP0562) 10's or Better
+ - Player's Edge Plus (PP0587) Standard Draw Poker
+ - Player's Edge Plus (PP0711) Bonus Poker Deluxe
+ - Player's Edge Plus (PP0797) One Eyed Jacks Wild Poker
+ - Player's Edge Plus (KE1001) Keno
+ - Player's Edge Plus (KE1012) Keno (set 3)
+ - Player's Edge Plus (PS0364) Wild Star Red White & Blue Slots
+ - Player's Edge Plus (PS0425) Sizzling Sevens Slots
+ - Player's Edge Plus (PS0631) Wild Star Red White & Blue Slots
+ - Player's Edge Plus (PS0722) River Gambler Slots
+ - Player's Edge Plus (X002033P+XP000112) White Hot Aces Poker
+ - Player's Edge Plus (X002034P+XP000112) White Hot Aces Poker
+ - Player's Edge Plus (X002270P+XP000053) Jackpot Poker
+ - Player's Edge Plus (X002315P+XP000112) Triple Bonus Poker Plus
+ - Player's Edge Plus (X002376P+XP000112) Super Double Bonus Poker
+ - Player's Edge Plus (XMP00022) 5-in-1 Wingboard (CG2346) - Spanish
+ - Player's Edge Plus (XM00002P+XMP00006) Multi-Poker (MGM Grand Detroit Casino)
+ - Player's Edge Plus (PP0822 A5W-A6F) Standard Draw Poker
+
+
+新規追加された未動作マシン
+--------------------------
+Tektronix TekXpress XP330 X Terminal [Justin Kerk]
+Patinho Feio (first computer developed in Brazil, in 1971) [Felipe Sanches]
+unknown animal-themed game (bottom) [Roberto Fresca, Matt B]
+unknown animal-themed game (top) [Roberto Fresca, Matt B]
+東京バス案内 -ガイド- (Rev A) [ShouTime, rtw]
+Mortal Kombat 3 (SNES bootleg) [Kevin Eshbach]
+バンダイ スーパーノートクラブ (Japan) [Team Europe]
+バンダイ スーパーノートクラブEX (Japan) [Team Europe]
+HP9845B [F.Ulvi]
+Saturn ST-17xx series DVD players [Justin Kerk]
+ROLM 9751 [Brandon Munger]
+SGI IRIS Indigo (R3000) [MooglyGuy, Jan-Jaap]
+Philips CD-i 220 (Mono-II board) [MooglyGuy, Lord_Nightmare, balrog]
+Sansa Fuze 2 [David Haywood]
+ * need to establish if full firmware can be built from internal rom dump
+   and firmware updates
+Nokia 3310
+ * we only have firmware update files, probably need actual internal
+   roms / complete firmware dumps?
+Torch CF240 [Nigel Barnes]
+
+各種メカシステム用のスケルトンドライバ
+ - Ameri-Hockey
+ - Turbo Drive (ICE)
+ - Standard Change-Makers System 500 / 500E
+ - Awesome Toss'em (Lazer-tron)
+ - After Shock (Lazer-tron)
+ - Bozo's Pail Toss (v2.07)
+ - Ribbit Racing (Lazer-tron)
+ - Candy Crane (AGE)
+ - Clown Roll Down (Elwood)
+
+Various Player's Edge Plus sets [BrianT]
+ - Player's Edge Plus (X000006K+XK000001) Keno
+ - Player's Edge Plus (X000013K+XK000011) Keno
+ - Player's Edge Plus (PP0596) Spades Sequential Royal Double Bonus Poker
+ - Player's Edge Plus (PP0598) Hearts Sequential Royal Double Bonus Poker
+
+Various World Club Champion Football sets [f205v, ANY, MetalliC]
+ - World Club Champion Football Serie A 2002-2003 Ver. 2.12 (CDV-10002)
+ - World Club Champion Football Serie A 2002-2003 Ver. 2.34 (CDV-10008)
+ - World Club Champion Football European Clubs 2004-2005 (CDV-10013)
+ - World Club Champion Football European Clubs 2004-2005 Ver. 1.1 (CDV-10015)
+ - World Club Champion Football European Clubs 2004-2005 Ver. 3.22 (CDV-10015P)
+ - World Club Champion Football European Clubs 2005-2006 (CDV-10027)
+
+
+新規追加された未動作クローン
+----------------------
+Mexico 86 (キック＆ラン海賊版) (set 2) [f205v]
+ワールドコンバット / Warzaid (ver UCD:B) [arcadecomponents.com]
+中国龍 / Dragon World (Korea, V040K) [Ryan Holtz, Smitdogg, The Dumping Union]
+クラックス (set 2, bootleg) [ANY]
+Multi Game (Versione 3.8.6T - 1.5.6, 25-AUG-97) (V378?) [Tirino73]
+Hard Head 2 (v2.0, bootleg) [system11]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+megadriv.xml: Sega MegaDrive/Genesis cartridges
+ - Toy Story (prototype) [PtoPOnline]
+ - Stargate (prototype) [PtoPOnline]
+
+tutor.xml: Tomy Tutor & Pyuuta cartridges
+ - 4-nin Mahjan (Jpn) [Team Europe, SSJ]
+ - verified Bermuda Triangle as identical to Torpedo Terror [Team Europe, SSJ]
+
+
+新規追加された未動作ソフトリスト
+--------------------------
+gamate.xml: Bit Corp Gamate cartridges [Peter Wilhelmsen, Morten Shearman Kirkegaard]
+ * some of these work better than others
+ - Legend of Dragon Knight
+ - Fist of Thunder
+ - Jewelriss
+ - Mars Voyage
+ - Flying Goblins
+ - World Cup Soccer
+ - Punk Boy
+ - Famous 7
+ - Tough Guy
+ - Fantasy Travel
+ - QuizFighter
+ - Further Adventures of Hannibal the Cat
+ - Basketball
+ - Bao Qing Tian
+ - Robin Hood
+ - Riddle of the Ancient Tomb
+ - Insect War
+ - 4-in-1
+ - One Million Whys
+ - Dinosaur Park (redump)
+ - The Golden Pyramid (redump)
+
+saturn.xml: Sega Saturn CD-ROMs
+ * プレイ可能だが、ドライバステートの都合で動作不可に設定してある
+ - Rayman (Prototype 19950720) [D$wizz Taylor]
+
+supracan.xml: Funtech Super A'Can cartridges
+ * DMAの問題でプレイ不可に指定
+ - Formosa Duel [Team Europe, SSJ]
+
+gmaster.xml: Hartung Game Master cartridges
+ - 3-on-3 Soccer (Fuss-ball) [Peter Trauner, SSJ]

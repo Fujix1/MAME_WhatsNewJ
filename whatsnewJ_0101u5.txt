@@ -1,0 +1,74 @@
+0.101u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+vf097u2gre [R. Belmont]
+daytona099u4gre [R. Belmont]
+memoryupdate0101u1red [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+* Sega Model 1ドライバのサウンドコマンドにFIFO追加。これで起動時の不具合修正。
+  また68000CPU速度も修正。[R. Belmont]
+
+* C352サウンドエミュレータのいろいろな修正と改良。[hoot development team]
+
+* Namco NAサウンドエミュレータの未実装機能追加。[cync]
+
+* excelsrに条件別DIPスイッチと未実装DIPスイッチ追加。[Pierpaolo Prazzoli]
+
+*「Jリーグ」のプロテクト回避を修正して2人プレイも動作。また、sonicのプロトタイプ
+  が動作するようにも修正（ただしグラフィックの問題あり）。[Anonymous]
+
+* 大型配列を正しくconstに指定。[Atari Ace]
+
+* 6805コアでCLRAがキャリーフラグを変更しないように修正。[Ernesto Corvi]
+
+* st0016でのスプライト巻き戻し修正（nratechuで必要)。[Pierpaolo Prazzoli]
+
+* Model 3のアップデート: [Ville Linde]
+ *「デイトナUSA2パワーエディション」追加
+ * 表示系ハードの大幅更新：
+    - 透過表示サポート（ポリゴン及びテクスチャ）
+    - レンダリング順序がほぼ完璧
+    - 並列光源
+    - テクスチャ座標のミラーリング
+
+* Voodooエミュレータにラスタライザジェネレータの実験版追加。これはケースに応じて
+  X86アセンブラblitterを生成します。ただし、速度はあまり改善されず、バグもとても
+  多いので今のところ無効にしてます。makefileで有効にできます。[Aaron Giles]
+
+* Voodooエミュレータランタイムでの最適化ハックの有効・無効設定追加。またフレーム
+  スキッパーも追加。Ctrl+1〜6キーでフレームスキップの調整、Ctrl+F/H/Qでフル/半
+  分/4分の1解像度を選択します。[Aaron Giles]
+
+* ほとんどのバリディティチェックが1秒以内で完了するように書き直し。またメモリ
+  マップに対する領域サイズチェックも加えました。全バリディティチェックは新ファイ
+  ルvalidity.cに移動しました。[Aaron Giles]
+
+* 領域バリデーションを簡略化するため、AM_REGION()マクロで保存領域・オフセット情
+  報を持たせました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Wonder Stick [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+アトミックロボキッド (Japan, Set 2) [Brian Troha]
+レイメイズ (Japan) [Brian Troha]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Ping Pong Car [David Haywood, Guru]
+デイトナ USA 2 パワーエディション [Ville Linde]

@@ -1,0 +1,169 @@
+0.144u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03685: [サウンド] reaktor: 音でない。(hap)
+- 03568: [クラッシュ/フリーズ] lockload, gunhard: OK入力後にAccess Violationエラーが
+         起こる。(hap)
+- 04189: [ゲームプレイ] fireshrk: 敵にやられて復帰するときに繰り返し円を描くように操
+         作すると、自機の操作が効かなくなることがある。(hap)
+- 04601: [速度] vimana: ゲームの動作速度が大幅に低下した。(hap)
+- 04602: [ドキュメント] pb_l5 and clones: 正しいゲーム名は"PIN-BOT..."で、製造年は
+         1986年。
+- 04600: [ドキュメント] pfevr_l2, pfevr_p3: 正しいゲーム名は"Pennant Fever"
+- 04599: [ドキュメント] pz_f4 and clones: 正しいゲーム名は"The Party Zone..."
+- 02234: [DIP/入力] chboxing: テストモードのメニューをナビゲートできない。(hap)
+
+
+ソースの変更点
+--------------
+- softlist: エントリーカウントトラッキングの問題を修正。[O. Galibert]
+
+- vamphalf.c:「Toy Land Adventure」の正確なスピードアップ。「Mr. Kicker」を動作不可に
+  再格下げ。nvram処理に深刻なバグがある(おそらくコアのバグのせい)ため、ゲームでハイス
+  コアを出してnvramの書き換えが起きるとゲームが完全におかしくなる。[Dave Haywood]
+
+- i386: 仮想8086モードの作業開始。まだ完全には動作せず。アドレス2個か、オペランドサイ
+  ズプリフィクスがそれぞれキャンセルしてしまう不具合を修正。[Barry Rodewald]
+
+- PGM描画が一部で激重なのに対応するため最適化。[David Haywood]
+
+- ARMが未ダンプなのを考慮して、古いKOVプロテクトシミュレーションを復活。
+  [David Haywood]
+
+- arm7: スピードアップのためジャンプテーブルを使用してコードの再構成。[David Haywood]
+
+- i386: 特権レベルに応じて、eflagsレジスタの上位ビットがPOPF、VMとIFによって変わって
+  しまうのを修正。プロテクトモードでの例外エラーコードを修正。仮想8086をさらに作業。
+  EMM386のロードが可能になったが、まだ数秒で停止してしまう。[Barry Rodewald]
+
+- 全てのデバイスで、マルチパートソフトリストの読み込みを追加。[Fabio Priuli]
+
+- ARM7: ARMモードを独自ファイル化＆フォーマットやインデントの整理。[David Haywood]
+:
+- i386: 386拡張モードのWindowsを走らせるために少し前進。[Carl]
+
+- beaminv.c: カラーオーバーレイを追加。[MASH]
+
+- Added support for 2 drives on IDE controller [Miodrag Milanovic]
+
+- システム全般におけるビットマップ関連の大幅な変更: [Aaron Giles]
+  おそらくはこれによって不具合が起きてると思われますが、もし何か見つけたら教えてくだ
+  さい。
+  ビットマップは、フォーマットをベースとして強力に型分けしました。bitmap_tが、抽象基
+  底クラスとしてまだ存在しますが、ほとんど使われていません。その代わりとして、フォー
+  マット固有となったbitmapクラスを使用します:
+
+   bitmap_ind8 == 8bpp 
+   indexed bitmap_ind16 == 16bpp
+   indexed bitmap_ind32== 32bpp 
+   indexed bitmap_ind64 == 64bpp
+   indexed bitmap_rgb32 == 32bpp RGB
+   bitmap_argb32 == 32bpp ARGB
+   bitmap_yuy16 == 16bpp YUY
+
+  各フォーマットについて、共通メソッドpix()で型のピクセルを参照します。旧型の
+  pix8/pix16/pix32/ pix64メソッドも短期的に残していますが、ビットマップのピクセルサイ
+  ズが一致するひとつだけしか使えません。また、古いRGB15フォーマットは完全に廃止しまし
+  た。
+  model1、megadriv、stvドライバで、RGB15フォーマットビットマップを使わないように更新
+  しました。
+  適当な型のビットマップを割り当てるauto_bitmap_<type>_alloc()マクロを追加。
+  画面更新関数は、入力引数として正しいビットマップ型を指定する必要があります。静的
+  更新関数については、SCREEN_UPDATEはSCREEN_UPDATE_RGB32とSCREEN_UPDATE_IND16になりま
+  す。既存ドライバは全て正しいマクロに変更済みです。
+  画面更新関数は全画面について必要になりました; デフォルトのビットマップをスクリーン
+  にコピーするというデフォルト動作は廃止しました(デフォルトビットマップ自体が廃止予定
+  だった)。screen_updateコールバックには以下のどれかを指定します:
+
+   MCFG_SCREEN_UPDATE_STATIC(name) - 静的関数
+   MCFG_SCREEN_UPDATE_DRIVER(class, func) - ドライバのメンバ
+   MCFG_SCREEN_UPDATE_DEVICE(tag, class, func) - デバイスのメンバ
+
+  ターゲットのビットマップフォーマットは、画面更新関数から割り出せるようになったため、
+  不要になったMCFG_SCREEN_FORMATマクロを削除しました。bitmap_ind16をとる画面更新コー
+  ルバックを指定すれば、16bppインデックスビットマップを使うようにスクリーンが設定され
+  ます。同様にbitmap_rgb32のコールバックならば、32bpp RGBビットマップが設定されます。
+  
+  bitmapクラスを、他のビットマップのサブリージョンをラッピングできるように拡張しまし
+  た。さらに、割り当て・リセットをクリーン化。ビットマップの推奨される使用法は、
+  auto_bitmap_*_alloc()を使わずに、ドライバ/デバイスで直接定義して、allocate()または
+  wrap()で設定するやり方です。
+
+  上記の変更にともない、共有デバイスのオーバーホール、または変更を行いました:
+ 
+  * レーザーディスクベースドライバと全レーザーディスクドライバをモダンC++デバイス化と
+    コードの大幅整理。モダンデバイスのフレキシブルさを生かして、ldsoundデバイスをレー
+    ザーディスクデバイスに統合
+ * v9938デバイスをモダンC++デバイス化。v9938.cのテンプレート関数移行のため、
+   v9938mod.cを削除
+ * TMS340x0デバイス用に独立したind16とrgb32コールバックを追加
+ * 全てのビデオデバイスをint16とrgb32ビットマップ用にハードコード化。もっともわかりや
+   すいのがrgb32のmc6845
+ * ほとんどのビデオデバイスを、大量の関数を作ることなく、MCFG_SCREEN_UPDATE_DEVICE経
+   由で直接呼び出せるようにscreen_updateメソッドを追加
+
+  新テンプレートdevice_delegateを追加。これは、標準デリゲートで、後々簡単に参照できる
+  ように、デバイスタグへの文字列ポインタを保持します。screen_updateデリゲートでこれを
+  使うように変更しました。画面フォーマットの自動導出でメカニズムを変更。SCREEN_EOFで
+  もデリゲートを使うようにしたため、MCFG_SCREEN_UPDATEと同様、
+  MCFG_SCREEN_EOF_STATIC/ DRIVER/DEVICEが存在します。
+
+- SCREEN_EOFを廃止。この呼び出し方は、VIDEO_UPDATE_AFTER_VBLANKビデオフラグに左右され、
+  VBLANKの終わりだったり、初めだったりとはっきりしませんでした。これを、SCREEN_VBLANK
+  コールバックに置き換え、VBLANKの開始と終了の両方で呼び出します。これにより、処理を
+  厳格にすることが可能です。全ての呼び出し元を置き換え、screen_deviceでデバイスタイマ
+  を使うように更新、その他細かなクリーンアップ。
+
+- ページフォールトの実装開始。[Carl]
+
+- testcpuドライバを追加。これは、CPUをarbitrary命令でシングルステップ動作させるのにコ
+  アを使用して、前後のステート取得とメモリトラックを行うための空テストドライバの作り
+  方を示すものです。現在、このドライバは常時コンパイルされますが、mame.lstからは参照
+  されません。[Aaron Giles]
+
+- 型により厳密にフォーマットとbppが定まるようにbitmapクラスを整理。また、ビットマップ
+  ベースとrowbyteをより積極的に揃えるコードを追加。また、既割り当てメモリを再利用し、
+  再割り当てを行わないリサイズメソッドを追加。[Aaron Giles]
+
+- i386: I/Oパーミッションの追加。[Carl]
+
+- 新メソッドscreen_device::register_screen_bitmapを追加。これは、画面サイズに合わせて
+  ビットマップを割り当て、画面サイズの変更に合わせてリサイズします。このコードが利用
+  できそうな箇所を全て更新。[Aaron Giles]
+
+-　bitmapクラスのallocate/resizeメソッドが、bitmapフォーマットや型に依存しなくなった
+  ため、bitmap_tへ移動。
+  リサイズコール前後でもbitmapのパレットが確実に残るように改良。
+
+- [N64] 変更いろいろ: [MooglyGuy, Happy]
+ * AI / VI / MI / RI / SI / PIをモダンデバイスにコンバート
+ * PI DMAを、転送時間をシミュレートするように適切な遅延を置いて発生するよう改良
+- SP DMAが0バイト転送を拒否しないように変更(8バイトワードを一つ転送する)
+
+- x87: 単精度命令系の修正。[Peter Farrie]
+
+- Capcom ZN-1の更新: [Team CPS-1]
+ * ts2、ts2jのMASK ROMを再吸い出し、及び実機に合わせて修正
+    (Smitdogg, The Dumping Union)
+ * マイナーな修正
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Toy Land Adventure [f205v, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+ギャルズパニックS - エキストラエディション (Europe) [Hartenberger, arcadiabay.de]
+Western Gun Part II [Andrew Welburn]
+
+
+追加された未動作ゲーム
+----------------------
+新日本プロレス闘魂列伝4 アーケードエディション [f205v, The Dumping Union]
+タッチdeウノー! 2 [f205v, The Dumping Union]

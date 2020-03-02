@@ -1,0 +1,380 @@
+0.202 (2018-09-26)
+------------
+
+MAMETestersの修正バグ
+---------------------
+- 07081: [クラッシュ/フリーズ] (amstrad.cpp) cpc6128: 一部のディスクゲームが動作しなくなっている。(AmatCoder)
+- 07021: [DIP/入力] (vtech2.cpp) laser500: リセットキーがマッピングされていない。(hap)
+- 06991: [クラッシュ/フリーズ] (model1.cpp) swa: しばらくするとAccess Violationでクラッシュする。(AJR)
+- 06258: [グラフィック] (taitogn.cpp) usagi: 点数計算の背景色がおかしい。(smf)
+- 07096: [クラッシュ/フリーズ] (micro3d.cpp) All sets in micro3d.cpp: 起動中に固まる。(AJR)
+- 07076: [グラフィック] (psikyo.cpp) tengaij, tengai and maybe more: [バグかもね] 一部の面でグラフィック化け。(jkm900)
+- 07091: [DIP/入力] (namcos2.cpp) sgunner2, sgunner2j: プレイヤー1と2のコインボタンが無い。(AJR)
+- 06967: [クラッシュ/フリーズ] (msx.cpp) canonv30f: [デバッグ限定] デバッグビルドでAssertion Failed! m_entrymap.find(name) == m_entrymap.end()が出る。(Robbbert)
+- 05904: [グラフィック] (sshangha.cpp) sshangha, sshanghaj: ゲーム内のメッセージ表示のプライオリティがおかしい。(David Haywood)
+- 07074: [グラフィック] (skykid.cpp) drgnbstr: タイトルロゴの下側が欠けている。(kunikuni)
+- 06998: [インターフェイス] ソフトリストタイトルのディレクトリが動作しない。(Robbbert)
+- 07092: [DIP/入力] (targeth.cpp) targeth, targeth10, targetha: プレイヤー2の操作が動作しない。Y軸が動かず、X軸は逆。(AJR)
+- 06020: [色/パレット] (sshangha.cpp) sshangha, sshanghab, sshanghaj: 3面のカットシーンで黒いスプライトが出る。(David Haywood)
+- 07086: [クラッシュ/フリーズ] (r9751.cpp) r9751: [デバッグ限定] アサート失敗: m_functions.empty()(Osso)
+- 07085: [クラッシュ/フリーズ] (mcr.cpp) Most machines in mcr.cpp, mcr3.cpp: [デバッグ限定] アサート失敗: Expression: m_target(cuavas)
+- 07090: [クラッシュ/フリーズ] (astrocde.cpp) tenpindx: [デバッグ限定] アサート失敗: Expression: !fmt.format_at_end(it)(cuavas)
+- 07087: [クラッシュ/フリーズ] (atari400.cpp) a400, a400pal, a800, a800pal: [デバッグ限定] アサート失敗: Expression: !this->m_resolved(cuavas)
+- 07089: [クラッシュ/フリーズ] (pacman.cpp) Assorted machines in aristmk4.cpp, bagman.cpp, gts3a.cpp, mac.cpp, pacman.cpp, others: [デバッグ限定] アサート失敗: Expression: fulltag[0] == ':'(cuavas)
+- 06874: [ゲームプレイ] (seattle.cpp) blitz: セルフテストをONにすると黒画面で固まる。(tedgreen)
+- 05059: [ドキュメント] 製造年が間違っているもののリスト。(-Misc Reporters-)
+- 05881: [ドキュメント] (whitestar.cpp) rctycn and all clones: ゲーム名が間違っている。(-Misc Reporters-)
+
+
+新規動作可能マシン
+------------------
+Emma II trainer [Robbbert]
+Pitapat Puzzle [David Haywood, ClawGrip, Brian Troha, The Dumping Union]
+
+
+新規動作可能クローン
+--------------------
+800 Fathoms (older) [ShouTime, The Dumping Union]
+Acorn Electron (Trial) [Centre for Computing History, ABUG]
+Botanic (English / Spanish, set 2) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+超時迷宮レジオン (Japan ver 1.05, bootleg set 2) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+ディフェンド・ザ・テラ・アタック・オン・ザ・レッドUFO (bootleg, set 2) [Siftware, MASH]
+フォートラックス (Japan) [ShouTime, The Dumping Union]
+フロッガー (Video Dens, bootleg on Scramble hardware) [ClawGrip, AJR]
+ギャルズパニック4遊 (Europe) [nomax, The Dumping Union]
+Hard Head 2 (v2.0, Music Program v2.0) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+Lucky Ball 96 (Ver 3.01) [Roberto Fresca, Grull Osgo, Daniel Gallimberti]
+Lucky Ball 96 (Ver 4.01) [Roberto Fresca, Grull Osgo, Daniel Gallimberti]
+Mandanga (bootleg of Mandinga on Galaxian hardware, set 1) [Ivan Vangelista, The Dumping Union]
+Mandanga (bootleg of Mandinga on Galaxian hardware, set 2) [Ivan Vangelista, The Dumping Union]
+Meteorite (Proel bootleg of アステロイド) [MikeMcBike]
+ミッドナイトランディング (Japan) [ShouTime]
+ミッドナイトラン -ロードファイター2- (JAD, Japan v1.10) [ShouTime, The Dumping Union]
+パックマン (Video Dens, Spanish bootleg on Galaxian hardware) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+リバーパトロール (Japan, unprotected)
+  [ShouTime, Henrique Areias Pontes, Dane Biegert, Evan Korzon, Mario Mantese, Smitdogg, The Dumping Union]
+Star Castle (cocktail) [Brent Walker]
+テーカンワールドカップ (1986 year hack) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+ザ・シンプソンズ (4 Players Asia) [Leonard Oliveira]
+時の戦士 (MC-8123, 317-0040) [ShouTime]
+タッチダウンフィーバーII (bootleg) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+クライムファイターズ2 / Vendetta (World, 4 Players, ver. ?) [Jorge Silva]
+ウェック・ル・マン24 (v2.01) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+エアーコンバット22 (Rev. ACS1 Ver.B, Japan) [hap]
+Cart Fury [Ted Green]
+Jugend+Technik CompJU+TEr [Robbbert]
+
+
+動作可能に昇格したクローン
+--------------------------
+Jugend+Technik CompJU+TEr (EMR-ES 1988) [Robbbert]
+Jugend+Technik CompJU+TEr (ES 2.3) [Robbbert]
+Jugend+Technik CompJU+TEr (ES 4.0) [Robbbert]
+Lucky Ball 96 (Ver 3.50 - 616) [Roberto Fresca, Grull Osgo]
+Lucky Ball 96 (Ver 3.50 - 623) [Roberto Fresca, Grull Osgo]
+Lucky Ball 96 (Ver 3.50 - 626) [Roberto Fresca, Grull Osgo]
+Lucky Ball 96 (Ver 3.50 - 627) [Roberto Fresca, Grull Osgo]
+Stop Thief (Electronic Crime Scanner) (patent) [Mike]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Hazeltine 1420 Video Display Terminal [AJR]
+Hazeltine 1552 [Al Kossow]
+ジャンピューター [yukaritamura]
+Lee Data 1214D Display Terminal [Al Kossow]
+MIPS Magnum R4000 (big) [Patrick Mackinlay]
+MIPS Magnum R4000 (little) [Patrick Mackinlay]
+Nvidia nForce PC (CRUSH11/12) [Samuele Zannoli]
+Video 21 [MikeMcBike, Robbbert, hap, David Haywood]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Acorn Briefcase Communicator [Centre for Computing History, ABUG]
+Acorn Communicator (Italian) [Centre for Computing History, ABUG]
+Acorn Communicator (prototype) [Centre for Computing History, ABUG]
+Diner (LF-2) French [PinMAME]
+ザ・ハウス・オブ・ザ・デッド (prototype) [Andy Geezer]
+Wyse WY-75 [Robbbert]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+c64_flop: Bill Budge: Pinball Construction Set, JingleDisk - Holiday Musical Story with Computer Animation [FakeShemp]
+camplynx_cass: Super Air Raid [Nigel Barnes]
+fmtowns_cd:
+  Super Real Mahjong PII & PIII +, The Visitor [DamienD, Tokugawa Corporate Forums]
+  Teito Taisen, Teitoku no Ketsudan II, Zoku Youjuu Senki - Suna no Mokushiroku [r09, redump.org]
+fmtowns_flop: Daisenryaku III '90 Map Collection Vol. 1 [r09]
+ibm5150:
+  2630 Fourier Analyzer (Demo), Easy-PC Demonstrator for Printed Circuit Boards and Schematics,
+  Mitt forsta ordbehandlingsprogram (Swe), Ranger 1 (Demo), The Great International Paper Airplane Construction Kit
+  [FakeShemp, Justin Kerk]
+ibm5170: Heimdall, Heimdall 2: Into the Hall of Worlds [ArcadeShadow]
+interpro: Intergraph Mechanical Software [Brian Ekins]
+uzebox: Babylon Tower, Bomber, Bugz, Fifteen Puzzle, Holey Moley, Joyrider [ArcadeShadow]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+bbc_flop_6502: P-System [Nigel Barnes]
+bbcm_cart: Smart Cartridge [Centre for Computing History, ABUG]
+
+
+追加・更新された翻訳
+--------------------
+Korean [Neius]
+
+
+ソースの変更点
+--------------
+- pipibibsbl: クロック修正。[AJR]
+
+- 表示不完全フラグをドライバからPSX GPUデバイスに移動。[AJR]
+
+- m6502: Mitsubishi M740サブファミリのSET命令が実行に影響するよう改良(MT07091修正)。[AJR]
+
+- m79152pc: カーソル実装。スクロールサポート。一部のビデオ属性。[AJR]
+
+- froggervd: ゲームが動作するようにプログラムROMにパッチ。[AJR]
+
+- imds2: I/Oコントローラボードを個別デバイスとして分離。[AJR]
+ * IOCファームウェアのリビジョンがさらに判明したので追加
+
+- z80dart: いろいろなバグ修正。[AJR]
+ * スプリアスブレーク状態を避けるためRxDを1にデフォルト化
+ * "Rest External/Status Interrupt"コマンド後のRR0のCTSレベルを訂正
+ * 何も転送されていないときはRTS出力を即時デアサート可能
+
+- pcd.cpp: pcx表示の修正。[AJR]
+
+- tzx_cass.cpp: ポーズの長さに0が指定されたとき、1msの最低ポーズによりブロックをフィニッシュ。[AmatCoder]
+
+- dsk_dsk.cpp: 削除されたマークセットによりセクタを読み込み。[AmatCoder]
+
+- デフォーカスエフェクトの前にスキャンラインエフェクトを適用。スキャンラインエフェクトを別シェーダに移動。[anikom15]
+
+- bbusters.cpp:「ビーストバスターズ」のスプライトプライオリティ修正。シングルパス描画に変更。[Bryan McPhail, Daniel Filner]
+
+- megatech.cpp: マニュアルよりカートレベル番号を追加。[Bryan McPhail]
+
+- mips3: DMULT/DMULTUの動作を修正(GitHub #3718)。[Bryan Perris]
+
+- lethalj.cpp, artmagic.cpp: ランタイム時のタグ参照を削減。関数名とリージョン名を改良。[cam900]
+
+- raiden2.cpp, r2dx_v33.cpp: zeroteam、nzerotea、zerotm2kのOki M6295クロックとpin 7のレベルを訂正。[cam900]
+
+- legionna.cpp: denjinmkのメタデータ訂正。[cam900]
+
+- psikyo.cpp, dreamwld.cpp: タイルマップの列スクロールエフェクトを修正。[cam900]
+
+- PC-FXのサウンドを改良: [cam900]
+ * huc6230: PSG修正。ADPCMの更新をタイマーコールバックに変更。CD-DAの音量調整を実装
+ * huc6272: CD-DA出力を修正
+
+- yunsun16.cpp: コードの重複、ランタイム時のタグ参照、未使用メンバの削減。タイルマップのスキャンコードをシンプル化。[cam900]
+
+- funybubl.cppのクリーンアップ: [cam900]
+ * メンバとリージョン名の整理。ランタイム時のタグ参照削減
+ * Oki M6295クロックの訂正とサンプル空間をメモリバンクに変更
+ * パレットサイズの訂正とパレットデコーダメンバを使うよう変更
+ * VRAMがアドレスマップバンクデバイスを使うよう変更。描画処理でタイルマップシステムを使うよう変更
+
+- sshangha.cpp: Oki M6295クロックとピン7のレベル修正。[cam900]
+
+- nmg5.cpp: ビットマップレイヤーをMAMEのビットマップを使うように変更。ACCESSING_BITSの必要性を低減。コードの重複解消。[cam900]
+
+- neogeo.cpp, neopcb.cpp: register_postloadと一部のMCFGマクロを削除。[cam900]
+
+- neogeocd.cpp: MAMEのコード流儀にさらに合わせてリワーク。[cam900]
+
+- crospang.cpp: タイルバンキング修正 - bestriのバグが修正。[David Haywood]
+
+- raiden2.cpp:「雷電II」「雷電DX」をコードのリビジョンによって整理。[David Haywood]
+
+- seta001: スプライト描画のダメコードを削除。[David Haywood]
+
+- sshanghai.cpp: ビデオミキシングとパレット処理の改良。[David Haywood]
+
+- fuukifg2.cpp, fuukifg3.cpp: タイルマップバッファのオフセットを修正。[David Haywood]
+
+- Namco C65、C68のデバイス化開始。[David Haywood]
+
+- namcos2.cpp, namcos21.cpp: オーディオCPUプログラムに設定されたバンキング使用。[David Haywood]
+
+- namcos2.cpp: C123、C169、C355、ROZ描画エミュレーションをドライバクラスから分割。[David Haywood]
+
+- namcos21.cpp: 異なる設定に合わせて3つのドライバに分割。DSPエミュレーションをデバイス化。[David Haywood]
+
+- opwolf: Cチップシミュレーションを削除しコードを整理。[Dirk Best]
+
+- opwolfb: Z80による入力読み込みと、共有RAMへの書き込み。[Dirk Best]
+
+- galaxian.cppの更新: [kazblox]
+ *「Take Off」「Explorer」「Amigo (set 2)」のマシン設定とビデオ同期を改良
+ *「Explorer」「Amigo (set 2)」にサウンド不完全フラグ設定
+ *「Take Off」に色不完全フラグ設定
+ *「ジャンプバグ」の星背景の制限修正
+ *「スクランブル」の弾のサイズ修正
+ * Subelectro 113基板がクリスタルを持たないのと同様に、jungsubのクロックをL-1200-2のピクセルから取得
+ *「SF-X」「モンスターゼロ」の背景描画改良
+ * MCFG_DEVICE_VBLANK_INT_DRIVERではなく、MCFG_SCREEN_VBLANK_CALLBACKを使うように変更
+ * turpinsを「スクランブル」からでなく「スーパーコブラ」からの派生に変更
+ *「アミダー」から「Mandinga」へサウンドプログラムROM追加。吸出し不良に設定
+ *「ジ・エンド」「スクランブル」のプロテクトシミュレーション改良
+
+- mimonscr: ビデオRAMのミラーアドレスを修正 - スコア表示の不具合解消。[kazblox]
+
+- pacland.cpp: スプライトプライオリティと画面端での描画改良。[kunikuni]
+
+- sn76496.cpp: NCR8496とPSSJ-3ノイズジェネレータの動作を実機テストに合うよう修正。[Lord Nightmare, Qbix, ValleyBell, NewRisingSun]
+
+- williams.cpp:「Speed Ball」の入力修正。[MASH]
+
+- bbcb: AMS 3" Microdrive Disc SystemとMicrowaer DDFS FDCフロッピーコントローラのオプション追加(後者は未動作)。[Nigel Barnes]
+
+- bbc: Acorn BitstikとBitstick 2アナログコントローラ追加。[Nigel Barnes]
+
+- acorn_fdc, atom_discpack: HEAD_LOADでREADYを設定。[Nigel Barnes]
+
+- emumem: 内部マップにおけるI/Oポートとメモリバンクの修正。[O. Galibert]
+
+- interpro: ネットワークエミュレーションの修正。[Patrick Mackinlay]
+ * osdnet, dinetwork: タイムトラベルの問題を修正
+ * taptun: Windowsでショートフレームの補完とフレームチェックシーケンス追加
+ * clipper: キャリーフラグ処理のバグ修正
+ * i82586: 割り込み処理改良。シリアル化遅延実装。送信バグ修正。リセット処理追加
+
+- apple2e.cpp: I/Oインターセプトが実ハードの動作に合うよう修正。[Peter Ferrie]
+
+- apple2e: $C800の空間を使用するスロット1と2のカードのバグ修正。[R. Belmont, Peter Ferrie]
+
+- decstationの実装: [R. Belmont]
+ * コンソールが動作するレベルまで、アクセラレートした疑似blitterをエミュレート
+ * LANCE Ethernetコントローラ追加
+ * ゲートアレイにIRQ処理を実装開始
+
+- z8: 大量のバグ修正。スタックタイプの検出、間接レジスタアドレッシングのJPとCALL、そしたDAを含む。[Robbbert]
+
+- luckybal.cppの更新: [Roberto Fresca, Grull Osgo]
+ * バンキングとI/O多重化を実装
+ * DIPスイッチ配置、ピンアウト追加、I/O接続についてノートに追加
+
+- AMD Lanceイーサネットコントローラデバイスの準備バージョン追加。[Ryan Holtz]
+
+- sun4.cppの更新: [Ryan Holtz]
+ * 未エミュレートなキャッシュコントローラ経由書き込みが使用するASIへの書き込みを無視
+ * DMAとMMUページフォールト処理を修正
+ * 未定義メモリタイプへのアクセス時にメモリアクセス例外を発火
+ * bwtwo、cgthree、cgsixカードをサポートするSBusスロットを追加
+ * bwtwoフレームバッファ用に、別なFCode PROMを追加
+ * Artecon SB300P 3シリアル/1パラレルSBusカードデバイスのスケルトン追加
+ * timekeeprの型を訂正
+ * sun4c MMUデバイスにS4バッファ、S4キャッシュ、S4−MMUの実装
+
+- sparc: トラップと割り込みのTBRマスキングを修正。パフォーマンス改善のためCPU/MMUインタフェースをリファクタリング。[Ryan Holtz]
+
+- nscsi_cd: セクタ境界にないブロックで読み込みを初期化するとき正しいオフセットからデータをリターン。[Ryan Holtz]
+
+- timekpr.cpp: アップデートがミスする問題を修正。[Ryan Holtz]
+
+- SunPC 5x86アクセラレータ、SunSwift 10/100 Ethernet + Fast Wide SCSI、TurboGX + SBusカードデバイスのスケルトン追加。
+ [Ryan Holtz, Andrew Liles]
+
+- 32x: オーディオFIFO動作の改良とDAC解像度の訂正。[smf]
+
+- NES APU: リード・ライトトランポリンを削除し、チャンネルイネーブルリセットステートを訂正。[smf]
+
+- vgmplayの更新: [smf]
+ * Sega 32Xサウンドのサポート
+ * Y8950、YM2608、YM2610、YM2612のサンプル再生追加
+ * C6280、SN76496、YM2203のサンプル再生サポート
+ * リッピング不良でイネーブルコマンドがない場合でも、NES APUとSega 32Xチャンネルを自動で有効化
+ * ファイルからの読み込んだヘッダサイズが正しくなくても、デフォルトのヘッダサイズを推測
+ * PCM書き込み時の境界チェックでオフバイワンエラーがあったのを修正
+
+- emumem: サブユニットの未マップなリード値を修正。[smf]
+
+- mcr68: 全ゲームで下位データビットの6840をマッピング。blastedの回路図にマッチ。[smf]
+
+- PSX GPU: テクスチャドットレンダリング、透過ドットと線、セミ透過(STP)描画の実装。[smf]
+
+- tandy1t.cpp: キーボードシミュレーションの改良(t100tx MS-DOS BASICの動作が改善)。[smf]
+
+- zn.cpp:「Primal Rage 2」のウォッチドッグを実装。[smf, coolmod]
+
+- powervr2.cpp: 異なるポリゴンタイプを別々のリストに保持。透明ポリゴンのアルファ値を無視。[snickerbockers]
+
+- zsg2.cpp: key-on時のエンファシスフィルタのステートを正しくリセット(raystormの12曲でノイズ出るのを修正)。[superctr]
+
+- nereid: パレットリードバック実装。セーブステート修正。[Sven Schnelle]
+
+- topcat: 割り込み実装、カーソルレジスタのリードバック、プレーンイネーブル、ピクセル配置ルール、その他の修正。[Sven Schnelle]
+
+- i8291: B0ビットをレシーバがREADY時のみ設定。MJMNビットを修正。TIDSのときEOIフラグをリセット。DCASを実装。[Sven Schnelle]
+
+- voodoo_pci: PCI設定レジスタ0x40がGPUタイプに依って異なる値を返すよう修正 (MT06874を修正)。[Ted Green]
+
+- coco12.cpp, coco3.cpp: CLEARまたはCTRLを2つ目のシフトとして使用。ナチュラルキーボードモードで句読点をよりタイプ可能。
+ [Tim Lindner]
+
+- シリアルマウスエミュレーションの書き直し: [Vas Crabb]
+ * コードのシンプル化とタイマーの削除
+ * Microsoftマウスを、2ボタン(Microsoft)、3ボタン(Logitech)、クリックホイールデバイスに分割
+ * Mouse Systemsのマウスの動作を初期型に合わせて改良
+ * 回転可能なMouse Systems製マウスを追加(ソフトがないので未テスト)
+ * Sun製マウスをサポート。別な問題に対応するため9,600ボーでハック動作中
+
+- デュアルスクリーンシステムが間違って4:3の比率で表示されていた問題を修正。[Vas Crabb]
+
+- neogeo.cpp: US版4スロットMVSからsp1-u4 BIOSを吸出し。[ack]
+
+- seta2.cpp: P0-113A基板レイアウト追加と、この基板を使った未吸出しな「ガーディアンズ / 電神魔傀 II」について記載。[Brian Troha]
+
+- vamphalf.cpp:「Cool Minigame Collection (Italy)」の再吸出し。[caius, Brian Troha]
+
+- suprnova.cpp: PLD吸出しの検証。[caius]
+
+- tumbleb.cpp: tumbleb2セットのドキュメント更新。[ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+- namcos2.cpp: rthun2jのPLD吸出し。[ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+- m72.cpp: rtype2jのPAL吸出し。[ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+- slapfght.cpp: getstarb1の吸い直し。ROMラベルtの更新。未吸出しのPAL用プレースホルダ追加。
+ [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+
+- valtric: テキストROM vt_07.binの吸い直しとサイズの訂正。[ClawGrip]
+
+- fmtowns_cd.xml: Branmarker 2 Extra Discを吸い出し。[DamienD, Tokugawa Corporate Forums]
+
+- konamigx.cpp、konamim2.cpp、wecleman.cppのドキュメントを改善。[f205v]
+
+- f1superb: タイトルをマニュアルやタイトル画面に合わせて修正。[f205v]
+
+- vegas.cpp: エミュレーションステータスをさらに考慮してフラグを更新。[Hydreigon]
+
+- 最近の変更に合わせてhiscore.datを更新。[Leezer]
+
+- ibmpc.cpp: IBM 5160 (PC/XT) BIOSの08/16/82リビジョン吸出し検証。[MicroCoreLabs]
+
+- digel804.cpp: Celectronic Berlin/Digelec Promicron 2000 programmer v2.3のBIOSを吸出し。[MikeMcBike]
+
+- chihiro.cpp: Brute forced security key for Quest of D Oukoku no Syugosya. [Peter Wilhelmsen, Morten Shearman Kirkegaard]
+
+- vastar.cpp: dogfightpのPROMを吸出し。[ShouTime]
+
+-「Chess Challenge 2」「ダートダッシュ」「Heuk Sun Baek Sa」のメタデータ修正。[sjy96525]
+
+- taitogn.cpp:「兎 -野性の闘牌-」の不要フラグを削除。[sjy96525]
+
+- ドキュメントにコマンドラインオプションの短縮形を追加。[Wellington Uemura]

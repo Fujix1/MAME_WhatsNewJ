@@ -1,0 +1,78 @@
+0.105u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+raizing0105u1red [Ville Linde]
+psbasedgames0105u1red [Nathan Woods]
+
+
+
+ソースの変更点
+--------------
+-「Monster World」のDIPスイッチ修正。[Sonikos]
+
+- PowerPC FPUの浮動小数点の丸めエラー修正。[Ville Linde]
+
+-「The Killing Blade」のプロテクト作業。[El Semi]
+
+- PGMのスプライト描画コードの再構成とクリーンアップを少々。ズーム機能追加。
+  [David Haywood]
+
+- 6821のPIAをクリーンアップ。MAMEの新定義法にコンバートして、初期化時のみに設定と初期
+  化を行うように変更。[Nathan Woods]
+
+-「コスモポリスギャリバン」と「UFOロボ ダンガー」の不明DIPを修正。[Twisty]
+
+- Playmark製「Roulette」を少し改良。ただしまだ動作は不完全。[David Haywood]
+
+-「Showdown」のスタートボタン修正。[Don Maeby]
+
+-「Shocking」のサウンド周波数修正。[Brian Troha, Guru]
+
+-「トップローラー」の修正: [Tomasz Slanina]
+ - 色の修正
+ - グラフィックバグの修正
+ - 音の改良（サンプルROM追加）
+ 
+ まだ手前のテキストレイヤーの色に一部問題あり
+
+- "This game doesn't work"の内容をもっとはっきりと表示。[Olivier Galibert]
+
+- PAIRとPAIR64を有効なセーブステートtタイプに追加。[Nathan Woods]
+
+- Amiga/Arcadiaシステムのアップデート: [Aaron Giles]
+ - 自動configシステムをもっと一般的にも使えるように書き直し
+ - CIAをさらに完全にするため、クリーンアップと書き直し
+ - デュアルプレイフィールドとスプライトプライオリティ追加
+ - アタリ判定サポート
+ - COPPERタイミングを調整して「Fast Break」のスコア修正
+ - 新しいバージョンがデフォルトになるようにBIOSを並べ替え
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Mang-Chi [David Haywood, Brian Troha]
+New Hidden Catch [Pierpaolo Prazzoli]
+
+
+
+新規クローンセット
+------------------
+Abscam [David Widel]
+ミズパックマン (bootleg, encrypted) [David Widel]
+ビリヤードアカデミー リアルブレイク (Korea) [Corrado Tomaselli]
+Carrier Air Wing / USネイビー (World 901009) [Stefan Lindberg]
+Plasma Sword / スターグラディエイター2 (ASIA 980316) [Chris Hardy]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+トータルバイス [Curt Coder]
+セガスキー スーパーG [R. Belmont]
+Over Rev [R. Belmont]
+Sliver [David Haywood]
+Puck People [David Haywood]

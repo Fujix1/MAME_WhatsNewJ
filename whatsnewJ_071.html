@@ -1,0 +1,545 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.71</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.71.txt</div>
+	<div class="main">
+<div class="wn">0.71
+
+0.70u1～u5の更新も含みます。
+
+
+ソース全般の変更：
+------------------
+
+-「スタジアムクロス」のマルチPCMバンキングを修正。[R.Belmont]
+	src/drivers/multi32.c
+	src/sound/multipcm.c
+	src/sound/multipcm.h
+
+- AY8910ノイズジェネレータ改善。[Jarek Burczynski]
+	src/sound/ay8910.c
+
+-「A-JAX」のファイル名修正。[Brian A. Troha]
+	src/drivers/ajax.c
+
+-「雷牙」「スーパーピンボールアクション」のグラフィック改善。[Leon van Rooij]
+	src/drivers/raiga.c
+	src/vidhrdw/raiga.c
+	src/drivers/spbactn.c
+	src/vidhrdw/spbactn.c
+	src/drawgfx.c
+
+- 多くのドライバでタイルマップにコンバートとDIP修正など。[Curt Coder]
+
+
+新規サポートゲーム：
+--------------------
+
+Boxer (prototype) [Stefan Jokisch]
+	src/drivers/boxer.c
+	src/vidhrdw/boxer.c
+
+スタースイープ [smf, MooglyGuy]
+	src/drivers/namcos11.c
+	src/drivers/psx.c
+	src/vidhrdw/psx.c
+	+ その他
+
+マジカルスポット [Pierpaolo Prazzoli]
+	src/drivers/cosmic.c
+
+
+新規サポートクローン：
+----------------------
+
+閃激ストライカー (Asia) [Brian A. Troha, David Haywood]
+	src/drivers/suprnova.c
+	src/vidhrdw/suprnova.c
+
+マキシマムフォース (v1.05) [Brian A. Troha]
+	注：クローンのCHDファイル名について、MAME側にバグがある模様
+	src/drivers/cojag.c
+
+Space Invasion (Europe Original?) [Brian A. Troha]
+	src/drivers/commando.c
+
+アンダーファイア (US and Japan) [Brian A. Troha]
+	src/drivers/undrfire.c
+
+パズルボブル (NeoGeo) (set 2) [Razoola]
+	src/drivers/neogeo.c
+
+
+新規TESTDRIVER：
+----------------
+
+ZNベースシステムをいろいろ [smf, MooglyGuy]
+
+ルージュアン [..]
+	ビデオハードエミュレーションを仕上げる必要あり
+	src/drivers/mermaid.c
+
+
+==========================================================================
+
+
+0.70u5
+
+DIPスイッチについての変更を提出する場合は、必ずデバッグビルドでテストして下さい。
+一旦修正されたものを再修正するのは時間が無駄になってしまいます。デバッグビルドで
+動作させる場合、追加の警告メッセージがあります。
+
+
+ソース全般の変更：
+------------------
+
+- DIPスイッチの修正。[I&ntilde;igo Luja]
+	src/drivers/gameplan.c
+	src/drivers/cps1.c (kodj064gra)
+	src/drivers/ms32.c
+	src/drivers/freekick.c
+	src/drivers/wwfwfest.c (wwfwfest055gra partial?)
+	src/drivers/exidy.c (venture37b8gra)
+	src/drivers/suprnova.c
+	src/drivers/seta.c
+	src/drivers/system16.c
+
+-「雷牙 / Strato FIghter」の改善と修正。[David Haywood, TheGuru, Leon van Rooij]
+	まだいくつか表示系の問題あり(プライオリティ、アルファブレンディング、タ
+	イル系など)
+	src/drivers/gaiden.c
+	src/vidhrdw/gaiden.c
+
+-「Tricky Doc」でのスプライト表示位置修正。[Pierpaolo Prazzoli]
+	src/vidhrdw/sauro.c
+
+- 乱数が必要なドライバでmame_randを使うように変更。[Barry Rodewald]
+	src/drivers/artmagic.c
+	src/drivers/centiped.c
+	src/drivers/namcona1.c
+	src/drivers/namconb1.c
+	src/machine/namcos1.c
+
+- u4でおかしくなっていたNamco系の修正をいくつか。[Phil Stroffolino]
+	src/vidhrdw/namcos2.c
+	src/machine/namcos2.c
+
+-「スティールガンナー」のROMを正確な物に変更。[Bryan McPhail]
+	src/drivers/namcos2.c
+
+- ncv1のファイル名を改善。[TheGuru]
+	src/drivers/namcond1.c
+
+-「ザ・シンプソンズ」のスプライト修正。[Acho A Tang]
+	src/drivers/simpsons.c
+	src/machine/simpsons.c
+	src/vidhrdw/simpsons.c
+	src/vidhrdw/konamiic.c
+	src/vidhrdw/konamiic.h
+
+- その他いろいろな変更。[Nathan Woods]
+	src/fileio.c:
+	- “デバッグクッキー”導入。デバッグモードでクッキーを使ってmame_fileス
+          トラクチャの値を保存。
+
+	src/windows/window.c:
+	- 非ストレッチ時のウィンドウモードにあった表示エリアのバグを修正。
+	  以前は、単純にコードで表示エリアの変更をして、その結果のウィンドウサイ
+	  ズを調べwin_adjust_windows()で適宜調整していた。この方法では、表示エリ
+	  アがそれまでよりも大きくなった後、小さくすると元のウィンドウサイズに戻
+	  らないという問題があったため、win_adjust_window()を呼ぶ代わりに、ス
+	  ケールファクタとエミュレーション表示エリアとウィンドウのクライアントエ
+	  リアの間隔を保持するコードを追加しました。
+
+	src/windows/winddraw.h:
+	src/windows/winddraw.c:
+	src/windows/wind3d.c:
+	- win_ddraw_fullscreen_margins()の呼出しを追加。これはDirectDrawサーフェ
+	  スについて、マージンのRECTに相当する引数dwWidthとdwHeightを与えるもの
+	  です。MAMEでの動作はとてもシンプルですが、MESSではメニューバーがあるの
+	  で動作が異なるため、winddraw.cとwind3d.cでもこれを呼び出すように変更し
+	  てあります。
+
+	src/timer.c:
+	src/timer.h:
+	- タイマーを“void *”から“mame_timer *”に変更。mame_timerはOpaque 
+	  Structureで、fileio.hのmame_fileと似たものです。タイマーを使ったコード
+	  については一切更新してません。個人的には以前まではvoid *で全てうまくコ
+	  ンパイルが通っていたので、急ぐ必要は無いと思います。
+
+	src/vidhrdw/jaguar.c:
+	- jaguar_tom_regs_w()がクラッシュする可能性があったのを修正。(普通の
+	  cojagゲームの動作ではクラッシュすることはないが、修正されたROMを使った
+	  場合に起こる恐れあり)
+
+	src/sound/fmopl.c:
+	#if/#endifを追加
+
+- EXEをダウブルクリックしたときのメッセージを少し変更。[Leon van Rooij]
+	src/windows/winmain.c
+
+
+新規サポートゲーム：
+--------------------
+
+スタジアムクロス [Jason Lo]
+	サウンドに問題がある模様
+	src/drivers/multi32.c
+	src/drivers/system32.c
+	src/vidhrdw/system32.c
+
+R2D Tank [Pierpaolo Prazzoli]
+	src/drivers/r2dtank.c
+
+
+新規TESTDRIVER：
+----------------
+
+前回追加し忘れてたnamcoゲーム
+
+
+==========================================================================
+
+
+0.70u4
+
+ソース全般の変更：
+------------------
+
+- タイルマップビューアを"tilemap#1"、"tilemap#2"等の順序で表示するように改良。
+  [Phil Stroffolino]
+
+- palette_offsetを、タイルマップビューアでも動作するように拡張。
+  [Phil Stroffolino]
+	src/tilemap.c
+
+- Namco系の更新いろいろ。[Phil Stroffolino]
+	- Namcoロードエミュレーションの改善
+	- ROZレイヤーの高速パレットスイッチの動作を高速化(メタルホークの2面)
+	- namconb1スプライト描画でのウィンドウレジスタ(ガンバレットの戦車面修正)
+	- vidhdrw/namco2.cの整理とクリーンアップ大量
+	
+	src/drivers/namcoic.c
+	src/includes/namcoic.h
+	src/drivers/namconb1.c
+	src/vidhrdw/namconb1.c
+	src/includes/namconb1.h
+	src/drivers/namcos2.c
+	src/vidhrdw/namcos2.c
+	src/machine/namcos2.c
+	src/includes/namcos2.h
+	src/drivers/namcos21.c
+	src/vidhrdw/namcos21.c
+	src/drivers/namcos22.c
+	src/vidhrdw/namcos22.c
+	src/includes/namcos22.h
+	src/vidhrdw/namcos3d.c
+	src/includes/namcos3d.h
+
+-「サイレントドラゴン」のDIP修正。[Brian A. Troha]
+	src/drivers/taito_b.c
+
+- Data East系のROM名と基板情報修正をいくつか。[Brian A. Troha]
+	src/drivers/deco32.c
+	src/vidhrdw/deco16ic.c
+
+
+新規サポートゲーム：
+--------------------
+
+ファイナルラップ [Phil Stroffolino]
+スズカエイトアワーズ2 [Phil Stroffolino]
+フォートラックス [Phil Stroffolino]
+	表示・音系に少し問題あり。ただしほとんどは動作
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+ファイナルラップ2 [Phil Stroffolino]
+コカ・コーラ 鈴鹿8アワーズ [Phil Stroffolino]
+	ROM不良または不足のため動作しないか、不完全。とりあえず追加
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+
+ファイナルラップ3 [Phil Stroffolino]
+	エミュレーション不完全のため動作せず。とりあえず追加
+	src/drivers/namcos2.c
+	+ 他、namco系ファイル
+
+
+新規TESTDRIVER：
+----------------
+
+サイバーコマンド [Phil Stroffolino]
+エアーコンバット22 [Phil Stroffolino]
+サイバーサイクルズ [Phil Stroffolino]
+タイムクライシス [Phil Stroffolino]
+	以上は超初期版
+	src/drivers/namcos22.c
+	+ 他、namco系ファイル
+
+R2D Tank [Pierpaolo Prazzoli]
+	まだ作業が必要
+	src/drivers/r2dtank.c
+
+
+==========================================================================
+
+
+0.70u3
+
+ソース全般の変更：
+------------------
+
+- cave.cのBanpresto製ゲームのリージョンをDIPスイッチで変更可能に。
+  [David Haywood]
+	src/drivers/cave.c
+
+- MAME.EXEがコマンドラインから起動されずに、ダブルクリックされた場合、
+  windows.txtファイルを読むようにメッセージボックスを表示。[Leon van Rooij]
+	注：Win9x系でのテストが必要。2000とXPでは正常動作を確認。もし問題がある
+	ようならはずす予定。
+	src/windows/winmain.c
+
+-「マスタッシュボーイ」に新PROM追加で色修正。[Tomasz Slanina]
+	src/drivers/mustache.c
+	src/vidhrdw/mustache.c
+
+-「Tricky Doc」に新PROM追加で色修正。[David Haywood]
+	src/drivers/sauro.c
+
+-「Enigma 2」にカラーマップ追加。セットの入れ替えともっと細かいCPU周波数設定。
+  [Tomasz Slanina]
+	src/drivers/enigma2.c
+
+-「カントリークラブ」のトラックボール操作修正。[Tomasz Slanina]
+	src/drivers/snk.c
+
+
+新規サポートゲーム：
+--------------------
+
+バトルクライ [Tomasz Slanina]
+	表示系がちょっと不具合気味
+	src/drivers/homedata.c
+	src/vidhrdw/homedata.c
+	src/includes/homedata.h
+
+
+新規サポートクローン：
+----------------------
+
+Dock Man (ポートマンの親セット) [TheGuru]
+	src/drivers/thepit.c
+
+
+==========================================================================
+
+
+0.70u2
+
+ソース全般の変更：
+------------------
+
+- Wolf Packドライバのマイナーな問題修正。[Stefan Jokisch]
+	src/drivers/wolfpack.c
+	src/vidhrdw/wolfpack.c
+
+- TESTDRIVERのサニティチェックが通るようにポート修正。[smf]
+	src/drivers/coolpool.c
+	src/drivers/taitoair.c
+	src/cpu/yms32025/tms32025.h
+
+- YM2610、YM2608、Y8950の様々な改善。[Jarek Burczynski]
+	Frits Hilderink氏(NLMSXエミュ作者)を参考。以下のような試み：
+	- ステータスレジスタ用のymdeltatモジュールサポート改善 (YM2610,YM2608,Y8950),
+	- ADPCMサンプル用のx1bit/x8bitDRAMを実装
+	- deltat経由のメモリリード/ライト実装 (Y8950 and YM2608)
+	- “スレーブ”モードでのADPCM合成 (メモリベースの代わりにCPUによる制御)
+
+	テストはいくつか行ったものの変更がかなり大がかりのためインクルードの前に
+	テストして下さい。
+	Y8950についてはNLMSXの作者もテストしてくれるでしょう。
+
+	src/sound/ymdelta.c
+	src/sound/ymdelta.h
+	src/sound/fmopl.c
+	src/sound/fmopl.h
+	src/sound/fm.c
+	src/sound/3812intf.c
+	src/sound/3812intf.h
+	
+- DIP、入力修正。[Curt Coder]
+	src/drivers/twin16.c
+	src/drivers/sega.c
+	src/drivers/safarir.c
+	src/drivers/playch10.c
+	src/drivers/nmk16.c
+	
+- DIP、入力修正。[El Condor]
+	src/drivers/crimfght.c
+	src/drivers/cps1.c
+	src/drivers/contra.c
+	src/drivers/astrocde.c
+	src/drivers/8080bw.c
+	
+- DIP、入力修正。[Utuk Ku]
+	src/drivers/toaplan2.c
+	src/drivers/taito_b.c
+	src/drivers/deniam.c
+	src/drivers/sg1000a.c
+	
+- i86 DAA命令コードなどの修正。[Nathan Woods]
+	src/usrintrf.c:
+	src/usrintrf.h:
+	- display_fps()をui_display_fps()に改名。またnon-staticに変更。
+	
+	src/windows/fileio.c:
+	- osd_fopen()で、“r”モードでファイルが開かれた場合、CreateFile()の
+	dwShareMode引数としてFILE_SHARE_READが渡されます。これにより、MAMEが
+	リードオンリーとして開いているファイルを、他のプログラムから読み込む
+	ことができます。
+
+	src/cpu/i86/instr86.c
+	src/cpu/nec/nec.h
+	- i86 DAAの修正。
+
+-「グリーンベレー」ROM名訂正。[G&eacute;rald]
+	src/drivers/gberet.c
+
+-「Paddle 2」に初期版MCUシミュレーション追加。[Angelo Salese]
+	src/drivers/arkanoid.c
+	
+- オプショナルROMのAudit修正。[Nathan Woods]
+	src\audit.c
+	src\audit.h
+	
+- D3Dの更新。[Leon van Rooij]
+
+
+新規サポートゲーム：
+--------------------
+
+Enigma 2 [Pierpaolo Prazzoli, Tomasz Slanina]
+	サウンド無し(ROM不良?)。8080bwとマージ可?
+	src/drivers/enigma2.c
+
+
+==========================================================================
+
+
+0.70u1
+
+ソース全般の変更：
+------------------
+
+-「ナイトストライカー」のDIP修正。[Brian A. Troha]
+	src/drivers\taito_z.c
+
+- デバッガで、DUMPコマンドのデータサイズパラメータ修正。[smf]
+- デバッガで、SAVEが8bitCPUだけで動いていたバグを修正。[smf]
+- dbg_show_scanlineをデフォルトに設定。[Bryan McPhail]
+	src/mamedbg.c
+
+- MAMEコアをMESS向けに一部変更。MAME自体の動作には影響なし。[Nathan Woods]
+	src/usrintrf.h:
+	src/usrintrf.c:
+	
+	-FPSカウントとプロファイラ表示制御用に4つの関数追加。
+	profiler:
+	void ui_show_fps_set(int show);
+	int ui_show_fps_get(void);
+	void ui_show_profiler_set(int show);
+	int ui_show_profiler_get(void);
+	
+	src/common.h:
+	- ROM_LOAD32_DWORD追加。
+	
+	src/machine/idectrl.c:
+	src/machine/idectrl.h:
+	src/harddisk.c:
+	src/harddisk.h:
+	src/hdcomp.c:
+	- ハードディスクコードを拡張して、512byte以外のセクタサイズもサポート。
+	(MESSのTIシステムの一つで非IDEハードディスクでこれを使っているものあり)
+	src/machine/idectrl.c はこのことを考慮するように変更されました。HDイメー
+	ジは512byte単位である必要があります。新コードは以前のCHDと完全に互換性が
+	あります。（訳注：？）	
+
+- VC6/7と以前の非C99コンパイラで簡単にコンパイルできるような変更をしました。
+  [Bryan McPhail]
+	src/drivers/konamigx.c
+	src/drivers/mystwarr.c
+	src/hdcomp.c
+	src/windows/fileio.c
+	src/windows/wind3d.c
+	
+- Konami系の更新と修正（0.70でのdbz/moo/simposonsのクラッシュ修正込み）。
+  [Acho A. Tang]
+	src/drivers/moo.c
+	src/vidhrdw/moo.c
+	src/drivers/xexex.c
+	src/vidhrdw/xexex.c
+	src/vidhrdw/konamiic.c
+	src/vidhrdw/konamiic.h
+
+- 新型のBIOS置き換えコードの問題を修正。[Chris Kirmse, Paul Priest]
+	src/common.c
+	src/info.c
+
+- Wolf Packドライバを回路図を元に書き直し。[Stefan Jokisch]
+	src/drivers/wolfpack.c
+	src/vidhrdw/wolfpack.c
+
+- D3Dコードの修正と改善。[Leon van Rooij]
+	src/windows/wind3d.c
+
+
+新規サポートゲーム：
+--------------------
+
+Grand Tour [Tomasz Slanina]
+	src/drivers/iqblock.c
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

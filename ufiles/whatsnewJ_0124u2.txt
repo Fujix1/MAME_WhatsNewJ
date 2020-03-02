@@ -1,0 +1,243 @@
+0.124u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+01571: [DIP/Input] stadhero: プレイヤー1と2のスタートがダブっている。(stephh)
+01673: [Graphics] sfjp: ゲームの背景が他のイメージと置き換わっている。(Fabio Priuli)
+01567: [DIP/Input] megazona, megazonb, megazonc, megazone, megaznik: P2のボタン1がダブっている。P2ボタン2が無い。(stephh)
+00458: [Misc.] NEC CPUデバッグバグ。(robiza)
+00029: [Sound] contcirc: 起動時に片方のスピーカーからしか音が出ない。(Nicola Salmoria)
+01609: [DIP/Input] いろいろ - tested srmp4 (ssv.c), ttmahjng (route16.c), vsmahjng (vsnes.c), tokkae (konamigx.c), sf2 (cps1.c): INP再生がずれる。(Aaron Giles)
+01680: [Graphics] area88, unsquad: [possible] サービスモードのDOT TESTが化けている。(Nicola Salmoria)
+00761: [Speed] finalapr: 速度低下が激しい。(couriersud)
+00352: [DIP/Input] spaceskr: 筐体設定のDIPスイッチが逆。(Nicola Salmoria)
+01659: [Core] ステレオ出力が偏っている。(Aaron Giles)
+01622: [Core] -refreshspeedが効かない。(Aaron Giles)
+01663: [DIP/Input] HATスイッチが動作しない。(couriersud)
+00250: [Graphics] 3wonders: 表示不具合いろいろ。(Nicola Salmoria)
+00405: [Graphics] cawing: アトラクトモードのテキストが化けている。(Nicola Salmoria)
+01021: [Side-by-side] dorunru2: サイドバイサイドテスト。(Nicola Salmoria)
+00404: [Graphics] 3wonders: ネームエントリ部分の不具合。(Nicola Salmoria)
+01552: [Graphics] 3wonders, 3wonderu: さらに別なグラフィック不具合。(Nicola Salmoria)
+01081: (partial): megaplay.c (all games): P1スタートとP2スタートがダブっている。(couriersud)
+
+
+ソースの変更点
+--------------
+- コインのロックアウトが有効なときにコインキーが押された場合、メッセージを表示す
+  るように変更。[couriersud]
+
+- -refreshspeedを今度こそ修正。[Aaron Giles]
+
+- 一部のゲームが壊れていたので、前回のSCSI CDの変更を巻き戻し。[R. Belmont]
+
+- Seibu COPのクリーンアップ。主にコードの分類と異なる実装環境での類似点の確認。
+  [David Haywood]
+
+- 前バージョンのnamcona1の更新に混じっていたデバッグの変更を修正。
+  [Pierpaolo Prazzoli]
+
+- marinebの色修正。[David Haywood, Tomasz Slanina]
+
+- 過去のINPはいずれにしても全て動作していないので、INP保存をゼロから書き直し。
+  ヘッダにはタイムスタンプを含み、MAMEのシステム時刻を上書きします。各フレーム毎
+  にタイムスタンプを保存するようになっています。アナログポートは各フレームに1回
+  ずつ記録し、それを補間します。アナログポートの計算は同じ結果を得られるように
+  全て固定小数点で行います。その他にも入力ポートコードのマイナーな改良を多数行っ
+  ています。
+  注: INPフォーマットが固まるまでにあと何回か変更があるかもしれません。
+  [Aaron Giles]
+
+-「レジオネア」のグラフィックデコーディングを改良。BK3タイルをTXT領域から正しく
+  抽出。また、マップ画面のタイルも修正。[David Haywood]
+
+- CPS1の古いタイル処理を削除して、ゲーム毎のROMマップテーブルに置き換え。理想的
+  には、BボードにあるPALのマッピングからROMマッピングを取り出せるはずです。この
+  変更は大きいので新しいバグが起きているかもしれません。余計なグラフィックが現れ
+  るこれまでのバグとは異なり、新しいバグはタイルやスプライトが表示されない現象に
+  なるかもしれないため、気づきにくいかもしれません。これは、グラフィックROMの
+  16x16の領域が、スクロール2とスプライトの両方に使われてるため起こります。
+  [Nicola Salmoria]
+
+- PSXの更新: [smf]
+ - MTC0のSRマスクを修正
+ - 命令/データキャッシュRAMのテスト機能追加。スクラッチパッドとBIUレジスタをCPU
+   で内部的に扱うよう変更
+ - 全ての書き込みをマスクを使って処理。SWL/SWRで3バイトを書き込むとき、これまで2
+   回の書き込み(1バイトと1ワード)で実装していましたが、これを1回にしました。バイ
+   トとワードの書き込みは、バス上の他のレジスタを残すようにマスクし、より大きな
+   レジスタからも取得できるようになっています
+ - リード・ライト関数はSRビットが更新されるとき、不良アドレスマスクとしてキャッ
+   シュされます
+ - コプロセッサ1と3をサポート。ただし、特に使い道はありません
+ - 全てのロードはディレイパイプラインを経由します。lwl/lwrは、同じレジスタを更新
+   する場合、パイプラインから値を取得します
+ - BLEZ/BGTZのドキュメント化されていない動作を追加。RTフィールドに異なるレジスタを
+   指定することで、ゼロの比較を変更できます(仕様では常にレジスタ0を使うようにあ
+   ります)
+ - COP0レジスタを16に制限。MMU用に5つ使われている場合、例外を発生
+ - BCF/BCT命令を追加。ただし、これが影響する条件は不明
+ - MMU命令が実行されると、例外を発生
+ - 全ての例外に、コプロセッサに関係するものではなく、CE命令を設定。コプロセッサを
+   指定する命令コードビットはどんな命令についても取得されます
+ - SRにTARレジスタとBTビットを追加。When an exception occurs during a branch, 
+   BT determines whether it was taken or not. TARレジスタに分岐先が設定されます
+ - 分岐の遅延スロットにあって、分岐を指定していないときのBDビットを修正。これは、
+   !pcとしてパイプラインに出現します
+ - 分岐遅延スロットでの分岐を修正
+ - 結果の読み込み前にHI/LOを書き込むと積除算命令を中止できます。データブレークポ
+   イントを追加。CPU内部のアドレスについてはブレークポイントを指定できない模様
+ - 積算、除算、GTE命令はEPCにかかわらず、例外が取られるときに実行できます。BIOS
+   はGTE命令がdestructiveであることからこれを再実行しません。そのため、確実に動
+   作することが必要です
+ - バスエラー処理追加。PSXCPUのRAMは8MBに制限されているので、その範囲外のアクセ
+   スは例外を発生します。これは内部的な制限だと思われます
+ - CXD8611Rを一つのCPU型として追加。System 12は8MB以上のRAMを使えるようなので、
+   分けることができると思われます
+ - 例外を発生する命令、またはビットを無視する命令を全て記載
+ - 逆アセンブラをデコードと一致するように更新
+ - 分岐遅延スロットでの分岐命令の逆アセンブラを修正
+ - ori/addiu以下をluiがチェックして結果を表示します
+ - ステップオーバーとステップアウトを追加
+ - スタンドアロン逆アセンブラを修正
+ - SZ0の切り捨てを修正
+ - IRGBの切り捨てと、IR1/IR2/IR3へのコンバートを修正
+ - ORGBを計算するときのIR1/IR2/IR3の彩度を追加
+ - OTZ符号拡張を修正
+ - SXYPからの読み込み修正
+ - IRGBの読み込み修正
+ - LZCRへの書き込み修正
+ - GTE制御レジスタの符号拡張を修正
+ - FLAGへの書き込みを修正
+ - Fマクロのフラグ演算を修正
+ - avsz3とavsz4フラグ、otz演算を修正
+
+- 入力名でのUnicodeのクラッシュ修正。[Aaron Giles]
+
+- 入力ポート関数の改名: [Aaron Giles]
+  readinputport           -> input_port_read_indexed
+  readinputportbytag      -> input_port_read
+  readinputportbytag_safe -> input_port_read_safe
+
+  入力ポート関数にmachine引数を追加。多くのドライバを更新。
+
+- input_port_n_r()をフェイクのオフセットで呼び出している箇所を、
+  input_port_read_indexed()を呼び出すようにコンバート。[Aaron Giles]
+
+- U、V、W、Zで始まるドライバのメモリマップをマージ。[Andrew Gardner]
+
+- N64ベースのゲームのサウンドをほぼ修正。[Adam Gashlin]
+
+- N64ベースのゲームのDMA動作を修正。[Ville Linde]
+
+- Aerfbootの改良: [robiza]
+ - スプライトオフセットを修正
+ - スプライトRAMを2つに分割
+ - 2箇所のスプライト判明
+ - 動作可能に変更(サウンド無し)
+
+- Pallavolの改良: [robiza]
+ - スプライトのY座標を修正
+ - 実際のコードでのスプライトコードコンバート用にルックアップテーブルを追加
+ - "1991 Spikes (Italian bootleg)"に名称変更
+ - スクロールを修正
+ - オフセットを修正
+
+-「ソンソン」のメモリマップをマージ。[Nicola Salmoria]
+
+- TCC0060DCAサウンドミキサをTaito Zドライバに追加。dblaxleのROM一つをBAD_DUMPに
+  設定。[Nicola Salmoria]
+
+- 8237dmaをデバイスに変更。[Wilbert Pol]
+
+- m62ドライバのタイル・スプライト間プライオリティを修正。[robiza]
+
+- NEC V30逆アセンブラで、"リアルタイム暗号化CPU"を使っているときについて修正。ま
+  た、add、addc、and、or、xor、cmp、sub、subc命令のExecution Clockを修正。
+  [robiza]
+
+- 8042kbdcコードで、8254デバイスへの依存がハードコードされていたのを削除。
+  8042kdbcを使うドライバについて、個々の8042kdbc(8254依存)を定義するように変更。
+  [Wilbert Pol]
+
+- コアメモリハンドラをインライン関数に書き換え。動作は同じですが、デバッグビルド
+  でのトレースがしやすくなったはずです。[Aaron Giles]
+
+- 全てのデータバスサイズ(8、16、32、64)についての完全な関数セットを作成。このう
+  ちいくつかは重複していますが、どの場合にどの関数を使うかはっきりしました。また、
+  ビルトインアクセサによって、クラッシュの恐れ無しに8、16、32、64ビット値にアク
+  セスすることにも依存できます。[Aaron Giles]
+
+- 8bitハンドラを使う全てのコアで、正しいエンディアンで明示的に8bitハンドラを呼び
+  出すように更新。[Aaron Giles]
+
+- 標準フォームを使うためにn-bitのハンドラを直接呼び出しているいくつかのゲームを
+  修正。将来的には、アクセスドライバは全てこれだけを持つようになります。
+  [Aaron Giles]
+
+-「ぐっすんおよよ / Risky Challenge」の命令コードをさらに修正。[robiza]
+
+- marvins.cとmatmania.cのDIPスイッチにタグと配置を追加。[Fabio Priuli]
+
+-「エメラルディア」のROZタイルマップを有効化。ただし、オリジナルと異なる大きさの
+  とき、中心位置が正しくありません。[Pierpaolo Prazzoli]
+
+- 'lghost*'のDIPスイッチ修正。[stephh]
+
+- セーブステートコールバック型を3から1つに削減。残っているのは、ポインタ非キッスを
+  取るものだけです。STATE_PRESAVEとSTATE_POSTLOADで共通関数を定義するためのマク
+  ロを追加。また、これらの関数にmachine引数を追加。全てのドライバとCPU・サウンド
+  コアを新マクロに更新と、一つの関数型に統合。この結果、machine引数はいくつかの
+  初期化スタックを通じてプッシュされます。[Aaron Giles]
+
+- 全てのタイルを要書き換えにマークするだけのポストロードコールバックを削除。これ
+  はタイルマップエンジンによって自動的に行われます。[Aaron Giles]
+
+- wc90.cドライバの更新: [ClawGrip]
+ - セカンドYM2203を削除。海賊版の基板にはありません
+ - クロックを基板上の発振器から得られた値に変更
+
+- cpunum_set_irq_callback()に渡される関数に引数running_machine*を追加。また
+  コールバック関数にIRQ_CALLBACKマクロを追加。[Oliver Stoenberg]
+
+- osd/windowsファイルのMachine使用部をクリーンアップと、可能なところには
+  running_machine引数を追加。[Oliver Stoenberg]
+
+- MAMEPlusから改良や修正点をいろいろ:
+ * FD1094チップのステートセーブサポート
+ * athenaのグラフィック改善
+ * armedfのサウンドバランス改良
+ * toaplan1ゲームのリフレッシュレート
+ * tmnt系のサウンドバランス改良
+ * suprridrのクロック
+ * xmenの表示領域修正
+ * twin16ドライバのクロックとリフレッシュレート
+
+- CPS1: PALの吸い出したものとグラフィックROMマッピングテーブルの突き合わせ。
+  パレット関係のレジスタの解析とエミュレーションの改善。
+  [Nicola Salmoria, Corrado Tomaselli]
+
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+1 on 1 ガバメント (JAPAN) [smf]
+
+
+
+新規クローンセット
+------------------
+セイブカップサッカー :Selection: (set 2) [Arzeno Fabrice]
+スーパーモナコGP (set 1, Japan, Rev A, FD1094 317-0124a) 
+   [Corrado Tomaselli]
+サイドバイサイド2 (Japan) [Yasuhiro Ogawa]
+
+
+
+追加された未動作ゲーム
+----------------------
+Touchmaster 5000 (v7.10) [Brian Troha]
+Touch Master 7000 [Brian Troha]

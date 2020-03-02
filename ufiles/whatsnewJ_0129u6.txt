@@ -1,0 +1,175 @@
+0.129u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02963: [ドキュメント] All games in aristmk5.c: 全てのゲームのリージョン情報。(Heihachi_73)
+- 00015: [サウンド] 0.112u3からOKI6295にノイズが乗っている。特にcps1.c。(Aaron Giles)
+- 02698: [DIP/入力] royalmah.c: BET games: デフォルトではベットボタンが動作しない。(Angelo Salese)
+- 02180: [システムコア] MAMEが不良なZIPファイルでもエラーを出さずに読み込んでしまう。(couriersud)
+- 02694: [DIP/入力] demoderb, demoderm: P1とP2ボタン定義がダブっている。(couriersud)
+- 02983: [クラッシュ/フリーズ] racedriv and clones: 起動時に"downloading DSP"の画面でループする。(Phil Bennett)
+- 02998: [クラッシュ/フリーズ] pkunwar, ninjakun, raiders5: ROMチェックをパスできない。(Phil Bennett)
+- 02368: [DIP/入力] fourtrax: 正しく操作できない。(Phil Bennett)
+- 02996: [クラッシュ/フリーズ] hotchase: [デバッグ限定] 初期化画面後にAccess Violationエラーが起こる。
+         (Phil Bennett)
+- 02894: [グラフィック] cprosocc: ゲーム開始後にグラフィックが乱れる。(Phil Bennett)
+- 02711: [DIP/入力] spacegun: キャリブレーション後にEE-ROMエラーが起こる。(Phil Bennett)
+- 02478: [グラフィック] finalapr, finalapo, finalapb, speedrcr: タイトル画面のタイヤや、
+         ゲーム内の車が表示されない。(Phil Bennett)
+- 02877: [サウンド] deadang, leadang, ghunter: 効果音がほとんど聞こえない。0.128u4以前は正常だった。
+         (Phil Bennett)
+- 02995: [クラッシュ/フリーズ] liberate, dualaslt: 起動中にフリーズ。(Phil Bennett)
+- 02994: [クラッシュ/フリーズ] labyrunr, labyrunk, tricktrp: 起動時にクラッシュする。(Phil Bennett)
+- 02991: [グラフィック] polyplay: スプライト表示不具合。(Phil Bennett)
+- 02526: [グラフィック] mahmajn2: 特殊なラインスクロールが実装されていない。(Olivier Galibert)
+- 02979: [グラフィック] All sets in m10.c: スクリーンにメッセージが現れる。(couriersud)
+- 02988: [クラッシュ/フリーズ] blswhstl, detatwin: 起動時にROM・RAMチェックが通らない。(Phil Bennett)
+- 02980: [ドキュメント] wsbbgd: フライヤーによると年代は2001年。
+- 02986: [ドキュメント] ggxx: 製造年は2002年。(incog)
+- 02985: [ドキュメント] ggxxrl: 製造年は2003年。(incog)
+- 02973: [クラッシュ/フリーズ] chmplst2: Access Violationエラー。(Phil Bennett)
+- 02964: [サウンド] dingo: サウンドが出ない。(Phil Bennett)
+- 02965: [クラッシュ/フリーズ] gradius, gwarrior, rf2, twinbee: ROMチェックがパスできずに起動
+         シーケンスを繰り返す。(Phil Bennett)
+- 02909: [実機資料] boothill: ショットとヒット音のスペックが実際の回路図に合わない。(Derrick Renaud)
+
+
+
+ソースの変更点
+--------------
+- 多くのゲームにビルトインレイアウトを追加: [Mr. Do!]
+  280zzzap, buggyboy, buggychl, cbombers, changela, chasehq, chqflag, contcirc,
+  dblaxle, finallap, grchamp, hotchase, lagunar, outrun, overdriv, pdrift, polepos, 
+  radr, roundup5, sci, slipstrm, stocker, superchs, topspeed, toutrun, turbotag, 
+  tx1, wecleman
+
+- nemesis.cのメモリマップを統合。[Aaron Giles]
+
+-「スクランブル」をバグ報告にある実機の録音により近く改良(BGM、弾の音)。[couriersud]
+
+- NAOMI系ハードで動作するゲーム名とゲームリストの訂正。[Yasuhiro Ogawa]
+
+- jangouドライバの入力ポートを整理。[Angelo Salese]
+
+- btimeドライバのチャンネル2Aにローパスフィルタ追加: [couriersud]
+ * Changed resistor to bill of material value
+ * 音量レベルの調整と、ドキュメントを更に追加
+
+- ipminvad (m10)の不具合(グラフィックが表示されない)を修正。[couriersud]
+
+- System 24のタイルマップラインスクロールモードをサポート。[Olivier Galibert]
+
+-「ヘビーユニット」のいろいろな改良: [Angelo Salese, Tomasz Slanina, David Haywood]
+ - かなりテスト的なプロテクトシミュレーションを追加。ゲームの起動は可能、プレイは不可
+ - CPUコミュニケーション、IRQ/NMI生成などの修正
+ - ビデオエミュレーションの問題を修正(タイルマップスクロールの追加など)
+ - グラフィックROMロードを修正(最低限、アトラクトモードで使用されるグラフィックについ
+   て)
+
+-「King Derby」のスプライト色を修正。[Stefan Lindberg, Angelo Salese]
+
+- tetrisp2のメモリマップを統合。tetplus2をtetrisp2jに改名。[Aaron Giles]
+
+- labyrunrのメモリマップを統合。[Phil Bennett]
+
+-「ツタンカーム」にGAME_IMPERFECT_GRAPHICSフラグ追加。[couriersud]
+
+- goldstar.cドライバのレイヤーイネーブルを実装。「Cherry Master」の'girl'を修正。
+  [David Haywood]
+
+- 最近のclock_adpcm()の変更に合わせて、renegadeとmjkjidaiのADPCMレベルを拡張。
+  [Phil Bennett]
+
+- 全てのドライバを新型のデバイスベースな6821 PIAにコンバート。[Aaron Giles]
+
+- 新関数、memory_install_read_port_handler()を追加。これは、タグベースの部分に対して、
+  より簡単にリードハンドラを設定出来るようにするものです。[Aaron Giles]
+
+- input_port_read_handler8/16/32/64関数を削除。これらは、実際にはタグよるポートへのメ
+  モリハンドラを使用していたので、不要になりました。[Aaron Giles]
+
+- メモリシステムの入力ポートハンドラを内部コードに移動。[Aaron Giles]
+
+- taito8741のデバイス化が進むようにポート名を追加。[Aaron Giles]
+
+- input_port_n_r()関数の残りの使用箇所を削除して、src/emu/machine/genericから関数を削
+  除。[Aaron Giles]
+
+- タグを使用するデバイスクエリから、デバイス型を削除。全てのデバイスタグがユニークな
+  ことを前提にした処理。特に、以下のものではデバイス型を渡す必要がなくなっています:
+
+   AM_DEVREAD/WRITE
+   DEVCB_DEVICE_HANDLER
+   devtag_get_device
+   devtag_reset
+   device_list_find_by_tag
+
+  このほかにも、他のデバイスを参照するデバイスインタフェースも同様です。[Aaron Giles]
+
+- SH2のセット情報関数をダイレクト関数に移動。[Aaron Giles]
+
+-「Zero Target / 撃墜王」「カウンターステア」ハードウェアドライバのいろいろな改良とク
+  リーンアップ。「撃墜王」の前景と背景色の修正と、実機と比較しながらのサウンド調整。
+  スプライト色の修正。[Angelo Salese]
+
+-「ファイナルラップ3」のペダル修正。[Phil Bennett]
+
+- namcofl.cに正しいC75 MCUを実装(RB氏のnamconb1.cの実装がベース)。[Phil Bennett]
+
+-「Zero Target / 撃墜王」のDIPスイッチを修正。[Yasuhiro Ogawa, Angelo Salese]
+
+- maketms: Free strings on exit. [Olivier Galibert]
+
+- tms57002 - 未実装の命令で終了しないように変更。[Olivier Galibert]
+
+- EEPROMの消去コマンドで0xffの値を書き込むよう変更。[Pierpaolo Prazzoli]
+
+- 不良アーカイブの処理を修正: [couriersud]
+ * アーカイブ内の不良ファイルでエラーを発生
+ * "/"で終わる圧縮ファイルはCRCをテストせず、パスエントリをスキップ
+ * オープン時の解凍をスキップするフラグ、FILE_OPEN_NO_PRELOADを追加。これはaudit.cで、
+   ファイルが存在するかだけをチェックするのに使用します
+ * load_file_zippedの全ての呼び出しにエラーチェックを追加
+
+- CHDのメタデータエントリにフラグを追加。トップビットにエンコード。今のところ、効果は
+  ありませんが、チェックサム全体の中で、どのメタデータビットが含まれているを示すのに
+  使用する予定です。[Aaron Giles]
+
+- gcc 4.4でのコンパイルエラーを修正。[Belegdol]
+
+- ROM無しシステムのチェックを修正(MESS用)。[Rene Reucher]
+
+- 引き続き、static/constチェッカーを追加。また、has_addon_chipをsnes_has_addon_chipに
+  改名。特に、多くのz80ctc_interfaceがconstになりました(デバイス化によって、これらが
+  途中で変更されることは無くなったはずです)。[Atari Ace]
+
+-「JJスコーカーズ」海賊版のグラフィックROM修正版を追加。[David Haywood]
+
+- sfbonusのバージョン整理その1。[David Haywood]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+グレートスラッガーズ'94 (Japan) [Phil Bennett]
+大車輪 [Yasuhiro Ogawa]
+麻雀倶楽部 [Yasuhiro Ogawa]
+
+
+
+新規クローンセット
+------------------
+バイオレンスファイト (Japan)
+Joker Poker (Version 16.03BI) [Jim Stolis] (not working)
+スカッドレース (Japan) [Leif Hurst] (not working)
+スプラッターハウス (World new version) [Andy Henderson]
+T-MEK (3 sets) [Lars Bull]
+
+
+
+追加された未動作ゲーム
+----------------------
+ときめき麻雀パラダイス -ドキドキ編- [Uki]
+E雀さくら荘 -空き部屋あり- [Uki]

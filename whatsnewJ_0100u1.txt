@@ -1,0 +1,54 @@
+0.100u1
+-------
+
+
+ソースの変更点
+--------------
+* NB-1ゲームのボイスが間違っていたのを修正。[R. Belmont]
+
+* Namco FLシステムの更新: [R. Belmont, El Semi]
+ * 操作とコイン入力を含むMCUシミュレーション完成 (ステアリングのキャリブレーショ
+   ンの重要な事柄についてはドライバのはじめの部分を参照)
+ * スプライトバンキングの実装
+ * SE/BGM追加
+ * パレットバンク選択修正
+ * 両ゲームでの道路を修正
+ * ローテーションサインを修正
+
+* Namco System 22の改良: [R. Belmont]
+ *「タイムクライシス」に実際のMCUによる操作とコイン入力追加
+ * Super System 22のステレオの左右入れ替え
+ *「リッジレーサー2」のRAMテストを修正。ただしまだスタートアップせず
+ *「サイバーサイクルズ」「エースドライバ」のアナログ操作修正
+ *「エアコンバット22」の操作をMCUで読み込み
+ * System 22全ゲームにコイン入力追加。「リッジレーサー」で9キーを使う必要はもう
+   ありません :)
+
+*「Truco Clemente」の色修正。[David Haywood, Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+クイズ 宿題を忘れました [Brian Troha, Guru]
+Cookie & Bibi 3 [David Haywood, Corrado Tomaselli]
+ラフレーサー [David Haywood, Team Japump]
+ファイナルラップR [R. Belmont, El Semi]
+スピードレーサー（マッハGoGoGo）[R. Belmont, El Semi]
+ドラゴンボールZ V.R.V.S. [Anonymous]
+
+
+
+新規クローンセット
+------------------
+クラックダウン (Japan) [David Haywood, Team Japump]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+オペレーションサンダーハリケーン (ver UAA) [R. Belmont, Guru]
+Quizmaster [Pierpaolo Prazzoli]
+Trail Blazer [Pierpaolo Prazzoli]
+Super Nudger II [Pierpaolo Prazzoli]
+

@@ -1,0 +1,68 @@
+0.96u1
+------
+
+
+MAMETestersでの修正バグ
+-----------------------
+pinbo095u6yel
+demndrgn095u6gra
+gorf095gre
+gorf095u5gre
+cabal095gre
+starlstr095u2gra
+roldfrog095ora
+
+
+
+ソースの変更点
+--------------
+OKIM6295.cにADPCM用ユーティリティー追加と、Seibuゲームでこれらを使って再びサウン
+ドを実装。[Aaron Giles]
+
+TMS99xxコアのPPCアセンブラコード修正。[Brad Oliver]
+
+ADC083xコードのADCオーバーフロー条件修正。[smf]
+
+Namco System 22ドライバのビッグエンディアンの問題修正。[Brad Oliver]
+
+「シュマイザーロボ」のDIPスイッチ修正。[Brian Troha]
+
+「スカイキッド」のDIPスイッチ修正。[Brian Troha]
+
+Arcadiaドライバのビッグエンディアンの問題修正。[Brad Oliver]
+
+Model 3ドライバのビッグエンディアン、旧デバッガ、PPCコアの問題修正。
+[Brad Oliver]
+
+「ガルディア」「スペースポジション」の復号化追加。[Nicola Salmoria]
+
+「Return of Lady Frog」のビッグエンディアンの問題修正。[Brad Oliver]
+
+Seibu SPIフラッシュコードのビッグエンディアンの問題修正。[Brad Oliver]
+
+Namco System FLドライバのビッグエンディアンの問題修正。[Brad Oliver]
+
+SemiCom製ゲームのビッグエンディアンの問題修正。[Brad Oliver]
+
+PowerPCコアにダイナミック再コンパイラ追加。[Ville Linde]
+
+dietgoにグラフィックバンキング追加。[Bryan McPhail]
+
+popbingoのDIPスイッチ修正とdooyong.cドライバのクリーンアップ。[Sonikos]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+マージャンブロック 雀棒 (Japan) [David Haywood]
+スペースポジション [David Haywood, Nicola Salmoria]
+ガルディア [Nicola Salmoria]
+
+
+
+新規クローンセット
+------------------
+ライデンファイターズ2 (Tuning License) [Brian Troha]
+バーニングライバル (World) [David Haywood]
+マーシャルチャンピオン (Asia ver AAA) [Gerald Coy]
+Kickle Cubele / 迷宮島 [Avedis Boyajian]

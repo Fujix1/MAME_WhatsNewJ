@@ -1,0 +1,211 @@
+0.160
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05846: [コア] ROMロード画面でALT+TABを押すとアサートが起こる。(peterferrie)
+- 04138: [クラッシュ/フリーズ] (hornet.c) gradius4: MASKROMチェック中にMAMEが落ちる。
+  (peterferrie)
+- 05862: [クラッシュ/フリーズ] (queen.c) queen: [デバッグ限定] アサート。
+  (peterferrie)
+- 05880: [ドキュメント] (sam.c) bbh_160 and clones: 製造年度は2010。(Tafoid)
+- 05879: [ドキュメント] (sam.c) bdk_294 and clones: 製造年度は2008。(Tafoid)
+- 05852: [クラッシュ/フリーズ] (mw8080bw.c) m4: コイン投入後クラッシュする。(Osso)
+
+
+ソースの変更点
+--------------
+- WindowsでOpenGLレンダラを有効化。デフォルトではランタイムの関数解決は有効。アドレス
+  の解決にはまずGetProcAddress、次にwglGetProcAddressを試す。[Couriersud]
+
+- OSXでのメモリリーク警告を修正(autorelease pool)。[Couriersud]
+
+- monkelf (avspiritの海賊版)を改善、プレイ可能に。[iq_132]
+
+- Neo-Geoのドキュメント更新: [JacKc]
+ * kof96h - AES版のタグ付け
+ * kof98h - MVSとAES版のタグ付け
+ * ncomabth - MVSとAES版のタグ付け
+ * ゲーム基板情報を更新
+ * その他ドキュメントの更新
+
+- WindowsでのOpenGLでglslオプションをサポート。wine64やvirtualbox windows7 (64bit)で
+  そのまま動作。[Couriersud]
+
+- draw13.cの内蔵ゲームセレクタでMAMEが再起動するのを修正。[CourierSud]
+
+- video accelでのクリッピングバグ(neogeoなど)を修正。マイナーなコードの変更。
+  [Couriersud]
+
+- sdlとベースライン版でのモニタ処理を同期。[Couriersud]
+
+- thunderx.c: bankdevにコンバートしてgbusters.cと統合。回路図を元に注意事項の追加とい
+  ろいろな訂正。[Alex Jackson]
+
+- 64streetのきちんと吸い出したpromを追加。[system11]
+
+- OSXのaccelドライバ用フルスクリーン切り替え修正。[Couriersud]
+
+- brickzn基板の周波数を計測して使用。BGMテンポ修正。[system11]
+
+-「Brick Zone」のサンプル再生・選択で使われている追加のプロテクトを解明。
+  [system11, Luca Elia]
+
+- osd_printf_*をosdに戻す最初のステップ。インタフェースを使用し、ポップによりプッシュ
+  のアウトオブオーダーが起こりうる場面ではプッシュ・ポップアプローチを使って実装。
+  [Couriersud]
+
+- m6502: icountingを修正。[Peter Ferrie]
+
+- ARM Linuxターゲットのでのクラッシュ修正。[R. Belmont, rjosal]
+
+-「マッドエイリアン」ドキュメント改良。[Andrew Welburn]
+
+- goldstar.c: Golden Starドライバのオーバーホールで多くのゲームを改良:
+  [Vas Crabb, Amanda King, Bad A. Billy]
+ * pkrmastとcrazybonのグラフィックデコード修正。本物のROMが吸い出されるまでcmv4からの
+   PROMを色取得に使用。[Amanda King]
+ * crazybonの基板タイプ特定でサウンドと入力・DIPスイッチ修正。動作可能に。
+   [Amanda King, Vas Crabb]
+ * 異なるボードファミリー用にマシンステートクラスを6つのクラスに分割。machine config
+   の継承と入力ポートのインクルード処理にあった無駄を低減。[Vas Crabb]
+ * 入力・DIPスイッチの特定と検証、及びドキュメント化。ゲーム名の訂正、マニュアルから
+   基板などの情報を追加。[Bad A. Billy]
+ * DIPスイッチと入力の検証と訂正。ほとんどのゲームにランプとコインカウンタ出力追加。
+   [Vas Crabb]
+ * unkchハードにAY8910、DIPスイッチ、VBLANK IRQイネーブル、ランプコインカウンタ、チケ
+   ットディスペンサ実装。4セット全てが音付きで動作可能。[Vas Crabb]
+ * 動作可能ゲームのほぼ全てにクリック可能な内部コントロールパネルのアートワーク追加。
+   [Vas Crabb]
+
+- segas32.c:「ソニックザヘッジホッグ」のROM名訂正と、FD1149ナンバーとボードタイプをド
+  キュメントに追加。[Brian Troha]
+
+- megasys1.c: 2つめのOKIサウンドチップ用のステータスリード修正。hachooのサンプルがか
+  なり修正。[Mamesick]
+
+- mrheliのプロテクト無しMCUから吸い出したROMを使用。[Silvio Grazini]
+ * 日本版の警告画面はタイルマップにアップロードされているがビデオエミュレーションの不
+   具合のため表示されない
+
+-「Xマルチプライ」(日本版, M72)のドライバ整理とデキャップしたMCUを実装。
+  [David Haywood]
+
+- SDLMAME 0.159用のOS/2パッチ。[KO Muyng-Hun]
+
+- debugwin.c: デバッガの初期化前にデバッガウインドウをアップデートしようと競合してい
+  たのを解消。[Peter Ferrie]
+
+- font_windows.c: ビットマップ用メモリがなくなってもクラッシュしないよう修正。
+  [Peter Ferrie]
+
+- gradius4: adsp21062デバイスが割り込みハンドラ中にリセットされるとスタックオーバーフ
+  ローを起こしていたのを解消。[Peter Ferrie]
+
+- queen: PIIX4デバイスへのOOBアクセセスを遮断。[Peter Ferrie]
+
+- pinball2k: ノート修正と割り込みハンドラのインストール。[Peter Ferrie]
+
+- mediagx: 不足オペコードを実装。[Peter Ferrie]
+
+- tms6100.c: tms6125 4KiB VSMピンアウト追加。[Lord Nightmare, plgdavid]
+
+- chelnov: ROMパッチの代わりにプロテクトをシミュレート。[iq_132]
+
+- iteagle: 作業中。[Ted Green]
+ * 新型PCIシステムを使ってPCIデバイスとブリッジを正しく実装
+ * BIOS選択を修正
+
+- vrc4373: PCIターゲットアクセスを修正。[Ted Green]
+
+-「Table Tennis Champions」が最近追加された「Spider」と同じスタイルのDMA/Blitterを使
+  っていることが判明。ゲームの改善、サウンドの追加。これはPIC動作ではないので、PICの
+  役目はまだ不明。[David Haywood]
+
+- V53の内部機器を基本実装。実際にはV33からの派生。これらの多くはPCエミュレーションか
+  ら。
+  * DMAコントローラ(uPDD71071/uPD71037のサブセット)、8237Aのクローン
+  * シリアルコントローラ(uPD71051改良版)、i8251のクローン
+  * 割り込みコントローラ(uPD71059同等)、PIC8259のクローン
+  * タイマーユニット(uPD71054と同一)、pit8253のクローン
+  [David Haywood]
+
+- Hyper Neogeo 64のサウンドCPU用ROMバンキング実装。これとV53周辺機器でCPUのコードフロ
+  ーが大幅に改善。ただし、割り込みフック、通信、サウンド生成については未解明。
+  [David Haywood]
+
+-「オフビートレーサー！ / Xtereme Rally」のテクスチャ(ビルボード)を改良。
+ * ただし道路のパーツは逆に悪化したので作業がまだ必要。ミラーフラグかも
+  [David Haywood]
+  
+- 以下のドライバでセーブステートサポート: argus.c, bbusters.c, cabal.c, capbowl.c, 
+  cocoloco.c, deadang.c, fgoal.c, flyball.c, hotblock.c, ironhors.c, jankenmn.c,
+  jchan.c, junofrst.c, mgolf.c, mosaic.c, nova2001.c, psychic5.c, pturn.c, re900.c, 
+  realbrk.c, rltennis.c, sandscrp.c, shougi.c, shuuz.c, sidearms.c, speedbal.c,
+  srmp2.c, srumbler.c, ssozumo.c, ssrj.c, sstrangr.c, ssv.c, sub.c, subs.c, suna16.c,
+  supdrapo.c, suprgolf.c, suprloco.c, suprridr.c, tagteam.c, tankbatt.c, tankbust.c,
+  taotaido.c, tbowl.c, tgtpanic.c, timelimt.c, tryout.c, tsamurai.c, tugboat.c, 
+  vulgus.c, wc90b xain.c, xtheball.c [Osso]
+
+- luaengine: 画面領域を画面のサイズにクリップ。[Luca Bruno]
+
+- ui: コンテナ単位のピクセルアスペクト使用(LUA draw_textのバグ修正)。[Luca Bruno]
+
+- docs: LuaEngine APIのドキュメント追加。[Luca Bruno]
+
+
+新規追加、またはNOT_WORKINGから昇格したゲーム
+---------------------------------------------
+Player's Edge Plus (X002111P+XP000038) 4 of a Kind Bonus Poker (with Seq
+  Royal Flush) [BrianT]
+Crazy Bonus 2002 [Amanda King, Vas Crabb]
+Castle Of Dracula [Caius, The Dumping Union, Luca Elia]
+New Cherry Gold '99 (bootleg of Super Cherry Master) (set 1) [Vas Crabb] 
+Spider [system11, The Dumping Union, David Haywood]
+Brick Zone (v1.1, Spinner) [Luca Elia]
+
+
+新しく追加されたクローンセット
+------------------------------
+Nitro Ball / ガンボール (World, set 2) [Bill D. / The Dumping Union]
+Brick Zone (v6.0, Joystick) [system11, The Dumping Union]
+New Cherry Gold '99 (bootleg of Super Cherry Master) (set 2) [Vas Crabb]
+Super Cherry Gold (bootleg of Super Cherry Master) [Vas Crabb]
+Grand Cherry Master (bootleg of Super Cherry Master) [Vas Crabb]
+超時迷宮レジオン (Japan ver 1.05) [ShinobiZ & COY]
+Boot Camp / コンバットスクール (set 2) [chaneman]
+フロッガー (videotron bootleg) [system11, The Dumping Union]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker (set 5) [BrianT]
+Player's Edge Plus (PP0190) Deuces Wild Poker (set 1) [BrianT]
+Player's Edge Plus (PP0203) 4 of a Kind Bonus Poker (set 4) [BrianT]
+Player's Edge Plus (PP0515) Double Bonus Poker (set 3) [BrianT]
+Player's Edge Plus (BE0014) Blackjack (International English/Spanish)
+  [BrianT]
+Player's Edge Plus (X000006P+XP000038) Standard Draw Poker [BrianT]
+Player's Edge Plus (X000042P+XP000038) 10's or Better [BrianT]
+Player's Edge Plus (X000764P+XP000038) 4 of a Kind Bonus Poker
+  [BrianT]
+Player's Edge Plus (X002010P+XP000038) Nevada Bonus Poker [BrianT]
+Player's Edge Plus (X002016P+XP000038) Full House Bonus Poker [BrianT]
+Player's Edge Plus (X002017P+XP000038) Full House Bonus Poker [BrianT]
+Player's Edge Plus (X002037P+XP000038) Nevada Bonus Poker [BrianT]
+Player's Edge Plus (X002039P+XP000038) Nevada Bonus Poker [BrianT]
+Player's Edge Plus (X002247P+XP000038) Standard Draw Poker [BrianT]
+Player's Edge Plus (X002386P+XP000038) 4 of a Kind Bonus Poker [BrianT]
+パズニック (bootleg) [cmonkey]
+マージャン 電子基盤 [Dyq, XingXing, Luca Elia]
+バトルクロード(Korean PCB) [Manuel Assoni]
+アドベンチャークイズ カプコンワールド2 (Japan 920611, B-Board 91634B-2) [Bonky]
+ウィロー (World) [Jets (from Emu-france) and Layer (from Neo-arcadia)]
+ザ・コンバットライブス (US, older) [Jets, Layer]
+雷電II (France) [Jets, Layer]
+ゴールデンアックスII (Mega Play) (original rev) [Jets, Layer] 
+大王 (location test version) [CoolMod, trap15]
+Thunder Deity Biography (Chinese hack of バトルガレッガ) [caius]
+
+
+追加された未動作ゲーム
+----------------------
+マージャン 黄金の牌 [Dyq, XingXing]
+

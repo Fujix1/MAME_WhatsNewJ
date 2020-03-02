@@ -1,0 +1,138 @@
+0.120u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+gradius4_0120u3yel [Aaron Giles]
+vegas.c0120u3yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- インラインコードのマイナーな変更。atomic_add32の結果は何度も使われないので、最
+  後の追加分は削除できます。eminline.hのatomic_increment32とatomic_decrement32か
+  ら、不要なデルタ引数を削除と実装の追加。また、tgbsse.hを使用する条件について、
+  SSEが有効な32ビットプラットフォームであることを含むように変更。[Vas Crabb]
+
+- ssv.cの入力ポートを大幅にクリーンアップ。ジョイスティック、麻雀、クイズの共通
+  な入力をまとめて、PORT_INCLUDEで使えるように更新。また、重複を防ぐため、共通の
+  コインエイジ設定についてもとりまとめ作業。[Vas Crabb]
+
+- 全ドライバのインターフェイス(DRIVER_INIT, READ8_HANDLERなど)について、どれを
+  staticにしてグローバルな名前空間での競合を減らせるかを検証。一部はデッドコード
+  だと判明。[Atari Ace]
+
+-「チューブパニック」ドライバを更新。背景のスクロールインを修正。メインCPUとサブ
+  CPU間の同期不良が原因。また、スキャンラインレベルで正確になるようにビデオドラ
+  イバを改良。以前より正確な割り込み処理も実装。[Jarek Burczynski]
+
+- res_net.cのTTLローハイレベルを変更。これにより、カラーレンジが少し広がります。
+  ただし、結果は正規化されるので、目に見える効果は限られます。[couriersud]
+
+- ms32.cの入力系のクリーンアップと、DIP配置追加。また、47pie2とakissのDIPも修正。
+  [Sonikos]
+
+- Windows環境で、複数マウスを一つのマウスにマッピングする場合に、まちがった入力
+  が発生するバグを修正。[Nathan Woods]
+
+- i8051コアで、間違ってTimer2割り込みが起こるバグを修正。[Jim Stolis]
+
+- peplusドライバを更新: [Jim Stolis]
+ * ライトペンをサポート
+ * PE+ スーパーボードをサポート
+ * ABCコインの視覚効果サポート
+ * 完全なI2C EEPROMをサポート
+ * NVRAMサポート
+ * ドアの開閉に関係した問題を訂正
+ * メモリのハックをほぼ削除
+ * マシンと入力の統合
+ * pepp0158用新レイアウト追加
+
+- MPU4ドライバを、NeoGeo風にコアとドライバに分割。また、タイマーの修正と新しい
+  ROMセットの追加。[James Wallace]
+
+- junofrstのblitterコードを簡略化したときに起きた問題を修正。[Chris Hardy]
+
+-「American Poker II」の大幅な書き直し: [Roberto Fresca]
+ - クリスタルから周波数を正しく分周して取得
+ - TILE_GET_INFOで、タイル・カラーコードを正しく処理するように書き直し
+ - 割り込み(NMI)の修正
+ - AY8910の周波数を実機に合わせて1.5MHzに訂正
+ - AY8910の音量について、全ゲームでクリッピングが起きないように調整
+ - 画面表示領域の訂正
+ - NVRAMサポート
+ - メモリマップの再作業。ハードウェアI/Oポートを全てマッピング
+ - 全セットについて、入力系の再作業
+ - オペレータとスーパーバイザのキーを実装
+ - タイミング関係のトラブルを修正
+ - 全セットにdiplocationsを使った部分的なDIPスイッチのサポート
+ - DRIVER_INITのハックを削除
+ - 出力ポート用の書き込みハンドラを実装
+ - ウォッチドッグルーチンを追加
+ - 全セットについて、カラーPROMの吸い出し、実装、接続、デコード
+ - ハードウェアの測定に基づいてリフレッシュレートを調整
+ - 全セットのランプを接続と、それぞれのレイアウトを作成
+ - ドライバを、ドライバとビデオに分割
+ - その他、細かな修正
+
+- SCSPの修正: [kingshriek]
+ * DECAY1のエンベロープ状態がすぐに終了しないよう修正
+ * LPSLNKとSBCTLのサポート向上
+ * パン位置演算のバグを修正
+ * キーレートスケーリングがオフの不具合を修正
+
+- DIP配置表示で、DIPスイッチが逆になるのを示す機能を追加。[Vas Crabb]
+
+- Midway TronとNindendo「ドンキーコング」シリーズ(dkong.c)のDIP配置追加。
+  [Vas Crabb]
+
+- G4、G5、POWER5 CPUを使っている人向けに、アルタベック/VMX対応のRGBツールを追加
+  (rgbvmx.h)。また、rgbsse.hにrgbint_bilinear_filterとrgbaint_bilinear_filterも
+  追加(rgb_bilinear_filterとrgba_bilinear_filterがベース)。これらの関数は、
+  rgbgen.hにあるので完全を期して追加。[Vas Crabb]
+
+- model2.c、taitojc.c、gticlub.cで新ポリゴンルーチンを使用するように更新。
+  古いpoly.cの廃止と、polynew.*のpoly.*への改名。[Aaron Giles]
+
+- triとquadのコールバックが同じ方法で動作するように、poly.cのコールバックを統合。
+  [Aaron Giles]
+
+- デバッガで、浮動小数点TMS32031レジスタの表示を修正。[Aaron Giles]
+
+- TMS32031のABSF命令について、proper engativeを生成せずにドキュメント通りに動作
+  するよう修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+Player's Edge Plus (PP0516) Double Bonus Poker [Jim Stolis]
+Player's Edge Plus (PP0158) 4 of a Kind Bonus Poker [Jim Stolis]
+Player's Edge Plus (PP0188) Standard Draw Poker [Jim Stolis]
+Player's Edge Plus (Set038) Set Chip [Jim Stolis]
+Player's Edge Plus (BE0014) Blackjack [Jim Stolis]
+Player's Edge Plus (KE1012) Keno [Jim Stolis]
+Player's Edge Plus (PS0615) Video Slots [Jim Stolis]
+Player's Edge Plus (PS0716) Video Slots [Jim Stolis]
+Player's Edge Plus (XP000019) Deuces Wild Poker [Jim Stolis]
+Player's Edge Plus (XS000006) Triple Triple Diamond Slots [Jim Stolis]
+MPU4 Unit Test [James Wallace]
+Sigma Poker [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Slipstream (950515 HISPANIC) [Guru]
+キック&ラン (US) [Brian Troha]
+American Poker 95 [Roberto Fresca]
+Poker De Win [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Vegas Poker (Prototype) [James Wallace]
+Sigma Poker 2000 [Roberto Fresca]

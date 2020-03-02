@@ -1,0 +1,98 @@
+0.113u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+sega0113u3red [Aaron Giles]
+diehard0113u3red [R. Belmont]
+
+
+
+ソースの変更点
+--------------
+- K001604 ROZレイヤーエミュレーション改良。[Ville Linde]
+
+- Exidy 6502ドライバのタイミングパラメータを回路図を元に追加。また、その他多数の
+  ドライバを新タイミングルーチンへ更新。[Zsolt Vasvari]
+
+- Exidy 440ドライバの更新: [Zsolt Vasvari]
+ * 回路図を元にビデオタイミング追加
+ * ROMセットにタイミングPROMを9つ追加
+ *「Top Secret」以外は、全てのゲームで同じタイミングPROMを使う模様で、VBLANKを4
+   ピクセル早くセットします。これにより、画面表示が修正されますが、タイトル画面
+   の一番下、年度表示部分が欠けますが、これを表示させようとすると、他のゲーム全
+   部でゴミが表示されるので、実際の動作とみてまず間違いありません
+
+- itech32ドライバで、チップのプログラムに従って、ビデオタイミングを動的に調整す
+  るように更新。[Zsolt Vasvari]
+
+- Model 2ドライバに、新しいTGPコアを実装。TGPデータROMを正しくマッピング。また、
+  TGPコアについて最新の情報に更新。[Ville Linde, Ernesto Corvi, ElSemi]
+
+- 前回のタイミングの更新で、irobotがクラッシュしていたのを修正。[Zsolt Vasvari]
+
+- ES5503の更新: [R. Belmont]
+ - IRQセマンティクスとEnd-of-Sampleの処理を大幅修正
+ - サンプルメモリを設定できるように改良
+ - ステートセーブサポート
+ - 入力クロックに基づいて、出力レートを正しく演算
+ - mquakeに正しく実装
+
+-「GTIクラブ」のアナログ操作追加。[Ville Linde]
+
+- SCSPを使う一部のゲームのクラッシュ修正。[R. Belmont]
+
+- デフォルトで全てのCPUを有効に設定。コアの変更などによる変更を、未使用CPUについ
+  ても確実にします。[David Haywood]
+
+- オプションとメモリプールのコードで、ハッシュを使って検索を高速化。
+  [Nathan Woods]
+
+- tumblebドライバのドキュメントをクリーンアップ。[Brian Troha]
+
+- G65816/M37710 CPUコアの更新: [R. Belmont]
+ - WAI命令の競合で、CPUの動作が行き詰まるのを修正（MESSのバグ#661。MAMEでもNamco
+   ゲームで断続的な問題を起こしていたかも）
+ - アキュムレータがショートモードの時の、ブロック転送命令を修正（SNESゲームが起
+   動しないのを修正。特に「Final Fantasy Mystic Quest」
+
+-「ぺったんピュー / Banbam」、markhamドライバ、「カロリーくんvsモグラニアン」の
+  DIP修正とDIP配置訂正。[Brian Troha]
+
+- Lelandドライバを新ビデオタイミングルーチンに更新。残りのドライバについても更新。
+  cpuexecから、不要になった旧タイミングルーチンを削除。[Zsolt Vasvari]
+
+- MB86233コアの最近見つかった命令追加。逆アセンブラにも。[Ernesto Corvi, ElSemi]
+
+- Windows OSDオプション用に、WINOPTIONS_*定数を作成。[Nathan Woods]
+
+-「テクモワールドカップ90」のDIPスイッチをマニュアルを元に修正。配置も追加。
+  [Roberto Fresca]
+
+- CDP1869をMESS用に正しい書き込みハンドラを使うよう変更。[Curt Coder]
+
+- V60コアと外部CPU間の同期のため、v60_stallメカニズムを追加。[Ernesto Corvi]
+
+- Direct3Dテクスチャの1ピクセルの境界線追加の動作について、エッジのピクセルを黒
+  のままにするのではなく、境界に入れ込むように変更。これにより、テクスチャレンダ
+  リングのエッジが変になるのが無くなるはずです。[Aaron Giles]
+
+- レンダープリミティブリストでの競合を減らすため、テクスチャオブジェクトをダブル
+  バッファにするように更新。また、前のリストの放棄が早すぎないように、プリミティ
+  ブリスト内で明示的に交互の処理をするように変更。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Wonder League Star (Korea) [David Haywood]
+Spotty [David Haywood]
+アストラスーパースターズ [Mariusz Wojcieszek]
+
+
+
+新規クローンセット
+------------------
+Crazy Kong (galaxian) [Colin]
+スーパーハイインパクト (prototype, rev 4.0) [Brian Troha]

@@ -1,0 +1,797 @@
+0.100
+-----
+
+
+ソースの変更点
+--------------
+- 低サンプルレート、または-nosoundでクラッシュするゲームを修正。[Aaron Giles]
+
+- 以下のドライバのクラッシュを修正: [Aaron Giles]
+ * Beat Head (表示更新)
+ * Hit Me (グラフィックデコード)
+ * Imago (パレット設定)
+ * 影の伝説 海賊版 (間違ったCPUにアクセス)
+ * ロッククライマー
+ * スピードアタック (パレット領域外にアクセス)
+
+- TumblePopドライバの更新: [David Haywood]
+ * ドライバをtumblep.cとtumbleb.cに分割
+ * tumblep.cは「タンブルポップ」オリジナルセットを動作。グラフィックには
+   deco16ic.cを使用
+ * tumbleb.cは海賊版と「タンブルポップ」と同様の方法で動作するハード用
+   (semicom製ゲームなど)
+
+-「Monster World」の不具合に対応。[David Haywood]
+
+-「クロスパング」のスプライト描画部をtumbleb.cからコピー。これにより'Alpha 
+  Blend'ビットを削除して、「タンブルポップ」同様に点滅スプライトに置き換え。
+  個人的にはこちらのほうが以前よりも正しいと思われる。またデフォルト設定の一部も
+  変更。[David Haywood]
+
+-「インディアンバトル」のDIPスイッチ修正。[ShimaPong]
+
+-「D-Day」のDIPスイッチをコンディショナルに更新。[James Wallace]
+
+- Namcoサウンド/MCUを更にアップデート: [R. Belmont]
+ *「リッジレーサー」「レイブレーサー」のアナログ操作修正
+ * System 22ゲームのSEとBGMを修正
+ * System 11のMCU RAMのサウンドパートを完全に共有。これにより「鉄拳」「鉄拳2」の
+   サウンドテスト修正
+
+
+
+新規クローンセット
+------------------
+G-LOC R360 [Craig Walker]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Rebus [David Haywood]
+
+
+
+0.99u10
+-------
+
+
+ソースの変更点
+--------------
+- INP記録をするとMAMEがクラッシュするバグを修正。[Aaron Giles]
+
+- Namco System 22 3Dレンダラーを少し最適化。[Aaron Giles]
+
+- 最近のNamco更新で問題を起こしていたM37710コアの割り込み問題を修正。
+  [Aaron Giles]
+
+- Namcoサウンドアップデートの修正: [R. Belmont]
+ * System 11/12のボイス修正
+ * System 11/12のステレオの左右入れ替え
+ *「ナムコクラシック」のサウンド復活
+
+- 10 Yard FightドライバにコンディショナルDIP追加。[Curt Coder]
+
+-「Truco Clemente」にカラーPROMを実装。ただしトランスフォームが未実装。
+  [Roberto Fresca]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Monsters World [David Haywood]
+
+
+
+新規クローンセット
+------------------
+サプライズアタック (World Ver. K) [Corrado Tomaselli]
+豪血寺一族2 (Japan) [EGCG]
+中国龍II (ver. 100J, Japan) [EGCG]
+
+
+
+
+0.99u9
+------
+
+
+ソースの変更点
+--------------
+- tilemap_disposeを削除。これを使っていたドライバ2つを修正。これにより、megasys1
+  とygv608ゲームでのステートセーブ時の誤登録を修正。[Aaron Giles]
+
+- ポーズ中もサウンドコアが動作し続けるバグを修正。[Aaron Giles]
+
+-「インディアンバトル」のBGMディスクリートエミュレーション追加。[Derrick Renaud]
+
+-「Magic Bubble」のタイルマッププライオリティ修正。[Pierpaolo Prazzoli]
+
+- MESS用の実装を入力ポートシステムへクリーンアップ。[Nathan Woods]
+
+- Namcoゲームのサウンドを大幅改良: [R. Belmont]
+ * C352で入力クロックによって正しい音階になるように修正
+ * NB-1、NB-2、System 11の全ゲームでSEとBGMをエミュレート
+   BIOSはトロイの木馬でオリジナルを取り出すまでプロップサイクルのものを使用
+ * オリジナルのSystem 22にも同様の実装。ただし、どういうわけか正しいコマンドが
+   送信されず
+ * M37710/C352サウンドシステムの全インスタンスを、CPUの使用率があまり上がらない
+   ように速度調整。これにより「プロップサイクル」と「タイムクライシス」での使用
+   率も少し減少
+
+
+
+新規クローンセット
+------------------
+Magic Bubble (Adult version) [David Haywood]
+ダイナマイトダックス (set 1, 8751 317-0095) [Arzeno Fabrice, David Haywood]
+
+
+
+0.99u8
+------
+
+
+MAMETestersの修正バグ
+---------------------
+demonwld37b5gre [Pierpaolo Prazzoli]
+batrider099u1gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+- タイルマップパラメータのセーブ/リストア追加。[Aaron Giles]
+
+- ST-Vドライバの改良: [Mariusz Wojcieszek]
+ * dma:  dmaパラメータのチェック追加
+ * stv:  v-blankタイミング変更
+ * vdp1: フレームバッファふたつとフリッピング実装
+ * vdp1: フレームバッファのマニュアル削除と変更追加
+ * vdp1: マニュアルの描画用トリガ追加
+ * vdp1: フレームバッファをメモリにマッピング（16bppのみ）
+ * vdp1: RGBスプライトに影と輝度半分の描画追加
+ * vdp2: ビットマップスクロール修正（batmanfrとbakubakuのイントロ修正）
+ * vdp2: タイルマップとスプライトレイヤーにウィンドウエフェクト初期版追加
+    (batmanfr用)
+ * vdp2: 8bppと15bppビットマップの拡大縮小追加（vmahjongとmyfairldの背景修正）
+
+- toaplan1ゲームのスプライトプライオリティ修正。[Pierpaolo Prazzoli]
+
+-「ジョリージョガー」の背景色修正。[Pierpaolo Prazzoli]
+
+- 入力ポートの条件をより一般的に動作するようにしました。このために入力ポートコー
+  ドを一部再構成する必要がありました。以前と同様に動作するか確認をお願いします。
+  この変更ではさらにアナログポートの保存方法の修正も必要だったので、既存のINPは
+  多分動作しません。[Aaron Giles]
+
+-「タイムクライシス」のクラッシュ対策。[Phil Stroffolino]
+
+-「Top Gunner」の間違いベクターを修正。[Mathis Rosenhauer]
+
+- 新関数memory_configure_bank()とmemory_set_bank()追加。バンクスイッチ用の改良版。
+  現在のメモリバンキングの状態を自動的に保存します。m62.cを使用例としてこの関
+  数を使うようにアップデートしました。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+World Trophy Soccer (Arcadia) [Mariusz Wojcieszek]
+ファンキーヘッドボクサーズ [Mariusz Wojcieszek]
+ペブルビーチ ザ・グレートショット [Mariusz Wojcieszek]
+エアレスキュー [Anonymous]
+Cuore Uno (Italia) [Roberto Fresca]
+Elephant Family (Italia) [Roberto Fresca]
+Royal Card (Austria) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+グレート1000マイルラリー (94/06/13) [Corrado Tomaselli]
+フロッガー (Falcon bootleg) [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Cookie and Bibi 3 [David Haywood]
+サッカースーパースターズ ver EAA [Corrado Tomaselli]
+
+
+
+0.99u7
+------
+
+
+MAMETestersの修正バグ
+---------------------
+uccops062gre [Pierpaolo Prazzoli]
+dynduke055gre [Curt Coder]
+countryc087u4gra [Roberto Fresca]
+analogconfig099u6 [Aaron Giles]
+konami099u6red [Aaron Giles]
+m92099u6red [Aaron Giles]
+midvunit099u6red [Aaron Giles]
+policetrc099u6red [Aaron Giles]
+popupinfo099u6ora [Aaron Giles]
+keyhold099u6gra [Aaron Giles]
+ymsound099u6yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+- OPNエミュレータからcur_chipハック削除。[Aaron Giles]
+
+- 動作中のゲームのCPUがステートセーブをサポートしない場合にクラッシュするのを修
+  正。[Aaron Giles]
+
+- F3ゲームの割り込みタイミング修正。[Nicola Salmoria]
+
+- MNG記録サイズ修正。[Mathis Rosenhauer]
+
+-「8-Ball」(パックマン基板)の色修正。[Steve Rice]
+
+- ST-VドライバのIC13ROMロードエミュレーション改良。「ファインドラブ」「デカス
+  リート」「蒼穹紅蓮隊 / Terra Diver」がハックまたはデバッグ技を使わすに起動。
+  また「水滸演武」の動作も改良。[Angelo Salese]
+
+- leagueman_decryption_table (nbbatmanで使用)のopcode 0を追加。
+  [Pierpaolo Prazzoli]
+
+-「スペースクルーザー」のアステロイド面でやられるとリセットするのを修正。
+  [Pierpaolo Prazzoli]
+
+-「スペースポジション」のDIPスイッチ修正。[Roberto Fresca]
+
+- m92ドライバのタイルマップ間の描画順修正。[Pierpaolo Prazzoli]
+
+-「スクーターシューター」の色修正。[Pierpaolo Prazzoli]
+
+- Namco System 22サウンドシステムのバグ修正。[Cync]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Jolly Jogger [Pierpaolo Prazzoli]
+インディアンバトル [Tomasz Slanina]
+龍虎榜 [Luca Elia]
+中国龍 [Luca Elia]
+Champion List II [Luca Elia]
+幸運満貫 (V638C) [Luca Elia]
+マルちゃんdeグー!!! [Angelo Salese]
+スーパーメジャーリーグ [Angelo Salese]
+2度あることはサンドアール [Angelo Salese]
+蒼穹紅蓮隊 / Terra Driver [Angelo Salese]
+水滸演武 [Angelo Salese]
+
+
+
+新規クローンセット
+------------------
+Eliminator (2 Players, cocktail) [Mathis Rosenhauer]
+Eliminator (4 Players, prototype) [Mathis Rosenhauer]
+World Beach Volley (set 2) [Corrado Tomaselli]
+
+
+
+0.99u6
+------
+
+
+ソースの変更点
+--------------
+- 前回のステートセーブのアップデートとクラッシュしていたのを修正。[Aaron Giles]
+
+- リネーム完了。今回のメジャーな変更: [Aaron Giles]
+  struct mame_bitmap -> mame_bitmap
+  struct rectangle   -> rectangle
+  data8_t            -> UINT8
+  data16_t           -> UINT16
+  data32_t           -> UINT32
+  data64_t           -> UINT64
+
+- pbchmp95.cドライバをwitch.cにリネーム。[David Haywood]
+
+- spelunkrの背景色を修正。[Pierpaolo Prazzoli]
+
+- hharryの背景位置修正。[Pierpaolo Prazzoli]
+
+-「スパイダー」にディスクリートのSE追加。[Hans Andersson, Don Maeby]
+
+
+
+新規クローンセット
+------------------
+Sharpshooter v1.1 [Brian Troha]
+Shuffleshot (v1.40) [Brian Troha]
+
+
+
+0.99u5
+------
+
+
+MAMETestersの修正バグ
+---------------------
+docastle093u2ora [Corrado Tomaselli]
+sindbadm37b2gre [Pierpaolo Prazzoli]
+mgakuen094u1gra [Roberto Fresca]
+tdfeverj087u4gra [Roberto Fresca]
+
+
+
+ソースの変更点
+--------------
+- コアストラクチャのリネーム完了。一番多い変更は"struct tilemap"が"tilemap"に
+  なったものです。[Aaron Giles]
+
+- Cinematronicsベクターゲームでステートセーブをサポート。[Buddabing]
+
+- psikyosh.cに、別なタイルマップでのブレンド追加。「ソルディバイド」の最終ボス修
+  正。[David Haywood]
+
+- Witch/Pinball Champ '95ドライバの改良: [Sebasten Hegon]
+ * グラフィックが一部表示されるようになりました（パレットはOKの模様）。BGMと効果
+   音も再生されてます
+ * 操作系はまだ完全に把握してないので、DIPスイッチにマップしてます
+ *「Witch」は初回起動時にNVRAMリセットが必要（DIPスイッチ経由）。「Pinball Champ」
+   の方は自動的にやるもよう
+ * サウンド部分についてはsound/es8712.cにパッチが必要。ハードコードされた
+   ループを切って、オフセット0x06(cfパッチ)の書き込み時にサウンドをスタートして
+   ます。vmetalには影響がないようです
+ * ゲームプレイについては、ボールがフリーズします（ゲームモードとデモモードで）。
+   原因は不明。表示ハードの解析が不完全なのでたぶんこれが原因です
+ * コインの入出機能の作業が必要
+
+-「Jolly Card」の改良: [Roberto Fresca]
+ * ハード情報追加（ピンアウトとDIP）
+ *「Jolly Card」に正しいDIPスイッチを追加。ホッパーとポイントパルスはドライバが
+   予備ステートなのでテストしてません。残りは正しく動作します。変更をチェックす
+   るためにはnvramを削除するのを忘れずに
+ *「Magic Card II」(Bulgaria)とほとんど同じDIPスイッチ追加
+
+- セーブステートシステムの大幅変更: [Aaron Giles]
+ * 整数またはポインタの引数をとるプリロード・ポストロードの代替関数追加。サウン
+   ドコアの一部とその他のファイルでこれを利用するように更新
+ * Made state handler registrations track like other scoped resources
+    (timers, memory) so that registrations can occur as late as 
+    MACHINE_INIT time.
+ * MACHINE_INIT後のレジストレーションを検知して、その場合セーブをしないようにす
+   るロジックを追加
+ * セーブ・ロード対象のCPUかサウンドチップが未登録の状態を検知するロジックを追加。
+   この場合情報はerror.logに出力され、セーブ・ロードはされません
+ * タイマーがサーブステートの一部として自動的に保存・リストアされるように割り当
+   て。グローバルタイムは大量のCPU実行ステートと同様にリストアされるようになり、
+   リストア精度が向上しました
+ * 全ての無名タイマーがクリアされるまでセーブを保留する機能を追加。ドライバで多
+   くの無名タイマーを使っている場合、セーブはまず成功しません。1秒後にタイムアウ
+   トになります
+ * リストア前にマシンをリセットするようにしました。ロード時の環境が以前より安定
+   します
+ * YM2151のセーブステートを再有効化
+ * オールドNamcoサウンドシステムにセーブステート追加
+ * サンプルサウンドシステムにセーブステート追加
+ * machine/scramble.cから無名タイマを削除
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Muroge Monaco [David Haywood]
+The First Funky Fighter [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+SAR - サーチアンドレスキュー (Japan) [Pierpaolo Prazzoli]
+American Poker II (set 4) [Roberto Fresca]
+
+
+
+0.99u4
+------
+
+
+MAMETestersの修正バグ
+---------------------
+quarth37b1gre [Pierpaolo Prazzoli]
+devilw36b10yel [Pierpaolo Prazzoli]
+vulcan137b1gre, part 7 [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- システムにメモリカードとチートメニューを復活。[Aaron Giles]
+
+- u3でMNGレコーディングの問題が出ていたのを修正。[Aaron Giles]
+
+- u3でベクターゲームがクラッシュしていたのを修正。[Aaron Giles]
+
+- コアコードでのコーディング規格について特定のルール化を進めるため、コアストラク
+  チャの一部で、ネーミングのクリーンアップと規格化:
+
+  struct InputPortDefinition   -> input_port_default_entry
+  struct InputPort             -> input_port_entry
+  struct RegionInfo            -> region_info
+  struct RunningMachine        -> running_machine
+  struct GameOptions           -> global_options
+  struct GameDriver            -> game_driver
+  struct InternalMachineDriver -> machine_config
+  struct MachineCPU            -> cpu_config
+  struct MachineSoundRoute     -> sound_route
+  struct MachineSound          -> sound_config
+  struct MachineSpeaker        -> speaker_config
+  struct RomModule             -> rom_entry
+  struct SystemBios            -> bios_entry
+  struct GfxLayout             -> gfx_layout
+  struct GfxElement            -> gfx_element
+  struct GfxDecodeInfo         -> gfx_decode
+
+  さらにその他多くでも同じルール適用。この作業はまだ終わってないので注 意してく
+  ださい。またもっと広範囲な構造体(mame_bitmap, rectangle)は非diffリリース
+  (0.100)までそのままにしておきます。[Aaron Giles]
+
+- 最初の実行後は自動的になくなるので-skip_disclaimerを削除。[Aaron Giles]
+
+- NMK112 ROMバンキングモジュールを新規作成、これを使用するドライバと接続。影響の
+  あるゲームはcave.c, nmk16.c, powerins.c, quizpani.c, toaplan2.c。
+  [Alex W. Jackson]
+
+-「Showdown」で不足していたボタン追加。[David Widel]
+
+- 6309逆アセンブラのPULUW命令修正。[Nathan Woods]
+
+- 初期化失敗時にマルチセッションポートでの保存ステートの再生を改善。
+  [Tim Lindner]
+
+
+
+新規クローンセット
+------------------
+Plotting / フリップル (US) [David Haywood]
+
+
+
+0.99u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+hanagumi082red [Mariusz Wojcieszek]
+rtypeleo062gre [Pierpaolo Prazzoli]
+labyrunr080u1gre [Pierpaolo Prazzoli]
+tricktrp061gre [Pierpaolo Prazzoli]
+gng37b4gre [Pierpaolo Prazzoli]
+battlane076u2gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- ST-Vドライバのアップデート: [Mariusz Wojcieszek]
+ - vdp2: RBG0レイヤーの回転追加 (diehard, vfkids, vfremix, thunt, sassisu背景)
+ - vdp2: 15bit RGBタイルマップ追加 (thuntで使用)
+ - vdp2: 半透明アルファブレンドビットマップ追加 (「紫炎龍」のイントログラフィッ
+         ク表示)
+ - vdp2: RGBスプライトのイネーブルビット追加 (vfremixのスプライト修正)
+ - vdp2: RGBスプライトのアルファブレンディング追加
+ - vdp1: ポリゴン描画修正
+ - vdp1: 線の描画を追加
+ - sh2:  除算ユニットのバグ修正
+ - sh2:  CPUのFTCSRレジスタ読み込み時コールバック追加 (stvのスレイブSH2のアイド
+         ルループのスキップ用)
+ - stv:  アイドルループのスキップ追加
+ - dsp:  DMA修正 (thuntのグラフィック修正)
+
+- dsp56k CPUコア追加とPolygonet Commandersドライバに実装。[Andrew Gardner]
+
+- SCSIハードディスクの更新: [R. Belmont]
+ - FORMAT UNIT, READ (6 byte), WRITE (6 byte), READ (12 byte), MODE SENSE,
+   READ CAPACITYの各コマンド追加
+ - 実物のSeagateモデル同様INQUIRYをIDに変更。製造者コードが"MAME"なのより
+   MacOSで好都合
+ - 初期化部分にMESS用の改良
+
+- YMF271コアの全てのボリュームテーブルの演算を修正。[Ville Linde]
+
+- SPIの改良: [Ville Linde, Pierpaolo Prazzoli]
+ - 実際のコイン入力追加。いままではサービスコインを使用
+ - rdft2us, rfjetus, rdft22kcにeeprom実装
+
+- LSI53C810の更新でModel 3ゲームがクラッシュしていたのを修正。[Ville Linde]
+
+- PowerPCリコンパイラの修正で「スカッドレース」が再動作。[Ville Linde]
+
+- ユーザーインターフェース基本部分の大規模な整理: [Aaron Giles]
+ - ユーザーインターフェースのレンダリングは描画されるまでキャッシュされ、ワンパ
+   スで描画されるように変更
+ - 不要だったり重複した関数をかなり削除して、フレキシブルな小型のAPIセットに置き
+  換えました
+ - UIフォントとカラーテーブルのグローバルアクセスを削除しました。UIコードのプラ
+   イベートに変更しています
+ - グローバルユーザーインターフェース関数名を全てそろえました。一番大事なのは
+   usrintf_showmessageがui_popupになってます
+ - ポーズの動作を作り直し; タイトループ状態ではなく普通にコードが進行します。
+   ただしCPU実行システムは進みません
+ - メニューコードを再作業; 一時的に一部のメニューは使えません (チート、メモリ
+   カード)
+
+- ゲーム内部でのhistory.dat表示を削除。この類のデータをMAMEの限られたUIに詰め込
+  むのは実用的ではありません。history.dat情報表示は大抵のフロントエンドやウェブ
+  サイトでサポートされています。[Aaron Giles]
+
+- Windowsビルドから以下の使われていない余分なコマンドラインオプションを削除しま
+  した: [Aaron Giles]
+ -wrongorientation
+ -wrongfps
+ -gamelist
+ -list
+ -listgames
+ -listdetails
+ -listwrongmerge
+ -listcpu
+ -listcpuclass
+ -listgamespersourcefile
+ -listnosound
+ -listnvram
+ -listpalettesize
+ -listromdistribution
+ -listromnumber
+ -listsound
+ -listdupcrc
+ -listsamdir
+ -listmd5
+ -listsha1
+ -verifysets
+ -vset
+ -vsam
+ -sortname
+ -sortdriver
+ -[no]clones
+ -crconly
+ -maxlogsize
+ -resamplefilter
+ -debug_resolution
+ -history_file
+ -mameinfo_file
+
+- ROM警告表示の"Press any key"のプロンプトを削除しました。代わりに不良・不明
+  ROMを表示します。不良・不明ROMの詳細はこれまで通りコンソールにも表示されます。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+対戦タントアール さしっす!! (J 980216 V1.000) [Mariusz Wojcieszek]
+テトリス (Japan, System E) [David Haywood]
+
+
+
+新規クローンセット
+------------------
+GTIクラブ (ver JAA) [Arzeno Fabrice]
+マスターオブウエポン (US) [Arzeno Fabrice]
+サンセットライダーズ (4 Players ver EAA) [Johan Samuelsson]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Forte Card [David Haywood]
+Jackpot Pool (Italy, bootleg) [David Haywood]
+
+
+
+0.99u2
+------
+
+これまでのバージョンでは理念的な事情により一部のドライバ（主にギャンブル関係）を
+排除してきました。これらのゲームも年代を重ねる毎に失われるリスクがあり、多くは
+MAMEがエミュレートしているゲームと比べて大きな類似点をもっています。そのため、こ
+れらのゲームの追加をしていくことにしました。これによりMAMEに追加されるゲームの
+基準は単純に「主として映像をベースにしたアーケードマシンで、CPUによって動作する」
+となり、この問題による混乱を軽減するものと思われます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+namcos1099u1red [Aaron Giles]
+mcr3099u1yel [Aaron Giles]
+zaxxon088u2gre [Derrick Renaud]
+sprint1097gre [Derrick Renaud]
+sdgndmps058gre [Pierpaolo Prazzoli]
+gunforc2058gre [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+- 入力ポートを更に修正: [Aaron Giles]
+ - port_tag_to_handlerで使われている入力ポートハンドラを修正
+ - 入力ポートの動作を確実にするため、リード・ライトを簡略化
+ - 変更された入力設定のみを.cfgファイルに書き込み
+ - アナログポートの設定保存を修正
+
+- 最新のzlibにアップデート。[Atari Ace]
+
+-「Pop Bingo」に画面反転追加。またタイルマップ/スプライトのディスエイブルレジス
+  タ追加（lastdayのデモ修正）[Pierpaolo Prazzoli]
+
+-「がんばれ！ゴンタ!!2」の表示バグ修正。[David Haywood]
+
+- Namco CUS30ノイズ周波数調整。[BUT]
+
+- djmainの入力ポート修正。[BUT]
+
+- Konami系の改良: [R. Belmont]
+ - YMZ280Bに“外部メモリアドレス”レジスタ追加。追加ROMまたはRAMから読み込みがで
+   きます
+ - サービスメニューのマスクROMテストを実装。タイルキャラクタROMとサウンドROMがた
+   だしテストされます
+ - 2つ目のコントロールレジスタ追加
+ - IRQコントロール実装
+ - 両方のゲームでPCBロケーション情報を含むようにROMを改名
+
+- DECOカセットゲームの改良: [Juergen Buchmueller]
+ -「トレジャーアイランド」のグラフィックROM（オーバーレイボード）をゲームコード
+   のデバッグにより見つかった情報をもとにマッピング
+ - ctislnd2とctislnd3のイメージ名をドライバ名に合うように入れ替え;
+    ctislnd3は未動作セット; IMPERFECT_GRAPHICSフラグ削除
+ -「ゼロイゼ」タイプ#3のドングルのビットスワップ発見; ゲームコードのデバッグによ
+   りドングルROMなしでも動くハック法も発見; 年代を1983に変更; NOT_WORKINGフラグ
+   削除
+
+- SHARC/Model 2のアップデート: [Ville Linde]
+ - SHARCの内部RAM実装で、コア動作のマルチインスタンスについて再作業
+ - データアドレス空間追加
+ - コプロ入力と出力FIFOをModel2に追加
+ - Konami zr107, gticlub, nwk-tr, hornetがSHARCの変更で動作
+
+- Seibu SPIの改良: [Ville Linde]
+ - スプライトプライオリティ修正
+ - タイルマップとスプライトにペンベースのアルファブレンディング追加。
+   今のところ全ゲームで固定アルファテーブルを使っていますが、一部のゲームがおか
+   しくなるので正しくないと思われます
+
+- ディスクリートサウンド555タイマーモジュールで実際のDCモードを使うときの修正。
+  [Derrick Renaud]
+
+- YMF271エミュレータに低周波発信器追加。[Ville Linde]
+
+- dconドライバを改良: [Pierpaolo Prazzoli]
+ - スプライト同士のプライオリティ
+ - スプライト・タイルマップ間のプライオリティ
+ - スプライトのY軸フリップのラップ追加
+
+- MNGレコーディングサポート (デフォルトはShift+F12）。[Mathis Rosenhauer]
+
+- HD6309の6309除算命令オーバーフロー動作を修正。[Tim Lindner]
+
+- YM271をさらに修正: [Ville Linde]
+ - 2オペレータのFMサウンド間でミックスバッファポインタがリセットされず音が出な
+   かったのを修正
+ - FMサウンドのフェーズ変調のバグ修正
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Super Derby [David Haywood]
+Champion Skill [Mirko Buffoni]
+Pontoon (Tehkan) [Zsolt Vasvari]
+ラブリーポーカー [Uki/El Condor]
+Golden Star [Mirko Buffoni]
+Jolly Card/Jolly Poker [Curt Coder, Peter Trauner]
+Inter Game Poker [Curt Coder, Peter Trauner]
+Magic Card II [Curt Coder, Peter Trauner]
+ゼロイゼ (casette) [Juergen Buchmueller]
+Lucky Today [Curt Coder]
+Chewing Gum [Curt Coder]
+Royal Casino [Curt Coder]
+Vegas Roulette [Curt Coder]
+Jin [David Haywood]
+アタックUFO [Tomasz Slanina]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Roulette (Playmark) [David Haywood]
+バブルトラブル [David Haywood]
+American Poker II [Curt Coder]
+Cherry Master [Curt Coder]
+Cherry Master II v8.41 [Curt Coder]
+Lucky 8 Lines [Curt Coder]
+Starspinner [Curt Coder]
+906III Video Poker [Curt Coder]
+
+
+
+0.99u1
+------
+
+
+MAMETestersの修正バグ
+---------------------
+medlanes061gre [MASH]
+
+
+
+ソースの変更点
+--------------
+- 前回リリースしたMCRゲームに間違ってハックが残っていたのを削除。[Aaron Giles]
+
+- spidersのカクテルモード表示がおかしかったバグを修正。[Hans Andersson]
+
+- H8/3002コアのいろいろな問題を修正。Namco System 12とND-1のサウンドが改善。
+  [cync]
+
+-「ススメ！マイルスマイル」のサウンドバンキング修正。[Pierpaolo Prazzoli]
+
+- YMF271サウンドコアの大幅改良: [Ville Linde]
+ - タイマーA演算修正
+ - 音程演算修正
+ - エンベロープジェネレータ追加
+ - ステレオパンニング追加とその他の音量調節修正
+ - FMサウンド生成追加
+
+- mystwarrのクラッシュ修正。[R. Belmont]
+
+-「グレイプロップ」(set 2)の復号キー判明。[MASH]
+
+- コンフィグリーダーとライターコードについて、より包括的で他のサブシステムでのプ
+  ラグイン化が簡単になるように書き直し。これにより現在のコンフィグデータの読み込
+  み方法の書き直しが必要になりました。その結果、ゲーム名.cfgファイルはこのアップ
+  デート後は無効になります。default.cfgと既存のコントローラー用.cfgは正常に動作
+  するはずです。[Aaron Giles]
+
+- mystwarr.cの全ゲームでサービスモードのマスクROMテストをパスするように修正。
+  「メタモルフィックフォース」だけが例外(道路生成("LVC")）のテストで固まる。
+  [R. Belmont]
+
+-「モンスターバッシュ」(2-board version) が動作するように修正。ただしグラフィッ
+  クはまだ不完全。[David Haywood, MASH]
+
+- 最適化ビルドでは-fomit-frame-ponterをオフに設定。Windowsビルドでsetjmp/longjmp
+  を使うとクラッシュにつながったていたもの。[Aaron Giles]
+
+-「Flying Tiger」のタイルマップとスプライトのプライオリティ修正。
+  [Pierpaolo Prazzoli]
+
+-「メドゥズレーン」に緑色のオーバーレイ追加。[MASH]
+
+- Deco 156ゲームの改良をいろいろ: [David Haywood]
+ - ビデオコードでdeco16ic.cの関数を使うように修正
+ - Guru氏のEEPROM吸い出しにより、「Osman」のデフォルトを3ボタンに変更
+
+- Namco System 22のアップデート: [R. Belmont]
+ - MCUとCPUの通信を正しく実装
+ -「プロップサイクル」「アルペンレーサー」「サイバーサイクルズ」で、MCUが操作を
+   読み込むように変更
+ - Super System 22の全ゲームでSEとBGM動作
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Lotto Fun 2 [Aaron Giles]
+Pit Boss [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Trivia ? Whiz [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Tic Tac Trivia [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Phraze Craze [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Top Gunner / 特殊部隊ジャッカル [Mathis Rosenhauer]
+
+
+
+新規クローンセット
+------------------
+Omni [Pierpaolo Prazzoli]

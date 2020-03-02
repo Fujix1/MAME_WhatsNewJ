@@ -1,0 +1,88 @@
+0.97u2
+------
+
+
+MAMETestersの修正バグ
+---------------------
+intrepi237b13gre [Pierpaolo Prazzoli]
+robokid37b15gre [Pierpaolo Prazzoli]
+azurian060gre [MASH]
+gradius3094u5gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+
+* System 32はただいま完全に作業中です。バグ報告はしないで下さい。マルチ32のゲー
+  ムはさらに動作しなくなってます。[Aaron Giles]
+
+* WindowsビルドがWindows95で動くように修正。[Krick]
+
+*「ザ・コンバットライブス」のプライオリティ修正で3面修正。[Pierpaolo Prazzoli]
+
+*「首領蜂」「マジンガーZ」「隠忍」「豪血寺2」のサウンドバランス修正。[Sonikos]
+
+* ninjawの表示問題修正。新しく追加したコラムスクロールで変になってたもの。
+ [Pierpaolo Prazzoli]
+
+* midresのOKI音量を実基板に合うように変更。[Corrado Tomaselli]
+
+*「World Class Bowling v1.40 Tournament」のプロテクト修正。[Brian Troha]
+
+* NES PPUビデオタイミング修正。[Andrew Church]
+
+* PowerPCコアでのchange_pc()の使用法を修正。[Nathan Woods]
+
+* SHARC CPUコアの改良。[Ville Linde]
+  - IRQ処理の訂正
+  - 命令コード追加。浮動小数点込み
+
+* Konami PPCゲームの改良。 [Ville Linde]
+  -「グラディウス4」のデータROMマッピング
+  - PPC/SHARC間の通信修正
+  - 一部のNVRAMプロテクト修正
+  - LANインターフェースもみ消し
+
+*「スペースレイダー」のグラフィックを100%修正。[Frank Palazzolo]
+
+*「Pac-Man & Chomp Chomp」の色を訂正。[Nicola Salmoria, Guru]
+
+*「スペースレイダー」「ゼロアワー」「レッドクラッシュ」の星空面をクリーンアップ。
+  [Frank Palazzolo]
+
+*「ダイナギア」の影部分の不具合修正を再適用。[Mamesick]
+
+* VIA 6522シフトレジスタについて以前のハックなやり方を削除するように修正。
+  [Mathis Rosenhauer]
+
+*「チャンピオンシップボウリング」の残りの表示系の問題を修正。
+  [Pierpaolo Prazzoli]
+
+* デバッガエンター時にerror.logを毎回空にするコード追加。[Nathan Woods]
+
+* PowerPCコアにMCRXR命令実装。[Nathan Woods]
+
+* V60逆アセンブラにステップイン・ステップアウト追加。[Aaron Giles]
+
+* エクスプレッションエンジンにchar定数サポート追加。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Final Tetris [David Haywood]
+
+
+
+新規クローンセット
+------------------
+タートルシップ (Japan) [Brian Troha]
+レディーバグ (bootleg set 2) [Sonikos]
+ミスタークーガー (bootleg Set 2) [Sonikos]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+ル・マン24 [R. Belmont]

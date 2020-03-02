@@ -1,0 +1,461 @@
+0.149u1
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 05231: [グラフィック] (namcos11.c) tekken2aa, tekken2ab, tekken2ub: 表示不具合あり。
+         (hap)
+- 05228: [DIP/入力] (leland.c) cerberus: プレイヤー1のボタンがプレイヤー2のアクション
+         に割り当てられている。(Fabio Priuli)
+- 03863: [ゲームプレイ] (bking.c) All sets in bking.c: コース上の障害物や池などが無視
+         されることがある。(hap)
+- 05226: [クラッシュ/フリーズ] (mogura.c) mogura: サウンドが再生されるとクラッシュす
+         る。(hap)
+- 04841: [クラッシュ/フリーズ] (mpu4.c) m4exotic, m4jflash, m4madmnc, m4mmm, 
+         m4przrfm, m4rhfev, m4spinbt, m4xch, m4xs, m4xtrm: [デバッグ限定] OK画面後に
+         クラッシュする。(Robbbert)
+- 05219: [その他] (tetrisp2.c) tetrisp2: プライオリティRAMテストに失敗する。(hap)
+- 04466: [グラフィック] (tx1.c) buggyboy, buggyboyjr, tx1, tx1a: グラフィック化けやサ
+         ウンドの不具合がある。(Olivier Galibert)
+- 00419: dragngun: ラスボスの体力の減り方が異常に早い。体力が無くなると、座り込んでゲ
+         ームが進まなくなる。 (David Haywood)
+
+
+
+ソースの変更点
+--------------
+
+-arkanoid.c:「アルカノイド」のハードウェアについての解説を追加。[Guru]
+
+- QTデバッガ: ブレークポイントウィンドウが完成。[Andrew Gardner]
+  全CPUのブレークポイントの表示と、各フィールドでのソートが可能
+
+- メモリ: サブユニットの再構成を修正。[O. Galibert]
+
+- 同一デバイス上で複数のIDEデバイスが利用可能。[smf]
+
+- tx1: PROMは16ビットアクセスなのでそのようにロード。[O. Galibert]
+
+- segas16a.c: wb35aクローンセットを削除し、wb35セットについて正しく吸い出したプログラ
+  ム、タイル、スプライトROMをマージ。Chris Hardy氏とCharles MacDonald氏がソフト的に生
+  成した317-0086キーを追加。[Brian Troha]
+
+- meritm.c:「Pit Boss Superstar III 30」「Pit Boss Supertouch 30」のDIP設定修正。
+  [Brian Troha]
+
+- Konami 007232サウンドデバイスのモダン化。[Osso]
+
+- Taito PC080SNビデオデバイスのモダン化。[Osso]
+
+- IDEコントローラからハードドライブエミュレーションを分離。[smf]
+
+- IDE HDDデバイスからATAフラッシュデバイスを派生させ、PCカードインタフェース追加。
+  [smf]
+
+- es5510: es5505/5506の試験的な実装。いまのところサンプルは未加工のまま通過。
+  [Christian Brunschen]
+
+- Taito PC090OJビデオデバイスのモダン化。[Osso]
+
+- Konami 056800サウンドデバイスのモダン化。[Osso]
+
+- src/emuのファイルに依存関係を構築。[smf]
+
+- powervr2: core/taレジスタを分離。[O. Galibert]
+
+- powervr2: blc/blicを修正。[O. Galibert]
+
+- neogeo: PVCプロテクションの整理。[Alex Jackson]
+
+- de_2:「Laser War」のCPU Type 1とAlphanumeric Type 1がType 2にとても似ているため、
+  de_2に移動。de_1.cは不要。Alphanumeric Type 3ゲームのレイアウト追加。
+  [Barry Rodewald]
+
+- メモリ: moarテーブルが必要。[O. Galibert]
+
+- powervr2: DMAレジスタを分解。[O. Galibert]
+
+-「Savage Quest」のBIOS吸い出し直し。まだ問題があるので吸い出し不良に設定。エミュレー
+  ションのせいかも。[Trevor Brown]
+
+- jackal.c: ROM名の訂正と基板レイアウトを追加。海賊版に正しいROM追加。[Brian Troha]
+
+- wd_fdc: リセット時のリストア方法を少し変更。[O. Galibert]
+
+-「Savage Quest」のハードディスクを再吸い出し。[Trevor Brown]
+
+- chdman: -cは定義された圧縮量を上書きのみ行う。部分的にデフォルトの圧縮が使用されていた。
+  [Oliver Steberg]
+
+- レーザーディスクCHDの入力映像がオーディオチャンネルを持たない場合、ツリーサイズが初
+  期化されなかったのを修正。[Oliver Steberg]
+
+- m6809: 'TFR *,S'で最初にSを設定すると、明らかにNMIを有効化する。[jedwidz]
+
+- mc6845: 'interlace and video'モードの初歩的なサポート。[jedwidz]
+
+-「Savage Quest」のS3ビデオBIOSを吸い出し。[Trevor Brown]
+
+- TC0080VCOとTC0100SCNビデオデバイスをモダン化。[Osso]
+
+- Konami 053252デバイスのモダン化。[Osso]
+
+- 1943.c: DIPLOCATIONの修正。[Alex Jackson]
+
+- neocrypt.cクリーンアップパート1: kf2k3pcb BIOSの復号処理をシンプル化。エンディアン
+  の問題も修正。[Alex Jackson]
+
+- sec: 綴り間違いを修正。[dgame]
+
+- phoenixカスタムサウンドデバイスをモダン化。[Osso]
+
+- MSM5232デバイスのモダン化。[Osso]
+
+- chihiro: i386プロセッサとchihiroドライバの更新: [Samuele Zannoli]
+ * i386プロセッサにMMXとSSE命令を多く追加
+ * fcomip x87オペコードを追加
+ * naomi_gdrom_boardデバイスに"UINT8 *memory(UINT32 &size)"メソッドを追加。これは、
+   chihiroで使用する復号化してGDROMデータのサイズとポインタを返す
+ * nVidiaオーディオAPUの基本的な部分を追加
+ * デバッガコマンド"chihiro curthread"を追加。現在アクティブなスレッドの情報を表示す
+   る
+ * デバッガコマンド"chihiro irq,&lt;number&gt;"を追加。IRQ番号0-15の割り込みを手動で生成す
+   る
+ * USBが実装されていなくてもソフトが動作するようなパッチをさらに追加
+ * Chihiro Type 1ベースボード・メディアボードの機能を追加して、GDROMゲームのロードが
+   可能
+ * 不完全なセーブステート機能サポート
+ * バーテックスデータがバッファに無くてコマンドストリームにはあるとき、nVidia 3Dアク
+   セラレータによるプリミティブの描画をサポート
+
+- IDE: デバイスのリセット時に未処理ワークを止めるため、匿名タイマーから一つのタイマを
+  使用するように変更。ビジータイマの再開を待機しているときはBSYは常に設定される。
+  DASPとPDIAG機能の実装。デバイス1はリセット中に検知され、かつデバイス1が診断に失敗す
+  ると、デバイス0はその診断結果のビット7を設定する。CHD無しのデバイス1は、デバイス0に
+  対してコントローラエラーをレポートするため、IDEカードはデフォルトで1ハードディスク
+  とする(例えば、AMIBIOSではデバイス1失敗時にデバイス0から起動できない)。
+  DASPとPDIAGのタイミングは、ATAバスアクセスのウェイトステートが欠落してるためとても
+  短く設定される。
+  SRST機能の改良。これはviperでソフトリセットではなくハードリセットをトリガする必要が
+  あったもの。コマンドレジスタへの書き込みはBSYでは無視される、またはDRQを設定する
+  (パケットデバイスはDEVICE RESETコマンドを受け取れるが、まだサポートはしていない)。
+  [smf]
+
+- harddriv.c: モダン化したn68681デバイスを使うように変更。[Osso]
+
+- Pythonスクリプトの行末を"agnostic"化 (mamedev.orgから落としたソースで*IX/OS Xビルド
+  するときの不具合修正)。[R. Belmont]
+
+- TC0280GRD、TC0430GRW、TC0360PRIデバイスのモダン化。[Osso]
+
+- DSP16の改良: [Andrew Gardner]
+ * R=Mの逆アセンブリを修正
+ * フラグフォーマット追加
+ * シャドウレジスタの実装
+ * オペコードとフラグの修正
+
+- toaplan2.c: bgaregga DSW3は実際にはDIPスイッチで、設定ではない。また、bbakraidの入
+  力をよく似たbatriderから継承。[Alex Jackson]
+ 
+- pcapでネットワークインタフェース名を見つけられないくてもクラッシュしないように改良。
+  [Richard L. Hamilton]
+
+- RSP SSEの最適化と変更: [MooglyGuy]
+ * load/storeオペコードを修正
+ * 以下のオペコードのSSE版追加: VMADH, VADD, VSUB, VADDC, VSUBC, VCH, VCR, VMRG, 
+   VAND, VNAND, VOR, VNOR, VXOR, VNXOR
+
+- deco_bac06デバイスとtaitoicの残りについてもモダン化。[Osso]
+
+- DECO16 ICデバイスのモダン化。[Osso]
+
+- Sea Battle: グラフィック用ハードとI/Oのほとんどを追加。[Mariusz Wojcieszek]
+
+- segas16b.c:「テトリス」(FD1094, 317-0092)のROMラベル修正と、Sega ROMボードID番号追
+  加。[The Dumping Union]
+
+- i86: 80[1]86のモダン化。[Carl, Wilbert Pol]
+
+- Konami 037122デバイスのモダン化。[Osso]
+
+- seta01デバイスのモダン化。[Osso]
+
+- decocomnデバイスのモダン化。[Osso]
+
+- Visual Studio 2013プレビュー版でMAMEをビルドするときの問題を修正。[smf]
+
+- konicedv.cにあるその他のデバイスをモダン化: [Osso]
+  k007342, k007420, k052109, k051960 and k05324x
+
+- x1_010デバイスのモダン化。[Osso]
+
+- tmp68301をデバイス化。[Osso]
+
+-「Commando / 戦場の狼」(Bootleg set 2)にPAL16L8の吸い出したものを追加。
+  [Kevin Eshbach]
+
+- shangha3.c:「上海III」基板のレイアウト追加。[Brian Troha]
+
+- Williamsブリッタロジックの改良と、実機によるタイミング合わせテスト。[Sean Riddle]
+
+- lindbergh: 超スケルトンドライバ。[The Guru, O. Galibert]
+
+-「Air Raid / クロスシューター」にスプライトイネーブル実装。[Angelo Salese]
+
+- Fedora 19 / GCC 4.8.1のサポート開始。[R. Belmont]
+
+- imgtool/modules/bml3: gcc 4.4.7でレポートされていた未初期化変数を修正。
+  [Lord Nightmare]
+
+- tms34061をデバイス化。[Osso]
+
+- 以下のkonicdev.cデバイスをモダン化: [Osso]
+  k056832, k054000, k053936, k051316, k051733
+
+- Toaplanドライバの改良: [Alex Jackson, Guru]
+ *「ヘルファイアー」のセット再構成とゲーム名の改良: 
+    hellfire3 -&gt; hellfire1  "Hellfire (1P set)"
+    hellfire2 -&gt; hellfire2a "Hellfire (2P set, older)"
+    hellfire1 -&gt; hellfire1a "Hellfire (1P set, older)"
+ *「アウトゾーン」のセット再構成とゲーム名の改良: 
+    outzonec  -&gt; outzone  "Out Zone" (新しい親セット)
+    outzone   -&gt; outzoneh "Out Zone (harder)" (以前の親セット)
+    outzonea  -&gt; outzonea "Out Zone (old set)"
+    outzoned  -&gt; outzoneb "Out Zone (older set)"
+    outzoneb  -&gt; outzonec "Out Zone (oldest set)"
+ *「アウトゾーン」と「ヘルファイアー」のDIPスイッチと入力の修正
+ * Stephh氏の記述に基づき、追加やエラーの修正
+ * truxtonのZ80 ROMを正しいサイズのものに置き換え
+ * hellfire2aのZ80 ROMを親セットの正しいものに置き換え
+ * outzonecのZ80 ROMをBAD_DUMPに設定。また、M68000とZ80のROMが合わず効果音がおかしい
+   ため、セットをGAME_IMPERFECT_SOUNDに設定
+ * Z80のアドレスマップを修正 (RAMサイズはわずか2KB)
+ * zerowing2の製造元名を訂正
+ * twincobrとクローンセットのROM名訂正
+ * fsharkblaのPROMを修正、ROM名と入力の訂正、「飛翔鮫」の海賊版のゲーム名改良
+ *「Twin Cobra / 究極タイガー」の基板ドキュメントにTMS32010 MCUの記述追加
+ * slapfght.cの古くなったコメントを削除
+
+- konicdevデバイスをさらに2つモダン化: 053251と054338  [Osso]
+
+- konicdev.cの残りのデバイスをモダン化し、独自ファイル化。[Osso]
+
+- buggychl_mcuデバイスのモダン化。[Osso]
+
+- hyprolyb_adpcmデバイスのモダン化。[Osso]
+
+-「Pit Boss Superstar」 (9221-12-01)にds1204 NVRAM追加。[Mariusz Wojcieszek]
+
+- Seibu CRTCを正しいデバイスにコンバート。[Angelo Salese]
+
+- meritm.c:「Pit Boss」各シリーズに独自のDIPスイッチ追加。ゲームプレイにより判明した
+  設定を追加。ハイスコアクリア、またタッチスクリーンのキャリブレート用ボタン追加。
+  「Superstar / Supertouch 30」セットのカスタム版について記述を追加。シリーズ全てのゲ
+  ームでZXCVBキーレイアウトを採用。Nキーがプレイ、Mがレイズ。[Brian Troha]
+
+- aristmk5: GAL吸い出し追加。[Heihachi_73]
+
+- CPS-1の更新: [Team CPS-1]
+ * striderjと1941r1のROMラベル配置を修正。基板情報をvideo\cps1.cに追加
+ * マイナーな整理
+
+- upd7759サウンドチップのモダン化。[Osso]
+
+- trackfldとtimepltのオーディオデバイスをモダン化。[Osso]
+
+- viper.c: wcombatのメモリカードを再吸い出し。[Shoutime]
+
+- SH-2 CPUコアのタイミング変更: [notaz]
+ * マニュアルによるとJMPは2サイクル
+ * マニュアルや他のオペコードに合わせて、OR #imm,R0は1サイクル、OR #imm,@(R0,GBR)は
+   3サイクルに変更
+
+- vlm5030スピーチシンセサイザーチップをモダン化。[Osso]
+
+- irem_audioデバイスのモダン化。[Osso]
+
+- nb1413m3をデバイス化、及びモダン化。[Osso]
+
+-「クロスシューター」(タイトー版)とstfight.cハードウェアを統合。[Angelo Salese]
+
+- m6502関連のコンパイラ出力の修正を含むコードの修正を分類。YM3526の依存関係追加。
+  メニューのRETURNの行のテキストを変更。[MAMESICK]
+
+- m72オーディオデバイスのモダン化。[Osso]
+
+- nb1413m3の設定をインライン設定に移動。[Osso]
+
+- k001604ビデオデバイスのモダン化。[Osso]
+
+-「ファイターズヒストリー」で、最後までプレイ出来るようになったのでUNEMULATED 
+   PROTECTIONフラグを削除 (以前は最後のボス2つがプロテクトにより化けていた)。
+  [Charles MacDonald, David Haywood]
+
+-「ストリートファイター」ドライバのDIPスイッチを修正。[Angelo Salese]
+
+- CPS-1の更新: [Team CPS-1]
+ * dinojのROMラベルと配置の確認。ドキュメントと基板情報をvideo\cps1.cに追加
+ * chikijにCK22B.1A PALを追加
+ * wofr1とwofaはオリジナルではなく、自爆防止のパッチが当てられたものであることを記載
+
+-「Beezer」のサウンドデバイスをモダン化。[Osso]
+
+- namcoサウンドデバイスのモダン化。[Osso]
+
+- TX1、HC55516、Exidy 440 CVSDオーディオデバイスのモダン化。[Osso]
+
+- taitoic.cにあるビデオデバイスを分割。[Osso]
+
+- QS1000サウンドコアはタイニービルド時でも必須でないように改良。[MAMESICK]
+
+- lethalj.cの不明DIPスイッチやその他の修正。[Bad A Billy]
+
+- メモリシステム: memory_shareクラスにエンディアン追加。[Aaron Giles]
+
+- タイルマップシステムの大幅な変更:  [Aaron Giles]
+ * 残っていた古いマクロとtypedefをtilelgcy.hに移動。これで一部のドライバがモダンとレ
+   ガシーをごっちゃにしているのが判明したので全て修正
+ * 情報取得コールバックシグネチャがuser_dataポインタを渡さないように変更。ただし、代
+   わりにタイルマップオブジェクト自体への参照を渡す。user_dataを使っていたドライバに
+   ついては、タイルマップオブジェクトに新しくnew user_data()メソッドを追加して対応
+ * 情報取得とマッピングコールバックについて、設定時に記述が可能なように
+   device_delegates化
+ * tilemap_memoryオブジェクトを追加。これは、タイルマップを"back"するメモリの読み書き
+   用に内部的に使用される。このオブジェクトはタイルマップメモリのバックさせるメモリポ
+   インタをトラックするのに使用する。また、タイルマップ内のデータアクセスと関連する全
+   てのバス幅とエンディアンも処理する
+ * 2つあるtilemap_memoryオブジェクト(basememとextmem)をタイルマップオブジェクトに統合
+   し、アクセサやメモリ内部エントリアクセス用リードライトハンドラを追加。これにより、
+   タイルマップ情報取得コールバックがタイルマップからデータの読み出しを汎用的な方法で
+   容易に行うことができる
+ * タイルマップオブジェクトの初期化シーケンスについて、tilemap_managerが初期化時に不
+   要なようにさらに改良
+ * 新しいtilemap_deviceを作成。これは、machineコンフィグ内でタイルマップの宣言のため
+   に使用可能で、タイルマップオブジェクトそのものとなる。タイルマップデバイスは、
+   "&lt;tag&gt;"と"&lt;tag&gt;_ext"と呼ばれる共有メモリ領域を探し、自動的にタイルマップを接続する。
+   このデバイスはさらにタイルマップメモリへの書き込みに使用できる書き込みハンドラを提
+   供し、そのタイルを要書き換えに指定することで、ドライバ側で書き込みをする必要をセー
+   ブできる
+
+- デバイスシステム: 必須・オプションデバイスファインダを新しいヘッダファイルdevfind.h
+  に移動。[Aaron Giles]
+
+- Atariドライバ: atarivcを使うゲームで必要なものを除いて、全てのプレイフィールド、ア
+  ルファメモリ、タイルマップ変数を削除(これらは将来的にデバイス化する予定)。Atari 
+  16-bitドライバでは代わりに新しいtilemap_deviceを使うように更新。これは、必要なもの
+  全てをより汎用的な方法で提供するもの。[Aaron Giles]
+
+- volfied.c:「ヴォルフィード」セットにDIP配置追加。[Brian Troha]
+
+- thepit.c:「ザ・ピット」「フィッター / Round-Up」「イントレピッド」
+ 「ポートマン / Dock Man」にDIP配置追加。「Desert Dan」に独自のDIPスイッチを追加し、
+  ゲーム内容を元に修正。[Brian Troha]
+
+- suna8.c:「Rough Ranger / Super Ranger」「Hard Head」「Spark Man」「Hard Head 2」
+  「Brick Zone」のDIP配置追加。マニュアルを元にデフォルト設定を訂正。[Brian Troha]
+
+- stfight.c:「エンパイアシティ1931 / Street Fight」のDIP配置追加。[Brian Troha]
+
+- shanghai.c:「上海」「上海II」のDIP配置追加。[Brian Troha]
+
+- itech32.c: DIPスイッチのマイナーな訂正。日本版「ワールドクラスボウリング」のトラッ
+  クボール入力が通常に比べ45度ずれていることについて記述を追加。[Brian Troha]
+
+- Data East用プロテクションの作業: [Charles MacDonald, David Haywood]
+ * 徹底的なハードウェアテストを元にした新しいData East 146エミュレーションが完成。
+   以下のゲームで、タイトル毎の不完全な実装から統合された単一の実装を使用
+
+   エドワードランディ (60)
+   デスブレイド / Mutant Fighter (66)
+   キャプテンアメリカ -ジ・アベンジャーズ- (75)
+   レミングス (75)
+   ロボコップ2 (75)
+   スーパー上海 ドラゴンズアイ (146)
+   ファンキージェット (146)
+   卒業証書 (146)
+   ガンボール / Nitroball (146)
+   ファイターズヒストリー (146)
+   スタジアムヒーロー96 (146)
+   ドラゴンガン(146)
+   ガンハード / Locked 'n Loaded (146)
+
+ * これにより「ファイターズヒストリー」「エドワードランディ」の不具合修正。さらに
+  「スーパー上海」も動作可能ステートに昇格
+ * 104ベースのゲームについても同様の作業を開始。ただし、実機からテーブルはまだ取り出
+   せていない
+
+- KonamiICファイルをそれぞれのデバイスファイルに分割し、各デバイスの実装をこれらの
+  ファイルに移動。GX/非GX間の一部コードについて統合を開始。変数名などの大幅な整理。
+  [David Haywood]
+
+- tms1xxx.c, hcd62121.c, i4004.c, alph8201.c, apexc.c, am29000.c, arm.c, arm7.c, 
+  ccpu.c, cop400.c, cp1610.c: CPUコアのモダン化。[Wilbert Pol]
+
+- Yamaha OPLキースケールレベル順序を修正。[Alexey, Phil Bennett]
+
+-「ドラゴンガン」のDVIビデオROMマップをさらに検証し、ラスボスでハングしないように修正。
+  [David Haywood]
+
+- psikyo.c: ドライバ全セットにDIP配置追加。「バトルクロード」の不明DIPスイッチの機能
+  判明。リージョン設定はゲームコンフィグメニューに移動。「ストライカーズ1945」のフ
+  リープレイモードが動作しない件についてノートを追加。[Brian Troha]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ワンダーボーイIII モンスターレア (set 5, System 16A, FD1089A 317-0086)
+  [Chris Hardy, Charles MacDonald]
+Desert Dan [Alberto Grego, Mariusz Wojcieszek, hap]
+スーパー上海 ドラゴンズアイ (Japan) [Charles MacDonald, David Haywood]
+Pit Boss Superstar III 30 [Mariusz Wojcieszek, Brian Troha, The Dumping Union]
+Sea Battle [Mariusz Wojcieszek, hap]
+Hidden Catch 2000 (AT89c52 protected) [any, The Dumping Union]
+
+
+新しく追加されたクローンセット
+------------------------------
+Arcadia [system11]
+ドラゴンガン (Japan) [M]
+テトリス (Japan, H-System) [Alex Meijer]
+Guardian Storm / 戦神 (Germany) [system11]
+Super Poker (v100xD03) / Formosa (動作せず) [any, Luca Elia]
+P-47 - The Freedom Fighter (Japan, Export) [Porchy, The Dumping Union]
+スノーブラザーズ (The Winter Bobble基板の海賊版) [Alex Meijer]
+Mini Boy 7 (set 3) [Brian Troha, Cornishdavey, The Dumping Union]
+上海III (US) [Brian Troha, The Dumping Union]
+特殊部隊ジャッカル (World, Rotary Joystick) [ShouTime, The Dumping Union]
+3 Wonders / ワンダー3 (海賊版) [Robbbert, Any, The Dumping Union]
+ストリートファイターZERO (Asia 950605) [Smitdogg, The Dumping Union]
+ファイターズヒストリー (Japan ver 42-03, DE-0395-1 PCB)
+  [Smitdogg, The Dumping Union]
+Golden Tee 3D Golf (v1.9L) [Brian Troha, The Dumping Union]
+Pit Boss Superstar (9221-12-01) [Brian Troha, The Dumping Union]
+Knights of Valour 2 - Nine Dragons / 三国戦記2プラス -ナインドラゴンズ- (ver 202) 
+   [69mustang, iq_132]
+Speed Up (ポールポジションのスペイン製海賊版) [Marcos75 (from AUMAP)]
+Zombie Raid (US & Japan release versions, prototype PCB) [Brian Troha, The Dumping 
+   Union]
+
+
+追加された未動作ゲーム
+----------------------
+カオスブレイカー (v2.02J) [Shoutime]
+翼神 -ギガウイングジェネレーションズ- (v2.02J) [Shoutime]
+ほむら (v2.04J) [Shoutime]
+雷電III (v2.01J) [Shoutime]
+スピカアドベンチャー (v2.03J) [Shoutime]
+式神の城III (v2.06J) [Shoutime]
+雷電IV (v1.00J) [Shoutime]
+The King of Fighters '98: Ultimate Match (v1.00) [Shoutime]
+トラブルウィッチーズAC (v1.00J) [Shoutime]
+豪血寺一族 祭 -先祖供養- (v200906230) [Shoutime]
+チェイスH.Q. 2 (v2.0.6.JP) [Shoutime]
+サムライスピリッツ閃 (v1.00) [Shoutime]
+Naomi DIMM Firmware Update for CF-BOX (Rev A) (GDS-0042A)
+  [R. Belmont, The Dumping Union]
+Golden Tee Fore! 2002 (v2.01.04 UMV)
+  [R. Belmont, Smitdogg, The Dumping Union]
+Golden Tee Fore! 2002 (v2.00.00)
+  [R. Belmont, Smitdogg, The Dumping Union]
+Carnival King (v1.00.11) [Brian Troha, R. Belmont]

@@ -1,0 +1,140 @@
+0.127u8
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02522: [Graphics] cubeqst: デモシーンで背景が黒いときに、画面の左と下の1ラインにレーザーディスク
+         の画面が表示される。(Aaron Giles)
+- 01867: [DIP/Input] plygonet: 入力の重複。(R. Belmont)
+- 01716: [DIP/Input] backfire, backfira: コイン1+2、サービス1、サービスモードの定義が重複している。(Couriersud)
+- 00106: [DIP/Input] le2: リロードできない。(R. Belmont)
+- 01708: [DIP/Input] stargrds: 入力の重複。(Couriersud)
+- 02532: [DIP/Input] lunarba1: DSW2の入力ポートをロケートできない。(Aaron Giles)
+- 02533: [Crash/Freeze] nbapbp: CPU audio: PULSE_LINEがレベル検知なIRQ 1で使用されている。(Aaron Giles)
+- 02530: [Crash/Freeze] Various: cpuint.cのアサート。(Couriersud)
+- 01821: [Crash/Freeze] lohtb2: PCBテストでゲームが止まる。(Couriersud)
+- 02529: [DIP/Input] catch22: クレジットが入らない。(Couriersud)
+- 02528: [Core] xexex and clones: ゲームチェックで"VERSION ERROR"と表示されてパスできない。(R. Belmont)
+- 01447: [DIP/Input] propcycl: アナログ入力のロールオーバー問題。(R. Belmont)
+- 02211: [Sound] soldivid: BGMが鳴らない。(R. Belmont)
+- 00978: [Graphics] columns2: ゲームオーバーのイメージが降りてきた後、最後にブロックを落とした場所が化ける。(David Haywood)
+- 02521: [Color/Palette] ichir and clones, tantr and clones: 色化けあり。(David Haywood)
+- 02511: [Crash/Freeze] dkong: 終了時にクラッシュする。(Aaron Giles)
+- 02512: [Misc.] dkong: アートワークとゲーム表示エリアがぐちゃぐちゃになっている。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+- yesnoj (taito_f2.cドライバ)のDIPスイッチと入力の更新。[stephh]
+
+- jalmah.cドライバの修正: [Angelo Salese]
+ *「麻雀大霊界」の疑似乱数生成器を修正;
+ *「浦島まあじゃん」をプレイ可能な状態に修正;
+ * mjzoomin/urashima/daireikaのスタート時クラッシュバグを修正
+
+- expro02の復号処理をシンプル化。[Nicola Salmoria]
+
+- NeoGeoのいろいろなクリーンアップ完了: [JohnBoy]
+ * OEMと海賊版セットを整理
+ * 非OEM・海賊版セットのネーミングをひとつの方法に統一
+ * 関数の改名
+ * 海賊版セットのクリーンアップ
+ * コメントの追加
+ * garou/garouoのsmaを改名。コメント追加
+
+-「Cube Quest」のレーザーディスクオーバライドロジックを変更。まだ少しハック風ですが、
+  以前やろうとしていたものよりはましに動作します。[Aaron Giles]
+
+- segac2ドライバで、新しいmegadrivコードを使うように更新。[David Haywood]
+
+- fantasiaをexpro02.cに移動。ただし、追加レイヤーの位置ズレあり。スクロールの方法がオ
+  リジナルと異なるため。[David Haywood]
+
+- PsikyoSH: VBL IRQ ackを実装。[R. Belmont]
+
+- SH2: 内部生成したIRQについてのDRC処理修正。インタプリタモードでのコンパイルを修正。
+  [R. Belmont]
+
+- pmpoker.cドライバ書き直し(前編)。[Roberto Fresca, Grull Osgo]
+ - 回路図を元に、Golden Pokerハードウェアゲームにディスクリートサウンドを追加
+ - 基板の解析を元に、Potten's Pokerハードウェアゲームにディスクリートサウンドを追加
+ - 両ハードウェアについてのディスクリート回路図を追加
+ - pmpoker/goldenpkrハードウェアのCPUアドレッシングを15ビットに設定
+ - pottnpkrハードウェアのCPUアドレッシングを14ビットに設定
+ - これらの変更に合わせて全てのROMロードディングを書き直し
+ - MASTRクリスタルとCPUクロック定義を追加
+ - M6845レジスタを元に表示領域を修正
+ - ランプレイアウトをより本物風に改良
+ -「Good Luck」(goldnpkrハードで動作する「Potten's Poker」)
+ -「Buena Suerte (spanish)」を2セット追加
+ -「Royale」を追加
+ -「Witch Card」とそのスペイン語版を追加
+ -「Super Loco 93 (spanish)」を2セット追加
+ - セット名goldnpkcをpottnpkrに変更(「Jack Potten's Poker」の親セット)
+ - セット名jokerpkrをpotnpkraに変更。これは「Jack Potten's Poker」の別セットのため
+ -「Jack Potten's Poker」のクローンをあと2本追加
+ - コードとハードウェアの解析を元に、全てのセットのリネームと整理
+ - カラーシステムに明度ビットを追加
+ - Witch Cardハードウェア向けにblue killerビットを実装
+ - Witch Cardハードウェアに拡張グラフィックアドレッシングビットを実装
+ - sloco93の表示領域を修正
+ - 回路図を元にグラフィックとカラーデコードシステムを書き直し。パッチを削除
+ - 新ルーチンに伴うキャラクタグラフィックバンクストラクチャとROMロードを変更
+ - カラーコード量の調整とそれに伴うPROM領域サイズの変更
+ - ノートを全て更新
+
+- smstrv.cのSMS Manufacturing製ボードについてのコメントを大幅更新。入力/出力ポートの
+  実装方法、PALの動作内容についてのドキュメント追加。まだ、ビデオ出力ポートのドキュメ
+  ント化と、smssshotのROM追加、コメントを元にした実装が必要。[Lord Nightmare]
+
+- sokyugrtからスピードアップ処理を削除。これによりゲームがおかしく(遅く)
+ なっていました。SH2 DRCで十分です。[David Haywood]
+
+-「Double Dealer」のプロテクトのほとんどを処理。ただし、カードの移動に$8c1e0～$8c1ef
+  の領域が絡んだファンキーなビデオレジスタを使っている模様で、プレイはまだ不可能。
+  [Angelo Salese]
+
+- exidy.cのDIP配置追加とDIP設定の重複についてのコメントを一部整理。フリープレイの実装
+  についてはまだ完全に判明してません。これについてはロケーションを表示しないままにし
+  ています。[Tafoid]
+
+- cubeqstの変更: [Aaron Giles]
+ * 個別DACのためカスタムサウンドを削除
+ * パレット管理ロジックをシンプル化
+ * "disc on"信号を実装
+
+-「ファイヤーフォックス」のビデオ処理をクリーンアップ: [Aaron Giles]
+ - スプライトとタイルのプライオリティ修正
+ - Xオフセットをスクリーンショットに合うように調整
+ - タイルマップにコンバート
+
+- cawingのB-Board PALを追加。[Corrado Tomaselli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+麻雀大霊界 [Angelo Salese]
+お伽草子 浦島まあじゃん [Angelo Salese]
+Good Luck! [Roberto Fresca]
+Buena Suerte! (spanish) [Roberto Fresca]
+Witch Card (english) [Roberto Fresca]
+Super Loco 93 (spanish) [Roberto Fresca]
+
+
+
+新規クローンセット
+------------------
+Matrimelee / 新豪血寺一族 闘婚 (海賊版) [Kawaks]
+Jack Potten's Poker (2 sets) [Roberto Fresca]
+Witch Card (spanish)(2 sets) [Roberto Fresca]
+Buena Suerte (spanish, set 2) [Roberto Fresca]
+Super Loco 93 (spanish, set 2) [Roberto Fresca]
+
+
+
+追加された未動作ゲーム
+----------------------
+Royale [Roberto Fresca]

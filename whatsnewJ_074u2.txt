@@ -1,0 +1,80 @@
+0.74u2
+
+ソース全般の変更：
+------------------
+
+　TESTDRIVERシステムを廃止しました。全てのドライバについて、動作するしないにかか
+わらず有効になっています。今回の件は、開発チームメンバーによる決定です。
+これまでTESTDRIVERとなっていたものは、GAME_NOT_WORKINGに設定されているので、フロン
+トエンド側で容易にフィルタをかけることができます。これらのドライバを有効にしたから
+といって、そのドライバが当初に追加されたときよりも進展があったという意味ではなく、
+場合によっては実際の動作するまで何年かかるかわからないものも少なからずあるので間違
+えないで下さい。開発チームとしては、MAMEを前進させてくれる才能のあるプログラマーを
+常に求めていますので、このようなドライバの中には、よいスタート地点になるものがある
+でしょう（ただし、その他のものについてはほとんど修正不可能かもしれません）。
+
+GAME_NOT_WORKINGフラグが付いていないものがあったらMAME Testersで是非知らせて下さい。
+
+
+■「タイガーヘリ」にMCUエミュレーション追加。[Tomasz Slanina]
+
+■SegaPCMの様々な修正。[Olivier Galibert]
+
+■V60浮動小数点命令の修正と、未処理の命令コードでコアが終了するようにしました。
+ なお「ウルトラ警備隊」はまた動作しなくなっています。[Olivier Galibert]
+
+■「アクトフェンサー」のコンティニュー画面が表示されなかったのを修正。[Bryan McPhail]
+
+■最近現れた「タイムパイロット84」の表示バグ修正。[David Haywood]
+
+■Config保存のバグ修正。[BUT]
+
+■DIPスイッチの修正をいろいろ。[Inigo Luja]
+
+
+新規サポートゲーム：
+--------------------
+
+タッチダウンフィーバーII [Smitdogg]
+
+ドラちゃん [Tomasz Slanina]
+	サウンド無し
+
+ジャンピングクロス [Tomasz Slanina]
+	アトラクトモードに少し不具合あり
+
+デモンアイX [Pierpaolo Prazzoli]
+	グラフィック不具合、サウンド無し
+
+爆裂ブレイカー [David Haywood]
+	サウンド不具合あり
+
+鈴鹿8アワーズ [Dang Spot]
+
+燃えろ！プロ野球・ホームラン競争 [Tomasz Slanina]
+	ボイス無し
+
+ギャラクシアン / スペースインベーダーテストROM[Mike O'Malley]
+	サポートする必要あり？
+
+
+新規サポートクローン：
+----------------------
+
+Phantomas (clone of spectar) [Pierpaolo Prazzoli]
+ドンキーコング3 (ドンキーコングJr.基板の海賊版) [Pierpaolo Prazzoli]
+Driving Force (ギャラクシアン基板) [Pierpaolo Prazzoli]
+フードファイト (rev 2、カクテル) [Aaron Giles]
+ディプスチャージ (rev 1) [MASH]
+Mighty Monkey (original) [Pierpaolo Prazzoli]
+Dynablaster (world) / ボンバーマン [Brian Troha]
+Champion Golf (original?) / クラウンズゴルフ [Brian Troha]
+
+
+新規未動作ゲーム：
+------------------
+
+(TESTDRIVERだった全部のゲーム)
+
+Dealer [Pierpaolo Prazzoli]
+	ROMまたは解読不良

@@ -1,0 +1,152 @@
+0.145u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04704: [ゲームプレイ] 25pacman: ギャラガプレイ中にコンティニュー出来ない。(Tafoid)
+- 04694: [ドキュメント] m5fmonty: 正しいゲーム名は"Full Monty (The) (Empire) (MPU5)"
+- 04692: [ドキュメント] j6kapang: 正しいゲーム名は"Kapang! (Crystal) (IMPACT)"
+- 04691: [ドキュメント] j6cpal and clone: 正しいゲーム名は
+         "Caesars Palace (Whitbread / Crystal) (IMPACT, set 1)"。j6cpalaはクローン版。
+- 04693: [ドキュメント] m5cockdd: 正しいゲーム名は
+         "Cock A Doodle Dough! (Empire) (MPU5)"
+- 04696: [クラッシュ/フリーズ] 一部のゲームでサンプルをロードするとクラッシュする。
+         (Aaron Giles)
+- 04697: [コンパイル] LDRESAMPLE.exeツールをコンパイルできない。(Aaron Giles)
+- 04698: [コンパイル] LDVERIFY.exeツールをコンパイルできない。(Aaron Giles)
+
+
+
+ソースの変更点
+--------------
+-chdcd: bin/cueのパース処理時のクラッシュ修正。[R. Belmont]
+
+- INS8250でdiserialを使用するように更新。Microtouchのモダン化と、シリアルデバイス化。
+  さらに接続ドライバの更新。[Carl]
+
+- MIPS3とRSP DRCのシングル命令ブロックのディレイスロットをチェックサム取り。
+  [Ryan Holtz]
+
+- mc146818 - タイマーが無効の時でもピリオドを設定。Windows NTで必要。[Carl]
+
+- diserial - オプションのrxとtxタイマーとコールバックを追加。[Carl]
+
+- ins8250 - スタート時のシリアルrxラインハイとmsrレジスタ用修正。[Carl]
+
+- m68k: 非デバッガ命令フックをインストールするAPIを追加。緊急な場合を除いて、使わない
+  で下さい。[R. Belmont]
+
+- bit 2設定のあるWilliams blitの必要な時間を約2倍に設定。これらはバスが共有されたRAM
+  のため。「ロボトロン2084」の後半の面などは、約10%のblits処理がbit 2で行われるので、
+  速度的な影響を出す必要があったため。さらに煮詰める必要があるかもしれないが、ほとん
+  どの問題に対処できると思われる。[Sean Riddle, Aaron Giles]
+
+- i386: cmpsbをさらに修正(MS-DOSのdir /sが動作可能)と、未使用な変数を削除。[Carl]
+
+-「Golden Poker」ドライバの改良: [Roberto Fresca]
+ * 入力系をゼロから作り直し
+ * 製造元'Playman'を'PM / Beck Elektronik'に切り替え
+ * テクニカルノートとゲームについての記述を追加
+
+- N64 RDPのトライアングル描画コマンドにY rejectを追加。[Ryan Holtz]
+
+- N64: PIFのさまざまな修正: [Ryan Holtz]
+
+- info.c: listxml出力の追加と修正: [Fabio Priuli]
+ * スロットにオプションでマウントできるデバイスについてxmlの情報に追加
+ * slotoptionの説明アトリビュートに、各スロットにどのデバイスをマウントできるかを追加
+ * xmlのcpu、input、image、slotにデバイスに関連する情報を追加
+ * root_deviceに直接結びつけられたエレメントのタグがルートのコロンを表示しないよう変
+   更(スロットタグは既にこの動作); 追加デバイスに結びつけられたエレメントは、コロンで
+   始まるタグを使用します (デバイスがスロットで選択されたときに、デバイスタグに追加さ
+   れる相対タグとして解釈するため)
+ * 相対デバイスの出力の単純化とコードの重複を防ぐため、出力ルーチンが必要なとき、
+   root_deviceとroot_tagを渡すように変更
+ * 新エレメントとアトリビュートに合わせてDTDを更新。これにより、-lxでいろいろなスロッ
+   トの組み合わせを出力せずに、フロントエンド側からスロットの設定オプションについて事
+   前に知ることができます(オプションの名前とデバイスの名前を比較する)
+
+- i386: 32-bit版のLMSWを追加。CR0の下位4ビットを変更するのはLMSWだけに設定。
+  [Barry Rodewald] 
+
+- Windows 95のブルースクリーンを修正。[Carl]
+
+- Merkur製「Mahn Oh-Mann」の準備用ドライバ追加。これは、インドのゲーム
+ 「Parchisi」から派生したもので、「Ludo」に似たドイツのボードゲーム。1〜4人プレイ。画
+  面はなく、アートワークとランプのみで動作する。[Roberto Fresca]
+
+- *_dev.lstファイルが不要なように変更: [Miodrag Milanovic]
+ * スロットカードデバイスの名前を短いものに強制
+ * バリデーション、romverify、listxmlの出力を合わせて更新
+
+- N64: mtc0オペコードが、再コンパイルを終了させ強制的にコードチェックをさせるため、
+  RSP DMAを初期化するよう変更。DMA後のゴミコードを実行させるようなマイクロコードを修
+  正。[Ryan Holtz]
+
+- N64: DMAのRSP DRCキャッシュのクリアをしないよう変更。「マリオ64」などが修正。
+  [Ryan Holtz] 
+
+- N64: マシンのいろいろな修正: [Ryan Holtz]
+ * PI DMAによる時間消費量を増加。これにより、DMA速度をテストする特定のRSPマイクロコー
+   ドが正しいウィンドウ内に入るように修正
+ * RSPがアトミックセマフォの読み込みに対して、メインCPUが強制的に優先するように変更
+ * PI DMAの完了をRSPが優先するように変更
+ * SP DMAのIMEMにタッチしたとき、RSP DRCキャッシュをクリア
+
+- i386: 同じ特権に戻ったときと、スタック上に未マッピングなページがあるときのページ
+  フォールトを防止。Windows 95が起動可能。[Carl]
+
+-「ドラゴンガン」のビデオデータについてドキュメント追加。[David Haywood]
+
+- N64:「スーパーマリオ64」やその他での音声同期を修正。また、PI DMAの速度を現実的なも
+  のに変更。[Ryan Holtz]
+
+- N64: 平均PI速度が2.53〜2.55サイクル/バイトなので、PI DMAの速度を3サイクル/ワード
+  より5.08サイクルに変更。[Ryan Holtz]
+
+- i386: 接頭句LOCKを386のIOPLに依存するよう修正。Windows NT betaが起動可能。[Carl]
+
+- gticlub: 3Dレンダラの書き直し。グローシェーディング、ライティング、フォグを実装。
+  [Ville Linde]
+
+- device_sound_interfaceから派生した、device_mixer_interfaceを作成。これは、全ての入
+  力を単一の出力ストリームにミキシングします。SPEAKERデバイスをこれを使用するように
+  再定義して、ロジック的な重複を削除しました。この新インタフェース導入は、サウンド
+  ボード全体のデバイス化を可能にすることが主な目的で、それ自体で単一ストリーム出力へ
+  のミキサーとして動作することができます。このストリームはデバイスのオーナーによりス
+  ピーカーへと導くことができます。実装も間もなく行う予定です。[Aaron Giles]
+
+- FLACのブロックサイズ管理をサンプルが2k程度になるように改良。また、圧縮率向上のため、
+  ハンク当たりのCDセクタを8つに増加。[David Haywood]
+
+- CD FLACコーデック以外をビッグエンディアンとリトルエンディアンのどちらがよいかをオン
+  ザフライで判断する機能を改良。ハードディスクのデフォルトコーデックにFLACを追加。一
+  部のディスクで大きな効果あり。[Aaron Giles]
+
+-「Fax」「Fax 2」の不足していたpromを追加。[W. Belk, Smitdogg, The Dumping Union]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Casino Poker (Ver PM86LO-35-5, German) [Roberto Fresca, Team Europe]
+
+
+新しく追加されたクローンセット
+------------------------------
+Altered Beast / 獣王記 (FD1094 317-0069)
+  [Stefan Lindberg, Chris Hardy, The Dumping Union]
+パズループ2 (Japan 010226) [idc/Team Avalaunch]
+ストリートファイターII' -チャンピオンエディション- (Japan 920322) 
+  [idc/Team Avalaunch]
+モータルコンバット (Yawdim bootleg - Set 2) 
+  [ScheissNussen, Smitdogg, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Mann, oh-Mann [Roberto Fresca, Team Europe]
+NFL Classic Football (NCF3 Ver.A.)  [Smitdogg, The Dumping Union]
+Area 51: Site 4 (September 11, 1998)  [ninjakid]
+Pot O' Gold  [Bicyclerepairman]

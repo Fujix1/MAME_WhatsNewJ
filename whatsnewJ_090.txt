@@ -1,0 +1,573 @@
+0.90
+------
+
+全般的な改良点：
+----------------
+
+-「デザートブレイカー」のROM更新でサウンド修正。[Aaron Giles, Gerald, Thierry]
+
+- nmk16ドライバのDIPスイッチ修正。[Brian Troha]
+
+- ディスクリートサウンドの新機能追加。[Derrick Renaud, Frank Palazzolo]
+  DISCRETE_OP_AMP_FILTER - DISC_OP_AMP_FILTER_IS_BAND_PASS_1Mタイプフィルタを正
+  しくエミュレートしたもの。多くのゲームで使用。
+  次のサイトを参照: 
+  http://home.cogeco.ca/~derrickmame/galaga/Galaga_filters.html
+  * atafifb, abaseb - コンポーネント値のみのコードと新フィルタを使うように書直し
+
+- i8x41 CPUコアで初期化していない内部RAMを読み込んだ時のクラッシュを修正。
+  [Juergen Buchmueller]
+
+- Super Qixドライバのアップデート。[Nicola Salmoria]
+ - ROMコードを手作業で修復とI8751MCUサポートでオリジナルセット2つが動作
+ - sqixは海賊版の基板から吸い出したもののためsqixaと入れ替え
+   (ただしROMが変更されたかどうかは不明なので海賊版にはしてません）
+ - pbillianと統合
+ - pbillian/hotsmashのサンプル再生を修正
+ - pbillianのMCUシミュレーションと入力を修正
+ - hotsmashのMCUシミュレーションを改良。ゲームはプレイできますがまだ不完全です
+
+- Bubble Bobbleドライバのアップデート。[Nicola Salmoria]
+ - 68705 CPUエミュレーションを削除。オリジナルでは使われていないため
+ - 68701 MCUをシミュレート
+ - 敵の動きが正確になったはず (bublbobl36rc2yel)
+ - 時計アイテムの動作を修正。10秒後に敵が動き出すようになりました 
+   (bublbobl36b3yel)
+ - コインロックアウトをサポート
+ - boblboblのプロテクト装置をエミュレート。ROMパッチが不要に
+ - tokioのPSG音量調整 (tokiob067gre)
+
+- gaplusドライバでオリジナルのサンプルを使うように修正。[Brian Troha]
+
+- hd6309 CPUコアのドキュメントにないビットテスト命令を修正。[Nathan Woods]
+
+- i386 CPUコアの修正。[Nathan Woods]
+ - 32bitセグメントの確認アルゴリズム修正
+ - ニアブランチがセグメントをリロードさせないように修正
+ - 16bitモードでのRET imm16を実装
+ - SBB命令を修正
+ - 32bitモードのLDS、LSS、LES、LFS、LGSを修正
+ - LLDT、LTR、CLTS、WAIT、MOV dr命令を部分的に実装
+
+- C89コンパイラの修正。[Lawrence Gold]
+
+- Arcadiaのmachine/vidhrdw/includeファイル名をarcadia.*からamiga.*に修正。
+  [Nathan Woods]
+
+-「Vs. Stroke & Match Golf」の名前を訂正。[chaneman]
+
+- pisipuzlの入力を修正。[Pierpaolo Prazzoli]
+
+-「レインボーアイランド」の表示領域修正。[Nicola Salmoria]
+
+- ST-Vの修正。[Angelo Salese]
+ - いろいろなDMAのバグ修正。間接モードでのセーブ・アップデートモードを含む。また
+  A-Bus転送のデフォルト値追加
+ - SCUエミュレーションを改良。未エミュレートのIRQをふたつ追加（PADとSCSP）。また
+  “不正な”DMA操作の改善とゲームヘッダの解決
+
+- NEC CPUコアの逆アセンブラのバグ修正。[Angelo Salese]
+
+- xenophobのプレイヤー2と3の入力修正。[Hans Andersson]
+
+- taito_f3ドライバのサウンドバンキング修正。[Nicola Salmoria]
+
+- デバッグビルドでのメモリリーク修正とチェック追加。[Nicola Salmoria]
+
+- Hyperstone CPUコアの修正。
+ - タイマーの追加と修正、ハックの削除 [Pierpaolo Prazzoli]
+ - 2バイト以上の遅延命令用の遅延分岐修正 [Tomasz Slanina]
+
+-「Enigma 2」の色とカクテルサポートを修正。[chaneman, Pierpaolo Prazzoli]
+
+- SE3208 CPUコアエミュレーション追加。[ElSemi]
+
+- OpenVMSでmodel1ドライバをコンパイルするときの問題を修正。[Robert Alan Byer]
+
+- AMD64CPUでitech32ドライバがクラッシュするのを修正。[R. Belmont]
+
+- namco54サウンドドライバをVisualC++でコンパイルするときの問題を修正。[Kenneth Miller]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Evolution Soccer [ElSemi]
+歌舞伎Z (Japan) [Pierpaolo Prazzoli]
+カラオケクイズ・イントロドンドン [Angelo Salese]
+雷軋斗 (Japan) [Pierpaolo Prazzoli]
+スーパークイックス (set 1 & 2) [Nicola Salmoria]
+ザ・クリスタル・オブ・キングス [ElSemi]
+バーチャル麻雀 [Angelo Salese]
+
+
+新規クローンセット：
+--------------------
+Astro Battle / アストロファイター [HIGHWAYMAN, Pierpaolo Prazzoli]
+Astro Fire [Pierpaolo Prazzoli]
+ベイルート (Japan, FD1094 317-0115) [Chris Hardy]
+コットン (US, FD1094 317-0180) [Gerald]
+Great Gurianos / 黄金の城 (Japan?) [Nicola Salmoria]
+ラッドモビール (World) [Chris Hardy]
+Ultimate Mortal Kombat 3 (rev 1.0) [Brian Troha]
+
+
+新規未動作ゲーム：
+------------------
+Arrow Flash (Mega-Tech) [Gerald, Thierry]
+Buccaneers [Tomasz Slanina]
+   プログラムROMが一つ不明
+
+
+0.89u6
+------
+
+全般的な改良点：
+----------------
+
+- MC8193のアップデート。[Nicola Salmoria]
+	- 解読テーブルの拡張。ビット15のアドレスが設定されたときの変更
+	- 317-0066（「Altered Beast / 獣王記」）のテーブルはほぼ完成したものの
+	  8000以降の命令が一部わかっていません（実際には不要です）
+	- 317-0054（「忍」）のテーブルは不完全。プログラムの解読がまだ不完全です
+	- 317-0043（wbml）とninjakd2のテーブルはオリジナルと解読済みの海賊版を比
+	  較して引き出しました。完全ではないですがプログラムの解読には十分です。
+	  「ブロックギャル」と「パーフェクトビリヤード」は解読されているバージョ
+	  ンが違うためこの方法は使えません
+
+- i386の修正。[Nathan Woods]
+	src/cpu/i386/i386dasm.c:
+	- 逆アセンブラでセグメントの接頭部があればリストします
+
+	src/cpu/i386/i386op16.c:
+	- LMSW命令を修正
+
+- 新Sega X-Boardドライバ。[Aaron Giles]
+	旧ドライバに比べて改良点多数
+
+	-- スプライト改善（「サンダーブレード」を参照）
+	-- 道路レイヤー改善（「ABコップ」「サンダーブレード」を参照）
+	--「ラインオブファイヤー」の銃追加（ただし、面の最後で固まる）
+	-- タイルマップサポート改良（16Bから）
+
+	-- gpriderが起動せず（割り込みのネスト）
+
+-「イグジーザス」のROMパッチ削除。[Nicola Salmoria]
+
+- TNZSセットを新しい情報に基づいて再構成。[Nicola Salmoria]
+
+- Return of Invadersドライバのクリーンアップ。[Nicola Salmoria]
+
+- nmk16の表示系更新。[Pierpaolo Prazzoli]
+	- スプライトプライオリティ追加 (プライオリティが0のときの問題あり）
+	- rapheroとmmacros2の背景修正
+	- manyblocを修正 (スクロール追加と背景の修正)
+	- acrobatmに背景のバンキング追加
+
+- S2650CPUコアのクロックサイクルカウントをより正確に。[Juergen Buchmueller]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+サンダーブレード [Aaron Giles]
+
+
+新規未動作ゲーム：
+------------------
+Megatech: Alien Storm [DangSpot]
+	genesisのI/Oの問題あり
+
+
+0.89u5
+------
+
+全般的な改良点：
+----------------
+
+- Namcos System 2のサウンドバランス調整。
+
+- Solar Warriorドライバのアップデート。[Bryan McPhail]
+	NMIとFIRQの処理を回路図をもとに修正
+	クロックスピードを修正
+	グラフィックプライオリティレジスタとPROMの実装
+
+- Irem GA20 64-bitクラッシュの修正。[Stephen Behling]
+
+- いろいろな更新。[Nathan Woods]
+	src/cpu/i86/i86.c:
+	src/cpu/i86/i286.c:
+	- 逆アセンブラコールを修正。命令が間違って32bitで逆アセンブルされあ
+	いようになりました
+
+	src/cpu/i386/i386op16.c:
+	- SMSW命令の実装
+
+	src/cpu/i386/i386dasm.c:
+	- RETF命令をDASMFLAG_STEP_OUTに設定
+	
+	src/x86drc.h:
+	- pushfd()とpopfd()マクロ追加
+
+- デバッガに“TRACEOVER”追加（ヘルプ参照）。[Nathan Woods]
+
+- デバッガコマンド追加。[Aaron Giles]
+	- snap [<filename>] - スナップショットを撮って指定した<filename>に保
+	  存します；<filename>を省略するとF12と同じ動作です
+	- gi[int] [<irqline>] - <irqline>で指定した割り込みラインまで現在の
+	  CPUを実行します；<irqline>の省略時は、現在のCPUで次のIRQまで実行し
+	  ます。F7にも割り当てられてます
+	- gv[blank] - 次のVBLANKまで実行します；デバッガでフレーム毎にステッ
+	  プ動作するのに便利です。F8に割り当てられています
+
+- 改良いろいろ。[Sebastien Volpe]
+
+	galpani3:
+	- パレット、入力、サウンド実装。背景の“デコード”(RLE)
+
+	jchan:
+	- 少しクリーンアップ。サウンド実装。タイルエリア判明
+	- jchan2が初期チェックをパスするようになりました
+
+	kaneko16 (bonkadv):
+	- Luca氏の情報に基づいてプライオリティ修正
+	- サウンドの“改良”（バンキングとROMロード）
+	- ゲーム名の更新
+	- 割り込みスケジュールの変更（正確ではないですが、少し改善してます。
+	  コメントをチェックして下さい）。この結果、フェイクのリージョンDIP
+	  スイッチを削除しました
+
+	srmp6: 新ドライバ、Seta System 12 ?
+	- TODOがまだ多くあります。グラフィックデコードがあればナイスです
+
+	toki:
+	- 周波数の訂正
+
+- System32ドライバのマイナーなクリーンアップを開始（一時的に動作しなくなって
+  いるものもあります）。[David Haywood]
+
+- hypereac2のサウンド修正、sh2のオーバーフローの修正、atarijsaのmemcpy修正。
+  [Mame32Plus]
+
+- Namco 54xxノイズジェネレータの改良。[Jarek Burczynski]
+	Type AとBをエミュレート。Type Cはまだ不明
+
+- Segaのマイナーな更新。[Aaron Giles]
+	- dbrkrをdesertbrにリネーム
+	- 演算チップエミュレーションをクリーンアップ。精度向上
+	- wrestwraのカラムスクロールがひとつずれていたのを修正
+	- S18の影がVDPで描画したピクセルに影響しないのを修正
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+レッスルウォー (Japan) [Gerald]
+Flying Ball (Deco Cassette) [Juergen Buchmueller]
+SportTime Bowling (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Leader Board Golf (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Ninja Mission (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Road Wars (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+忍 (set 4, System 16B, unprotected) [Aaron Giles]
+
+
+新規未動作ゲーム：
+------------------
+Astro Battle (Sidam) [Highwayman, Pierpaolo Prazzoli]
+スーパーリアル麻雀PVI [Sebastien Volpe]
+Magic Johnson's Fast Break (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Xenon (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+SportTime Table Hockey (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+World Darts (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Sidewinder (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+Space Ranger (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+7-up Spot (Arcadia) [Mariusz Wojcieszek, Ernesto Corvi]
+
+
+0.89u4
+------
+
+全般的な改良点：
+----------------
+
+-「MVP」にDIP追加。[Brian Troha]
+
+- decocassドライバでリセットするとクラッシュするのを修正。[Juergen Buchmueller]
+
+- decocassドライバで別版のBIOSサポートとゲーム共通の不明なDIPを使うよう変更。
+  [David Haywood]
+
+- Z80コアのクリーンアップ。不正確なエミュレーションモードオプションと、C99のネー
+  ミング仕様に対応するように、アンダースコアで始まるマクロ名を削除。
+  [Juergen Buchmueller]
+
+- model3/ppcのクリーンアップ関係の64bit整数の追加。[Lawrence Gold]
+
+- 新型デバッガで、ヒストリーリストが空のときにカーソルキーの下を押しっぱなしにす
+  るとオーバーランするのを修正。[Nathan Woods]
+
+- i386コアで、DASMFLAG_STEP_OVERとDASMFLAG_STEP_OUTフラグをサポート。
+  [Nathan Woods]
+
+- memory.cのMAX BANKSの問題修正。[Nathan Woods]
+
+-「Scorpion]の難易度設定DIP追加。[Chaneman]
+
+- artwork070u4の修正。[BUT]
+
+- ()074u1oraの修正。[Rene Single]
+
+-「ジャッカル」「新入社員とおるくん」ドライバのクリーンアップ。[Curt Coder]
+
+-「スティールガンナー」でスプライトが表示されなくなったのを修正。
+  [Phil Stroffolino]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+デザートブレーカー (FD1094 317-0196) [Gerald, David Haywood]
+
+
+新規クローンセット：
+--------------------
+エイリアンストーム (US, 3 Players, FD1094 317-0147) [Gerald]
+テトリス (Japan, System 16A, FD1094 317-0093a) [Thierry]
+忍 (set 3, System 16A, unprotected) [Gerald, Thierry]
+レッスルウォー (FD1094, 317-0102) [Andy Conroy]
+Greyhound Trivia (alt questions) [Pierpaolo Prazzoli]
+ジャンプコースター (Taito) [Thierry, Gerald]
+
+
+新規未動作ゲーム：
+------------------
+Jackie Chan in Fists of Fire
+	プロテクトの問題
+
+
+0.89u3
+------
+
+全般的な改良点：
+----------------
+
+- Model 3のクリーンアップ。[R.Belmont]
+	- mpc105ブリッジにinit追加
+	- VS2 CROMをシンクロ
+	-「セガラリー2」「バーチャロン2」のVROMが無かったのを修正
+	-「バーチャストライカー2 '99」のセット追加。vs2v991のROM修正
+	-「バーチャロン2 v5.4g」「デイトナUSA2」「ダートデビル」追加
+
+- Model 3 / PPCの更新。[Ville Linde]
+	- PPC603エミュレーションのバグを大幅修正。特にFPU関係
+	- MPC105エミュレーションを改善
+	- 53c810 SCSIエミュレーションの初期版追加で「ロストワールド」でReal3Dに
+	  必要なものを全てダウンロード
+	-「スカッドレース」輸出版追加
+
+- Sega System16の更新。[Aaron Giles]
+	* atomicpのサウンド実装（今のとこテンポは推測）
+	* 表示系以外の共通ハード用にmachine/segaic16.cを新規作成
+	* 初期版の積算/比較機能をここに移動
+	* Theirry氏の情報に基づいて更新; altbeastはサウンド用に暗号化Z80が必要
+	* Thierry氏によるeswatjの更新を追加
+	* 16B/18ゲームのリセットバグを修正
+	* パレットエントリ数を取得するためsegaic_init_paletteを変更
+
+- altbeas2で使っている暗号化Z80、MC-8123B 317-0066の解読。[Nicola Salmoria, 
+  Dave Widel]
+
+- Sega X-Boardゲームの操作系実装。[David Haywood]
+	smgp, rachero, abcop
+
+- prehisleドライバにコインカウンタ追加。[Pierpaolo Prazzoli]
+
+-「フラワー」のグラフィック残り修正。[Bryan McPhail]
+
+-「スーパーマン」のグラフィック修正。[Bryan McPhail]
+
+-「アトミックロボキッド」のオーバードロー修正？[Pierpaolo Prazzoli]
+
+- PPC/Model3の32bit整数について、コンパイラ系の問題があったのを修正。
+  [Lawrence Gold]
+
+- Pokey乱数生成でレコーディングを使って動作改良（実際の改善事項は未確認）。
+ [Juergen Buchmueller]
+
+- デバッガでアクティブなCPUが指定されていないときのデフォルトをトレースに変更。 
+  [Nathan Woods]
+
+-「ノーティボーイ」「ポップフレーマー」のカクテルモードサポート。[HobbesAtPlay]
+
+- jrpacmblをjrpacmanドライバに移動。[MASH]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Progressive Music Trivia [Pierpaolo Prazzoli]
+Trivia Master [Pierpaolo Prazzoli]
+レーシングヒーロー [Gerald, David Haywood]
+
+(「ABコップ」「スーパーモナコGP」も“動作可能”ですが、まだひどいトラブルがあり
+ます）
+
+
+新規クローンセット：
+--------------------
+ブラッドブラザーズ (set 2)
+サイバーポリスE-スワット (Japan) [Thierry]
+
+
+新規未動作ゲーム：
+------------------
+ラインオブファイヤー (Japan) [Charles Macdonald, bmoto]
+	操作未実装、Xボードエミュレーションの問題あり
+
+
+0.89u2
+------
+
+全般的な改良点：
+----------------
+
+- Sega系の改善。[Aaron Giles]
+	s18、s16aのプライオリティ修正をたくさん
+	s16aのend-of-spritelistマーカを修正
+	8751シミュレーションの改善
+	バックアップRAMの実装
+	DIPスイッチの修正
+	クリーンアップ
+	その他
+
+- デバッガでのサウンドの問題修正。[Aaron Giles]
+
+- ドライバのいろいろなクリーンアップ。[Curt Coder]
+
+-「フロッグス」の舌出し音でサンプル音を使うように更新。[Derrick Renaud]
+
+- Renegadeドライバを実際のMCUのデータを元に改良。[BUT]
+
+- VCコンパイラ用の修正。[René Single]
+
+- 古くなったMESSのコードを削除。[Nathan Woods]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+Poker Dice [Aaron Giles]
+
+
+クローン：
+----------
+ラッキー＆ワイルド (Japan) [BUT]
+スティールガンナー (Japan) [BUT]
+メタルホーク (Japan) [BUT]
+オーダイン (Japan, English) [Chris Hardy]
+Scorpion (Zaccaraia Original) [Pierpaolo Prazzoli]
+Hunchback Olympics (Scramble hardware) [Pierpaolo Prazzoli]
+アラビアンファイト (Japan) [Brian Troha]
+
+
+0.89u1
+------
+
+全般的な改良点：
+----------------
+
+- Sega改良。[Aaron Giles]
+
+	Sega System 16A:
+	* ドライバファイルに詳しい解説を追加
+	* コラム・ロースクロール実装（「カルテット」のタイトルなど）。完全に正し
+	  いかはまだ不明
+	* タイルマップ・テキストプライオリティを再導入
+	* Z80のクロックを訂正
+	* Brian Troha氏が更新したDIPを導入
+	* マイナーなクリーンアップ
+	
+	Sega System 16B:
+	* ROMバンクマッピングで未マップのハンドラにならないように修正
+	* Brian Troha氏が更新したDIPを導入
+	* マイナーなクリーンアップ
+	* Charles氏にコラムスクロールの動作について聞いて修正
+	
+	Sega System 18:
+	* ROMバンクマッピングが未マップのハンドラにならないように修正
+	  (「シャドーダンサー」のクラッシュ修正)
+	* メモリマップコードについて8751だけでなく68000でも動作するように拡張
+	* mwalk/mwalka/mwalkbに8751実装で全部動作可能
+	* コイン入力がおかしくなっていたゲームのロックアウトを削除
+	*「レーザーゴースト」の操作実装と照準表示追加（まだ未完成なのでご自由に
+	  改良OK）
+	*「ウォーリーをさがせ！」の操作系実装
+	* astormのプレイヤー3の操作修正
+	* ddcrewの入力クリーンアップ
+	* astorma/astorm2p/mwalkのサウンドROMロード修正
+	* Brian Troha氏のDIP更新を導入
+	* マイナーなクリーンアップ
+	*「ウォーリーをさがせ！」で使っているスプライトマスクエフェクト追加
+	* Charles氏の情報を提供してもらってコラムスクロール修正（ddcrewのアトラ
+	  クトモードのスクロール修正）
+	* 全System18ゲームのVDPのプライオリティをチェックして修正。全部正確に
+	  なったはずです。もし変なものがあったら知らせてください
+
+- i8051CPUコアのバグ修正。[Aaron Giles]
+	外部IRQのアクセスサポートでの正しいメモリリード・ライトルーチンを使うよ
+	うに修正
+
+- RF5C68のメモリアクセスバグ修正。[Aaron Giles]
+
+-「ハイパークラッシュ」の改良。[Angelo Salese]
+	プレイヤーの車と操作に不具合がある以外はほとんど動作
+
+- TaitoF2のブレンディング効果をさらに改良。[Bryan McPhail]
+	回転レイヤーを持つゲームにTC0360PRIブレンドモードを追加。「プリルラ」
+	「ミズバク大冒険 / Liquid Kids」に新しく追加したブレンドモード（「ガンフ
+	ロンティア」では未使用）がありますが正確かどうか確認できてません。動作可
+	能な実機がある人がいれば確認お願いします（「ミズバク」はアトラクトモード
+	で魚が水に入るところ。「プリルラ」は2面のクリスタル）。
+
+-「フラワー」の色修正。[Bryan McPhail]
+
+- Frogsドライバで実際に必要なときのみサンプルを使うように改良。[Derrick Renaud]
+
+- コンパイラ用のパッチをいろいろ。[Lawrence Gold]
+
+- HyperstoneベースのゲームでRAMを使いすぎないように対策。[Pierpaolo Prazzoli]
+
+- CHDCDのマイナーな問題を修正。[R.Belmont]
+
+- Jaleco MegaSystem1ゲームのステレオの問題修正。[R.Belmont]
+
+- FD1094ゲームの一部のキーを更新。[Thierry, Gerald]
+
+- Sega Model 3用にPPCコアの改良（603サポート）。[Ville Linde]
+
+- デバッグ/シンボル/マップビルドでクラッシュ原因がわかるまでYM2151のステートセー
+  ブを一時的に停止中。
+
+- クリーンアップいろいろ。[Atari Ace]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+パッシングショット (World, 2 Player) [Gerald]
+ウォーリーをさがせ！[Thierry, Aaron Giles]
+琉球 [Thierry]
+ブロクシード (Japan) [Thierry]
+DDクルー (World, 4 Players) [Thierry]
+ベイルート (World) [Thierry]
+エイリアンストーム (World, 3 Players) [Thierry]
+忍 (System 16A) [Thierry]
+ムーンウォーカー (3 original sets) [Aaron Giles]
+レーザーゴースト [Aaron Giles]
+
+(注：ラインオブファイヤーはまだ動作せず)
+
+
+新規未動作/クローンゲーム：
+---------------------------
+スーパーモナコGP (another set) [Gerald]
+
+Sega Model 3 初期版予備ドライバ [Ville Linde, Andrew Gardiner, R. Belmont]
+	基本的な2D表示の実装だけ
+
+デッドアイ [R.Belmont]
+	CD-ROMエミュレーションの問題有り

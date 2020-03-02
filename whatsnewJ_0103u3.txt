@@ -1,0 +1,114 @@
+0.103u3
+-------
+
+
+ソースの変更点
+--------------
+
+- H8/Last Fightのアップデート: [R. Belmont]
+ * (H8) ベクターの読み込みを24bitに制限
+ * (H8) SHLL.W, EXTU.L, SUBS.L #1, SUBS.L #4の命令コード追加
+ * Guru氏によるreadme追加
+ * 全部のROMをロード
+ * スタック用にRAMをマッピング
+
+- wcvol95とhvysmashで16bit decoタイルマップを使うようにコンバート。
+  [David Haywood]
+
+- wcvol95を修正するため、ARMコプロセッサにBCDコードの掛け算を追加。
+  [David Haywood]
+
+- 0.103u2でNeoGeo関係が混乱していたのをクリーンアップ。[David Haywood, Razoola]
+
+- 非Windowsシステム用に4GB以上のCHDファイルサポートをchdmanに追加。
+  [Lawrence Gold]
+
+- 閏年の計算を修正。[William Krick]
+
+-「スーパーバーガータイム」「空牙」「クルードバスター」でdecoタイルマップを使う
+  ようにコンバート。[David Haywood]
+
+- NeoGeoのビデオシステム書き直し; ラスタと非ラスタゲームの区別を削除と、コードの
+  大幅クリーンアップ。[David Haywood]
+
+- clowns, clowns1, bowlerのDIPスイッチ改良。[Bob Seidel]
+
+- CPUINFO_PTR_DEBUG_SETUP_COMMNADS追加: CPU独自のコマンドをセットアップするよう
+  にCPUに伝えるために呼び出されるコールバック [Nathan Woods]
+
+- i386コアデバッガにSegBase()とSegLimit()関数追加。[Nathan Woods]
+
+-「ナイトスラッシャーズ」のサウンドバランス改良。[MAME Italia]
+
+- Deco MLCゲームの改善（スプライトバッファリング、タイルバンキング修正、クリアカ
+  ラー修正、スプライトクリッピング追加、ARM割り込みバグ修正）。このドライバでサ
+  ポートされていないのは「スタジアムヒーロー」のグラウンドに使われているラスタ
+  表示のみ。[Bryan McPhail]
+
+-「ハングオン」のステレオサウンドルーチン修正。[Mamesick]
+
+- PCキーボードコードをクリーンアップ。[Nathan Woods]
+
+- memory_installを追加。これは、特定のバス幅に対して特定ではないもの(?)です（静
+  的ハンドラのみで、関数ポインタ用ではない)。[Nathan Woods]
+
+-「Ping Pong Masters'93」にサウンド追加。[Tomasz Slanina]
+
+-「クレイジーバルーン」のサウンドをディスクリートシステムを使うようにコンバート。
+  [Derrick Renaud]
+
+- Namco System 22のメジャーアップデート: [Phil Stroffolino]
+ * 本物のマスターDSP BIOSを実装。多くのゲームが動作、または以前問題があったもの
+   もグラフィック表示可能; その結果ハックを大量に削除
+ * ランタイム時に設定可能な割り込みハンドラを実装。さらにゲーム独自のハックを削
+   除
+ * ビデオハードについてのドキュメント追加と改良
+ -「アルペンサーファー」のプロテクトエミュレートとポイントROMのニセロードを修正。
+   ただしまだゲームには問題あり
+
+-「ワイルドウエスタン」のボーナス画面修正。馬がスクロールしてこない部分。
+  [Nicola Salmoria]
+
+- bfm_sc2ドライバの入力をクリーンアップ。[El Condor]
+
+- 古いデバッガで、TMS32010などのwordアドレスCPUの表示を修正。以前は完全に壊れて
+  ました。[Alex Jackson]
+
+- OSDからデバッガのブレークキーを分離。別のものとしてプログラム可能にしました。
+  またブレーク使用時の新デバッガの動作を修正して、コマンドラインにテキストが出な
+  いようにしました。[Aaron Giles]
+
+- デバッガ内のアドレスマスキング処理とディスプレイ修正。
+  [Aaron Giles, Nathan Woods]
+
+- ファンクション使用時の表示エンジンの動作順を修正。[Aaron Giles]
+
+- ADSPコアでタイマーサポートと、DCSゲームへの実装。[Aaron Giles]
+
+- Voodooで更新いっぱい。Voodoo BansheeとVoodoo 3をサポート。[Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+バックファイア！ [David Haywood]
+スカルファング 空牙外伝 [Bryan McPhail]
+Thunder Hoop [Pierpaolo Prazzoli, Mike Coates, Brian Troha]
+X-Files [Pierpaolo Prazzoli]
+King of Dynast Gear [Pierpaolo Prazzoli, Guru]
+名人戦 [Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Demon's World / ホラーストーリー (first edition) [Corrado Tomaselli]
+The Couples (Set 3) [f205v]
+Dragon World / 中国龍 (World, V0300) [f205v]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Poizone [Chris Hardy, David Haywood]
+

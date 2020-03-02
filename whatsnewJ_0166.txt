@@ -1,0 +1,329 @@
+0.166
+-
+
+MAMETestersの修正バグ
+---------------------
+- 05345: [システムコア] (a2600.c) a2600 [dodgeem, haunted]: 6502CPU関連のアサート。
+- 05718: [グラフィック] (a2600.c) a2600p: "TOM/JONES by trilobit"のデモが正しく動作しない。
+- 05714: [グラフィック] (a2600.c) a2600p: デモの "(core) by wamma"の部分が正しく動作しない。
+- 05622: [グラフィック] (msx.c) MSX2 and MSX2+: 画面解像度とリフレッシュレートが間違っている。(Wilbert Pol)
+- 05623: [グラフィック] (msx.c) MSX2 and MSX2+: PAL、NTSCのどちらでも画面上下の帯部分サイズが違う。(Wilbert Pol)
+- 05969: [グラフィック] (galaxian.c) jumpbug and clones: 背景の星空が表示されない。(Osso)
+- 06028: [サウンド] (neogeo.c) neogeo.c: YM2610とFM音源ADPCMの音量バランスがおかしい。(David Haywood)
+- 05872: [DIP/入力] (sms.c) sms, sms1 [alexbmx][megumi]: Sports Pad USモデルのエミュレーションがおかしい。
+- 06029: [クラッシュ/フリーズ] (cclimber.c) yamato: クラッシュする。(Osso)
+- 00999: [サウンド] (segaxbd.c) gprider: DIPスイッチをONにしてもデモサウンドが出ない。(David Haywood)
+- 04701: [グラフィック] (seta.c) blandia, blandiap: イントロシーンなどでグラフィック表示がおかしい。(Mamesick)
+- 00878: [グラフィック] (suna8.c) rranger: マップ画面の現在地を示す黄色い枠が「CREDIT」のテキスト部分にも表示される。(Luca Elia)
+- 05971: [グラフィック] (suna8.c) sranger and others clones: 最初と最後のステージをクリアしたときのグラフィックがおかしい。(Luca Elia)
+- 06024: [クラッシュ/フリーズ] (system1.c) hvymetal, choplift: BAD IC 85のエラーが出てクラッシュする。(David Haywood)
+
+
+ソースの変更点
+--------------
+- TMS51xx: request_bitsとFIFO実装を不要に改良。どちらも実機では使われていない。ZPARの
+  マイナーな修正。コメントの整理。[Lord Nightmare]
+
+- TMS5110.c: ZPARロジックを完全に修正。[Lord Nightmare]
+
+- TMS5220: 特許に示されているtalk status state machineを実装。m_target_*ハックをROMか
+  ら必要に応じて読み込む方法にして削除。ZPARロジック修正。特許に合わせてピッチゼロ化
+  の修正。[Lord Nightmare]
+
+-「Quantum」用のPLD追加。[Andrew Welburn]
+
+- TMS5220: コンパイラの最適化処理のためprocess()のgotoを削除。また、「ビクトリー」の
+  "Shields Up"サンプルとその後の声がおかしくならないようにハック追加。
+  [Lord Nightmare]
+
+- TMS5110: コンパイラの最適化処理のためprocess()のgotoを削除。
+  [Lord Nightmare]
+
+- chihiro.c: 3Dアクセラレータの変更。[Samuele Zannoli]
+ * エラー訂正
+ * グラフィックメソッドにプリミティブをさらに追加
+ * カラーマスクサポート
+ * 0x100 (NOP)メソッドが正しく割り込み生成
+ * メソッドパラメータをmmioレジスタから読み込み可能
+
+- chihiro.c/xbox.c: 修正いろいろ。[Samuele Zannoli]
+ * rgb32以外のレンダターゲットをサポート
+ * 16ビットデプスバッファサポート
+ * ステンシルとデプス値の独立したクリア処理サポート
+ * ROMロード更新
+ * xboxで止まるのを防ぐハック追加
+ * xbox bios 4134を使うように設定
+
+- xbox.c: ISOイメージからのdefault.xbeを実行可能。[Samuele Zannoli]
+
+- Naomi / Chihiroのドキュメント更新。[f205v]
+
+- GetModuleHandleをuniversalに修正。[Vladimir Kryvian]
+
+- C352: System 23用ドライバ追加。enumフォーマット変更。[Ian Karlsson]
+
+- groundfx.c: アクセラレータの修正。[baritonomarchetto]
+
+- besta: 68230の実装でROMのセルフテストパス成功。[shattered]
+
+- at, at_keybc: Display Switchの実装と無関係なDSW0の削除。[shattered]
+
+- K1801VM2(T11のクローンとして)のスケルトンサポート。これを使用するdvk_kcgdスケルトン
+  ドライバ追加。[shattered]
+
+- TMS5110: tms5220と同じFAST_START_HACKを追加。snmath wordディレイが実機同様に。
+  [Lord Nightmare]
+
+- cps1.c: varthu - VA64B.1Aの正確なダンプ追加。[Caius, The Dumping Union]
+
+- deco32.c: 不足していたPALダンプ追加。[Caius, www.jammarcade.net]
+
+- asst128: ROMダンプ改良版使用。[shattered]
+
+- apple2/apple2e: ラスタパラメータの修正。French Touch "Scroll Scroll Scroll"デモが
+  apple2eドライバでシンクロ可能。[R. Belmont]
+
+- suna8.c: テキストスプライトのレンダリングをオーバーホール。マスキング追加。
+  [Luca Elia] 
+  まだ不完全なものの実機ビデオに比較してもいくつかのエフェクトが改善。
+
+- goldstar.c: 入力とDIPスイッチのドキュメント改善。[Vas Crabb, hsialin]
+ * cmast91: Skill Stop SIPスイッチとStop 1/2/3ボタンのドキュメント化。Double Upゲーム
+   の7の設定修正と、他のゲームに合わせて設定名を変更
+ * cmezspin: DIPスイッチと入力の修正(cmasterbよりもcmv4に近い形)と、直した入力に合わ
+   せてレイアウトの改良
+
+- opengl: SCREENシェーダでの要求が高すぎたのをドキュメントに合うよう修正。[cgwg]
+
+- n64.c: 開発用ディスクドライブのサポート。[LuigiBlood]
+
+- apple2e.c: フローティングバス用に表示済ページの選択。[Peter Ferrie]
+
+- French Touch "Crazy Cycles"デモのハング修正。ただし、まだ未再現のエフェクトあり。
+
+- Sega X-Board
+ * 'X Board'をデバイス化
+ *「GPライダー」で使うツインボードを正しくエミュレート(共有RAMを使ったブリッジボード)。
+   [David Haywood, Ariane Fugmann]
+
+- bbc: クローン、フロッピーフォーマット、ソフトリスト、整理。[Nigel Barnes]
+ * bbcb1770クローン追加で、bbcbは8271のみに
+ * pro18s、Olivettei Prodest PC 128Sクローン版追加
+ * Acorn Business Computers、Cambridge Workstationクローン版追加
+ * reutapm、Reuters APMボードクローン版追加
+ * フロッピーフォーマット改良。ADFS用にdsdとDDフォーマット追加
+ * スピーチPHROM追加。まだ実装不十分
+ * ソフトリストbbcd_de_cass、bbcd_us_flop、bbcmc_flop追加
+ * Econet IDを指定するためのS11リンク(DIPスイッチ)を追加
+ * アドレスマップの整理
+
+- macrossp.c:「マクロスプラス」にPALダンプ追加。[Caius]
+
+- cninja.c:「Caveman Ninja / 戦え原始人 ジョー＆マック」にPALダンプ追加。
+  [www.jammarcade.net]
+
+- Sega Pico PCMの改良。[ValleyBell]
+
+- pcd: PCXビデオデバイスの実装。[Carl, Axel Muhr]
+
+- al520ex: Magic Sound拡張の仮実装(未動作)。[Barry Rodewald]
+
+- netdev: OS Xでのpcapのクラッシュ修正。[Rob Braun]
+
+- IGS 027A: Amazonia King V104BR [Felipe Sanches]
+
+- 追加したigs_m027.cセットで必要な復号化の仮実装。[iq_132]
+
+- ハードウェアデコーディングを元にNeoGeoのサウンドバランス修正。[Dr.Venom]
+
+- amazonia復号化の改良。[iq_132]
+ 
+- TMS5220、TMS5110: k5係数が音なしフレームでゼロにならない現象を起こしていた補間処理
+  のoff-by-oneを修正。いろいろなスピーチの不具合が改善。[Lord Nightmare]
+
+- TMS5220、TMS5110: ピッチゼロの間違った実装を修正。これは不適切に長い期間のピッチな
+  し状態がinhibited -> voiced境界の補間で起こっていた。実際のチップ同様、ボイスなしパ
+  ラメータのゼロ化をフレームパラメータに移動。マイナーなTALK/SPENステートマシンも変わ
+  るが影響は最小限のはず。[Lord Nightmare]
+
+- MAMEにフォーカスがなくても操作が入力を読み込めるglobal_inputsを追加(デフォルトでは
+  無効)。[Scrooge McClunk] 
+
+- 315-5124.c: TMS9919モードでズームしたスプライトに影響する不具合の修正やマイナーな変
+  更。[Enik Land]
+
+- gamegear.c / sms.c: GG-SMSスケーリングコードを少し改良し、Todoリストを更新。
+  Sports Pad (USモデル)エミュレーションについてはMT#05872を修正。[Enik Land]
+
+- VallyBellさんのテストより、PSGチップがリセット時に音量レジスタが0x0に初期化されるよ
+  う修正。Nemesisさんの実機テストより、Sega PSGチップでレジスタが0x3で起動するように
+  変更。[Lord Nightmare, ValleyBell, Nemesis]
+
+- naomi.c: ss2005とinitdv2jを再吸い出し。[Guru, R. Belmont]
+
+- ksys573: drmn8mとgtrfrk9mのCDを再吸い出し。[Guru]
+
+- amazonaの他のROMも吸い出し。[Felipe Sanches]
+
+- Atariゲームで使われるER-2055 EAROMエミュレーションについて、回路図やデータシートを
+  元に正確性の大幅な向上、ドキュメント追加やその他の更新。現在のEAROMバスステートを記
+  録するためにステートマシンを使用。[Lord Nightmare]
+
+- coreutil.cのgregorian_days_in_monthを簡略化。[William Krick]
+
+- DEC LA120: キーボードマトリックス完成。UARTを部分的にアタッチ。CPUのXTALを訂正。
+  [Lord Nightmare]
+
+- DEC LA120: logerror経由でLED出力を実装; 内部チェックサムテストに失敗するのでROM一つ
+  を不良に指定。[Lord Nightmare]
+
+- m68k: 020+ビットフィールド命令のコーナーケースを修正。[Till Harbaum]
+
+-「カウンターステア」の起動を修正。[Angelo Salese]
+ * スレーブCPUバスのリクエストラインを解析;
+ * 0x2000-0x2fffにあるスレーブCPUエリアのアドレスラインスワップを修正;
+
+- n64.c: N64の変更: [Happy]
+ * PIで、最終ビットの切り捨てを送信
+ * SIで、ディレイ待ち中にシグナルビジーを送信
+ * VIとRDPの機能を分離する作業
+ * VIタイミング期間をVIレジスタから動的に設定。NTSCではVIタイミングは正確でなければな
+   らない
+
+- DEC LA120: ファームウェアROM再吸い出し。チェックサムテストを通過。[Brian Walenz]
+
+- a2600: new 6502 PC=cur inst, old 6502 PC=prev inst (MT 5345)
+ [Mike Saarna, Trebor, R. Belmont]
+
+-「Space Warp」を独自のスケルトンドライバ化。[mixxmaster]
+
+- m68k: 020+ PACK/UNPKニブル順を修正。[Till Harbaum, R. Belmont]
+
+- i8271: モダン化。[Carl]
+
+- galastrm、model2、midzeus、namcos23、hgn64ドライバを共通の"poly"ラスタライズインタ
+  フェースにコンバート。[Andrew Gardner]
+
+- IGS017/IGS031ビデオハードウェアのデバイス化の予備作業。これにより、ARM内部ROMが吸い
+  出されたときには、igs_m027.c(IGSギャンブルゲーム)でデバイスを使えるようになる。
+  [David Haywood]
+
+- taito_f3.cのタグマップ検索を削減(arkretrnの速度低下の原因だったもの)。
+  [David Haywood]
+
+- a7800: utilized hotspotsのため、Activisionカセットハードウェアの表現をより正確なも
+  のに変更。「ランページ」でプレイヤー1にLizzyを選択したときのクラッシュが修正。
+  [Mike Saarna]
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+わくわくソニックパトカー [Will Medved, Ryan Holtz, The Dumping Union]
+TI DataMan [hap, Sean Riddle]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------
+Revolution X (prototype, rev 5.0 5/23/94) [Chris Engel]
+サッカースーパースターズ (ver UAC) [Smitdogg, The Dumping Union]
+Shocking (Korea, set 2) [Arcade Belgium (dump by Nomax)]
+J.J.スコーカーズ (older) [Alex Marshall]
+ローリングサンダー (oldest) [Layer (from neo-arcadia & jammaplus)]
+Point Blank / ガンバレット (World, GN2 Rev B, set 2)
+  [Caius, Smitdogg, The Dumping Union]
+Oriental Legend / 西游釈厄伝 (ver. 111, Korean Board) [DarkSoft]
+Minefield (The Logicshop, bootleg) [David Haywood, Guru]
+ルート16 (set 1) [Siftware, MASH]
+ (old set 1 is now 'Route 16 (set 3, bootleg?)')
+New Sinbad 7 (set 2) [Siftware, MASH]
+暗号化されたSegaゲーム海賊版いろいろ [Misc contributors]
+
+
+新規追加された未動作マシン
+--------------------
+Amazonia King II (V202BR) [Macgaiver]
+Commodore MPS-1230 NLQ Printer [Guru, R. Belmont]
+VTech Genius KID ABC Fan (Germany) [TeamEurope]
+VTech CARS 2 Laptop (Germany) [TeamEurope]
+Cobra: The Arcade (CBR1 Ver. B) [Guru]
+Canon S-80 typowriter [Felipe Sanches]
+Mizar 8105 [Joakim Larsson]
+Heurikon HK68K/V10 VME board [Joakim Larsson]
+LG GP40NW10 USB DVD writer [O. Galibert]
+Brother MT735 thermal printer [Cowering, O. Galibert]
+DECwriter III (LA120) [Lord Nightmare, NeXT]
+Smart Toss 'em / Smartball (Ver 2.0) [David Haywood]
+MVME350 - Streaming Tape Controller support QIC-02 [Joakim Larsson]
+Squale [Miodrag Milanovic, thanks to Olivier Aichelbaum]
+ZAP - Z80 Applications Processor (by Steve Ciarcia - 1981) [Felipe Sanches]
+Wacky Gator (Data East - 1990) [Felipe Sanches]
+Piggy Pass (Doyle & Assoc.)
+Hoop Shot (Doyle & Assoc.)
+Round and Round (Rev 6) (Quick $ilver)
+Fiddle Stix (1st Rev) (Quick $ilver)
+Jack & The Beanstalk (Doyle & Assoc.?) (bad dump)
+Dump The Ump (bad dump)
+3 Lil' Pigs (bad dump)
+
+
+新規追加された未動作クローン
+----------------------
+Rescue (Free Enterprise Games, bootleg) [David Haywood, Guru]
+ (some code seems missing even after descrambling?)
+Tora Tora (prototype?, set 2)  [Siftware]
+ハードヘッド (bootleg, set 2) [leniad]
+Kung Fu (IGS, v100) [Siftware]
+リッジレーサーV -アーケードバトル- (RRV1 Ver. A) [Guru]
+ソウルキャリバーIII アーケードエディション (SC31002-NA-A key, NA-A disc) [Guru]
+鉄拳5 ver.5.1 (TE53 Ver. B) [Guru]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------
+tutor.xml: (Tomy Tutor & Pyuuta cartridges)
+- Rescue Copter [3D] (Jpn) [Ryan Holtz, Team Europe]
+- Triple Command (Jpn) [Ryan Holtz, Team Europe]
+
+nes.xml: (Nintendo Entertainment System cartridges)
+- Booky Man (Spa) [SSJ, TeamEurope]
+
+a800_flop.xml: (Atari 400 / 800 floppy disks)
+ - Elektra Glide [Curt Coder]
+ - KoalaPainter (Light Pen) [Curt Coder]
+
+c64_flop.xml: (Commodore 64 diskettes) 
+ - Elektra Glide [Curt Coder]
+ - KoalaPainter (Light Pen) [Curt Coder]
+
+
+新規追加された未動作ソフトリスト
+--------------------------
+gameking.xml: (TimeTop GameKing cartridges)
+ - various 4-in-1 sets [SSJ, TeamEurope]   
+
+gameking3.xml: (TimeTop GameKing 3 cartridges)
+ - Fly Cab [SSJ, TeamEurope]
+
+gbcolor.xml: (Nintendo Game Boy Color cartridges)
+ - Magic Lamp [SSJ, TeamEurope, Taizou]
+ - Binary Monster 2 - Adventure of Hell(TW) [SSJ, TeamEurope]
+  
+nes.xml: (Nintendo Entertainment System cartridges)
+ - Coolboy RS-17 (203-in-1) [SSJ, TeamEurope]
+
+pico.xml: (Sega Pico cartridges)
+ - Anpanman Eigo - Tanosii Kanibaru (Tw) [TeamEurope]
+ - Doraemon Machinaka (Tw) [TeamEurope]
+ - Mickey To Ookina Furudokei (Tw)) [TeamEurope]
+ - Ojamajo Doremi Dokka~n! (Jpn) [TeamEurope]
+ - Professor Pico and the Paintbox Puzzle (Euro) [TeamEurope]
+ - Peter Pan - Neverland e Ikou! ~10th Anniversary Edition~ (Jpn) [TeamEurope]
+ - Sanou Kaihatsu Series 5 Meiro - Kioku (CD Tsuki) (Jpn) [TeamEurope]
+ - Susie-chan to Marvy o-Tetsudai Da~isuki! (Jpn) [TeamEurope]
+
+vc4000.xml: (Interton VC 4000 cartridges)
+ - Come Frutas [SSJ, TeamEurope]
+
+jaguar.xml: (Atari Jaguar cartridges)
+ - Air Cars (1994 version) [Porchy]

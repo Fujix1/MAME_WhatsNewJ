@@ -1,0 +1,84 @@
+0.99u1
+------
+
+
+MAMETestersの修正バグ
+---------------------
+medlanes061gre [MASH]
+
+
+
+ソースの変更点
+--------------
+* 前回リリースしたMCRゲームに間違ってハックが残っていたのを削除。[Aaron Giles]
+
+* spidersのカクテルモード表示がおかしかったバグを修正。[Hans Andersson]
+
+* H8/3002コアのいろいろな問題を修正。Namco System 12とND-1のサウンドが改善。
+  [cync]
+
+*「ススメ！マイルスマイル」のサウンドバンキング修正。[Pierpaolo Prazzoli]
+
+* YMF271サウンドコアの大幅改良: [Ville Linde]
+ - タイマーA演算修正
+ - 音程演算修正
+ - エンベロープジェネレータ追加
+ - ステレオパンニング追加とその他の音量調節修正
+ - FMサウンド生成追加
+
+* mystwarrのクラッシュ修正。[R. Belmont]
+
+*「グレイプロップ」(set 2)の復号キー判明。[MASH]
+
+* コンフィグリーダーとライターコードについて、より包括的で他のサブシステムでのプ
+  ラグイン化が簡単になるように書き直し。これにより現在のコンフィグデータの読み込
+  み方法の書き直しが必要になりました。その結果、ゲーム名.cfgファイルはこのアップ
+  デート後は無効になります。default.cfgと既存のコントローラー用.cfgは正常に動作
+  するはずです。[Aaron Giles]
+
+* mystwarr.cの全ゲームでサービスモードのマスクROMテストをパスするように修正。
+  「メタモルフィックフォース」だけが例外(道路生成("LVC")）のテストで固まる。
+  [R. Belmont]
+
+*「モンスターバッシュ」(2-board version) が動作するように修正。ただしグラフィッ
+  クはまだ不完全。[David Haywood, MASH]
+
+* 最適化ビルドでは-fomit-frame-ponterをオフに設定。Windowsビルドでsetjmp/longjmp
+  を使うとクラッシュにつながったていたもの。[Aaron Giles]
+
+*「Flying Tiger」のタイルマップとスプライトのプライオリティ修正。
+  [Pierpaolo Prazzoli]
+
+*「メドゥズレーン」に緑色のオーバーレイ追加。[MASH]
+
+* Deco 156ゲームの改良をいろいろ: [David Haywood]
+ - ビデオコードでdeco16ic.cの関数を使うように修正
+ - Guru氏のEEPROM吸い出しにより、「Osman」のデフォルトを3ボタンに変更
+
+* Namco System 22のアップデート: [R. Belmont]
+ - MCUとCPUの通信を正しく実装
+ -「プロップサイクル」「アルペンレーサー」「サイバーサイクルズ」で、MCUが操作を
+   読み込むように変更
+ - Super System 22の全ゲームでSEとBGM動作
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Lotto Fun 2 [Aaron Giles]
+Pit Boss [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Trivia ? Whiz [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Tic Tac Trivia [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Phraze Craze [Tomasz Slanina, Pierpaolo Prazzoli, Nicola Salmoria]
+Top Gunner / 特殊部隊ジャッカル [Mathis Rosenhauer]
+
+
+
+新規クローンセット
+------------------
+Omni [Pierpaolo Prazzoli]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------

@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.96</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.96.txt</div>
+	<div class="main">
+<div class="wn">
+0.96
+----
+
+重要: MAME 0.96よりソースコードのライセンスが変更されました。
+詳しくは新しいファイル“license.txt”を参照してください。新ライセンスはBSDライセ
+ンスをベースにして、商用利用を禁止する項目を追加しています。追加の詳細は
+http://mamedev.comを見てください。
+
+
+ソースの変更点
+--------------
+- TMS34010逆アセンブラでステップインとステップアウトサポート。[Aaron Giles]
+
+- “OK”画面でのジョイスティックを左右に入力する動作の説明追加。[Aaron Giles]
+
+- -dual_lightgunsオプション修正。[Jonathan Lunman]
+
+-「ポケットギャルデラックス」海賊版のグラフィックROM実装。[David Haywood]
+
+- V60 CPUドライバよりabort()呼び出しを削除。[Brad Oliver]
+
+- bioatackの当り判定修正とTaito SJメモリマップにRAM追加。[Peter Sealy]
+
+-「カロリーくん」の復号化とSega Z80暗号化コードのクリーンアップ。
+  [Nicola Salmoria]
+
+-「Dream World」の改良。[David Haywood]
+
+- memory_get_op_ptr()の実装を修正。[Nathan Woods]
+
+- joinemのコイン入力とDIPスイッチ修正。[Pierpaolo Prazzoli]
+
+- Macでのbeatmania系ゲームの問題を修正。[Brad Oliver]
+
+-「Vendetta / クライムファイターズ2」のチップ周波数を実際の基板に合わせて更新。
+  [Mamesick]
+
+-「Turbo Sub」の改良。[Philip Bennett]
+
+- Sega System 32ゲームのROMロードでエンディアンの問題があったのを修正。
+  [Brad Oliver]
+
+- ST-Vの改良をいろいろ。[Angelo Salese]
+ *「Treasure Hunt / サンドアール」のハングを起こしていたDSPのバグ修正。ゲームは
+   動作するものの、他のDSPバグのせいでグラフィック化けあり。
+ * 特定の条件でVDP1の水平解像度が倍になるのを追加。「アストラスーパースターズ」
+  「バーチャル麻雀」「バーチャルマージャンII」に影響有り。
+ *「ばくばくアニマル」のハックが不要になってたので削除(いつ修正されたのかは不明)。
+ * A-BusにROMデータがマッピングされるゲームでのプロテクト処理のバグ修正。
+ * SCUの細かな修正。
+ * サウンド読み込みのハングを避けるクイックハック追加。デフォルトではOFF。
+ *「ffreveng」と「astrass」のプロテクト用WIPコードも追加。
+
+- Eolith製ゲームのエンディアンの問題修正。[Brad Oliver]
+
+-「ジョイフルロード」のグラフィック修正。[QWERTY]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+X the Ball [Aaron Giles]
+Torus [Pierpaolo Prazzoli]
+ポケットギャルデラックス [Bryan McPhail]
+Boogie Wing / ザ・グレイトラグタイムショー [Bryan McPhail]
+Rohga Armour Force / ウルフファング [Bryan McPhail]
+シュマイザーロボ [Bryan McPhail]
+Treasure Hunt / サンドアール [Angelo Salese]
+プロ麻雀 極 S [Angelo Salese]
+
+
+新規クローンセット
+------------------
+Slick Shot (V1.6) [Aaron Giles]
+龍龍 (Europe) [Pierpaolo Prazzoli]
+Golden Tee 3D Golf Tournament (v2.11) [Brian Troha]
+サバイバルアーツ (World) [Brian Troha]
+Progressive Music Trivia (Question set 2) [Pierpaolo Prazzoli]
+レイブレーサー (Rev. RV1, Japan)
+リッジレーサー (Rev. RR2, World)
+リッジレーサー2 (Rev. RRS2, US)
+リッジレーサー2 (Rev. RRS1, Ver.B, Japan)
+Atomic Punk (US) [Brian Troha]
+Lup Lup Puzzle (version 2.9 / 990108) [Brian Troha]
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+ダブルウイングス [Bryan McPhail]
+Lock-On [Philip Bennett]
+
+
+
+0.95u6
+------
+
+
+その他の変更
+------------
+- 内部でのオーディットエラーレポートを改良。[Brad Oliver]
+
+- System 18/24ゲームの入力修正と、スタンダード文字列の追加。[B.S.Ruggeri]
+
+- Exterminatorドライバ更新。フルメモリマップ実装、スピードハック削除、サウンドの
+  問題修正。[Aaron Giles]
+
+- ES8712サウンドコア追加で「ヴァリアメタル」のサウンド実装。[Quench]
+
+- hachamfとtdragonのDIPスイッチ修正。[Sonikos]
+
+- デバッガ終了時に全トレースファイルをクローズするように修正。[Nathan Woods]
+
+-「DJボーイ」のOKI周波数修正。[Sonikos]
+
+- flytigerのDIPスイッチ修正。[Sonikos]
+
+-「Shocking」の3面以降の背景修正。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Choky! Choky! [David Haywood]
+Hollywood Action [David Haywood]
+ダイエットゴーゴー[Bryan McPhail, David Haywood]
+パチンコセクシーリアクション2 [David Haywood, Tomasz Slanina]
+
+
+
+新規クローンセット
+------------------
+Space Fortress (Zaccaria) [Pierpaolo Prazzoli]
+Ambush (Volt Elec co-ltd) [Corrado Tomaselli]
+
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Hoops '96 [David Haywood]
+ダンクドリーム'95 [David Haywood]
+N-サブ [David Haywood]
+ラフレーサー [David Haywood]
+
+
+
+
+0.95u5
+------
+
+- u4で起きていたWindowsのみの入力系バグ修正。[Aaron Giles]
+
+-「ギャルズハスラー」のOKI周波数修正。[Sonikos]
+
+- DECO102ゲームの残りも復号化の解読。[Nicola Salmoria]
+
+
+
+
+0.95u4
+------
+
+Aaron Giles氏による変更点
+-------------------------
+- CPU_16BIT_PORTハックを削除; 全部のZ80ドライバで明示的に
+  ADDRESS_MAP_FLAGS(AMEF_ABITS(8)を使ってI/Oアドレス空間を8ビットで指定する必
+  要があります
+- CPU_AUDIO_CPUを削除; これの意味はなくなりました。全部のゲームできちんと使われ
+  ていたわけではなかったので、ドキュメントの代わりにしかなってませんでいた。
+- mame.exeだけを簡単に作成できるようにmakefileに'emulator'ターゲットを追加しまし
+  た
+- メインのmakefileから古いターゲットを削除しました
+- makefileにPentium-M最適化ターゲット追加
+
+
+
+その他の変更
+------------
+- gswordの説明修正と8741のドキュメント追加。[Nicola Salmoria]
+
+- Namco製ゲームのC140のサウンドルーティング修正。[Mamesick]
+
+-「G-Loc」に正しいスプライトROM追加。[Mike Coates]
+
+- msliderのゲームロジックバグ修正。[Phil B, Dox, David Haywood]
+
+- srmp7用にV60のハック追加。いずれきちんとした修正が必要。[David Haywood]
+
+-「サバイバルアーツ」「ダイナギア」のDIPスイッチ修正。[Brian Troha]
+
+- MESSからTMS9900の改良などを追加。[Raphael Nabet]
+
+-「Nitro Ball / ガンボール」の背景修正。[Pierpaolo Prazzoli]
+
+- Deco 102ゲームの復号化初期版追加。[Nicola Salmoria]
+
+-「ポケットギャルデラックス」「キャプテンアメリカ」のDIPスイッチ修正。
+  [Brian Troha]
+
+- デバッガのクラッシュ対応を改良。[Nathan Woods]
+
+
+
+新規クローンセット
+------------------
+スペースインベーダー (Model Racing) [David Haywood]
+ポケットギャルデラックス (Euro v3.00) (not working) [Corrado Tomaselli]
+テクモワールドカップ '94 (set 2) (not working) [Corrado Tomaselli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Dream World [David Haywood]
+Choky Choky [David Haywood]
+
+
+
+
+0.95u3
+------
+
+Nathan Woods氏による変更点
+--------------------------
+- 6502コードを使ったNESゲームのクラッシュ修正
+- 最近のM6502変更に合わせてM6502の変数をアップデート
+- 8255PPIモード2機能をマージ
+
+
+smf氏による変更点
+-----------------
+- src\state.cのMAX_INSTANCESを増加
+- src\machine\intelfsh.hのFLASH_CHIPS_MAXを増加
+- 8bitと16bitのintelflash nvramハンドラをマージ。引数はチップ番号で渡す
+- ADC0831/ADC0832/ADC0834/ADC0838のシリアルのアナログからデジタル変換精度を向上
+- konamigx.cにadc083x.cを実装
+- timekpr.cのログエラーをコメントアウト
+- 表示エリア変更後のリサイズの初歩的なサポートをartwork.cに追加
+
+
+R. Belmont氏による変更点
+------------------------
+-「グラディウス3」の表示領域をシンメトリカルに変更
+- K052109にdx/dyセッティング追加。156とそれ以降のチップにあるようにK052109に
+  dx/dyセッティング追加
+- gradius3のレイヤー2のX軸オフセット修正
+
+
+Aaron Giles氏による変更点
+-------------------------
+- Williamsドライバの書き直し
+ * 回路図から全てのアドレッシングを導入
+ * バンキングメカニズムをクリーンアップ
+ * 後期のゲームのサウンドCPUクロックを修正
+ * blitterコードを大幅に簡略化
+ * blitterにタイミング追加（今のところは推測）
+ * クリッピング回路を正しく実装
+ * パレットハンドリングをかなり簡略化
+ * 最近のゲームについてビデオシステムをタイルマップを使うように書き換え
+
+
+その他の変更
+------------
+- ghoshunt/tutstombのDIPスイッチ修正。[Sonikos]
+
+-「ラスタンサーガ」のROM名修正。[Bryan McPhail]
+
+- 入力ポートの読み込みを高速化。[wpcmame]
+
+- 68000命令のいくつかについてサイクルカウントを修正。[Andrew Seed]
+
+-「フェニックス」のトーンサウンドでディスクリートシステムを使うように更新。
+  [Derrick Renaud]
+
+-「Battlezone」「Vindicators Part II」からフェイクのハックポート削除。
+  [Aaron Giles]
+
+- M90ゲームのDIPスイッチをクリーンアップ。[Brian Troha]
+
+- panicrにグラフィックデコード追加。[Nicola Salmoria]
+
+- atarijsa.cとmarineb.cのerror.logメッセージと、サウンドチップ情報の表示をクリー
+  ンアップ。[Sebastien Volpe]
+
+-「プレアデス」から「フェニックス」のサウンド削除。[Derrick Renaud]
+
+-「ポケットギャルデラックス」のDIP修正。[Sonikos]
+
+-「Vs. Sky Kid」のDIPスイッチ修正。[chaneman]
+
+- gswordのスプライトパレット修正。[Nicola Salmoria]
+
+- Speed SpinドライバのOKIバンキング追加。[Pierpaolo Prazzoli]
+
+- crimfghtのクロックスピードとリフレッシュレート修正。[Mamesick]
+
+-「歌舞伎Z」に再ダンプしたCPU3用ROMからサンプル追加と起動時の色化け修正。
+  [Pierpaolo Prazzoli]
+
+- HD6309の固定インデックスアドレスモードの逆アセ修正。[Tim Lindner]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Flying Tiger [David Haywood]
+サンダードラゴン [Angelo Salese, Nicola Salmoria]
+ハチャメチャファイター [Angelo Salese]
+World Beach Ball Championship 1997 [Pierpaolo Prazzoli]
+
+
+新規クローンセット
+------------------
+オペレーションウルフ (World) [Bryan McPhail]
+グレートソードマン (World?) [Nicola Salmoria, Corrado Tomaselli]
+Sharpshooter (Rev 1.2) [Brian Troha]
+Cascade (Avalanche 海賊版) [David Haywood]
+Catt / マジカルキャットアドベンチャー (Japan) [Pierpaolo Prazzoli]
+
+
+新規追加のGAME_NOT_WORKINGゲーム
+--------------------------------
+Hollywood Action [David Haywood]
+Power Spikes / スーパーバレー'91 (海賊版) [Pierpaolo Prazzoli]
+Aero Fighters / ソニックウイングス (海賊版) [Pierpaolo Prazzoli]
+
+
+
+
+0.95u2
+------
+
+- Incredible Technology 8-bitのアップデート。[Aaron Giles]
+ * 全基板レイアウトの詳細なドキュメント追加
+ * 基板の情報に合うようにドライバを再構成
+ *「Poker Dice / Dyno Bop」のページングとフリッカの問題修正
+ *「リムロッキンバスケットボール」のアナウンサーボイス追加 (rimrockn057gre)
+ *「リムロッキンバスケットボール」のP3とP4の操作修正
+ *「Super Strike Bowling」の"behing the beam"アップデート追加
+ *「Slick Shot」の入力で、開始点は照準にして、強さはトラックボールの動きにするよ
+   うに再作業
+ *「Dyno Bop / Super Strike Bowling」の入力を実装。何とかプレイ可能
+ * blitterをかなりシンプルに書き直し（マクロ廃止）
+ * 正確なblitterタイミングの計測と実装（スピード系の問題修正）
+ * 書き換え必要なピクセルトラッキングを不要にするため、TMS34061をクリーンアップ
+ * TMS34061コードのスキャンライン演算を修正
+ *「カプコンボウリング」のドライバもTMS34061の変更を扱うように更新
+
+- Sega ST-Vのアップデート。[Angelo Salese]
+ *「Batman Forever」のROMロード修正。ゲーム動作可能。Runik氏に情報感謝
+ * 割り込み関係の修正。古い方法では上のゲームでハングしてたため。もっと詳しく書
+   くとスプライト描画終了の割り込みをINTERRUPT_GEN構造体に追加して、IRQマスクが
+   VBLANK-INを非アクティブにする場合にvblank bitがクリアされないバグ修正
+ * SMPCデバイスのNMI_disable/enableコマンドを修正。この関数は、SMPC RAM内のビッ
+   トの有効化無効化を行う。「上海」での起動時2クレジットのバグを修正する
+ * VDP2ハンドリングのビットマップタイプ4のバグ修正。Sunsoftの「上海 万里の長城」
+   のロゴ部分が修正
+
+-「ゴークス」の操作からハック削除。実基板通りに動作するように変更。
+  [Corrado Tomaselli]
+
+-「クラックダウン」のクラッシュ修正試み。[David Haywood]
+
+- いろいろ用パッチ。[Nathan Woods]
+ src/cpu/m6502/m6502.c:
+ src/cpu/m6502/m6502.h:
+ src/cpu/m6502/ops02.h:
+ *ドライバから、インデックス化したアドレスモードをオーバーライド
+  できるフックを追加
+ src/machine/6821pia.c:
+    - PIAの修正
+
+-「Funny Strip」のグラフィック修正時に「Splash」のエラーが出たのを修正。
+  [Pierpaolo Prazzoli]
+
+- sslamのオーディオMCUシミュレーション改良。[Quench]
+
+- SN76496の改良。[Sebastien Chevalier]
+
+- MegaplayのDIPスイッチ修正。[Barry Rodewald]
+
+- gamelist.txt出力コードを改良。[Buddabing, Atari Ace]
+
+- armedfドライバのMCU対応方法を変更。[Sebastien Chevalier]
+
+- mayjisn2の入力修正。[WING]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Up Your Alley [Aaron Giles]
+Dr. Tomy [Pierpaolo Prazzoli]
+Snapper [Aaron Giles, Simon White]
+ポケットギャルデラックス (海賊版) [David Haywood]
+Batman Forever [Angelo Salese, Runik]
+
+
+新規追加クローンセット：
+------------------------
+ウォーリーをさがせ！ (Rev. B) [Chack'n]
+D.Dクルー (Japan, 2 Player) [Chack'n]
+オーライル (Japan) [Chack'n]
+トリオ・ザ・パンチ (World) [Roberto Gandola]
+シンプソンズ (4 Player alt) [Chris Hardy]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Comad World Beach Ball Championship 1997  (スケルトンドライバ)
+Monster World  (メモリマップなどが違う)
+Peno Cup (タイトルは多分間違い、ROMデータが不良)
+
+パニックロード [Tomasz Slanina]  (グラフィック暗号化、mustache boy風？)
+
+D.Dクルー (3 Player, World) [Chris Hardy] (キャラクタ選択時にハングする。要調査)
+
+
+
+
+0.95u1
+------
+
+- Irem M92のDIPスイッチ修正。[Brian Troha]
+
+- VCでコンパイルするときのエラー修正パッチ。[Bryan McPhail]
+
+- リンク時の警告修正。[Lawrence Gold]
+
+- 更新いろいろ。[Nathan Woods]
+	src/cpu/hd6309/6309ops.c:
+	src/cpu/hd6309/6309tbl.c:
+	    - 6309のSEXW命令修正
+
+	src/fileio.c:
+	    - FILETYPE_SCREENSHOTにMESS用オプション追加
+
+-「Best League」のアップデート。[Pierpaolo Prazzoli]
+ * タイルマップとスプライトのオフセット修正
+ * 表示エリア修正
+ * DIPスイッチ修正
+ * OKIバンキング追加
+ * スプライトの巻送り追加
+ * スプライトのカラーマスキング追加
+
+- SemiComのDIPスイッチ修正。[Sonikos]
+
+-「Excelsior」のアップデート。[Pierpaolo Prazzoli]
+- スプライトプライオリティ修正
+- ビットマップサイズ切り替え追加（100%と50%）
+
+- MegaplayのDIP修正。[Barry Rodewald]
+
+- V60 DIVFS命令コード修正。[Sebastien Chevalier]
+
+- Flashの更新。[smf]
+ * フラッシュチップのステートセーブ実装
+ * 16bitフラッシュチップのブロック消去修正
+ * フラッシュチップの最大数増加
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+クラックダウン [Charles MacDonald, David Haywood] (表示系の問題アリ)
+Sonic the Hedgehog 2 (Megaplay) [David Haywood] (Genesisエミュレーションの不具合
+  あり)
+フォトY2K [Olivier Galibert, ElSemi]
+
+麻雀ちゃんねるズームイン [Angelo Salese]
+麻雀革命 [Angelo Salese]
+麻雀革命II - プリンセスリーグ [Angelo Salese]
+アイドル雀士スーチーパイスペシャル [Angelo Salese]
+
+
+新規追加クローンセット：
+------------------------
+ピンボールアクション (set 3, encrypted) [Nicola Salmoria]
+
+鉄拳3 (TET2/VER.A) [smf]
+エアガイツ (EG2/VER.A) [smf]
+ソウルエッジ Ver. II (SO3/VER.C) [smf]
+
+Red Hawk / ステッガー1 (海賊版) [tirino73, David Haywood]
+ (オリジナルと同じ問題あり。基板はシンプルなのでプロテクトのせいなのかは不明。
+  調査必要)
+
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

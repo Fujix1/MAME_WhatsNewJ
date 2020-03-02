@@ -1,0 +1,79 @@
+0.98u3
+------
+
+
+MAMETestersの修正バグ
+---------------------
+spidman098gre [Mamesick]
+astormj098u1gra [Mamesick]
+ehrgeiz097u4red [smf]
+rdft2us098u2red [Ville Linde]
+pc_bstar079u1yel [Mamesick]
+playch10c080u1gre [Mamesick]
+espial096u3gra [Mamesick]
+
+
+
+ソースの変更点
+--------------
+* Z80逆アセンブラにステップイン・アウト機能を追加。[Aaron Giles]
+
+* ES5505/6の補完コードの小バグ修正。[Jarek Burczynski]
+
+* System 32のスプライトのマイナーな修正。[Aaron Giles]
+
+* デバッガのメモリディスプレイでカーソルがあるところをロックしないように変更。
+  また奇数アドレスでもそろえて表示できるように修正。[Aaron Giles]
+
+* Police Trainerドライバのクリーンアップ。[Aaron Giles]
+
+*「Double Cheese」の作業。まだプレイは不可。[Aaron Giles]
+
+*「Power Spikes / スーパーバレー'91」海賊版の問題を修正。[Weisse Eins]
+
+* aerofgtドライバのスプライトとワープ音の問題修正。[Pierpaolo Prazzoli]
+
+*「ライデンファイターズ2 -2000」のサウンドバンキング修正。[Pierpaolo Prazzoli]
+
+*「サーチアンドレスキュー」のDIPスイッチ修正。[Corrado Tomaselli]
+
+* goal92のプレイヤー4の入力修正と、スプライトに1フレームのディレイ追加。
+  [Pierpaolo Prazzoli]
+
+*「テクモボウル」にコインカウンタ、またサンプルチップ2つを追加してサウンド修正。
+  [Pierpaolo Prazzoli]
+
+* suprnovaドライバの全ゲームで入力ポートのクリーンアップと修正。[Mamesick]
+
+* WAVファイルに長さ0のデータブロックがあった場合にクラッシュしたのを修正
+  [Roman Scherzer]
+
+* Windows版コードで、プロファイラが有効でない限りmapファイルがロードされないよう
+  に変更。これによりメモリトラッキングを有効にしたときにメモリ不足になってたのを
+  修正。[smf]
+
+*「Melin's Money Maze」のDIPスイッチ修正。[James Wallace]
+
+* esckidsの表示領域修正。[Mamesick]
+
+* S2650コアの改良: [Manfred Schneider]
+ - LPSU命令の修正
+ - 仕様書にそってサイクルカウントを変更
+
+* Deco 156の暗号処理を完全エミュレート。[David Haywood, Nicola Salmoria, 
+  Olivier Galibert, Bryan McPhail]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+ジョー＆マックリターンズ [David Haywood, R. Belmont]
+Party Time: Gonta the Diver II [David Haywood]
+がんばれ！ゴンタ!! 2 [David Haywood]
+
+
+
+新規クローンセット
+------------------
+エンデューロレーサー (YM2203, FD1089B 317-0013A) [Aaron Giles]
+E.D.F. : アースディフェンスフォース (North America) [Aaron Giles]

@@ -1,0 +1,409 @@
+0.136u1
+-------
+
+重要なお知らせ: このリリースでシステム上の重要な事項がいくつか変更になっています。新
+バージョンのコンパイルに先立ち、以下の項目をお読み下さい。
+
+1. gcc 4.4.3プレリリースをベースにした新ツールチェインが必要になりました。新ツールは
+   http://mamedev.org/tools からダウンロードできます。0.136u1に含まれる更新部分は旧ツー
+   ルではビルドできません。新ツールチェインでは、gccによる64-bit版MAMEのビルド、ビル
+   トインDirectXヘッダ、C++サポートが新しくサポートされています。
+
+2. Windows版MAMEの非Unicodeビルドのサポートを終了しました。makefile内でこれをオフにす
+   るためのオプションは削除されており、また今後の変更でUnicodeが確実に必要になる見込
+   みです。もし、まだWin9xでMAMEを動作させる場合は、unicows.dllライブラリが必要です。
+   Microsoftからダウンロードして下さい。
+
+3. MAMEの全コードはC++としてコンパイルされるようになり、C++言語の利点を生かすための小
+   幅な変更もいくつかされています。ドライバの書き方については、デバイスとアドレス空間
+   へのアクセサを除いて、大部分には影響はありません。C++構文を利用するための改良も、
+   徐々に行いますが、チーム内部によるものとなります。現時点で、外部からの作業申し出に
+   ついては特に関心ありません。
+
+4. SDL OSDがメインソースパッケージの一部としてリリースされます。Windows版のSDLビルド
+   は新リリース検証の一環として正式なものとなります。長年にわたるSDL版への尽力につい
+   て、R. Belmont氏、couriersud氏、Olivier Galibert氏に感謝します。
+
+
+
+MAMETestersの修正バグ
+---------------------
+- 00660: [DIP/入力] zoar: アップライト筐体のDIP設定が動作しない。常にカクテルモード。
+         (stephh)
+- 03233: [マルチセッション] All sets in crystal.c: マルチセッションでクラッシュする。
+- 00111: [クラッシュ/フリーズ] gunbird2: Vampiroを使うと4面のボス(北極)でクラッシュす
+         る。(PsikyoFan)
+- 03649: [クラッシュ/フリーズ] gekisha: 不明なDIP4-2はオートツモモードの切り替え。但
+         し、ONにしてリーチするとMAMEがクラッシュする。(Angelo Salese)
+- 02154: [DIP/入力] ckongg: コインエイジ設定が間違っている。(stephh)
+- 02157: [DIP/入力] ckongg: 画面に表示されるコインエイジと実際の設定が合わない。
+         (stephh)
+- 03653: [グラフィック] crzrally, crzrallya, crzrallyg: デフォルトのハイスコアがMAME
+         では0だが、実機では点数と名前が登録されている。(Pierpaolo Prazzoli)
+- 03651: [グラフィック] matmania: グラフィックが化けている。0.135u4での更新ミスが原因。
+         (M.A.S.H.)
+- 03620: [速度] quasar: 速度が大幅に落ちている。(Quench)
+- 03623: [速度] laserbat, catnmous: 大幅に速度が低下している。(Quench)
+- 03621: [インターフェイス] -cheatを指定せずにF6キーでチートを切り替えるとクラッシュ
+         する。(smf)
+- 03626: [グラフィック] raiders, spacefrt: 背景の星空表示が0.135u4から無くなっている。
+         (Fabio Priuli)
+- 03637: [システムコア] dino, punisher, wof and clones: NVRAMはセーブされるが、再起動
+         時に正しく反映されない。(Fabio Priuli)
+- 03415: [コンパイル] unidasmの問題のため、ldplayerがリンクに失敗する。(Aaron Giles)
+- 03485: [グラフィック] mikie, mikiej, mikiehs: エンディングのMikieが車に乗るところで、
+         プライオリティの問題がある。(robiza)
+- 00266: [グラフィック] daraku: 実機と比べると、いくつか実装されていないエフェクトが
+         ある。(PsikyoFan)
+- 00892: [その他] s1945iii: 最終ボスシーンで“Unknown Layer Type 0f”と表示される。敵を
+         破壊すると消える。
+- 03632: [クラッシュ/フリーズ] kinst, kinst2: 黒画面のまま固まる。(Aaron Giles)
+- 03630: [システムコア] 起動時のROMチェックで17FがBADになりパスできない。
+         (Aaron Giles)
+- 03622: [グラフィック] solomon, solomonj: タイルマップグラフィックが化けている。
+         (Pierpaolo Prazzoli)
+
+
+
+ソースの変更点
+--------------
+- hng64の改良: [Andrew Gardner]
+ - bbust2で3Dジオメトリサポート
+ - sams64*ゲームのROM読み込みを修正
+ - 3D応答を少し違った方法でハックし、sams64で3D表示
+ - bbust2で、'explicit palette' wordを発見。色が正確に表示。'dynamic palette' bitな感
+   じに実装し、sams64ゲームの色修正。ただしroadedgeとburikiはまだ
+
+- RSP DRCの変更: [Aaron Giles]
+ - 境界整列されていない32-bitアクセスの修正
+ - mtetriscのBGMが壊れる原因になっていたDRC_SQVを無効化
+
+- RSPコールバックをデバイスコールバックにコンバート。渡したデバイスを使うようにするた
+  め、タグベースのクエリを大量に削除。[Aaron Giles]
+
+- RDP時間をRSP時間から分離するために、rdp_process_list()の辺りにprofiler_mark()を追加。
+  [Aaron Giles]
+
+- cb2001の命令コードをさらに復号化。[robiza]
+
+- cave.cにドライバデータ構造体追加。[Fabio Priuli]
+
+- 境界整列問題を避けるため、inline_configを別々に割り当てるよう変更。[Aaron Giles]
+
+- uPD7801コアの変更: [Wilbert Pol]
+ - 逆アセンブリの間違いを修正
+ - 割り込み処理がドキュメントに合うように更新
+ - uPD7801タイマの実装
+ - uPD7801のポートAを出力ポートへ調整
+
+- サウンドコア用の様々なHAS_xxxxを削除。サウンドコアを選択するにはmake systemで選ぶだ
+  けでです。このことは、サンプルコアが常に必要であることも意味します。[Aaron Giles]
+
+- cb2001のベースタイルマップ実装。[Angelo Salese]
+
+-「Race Drivin' Panorama」のグラフィックROMローディング修正。[David Haywood]
+
+-「ヴァーサスネットサッカー」の改良:
+ - スタートアップチェック用にDMAプロテクトのエミュレート [Olivier Galibert]
+ - データROMロードの修正、ゲーム起動可能 [David Haywood]
+ - スプライトとサウンドROMをBAD_DUMPに設定 [David Haywood]
+
+- goldstar、liberate、sidearms、sidepcktドライバデータ構造体追加を使うように更新。
+  [Atari Ace]
+
+- Makefileの変更: [Aaron Giles]
+ - CPP_COMPILEフラグを削除; zlibとexpat以外の全コードがC++としてコンパイルされます
+ - C++では本物のインライン化をサポートしているのでINLINEをstatic inlineにマッピング
+ - エミュレータのみをビルドするmakeターゲット、'default'を追加。ツールのビルドには
+   'make tools'、全てビルドするには'make all'とします
+ - 64-bitビルドには後ろに'64'がつきます
+ - WindowsからUNICODEフラグを削除; UNICODEは常時有効になります
+ - OSDが定義されていない場合、ビルトインのWindows環境変数である'OS'を参照し、それが
+   'Windows_NT'のときはOSD=windows、他の場合はOSD=sdlとみなします
+ - TARGETOSが定義されていない場合、同じ環境変数を調べ、'Windows_NT'ならTARGETOS=win32
+   とします
+ - Windows SDLビルドには、後ろに'sdl'と付加されるので、Windows版と同居できます
+ - 64-bit Windowsビルド用の不完全な自動検知機能追加(PATHに'mingw64-w64'が含まれている
+   かを元にする)
+ 
+- main()内のunicode処理用ハックを削除。新ツールでは不要となりました。[Aaron Giles]
+
+- 8-bit eepromの綴り違いでゲームが動かなかったのを修正。[Aaron Giles]
+
+- kinstが動かなくなっていた、x86 DRCバックエンドcodegenバグを修正。[Aaron Giles]
+
+- エラー処理の割り込み化に伴い、setjmp/longjmpを削除。fatalerrorが例外を発生するよう  にマッピング。[Aaron Giles]
+
+- [PIT8253] 経過サイクルが無いときのPITカウンタをアップデート(これはMESSのat586など、
+  高速なドライバのみに影響)。[Miodrag Milanovic]
+
+- dwarfdドライバの変な箇所とグラフィックの修正。[Angelo Salese]
+
+- berlwall、arknoid、bakubrkr、mgcrystlでYM2149を使うように変更。[Corrado Tomaselli]
+
+- halleysとexctsccrのクロック検証と訂正。[Corrado Tomaselli]
+
+- mjgtasteで麻雀パネルをサポート。これをデフォルト入力に設定し、デフォルトEEPROMも工
+  場出荷デフォルトに合わせて入れ替え。入力系は互いに排他的なので、切り替える時はドラ
+  イバコンフィグのコントローラとゲーム内の両方を設定する必要があります。[PsikyoFan]
+
+- zeroizeのドングル吸い出しに代えてプロテクトシミュレーションを修正。[Bryan McPhail]
+
+-「ギャルズパニック4遊」(韓国版)のサンプルROM追加。[Brian Troha, Dumping Union]
+
+- Konamiの進捗状況: [Fabio Priuli]
+ * 一部ルーチン(グラフィックレイヤーのソート)が共用されているので、konicedv.cに移動
+ * ajax.cとaliens.cにドライバデータ構造体を追加
+ * 以下にドライバデータ構造体とセーブステート追加:
+    asterix.c, bishi.c, blockhl.c, bottom9.c, chqflag.c, crimfght.c, dbz.c, 
+    gbusters.c, gijoe.c, lethal.c, mainevt.c, moo.c, overdriv.c, parodius.c, 
+    rollerg.c, rungun.c, simpsons.c, spy.c, surpratk.c, tail2nos.c, thunderx.c, 
+    tmnt.c, ultraman.c, vendetta.c, xexex.c, xmen.c
+ * 上記の一部ドライバで、パレット・外部・ワークRAMをmaincpuのROMに追加するのではなく、
+    別々に割り当てるように更新; また、必要に応じてmaincpu rom領域を削減
+ * memory_set_bankptrを必要に応じてmemory_set_bankへ置き換え
+ * gradius3.cにドライバデータ構造体とセーブステート追加
+
+- taitosnd(別名 tc0140syt)をデバイスにコンバート。関係するドライバも合わせて更新。
+  [Fabio Priuli]
+
+- cputag_get_cpuの呼び出し部を全てdevtag_get_deviceに置き換え: 
+  以前の関数はただのエイリアスであり、CPUは既に他のデバイスと違いが無くなっています。
+  また、cputag_get_cpuとcputag_resetもcpuexec.hから削除。[Fabio Priuli]
+
+- knoghtsのROMラベル修正。[Dlfrsilver]
+
+-「Metal Maniax」の改良: [Phil Bennett/luigi30]
+ * フレームバッファ表示修正
+ * 他のCPU追加開始
+ * 1層目と2層目の基板レイアウト追加
+ * TMS34020を実装
+ * ADSP-2105ネットワークCPUとCAGEオーディオシステムの実装開始 [Phil Bennett]
+
+- ヘッダ宣言の欠けている箇所と、static qualifierの追加。foo.hに対して明示的にfoo.cに
+  なっているかをチェックするvalidity.hをコアに追加。[Atari Ace]
+
+- taitoairc.とtaito_b.cにドライバデータ構造体追加。[Fabio Priuli]
+
+- VIA6522: READ/WRITE_LINEを使うようにインタフェースを再構成。[Curt Coder]
+
+-「サイバータンク」の改良: [Angelo Salese]
+ * ビットプレーン順修正
+ * スプライトグラフィックフォーマットをデコード
+ * 背景タイルマップ2枚実装
+ * スプライトチップとblitter用の最低限なビデオエミュレーション追加
+ * blitterの表示領域境界チェック追加
+
+- 出力ポートの開始値をデフォルト値に設定。これはアクティブハイ、またはローかによって
+  決まります。そのため、デバイスが最初に呼ばれれば、ラインはアクティブになります。
+  EEPROMデバイスについて、操作があるまではリセットとクロックがクリアされたものとする
+  ように変更。[smf]
+
+- taito_l.cとopwolf.cにドライバデータ構造体追加。[Fabio Priuli]
+
+- 以下にドライバデータ構造体とセーブステート追加: [Fabio Priuli]
+  asuka.c (cadashがセーブ未サポートだった), rainbow.c, rastan.c, taito_f2.c, 
+  taito_h.c, taito_o.c, taito_z.c, topspeed.c, volfied.c. [Fabio Priuli]
+
+- mamecore.hをemucore.hに改名。[Aaron Giles]
+
+- C++を前提にした新しいメモリマネージャ: [Aaron Giles]
+
+  これはリソースプールにどのような型のオブジェクトでも追加することができる、シンプル
+  なメモリマネージャです。通常は、割り当て済みオブジェクトが追加され、割り当てマクロ
+  セットが利用して特定プール内のオブジェクト管理行うことができます:
+
+    pool_alloc(p, t) = タイプ't'のオブジェクトを割り当て、プール'p'に追加します
+    pool_alloc_clear(p, t) = 上と同様ですが、最初にメモリをクリアします
+    pool_alloc_array(p, t, c) = タイプ't'のオブジェクト配列'c'を割り当て、プール'p'に
+                                追加します
+    pool_alloc_array_clear(p, t, c) = 上と同様ですが、最初にメモリをクリアします
+    pool_free(p, v) = オブジェクト'v'を解放し、プールから削除します
+
+  pool_alloc[_clear] は"new t"と、また、pool_alloc_array[_clear] は "new t[c]"と大体
+  同じものと言えます。また、pool_free は単一オブジェクトと配列に作用します。
+
+  global_resource_pool が一つ定義されており、グローバル割り当て用に使用されます。また、
+  上記の pool_* マクロと同等で、自動的にグローバルプールをターゲットにするマクロが使
+  えます。
+
+  さらに、割り当てのトラッキングが行えるよう、メモリモジュールが、ファイルと行番号パ
+  ラメータにアクセスするグローバル new/delete オーバーライドを定義します。今のところ、
+  トラッキングは MAME_DEBUG が有効なときだけ行われます。デバッグビルドでは、セッショ
+  ンの終了時に解放されていないメモリが全て出力されます。
+
+  emualloc.h には、malloc/free/realloc/calloc を無効にするための #define 定義がありま
+  す。これは、emualloc.h が emucore.h からインクルードされるためで、ほとんどのコード
+  で新型アロケータを強制的に使用することになります。ストレートな new/delete も動作し
+  ますが、これによる割り当てはトラッキングされないので使わないで下さい。
+
+  おなじみの auto_alloc_* マクロは上記のリソースプールモデルをマッピングするように変
+  更しました。running_machine はクラスとなり、リソースプールを包含します。これは、削
+  除時に自動でデストラクトされます。ドライバ作者さんは、全ての割り当てが auto_alloc_*
+  で行われるようにして下さい。
+
+  malloc/ralloc、または以前の alloc_*_or_die マクロを使用するドライバとファイル全てで、
+  auto_alloc_* か global_alloc_* マクロを使用するように置き換え。
+
+  astring と bitmap_t のシンプルなC++ラッパーを追加しました。auto_alloc_astring と
+  auto_alloc_bitmap で使用するには、正しいコンストラクタとデストラクタが必要なためで
+  す。
+
+  winalloc プレフィックスファイルへの参照を削除しました。osd_alloc と osd_free で実装
+  されたガードページ割り当て以外の機能は、ほとんどコアに移動しました。
+
+- darius.cとothunder.cにドライバデータ構造体とセーブステート追加。[Fabio Priuli]
+
+- ninjaw.c、slapshot.c、warriorb.c、wgp.cにドライバデータ構造体追加。[Fabio Priuli]
+
+- astringクラスラッパーを使いやすく、またスタックオブジェクトに使えるよう拡張。また
+  チェーン命令用のインタフェースも作成。さらに、以前のプレーンなC文字列を取るほとんど
+  の関数でシームレスに使えるようなconst char *へのキャストオペレータも追加。
+  [Aaron Giles]
+
+- astring使用部全てで、明示的な割り当て・解放の代わりに、スタックのオブジェクトを直接
+  使用するか、オブジェクト内の埋め込みを使うように変更。この結果、ぐちゃぐちゃしたメ
+  モリ管理コードを大量に整理。[Aaron Giles]
+
+- astring *を返す、または受けるインタフェースをastring &に変更。[Aaron Giles]
+
+- auto_alloc_astring(machine)を削除。代わりにauto_alloc(machine, astring)を使用。
+  [Aaron Giles]
+
+- ヘッダファイルの大幅クリーンアップ: [Aaron Giles]
+ - 中心となるヘッダ"emu.h"を作成; ほとんどのドライバ、デバイスから最初にこれをインク
+   ルードして下さい。このフィイルにはドライバ、またはデバイスで必要になるほとんどの
+   ファイルが含まれています。emu.hは、他のヘッダファイルから絶対にインクルードしては
+   いけないので注意して下さい。
+ - コアの全ファイル(src/emu)でemu.hを使用するよう更新
+ - 他のヘッダファイル内でインクルードされるような冗長なヘッダを大幅に削減
+ - コア以外のファイルの更新が完了するまで、driver.hがemu.hをマッピングするよう一時的
+   に変更
+
+- 直接インクルードとオブジェクト内でのアクセスができるように、tagmapにクラスラッパーを
+  追加。全ての使用元について、tagmapオブジェクトを埋め込んで、クラス経由で呼び出すよ
+  うに変更。[Aaron Giles]
+
+- machine内のデバイス、ポート、リージョン発見用の関数追加: [Aaron Giles]
+
+   machine->device("tag") -- 指定した名称のデバイス、またはNULLを返す
+   machine->port("tag") -- 指定した名称のポート、またはNULLを返す
+   machine->region("tag") -- 指定した名称のリージョンを返す
+
+  (machine->region() が返すのは、リージョンメモリへのポインタではなく、リージョンを
+   記述するregion_infoクラスへのメモリです)
+
+- デバイスタグをastringに指定。これにより、C文字列を明示的にフェッチするデバイスのプ
+  リントコードを大量にチェックする必要がありました(この問題を教えてくれたgccに感謝)。
+  [Aaron Giles]
+
+- RF5C68コアにPCMサンプルの終了とループコールバックを追加。[Barry Rodewald]
+
+- galaxoldの更新: [stephh]
+ - kkgalaxをckongmcに改名
+ - ckonggとckongmcのゲーム名を変更
+ - ckonggとckongmcのDIPスイッチと入力を修正
+ - ckongmcのメモリマップを更新
+
+- -listxml出力にmameconfigのバージョン情報を追加。[Oliver Stoneberg]
+
+-「グンペイ」の入力とサウンドを実装。[Luca Elia]
+
+- 新メンバ関数space()をdevice_configに追加。また短い定数名も追加(AS_PROGRAM, 
+  AS_DATA, AS_IO)。引数無しではspace()は、最初のアドレス空間を返します。一般的にこれ
+  が唯一の空間です。古いspace[]配列を参照していたデバイスを新関数に置き換え。
+  [Aaron Giles]
+
+-「グンペイ」の基本blitter実装。[Tomasz Slanina]
+
+-「グンペイ」で、ハードコードしたパレットテーブルの代わりにRGBペンを使うようにコンバー
+  ト。[Angelo Salese]
+
+- フォント読み込み時、全ての数字が必ず同じ幅になるように変更。[Aaron Giles]
+
+-「Victor 21」のニセプロテクトチェックを修正。[Angelo Salese]
+
+- prmsocr+クローンセットのアサート修正。whatsnewへの記述不要。[Fabio Priuli]
+
+-「サイバータンク」のプログラムROMとスプライトROMを再吸い出し。[Antonio Gonzalez Jr.]
+
+- Segherの"Unununium"にあるものを元に、SunPlus u'nSPコアをほぼ完全に追加。[Harmony]
+
+- 56ピン麻雀インタフェースとPsikyo SK-G001インタフェース基板について、alien_mame氏と
+  他の麻雀基板のドキュメントを元に、多くのコメントを追加。[PsikyoFan]
+
+-「ポーカーレディース」のクロック検証と、「麻雀学園」のZ80クロックを、他のMitchellハー
+  ドウェアゲームに合わせて6MHzから8MHzに変更。[Corrado Tomaselli]
+
+- i386: 様々なエミュレートモデルの正確さを向上。これにより(MESSで)CPU検知プログラムが
+  正しいCPUを検出するように改良。[Dirk Best]
+ - eflagsマスクを追加
+ - EAXとEDXレジスタの初期値を修正
+ - cpuid値を改良
+ - フィーチャーフラグの改良
+ - cr0レジスタの初期値を修正
+ - デフォルトで486がcpuid命令をサポートしないものに変更
+ - 無効な命令のときに致命的なエラーではなくトラップを発生するよう変更
+ - Intel CPUのDIV/IDIV命令について、未定義フラグの動作をエミュレート
+
+- SDLMAME: OS XとSDL 1.3 SVNサポート改良。SDLMAMEターゲットの自動検知をお試し下さい。
+  [Couriersud]
+
+- SDLMAME: -video softでBGRAのサポート。[couriersud]
+
+- sn76489とsn76489Aでの周期的ノイズの周期を修正; Colecovisionでの'smooth criminal'デ
+  モ音程や、dorunrunのBGM音程(waveformはそのまま、要作業); 実際のLFSRと周期ジェネレー
+  タの動作方法のせいで、ビット単位で正確にするにはさらに作業が必要。
+  [Lord Nightmare, Kold666, PlgDavid]
+
+- SDLMAME用makefileの改良: [couriersud]
+ - OS XでのTARGETOS検知を修正
+ - クロスコンパイル時にはTARGETOSをチェックしないで下さい
+ - 非Windowsターゲットについては、auto-detect PTR64をお試し下さい
+ - testkeysが再びビルドされるよう変更
+ - unixターゲットについては、.dependファイルをビルドするsdl.makに依存ルールを追加
+
+- PowerPC版MacOS Xで見つかったコンパイラバグを大量に修正。[R. Belmont]
+
+- ジェネリック型ポインタにリージョン割り当てを行い自動でコンバートするためのキャス
+  ティングオペレータをregion_infoクラスに追加。また、リージョンがNULLのときセーフな
+  bytes()メソッドを追加(例えば、machine->region("foo")->bytes()のときにfooが存在して
+  いなくてもクラッシュしないので便利)。[Aaron Giles]
+
+- device_configのregionフィールドをregion_info *に変更し、regionbytesフィールドを削除。
+  これらのフィールドを全てで新キャスティングオペレータとbytes()メソッドに更新。
+  [Aaron Giles]
+
+- device_configクラスにsubdeviceとsubregionメソッドを追加。これにより、デバイスとデバ
+  イス専用領域を簡単にクエリできます。デバイス接頭辞("devicename:")は自動で付加されま
+  す。[Aaron Giles]
+
+- YM2612: LFOとチャンネルクリッピングのより正確な実装。[Eke-Eke, Nemesis, R. Belmont]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Second Chance [Siftware]
+Multi Game (Tung Sheng Electronics) [Mariusz Wojcieszek]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+エキサイティングサッカー (Japan set 2) [Corrado Tomaselli]
+Super Bar [Brian Troha, David Haywood, Dumping Union]
+メガブラスト (US) [D. Beneke, hap, Smitdogg, Dumping Union]
+
+
+
+追加された未動作ゲーム
+----------------------
+Fun Station Spielekoffer 9 Spiele [Tomasz Slanina]
+Vega [David Haywood]
+Monza GP [Tomasz Slanina]
+Quarter Horse [Ruben Panossian, Angelo Salese]
+Vortex [tormod, Team Europe, Smitdogg, The Dumping Union]
+Bega's Battle [Angelo Salese]
+コンピュータクイズ 頭の体操 [Chack'n, Team Japump]
+Track & Field / ハイパーオリンピック (NZ Bootleg?) [Siftware, Tafoid]

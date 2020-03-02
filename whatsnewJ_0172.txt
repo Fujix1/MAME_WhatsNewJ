@@ -1,0 +1,474 @@
+0.172
+-
+
+MAMETestersの修正バグ
+---------------------
+- 06168: [クラッシュ/フリーズ] (neogeo.c) kof10th: 起動できない。(ajrhacker)
+- 06159: [クラッシュ/フリーズ] (triforce.c) triforce: OK前にクラッシュする。(Osso)
+- 06144: [クラッシュ/フリーズ] -video d3d -numscreens 2以上で起動するとMAMEがクラッシュする。
+- 06156: [インターフェイス] a5200,a7800,smspal,sms1,sms1pal,aes,vectrex,a400,a800,c64,c128: GUIのソフトリストで間違ったカセットが選ばれる。
+- 06152: [インターフェイス] 「その他のオプション」で「マウスポインタを表示する」の設定が常にOFFになってしまう。変更できない。(dankan1890)
+- 06147: [サウンド] (model2.c) daytona: サウンドテストで一部のBGMをかけようとすると音が止まる。(R. Belmont)
+- 06145: [DIP/入力] (astrocde.c) gorf and clones: ランプ出力が間違っている。(David Haywood)
+- 06143: [ドキュメント] 新UIのマスタセットはオリジナルではない。(dankan1890)
+- 02389: [DIP/入力] (nbmj8688.c) housemnq, housemn2, bijokkog, bijokkoy: LCD麻雀ゲームでは、スタート1キーが2人プレイ、Xキーが1人プレイのスタートになる。(cuavas)
+
+
+
+ソースの変更点:
+---------------
+- BGFXレンダラ用のデータ駆動型のシェーダシステム追加。[Ryan Holtz]
+ * 任意のパス数設定可能。パス間の接続も任意
+ * デフォルトで3つのエフェクトを設定: default, unfiltered, hlsl
+   * default: シンプルなバイリニアの拡大
+   * unfiltered: シンプルなニアレストネイバーの拡大
+   * hlsl: Direct3D HLSLシェーダのほぼ再実装。ブルームとベクタは未実装
+ * -bgfx_screen_chainsで使用したい"シェーダチェーン"を選択する
+ * スライダコントロールで指定リンクの調整、セーブ、ロードを行う。将来的にプリセット追
+   加予定
+ * JSONのフォーマットルールはbgfx/chains/hlsl.jsonとbgfx/hlsl/blit.jsonを参照
+ * 詳しくはオフィシャルのMAMEドキュメントを参照
+
+- スキャンラインシミュレーションを改良。[ImJezze]
+ * スキャンラインの濃さを変更。1.0は完全に黒となる。以前と同じ結果にするには、古い値
+   を半分に設定する。
+ * スキャンラインの高さは、下層色の明るさによって変わる
+ * スキャンラインの明るさ量とオーバーライドをスキャンラインの暗さに依存するよう変更
+ * "Scanline Screen Height"を"Scanline Screen Scale"に、また"Scanline Indiv. Height"
+   を"Scanline Height"に改名
+ - ブルームレベルのアライメントを修正
+   * ブルームレベルのターゲットの領域を修正しアライメントが大幅改善。特に低解像度なゲ
+     ームで効果大。そのため、以前に比べて現在のブルーム設定は効果が低減した
+ - 画質とパフォーマンスの改良
+   * HLSLで2のn乗ではないサイズのターゲットサーフェスを使うよう変更(R300/R400/NV30以
+     前のグラボで互換性が確保できない)
+   * HLSLのターゲットサーフェスを画面キャンバスのサイズに設定
+   * HLSLのプリスケールファクタ削除
+   * テクスチャを画面のキャンバスサイズにプリスケーリングするとき、シャープなバイリニ
+     ア補間を使うように変更。[Themaister]さんの実装より
+   * 全体のパフォーマンス改善。グラフィックハードによって5-50%の向上。プリスケール値
+     がさらに高かった場合はさらに改善
+   * スクリーンモードでのシャドウマスクの画質向上
+   * ブルームレベル調整のハーフソーステクセルオフセット修正
+   * ./hlsl/artwork_supportフォルダ削除
+   * プリスケール後の全シェーダを画面座標をベースにするよう変更(ラスタとベクタパス双
+     方でテクスチャ座標で動作するための対策)
+   * フルモードでアートワークや複数画面のためにディストーションシェーダを無効化。
+     クロップモードのアートワークには影響しない(ラスタとベクタのパスが両方ともテクス
+     チャ座標で動作するまでの対策)
+
+- at: ATマザーボードデバイス作成。PCIとPS/2マシンを独自ファイルに分離。[Carl]
+
+- UI [Maurizio Petrarota]
+ * UI_CONFIGUREボタン(デフォルトはTABキー)でユーザインタフェースのナビゲートができる
+   ように改良
+ * カバー画像コレクションをサポート
+ * gameinit.datをサポート
+ * 起動時のROMなしチェックを改善
+ * 縦画面でのレンダリングを改良
+ * マウスオーバー時のハイライトが無かったのを修正
+ * ソフトウェアリストの検索修正
+ * パス変更後のDATリロード修正
+ * BIOSサブメニューからのソフトウェアロードに失敗するのを修正
+ 
+- ブルームエフェクトの改良 [ImJezze]
+ * ブルームの領域計算をレンダターゲット生成時に1度だけ行うように変更
+ * 非ベクタ画面のにじみ幅を低減
+ * ソースタイルモードのためのシャドーUVオプションを実装
+
+- apple2gs.cpp: 341-0749 ROMの吸い出しと、341-0728 Apple IIGS ROMの確認。
+  [Brian Troha]
+
+- 型セーフなC++ printfアナログとvector-backedのiostream。[Vas Crabb]
+ * C99、glibc、SUS、MSVCRTフォーマット仕様をサポート
+ * %sのストリーム出力オペレータでどのオブジェクトもフォーマット可能
+ * strformat、strprintf、strcatprintfを置き換え
+ * logerrorとpopmessage用の型セーフテンプレートに移行
+ * logerror/popmessageへのコールから不要になったI64FMTを削除
+ * ほとんどの箇所からcore_i64_format関数を削除
+
+- ファイル処理コードを大幅にモダン化。[Vas Crabb]
+ * core_file、osd_file、avi_fileとポリモーフィッククラスを作成
+ * osd_fileの実装部を共有可能なOSDモジュールコードへ移動
+ * zip/7zのarchive_file実装をコモンAPI化
+ * 明示的なクローズ関数からデストラクタへ移行
+ * APIでスマートポインタを提供するよう変更
+ * Pass std::string though lots of APIs rather than C string pointers
+ * ユーザスペースファイルバッファのフラッシュ用メソッド追加
+ * archive_fileの生成・破棄をスレッドセーフ化
+ * zip ECDのウォーク中のバッファオーバーラン修正
+ * ファイル処理コードのリソースリークを修正
+ * Windowsで不正なエラーコードが返されたときのエッジケースを修正
+ * Solaris PTY実装
+ * SDL OSDで~/$FOO/${BAR}拡張をサポート
+ * emu_fileでzipと7zアーカイブを同等に処理
+ * ROM/アートワーク/チートなどをロードするとき、CRC+パス、CRC+部分パス、CRC、パス、部
+   分パスでアーカイブを検索
+ * zippath API経由で7zをサポート
+ * フルパスローディングとメディアファイルマネージャで7zをサポート
+ * romcmpツールで7zをサポート
+
+- OSDフォントAPIを改良。[Vas Crabb]
+ * フォントハンドラをデストラクト時にリリース
+ * フォント列挙をOSDに移動。SDL、Windows、OSXで実装
+ * sdl_ttfのあるUnicode BMP外文字の描画修正
+ * sdl_ttfのTTCフォントサポート
+ * フォント表示名と設定名を分離
+ * OSXフォント設定名をPostScriptのフェイス名に設定
+ * sdl_ttf設定名をフォントファミリ|スタイルに設定
+ * ui_smallフォントをAdobeグリフ名のBDFファイルとして提供
+
+- INPのリードライトでのスタックスマッシュバグ修正と、INPヘッダのI/Oコードのカプセル化
+  を改良。ゼロフレームな記録でのDBZが発生するのを修正。[Vas Crabb]
+
+- メディアロードで内部ファイルマネージャから新しい画像を生成するときのファイル名の問
+  題を修正。(thanks BIOS-D for reporting) [Vas Crabb]
+
+- free() / delete / delete []エラーの不一致を多く修正。[Vas Crabb]
+
+- primary.fxを整理。[ImJezze]
+ * primary.fxをベクタバッファ、画面、UIパスの3つに分割
+ * シェーダのregister_texture()をtexture_info生成部の外に移動
+ * register_texture()にrender_primitiveパラメータ追加; 現在は未使用
+ * その他未使用のregister_texture()定義を削除
+
+- IGS009ドライバの更新: 不足していたPPI8255デバイス追加と全ての入出力を同デバイス経由
+  にするよう変更。「Grand Prix '98」のメモリマップを継承。[Roberto Fresca]
+
+- 入力ルーチンをモジュールとして書き直し。[Brad Hughes]
+
+- IGS Jingle Bellの全セットの再構成。ハードウェアについてのテクニカル情報も追加。
+  [Roberto Fresca]
+
+- N64の変更と改良。[Happy]
+ * MemPakフォーマットコードの、ドキュメントを改良
+ * VIブランクビデオモード時、画面タイミング調整を回避
+ * 修正: PIFはステータスバイトのトップビットのみクリアする模様
+ * 修正: DD read fail needs to mask against head as well as track.
+
+- toypopのスプライト位置が反転していたのを修正。[Katsuhiko Kagami]
+
+- crazybonの改良。[Vas Crabb, Ioannis Bampoulas]
+ * マニュアルを元にDIPスイッチのラベル名とデフォルト設定を更新
+ * リール停止ボタン実装とレイアウトへの追加
+
+- Dyna製の「Cherry Master '99」オリジナルQL-1 V9B.00セット追加。
+  [Vas Crabb, Ioannis Bampoulas]
+ * 既存セットをcmast99bに改名 - これはDynaの名前を消したハック版
+ * マニュアルを元にDIPスイッチ設定とデフォルトの追加。未確認
+ * 正しいROMのロードを確認
+ * ノート追加。入力テストへの入り方など
+
+- newbrain: COP内部ROMを吸い出し。[Chris Despinidis] 
+
+- newbrain: ドライバを現在の基準にモダン化。[Curt Coder] 
+
+- cop400: MICROBUSインタフェース実装。[Curt Coder]
+
+- peplus.cpp: cap1144.u50の吸い出し。[Badbaud]
+
+- segam1audio: ROMマッピング(MT6147)修正とオーサーシップの訂正。[R. Belmont]
+
+- Butterfly Dream 97: 専用のマシンドライバ作成。グラフィックバンク1を完全にデコード。
+  [Roberto Fresca]
+
+- Butterfly Dream 97: グラフィックバンク2のグラフィックをデコード。[Roberto Fresca]
+
+- NoteTaker: マルチプロセッサ関連のアドレスをさらにドキュメント化。アドレスマップの問
+  題を修正。[Lord Nightmare]
+
+- HLSLプリセット [ImJezze]
+ * ラスタ画面とベクタ画面用の汎用プリセット追加
+ * ゲームボーイ(モノクロ液晶)とゲームボーイアドバンス(カラー液晶)用の専用プリセット追
+   加
+
+- ibm5170.xml: SICOSマウスドライバとSICOS Paint追加。[Curt Coder]
+
+- Super Poker: 不足していたPPI 8255追加と入出力の経由。3super8にはPPI初期化ルーチンが
+  あるが使用されていない。またドライバのクリーンアップとテクニカルノート追加。
+  [Roberto Fresca]
+
+- Frankie Dettori's 7th Heaven用レイアウト追加。[John Parker]
+
+- NoteTaker: IOCPU I/Oレジスタをさらに実装。IOCPUとEmulatorCPUのリセット機能を分離。
+  [Lord Nightmare]
+
+- NoteTaker: ドキュメントをさらに更新。EmulatorCPU用にコメントアウトしたI/Oマップ追加。
+  [Lord Nightmare]
+
+- リライセンシングの理由により「スーパークロスII」ドライバを書き直し。[Angelo Salese]
+
+- NoteTaker: DAC、DACタイマ、DAC FIFOを実装し、BIOS起動時のビープ音動作。間違っていた
+  ポラリティステータスビット修正。フレームバッファが生きている箇所についてドキュメン
+  ト化。ブートプロセスのドキュメント改良。VSync割り込み実装。[Lord Nightmare]
+
+- Frankie DettoriのレイアウトをMAMEの暗いスタイルに更新。[John Parker]
+
+- svi318: ドライバを書き直し。SVI-318とSVI-328システムをサポート。また、以下の拡張オ
+  プションをサポートするスロットシステムを追加:
+  * SV-601 スーパーエクスパンダ
+  * SV-602 シングルスロットエクスパンダ
+  * SV-603 Colecoゲームアダプタ(コントローラは未実装)
+
+  スロット拡張カードは標準的なSpectravideo拡張スロットをサポートする。以下のカードに
+  ついては完全にエミュレートしている:
+  * SV-801 ディスクコントローラ(ディスクドライブ2台)
+  * SV-802 セントロニクスプリンタインタフェース
+  * SV-803 16kメモリ拡張
+  * SV-805 RS-232インタフェース
+  * SV-806 80カラムカード
+  * SV-807 64kメモリ拡張 [Dirk Best]
+
+- NoteTaker: 画面のフレームバッファ実装。描画が起こるように偶数・奇数列の割り込みをハ
+  ック。[Lord Nightmare]
+
+- NoteTaker: BIOS 1.5の別なタイポ修正により不具合改善でフロッピーから読み込み試行に修
+  正。ただしFDCは未実装。[Lord Nightmare]
+
+- r9751の改良 [Brandon Munger]
+ * DMAの問題をさらに修正、ログ追加
+ * PDCフロッピーコマンドトリガを正しいレジスタに移動
+
+- 汎用デバッガコマンドをOSXのグローバルメニューバーに追加。[Vas Crabb] 
+  Copy Visibleで不定期に起こるクラッシュも修正。copy visible、paste、ブレークポイント
+  のトグル、ビューオプションはウィンドウのコンテキストメニューを使う必要がある。
+  デバッグ/Runメニューはデバッガウィンドウにフォーカスがある場合のみ動作するので、
+  Breakは以前ほど出番がないと思われる。
+
+- floppy: wd_fdc初期リストアとフロッピーリセットの関係を修正。[O. Galibert] 
+
+- IGS Super Poker: US/UAセット全てを解読。ただしハードウェアの違いによりまだ動作せず。
+  I/OはPPI8255×2個ではなくIGSカスタムICで動作している。[Roberto Fresca]
+
+- NoteTaker: FDCとフロッピードライブを接続。[Lord Nightmare]
+
+- NoteTaker: DiskRegレジスタの実装開始。[Lord Nightmare]
+
+- netlistの更新: [Couriersud]
+ * c++11への移行開始
+ * std::vectorのplistベース
+ * pstackをstd::stackに置き換え
+ * pnamed_listを削除
+ * c++の"for each"を多くの場所で使用
+ * "time bombs"を2つ修正
+
+- コアレンダラに整数倍のスケーリング実装: [Calamity]
+ * -unevenstretchオプションをコアレンダラに移動
+   -unevenstretch:   非整数倍拡大(デフォルト)
+   -nounevenstretch: 整数倍拡大
+ * コアレンダラに新オプション追加:
+   -unevenstretchx:  横軸方向は非整数倍拡大、縦軸方向は整数倍拡大
+   -intscalex:       横軸方向の整数拡大率、デフォルトは0(自動)
+   -intscaley:       縦軸方向の整数拡大率、デフォルトは0(自動)
+
+- Symbolics 3600: FEP PCBの画像を元にドキュメント追加。[Lord Nightmare]
+
+- Symbolics 3600: ROMマッピング修正、PLD/PLA/PALラベルをさらに追加。[Lord Nightmare]
+
+- TTFフォントの多く(CJKを含む)は"Regular"という属性を持っていないため、"bold"、
+  "bold italic"、"italic"、"regular"の各属性が見つからない場合、最初のフォントをロー
+  ドするように修正。[Couriersud]
+
+- Neo-Geoの更新: [JacKc]
+ *「ASO II」「バーニングファイト」初期プロトタイプ版の正しいROMラベルと配置を追加
+ *「ラストリゾート」プロトタイプのROM配置追加
+ * alpham2pをAES VERSIONにマーク
+ * burningfpをAES VERSIONにマーク 
+ * lresortpをMVS VERSIONにマーク
+
+- shanghai.cppでモダン型のhd63484ビデオデバイスを使うようコンバート。[Angelo Salese]
+
+- rawinputモジュール用のrawinput_device_improve_name関数が複雑すぎたので書き直し。ま
+  た、coverityで検出した入力モジュールの不具合も修正。[Brad Hughes]
+
+- Raspberry PIのクロスコンパイルをサポート。[Miodrag Milanovic]
+
+- pcat_dyn: toursolにサウンドを追加して動作可能に指定。[Carl]
+
+- Symbolics 36xx: エミュレート対象のモデルに基づいてドライバ名をs3600からs3670に変更。
+  特許よりメモリマップさらに追加したが3670には完全にマッチしていない模様。さらに検証
+  が必要。[Lord Nightmare]
+
+- tms9927/crt5027コアにサニティチェック追加。[Lord Nightmare]
+
+- ソフトウェアリストにカセット追加(crvision): Tennis (Dick Smith, earlier, 6k Cart)
+  [Luca Antignano, Herman Heritage]
+
+- apple3の更新: [R. Belmont, robj]
+ * RAMはFFCxにすでに存在しているので、以前のハックは削除
+ * VIAはPRE1M(1MHz)でクロック付けし、Confidenceテストを修正
+ * ジョイスティックの読み込み修正: SandmanとAtomic Defenseが動作
+ * HBlank入力をVIA 1 PB6に実装
+ * ラスタ分割サポート: Atomic Defenseがプレイ可能(ジョイスティックBを選択)
+ 
+- symbolics.cpp: Symbolics Inc. Lispマシンのいろいろなモデルのリスト追加。
+  [Ian F./trintr0n]
+
+- NAOMI/Triforce/Chihiro: ドキュメント更新。[f205v, MetalliC]
+
+- コアレンダラに整数スケーリング実装。[Calamity]
+
+- Coco Loco: テクニカルノート追加。[Roberto Fresca]
+
+- nbmj8688の改良: [Vas Crabb]
+ * LCDありのカクテルモードでプレイヤー2のスタートボタンマッピングを改良
+ * LCDありで2人プレイ時、反転したP2の表示をカクテル筐体のサイドからよく見えるよう改良
+ * livegalのDIP配置追加
+ * 以下のゲームのDIPスイッチの機能、位置をドキュメント化:
+    bijokkoy, bijokkog, housemnq, housemn2, livegal, mcitylov, iemotom, ryuuha, 
+    kanatuen, kyuhito, idhimitu
+ * アナライザスイッチをトグル動作に変更
+
+- seganinjセットのROM名修正: [Mathieu Patard]
+ * さらにrev Aの正しいスプライトROM追加 (プログラムROMはrev. Aで、以前吸い出された時
+   にこのROMはミスされた模様)
+
+- Netlist: コードのメンテ [Couriersud]
+ * netlist_analog_tをanalog_tに改名
+ * オブジェクトモデルを整理
+ * メンバ変数へのアクセスを削減
+ * pvector<analog_net_t::list_t>をグループに使用
+ * coverityの修正
+
+- Symbolics 3670: FEP/NFEP基板のPALとPROMについて、特許にある等価なPALとPROMなものに
+  ついてメモを追加。[Lord Nightmare]
+
+- Symbolics 3670: 特許のPALを元に、FEP v24 I/Oメモリマップをさらにトレース。
+  [Lord Nightmare]
+
+- apple3: ソフトウェアリスト更新開始。[R. Belmont]
+
+- SMSソフトのドキュメントと入力デバイスの改良。[Enik]
+
+- apple2: AE PCトランスポータカードのリバースエンジニアリング開始。[R. Belmont]
+
+- AndroidでMAMEを動かすための準備。[Miodrag Milanovic]
+
+- sliders.cpp: Alt+矢印で値を最大値と最小値にできるよう改良。[Ryan Holtz]
+
+- md_slotデバイスバスのエンディアンをビッグに変更。medadrivのチートが修正。[Pugsy]
+
+- Z80SCCボーレート生成器のサポート。[Joakim Larsson]
+
+- svga_s3: VRAMの境界にハードウェアポインタがあるとクラッシュする可能性があったのを修
+  正。XF86_S3のビューポートスクロール修正。[Barry Rodewald]
+ 
+- atarittl.cpp: Stepplechase用のBugle ROMを再吸い出し。[Andrew Welburn]
+
+
+翻訳追加・更新
+--------------
+Chinese (Traditional / Simplified) [YuiFAN]
+Dutch [Wilbert Pol]
+French (Belgium) [Mevi]
+German [RafTacker, rootfather]
+Greek [BraiNKilleRGR]
+Italian [AntoPISA, Angelo Salese, Fabio Priuli]
+Japanese [Katsuhiko Kagami, Vas Crabb]
+Portugese (Brazil) [Ashura-X]
+Russian [MetalliC]
+Serbian (Latin/Cyrillic) [Damjan, Miodrag Milanovic]
+Spanish [A.Viloria]
+
+
+新規追加、またはNOT_WORKING状態から昇格したマシン
+-------------------------------------------------
+Lock On (Philko) [marcus, David Haywood]
+Chicken Draw (2131-04, U5-01) [Kevin Eshbach, The Dumping Union]
+Fire Ball (FM Work) [Team Europe, David Haywood]
+Android (early build?) [Ryan Holtz, David Haywood]
+Magical Touch [Carl]
+Tournament Solitaire (V1.06, 08/03/95) [Carl]
+Conic Electronic Football [hap, Sean Riddle]
+学研 FX-Micom R-165, aka Tandy Radio Shack Science Fair Microcomputer Trainer
+  [hap, Sean Riddle]
+Castle Toy Einstein [hap, Sean Riddle]
+Coleco Head to Head Basketball/Hockey/Soccer [hap, Sean Riddle]
+バンダイ バーガータイム [hap, Kevin Horton, Rik]
+バンダイ ペンゴ [hap, Kevin Horton, Rik]
+バンダイ ザクソン [hap, Kevin Horton, Rik]
+学研 ジャングラー [hap, Kevin Horton, Rik]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したクローンセット
+---------------------------------------------------------
+バツグン (Korean PCB) [Alex Cmaylo]
+Player's Edge Plus (X002252P+XP000050) Shockwave Poker [BrianT]
+Player's Edge Plus (X002309P+XP000038) Triple Double Bonus Poker [BrianT]
+プレアデス (Niemer S.A.) [pako ikarihardmods, Roberto Fresca]
+アームドポリス バトライダー (Hong Kong) (Mon Dec 22 1997)
+  [Trap15, The Dumping Union]
+Jingle Bell (EU, V141) [Roberto Fresca, Ioannis Bampoulas]
+Knock Out!! (bootleg, set 3) [Paul Hogger]
+カベール (UK, Trackball) [caius]
+Hipoly (ハイパーオリンピック海賊版) [Roberto Fresca, Peter Weuffen]
+ラストリゾート (プロトタイプ) [Chris Ransley]
+クレイジークライマー (Spanish, Rodmar bootleg) [A.R.P.A.]
+Buccaneers (set 3, harder) [system11]
+青春スキャンダル / My Hero (海賊版, 315-5132 encryption) [Andrew Welburn]
+Coco Loco (set 2) [AUMAP, Roberto Fresca]
+メジャータイトル2 (World, alt sound CPU) [Mathieu Patard]
+パックマン (SegaSA / Sonic) [A.R.P.A.]
+Come Come (Petaco SA bootleg of Puck Man) [Manuel Giron]
+Come-Cocos (Ms. Pac-Man) ('Made in Greece' Herle SA bootleg) [Heckler]
+ムーンクレスタ (SegaSA / Sonic) [Roselson (from AUMAP)]
+パックマン (Moon Alien 'AL-10A1' hardware) [caius, Joachim Puster]
+ウェーブランナーGP (original, Rev A) [Arzeno Fabrice]
+スパルタンX (Tecfri hardware bootleg) [farzeno, rockman, David Haywood]
+JuJu伝説 / Toki (US, prototype?) [Kevin Eshbach]
+マッハ3 (set 2) [Matt Ownby]
+マッハ3 (set 3) [??]
+Apple IIgs (ROM03 late prototype?) [Brian Troha]
+スーパービシバシチャンプ (ver KAB, 3 Players) [Skate]
+パックギャル (set 2) [kurobee]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Lucky Bar (W-4 with mc68705 MCU) [Roberto Fresca, Ioannis Bampoulas]
+Cherry Angel (encrypted, W-4 hardware)
+  [Roberto Fresca, Ioannis Bampoulas]
+Sharp Wizard OZ-750 [Sandro Ronco]
+Butterfly Dream 97 / Hudie Meng 97 [Roberto Fresca, Ioannis Bampoulas]
+Super Poker (v306US) [Roberto Fresca, Ioannis Bampoulas]
+Symbolics 3600 [trinitr0n/Ian F., Lord Nightmare]
+Cherry Master '99 (V9B.00) [Vas Crabb, Ioannis Bampoulas]
+Konami 魂斗羅 (handheld) [hap, Sean Riddle]
+Super Game (セガマスターシステム マルチゲーム海賊版) [Astroblaster] (吸い出し不完全)
+Game Tree (PSE) [Andrew Welburn]
+
+
+新規追加された未動作クローン
+----------------------
+Coco Loco (set 3) [AUMAP, Roberto Fresca]
+Super Pokerセットいろいろ
+ - (v205US), (v203US), (v200UA), (v102UA) [Roberto Fresca, Ioannis Bampoulas]
+ - (v114IT) [Mirko Buffoni, Roberto Fresca]
+ - (v116IT-MX) [MiX, Roberto Fresca]
+Jingle Bellセットいろいろ
+ - (US, V157), (EU, V155), (EU, V153) [Roberto Fresca, Ioannis Bampoulas]
+忍者プリンセス / Sega Ninja (315-5113) [Mathieu Patard]
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+tutor.xml:
+Super Bike (Jpn) [Jim]
+Battle Fighter (Jpn) [Jim]
+4-nin Mahjan (Jpn, set 2) [Jim]
+
+crvision.xml
+Tennis (Dick Smith, earlier, 6k Cart)  [Luca Antignano, Herman Heritage]
+
+apple3.xml
+Atomic Defense [R.Belmont]
+Tic-Tac-Toe [R.Belmont]
++ more
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+gamate.xml:
+GP Race [Peter Wilhelmsen]

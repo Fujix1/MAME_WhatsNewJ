@@ -1,0 +1,284 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<link rel="stylesheet" href="../mame.css" type="text/css">
+	<script type="text/javascript" src="../mail.js"></script>
+	<script type="text/javascript" src="../amazonian.js"></script>
+	<title>MAME E2J - What's New-J 0.130u1</title>
+</head>
+<body>
+
+<div id="topshadow"></div>
+
+<div id="wrapper">
+
+
+<!-- title -->
+<div id="title">
+</div>
+
+<!-- Navigation bar -->
+<ul id="navbar">
+	<li id="nav1"><a href="http://www.e2j.net/">Home</a></li>
+	<li id="nav2"><a href="http://www.e2j.net/downloads.html">Downloads</a></li>
+	<li id="nav3"><a href="http://www.e2j.net/wn/">What's New J</a></li>
+	<li id="nav4"><a href="http://www.e2j.net/bugs/index.php" class="stay">Bug Reports J</a></li>
+	<li id="nav5"><a href="http://www.e2j.net/bbs/bbs.cgi">Forum</a></li>
+	<li id="nav6"><a href="javascript:mail()">Contact</a></li>
+</ul>
+
+
+<!-- -->
+<div id="fullwidth">
+	<div class="caption">MAME - What's New-J 0.130u1.txt</div>
+	<div class="main">
+<div class="wn">
+0.130u1
+-------
+
+重要なお知らせ: このリリースで、CHDのフォーマットが変更されることになりました。CHDの
+ハッシュにキーメタデータを追加するのが主な目的です。これにより、メタデータの有効性が
+確保され、不正な使用を防ぐことができます。
+
+この変更で、最初に影響があるのは、これまでのCHD差分ファイルが全て無効になることです。
+そのため、diffディレクトリにあるファイルは全て削除して下さい。
+
+次に、既存のCHDについてもハッシュが間違っているという警告が出るようになります。これま
+でのCHDでも問題なく動作するので、この警告を気にしないなら特に何もする必要はありません。
+これが気になる場合は、次のコマンドでCHDを更新できます:
+
+   chdman -update <chdfile> <newchdfile>
+
+この作業には時間がかかりますが、ドライバで指定されいてる新しいチェックサムに合うCHDが
+出力されます。
+
+
+
+MAMETestersの修正バグ
+---------------------
+- 03017: [クラッシュ/フリーズ] bmfinal: Cutting Edgeのロゴ表示後か、コイン投入後にクラッシュする。
+         (Phil Bennett)
+- 02875: [サウンド] Any Game that uses AY-3-8910: AY-3-8910のエンベロープについての修正で、
+         逆にエンベロープの長さが変になっている。(couriersud)
+- 03026: [グラフィック] retofinv, retofin1, retofin2: 残機数が表示されない。(Pierpaolo Prazzoli)
+- 02981: [チートシステム] CHEAT.C: MAX_ARGUMENTSが動作しない。(Pugsy)
+- 00827: [グラフィック] wc90b1, wc90b2: クレジット表示画面で、実機ではスタジアムの上部分を表示する。
+         MAMEではフィールドの真ん中。(robiza)
+- 00230: [グラフィック] troangel: タイトル画面の黒い四角は実機では表示されない。(robiza)
+- 03018: [サウンド] f1gpstr2: サウンドが出ない。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+- winrun、winrun91、driveyesのC140 ROMロードを修正。[Phil Bennett]
+
+-「Champion Italiank PK」blueボード追加と、「Champion Italian PK」greenボード(元は
+  citalian)の昇格と、「Champion Italian Cup」(元はcitaliana)をGAME_WORKINGステートに
+  変更。[Mirko Buffoni, David Haywood]
+ - cpokerpkを追加(基板の色から、CPK blueボードと言われる)
+ - citalianをcpokerpkg(greenボード)に改名
+ - citalianaをcitalcpuに改名
+ - PALも復号処理追加で、全ゲームプレイ可能
+ - 入力ポートとグラフィックレイアウトで、他同様に6つのビットプレーンを使うよう変更
+ - number10とcpokerpkの表示更新で透過を使用しないように変更
+
+- CHDのフォーマットをバージョン4に更新。チェックサムは、RAWデータとメタデータに分けて
+  計算して保存されます。また、メタデータもデフォルトでチェックサムが取られます。
+  [Aaron Giles]
+
+- chdmanで汎用のメタデータ追加システムをサポート: [Aaron Giles]
+   chdman -addmetatext <chdfile> <tag> [<index>] <sourcefile>
+   chdman -addmetabin <chdfile> <tag> [<index>] <sourcefile>
+
+- CHDチェックインタフェースで、検証と修正に必要な全てのデータを含む構造体を返すように
+  変更。[Aaron Giles]
+
+- NeoGeoの更新。[Johnboy]
+ - maglordh - p1の名称をチップラベルに合わせて訂正 (MichaelNet)
+ - meglordhをmeglord (MVS)に、maglordをmaglordh (AES)に改名
+ - whp - チップラベルに合わせてROM名称を訂正 (MichaelNet)
+ - kof2001 - p ROMをチップラベル名に訂正; ノート追加 (MichaelNet)
+ - mv1c BIOS追加。再吸い出しと再チェックが必要
+ - ドキュメントを更新 (neogeo.c)
+ - cyberlip - 正しいm1を追加 (Guru/Smitdogg)
+ - eightman - m1からBAD_DUMPを削除。正しいモノと判明 (Guru/Smitdogg)
+
+-「Casino Winner」と「Royal Casino」ドライバを統合。[Angelo Salese]
+ *「Royal Casino」の色修正
+ * 画面反転をサポート
+ *「Casino Winner」を「Royal Casino」のクローンセットに変更
+ * ドライバのクリーンアップ
+
+-「ミッドナイトランディング」のビットプレーンを修正。[Angelo Salese]
+
+- PGMの更新: [Xing Xing, David Haywood] 
+ - kov2p205、martmascのROMセットを追加
+ - ゲーム名称を修正
+ - kov2で、試験的なプライオリティ修正
+
+- cdrom.cでメタデータのリード・ライト関数が見えるように改良して、chdmanでそれを使用す
+  るように変更。また、chdmanで旧スタイルのメタデータをパースして、新スタイルにコンバー
+  トするように変更。[Aaron Giles]
+
+- deco MLCドライバのサウンド不具合を修正。[Angelo Salese]
+
+- olds100aに試験的なプロテクトシミュレーション追加。[XingXing]
+
+- NeoGeoの日本版旧BIOSを追加。[Corrado Tomaselli]
+
+-「カウンターステア」を改良。[Angelo Salese]
+
+- 新関数core_fload()を追加。これは、割り当てたバッファにファイルをロードします。
+  src2html、regrep、chdmanのツールで必要に応じてこの関数を使うように更新。
+  [Aaron Giles]
+
+- f1gpstr2のサウンド不具合を修正。[Phil Bennett]
+
+- sfbonus.cに、rom_load_optionalを使用したデフォルトのnvramを追加。[David Haywood]
+
+- raycrisisで必要なvideo/psx.cのマイナーな変更。[David Haywood]
+
+-「ヘビーユニット」のメインCPUバンク切り替えを修正。これにより、アトラクトモードでの
+  敵出現を修正。 [Mamesick]
+
+- pzletimeにテキストタイルマップのちらつきを追加。これにより、選択したオプションが見
+  えるように修正。[Pierpaolo Prazzoli]
+
+- CPUコアでも他のデバイスと同様にget_safe_token()パターンを使用するように変更。
+  [Aaron Giles]
+
+- System16のアップデート。[kanikani]
+ - これまで未使用になっていたボタンを追加。マニュアルによると、未接続だが、プログラム
+   的には動作するとのこと。「テトリス」のボタン2で回転できるなど
+
+-「カウンターステア」で更に進展。[Angelo Salese]
+
+-「Jumping Break」の基板レイアウトと追加情報を追加。基板上に28MHzのクリスタルに合わせ
+  て、サウンドクロックを修正。「Super Lup Lup Puzzle」には14.318180MHzのクリスタルあ
+  り。F-E1-16-0xx基板ベースのゲームの順番に合わせて、ROM定義部を整理。[Brian Troha]
+
+- troangel: ラインスクロールのラッピングを改良。スクロールのオフセットは、LOWバイトと
+  HIGHバイトで分割。[robiza]
+
+- NEC VR4300/4310 CPUをサポート。[R. Belmont]
+
+-「スーパークラウンズゴルフ」のパレットRAMを修正。テキスト背景を実装。[Angelo Salese]
+
+- CHDのハッシュを更新。[Yasuhiro Ogawa, Aaron Giles, David Haywood]
+
+- skullfngにデフォルトEEPROM追加で、デフォルトでの壊れ具合が緩和(これ無しでは起動しな
+  い)。[David Haywood]
+
+- wc90b1、wc90b2: 前景と背景の縦スクロール修正。[robiza]
+
+- toaplan2ドライバのマルチスプライトビットを実装。[robiza]
+
+- multfish.cのスタートキーを通常のキー(1)に変更と、セットの追加。[David Haywood]
+
+- chdman -extractで、論理サイズを切り捨てないバグを修正。[Aaron Giles]
+
+-「ストレスバスターズ」で、サウンドRAM拡張エリアに猛烈にアクセスしないように変更。
+  [Angelo Salese]
+
+- mamedriv.cファイルの多くのドライバについて、記述と日付の改善。[Yasuhiro Ogawa]
+
+-「バギーボーイ」のスタートカウントダウン音バグを修正する小ハック追加。[Phil Bennett]
+
+- Naomiドライバにアイドルスキップと新セットを追加。[David Haywood]
+
+-「バーガータイム」: 実機基板で計測したレジスタ値を追加。[Anoid]
+
+- galaxianドライバの音量調整。[couriersud]
+
+- gyrussドライバの音量調整とDCコンポーネントの削除。[couriersud]
+
+- AY-3-8910の改良: [couriersud]
+ *「ジャイラス」の不具合修正
+ * AY-3-8910のRUとRDを計測
+ * SwitcherCADの、ZX Spectrumオーディオ回路をモデル化と、AY-3-8910用にレジスタ値を使
+   用
+
+- MIPS III: ディレイスロット実行前にRAを更新。[R. Belmont]
+
+- galaxiaとastrowarに入力追加。「Galaxia」はほぼプレイ可能。
+  注意: コイン投入後、反応するまでに数秒かかります。[Robbbert]
+
+- OS Xでのldpalyerのビルドを修正。CUSTOMサウンドモジュールが無くなったため、独自の判
+  断でこれをWAVEに変更。また、OS Xのリンカに文句を言われるので、メインのmakefileから
+  -all_loadフラグを削除。[Vas Crabb]
+
+- PPC64 Linuxでのビルドを修正(これにより、OS XとAIXでのブランチプレディクションが少し
+  乱れますが、PPC64のOS Xはもうリリースされていないし、AIXでMAMEをビルドする人はいな
+  いでしょう)。[Vas Crabb]
+
+- ATTR_NONNULLマクロのNULLチェックで、最初の引数をチェックせずに、引数をパラメータ化。
+  このためには、C99用variadicマクロがサポートされている必要があります(MSVC2005とGCC4
+  ではサポートされています)。[Vas Crabb]
+
+- Z80PIO: PIO mode 3で、ポートからハードウェアに出力するとき、マスクで定義されるビッ
+  トのみを出力。MAMEはこれまで全部出力していました。[Robbbert]
+
+- ワンショットリスト、または選択値型のチートで"Set"ではなく、"Off"と表示するように変
+  更。また、このような場合で、値選択中にオプションが有効にならないように変更。このタ
+  イプのチートはオプション選択後にENTERキーを押すと有効になります。[Pugsy]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+バギーボーイ/Speed Buggy (cockpit) [Phil Bennett]
+カオスヒート [Olivier Galibert]
+レイクライシス [Olivier Galibert, David Haywood]
+カオスヒート [Olivier Galibert, David Haywood]
+カードパズル フリップメイズ [Olivier Galibert, David Haywood]
+スーパーパズルボブル [Olivier Galibert, David Haywood]
+蒼天龍 [Olivier Galibert, David Haywood]
+上海 -昇龍再臨- [Olivier Galibert, David Haywood]
+サイヴァリア -メディウムユニット- [Olivier Galibert, David Haywood]
+サイヴァリアリビジョン [Olivier Galibert, David Haywood]
+続・おてなみ拝見 [Olivier Galibert, David Haywood]
+兎 -野性の闘牌- [Olivier Galibert, David Haywood, Angelo Salese]
+本格四人打プロ麻雀 麻雀王 [Olivier Galibert, David Haywood, Angelo Salese]
+XII Stag [Olivier Galibert, David Haywood]
+ジャンピングブレーク [Pierpaolo Prazzoli]
+Champion Super III [Mirko Buffoni, David Haywood, Angelo Salese]
+Champion Super 2 [Mirko Buffoni, David Haywood]
+
+
+
+新規クローンセット
+------------------
+Millennium 4000 (version 1.5) [Mirko Buffoni]
+American Poker II (bootleg, v4) [Mirko Buffoni]
+
+
+
+追加された未動作ゲーム
+----------------------
+RCでGo! [Olivier Galibert, David Haywood]
+スペースインベーダー アニバーサリー [Olivier Galibert, David Haywood]
+ナイトレイド [Olivier Galibert, David Haywood]
+Tokyo Cop (Italy) [David Haywood]
+California Chase [Angelo Salese]
+Street Games II [Guru, Angelo Salese]
+Street Games [Smitdogg, Angelo Salese]
+Bonanza [Smitdogg, Angelo Salese]
+Thunderbirds [AGEMAME]
+</div>
+	</div>
+	<div class="btm"></div>
+</div>
+
+
+
+
+<!--#exec cgi="../ssi/cpr.pl"-->
+
+</div> <!--id="wrapper"-->
+
+
+</body>
+</html>

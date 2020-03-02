@@ -1,0 +1,264 @@
+0.147u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03718: [クラッシュ/フリーズ] (segas18.c) shdancer: ステージ2-4でフリーズする。
+         (Phil Bennett)
+- 03461: [DIP/入力] (starfire.c) starfire, starfirea, starfir2: スクラッチパッドRAMテ
+         ストが出来ない。(hap)
+- 00340: [画面反転/カクテルモード] (rotaryf.c) rotaryf: カクテルモードでプレイヤー2の
+         画面が反転しない。(Robbbert)
+- 02710: [画面反転/カクテルモード] (astinvad.c) spaceint, spaceintj: カクテルモードの
+         画面が乱れる。(Robbbert)
+- 05063: [サウンド] (segas16a.c) shinobi, aliensyn2, quartet: 音声が鳴らない。
+         (Phil Bennett)
+- 05062: [サウンド] (segag80r.c) monsterb: ブーン音が鳴らない。(Phil Bennett)
+
+
+ソースの変更点
+--------------
+-「リーサルエンフォーサーズ2」の入力重複修正。[Tafoid]
+
+- sstarcrs: グラフィックROMのロード修正。[Robbbert]
+
+- Sanyo LC8670 CPUコア追加。[Sandro Ronco]
+
+- i8243.c: devcb2コンバージョンのライトハンドラで起きていた不具合修正。
+  [Phil Bennett]
+
+-「早押し対戦クイズ ハイホー」のDAC周波数修正。[Takahiro Nogi]
+
+- CPS-1の更新: [Team CPS-1]
+ * TN2J_09.12Aを再吸い出し。qtono2jのドキュメント新規追加
+   [Bonky0013, JacKc]
+
+- Firebeatの更新: [Anonymous, R. Belmont]
+ * pppのオーディオCDを吸い出し
+ * popn5のセキュリティドングル吸い出し
+ * popn7のBAD_DUMPなディスクを再吸い出しして、セキュリティドングルで検証
+ * ppdのBAD_DUMPなオーディオディスク再吸い出し; グラフィックとシンクロ動作可能
+ * ppp11のBAD_DUMPなディスク再吸い出し
+
+- witch.c: 基板レイアウトとDIP配置追加。[Brian Troha]
+
+- 画面無しのシステムで、出力が変更されたときは変更されたとマークするように変更。
+  [Wilbert Pol]
+
+- Neogeo Universal Bios 3.0を追加。[Razoola] 
+
+- es5503: 出力チャンネル数を調整可能なように改良。[O. Galibert]
+
+- TMS3203xコアの内部ブートローダプログラム追加。また、TMS3203X_MCBLの入力経由で、マイ
+  クロコンピュータ(ブートローダ)とマイクロプロセッサモードの切り替えをサポート。
+  [Phil Bennett]
+
+-「プライマルレイジ」「Jr.パックマン」「ランページ」の基板を元に、ROM名と配置を訂正。
+  また、吸い出しが必要な23のgalについて詳細を追加。[Kevin Echbach]
+
+- neogeoのUS BIOSのROM名訂正。[Guru]
+
+- CPS-1の更新: [Team CPS-1]
+ * CCRPG.11D、QAD63B.1A、TN2292.1A PALを追加
+ * 以前のPAL S224B.1Aを新しい本物のやつに置き換え [Corrado Tomaselli]
+ * qadjが純正のリセール向け日本版と判明。qadj→qadjr
+ * "Japan Resale Ver."の記述を各所に追加
+ * video\cps1.cのゲーム表を更新、及び整理
+ * マイナーな修正
+
+- 16bitハンドラへのフラッシュアクセスを変更。[smf]
+
+- rotaryf : インベーダーのサウンド追加。[Robbbert]
+
+- h8の更新: [R. Belmont]
+ * H8S/2655の初期版サポート
+ * RTEにより、PCがアドレス空間外にならないのを修正
+ * BTSTとBSETの追加フォームサポート
+ * BVC/BVS命令の間違ったhaltを削除
+
+- sf2amfのDIPスイッチや動作しない海賊版の追加、その他整合性の修正。必要なドキュメント
+  を指示してくれたJackcさんに感謝。[ReadOnly]
+
+- PCMCIAフラッシュカードレイアウト追加と、吸い出したROMを新しい場所に合わせて改名。
+  [smf]
+
+- Guru氏提供の画像を元に、PCMCIAカードレイアウトを更新。[smf]
+
+- h8: H8SアナログI/OをオリジナルのH8同様にドライバにルーティング。[R. Belmont]
+
+- 6850acia: IRQラインを普通の使い方に変更(ASSERT_LINE = IRQアクティブ)。[R. Belmont]
+
+- Nichibutsu麻雀ドライバの変更いろいろ: [Takahiro Nogi]
+ * drivers/nbmj8688.c: orangec、orangeci、vipclubのグラフィック修正で、
+   GAME_IMPERFECT_GRAPHICSフラグ削除
+ * drivers/nbmj8891.c: hanamomoのフォント選択設定追加
+ * machine/nb1413m3.c: ORANGECIの特殊ケース追加とファイル内の不要な情報を削除
+
+- CPS-2の更新: [Team CPS-1]
+ *「エックスメン -チルドレン・オブ・ジ・アトム- (Euro 950331)」追加。親セットに設定
+   [Bonky0013]
+ * xmcotahのROMラベル追加
+ * xmcotad → xmcotar1d
+
+- xtal.h: クリスタルの中のいっこでエラーがあったのを修正。[Lord Nightmare]
+
+- peel18cv8 jedファイルをjedutilで表示できるように更新。[Kevin Eshbach]
+
+- cawingblを追加。[Barry Harris]
+
+- kodb : サウンド修正。[Barry Harris]
+
+-「タクシードライバー」のカラーPROM追加で色修正。[Zab, Angelo Salese]
+
+-「Dragon's Lair 2: Time Warp」(dlair2.c)のスケルトンドライバ追加。初期開発に必要な資
+  料も追加。[Tafoid]
+
+- SDL: *IX manページの訂正。[wallyweek]
+
+- sf2mdt: 表示・サウンドの修正:  [Barry Harris]
+ * sf2mdtとsfmdtaをcps1.cからfcrash.cに移動
+ * Z80、YM2151 + 2 x MSM5205サウンドをエミュレート
+ * 正しいIRQラインの実装
+ * 入力、DIPスイッチ読み込みの実装
+ * スクロール、レイヤーイネーブルレジスタ書き込み実装
+ * ドライバ内の別の海賊版にあるスプライトRAMを使用出来るように改良
+
+- m6502, tms57002: エミュレータ内のスネーク。[Robert Muth, O. Galibert]
+
+- pythonでルートのmakefileに記述されているenv変数を使用するように修正; Windowsでパス
+  に空白が入っている場合のビルドを修正。[Balrog, Lord Nightmare]
+
+- upd1990a RTCデバイスのテストモードを簡易サポート。[Angelo Salese]
+
+- sf2mdtaの修正とsf2mdtの改良: [Barry Harris]
+ * sf2mdtの列スクロールテーブルアドレス用ハックを削除(海賊版のレイヤー描画コード
+   はテーブルを使用せず、ゲームはアドレスをどこにも書き込まないため、ハックを
+   使っていた)
+ * sf2mdtのスクロール2レイヤーのずれ修正
+ * ボイスが再生されない問題を修正するため、サウンドコマンド書き込み時のインタ
+   リーブを増加
+ * sf2mdtaのグラフィックデコード処理を修正
+ * sf2mdtaのリードライトを、異なるレイヤー書き込みレイアウトを持つsf2mdtと同様の
+   形で実装
+ * sf2mdtaのワークRAMを実装
+
+- kodb : ノートの追加; ヒット時に消えていた点滅表示を修正。[Barry Harris]
+
+- Z8001: プログラムとデータアドレス空間を別々に実装。[Christian Grsler]
+
+- 315_5124.c: game gear vdpで、FluBBaの"Offscreen Y, col"テストエラーを起こして
+  いたコピペエラーを修正。[Enik Land]
+
+- DCPL GTEオペコードを仮実装。[smf]
+
+- upd7220: ピクセルクロックとリフレッシュレートを結び付け。使用するドライバをす
+  べて更新。[Angelo Salese]
+
+-「ブラッドブラザーズ」各セットの正確なROM配置を追加。[Lord_Nightmare, balrog]
+
+-「くるくるぴょんぴょん」で使用しているOKI M5205用共振回路について新しいドキュメ
+  ント追加。#define経由で使用。[Roberto Fresca, Smitdogg]
+
+-「くるくるぴょんぴょん」: ブックキーピング、キャラクタ名(bets 1-2-3-4-5)のドキ
+  ュメント追加、およびM5205サンプルをトリガーするポートを発見。[Roberto Fresca]
+
+-「くるくるぴょんぴょん」:  完全なASCII基板レイアウト追加。また、実機で判明した
+  DIPスイッチ設定についてドキュメント追加。[Roberto Fresca]
+
+- naomi: 317-0379-JPN PIC吸い出し。[tak]
+
+- cps2 : デジタルボリュームコントロール追加。[Barry Harris]
+
+- foodf.c:「フードファイト」のROMラベルと配置を修正。
+ [Andrew Welburn, Phil B., The Dumping Union]
+
+- 以下のものについて、カクテルモードとプレイヤー2の操作を改善:
+ shuttlei, skylove, rollingc, vortex, invrvnge, schaser, schasercv, polaris,
+ spacecom, darthvdr, invadpt2, lrescue, ballbomb, spacerng [Robbbert]
+
+- ギャンブル機・スロットマシンの再構成、ドキュメント追加でさらに2000本も追加。
+  [David Haywood]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+雀遊記 (Japan) [Takahiro Nogi, Luca Elia]
+ガチャガチャンプ (GE877 VER. JAA)
+  [smf, Yasuhiro, Tormod, Paratach, M. Healey, Dr. Spankenstein, f205v, T. Bailey, 
+   Mr. CAST, J. Finney, M.David, anonymous, Pernod, hap, gatt9, redk9258, L. Genier, 
+   Yohji, Smitdogg, The Dumping Union]
+Riviera Hi-Score [Brian Troha, The Dumping Union]
+くるくるぴょんぴょん (Japan)
+  [Roberto Fresca, hap, Fyrecrypts, anonymous, btribble, Yohji, Smitdogg,
+   The Dumping Union]
+がんばれ！マリン君 (Marine 2K0411 JPN) [robbbert]
+
+
+新しく追加されたクローンセット
+------------------------------
+Moon Crest (ムーンクレスタ海賊版) (SG-Florence) [Robbbert, MisfitMAME]
+Se Gye Hweng Dan Ultra Champion (Korea) [gp-lee, Guru, Luca Elia]
+Astrians (Swarmクローン版) [Robbbert, MisfitMAME]
+Bomber (スクランブルクローン版) [Robbbert, MisfitMAME]
+フロッガー (Coin Music) (フロッガークローン版) [Robbbert, MisfitMAME]
+Ghost Munchers (パックマンクローン版) [Robbbert, MisfitMAME]
+フェニックス (GGI Corp, set 4) [Robbbert, MisfitMAME]
+プレアデス (ESG) [Robbbert, MisfitMAME]
+Star Wars (Yamashita, ギャラクシーウォーズクローン版) [Robbbert, MisfitMAME]
+Witch [f205v, The Dumping Union]
+メカナイズドアタック (US, Single Player)
+  [A. Costin, GordonJ/RomVault, Smitdogg, The Dumping Union]
+Mystic Marathon (プロトタイプ)  [Joe Magiera]
+Royal Casino (D-2608208A1-1, Larger Board)  [Kevin Eshbach]
+Royal Casino (D-2608208A1-1, Smaller Board)  [Kevin Eshbach]
+ストリートファイターII' -Magic Delta Turbo- (海賊版, set 2) (動作不可) 
+  [f205v, ReadOnly]
+ストリートファイターII' -チャンピオンエディション- (M8, 海賊版) (動作不可)
+  [Bonky, ReadOnly]
+サンセットライダーズ (4 Players ver JAC)  [any]
+Super Earth Invasion (Electrocoin, 海賊版) [Andy Welburn, MisfitMAME]
+Dragon 2000 [robcfg]
+ゼロポイント (Japan) [Takahiro Nogi]
+エックスメン -チルドレン・オブ・ジ・アトム- (Euro 950331) [dhaywood]
+Dragon's Lair 2: Time Warp (Euro v3.19) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (Spanish v3.19) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v3.18) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (Euro v3.16) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v3.15) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (Spanish v3.15) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v3.14) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v3.12) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v3.00) (動作不可) [tafoid]
+Dragon's Lair 2: Time Warp (US v2.11) (動作不可) [tafoid]
+U.S.ネイビー / Carrier Air Wing (海賊版 2) [Barry Harris, Bonky0013]
+Space Ace (DL2 Conversion) (Euro v1.3) (動作不可) [tafoid]
+ヘッドオン (専用ハードウェア海賊版) [any, hap, The Dumping Union]
+パニッシャー (Hispanic 930422) [Artemio Urbina]
+スペースコンバット [Brendan Schulze, John Glover]
+スクランブル (Stern Electronics set 2) [Jsef Bucher]
+ローリングサンダー (rev 2) [Andy Welburn]
+ワールドクラスボウリング v1.3J (Japan) [Yohji, Smitdogg, The Dumping Union]
+スペースチェイサー (set 2) [robbbert]
+スペースチェイサー (set 3) [robbbert]
+Gun Champ (newer, Super Shot hardware) [any]
+Donkey King [Guru, Tingoes]
+Jr. Pac-Man (speedup hack)
+
+
+追加された未動作ゲーム
+----------------------
+ポップンミュージック4 [Anonymous, R. Belmont]
+ポップンミュージック6 [Anonymous, R. Belmont]
+ポップンミュージック8 [Anonymous, R. Belmont]
+ポップンミュージック アニメロ2号 [Anonymous, R. Belmont]
+ガチャガチャンプ (GE877 VER. JAA)
+  [smf, Yasuhiro, Tormod, Paratach, M. Healey, Dr. Spankenstein, f205v, T. Bailey, 
+   Mr. CAST, J. Finney, M.David, anonymous, Pernod, hap, gatt9, redk9258, L. Genier, 
+   Yohji, Smitdogg, The Dumping Union]
+Dragon's Lair 2: Time Warp (US v3.19) [tafoid]
+Space Ace (DL2 Conversion) (US v1.3) [tafoid]
+ビートマニアIII アペンド7thミックス [Anonymous, R. Belmont]
+ビートマニア III ザ・ファイナル [Anonymous, R. Belmont]
+ファイナルラップ3 (海賊版) [ANY]
+ライジンピンポン -ストリートタッキューバトル- [Guru]

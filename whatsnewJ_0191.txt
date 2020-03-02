@@ -1,0 +1,387 @@
+0.191
+-----
+
+
+MAMETestersの修正バグ
+---------------------
+- 06723: [DIP/入力] (einstein.cpp) einstein [hustler, starq]: キーボードが反応しない。(Duke)
+- 06728: [タイミング] (einstein.cpp) einstein: Xtal BasicでPRINT TI$が常に000000を返す？(Duke)
+- 06724: [ゲームプレイ] (vegas.cpp) gauntleg, gauntdl: [64bit限定] エフェクトのダメージが多すぎる。64ビットのみ。(tedgreen)
+- 06713: [その他] (dbz.cpp) dbz, dbza, dbz2: 英語名称の訂正。(Fortuna)
+- 06487: [ドキュメント] tonton, ppj, big10: サクセスのウェブサイトに製造年の情報がある。(D Go Go Fan)
+- 06727: [ドキュメント] (ibmpc.cpp) IBM5170ソフトリストの親子セット問題。(Justin Kerk)
+- 06719: [システムコア] (coco12.cpp) coco12, coco3, other 6809?: SBCB命令が間違った結果を返す。(hap)
+- 06720: [インターフェイス] prescaleオプションで無効な値を指定できてしまう。(Tafoid)
+- 06154: [DIP/入力] Games with a rotary positional joystick: ロータリースティックの一部の入力がスキップされる。(Angelo Salese)
+- 06708: [メディアサポート] (tandy2k.cpp) tandy2k: ディスクから起動できない。(crazyc)
+- 06711: [インターフェイス] UI: EXITオプションで終了すると最後のゲームがセーブされない。(cuavas)
+- 00759: [その他] (mystwarr.cpp) mtlchamp and clones: サービスモードに入りゲームオプションを変更してNVファイルに記録してから再起動するとROM/RAMチェックをパスしない。(MetalliC)
+- 04950: [クラッシュ/フリーズ] (pce.cpp) pce [draculax]: 5面の開始時にゲームが固まる。(Angelo Salese)
+- 06701: [ゲームプレイ] (pce.cpp) pce [shingen, shingen1]: shingen, shingen1 - 黒画面のまま起動しない。(Angelo Salese)
+- 06691: [グラフィック] tokio and clones: 画面右側に表示不具合。スタート時やアトラクトモードで。(Lord Nightmare)
+- 06697: [クラッシュ/フリーズ] (stv.cpp) grdforce: コイン投入後固まる。(Angelo Salese)
+- 06637: [インターフェイス] 内蔵UIで全ての設定が保存されない。(AJR)
+- 06656: [インターフェイス] MachineレベルのVideo Optionを設定するとクラッシュする。(Nathan Woods)
+- 04910: [クラッシュ/フリーズ] (pce.cpp) pce, tg16 [dslaylh, dslayedj]: 入力が効かず、黒画面のまま。(Angelo Salese)
+- 05192: [グラフィック] (pce.cpp) tg16 [airzonk]: 画面上にいくとグラフィックが固まる。(Angelo Salese)
+- 06387: [グラフィック] (pce.cpp) pce [finalsol, finalsols]: 表示が大きく乱れる。(Angelo Salese)
+- 05994: [クラッシュ/フリーズ] (pce.cpp) pce [imagef2]: タイトル画面が出る前にフリーズする。(Angelo Salese)
+- 06622: [グラフィック] (pce.cpp) pce [beball]: [baball] ダブル矢印アイテムを取るとグラフィック化けが現れる。(Angelo Salese)
+- 06696: [グラフィック] (pce.cpp) tg16 [turrican]: タイトル画面が表示されない。(Angelo Salese)
+- 06689: [クラッシュ/フリーズ] (amstrad.cpp) cpc6128: ディスクをロードするとフリーズ、またはキーボードが使えなくなる。(pmackinlay)
+- 06690: [色/パレット] (bottom9.cpp) bottom9n: スプライトの色がおかしい。(Angelo Salese)
+
+
+新規動作可能マシン
+------------------
+Batman (Tiger handheld) [hap, Sean Riddle]
+Judge Dredd (Tiger handheld) [hap, Sean Riddle]
+Mephisto Mondial II [yoyo_chessboard, Sandro Ronco]
+Swamp Thing (Tiger handheld) [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+エイリアン3 ザ・ガン (Japan) [ShouTime]
+アテナ (bootleg) [Porchy, The Dumping Union]
+Biomechanical Toy (Ver. 1.0.1878) [Jorge Silva]
+カベール (UK, Joystick) [hammy, The Dumping Union]
+コブラコマンド (M.A.C.H. 3 hardware, set 2) [f205v]
+サイバーボール (rev 1) [Brian Troha, The Dumping Union]
+Fidelity Elite Avant Garde (model 6117-7, set 2) [CB-Emu]
+G-LOC R360 (Japan) [ordyne, The Dumping Union]
+Kaypro 16 [rfka01]
+ナイツ・オブ・ザ・ラウンド (bootleg, World 911127) [hammy, The Dumping Union]
+妖精物語 ロッドランド (World, set 2) [frsj8112]
+スーパーハングオン (Hang-On conversion, Beta bootleg) [Cmonkey]
+Target Hits (ver 1.1, Checksum 86E1) [Peter Wilhelmsen, Morten Shearman Kirkegaard, Clawgrip, Brian Troha, David Haywood]
+テクモワールドカップ'94 (set 3) [caius, Angelo Salese, The Dumping Union]
+TH Strikes Back (Non North America, Version 1.0, Checksum 020EB356) [caius, The Dumping Union]
+unknown 'Space Invaders' gambling game (set 2) [Roberto Fresca, Arzeno Fabrice]
+ワールドシリーズ (rev 0) [f205v, The Dumping Union]
+
+
+動作可能に昇格したマシン
+------------------------
+Big Casino [Ivan Vangelista]
+Votrax Personal Speech System [Robbbert]
+Votrax Type 'N Talk [Robbbert]
+
+
+動作可能に昇格したクローン
+--------------------------
+Terco 4426 CNC Programming station [Edstrom]
+Torch CF240 [Nigel Barnes]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Baby Boom Challenge [f205v]
+Casino Strip I (Poker version, for Pioneer LD, set 1) [Dragon's Lair Project]
+Casino Strip II (Poker version, for Sony LD) [Dragon's Lair Project]
+Casino Strip III (Poker version, for Sony LD) [Dragon's Lair Project]
+Casino Strip IX (Poker version, for Sony LD) [Dragon's Lair Project]
+Casino Strip Private Eyes / All Start (Poker version, for Sony LD) [Dragon's Lair Project]
+Casino Strip V (Poker version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip V (Shooting Game version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip VI (Poker version, for Sony LD) [ANY, Smitdogg, The Dumping Union]
+Casino Strip VI (Shooting Game version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip VIII (Poker version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip VIII (Shooting Game version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip Vivid 1 (Poker version, for Sony LD) [Dragon's Lair Project]
+Casino Strip X (Poker version, for Sony LD) [ANY, Smitdogg, The Dumping Union]
+Casino Strip XI (Poker version, for Sony LD, set 1) [Dragon's Lair Project]
+Casino Strip XI (Shooting Game version, for Pioneer LD) [Dragon's Lair Project]
+Casino Strip XII (Poker version, for Sony LD) [ANY, Smitdogg, The Dumping Union]
+Dobou-Chan (ver. JAA) [R. Belmont, Rod_Wod]
+E-Touch Mahjong Series #2: Joshiryou de NE! [ShouTime, Team Japump, The Dumping Union]
+E-Touch Mahjong Series #6: Scandal Blue - Midara na Daishou [ShouTime, Team Japump, The Dumping Union]
+E-Touch Mahjong Series #7: Trap Zone - Yokubou no Kaisoku Densha [ShouTime, Team Japump, The Dumping Union]
+Elektronika MS 6102.02 [shattered]
+ゴキデター [Surgeville, Sean Sutton, Smitdogg, The Dumping Union]
+Mikrocomputer fuer Ausbildung [rfka01, Robbbert]
+Note Chance [Roberto Fresca, Ryan Holtz, Smitdogg, The Dumping Union]
+お茶犬 ほっとメダル [Darksoft]
+東風麻雀 [ShouTime, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+301/Bullseye (Traditional Scoring) [barakandl]
+A.G. Soccer Ball (R07u) [PinMAME]
+Casino Strip XI (Poker version, for Sony LD, set 2) [Dragon's Lair Project]
+Cheetah (Blue cabinet version - Stern Pinball) [Cooke/LondonPinball]
+Eight Ball (rev. 17) [Quench]
+Epson CM6000 [Colin McDougall]
+フラッシュポイント (Japan, bootleg set 2) [Arzeno Fabrice, David Haywood]
+Horizon (North Star Computers, 2MHz) [AJR]
+Knights of Valour 3 (V100, China) [XingXing]
+Knights of Valour 3 (V104, China) [XingXing]
+Mikrocomputer fuer Ausbildung MAT85 [rfka01, Robbbert]
+Omni 4 Logic Analyzer [rfka01]
+ポーカーレディース (Censored bootleg, set 2) [hammy, The Dumping Union]
+SDガンダム三国志 レインボー大陸戦記 (Korea) [Rod_Wod, The Dumping Union]
+Time Warp (L-3) [PinMAME]
+Trident (Later version - Stern Pinball) [Quench]
+Virtua Athletics / バーチャアスリート (prototype) [antron, MetalliC, rtw]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_cass:
+  Alignment Test Tone / Renumber, Alignment Test Tone / Sampler, Apple Bowl, Applesoft IIa,
+  Applesoft ][ Floating Point BASIC / Floating Point BASIC Demo, Apple Trek, Apple-2 Trek, Apple-Vision / Biorhythms,
+  Basic Finance I/ Penny Arcade, Brian's Theme / Phone List, Brick out / Color Demonstration Programs,
+  Breakout / Color Graphics, Breakout / Color Demos, Checkbook, Color Sketch / Supermath, Datamover / Telepong,
+  High Resolution Graphics, Hangman / Color Math, Hopalong Cassidy / Lemonade Stand, Leases / Loans, Savings / Finance [Dagarman]
+bbc_flop_torch: Hard Disc Utilities v4.1, Torch System Disc v1.7 [Nigel Barnes]
+fmtowns_cd:
+  Ginga Eiyuu Densetsu III SP, Gulf War Soukouden, New 3D Golf Simulation: Harukanaru Augusta, TownsPAINT V1.1L20,
+  Video Koubou V1.3L10 [r09]
+fmtowns_flop: Sweet Angel [r09]
+gamate: Kiki Inland [Morten Shearman Kirkegaard, Peter Wilhelmsen]
+ibm5150:
+  The Adventures of Captain Comic, Back to the Future Part II, Dragons of Flame, Gryzor, Loom (French), Kings of the Beach (3.5"),
+  Leisure Suit Larry 3 (French), Le Manoir de Mortevielle (3.5"), Operation Wolf (3.5"), Out Run, Super Ski, Zombi [breiztiger]
+  Drakkhen, Kaypro 16 Autoload, Kaypro 16 Master Disks, Leisure Suit Larry 3, Loom (German), Manhunter - New York,
+  Manhunter 2 - San Francisco, Police Quest II - The Vengeance, Silpheed, Space Quest II - Vohaul's Revenge [Justin Kerk]
+  MS-DOS (Version 3.30B) (V1.2) (Schneider) (German) [rfka01]
+ibm5170:
+  Amazon - Guardians of Eden, Arcade Pool, Zool 2 [ArcadeShadow]
+  Crash Course [breiztiger]
+  Sneakers Computer Press Kit [Justin Kerk]
+lynx: MegaPak 1 [anonymous]
+msx1_cart: Roc'n Rope [Anonymous]
+nimbus:
+  BBC BASIC V1.00a, IBM Mode Software For Nimbus PC V2.61, IBM Mode Software for Nimbus PC Rel.3,
+  Microsoft Windows 2.03 for Nimbus PC System, Microsoft Windows 3 Standalone PC 186, Microsoft Windows ISV Toolkit Release 1.02,
+  Microsoft Windows Release 1.02 Stand Alone, Microsoft Windows Release 1.03 Stand Alone, 
+  Microsoft Windows V2.1 Presentation Manager for Nimbus PC186, Nimbus Winchester Format Tools,
+  Parallel Printer Driver Parallel Board For I/O Board Version V1.0G, RM BASIC V1.0F, RM LOGO V1.0D, RM Nimbus General Utility Disk,
+  RM Nimbus PC Upgrade Disk DOS 3.1 Rel 3.10.A, RM Nimbus Sketchpad Driver V1.0B, Release Disk SetPC V2.90 IBM Mode, Steed Ver 1.4A,
+  WordStar Rel. 3.30, XferCPM V1.0A [Nigel Barnes]
+pv2000: Exciting Jockey, Real Number Basic [SSJ, Team Europe, Dustin Hubbard]
+smondial2: Mephisto College Module [yoyo_chessboard]
+
+
+動作可能に昇格したソフトウェアリストの項目
+------------------------------------------
+bbc_flop_torch: 
+  Adventure B01 - 550 points, Torch BBC BASIC (Z80) v2.30, Comanex, dBASE-II, Hard Disc Utilities v4.4, Kermit-80 v4.05,
+  Perfect Software Suite, Standard Utilities v2.0, Turbo Pascal v3.0A, UniComm, WordStar [Nigel Barnes]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+apple2_cass: Apple Stock Quote Reporter, Tape Measure / Alignment Test Tone [Dagarman]
+bbc_flop_torch: Basic Pack v2.0, Prog Dev Pack v2.0, Text Pack v2.0, Unix Upgrade Pack release 1.0 to 2.0 [Nigel Barnes]
+hx20_rom: SkiWriter [Nigel Barnes]
+rx78: Challenge Golf [SSJ, Team Europe, Dustin Hubbard]
+
+
+追加、または変更された翻訳
+--------------------------
+Chinese (Simplified) [YuiFAN]
+Chinese (Traditional) [YuiFAN]
+German [Raf Tacker]
+Greek [BraiNKilleRGR]
+Japanese [Katsuhiko Kagami]
+Portuguese [Pedro Simoes]
+Russian [Nikita Zimin, MetalliC]
+
+
+ソースの変更点
+--------------
+- coco3: バンクされたカセットが動作。[AJR]
+
+- z8: LDE Irr, rの逆アセンブリ修正。[AJR]
+
+- am9513: time-of-dayモード実装。[AJR]
+
+- UIでセーブしたOSDオプションをインクルードするように更新。[AJR]
+
+- PC060HAとTC0140SYTの間での名目上の区分。[AJR]
+
+- ステート登録で浮動小数点値を明示的に許可。[AJR]
+
+- ccs2810: 大幅な改良。[AJR]
+ * パワーオンジャンプを実機に正確な方法で実装。完全な設定オプションを含む
+ * RS-232シリアル通信用のINS8250デバイスを実装(ボーレートの認識にROMウェイトステートのシミュレーションが必要)
+ * シリアルポートのアドレスも設定可能に変更(ただし、モニターはデフォルト設定が前提)
+
+- S-100バスの改良: [AJR]
+ * スロットをサブデバイス化。バスタグのハードコードは不要
+ * バストそのスロットをクロック処理
+ * nshrzの正しいXTALを仕様。2MHzの改良版追加
+
+- legionna.cpp:「電神魔傀」の背景ペン色を修正。[Angelo Salese]
+
+- rx78.cpp: ボーダーエリアの追加。[Angelo Salese]
+
+- ygv608.cppの更新: [Angelo Salese]
+ * タイルマップ描画のページ選択境界を修正(「ナムコ クラシックコレクションVol.2」のアトラクトーモードで背景ゴミ修正)
+ * モード変更時にパターン名テーブルステートをリセット(マッピーアレンジのタイル不具合修正)
+ * SXとSYの両方でクリッピング境界を渡すときにスプライトのラップアラウンドを有効化(NCV2のゲーム選択画面で文字が消えるのを修正)
+ * CRTCのVBLANK周期修正(NCV2のディグダグオリジナルで再発していた問題修正)
+ 
+- huc6270: 割り込み用のh/vsyncロジックを反転 - PC Engineでのハングを修正。[Angelo Salese]
+
+- saturn.cppの更新: [Angelo Salese]
+ * SMPCをデバイスとして書き直し、ST-VとSatuenの実装を統合
+ * SCU関係の機能をデバイス化。
+
+- smpc: Sega Saturnで、無効なNVRAMデータがあったときのSETTIMEビット動作をシミュレート。[Angelo Salese]
+ * Sega Saturn全ROMセットでNVRAMが未初期化の場合にBIOSセットアップを呼び出して正しいデフォルトに設定する
+
+- stv.cpp:「スポーツフィッシング2」のBIOSが国コードを返すようにパッチ。ベアボーンなMPEG CDコマンドを追加。[Angelo Salese]
+ * グラフィックがほとんど無い状態でアトラクトモードループまで動作(MPEGビデオロジックが未追加)
+
+- stvvdp2.cpp: ROZモード3を追加。[Angelo Salese]
+ *「対戦タントアール サシっす!!」の画面分割、「闘龍伝説エランドール」の背景、「ファイナルファイトリベンジ」のGuyステージ修正
+
+- jalmah.cpp: フェイクパレットDMA動作を改良 - 女性の色化け解消。[Angelo Salese]
+
+- stvvdp1.cpp: フレームバッファ入れ替え時、CEFビットをリセット(「ティンクルスタースプライツ」のアーケードモードでのハング修正)。
+  [Angelo Salese]
+
+- dec0.cpp: ドライバ内の全ゲームで入力を更新。[Angelo Salese]
+ * ドライバのほとんどのゲームに入力名のラベル追加。未使用ボタンを削除
+ *「ヘビーバレル」「ミッドナイトレジスタンス」のループレバーで再マップテーブルを使うように更新
+ *「バルダーダッシュ」でマニュアル通り4方向レバーを使用
+
+- dec0.cpp:「ミッドナイトレジスタンス」の海賊版でプライオリティビデオポートを実装。[Angelo Salese]
+
+- taito_b.cpp: ピクセルレイヤーオフセットの修正と、「ヒットジアイス」での有効化。[Angelo Salese]
+
+- taito_z.cpp:「パワーホイールズ / Double Axle」のインタリーブCPUタイミングを正常化。コンティニュー時に道路レイヤーが固まるため。
+  [Angelo Salese]
+
+- wheelfir.cpp: RAMDACデバイスにコンバート。[Angelo Salese]
+
+- システム選択メニューの情報パネルの修正。[BraiNKilleRGR]
+
+- LUAトランスレーションをmakefileに追加と、トランスレーションの再生成。[Carl]
+
+- plugins/cheat: 入力シーケンスチートの追加。[Carl]
+
+- abc800の更新: [Curt Coder]
+ * Turbo Kontrollerの名前をUNI DISKに訂正し、CPUタイプの判別
+ * Databoard 4112-23フロッピーディスクコントローラのスケルトン追加
+ * Luxor 55-10828 "slow"フロッピーコントローラボードロジックを修正
+
+- クレジット後に表示される日付を元にandroidpの年代を1987に変更。[David Haywood]
+
+- プロテクトデバイスがリージョンを韓国に指定すると、oldsplusセットが"Oriental Legend 2"になることをドキュメントに追加。
+  [David Haywood]
+
+- Gamateのオーバーホール。多くのゲームを修正: [David Haywood]
+ * kevtrisとPeter WilhelmsenさんによるとサウンドはAY8910と100%互換なので、AY8910コアを使用
+ * kevttrisのドキュメントとPeter Wilhelmsenさんのノートを元に、ビデオ実装をゼロから書き直し。多くのゲームが修正
+ * メモリマップにミラーリング追加
+ * カセットを自身でプロテクトを処理するスロットデバイスに変更
+ *  kevtrisとPeter Wilhelmsenさんのノートを元にプロテクトエミュレーションを書き直し
+
+- Hitach SuperH CPUコアを統合し、SH3/SH4リコンパイラの仮実装。[David Haywood]
+ * Cave CV-1000でリコンパイラを有効化。Sega NAOMIではまだ無効
+ * リコンパイラによりCV-1000ゲームのベンチマークで2倍以上の速度アップ
+
+- supbtime.cpp: クリーンアップ、およびtumblepとの統合。[Dirk Best]
+ * 重複コードの削除。画面RAWパラメータとXTAL値を使用。全ゲームにDIPスイッチ配置を追加
+
+- z80sio/z80scc: ACKする割り込みが見つからないとき、CPU独自のデフォルトベクタをリターン。[Edstrom]
+
+- t4426 cart: MC14411 BRG、6850 ACIAをセカンドRS232ポートに追加しバンキングを修正; 動作可能に昇格。[Edstrom]
+
+- proteus3: MC14411ビットレートジェネレータデバイス追加とACIA用のタイマーベースクロックを置き換え。[Edstrom]
+
+- imgtool: HP85テープのサポート。[F.Ulivi]
+
+- mc146818: メイン割り込みフラグの修正。[Jean-Francois DEL NERO]
+
+- 40トラックドライブに設定した40トラックフロッピーディスクの80トラック.mfmダンプをロード中にクラッシュするのを修正。[Justin Kerk]
+
+-「スクランブルフォーメーション / Tokio」で部分的更新を抑制してMT06691のハック。タイミングは間違ってるっぽい。[Lord Nightmare]
+
+- mc68901: TCDCRレジスタの修正 - ビット6-4をタイマーC、ビット2-0をタイマーDに使用。[Nicolas PLANEL]
+
+- abc310: 2個目の80268プロセッサを追加。[Nigel Barnes]
+
+- tube_z80: ROMでのページング時にNMIステートを確認。[Nigel Barnes]
+
+- acorn_dsk: セクタ数のあるイメージサイズを比較することでSSD/DSDの判定を改良。[Nigel Barnes]
+ * 倍密度CP/Mの正しいイメージを処理するためDDCPMフォーマットを修正
+
+- bbc: Tubeスロットデバイスとして、Torch Z80 Communicatorを追加。[Nigel Barnes]
+
+- acorn_dsk: CPNフォーマットを削除し、SSD/DSDとして処理。[Nigel Barnes]
+
+- hx20: オプションROMスロットとソフトウェアリスト追加。[Nigel Barnes]
+
+- z80scc: 割り込みマスク生成の修正。[Patrick Mackinlay]
+
+- bt459デバイスの追加(InterProグラフィックボードで使用するBrooktree RAMDAC)。[Patrick Mackinlay]
+
+- ms6102: chargenの復号化。[Robbbert]
+
+- ts803: 修正と、Z80stiの使用; クリーンアップとノート。[Robbbert]
+
+- mc8030: ランダムROM追加。ソート必要。[Robbbert]
+
+- p8000: WDC ROM追加。[Robbbert]
+
+- ax80: ROM、ノート追加、肉付け。[Robbbert]
+
+- Note Chance: フロントパネルレイアウト、サウンドのあるスケルトンドライバとさらにノートを追加。[Roberto Fresca]
+
+- vme_hcpu30: Besta HCPU30 VMEボードスケルトンデバイス追加。[shattered]
+
+- 3画面以上のシステム用にタイル化したレイアウトを生成(4以上のエミュレート画面でクラッシュするのを修正)。[Vas Crabb]
+
+- 最初の画面でないときに、前のパレットにより汎用ターミナルがおかしくなるのを修正。[Vas Crabb]
+
+- US版Apple IIe/IIc用にPORT_CHAR(ナチュラルキーボード/ペースト/キーポストマッピング)を改良(Golden Childさんがお知らせ)。
+  [Vas Crabb]
+
+- DIPスイッチの状態、設定エントリ、アジャスタを-listxml出力に追加。[Vas Crabb]
+
+- dynax.cpp: tenkaiでゲーム終了時にクレジットが無くなるのを修正。[Wei Mingzhi]
+
+- psx.xml: redump.orgと同期。76の新規吸い出し追加と2つの吸い出し不良を置き換え。[aeternal606]
+
+- gaelco.cpp:「Biomechanical Toy」のクロックスピード修正とPCBレイアウトの追加。[Brian Troha]
+
+- naomi.cpp: Atomiswave 'ROMEO' ASICの腑分けと解析。[brizzo]
+
+- segasp.cpp: ネットワークファームウェアver 1.25を吸い出し。[Darksoft]
+
+- segas16b.cpp:「オーライル」のドキュメントを修正。[ekorz]
+
+- gauntlet.cpp: 正しいgfx1 ROMのサイズを復元。かなり前に小さくカットされていた。[f205v]
+
+- supbtimeのPAL吸い出し追加。[Luiskiko/jammarcade.net]
+
+- 基板2枚よりtouchgo SRAMをさらに吸い出し。SRAMイメージの確認と訂正に使用。
+  [Peter Wilhelmsen, Morten Shearman Kirkegaard, David Haywood]
+
+- zexallビルドターゲットを修正。[RandomArts]
+
+- EuroPC: 最初と最後の既知BIOSバージョンを追加。[rfka01]
+
+- taitoair.cpp: ainfernoのコントローラ基板ROMを吸い出し。[ShouTime, The Dumping Union]
+
+- qix.cpp: qixbセットにドキュメント追加。[ShouTime]
+
+-「ファイナルハロン2」「クライシスゾーン」「Big 10」「ワクワクどうぶつランド とんとん」「ぴょんぴょんジャンプ」
+ 「くるくるぴょんぴょん」の年代を修正。[sjy96525]
+
+- pv2000.xml: rakugakiとexcitem2のROMのハンダを取って吸い出し直し。[SSJ, Team Europe, Dustin Hubbard]
+
+-「Mephisto Academy (German)」の新しいバージョンをBIOSオプションに追加。[yoyo_chessboard]
+
+- 複数のPORT_CHAR()バインディングをサポート。CoCoドライバで採用。[Nathan Woods]
+
+- よりフレキシブルな日付時刻構造を作成し、imgtoolで既存のtime_tを置き換え。[Nathan Woods]

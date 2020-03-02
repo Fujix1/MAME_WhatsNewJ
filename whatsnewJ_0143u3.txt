@@ -1,0 +1,221 @@
+0.143u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04443: [サウンド] flower: BGMやSEが時々かたまる。(hap)
+- 02505: [サウンド] asurabus: 効果音が繰り返される。(hap)
+- 04319: [サウンド] tengai, tengaij: 天外とハガネのボム音がなかなか消えない。(hap)
+- 04447: [グラフィック] pblbeach: ゲーム中のスプライト拡大処理がおかしい。
+         (Angelo Salese)
+- 04446: [グラフィック] kiwames: スプライトが正しく表示されない。(Angelo Salese)
+- 04448: [DIP/入力] warofbug, zigzag: コインが入らない。常にロックアウトされている。
+         (hap)
+- 03301: [クラッシュ/フリーズ] polepos2a, polepos2b: ゲームが起動しない。(hap)
+- 04444: [グラフィック] navarone: カクテルモードでのプレイヤー2のショットがずれている。
+         (hap)
+- 04442: [ドキュメント] break: [バグかもね] ゲーム名が間違っている。
+- 04438: [クラッシュ/フリーズ] All sets in zn.c: OK直後にクラッシュする。(smf)
+- 04440: [クラッシュ/フリーズ] mquake: OK画面の前にクラッシュする。(smf)
+- 04436: [サウンド] sasuke: SNK6502の音程が少し高い。(hap)
+- 04392: [サウンド] polepos2, polepos2a, polepos2b: ハイスコアのBGMのうち1つで鳴りっ
+         ぱなしの音がある。(hap)
+- 04434: [DIP/入力] hustler and clones: DIPスイッチが実装されていない。(Tafoid)
+
+
+ソースの変更点
+--------------
+- m68k: 030にFPUを増設したときに、040 FPUのオペコードの一部が使用可能。[O. Galibert]
+
+- cothreads: PowerPC Mac OS Xでの動作を修正。[R. Belmont]
+
+- m68k: SoftFloat拡張を使用するFSIN、FCOS、FTANを追加。
+  [Stanislav Shwartsman, R. Belmont]
+
+- Windows OSDでソケットのサポート。[Miodrag Milanovic]
+
+- スロットデバイスの初期化順序を修正。[Nathan Woods]
+
+- HLSLのスキャンラインジッタエフェクトを修正。[nimitz]
+
+- drmicro.c:「Dr. Micro」にDIP配置追加。[Brian Troha]
+
+- drtomy.c:「Dr. Tomy」にDIP配置追加。[Brian Troha]
+
+- m68k: 命令サポートテーブルを修正(taitojcの不具合を"修正")。[O. Galibert]
+
+- f1gp.c:「F-1グランプリ」のDIP配置追加。[Brian Troha]
+
+- HLSLの蛍光遅延表示を修正。[nimitz]
+
+- warpwarp.c: ドライバ内の全ゲームについてDIP配置追加。[Tafoid]
+
+- h8: LDM/STM、LDC/STC、ダブルシフト版SHLL/SHLR、BITイミディエイト、ROTR.B、ROTR.L、
+  ROTXR.Lを実装。Epoch系とCybiko系が改善。[R. Belmont]
+
+- h8: SLEEPオペコード追加。[R. Belmont]
+
+- tms9928a.c: C++デバイスにコンバート。[Wilbert Pol]
+
+- h8: H8S/2xxx CPUで、ペリフェラルとIRQのサポート。[Tim Schuerewegen, R. Belmont]
+
+- metro.c:「マウスシューター ゴーゴー」「バルキューブ」「バンバンボール」「大牌砦」
+  (YMF278B) にドキュメントと基板レイアウト追加。
+
+  以下のゲームでDIP配置追加:
+  バルキューブ, バンバンボール / Battle Ball, マウスシューターGoGo, 
+  ブレイジングトルネード, グランドストライカー2, 大牌砦, だるま道場, ガンマスター,
+  チャタンヤラクーシャンク, Lady Killer / 燃えよゴンタ!!, 牌砦, 麻雀同級生, もうじゃ,
+  パンポンズ, ぽいっと!, ぱづり, 三刻志, ぷるるん, スカイアラート, 牌砦II
+  [Brian Troha]
+
+- 4画面システム用のデフォルトレイアウト追加。[Robbbert]
+
+- h8: bsetのインストを修正。[Tim Schuerewegen]
+
+- h8: H8Sだ売るシフトの残りを追加、ビット演算の修正、及び8-bit mulx/divxsの追加。
+  [R. Belmont]
+
+- ROMLOAD_*からMD5を削除。[Oliver Stoneberg]
+
+- コアとツールにあったいろいろなメモリリークを修正。[Oliver Stoneberg]
+
+- taito_b.c: 入力ポートの大幅な再構築。一部のDIPスイッチやコインエイジの修正。地域別
+  セット必要なローカルなコインエイジを訂正するため、PORT_INCLUDEとPORT_MODIFYを使用。
+  ドライバ内の全セットにDIP配置追加。[Brian Troha]
+
+- flower.c: 割り込みをさらに改良。[hap]
+
+- H8: H8S/2xxxタイマの書き直し。[Tim Schuerewegen]
+
+- taito_h.c: DIP配置追加。[Brian Troha]
+
+- OS/2ビルドの修正。[K.O. Myung-Hun]
+
+- taito_f2.c: DIPスイッチの修正。。地域別セット必要なローカルなコインエイジを訂正する
+  ため、PORT_INCLUDEとPORT_MODIFYを使用。ドライバ内の全セットにDIP配置追加。
+  [Brian Troha]
+
+- 複数のファイルからデバイスを読み込めるようにromloadを更新。[Miodrag Milanovic]
+
+- デバイス毎にload_software_part_regionを使用するようになったため、LOADBYNAMEを削除。
+  [Miodrag Milanovic]
+
+- デバイスの配列を生成するmakedevツールを作成し、現在のデバイス使用状況によるlstファ
+  イルを作成。[Miodrag Milanovic]
+
+- listxmlコマンドでデバイスROMも出力するように変更。[Miodrag Milanovic]
+
+- taito_l.c: 全ゲームにDIP配置追加。[Brian Troha]
+
+- taito_x.c: DIPスイッチの表記統一と、PORT_INCLUDEとPORT_MODIFYを使ってスタイルの整理。
+ 「ギガンデス」「究極のストライカー / Last Striker」「バルーンブラザーズ」にDIP配置追
+  加。[Brian Troha]
+
+- ミラー、またはマスク使用時のメモリ解放を修正。[hap]
+
+- memory: ビッグエンディアンのバス上でデバイスマッピングを行うと、エンディアン関係の
+  不具合があったのを修正。[O. Galibert]
+
+- SCU DSPコアのDMA add値とMVI条件シフトフラグのバグを修正。[Angelo Salese]
+
+- metro.c: ROMの基板上の位置をわかるだけ追加。ROMラベルの訂正。「もうじゃ」の基本配置
+  追加。実機のOSCに合わせてクロックを変更。[Brian Troha]
+
+- SH-2からのSCU DSP PCリードを修正。[Angelo Salese]
+
+- cybertnk.c: MWフォーラムとマニュアルを元に"Super"用のDIPスイッチ追加。[Brian Troha]
+
+- karnov.c:「ワンダープラネット」「チェルノフ」のDIP配置追加。[Brian Troha]
+
+- romident: フォーマット修正。[O. Galibert]
+
+- Sega Hikaru HWのメモリマップドキュメント追加。[Stefano Teso]
+
+- MPU4用のCrystalスクランブル解除コード。[Project 'Amber']
+
+- ymf278b.cの改良: [hap]
+ * ステータスレジスタBUSYとLDビットを追加
+ * 正確なタイマ(ymf262.cと同じもの)
+ * エンベロープアタックレートを追加
+ * ダンピングと疑似リバーブ追加
+ * その他修正とクリーンアップ
+
+- fuukifg2.c:「ススメ！マイルスマイル」のDIPスイッチについて、サービスモードでの表示
+  と実際の効果の違いについて記述。「ススメ！マイルスマイル」「逆転!!パズル番長」のDIP
+  スイッチ2つ修正とDIP配置追加。[Brian Troha]
+
+- galspnbl.c:「ギャルズピンボール」「Hot Pinball」のDIPスイッチ訂正と配置追加。
+  [Brian Troha]
+
+- fuukifg3.c:「アシュラブレード」「アシュラバスター」の DIPスイッチ訂正と配置追加。
+  [Brian Troha]
+
+-「Dwarf's Den」「Electrocoin」ハードウェアの基板図とノートを更新; 「Dwarf's Den」を
+ 「Draw Poker III / Dwarf's den」に改名。これのセットは実機で確認。
+  [Balrog, Lord_Nightmare]
+
+- funkyjet.c:「ファンキージェット」「卒業証書」にDIP配置追加。[Brian Troha]
+
+- flower.c: サウンドドライバの改良と、チャンネルエフェクトの追加による音のハングをほ
+  ぼ修正。[hap]
+
+- aristmk4の様々な修正。「Enchanted Forest」(12XF528902, US)と
+ 「Arctic Wins」(4XF5227H03, US)が動作可能。[FrasheR]
+
+- odin_dlx, solarwap, poleposn, sonstwar, wolfman, odisea (peyper.c): [stephh]
+ * DIPスイッチのドキュメント化と改良(Z80コードとマニュアルチェックによる)
+
+- freekick.c: DIP配置追加。[Brian Troha]
+
+- funkybee.c:「ファンキービー」「スカイランサー」のDIP配置追加。[Brian Troha]
+
+- firetrap.c:「ファイアートラップ」のDIP配置追加。[Brian Troha]
+
+- pktgaldx.c:「ポケットギャルDX」のDIP配置追加。[Brian Troha]
+
+- マニュアルを元に「Dwarf's Den」のDIPスイッチ追加。カードグラフィックのみ新しい
+ 「Dwarf's Den」セットを追加。電源ポートピンアウトとポートの説明について間違いを修正。
+  [Lord Nightmare, dox, bushjc, balrog]
+
+- galpanic.c:「ギャルズパニック」「Fantasia」「Super Model」「New Fantasia」
+ 「Fantasy '95」「Miss World '96」「Ms/Mr World '96」「Fantasia II」
+ 「ギャルズハスラー」にDIP配置追加。[Brian Troha]
+
+- pcktgal.c:「ポケットギャル」とクローンセットにDIP配置追加。[Brian Troha]
+
+- pbaction.c:「ピンボールアクション」とクローンセットにDIP配置追加。[Brian Troha]
+
+- paradise.c: 一部のDIPスイッチ設定と名称を訂正。「Paradise」とクローンセット、
+ 「Target Ball」にDIP配置追加。[Brian Troha]
+
+- SMPCの大幅更新とクリーン。[Angelo Salese]
+
+- mc146818: ハックを削除。[Hans Ostermeyer]
+
+- sh2: フラクショナルなFRCインクリメントを修正。[R. Belmont]
+
+- fuukifg3.c: YMF262を再追加。FM音源チャンネルで使用。[hap]
+
+- Sega Model 2a/2b/2cのサウンド修正。[trap15, R. Belmont]
+
+- unidasmのSHARC CPUを修正。[trap15]
+
+- 複数システムをカバーする大量の(800以上)のギャンブルマシンとスロット機の追加、及び整
+  理とドキュメント化。[David Haywood]
+
+- Aristocrat MK-V HWの修正: [Palindrome]
+ * NVRAMとランダムクラッシュを修正
+ * デフォルトをゲームモードに設定
+ * ウォッチドッグタイマーを追加
+ * DRAMエミュレータエラーの修正
+ * External Video Crystal Errorの修正
+ * 2khzタイマの修正
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Enchanted Forest (12XF528902, US) [FrasheR]
+Arctic Wins (4XF5227H03, US)  [FrasheR]

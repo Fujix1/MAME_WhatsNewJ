@@ -1,0 +1,101 @@
+0.98u1
+------
+
+
+MAMETestersの修正バグ
+---------------------
+slither094u1red [Aaron Giles, with a hint from MASH]
+sf2accp2070u5red [Aaron Giles]
+nemesis097u1gre1 [Mamesick]
+nemesis097u1gre2 [Mamesick]
+karatblz137b4gre [Pierpaolo Prazzoli]
+mystwarr098gre [Mamesick]
+esckids076yel [David Haywood]
+spyhunt097gre1 [Aaron Giles]
+spyhunt097gre2 [Aaron Giles]
+turbotag097u3gra [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+* 周期的なタイマの定義方法を変更しました。以前は50000以下の場合はHz、50000より多
+  い場合はnsの数を指定していました。これをスタンダードなTIME_IN_HZ、または
+  TIME_IN_NSマクロを使って時間周期として指定します。[Aaron Giles]
+
+* 68000コアのアドレスエラーチェックを有効化。これにより少し速度がおちますが、
+  きちんとプログラムされてないゲーム2本での動作を正しく取得できます。
+  [Aaron Giles]
+
+* 68000コアのアドレスエラーチェックによる問題を修正。[Aaron Giles]
+
+* 68000で$FFの8bitブランチについてアドレスエラーを生成していたのを、イリーガルと
+  して扱うようにバグ修正。
+
+* 新しくヘッダファイルmamecore.hを作成。細かいヘッダとして散らばっていたコア部の
+  共通マクロやtypedefなど集めてあります。またMESS用にエンディアン入れ替えマクロ
+  も追加してます。[Aaron Giles]
+
+* cpu_setbank()を完全にに廃止。かなり前にmemory_set_bankptr()と置き換えられてい
+  たもの。 [Aaron Giles]
+
+* MCRドライバのメジャークリーンアップ。[Aaron Giles]
+- Super Sound I/O割り込みを正しく実装
+- 回路図に基づいてメモリマップを全て書き込み
+- いろんなサウンドボードのサウンド同期を修正。これにより「Power Drive」と「Star 
+  Guards」のパッチを削除。
+- 配線図を元に全コネクションを再検査
+- ゲームのランプやドライバーボードのドキュメント化
+
+* makefileの改良で、ビルド内に潜む変数宣言の問題を多分キャッチできるようになりま
+  した。gccコンパイラスタンダードからgnu89にスイッチしています。[Atari Ace]
+
+* Windowsビルドからdirent.hのAPIを使っている部分を削除。[Atari Ace]
+
+*「ステッガーI」「戦神」「Red Hawk」の解像度を256x256に修正。[Mamesick]
+
+*「ヴォルフィード」「オペレーションウルフ」でタイマーの使用法が間違っていてク
+  ラッシュしていたのを修正。[Nicola Salmoria]
+
+* TC360のスプライトブレンドモードを一つ修正(「プリルラ」2面と「ミズバク大冒険」
+  のアトラクトモードで使用。[Bryan McPhail]
+
+*「影の伝説]のスプライト・タイルマップの配置修正。[Phil Stroffolino]
+
+* PowerPCコアのアップデート: [Nathan Woods]
+- DSIとISI例外のを発生させるための土台追加
+- lbz/lbzu/lbzux/lbzx命令で、上位24bitをきちんとクリアするように修正
+- デバッグビューにSRR0とSRR1追加
+
+* vamphalf.cドライバのクリーンアップ。[Pierpaolo Prazzoli]
+
+* speedbalを再修正。最後のアップデートで壊れていたもの。[Pierpaolo Prazzoli]
+
+*「Nitro Ball」で新しいdeco16_tilemap_34_combine_draw関数を使うように変更。
+  Bryan氏が以前に追加してたもの。[Pierpaolo Prazzoli]
+
+*「雷軋斗」2面にスプライトのラップ追加。[Pierpaolo Prazzoli]
+
+*「Dragon Bowl」にサウンド追加。[Pierpaolo Prazzoli]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+Born To Fight [Luca Elia]
+リーサルエンフォーサーズ [David Haywood]
+コロコロクエスト (Japan) [Luca Elia]
+
+
+
+新規クローンセット
+------------------
+ナイトスラッシャーズ (Japan) [Corrado Tomaselli]
+クラッシュローラー (Kural TWT) [Pierpaolo Prazzoli]
+サンドスコーピオン (set 2) [Aaron Giles]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+Wink [Pierpaolo Prazzoli]

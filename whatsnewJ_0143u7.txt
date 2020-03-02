@@ -1,0 +1,131 @@
+0.143u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02450: [グラフィック] lethalen: プライオリティやスプライト配置の問題がある。
+         (robiza)
+- 02448: [グラフィック] lethalen: 外部のラインスクロールが実装されていない(最初のアト
+         ラクト面、ハイスコア)。(robiza)
+- 04471: [クラッシュ/フリーズ] Many sets using m68000-family CPU: Access Violationエ
+         ラーでクラッシュする。
+- 04345: [サウンド] nbbatman, ssoldier and clones: しばらくすると音が出なくなる。
+         (Mamesick)
+- 04386: [グラフィック] timecris and clones: 2面の宝石ケースの後の部屋がMAMEでは暗く
+         なっていない。(hap)
+- 04495: [クラッシュ/フリーズ] All sets in cd32.c: 正しく起動しない。(mariuszw)
+- 00258: [グラフィック] blswhstl: 最後のボス「ピンク脳みそ」をよく見てみると、スプラ
+         イトに若干不具合があるのがわかる。顔を横切るように薄い黒線が現われる。
+         (robiza)
+- 00373: [グラフィック] butasan: 最初のボーナス面終了後、点数計算のシーンで背景タイル
+         が欠けてたり、色が違っていたりする。(robiza)
+- 00172: [グラフィック] butasan: 後半の面に進むと、画面上部分の得点や時間が表示されて
+         いる部分のテキストが表示されていなかったり、色が間違っていたりする。(robiza)
+
+
+ソースの変更点
+--------------
+- umipoker、saiyukipの入力システムを大幅に書き直し。不明な入力の追加、構造の修正。
+  saiyukipのボタン、ランプサポートとレイアウト追加。両者にコインカウンタと完全なド
+  キュメント追加。また、テストモードに合わせてDIPスイッチの整理と配置追加。
+  [Roberto Fresca]
+
+-「海でポーカー」「スロットポーカー西遊記」のDIPスイッチ、及びDIP配置追加。
+  [Roberto Fresca]
+
+-「Cerry Master '97」の基板レイアウト追加。[Roberto Fresca, Team Europe]
+
+- getc()が関数ではなく、#defineなシステムの修正。[ElBarto]
+
+- neogeo: ゲームのセーブを修正。[ElBarto]
+
+- butasan: テキストRAMのバンク処理修正。[Roberto Zandona']
+
+- blswhstl: 画面サイズとズーム処理の修正。[Roberto Zandona']
+
+- Z80 DART割り込みベクタを非Z80ユーザへ暴露。[Curt Coder]
+
+- Aleck64ドライバの入力改良とTLBについての記述を追加。[Peter Sealy]
+
+- m68000 - MINGWコンパイラ向けの最適化を修正。[Sandro Ronco]
+
+- Big10: デフォルトのDIP設定、DIP配置修正。[Roberto Fresca]
+
+- creaseな表示以外のHLSLの不安定要素を修正。[Ryan Holtz, Bat Country Entertainment]
+
+- Z80 DART FIFOの開始インデックスを修正。[Curt Coder]
+
+- m68k: トレースエミュレーションの有効化と、その修正。[O. Galibert]
+
+- m68000: 自動ACKによる割り込み後、IRQマスクが欠落していたため偽のIRQを発生させていた
+  問題を修正。[O. Galibert]
+
+- m68000: 連続しているがリンクされていない例外時の中止状態を回避するため、必要に応じ
+  てダブルバス・アドレスエラーフラグをリセット。[O. Galibert]
+
+- m68k: ColdFireファミリとMCF5206Eの試験的なサポート。[R. Belmont]
+
+- namcos22.c: ポリゴンのフェード表示、プライオリティの高いポリゴン、テクスチャC-モー
+  ド、スプライトの継ぎ目、テキストレイヤーのアルファ・シャドウ、DSP外部メモリアドレス
+  マスク、その他関連する事柄を修正、または改良。[hap]
+
+- sh3/4: ビッグエンディアンモードを修正。[R. Belmont]
+
+-「Odeon Twister 2」にタッチスクリーンモードを実装。[Mariusz Wojcieszek]
+
+- AY-3-8914のレジスタ書き込み用マスクを修正。Intellivision(「Thuder Castle」など)の
+  ハードウェアエンベロープを使うゲームで、エンベロープの増幅がおかしかったのが修正。
+  [Huygens]
+
+- sfish2を完全に吸い出し。[Guru]
+
+- namcos22.c: tokyowarのスプライト不具合、alpinesa、alpinr2a/b、cybrcyccのスプライト、
+  スプライトのX/Y反転、スプライトデルタのX/Y、テクスチャC-モード、Zプライオリティの問
+  題修正。[hap]
+
+- tms9928a.c: 当たり判定の不具合を修正。[Wilbert Pol]
+
+- m68k: 68040 MMUの試験的な実装。[R. Belmont]
+
+-「Muroge Monaco」とクローンセットのサウンドシステムを解析。Delta-Sgima DAC 
+  (1-bit/Bitstream)で、出力ポート0x7000のbit 3で動作。[Roberto Fresca]
+
+-「Las Vegas」のグラフィックデコードを修正。[Roberto Fresca]
+
+-「ネオミスターDo!」のP1とM1を修正。またNeo-Geoドライバのドキュメント更新。[Johnboy]
+
+- AMD 29F080チップをサポートするため、interlfsh.cを更新。[Sandro Ronco]
+
+- namcos23.c:「タイムクライシス2」に光線銃入力を追加。[hap]
+
+- さらに2500本のギャンブル、スロットマシンタイトル追加。[David Haywood]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+ペプシマン [Luca Elia, Yasuhiro Ogawa]
+宇宙特急メダリアン [Luca Elia, Yasuhiro Ogawa]
+ファンキューブ3 [Luca Elia, Yasuhiro Ogawa]
+ファミコンボックス [Mariusz Wojcieszek]
+
+
+新しく追加されたクローンセット
+------------------------------
+ジャングルキング (alternate sound)  [Andrew Welburn]
+ゼロガンナー (Japan, Model 2A) [Tormod, Brian Troha, The Dumping Union]
+ラストブロンクス -東京番外地- (USA, Revision A) [R. Mucciarelli, The Dumping Union]
+バイパーフェイズ1 (USA, New Version, set 2) [Arzeno Fabrice]
+ビジランテ (US) - Rev. G  [Corrado Tomaselli]
+Cruis'n Exotica v1.0 [Brian Troha, The Dumping Union]
+NBA Jam T.E. Nani Edition (rev 5.2 8/11/95) [TerryMasters]
+Muroge Monaco (set 3) [Roberto Fresca, EMMA Italian Dumping Team]
+ぶたさん - Pig's & Bomber's (Japan, English) [Bensonrad]
+
+
+追加された未動作ゲーム
+----------------------
+Cherry Master '97 [Roberto Fresca, Team Europe, FatArnold]
+Metalman [PinMAME]
+Pimbal (Pinball 3000) [PinMAME]

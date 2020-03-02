@@ -1,0 +1,125 @@
+0.84u5
+------
+
+注意：このビルドでは大規模な内部変更が行われています。
+さらに、controller.iniのサポートは一時的に中止しています。
+その他、入力系のバグがあればwww.mametesters.orgへ報告お願いします。
+
+注意その2：32ビット拡張のため、既存のINPとの互換性は無くなりました。
+  MAMEのINPエントリは2バイトから4バイトで出力されるように変更されています。
+
+
+ドライバの改良点：
+------------------
+
+- Rabbitドライバを大改良。[David Haywood]
+
+- MAME32FXより価値のあるサウンドの変更を全て収録（ほとんどはMAME32Plusより）。 
+  クレジット、および一覧は以下の通り：
+
+    * airbustr.c: FM/PCM バランス (RND)
+    * crimfght.c: YMとZ80のクロックを4MHzに。実機により近い形 (???)
+    * darkseal.c: FM/PCM バランス (UNZU)
+    * ddragon.c: FM/PCM バランス (???)
+    * mitchell.c: 音程調整 (AKIN)
+    * namcos1.c: FM/PCM バランス (UNZU)
+    * namcos2.c: FM/PCM バランス (RND)
+    * nemesis.c: PSG/WSG バランス (UNZU)
+    * rohga.c: FM/PCM バランス (RND)
+    * shadfrce.c: FM/PCM バランス (RND)
+    * simpsons.c: Z80+YM2151のクロック, FM/PCM バランス (???)
+    * toki.c: FM/PCM バランス (???)
+    * vaportra.c: FM/PCM バランス (UNZU)
+    * xmen.c: FM/PCM バランス, Z80のクロックは8MHz (???)
+
+- megasys1ドライバの入力ポート修正。[Mamesick]
+
+-「センチピード」のいろんな海賊版の名前を修正。[Stefan Jokisch]
+
+- Donkey Kongドライバのグラフィックデコードを訂正。[Andrea Mazzoleni]
+
+- Midway ZeusゲームのDIPスイッチ修正。[Brian Troha]
+
+-「ストライクボーリング」の色改善。[Jarek Burczynski]
+
+- ST-0016ドライバに4bpp/4bppタイルマップ追加。[Tomasz Slanina]
+
+- Namco System 12のNVRAMを正しく実装。[smf]
+
+- ZNゲームのROMロード修正でQSoundを改善。[Barry Rodewald]
+
+
+メインプログラムの変更点：
+--------------------------
+
+- リセット時にPOKEYのALLPOTハンドラが微妙な動作をするのを修正。[MikeJ]
+
+- 汎用ビットマップビデオハードを使っているゲームでの汎用ステートセーブを追加。こ
+  のシステムを使うドライバも大量にコンバートしました。[Andrew Gardner]
+
+- TMS34010コアのメモリクラッシュ修正。[Andrea Mazzoleni]
+
+- OSDレイヤーがエラーを返したときにミキサーコードがクラッシュしないように修正。
+  [Andrea Mazzoleni]
+
+- H8/3002コアの修正。すでにタイマー起動時にスタートレジスタがタイマーを変にする
+  問題。S12ゲームのBGMテンポ修正。
+
+- 新関数追加（res_net.h）：compute_resistor_net_outputs()
+  これは、色生成回路がオープンコレクタPROMなハードの場合の出力を求めます。
+  [Jarek Burczynski]
+
+- NEC V810コアの初期版追加（mayjinsen, mayjinsen2, jskで使用）。
+  [Thomasz Slanina]
+
+- LinuxPPCなどでコンパイルするときの問題を修正。
+  [Lawrence Gold]
+
+- 6502のミラー領域の逆アセンブリを修正。[Curt Coder]
+
+- i386逆アセンブラフォーマットを改良。[Ville Linde]
+
+- 自動センタリングを使うドライバからPORT_CENTERを削除しました。新しく、アナログ
+  操作全般にユーザー定義可能な自動センタリング設定を適用できるようにしています。
+  また、本物のアナログデバイス使用時に、手動で0にセットする必要がないように、イ
+  ンテリジェントな自動センタリングをするようにも改良しました。[Aaron Giles]
+
+- mame_fprintfでいろんなテキストフォーマット出力する場合に、コンパイル時にCRLF
+  ベースなるように修正しました。設定は必ず必要で、1（CRのみ）、2（LFのみ）、
+  3（CR+LF）のいずれかになります。[Aaron Giles]
+
+- 新型入力システムのバグ修正と、CFGファイルフォーマットの改善。[Aaron Giles]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+羅媚斗 [David Haywood]
+早指し将棋 五月陣戦2 [Tomasz Slanina]
+ズパパ!
+Sengoku 3 / 戦国伝承2001
+ビートマニア 6th MIX (ver JA-A)
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Mille Miglia 2: グレート1000マイルズラリー2 (95/05/24) [David Haywood]
+Last Fortress - 牌砦 (German) [David Haywood]
+ブロクシード (US, C System) [Arzeno Fabrice]
+ラッドラリー (US) [Arzeno Fabrice]
+ダンクマニア (DM2/VER.C) [R. Belmont]
+High Impact Football (rev LA4 02/04/91) [Brian Troha]
+フラッシュギャル (set 2) [f205v]
+ギャルズパニック (set 3) [Paul Priest]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+Harem [Pierpaolo Prazzoli]
+Altered Beast / 獣王記 (8571 protected) [Arzeno Fabrice]
+獣王記 (Japan, 8571 protected) [Arzeno Fabrice]
+Virtual Bowling / バーチャボウリング [David Haywood]
+Champion List II [David Haywood]
+Long Hu Bang / 龍虎榜 [David Haywood]
+Xing Yen Man Guan / 幸運満貫 [David Haywood]
+中国龍 (Japan) [David Haywood]
+パズルスター [David Haywood]

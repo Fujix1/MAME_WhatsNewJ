@@ -1,0 +1,256 @@
+0.122u7
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+tylz0122u5red [Zsolt Vasvari]
+stadhero0122u3gre [Zsolt Vasvari]
+stadhero0122u3ora [Zsolt Vasvari]
+asterix_1055gre [couriersud]
+blktiger37b15gre [couriersud]
+newui0118u4ora [Atari Ace]
+mpatrol0117u2gre [Aaron Giles]
+realbrk0111u4gra [Brian Troha]
+schmisr0111u5gra [Brian Troha, partial fix]
+penbros0111u5gra [Brian Troha]
+ninjakd2_0111u3gra [Nicola Salmoria]
+mnight0102gre [Nicola Salmoria]
+toki060gre [robiza, Corrado Tomaselli]
+
+
+
+ソースの変更点
+--------------
+- m680*シリーズCPUに内部分周を追加(オリジナルのm6800は除く)。明示的な分周を取り
+  除くため、これらを使用するゲーム全てのクロックを更新。[Aaron Giles]
+
+- 試験的なD3Dの修正を巻き戻し。-switchresが動作しなくなっていたため。
+  [Aaron Giles]
+
+- dkongのアップデート: [couriersud]
+ * 分周設定についての更新で起きたサウンドの問題を修正
+ * XTAL_*を使うように更新
+ * dkongのサウンドがおかしくなった後の変更を巻き戻し
+
+- i8085.cのアップデート: [couriersud]
+ * 8085の内部クロックを2分周に指定。i8085.cを更新。I8080は1のままです
+ * 内部分周を反映するようにドライバのクロックを修正
+ * FIXMEを追加: I8085のクロックがスペックを超えていることについて
+
+-「スペースファイターマークII」について: [Zsolt Vasvari]
+ - Guru氏より、年代を1979に変更
+ - Set 2のROM名をマージ可能なように改名
+ - 試験用のコードが残っていたので削除
+
+- phoenix.cの更新: [couriersud]
+ * I8085のクロック調整
+ * DIP配置追加
+ * 入力の統合
+ * 入力のタグ化
+ * メモリマップの統合
+ * (オート)セーブステートに関係するサウンドの問題を修正
+
+- pleiadsの更新: [couriersud] 
+ * 回路図よりビデオタイミングを取得
+ * 回路図よりパレットを追加 (resnet.h)
+ * カラーテーブル廃止
+
+- survivalの更新: [couriersud]
+ * 回路図を元にパレットを追加 (resnet.h)
+
+-「ヒーテッドバレル」USセット2の偽な吸い出しを削除。[Brian Troha]
+
+- RSPの変更: [SGINut, Nicola Salmoria, Ville Linde]
+ - mame_randのlieuで、RSPのレジスタを0に初期化
+ - 他のCPUから設定されたときのRSPのシングルステップモードを再修正
+ - RSP PCの読み込みで、有効な12ビットを最低限返すよう変更
+ - CFC2経由の読み込み時のフラグ動作を修正
+ - RSP VRCP命令を実際のハードの結果に合うように修正
+ - VRCPエレメントのロックアップを訂正
+ - Corrected unaligned DMA behavior
+
+- ダイレクトRAM読み込みを進めるため、palette_X_r関数を全て削除。[Zsolt Vasvari]
+
+- VIDEO_START(generic)より、適用できなくなったアサートを削除。不要になった
+  VIDEO_START(generic)とMDRV_VIDEO_START(generic_bitmapped)をドライバから削除。
+  [Zsolt Vasvari]
+
+- ROM/RAMハンドラの動的インストールの検出を、より強力化。以前のものでは、
+  DRIVER_INITとMACHINE_STARTの変更をキャッチできませんでした。各ドライバにあった
+  間違った使用箇所を修正。[Aaron Giles]
+
+- チートのコールバックの一つについて、ジョイスティックからの入力にも対応するため、
+  汎用のスイッチ検知を使うように変更。[Aaron Giles]
+
+- sauro.cのsp0256内部ROMをsp0256-al2.binに改名。また、これからBAD_DUMPフラグを削
+  除。[couriersud]
+
+- HD6309を内部的に4分割に指定。これに合わせてドライバの更新。[Aaron Giles]
+
+- ddragonドライバのメジャークリーンアップ: [Aaron Giles]
+ - ビデオと割り込みタイミングの改良
+ - 共通のメモリマップと入力ポートの集約
+ - セーブステート追加
+ - クロック訂正
+
+- blktiger.cのアップデート: [couriersud]
+ * メモリマップの結合
+ * 入力ポートのタグ化
+ * 読み込みは全て入力ポートタグを使用
+ * RomstarのマニュアルからDIPスイッチ配置を追加
+
+- TMS5110の既知の派生チップ全てを正式なチップとして追加。dkong、cvs、scrambleで
+  新チップを使うように更新。[couriersud]
+
+- atarifb.cをタイルマップのコンバート。[Zsolt Vasvari]
+
+- namcos11、namcos12をmemory_configure_bank / memory_set_bankに切り替え。
+  「ゴルゴ13」の銃読み込みをシンプル化。[smf]
+
+- mpatrolドライバのクリーンアップ: [Aaron Giles]
+ - メモリマップ統合
+ - メモリマップ完成
+ - ビデオタイミング訂正
+ - CPUクロック訂正
+ - プロテクトハックを本来の動作と置き換え
+ - 入力系のクリーンアップ
+
+- tilemap_get_scrollx / tilemap_get_scrollyを追加。[Nicola Salmoria]
+
+- SCSPのループ時にサンプルオフセットの端数を保持。これにより、残りの音程の問題が
+  修正。タイマーのB&C期限切れのマイナーな問題修正。[kingshriek, R. Belmont]
+
+- auto_malloc()が、メモリ不足のときに失敗するよう再設定。[Aaron Giles]
+
+- zn.cでMDRV_IMPORT_FROMを使うように変更。[smf]
+
+- mario.cの変更: [couriersud]
+ * video/generic.hのトレースを全て削除
+ * autosave時の画面反転の問題を修正
+ * PCBの画像を元に、レジスタとコンデンサの値を検証
+
+- 「リアルブレイク」にDIP配置追加。「銀玉勝負」のDIP2つを設定。[Brian Troha]
+
+- drivers/williams.cの無効なmemory_install_*_handlerを修正。全ドライバにPIAチッ
+  プを使用した外部OR回路エミュレーションを追加。以前はPIAエミュレーション内部に
+  ありましたが、実際には外部ロジックです。PIAには出力ラインが、INTAとINTBの2系統
+  あります。これにより「PlayBall」が修正されます。[Zsolt Vasvari]
+
+- HC55516エミュレータで外部のオシレータをサポート。「マウストラップ」で新インター
+  フェースを使うように更新。[Zsolt Vasvari]
+
+- ninjakd2、mnight、omegafドライバの統合とクリーンアップ。[Nicola Salmoria]
+ - 全ゲームで画面反転をサポート
+ - スプライトオーバードローモードを修正:
+    - ninjakd2: おめでとう画面 (3面など) で日本語テキストが正しく表示
+    - ninjakd2: 面開始のフェードインのときにレベルアイテムはそのまま表示。この動
+      作が正確かどうかはわからないが、これでないと他のエフェクトが動作しない
+    - mnightのアトラクトモードで、大型の船が撃っても他のスプライトが残らない
+    - mnightの各面クリアの画面でボール描画をゆっくり処理。また次の面の開始時も
+      ボールをゆっくり消去。同じエフェクトはアトラクトモードのミス時にも使用
+ - 2倍サイズを考慮した、スプライト表示の正しい演算処理を追加。これにより、ハック
+   無しでもmnightのショットが残るのが修正されます
+ - ninjakd2のPCM再生レートを16000から13020に低下。この方が音が良く、またマスタク
+   ロックの分周値になります
+ - omegafでの入力プロテクト回避に使っていたROMパッチを削除。実際に動作するプロテ
+   クトシミュレーションを追加
+ - DIPスイッチの訂正
+ - サウンドCPUのリセットラインを実装
+ - ドライバ初期化時にアドレスラインを占有していた古いゲームについて、ROMロードを
+   シンプル化
+
+- 特定の入力チャンネルターゲットにMDRV_SOUND_ROUTE_EXを追加。route構造体に入力idを
+  追加。DISCRETE_INPUT_STREAMを修正して、DISCRETE_INPUT_STREAMに入力チャンネル番
+  号を追加。[couriersud]
+
+- デバッガのデフォルトメモリビュー幅について、byteサイズの最小値よりも大きくなる
+  よう修正。クリックでメニューを更新するように変更と、不良チェックサムの問題を修
+  正。[Aaron Giles]
+
+- Ninja Kunaを修正。メモリマップのクリーンアップ。ファイル名をninjakun.cに変更。
+  [Zsolt Vasvari]
+
+- HC55516サウンドエミュレーションに、派生版のMC3417とMC3418を追加。
+ 「マウストラップ」でMC3417を使うように変更。[Zsolt Vasvari]
+
+- リセット間でのi8085コールバックセーブを修正。SIDピン用に'pull'コールバックを追
+  加。「Red Alert」のボイスボードで必要。[Zsolt Vasvari]
+
+- UIスライダによるテキスト表示を改良。基本的に、指定したタイプが複数あるとき、項
+  目のインデックスのみを表示します。[Zsolt Vasvari]
+
+- jailbrekのクロックとビデオタイミングを計測結果を元に更新。[Aaron Giles]
+
+- i8051のタイマーが使用可能ではないときに動作したのを修正。TCONのみを調べるのは、
+  タイマーを発動させるには不十分です。条件にIE SFRフラグを追加。[Jim Stolis]
+
+- 全プロトタイプマクロに_CALLの変種追加。将来的に、これらを使用することでシグネ
+  チャの変更が容易になるはずです。適当な箇所で既存のコールをマクロに置き換え。
+  [Zsolt Vasvari]
+
+- VIDEO_START_CALL(generic)について、これが不要な箇所から削除。
+  VIDEO_START_CALL(generic_bitmapped) をjpmimpctから削除。[Zsolt Vasvari]
+
+- stfightのYM2203クロックを3MHzに変更(サントラを参照)。[Yasuhiro Ogawa]
+
+- CPS3のレンダリングで、リニアズームエフェクトの解像度を改良。[OopsWare]
+
+- redalertドライバの書き直しと近代化: [Zsolt Vasvari]
+ - 色訂正 -- マニュアルの記載と異なるけど、フライヤーとは合っている部分について
+ - スピーチ追加
+ - AY-8910サウンド修正
+ - oddsとends
+ -「デモンアイX」の色修正
+ -「デモンアイX」のサウンド追加
+ -「デモンアイX」をNOT_WORKINGに指定。3番目のグラフィックレイヤーがまだ無くて、
+   2面がクリアできないので
+
+- 既知のNaomi BIOSを全て追加。解説、リージョンバイトとバージョン番号の情報付き。
+  [Brian Troha]
+
+- Exidyのフリーゲームについて、「Berzerk」への依存性を解消。[Zsolt Vasvari]
+
+- ARM7 THUMBモードのBLX命令をサポート。[SGINut]
+
+- scrambleと800pathのマニュアルを元にDIP配置を検証。[RansAckeR]
+
+- S14001Aエミュレータで、クロックマルチプライアに代えてクロック周波数をサポート。
+  これが実チップの動作方法です。回路図に基づき、BerzerkドライバでS14001Aのクロッ
+  クを指定するように変更。[Zsolt Vasvari]
+
+- コードのあちこちからグローバルMachineを削除。[Zsolt Vasvari]
+
+- MSVCでC4305(type trancation)として警告が出る問題を修正。ほとんどはイニシャライ
+  ザによるdouble->floatへの変換で無害なものでしたが、一つはsegasyse.cのバグで、
+  UINT8の範囲を超えていたため、スプライトの番号が高いものは無効になっていたのを
+  示していました。[Atari Ace]
+
+- VS7/VS71コンパイラ用の/wd4550を削除。VS7固有の問題を修正。[Atari Ace]
+
+- sm8500d.cにcase文追加。デッドコード警告をチェック中に気づいたもの。[Atari Ace]
+
+-「ダイエットGoGo」について、Charles Macdonald氏によるCPUコアの修正が正しく動作
+  するように、H6280のクロックを訂正。以下のゲームで周波数とpin 7 okim6295の確認
+  と訂正:
+   ニュージーランドストーリー(Z80x3バージョン)、トリオザパンチ、バンダイク、
+   paradise.cのゲーム、Down Town / 目撃、Shaolin's Road / 少林寺への道、Twins
+
+  [Corrado Tomaselli]
+
+- peplusのメモリハックと、ゲーム固有のDRIVER_INITを全て削除。DRIVER_INITはノーマ
+  ルボード用とスーパーボード用の2つのみ使用。AutoHoldのチートは一時的にに無効化。
+  ただしアドレスについては将来のためにドキュメント化。[Jim Stolis]
+
+-「Risky Challenge / ぐっすんおよよ」に未復号の命令コードをさらに追加。ゲームが
+  イントロアニメーション付きで起動。[robiza]
+
+
+
+新規クローンセット
+------------------
+Jokers Wild Poker (PP0065) [Jim Stolis]
+Double Down Stud Poker (PP0250) [Jim Stolis]
+Standard Draw Poker (PP0447) [Jim Stolis]
+Night Stocker (set 2) [Andrew Gardner]
+Trivial Pursuit (Genus I) (set 2) [Andrew Gardner]

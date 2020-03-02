@@ -1,0 +1,141 @@
+﻿0.69a (0.69 Update 1)
+
+　このバージョンはソース差分のみの提供です。もしこういったリリースが好評ならば、
+続けたいと思います。これにより、みなさんが最新コードを、簡単にしかも少ない帯域幅で
+入手できるようになります。
+
+　もしこれをコンパイル出来なくても、通常のリリースも行いますので心配はいりません。
+通常リリースは今まで通りなので、例えばあなたがいつも使ってるアンオフィシャル版で
+対応されなくても焦る必要はありません。みんながみんな、定期的にバイナリを更新する
+時間があるかというとそうでもないですからね。
+
+
+ソース全般の変更：
+------------------
+
+■「ヘッドパニック」のeeprom修正。[Paul Priest]
+  src\drivers\esd16.c
+
+■MIPS3 Dynacrecの改良。[Aaron Giles]
+  src\x86drc.c
+  src\x86drc.h
+  src\cpu\mips\mips3drc.c
+
+■NeoGeoゲームでのステートセーブを改善。[Mame32Plus]
+■NeoGeoの解像度を横320ドットに変更。実機で確認済み。[David Haywood]
+■NeoGeoのクロック周波数などを訂正。[TheGuru]
+  src\drivers\neogeo.c
+  src\machine\neogeo.c
+  src\vidhrdw\neogeo.c
+  src\includes\neogeo.h
+
+■「メタルソルジャーアイザックII」でのアナログ入力定義を削除し、代わりにジョイス
+  ティック入力から直接エンコードするように変更。[Jarek Burczynski]
+  src\drivers\msisaac.c
+
+■将来的に必要になるIDE関係の更新追加。[Aaron Giles]
+  src\machine\idectrl.c
+  src\machine\idectrl.h
+
+■TMS32010 BIO の修正。[Aaron Giles]
+  src\cpu\tms32010\tms32010.h
+
+■C版68kをデフォルトにしました。「アサルト」の当たり判定が修正されます。[]
+
+■D3D使用時にタイミングが変になるバグを修正。[Leon van Rooij]
+  src\windows\wind3d.c
+
+■オプションのXML出力。(xmlinfo.txt参照)。[Andrea Mazzoleni]
+   -listxmlで使用。コンバータの設定はまだ不完全。
+  src\info.c
+  src\info.h
+  src\windows\fronthlp.c
+  src\xml2info\*
+
+■タイマーシステムにさまざまな変更追加。[Aaron Giles]
+
+  全てのCPUスケジューリングをtimer.cよりcpuexec.cに移転。サスペンドされていた
+  CPUのタイムトラッキング関係のバグは大量に修正。
+  副作用として、CPUスケジューリングの動作に変化があります。ほとんどのゲームでは
+  問題ありませんが、下のような例外があります：
+
+  * taitosj.c: MCU通信部分のタイミングに不具合あり
+  * arkanoid.c: MCU通信部分がタイミングに不具合あり
+  * harddriv.c: stunrunのタイミングに不具合あり。racedriv/steeltal/hdrivairは動作せず。
+
+    (恐らく他にもあります)
+
+  最初の2つについてはracedriv同様修正しましたが、steeltalとhdrivairとstunrunはまだ
+  問題があります。
+
+■cpu_boost_interleave(double timeslice_duration, double boost_duration);
+
+  この関数はCPUの同期動作用に極短い時間だけインターリーブを一時的に増やします。
+  arkanoidとtaitosjでMCUの通信が動作するように使用してます。使用例は以下の通り：
+
+  cpu_boost_interleave(TIME_IN_USEC(1), TIME_IN_USEC(100));
+
+  こうすると、100μ秒の間にCPU間に1μ秒のインターリーブを挿入します。
+
+  cpu_boost_interleave(0, TIME_IN_USEC(10));
+
+  第一引数に0のような小さい値を指定すると、完全に同期することを意味し、指定した間の
+  正確なシンクロが保証されます。この機能はとても遅いので使いすぎないようにして下さい。
+
+  この更新で何か動作しないものがあった場合は知らせて下さい。
+
+  src\cpuintrf.c
+  src\cpuintrf.h
+  src\cpuexec.c
+  src\cpuexec.h
+  src\timer.c
+  src\timer.h
+  src\drivers\taitosj.c
+  src\machine\taitosj.c
+  src\machine\arkanoid.c
+  src\drivers\harddriv.c
+  src\machine\harddriv.c
+  src\sndhrdw\harddriv.c
+
+
+新規サポートゲーム：
+--------------------
+
+ガツン [Paul Priest]
+	src\drivers\suprnova.c
+	src\vidhrdw\suprnova.c
+
+ドラゴンボールZ [R.Belmont]
+	src\drivers\dbz.c
+	src\vidhrdw\dbz.c
+	src\vidhrdw\konamiic.c
+	src\vidhrdw\konamiic.h
+
+Ozon I [Pierpaolo Prazzoli]
+	bad colours due to missing prom
+	src\drivers\galaxian.c
+
+
+新規サポートクローン：
+----------------------
+
+ザ・キング・オブ・ファイターズ'95 (set 2) [Jarek Burczynski]
+	v1, c1, c2, c3, c4は親セットから、更新されたものを使用
+	src\drivers\neogeo.c
+カイロスの館 (Japan) [David Haywood]
+	src\drivers\alpha68k.c
+アンブッシュ (Tecfri) [David Haywood]
+	src\drivers\ambush.c
+フリスキートム (set 2) [David Haywood]
+	src\drivers\seicross.c
+
+
+新規TESTDRIVER：
+----------------
+
+Photo Y2K [ElSemi]
+	プロテクト解析不完全
+スタジアムクロス [David Haywood]
+	表示問題あり、操作未実装
+	src\drivers\multi32.c
+

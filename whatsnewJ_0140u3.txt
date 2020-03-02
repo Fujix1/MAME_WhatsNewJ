@@ -1,0 +1,219 @@
+0.140u3
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 03791: [サウンド] pandoras: BGMの音程などがおかしい。(Phil Bennett)
+- 04074: [クラッシュ/フリーズ] raidndxa2: OK後にSIGSEGVエラーで落ちる。
+         (Angelo Salese)
+- 04073: [クラッシュ/フリーズ] nzerotea: OK後にSIGSEGVエラーで落ちる。(Angelo Salese)
+- 04150: [ドキュメント] shrike: 年代は1986。(Tafoid)
+- 04142: [インターフェイス] 内蔵UI使用時、ESCを2回押せばMAMEが終了する必要がある。
+         (Miodrag Milanovic)
+- 03467: [グラフィック] firebarr: タイルマップとスプライトの広範囲な問題あり。
+         (Angelo Salese)
+- 03723: [ゲームプレイ] schaser: 画面がさかさま。(hap)
+- 04144: [DIP/入力] mazeinv: ボタンの数が間違っている。(Tafoid)
+- 04051: [サウンド] hunchbks: 音が出なくなっている。(hap)
+- 04126: [サウンド] minefld, rescue, aponow: サウンドが鳴らない。(hap)
+- 04145: [ドキュメント] strtheat: ゲーム名は「Street Heat」だけでよい。(M.A.S.H.)
+- 04137: [色/パレット] rpatrol, rpatrolb: スプライトの色が違う。0.53で発生。
+         (M.A.S.H.)
+- 04103: [ステート保存/再生] pesadelo: セーブステートから復帰すると背景が変になる。
+         (hap)
+- 02942: [クラッシュ/フリーズ] wpksoc: リサイクルの画面後にフリーズする。
+         (Angelo Salese)
+- 04121: [デバッガ] デバッガで8ビットレジスタをdoコマンドで設定できない。(Robbbert)
+- 04130: [デバッガ] デバッガのprintコマンドがヘルプの内容通りに動作しない。(Robbbert)
+- 04131: [デバッガ] デバッガのsymlistコマンドでクラッシュする。(Robbbert)
+
+
+ソースの変更点
+--------------
+- MC6850で、クロック変更時のレシーブ/トランスミットタイマー周期を調整。[Curt Coder]
+
+- PGMのspritelistメーカーの終わりを修正(?)。[David Haywood]
+
+- 訂正いろいろ: [Corrado Tomaselli]
+ * pacmaniaのROMラベルを正しいものに修正
+ * chaknpopのクロックを基板で確認したものに変更
+ * tankbustのクロックを基板で確認したものに変更
+ * kyrosのクロックを海賊版基板に合わせて変更
+ * mshuttlej (Japan - Set 1)のサンプルROM MY06はUS版と同じ
+
+- Naomi/Naomi2 M2/M3復号化を更新。[Andreas Naive]
+
+- vf4cartのキーを追加。[Andreas Naive]
+
+- デバッグコマンドsymlistを修正 (bug #4131)。 [Robbbert]
+
+- Pastel GalドライバのZ80クロック分周率を手動で調整。galdsの正確なサンプル音程が必要。
+  [Angelo Salese]
+
+- PGMゲームの正しいリフレッシュレートを追加。[Zakk]
+
+-「戦え！ビッグファイター」のサービスモードを修正。[Angelo Salese]
+
+-「戦え！ビッグファイター」のROMパッチを削除。[Angelo Salese]
+
+- Irem M107ドライバのリセットライントリガーをメインCPUからサウンドCPUに移動。
+ 「ファイヤーバレル」のサウンドが修正。[Angelo Salese]
+
+- Irem M107ハードウェアのロースクロールエフェクト初期版を実装。「ファイヤーバレル」の
+  ステージ2と6、「ワールドPKサッカー」のゴールスクロールで使用。[Angelo Salese]
+
+-「ドリームサッカー '94」(M107版)のゲーム速度が変になっていたのを修正。
+  [Angelo Salese]
+
+- Irem M107に、ローセレクトエフェクトの初期版を追加。「ファイヤーバレル」オープニング
+  のシーン切り替えを修正。[Angelo Salese, David Haywood]
+
+- Synertek SY6845Eサブタイプをmc6845.cに追加。[Curt Coder]
+
+- Irem M107のローセレクトを他のタイルマップ全てにも移植してバグを修正。
+ 「ファイヤーバレル」1面と8面の終わりでのグラフィックを拡大する処理が修正。
+  [Angelo Salese]
+
+-「ワールドPKサッカー」のタイトル画面色不具合を修正。[Angelo Salese]
+
+- forte2.c, pengadvb.c: セーブステートを修正。[ShimaPong]
+
+- cb2001: 命令コードを2つ修正。[Roberto Zandona']
+
+-「ファイヤーバレル」のロースクロールを修正。[David Haywood]
+
+- SDL: 解像度の変更時にクリアとフリップを2回から3回に変更。一部のOpenGLドライバで使用。
+  [Chris Kennedy]
+
+- FMサウンドコアの静的変数を削除。[Atari Ace]
+
+- Irem M107ハードのスプライトラップラウンドを修正。[Angelo Salese]
+
+-「ギャルズパニック2」のクロックについてのドキュメントを実機(galpani2i)を元に修正。
+  [Corrado Tomaselli]
+
+-「ファイヤーバレル」のスプライト位置不具合を修正。[Angelo Salese]
+
+-「ファイヤーバレル」のスプライト間プライオリティと、ゲームオーバー画面でスプライトが
+  張り付いたままになるバグを修正。[Angelo Salese, David Haywood]
+
+-「Maze Invaders」の入力を修正とノートの追加(MT#4144を修正)。centiped.cドライバで、サー
+  ビスモードのDIPスイッチ表示に合わせてDIP配置を修正。[Tafoid]
+
+- Seibu Audioドライバのバンクスイッチが初期化されない問題を修正。「電神魔傀」のサウン
+  ドがなんとか動作。[Angelo Salese]
+
+- missile.c:「Missile Attack」のROM配置修正、また「Super Missle Attack」にPROM追加。
+  [Kevin Eshbach]
+
+- scobra.c: 「スーパーコブラ」「Lost Tomb」のDIPスイッチ配置を追加。[Kevin Eshbach]
+
+- Seibu Audio HWの偽irq ackをコメントアウトし、「電神魔傀」のサウンド修正、また
+ 「電神魔傀」「SDガンダムサイコサラマンダーの脅威」にあったうさんくさい箇所を削除。
+  [Angelo Salese]
+
+- H8: csplayh5用に、ldc #imm、ccr、rotr.w Rxを実装。[R. Belmont]
+
+- チートエンジンに'changed by'検索を追加。[Pugsy]
+
+- ics2115: タイマ修正。[O. Galibert]
+
+- raiden2: copモードがわずかに前進。[O. Galibert]
+
+- scptourのキーダンプ追加。[Guru]
+
+- i8085 CPUで、デバッガのDOコマンドから、reg Aをロードするのを修正。[Robbbert]
+
+- DEVICE_SELF_OWNERを追加。これによりアドレスマップ側から、保持するデバイスを参照する
+  ことができます。CPUの一部がデバイスの場合に、CPUアドレスマップハンドラに対して役立
+  ちます。[Aaron Giles]
+
+-「雷電2」のサウンド通信を追加。これによりサウンドが動作。[Angelo Salese]
+
+- MESSの汎用ターミナルエミュレーション用に、MC6850 ACIAのレシーブバイト関数を追加。
+  [Curt Coder]
+
+-「ぷよぷよ」「ブロクシード」で吸い出しが必要なPALを更新。[Kevin Eshbach]
+
+- vsnes.c:「VS. スーパーマリオブラザーズ」(alt)のセット名訂正と「VS. Castlevania」の
+  ROMロケーション追加。[Kevin Eshbach]
+
+- Z80DARTの変更: [Curt Coder]
+ * 非同期トランスミットモードを修正
+ * チャンネルA割り込みベクタを修正
+ * ログ取りを改良
+
+- multfish.cの更新: [MetalliC]
+ * セーブステートを完全サポート
+ * mvram+カスタムコードの代わりに、タイムキーパーデバイスを使うように変更
+ * タイムキーパーをZ80のバンクRAMとして使用(実機で確認。これにより実機同様電源のオン
+   とオフのトキにゲームステートが全て保存)
+ * Irgrosoftのハッシュリストに基づいてグラフィックROMの名前付け規則を変更
+ *「Roll Fruit」でのコインロックが解けないバグを修正
+ * 不足ROMの追加: Fruit Cocktail 030623
+    fcockt_3 Lucky Haunter 030804  lhaunt_2 Resident 040415      
+    resdnt
+ * 既知のハッシュを全て追加(エンターテインメント、ロッタリーなど)
+ * いろいろなクリーンアップ
+
+-「セイブカップサッカー」海賊版セットのグラフィックROMをデコード。[David Haywood]
+
+-「レジオネア」ドライバに初期版のDMAを追加。「レジオネア」「電神魔傀」の色が修正。
+  [Angelo Salese]
+
+-「レジオネア」のBK3ビットプレーンの順序を修正。マップ画面の色が修正。[Angelo Salese]
+
+- Naomiのアップデート:
+ * Added Rev. C Naomi 2 Export BIOS [The Dumping Union]
+ * Fixed some rom filenames that didn't fit MAME standard [Cah4e3]
+
+- dai3wksiのクロック周波数を基板で確認した値に訂正。[Guru]
+
+- seicop.cのDMAモード0x0eを追加。「セイブカップサッカー」「ゴジラ」「SDガンダム」で使
+  用。[Angelo Salese]
+
+-「セイブカップサッカー」のサウンド通信部を修正。[Angelo Salese]
+
+- Ghost Eolithドライバにアイドルスキップを追加。[David Haywood]
+
+-「ゼロチーム」「X Se Dae」が起動するように修正。[Angelo Salese]
+
+- V25/V35 CPUコアの初期版を実装。[Alex Jackson]
+
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+バレット [Aaron Giles, Charles MacDonald, Chris Hardy]
+ルンバランバ [Corrado Tomaselli, David Haywood, Angelo Salese]
+Deluxe Trivia ? Whiz (Edition 5)
+  [Mariusz Wojcieszek, Smitdogg, The Dumping Union]
+電神魔傀 [Angelo Salese, David Haywood, Tomasz Slanina]
+Balloon & Balloon (BnB Arcade) [Tim Schuerewegen]
+Happy Tour [Tim Schuerewegen]
+第3惑星メテオ [Hau, Chack'n]
+
+
+
+新しく追加されたクローンセット
+------------------------------
+World Class Bowling v1.4 [Brian Troha, The Dumping Union]
+アタックス (Europe) [Corrado Tomaselli]
+Gals Ds - Three Dealers Casino House (海賊版?) [Team Europe & catSushi]
+ジャイラス (海賊版) [Darran]
+パロディウスだ！ (World, set 2) [Corrado Tomaselli, The Dumping Union]
+ギャルズパニック2 (Italy) [Corrado Tomaselli]
+クエスター スペシャルエディション (Japan) [taka-e]
+Tic Tac Trivia (Vertical) [Smitdogg, The Dumping Union]
+雷電II (set 7, US Fabtek) [Smitdogg, The Dumping Union] (not working)
+
+
+
+追加された未動作ゲーム
+----------------------
+レースオン！ (RO2 Ver. A) [Guru]
+クライシスゾーン (CSZ04 Ver. B) [Guru]
+ハイドロサンダー [Mr. Do]
+Offroad Thunder [Tom, gamerfan, Smitdogg, The Dumping Union]
+ダービーオーナーズクラブワールドエディション (Rev. D) [f205v, Cah4e3]

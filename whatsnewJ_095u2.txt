@@ -1,0 +1,86 @@
+0.95u2
+------
+
+■Incredible Technology 8-bitのアップデート。[Aaron Giles]
+* 全基板レイアウトの詳細なドキュメント追加
+* 基板の情報に合うようにドライバを再構成
+*「Poker Dice / Dyno Bop」のページングとフリッカの問題修正
+*「リムロッキンバスケットボール」のアナウンサーボイス追加 (rimrockn057gre)
+*「リムロッキンバスケットボール」のP3とP4の操作修正
+*「Super Strike Bowling」の"behing the beam"アップデート追加
+*「Slick Shot」の入力で、開始点は照準にして、強さはトラックボールの動きにするよ
+  うに再作業
+*「Dyno Bop / Super Strike Bowling」の入力を実装。何とかプレイ可能
+* blitterをかなりシンプルに書き直し（マクロ廃止）
+* 正確なblitterタイミングの計測と実装（スピード系の問題修正）
+* 書き換え必要なピクセルトラッキングを不要にするため、TMS34061をクリーンアップ
+* TMS34061コードのスキャンライン演算を修正
+*「カプコンボウリング」のドライバもTMS34061の変更を扱うように更新
+
+■Sega ST-Vのアップデート。[Angelo Salese]
+*「Batman Forever」のROMロード修正。ゲーム動作可能。Runik氏に情報感謝
+* 割り込み関係の修正。古い方法では上のゲームでハングしてたため。もっと詳しく書く
+  とスプライト描画終了の割り込みをINTERRUPT_GEN構造体に追加して、IRQマスクが
+  VBLANK-INを非アクティブにする場合にvblank bitがクリアされないバグ修正
+* SMPCデバイスのNMI_disable/enableコマンドを修正。この関数は、SMPC RAM内のビット
+  の有効化無効化を行う。「上海」での起動時2クレジットのバグを修正する
+* VDP2ハンドリングのビットマップタイプ4のバグ修正。Sunsoftの「上海 万里の長城」
+  のロゴ部分が修正
+
+■「ゴークス」の操作からハック削除。実基板通りに動作するように変更。
+  [Corrado Tomaselli]
+
+■「クラックダウン」のクラッシュ修正試み。[David Haywood]
+
+■いろいろ用パッチ。[Nathan Woods]
+src/cpu/m6502/m6502.c:
+src/cpu/m6502/m6502.h:
+src/cpu/m6502/ops02.h:
+-ドライバから、インデックス化したアドレスモードをオーバーライド
+ できるフックを追加
+src/machine/6821pia.c:
+    - PIAの修正
+
+■「Funny Strip」のグラフィック修正時に「Splash」のエラーが出たのを修正。
+  [Pierpaolo Prazzoli]
+
+■sslamのオーディオMCUシミュレーション改良。[Quench]
+
+■SN76496の改良。[Sebastien Chevalier]
+
+■MegaplayのDIPスイッチ修正。[Barry Rodewald]
+
+■gamelist.txt出力コードを改良。[Buddabing, Atari Ace]
+
+■armedfドライバのMCU対応方法を変更。[Sebastien Chevalier]
+
+■mayjisn2の入力修正。[WING]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Up Your Alley [Aaron Giles]
+Dr. Tomy [Pierpaolo Prazzoli]
+Snapper [Aaron Giles, Simon White]
+ポケットギャルデラックス (海賊版) [David Haywood]
+Batman Forever [Angelo Salese, Runik]
+
+
+新規追加クローンセット：
+------------------------
+ウォーリーをさがせ！ (Rev. B) [Chack'n]
+D.Dクルー (Japan, 2 Player) [Chack'n]
+オーライル (Japan) [Chack'n]
+トリオ・ザ・パンチ (World) [Roberto Gandola]
+シンプソンズ (4 Player alt) [Chris Hardy]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+Comad World Beach Ball Championship 1997  (スケルトンドライバ)
+Monster World  (メモリマップなどが違う)
+Peno Cup (タイトルは多分間違い、ROMデータが不良)
+
+パニックロード [Tomasz Slanina]  (グラフィック暗号化、mustache boy風？)
+
+D.Dクルー (3 Player, World) [Chris Hardy] (hangs when you select character, needs investigation)

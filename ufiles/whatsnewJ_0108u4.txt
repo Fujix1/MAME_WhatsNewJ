@@ -1,0 +1,87 @@
+0.108u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+gotya0107u3yel [David Haywood]
+spcewars36rc2ora [Robert]
+prehisle0104u5gre [Vas Crabb]
+shangha3237b7gre [Canim]
+
+
+
+ソースの変更点
+--------------
+- BFMコードでの逆オーダーエントリーサポート。[El Condor]
+
+- merit.cとcoinmstr.cドライバのDIPスイッチとドキュメントのクリーンアップ。
+  [wolf676]
+
+- MPU4レイアウトの更新と、ドキュメントをさらに追加。[El Condor]
+
+- neocrypt.cがビッグエンディアンのマシンで動作するように修正。[R. Belmont]
+
+- spacewarsとinvadpt2のDIPスイッチ改善。spacewarsのサウンド修正。[Robert]
+
+- チートシステムのウォッチポイントがまた使えるようにUIを修正。[Nicola Salmoria]
+
+- liquidkとその他の同じTaitoグラフィックチップを使うゲームでの画面反転モード修正。
+  [Robzia]
+
+- arkanoid ドライバにノート・情報を多く追加。[steph]
+
+- YM3812, YM3526, μPD7759サウンドチップ、「原始島」ビデオハードにセーブステート
+  追加。また、Y8950サウンドチップにも一部セーブステート追加。[Vas Crabb]
+
+- コアを少しオブジェクト指向化しました。コア初期化関数は全て、running_machineパ
+  ラメータを取るようになっています。終了、リセット、ポーズの全コールバックは登録
+  のためにrunning_machine引数が必要で、呼び出し時にrunning_machineに渡されます。  [Aaron Giles]
+
+- 以下のドライバコールバックにrunning_machineパラメータを追加:
+   DRIVER_INIT
+   MACHINE_START/MACHINE_RESET
+   SOUND_START/SOUND_RESET
+   VIDEO_START/VIDEO_RESET/VIDEO_EOF/VIDEO_UPDATE
+   NVRAM_HANDLER/MEMCARD_HANDLER
+  ほとんどについては、直接コールされるケースを除いて、マクロのおかげでコードには
+  影響しませんでした。[Aaron Giles]
+
+- running_machineパラメータを取るために、mame.cとpalette.cインターフェースをほと
+  んど入れ替えました。グローバル変数の代わりに、running_machine構造体をこれらの
+  モジュールのプライベートデータを補助データとして添付します。
+
+- パレットコードのクリーンアップと、脱Acho化をしました。「グランドチャンピオン」
+  のみで使われていた機能が、他の全ドライバが複雑にしていたので、削除しました。
+  「グランドチャンピオン」はこれが書き直されるまで表示不完全にマークしました。
+  Aaron Giles]
+
+- running_machineパラメータを追加するために、palette_set_colorを呼び出している部
+  分を全部調べる必要があったため、これらの多くでpalette.hのpalnbit()インラインを
+  使うように更新して、結果的にコードのほとんどがクリーンアップされました。これは
+  手作業で行ったので、1つか2つ間違えてるかもしれません。もし変な色に気づいたら
+  Testersに報告してください。[Aaron Giles]
+
+-「ターボ」作業中: サウンドコードのクリーンアップ、全ゲームでのスピーカー配置を
+  正確に、その他マイナーな修正をいくつか。スプライト拡大処理はまだ100%ではありま
+  せんが、確認には実際のハードが必要です。それ以外の作業予定はありません。
+  [Aaron Giles]
+
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム
+--------------------------------------------------
+シューティングマスター [David Haywood, Tomasz Slanina]
+Quizmaster (German) [wolf676]
+
+
+
+新規クローンセット
+------------------
+ギャルズパニック II (German) [Patrik Styrnell]
+ポケットギャル 2 (Japanese) [Patrik Styrnell]
+Locked 'n Loaded / ガンハード (World) [Patrik Styrnell]
+Mad Ball V2.0 (hack? With Nudity) [f205v]
+アルカノイド (Tayto bootleg, harder) [steph]
+アルカノイド (Game Corporation bootleg, set 2) [steph]
+アルカノイド (bootleg with MCU, harder) [steph]

@@ -1,0 +1,72 @@
+0.116u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+adk0116yel [Zsolt Vasvari]
+neodrvr0116u1red [Zsolt Vasvari]
+strhoop0116u1red [Zsolt Vasvari]
+wb3_0116u1gre [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Gridlee」と「五目並べ連珠」に出ていた不具合を修正。[Zsolt Vasvari]
+
+- WindowsコードでのUnicodeビルド関係の問題を修正。[Oliver Stoneberg]
+
+- 多くのドライバで、後期型のSN76496ではなく正しくSN76489を使うように更新。
+  [Justin Kerk, Lord Nightmare]
+
+- 多くのドライバからのエクスポートをクリーンアップ。エクスポートの必要が無い関数
+  と変数にstatic属性の付加と、汎用的な名称を適用。[Atari Ace]
+
+- 多くのドライバで、必要ない部分ではグローバルMachineを使わないように更新。
+  また、クリッピング領域を見直し、必ず指定された領域を使うように変更。
+  [Zsolt Vasvari]
+
+- Dooyongドライバのクリーンアップ: [Vas Crabb]
+ * タイルマップコールバックの機能強化と効率化
+ * 頻繁に更新する必要を省くため、より大きなタイルマップを構成して、MAMEのタイル
+   マップキャッシングを有効利用
+ * rshark/superxのスプライトのY軸位置をsigned 9bit値で解釈（不具合の修正ため）
+ * コードを読みやすくするため、以前より詳しい注釈を追加
+
+- mameタイマーオブジェクトをvoid *からmame_timer *へ変更。[Atari Ace]
+
+-「Match It 2 / 四川省II」を改善するため、Irem CPUの命令コードを2箇所修正。
+  [Robiza]
+
+-「Thunder X」の当たり判定修正。[Shimapong]
+
+- 動作可能なCPS3ドライバの最初のバージョン追加。一応動きますが、完成にはまだまだ
+  かかります。
+  [David Haywood, Andreas Naive, Tomasz Slanina, ElSemi, Philip Bennett]
+
+- 6809 CPUコアの、マイナーなサイクルタイミングの問題を修正。[Ernesto Corvi]
+
+- Neo-Geoの更新: [Zsolt Vasvari]
+ * 前回の更新で起きた不具合を修正
+ * LED出力追加
+ * 表示領域が小さい場合の設定を改良
+
+- NeoGeo ROMセットの間違った情報を修正。[JohnBoy]
+
+- コアのmakefileにプラットフォーム固有の変更を統合。ほとんどは、SDLMAMEの
+  makefileから。MAMEOSの設定がOSDに対しても変更できるようにして、どのOSDレイヤー
+  がコンパイルされるかを指定できます。また、ターゲットのOSプラットフォームを指定
+  するため、新しい変数 TARGETOS を追加。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+パンチアウト!! (Italian bootleg) [David Haywood]
+
+
+
+追加された未動作ゲーム
+----------------------
+Mini Boy 7 [Roberto Fresca]

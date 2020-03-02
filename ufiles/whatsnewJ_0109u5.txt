@@ -1,0 +1,69 @@
+0.109u5
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+uicrash0108u5red [Nicola Salmoria]
+
+
+
+ソースの変更点
+--------------
+- mingw系でコンパイルしたときだけに現れるUIメニューのバグを修正。
+  [Nicola Salmoria]
+
+- CHDの名前が違ってもハッシュが合っていれば親セットのCHDを受け付けるように動作を
+  変更。[smf]
+
+- フラッシュのエミュレーション改良とFujitsuのフラッシュチップをサポート。Konami
+  ゲームを新しいフラッシュチップへ変更。[smf]
+
+- SCSI CDでの音楽再生とTOC読み込みコマンドの動作を改良。[R. Belmont]
+
+- fcrashのプライオリティとレイヤー3のオフセット修正。[robiza]
+
+- COP4xxコアにステートセーブ追加。[Aaron Giles]
+
+- 新型の逆アセンブラでコールバックプロトタイプをオーバーライドして、定数パラメー
+  タをとるようにし、あまり使われていないbyteパラメータを削除。逆アセンブラについ
+  ては、CPUコアのget_infoコールバックで得られる最長の命令を保持できるバッファが
+  確保されるようになりました。[Aaron Giles]
+
+- 以下の逆アセンブラを新フォーマットに変換。またステップイン・アウトを追加：
+  adsp21xx, alph8201, arm, arm7, asap, ccpu, cdp1802, cop4x0, dsp32c, e132xs, 
+  g65816, h6280, h83002, i8x41, i960, i8051, i8085, jaguar, m680x, m6805, 
+  m37710, mc68hc11, pic16c5x, rsp, s2650, se3208, sh2, sharc, t11, tms32010,
+  tms32025, tms32031, tms34010, upd7810, v60, v810, z180,
+  z8000 [Aaron Giles]
+
+- 新しい逆アセンブラの導入により、古いインタフェースは廃止しました。
+  [Aaron Giles]
+
+- Eolith製ゲームについて、デバッガによりメモリシステムのサブテーブル配置のバグが
+  起きていたのを修正。[Aaron Giles]
+
+- 逆アセンブリビューで、もし現在の命令の逆アセンブリが変更したかを検出して、その
+  場合は全体の表示を再計算するように改良。これにより特定のCPUでシステムステート
+  が変更されると今までよりも動的にアップデートが行われます。[Aaron Giles]
+
+- 新しいシンボル"curpc"を全部のCPUに追加。これは現在の命令ポインタの値で、pcレジ
+  スタとの名称がかぶらないようにするものです。Windows版のデバッガで、逆アセンブ
+  ラウィンドウのデフォルトをこれに変更しました（OSDのポートでも同じようにする必
+  要があります）。[Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+Trivia (Version 1.01C) [Brian Troha]
+Space Battle (bootleg set 2) [Brian Troha]
+
+
+
+追加された未動作ゲーム
+----------------------
+Tetris (製造元不明) [David Haywood]
+Out Run (Mega-Tech) [Charles MacDonald, Brian Troha]
+Forgotten Worlds (Mega-Tech) [Charles MacDonald, Brian Troha]
+Super Real Basketball (Mega-Tech) [Charles MacDonald, Brian Troha]

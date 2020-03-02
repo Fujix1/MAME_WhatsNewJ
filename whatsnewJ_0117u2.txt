@@ -1,0 +1,131 @@
+0.117u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+joystickremap0117u1gra [Aaron Giles]
+mallocerror0117u1gra [Aaron Giles]
+mouse0117u1gra [Aaron Giles]
+newinterface0117u1gra [Aaron Giles]
+tapper0102gre2 [Ernesto Corvi]
+timber0100u3gre [Ernesto Corvi]
+tapper0102gre1 [Aaron Giles]
+timber099gre [Aaron Giles]
+mcr0103u3yel [Aaron Giles]
+dotrone0101u5yel [Aaron Giles]
+
+
+
+ソースの変更点
+--------------
+-「Imola GP」の更新: [Phil Stroffolino]
+ - monzagpから名前を変更
+ - LEDを完全にマッピング
+ - blitterモードの修正。トンネル部分に影響
+ - DIPスイッチとポートの修正; いきなりゲームが始っていたのが、アトラクトモードか
+   ら開始するように修正
+ - プレースホルダカラー
+
+- マニュアルを元にtoplandとairfernoのDIPスイッチを修正。[Fabio Priuli]
+
+- SH-4コアをさらに改良: [Samuele Zannoli]
+ - 前回のパッチで逆アセブリと命令実行の問題があったので修正
+ - 割り込み管理追加
+ - レジスタバンク切り替え実装
+ - RTCタイマカウンタ追加
+ - メモリリフレッシュタイマ追加
+ - TMUにタイマを3つ追加
+ - プロセッサモードとピン設定を指定するための、設定用構造体を追加
+ - モードピンとCPUクロックから、内部プロセッサ周波数を割り出し
+ - SH-4プロセッサを使うシステムで、設定構造体を指定
+
+- littlerbのDIPスイッチ修正。[Sonikos]
+
+- コード内のマイナーなコード品質変更: [Atari Ace]
+ - avoided exporting a few global variables
+ - typedef名と衝突していた変数名を修正
+ - バグや不要なシャドウ変数を削除
+ - 余分な#definesを削除
+
+- sc61860コア、f3853コア、pckeybd.cが新しいタイミングコードで動作するように
+  修正。[Nathan Woods]
+
+- TIAをさらに改良: [Wilbert Pol]
+ - マイナーなミサイルグラフィックの配置問題を修正
+ - 初期化コードをtia_initからtia_resetに移動
+
+- ソースコードのハンドラ関係のエラーを修正。セルフインクルードが無いものの追加、
+  デッドプロトタイプの削除、mame/includesのヘッダにロケーションコメント追加。
+  一部のケースで、アイテムをエクスポートする必要がなかったので、staticに変更。
+  [Atari Ace]
+
+- gdrawpkrの入力のクリーンアップと、holdボタンをdiscardボタンに変更。
+  [Roberto Fresca]
+
+- アートワークシステムに14セグメントと16セグメントのLEDを追加。[Dirk Best]
+
+- bloodwarのプレイヤー2のボタン4を修正。[Barry Harris]
+
+- wolfpackドライバに、S14001Aスピーチチップ接続。[Lord Nightmare]
+
+- MCRドライバのSSIOボリューム調整が間違っていたのを修正。これで、「Spy Hunter」
+  のエンジン音が再び聞こえるようになりました。[Ernesto Corvi]
+
+- *_deviceオプションに"none"を再追加。[Nathan Woods]
+
+- HD6309のポストバイト、W++と--Wの逆アセンブリ修正。[Captain Ahab]
+
+- 6532 riotインターフェイスを、6522viaと6821piaインターフェイスにより近くなるよ
+  うに更新。[Wilbert Pol]
+
+- -listxmlの出力を新しいBIOSフラグを反映するように改良。新アトリビュート
+  isbios="yes"でそのゲームがBIOSなのを示します。[Aaron Giles]
+
+- ゲーム選択UIの改良: [Aaron Giles]
+ - TABキーを無効化
+ - Genral Inputの設定をメニューに追加
+ - セット名とゲーム名を左右のコラムに分割
+ - クローンセットのゲーム名に背景追加
+ - ゲーム選択メニューからスタートした場合、ESCキーを押すとすぐに終了せず、メニュー
+   に戻るように変更
+ - 各ゲームに対してINIファイルを読み込むようにロジックを修正
+
+- INIファイルハンドリングを完全にコアへ移動。この副作用として、<exename>.iniは読
+  み込まれなくなりました。このため、-createconfigでは<exename>.iniではなく、常に
+  mame.iniに出力するように変更してます。[Aaron Giles]
+
+- run_game()をmame_execute()に改名。ゲームドライバはパラメータで指定せず、
+  OPTION_GAMENAMEを通じてオプションからこの情報を取得します。[Aaron Giles]
+
+- RAW INPUTベースの光線銃ボタンを修正。[Aaron Giles]
+
+- options.cコードをクリーンアップ。設定されている通りにプライオリティレベルを追
+  加。新しいオプションは、手前の変更に対して同等か高い優先度があるときのみ受け付
+  けられます。設定した優先度から、デフォルトに戻す関数、options_revert()を追加し
+  ました。また、options_get_string()で常に有効な文字列（絶対NULLにならない）を返
+  すように変更。無効な文字列は空の文字列として返されます。[Aaron Giles]
+
+- conrefile.hに新しい関数、core_filename_extract_base()と
+  core_filename_ends_with()を追加。[Aaron Giles]
+
+- メニューレンダリングを少し変更。選択中の項目をより強調するために背景のハイライ
+  ト追加。メニューの上下にさらに項目があるのがわかるように矢印を追加。ハイライト
+  部分を少し控えめに変更。キーリピートレートがフレームレートに影響されないように
+  修正。[Aaron Giles]
+
+- メニュー全般でPage UP/Downをサポート。また、メニューが表示されている間のポーズ
+  切り替え追加。[Aaron Giles]
+
+- render_texturesがプールモデルで割り当てるように変更。大量のテクスチャを割り当
+  てるとき（14または16セグメントLED表示など）のメモリオーバーヘッドを回避するた
+  め。[Aaron Giles]
+
+- 64-bitコンパイラの警告がたくさん出るのを修正。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+King Pin [Andrew Gardner]
+King Pin Multi-Game [Andrew Gardner]

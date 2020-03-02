@@ -1,0 +1,56 @@
+0.101u2
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+mgcrystl093u3gre [Pierpaolo Prazzoli]
+lastmisn096u3gre, part 1 [Pierpaolo Prazzoli]
+
+
+
+ソースの変更点
+--------------
+* Pentiumコアのタイムスタンプカウンタ修正。[Ville Linde]
+
+* Z80のウォームリセットに対してコールドリセットの動作を修正。[Frank Palazzolo]
+
+* メモリシステムの変更で動作しなくなったゲームを多く修正。まだ直す問題が残ってる
+  ので、引き続きレポートしてください。[Aaron Giles]
+
+* CPUインターフェースとデバッガにロジカルマッピング追加。MMUがあるCPUでは、論理
+  アドレスマスク、各アドレス空間のページサイズ、新変換関数などの新しいインター
+  フェースをサポートする必要があります。また、逆アセンブラのインターフェースも
+  新しいものにしていきます。これは、非常にシンプルに逆アセンブラを独立させられ、
+  命令コードのアクセスもMAMEの関数に依存しなくなるものです。i386コアを新インター
+  フェースにコンバートしてあります。[Aaron Giles]
+
+* 非DRC MIPS3エミュレータにMMUサポートを追加。Killer Instinct, Seattle, Vegas,
+  Hyper Neo-Geo 64ドライバを正しい物理メモリレイアウトに変更しました。またDRC 
+  MIPS3コアはMMUを追加するまで無効にします。[Aaron Giles]
+
+* S2650 CPUにステートセーブ追加。[Aaron Giles]
+
+* T11コアからグロスバンキングのハックを削除。Atari System 2ドライバで、このハッ
+  ク削除に対応。[Aaron Giles]
+
+* MESSよりメモリハンドラの変換ヘルパーをたくさん導入。memconv.hに配置。
+  [Aaron Giles]
+
+* i386逆アセンブラでIntelスタンダードの出力をするようにクリーンアップ。
+  [Aaron Giles]
+
+
+
+新規クローンセット
+------------------
+豪血寺一族 (Japan, bootleg) [David Haywood]
+
+
+
+新規に追加されたGAME_NOT_WORKINGゲーム
+--------------------------------------
+アルペンサーファー [R. Belmont]
+Area 51: Site 4 [Ville Linde]
+サイキックフォース2012 [Ville Linde]
+

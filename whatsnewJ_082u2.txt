@@ -1,0 +1,141 @@
+0.82u2
+------
+
+全般的なソースの変更：
+----------------------
+
+■onetwo: タイトル画面の不具合修正。[Pierpaolo Prazzoli]
+    - この設定で色チェックしてもらえると助かります
+
+■goal92: 周波数、表示エリア修正と、ADPCMのエミュレーションがされてなかったのを
+  発見。追加しようと頑張ったんだけど、うまくいかなかったので誰かお願い ;-) 
+  [Pierpaolo Prazzoli]
+
+■I386とMAMEデバッガの改良。[Nathan Woods]
+    src/mamedbg.c:
+    src/mamedbg.h:
+        - 存在しないレジスタをトレースしようとするとMAMEデバッガで警告を出す
+          ようにしました
+        - mame_debug_trace_write()を実装。MAMEデバッガのトレースファイルに
+          テキストを出力するAPI
+    
+    src/cpu/i386/i386ops.c:
+    src/cpu/i386/i386op16.c:
+        - CALL16命令で16bitモード時にEIPではなくIPのみを制御するように修正
+        - RETF命令のマイナーなバグ修正
+        - REPとREPNE命令で同じコードを使って実装するように変更
+        - IFがゼロのときでもINTOで割り込みするように修正
+
+■改良いろいろ。[Curt Coder]
+    *「アルカノイド」系
+    drivers/arkanoid.c
+    machine/arkanoid.c
+
+    - メモリマップのマージ
+    - Moved paddle2 trickery to machine/
+
+■Nintendo 8080ハードウェアの更新。[Stefan Jokisch]
+
+　ドライバを3つに分割しました。前回の更新で「ヘリファイア」が一部変になっていたのは
+修正しています（ショット時に色がちらつくのや、音量の減衰エフェクト（ゲーム開始時のメ
+ロディーやボーナス面のBGMなど）。背景の星空部分のスクロール速度はこれで正しいはずです。
+以前は75%の速度でした。それから、「スペースランチャー」にある「スペースフィーバー」の
+カラーPROMを使うことにしました。正しいものだと思います。
+
+■eeprom_interface_93C46の変更。[Tomasz Slanina]
+    これを使うゲームをチェックしてきちんと動作するか調べる必要有り
+
+■デバッガ: TRACE CONSOLEとタイプしてコンソール（またはGREPなど）にトレースの出力可能。
+  [smf]
+
+■ST-Vのアップデート。[Mariusz Wojcieszek]
+    - 前回の更新で起たバグを修正：RGBスプライトの色不具合とスプライトクリップの
+      間違い
+    - RGBスプライトのカラーオフセット追加
+    - ビットマップの横方向スクロール修正（mausukeのゲーム中の背景が修正）
+
+■EEPROM_interface eeprom_interface_93C46の変更。[Tomasz Slanina]
+    これを使うゲームをチェックしてきちんと動作するか調べる必要有り
+
+■Seattleハードのアップデート。[Aaron Giles]
+    x86drc.c:
+    * SSEサポートの詰めの作業
+    * レジスタのPC/ICountを保持するかリコンパイラで選択可能に変更
+    * append_verify_codeについてsizes > 4に設定
+
+    cpu/mips/mips3.c:
+    * Configレジスタサポート
+    * 系列チップ追加: R4700, QED5271, RM7000
+    * LWXC1/LDXC1/SWXC1/SDXC1命令のバグ修正
+
+    cpu/mips/mips3drc.c
+    * Configレジスタサポート
+    * 系列チップ追加: R4700, QED5271, RM7000
+    * コアのcodegen部を新しい#includeファイル、mdrcold.cにまとめ
+
+    drivers/seattle.c:
+    * いろんなボードセットの情報をさらに追加
+    * GT64010と全部の割り込み用の定数追加
+    * イーサネットデバイスの割り込みサポート
+    * PCIバスでIDEコントローラが認識できるように変更
+    * vaportrxとcalspeed用の“特別な”基板を形式化
+    * CMOSプロテクトビットを実装
+    * sfrushrkのオーディオCRCの訂正と、ハードディスクの実装
+    * sfrushとvaportrxを動作可能にマーク
+
+    machine/midwayic.c:
+    * sfrushrkのPICサポート
+    * sfrushrkの速度アップ用にPIC読み込みのタイムアウト追加
+    * 起動時のサウンドリセットラッチが無かったのを修正
+    
+    machine/smc91c9x.c:
+    * SMC91C94イーサネットコントローラを実装
+    * ループバックのみサポート
+
+    vidhrdw/voodoo.c:
+    * ログ取り動作のクリーンアップ
+    * バックスラッシュキーで全部の統計情報にアクセス可
+    * 赤/青入れ替えのハックを削除
+    * 頂点座標の切り捨てを修正（vaportrxのグラフィック用）
+    * 別なLFBライトモードをサポート
+
+■horshoes: DIP修正。[Brian Troha]
+
+■GX以前のハードのクリーンアップ。[R.Belmont]
+
+■6532RIOTパッチ (MESSの修正用) [Judge]
+
+
+新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：
+----------------------------------------------------
+
+クイズ ドレミファグランプリ [Hau]
+クイズ ドレミファグランプリ2 [Hau]
+
+ZNベースのゲームいっぱい [special thanks to Tourniquet, Olivier Galibert, smf, 
+    R.Belmont, [red], Malice, Renegade, Twisty, Dox, But & many other mame.net board 
+    users]
+
+ビクトリアスナイン [BUT]
+
+Golden Par Golf [Brian Troha]
+
+サンフランシスコラッシュ [Aaron Giles]
+ヴェイパーTRX [Aaron Giles]
+
+
+新規サポートクローン、またはGAME_NOT_WORKINGが取れたゲーム：
+------------------------------------------------------------
+Anteater (German) [Pierpaolo Prazzoli, MASH]
+
+Monster Maulers / 究極戦隊ダダンダーン [R.Belmont]
+
+
+新規未動作/クローンゲーム：
+---------------------------
+ヘブンズゲート [R.Belmont]
+    バンキングが不完全かPSXのバグ?
+
+ギャルズパニックII - クイズバージョン [Pierpaolo Prazzoli]
+
+ディンゴ (encrypted set) [MASH] -- ROM不良

@@ -1,0 +1,250 @@
+0.125u4
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+01829: [Core] bermudat、gwar、ikari、victroad + clones: 初期化画面でMAMEがフリーズする。(Aaron Giles)
+01845: [Core] 全ゲーム: チートシステムが動作しない。(ShimaPong)
+01846: [Misc.] プレステベースのゲームで-cheatを有効にするとクラッシュする。(ShimaPong)
+01843: [DIP/Input] Many Sets: 入力ポートのエラー。(Aaron Giles)
+01855: [Misc.] thayers、thayers: 致命的エラーでクラッシュする。(Aaron Giles)
+01859: [Misc.] looping、loopinga、skybump: 致命的エラーでクラッシュする。
+       (Aaron Giles)
+01860: [Core] revx: -cheatを有効にするとMAMEがクラッシュする。(ShimaPong)
+00779: [Graphics] gunnail: ボスを倒した後、縦線が現れる。(Nicola Salmoria)
+00778: [Graphics] gunnail: 5面の背景に不具合がある。(Nicola Salmoria)
+00788: [DIP/Input] ペダル入力用のジョイスティック軸についての問題      (couriersud)
+01853: [Gameplay] shadfrce、shadfrcj: ゲームが起動しない。(Haze)
+01847: [DIP/Input] Various: 入力ポートが構成されない。(Nicola Salmoria)
+01840: [Interface] XML出力のエラー。(Nathan Woods)
+01699: [Sound] asteroid、asteroi1、asteroib、asterock、meteor、meteorts: ディスクリートサウンドの不具合。(couriersud)
+01844: [Core] VS2008 64bit版でのコンパイルができない。(Aaron Giles)
+
+
+ソースの変更点
+--------------
+- input_port_config_alloc()にNULLエラーバグを渡せるように変更。-listxmlのクラッ
+  シュ修正。[Nathan Woods]
+
+- calomegaドライバを再吸い出しに合わせて更新。[Roberto Fresca]
+
+- Sandii製ゲームの改良: [Roberto Fresca]
+ - カラーシステムをRESNETによる演算に変更
+ - DIPスイッチ1に、評判の悪い並列入力ポート0x3004のbit7を実装。これにより、STOP 
+   5ボタンに代わって、PAYOUTボタンでスーパーゲームを選択可能
+ - ランプ用マトリックスを分離
+ - ランプサポート追加。まだ不完全
+ - テクニカルノートを更新
+
+- ディスクリートサウンドの更新: [couriersud]
+ * dhiscrete.hにNODE_RELATIVE(NODE、offset)マクロを追加
+ * asteroid.c、canyon.c、skydiver.c、tank8.cで、これまでのノードに直接追加する方
+   式から、このマクロを使うように修正
+
+- ダブっていた入力ポートビットを修正。[Aaron Giles、Nicola Salmoria、David Haywood]
+
+- tecmosysプロテクトのシミュレーション追加。[nuapete]
+
+- gatron.cの改良: [Roberto Fresca]
+ -「Poker 4-1」のゲーム名をROMのステッカーにあるように「Pull Tabs」に変更
+ - 各セットのROM名をそれぞれのステッカーに合わせて変更
+ - ドライバをgametron.aのグループに移動
+ - 8255 PPI I/Oチップに不足していた入力ポートCを追加。poker41とpulltabsでは使っ
+   ていませんが、テスト・設定モードに出てきます
+ - テクニカルノートを更新
+
+- dealerドライバに正しいバンク切り替え追加。これまで正しいと思われていたROMは不
+  良でした。[nupete]
+
+- tecmosysの表示とサウンドエミュレーションのいろいろな改良。[David Haywood]
+
+- NamcoNAの出力レートを、「F/A」と「コズモギャングザパズル」のサントラに合わせて
+  修正。[R. Belmont]
+
+- Nintendo Minx CPUコアの更新: [Wilbert Pol]
+ - スタイリング変更
+ - 命令サイクルカウント追加
+ - 割り込みサポート
+ - HALTサポート
+ - INT命令修正
+ - DIVとMUL命令を不完全サポート
+ - MOV [#nnnn],BAとMOV [#nnnn],HL命令を修正
+ - 割り込み処理修正
+ - 命令コード 45、4D、55、5D、B5、B6、B7、FC、FD、CF 70-7Fを修正
+ - INC、DEC、AND、OR、XOR命令のフラグ結果修正
+
+- ampoker2ドライバを改良: [Roberto Fresca]
+ -「Sigma Poker 2000」の入力系を作り直し
+ -「Sigma Poker 2000」を動作可能ステータスへ昇進
+ - テクニカルノートを更新
+
+- 53c810 SCSIアダプタが、IRQコールバックでIRQステートを渡すように更新。
+  [R. Belmont]
+
+- 多くのドライバで正しいタグを使うことに合わせてport_input_read_indexedを削除。
+  [Fabio Priuli、couriersud]
+
+- ST-V/Saturnドライバの最大ディレクトリサイズを拡大。[R. Belmont]
+
+- COP4xxの更新: [Curt Coder]
+ - COP410にHALT命令とhaltモード追加
+ - Microbusのサポート、クロック分周選択、CKOモード選択をCOP420に追加
+ -「Thayer's Quest」のキーボードインターフェイスを少しでも配線図に近くなるように
+   変更
+
+- suprnovaのブレンド処理を少し変更。まだ不完全。[David Haywood]
+
+- tilemap_drawの列スクロールについて、タイルマップよりも小さいクリップ領域を使う
+  ことで最適化。これにより「ガンネイル」の5面背景描画はかなり高速化されています。
+  [Nicola Salmoria]
+
+- PowerPCダイナミックリコンパイラ: [Aaron Giles]
+ - ユニバーサルリコンパイラエンジンに続いて、PowerPCのダイナミックリコンパイラを
+   書き直し
+ - PowerPCコードパスの分析と使用部の登録するためのフロントエンドを作成
+ - トリッキーなCPU動作について、Cで実装した共有モジュールを作成
+ - 派生版をサポートするため、列挙型の隠しモデルを使わずに別のCPUタイプを追加
+ - より正確にして、別のDMAハンドを使わなくてもいいように、4xxシリーズのシリアル
+   ポートエミュレーションを書き直し
+ - ページフォールトを発生させたり、ビットの変更を正しく処理するためのソフトウェ
+   アTLBを実装するため、MMU処理を書き直し。
+ - PowerPC 603のソフトウェアTLBエミュレーションを実装。これにより、MMU無効化のハッ
+   クを使わなくてもModel 3ゲームが動作できます
+
+- PowerPCの逆アセンブラについて、他のコアと定数を共有するように更新。これにより、
+  特にブランチについて、シンプルなニーモニックを積極的に使用します。
+  [Aaron Giles]
+
+- ユニバーサルリコンパイラ:
+ - バス幅と異なる命令幅の処理のフロントエンドを修正
+ - 新しく追加した命令:
+    * (D)GETFLGS - UMLフラグをオペランドにコピーします
+    * FDRNDS - 倍精度実数を単精度に丸めます
+ - 名称を変更した命令:
+    * SETC   -> CARRY
+    * XTRACT -> ROLAND
+    * INSERT -> ROLINS
+ - 統合した命令:
+    * LOAD?U -> LOAD
+    * LOAD?S -> LOADS
+    * STORE? -> STORE
+    * READ?U -> READ
+    * READ?M -> READM
+    * WRITE? -> WRITE
+    * WRITM? -> WRITEM
+    * SEXT?  -> SEXT
+    * FTOI?? -> FTOINT
+    * FFRI?  -> FFRINT
+    * FFRF?  -> FFRFLT
+ - 削除した命令:
+    * FLAGS - GETFLGS/LOAD4/ROLINSで処理できます
+    * ZEXT - ANDで処理できます
+    * READ?S - READ/SEXTで処理できます
+ - C、x86、x64のバックエンドでこれらの命令の変更に対応
+ - 逆アセンブラでこれらの変更に対応
+
+- MIPS3ダイナミックリコンパイラ: [Aaron Giles]
+ - 無効なCOP命令のCauseレジスタを修正
+ - 変更した命令フォームに更新
+ - コンテキスト切り替えで、一つのポインタを切り替えるだけに変更
+
+- Konami Hornetの変更: [Aaron Giles]
+ - 新しいPowerPCの設定に合わせて更新
+ - 一部のメモリハンドラをネイティブ8-bitハンドラに更新
+ - JVSが新しいシリアルコードで動作するようにクリーンアップ
+ - ワークRAMに高速RAMを追加することで、少し速度アップ
+
+- Konami「GTIクラブ」の変更: [Aaron Giles]
+ - 新しいPowerPCの設定に合わせて更新
+ - 一部のメモリハンドラをネイティブ8-bitハンドラに更新
+
+- Konami Viper/ZR107の変更: [Aaron Giles]
+ - 新しいPowerPCの設定に合わせて更新
+
+- Sega Model 3の変更: [Aaron Giles]
+ - 新しいPowerPCの設定に合わせて更新
+ - 割り込み処理の再実装と集中化
+ - ゲームは今のところ動作しません
+
+- K056832の実装部で8レイヤーを使っているKonamiゲームのクラッシュを修正。
+  [Aaron Giles]
+
+- fisttp命令をi386逆アセンブラに追加。[Aaron Giles]
+
+-「Air Raid/Cross Shooter」のクロック周波数を確認。[Corrado Tomaselli]
+
+- APIがマシン引数を扱うように変更する必要がある関数をエクスポートしているファイ
+  ル(cps1.h、decocrpt.h、ms32.h、pgm.h、fd1089.h、konami1.h)についてのインクルー
+  ドファイルを追加と更新。konami.hについては、ファイル名をkonami1.cに変更して、
+  APIとcallerを一つの関数エクスポートしか必要ないように変更。memory_region*()の
+  コールをforループからの取り出し、重複していた呼び出しを整理。コンパイラは結果
+  が一定であることを予期できないようなので、ほんの少しパフォーマンスも向上するは
+  ずです。[Atari Ace]
+
+- wpksocv2にDIP修正と正しい入力系追加。最初の左右の選択がまだ動作しませんがゲー
+  ムはほぼプレイ可能です。[Sonikos]
+
+- チートシステム更新: [ShimaPong]
+ - mallocが巨大なメモリ領域を割り当てのに失敗したときは、致命的なエラーではなく
+   サーチ領域をロックするように変更。また、サーチ速度 = 32ビットCPUの全メモリの
+   場合は、zero malloc errorをロック。さらに、サーチ領域チェッカーを追加。
+ - メニューで古いコードがセパレータにコンバートされてしまうバグを修正
+ - 新チートフォーマットの改良
+    * チートフォーマットを書き直し。最新のフォーマットは
+       ":gamename::type::address::data::extend_data:(description:comment)"
+      です。typeフィールドを8バイトから10バイトに拡張。CPUに2バイト、型に8バイト
+      割り当てます
+    * VWrite、VRWriteを削除。Value Selectionのフラグは拡張したtypeフィールドに統
+      合しました
+    * CBit(Condition Bit)を追加。これはリードデータのビットをチェックして、true
+      の場合、ビットをセットかクリアします
+    * 最新のチートフォーマットに合わせてチートコードビューアを再配置
+ - Load Old Formatオプションが動作しなかったのを修正。旧版、またはもっと古いフォー
+   マットコードをロードするときは設定してください(デフォルトはOFF)
+ - コーディングガイドラインに合わせて関数名、構造体名を改名。全ての構造体とパラ
+   メータについて完了
+ - resize_*_no_dispose()をresize_*()に統合
+ - SH-2 CPUのサーチ領域のハックを削除。ハックなしでも期待通りに領域が設定される
+   ようになったため
+
+- 入力ポートビットの重複をエラーに設定。[Aaron Giles]
+
+- PTR64が間違って設定された場合のコンパイル時エラー追加。[Aaron Giles]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+でろ〜んでろでろ [nuapete、David Haywood]
+Sigma Poker 2000 [Roberto Fresca]
+闘姫伝承 -エンジェルアイズ- [nuapete、David Haywood]
+Black Touch (Korea) (bootleg / hack of Dragon Punch) [David Haywood]
+
+
+
+新規クローンセット
+------------------
+闘姫伝承 -エンジェルアイズ- (VER. 960427) [Tomasz Slanina]
+ライデンファイターズ 2 (Taiwan、SPI) [Corrado Tomaselli]
+
+
+
+追加された未動作ゲーム
+----------------------
+Capitan Uncino (Ver 1.2) [David Haywood]
+Capitani Coraggiosi (Ver 1.3) [David Haywood]
+La Perla Nera (Ver 2.0) [David Haywood]
+La Perla Nera Gold (Ver 2.0) [Roberto Fresca]
+Europa 2002 (Ver 2.0、set 1) [Roberto Fresca]
+Top Blade V [David Haywood]
+Office Yeo ln Cheon Ha [David Haywood]
+Carta Magica (Ver 1.8) [Roberto Fresca]
+Laser 2001 (Ver 1.2) [Roberto Fresca]
+Magic Drink (Ver 1.2) [Roberto Fresca]
+Millennium Sun [Roberto Fresca]
+NtCash [Roberto Fresca]
+Super Space 2001 [Roberto Fresca]
+謎のイタリア製ギャンブルゲーム [Roberto Fresca]
+Wizard (Ver 1.0) [Roberto Fresca]
+Elvis? [Roberto Fresca]

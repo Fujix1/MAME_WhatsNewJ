@@ -1,0 +1,58 @@
+0.94u1
+------
+
+0.93のサウンドアップデートで起きた問題のバグ修正がほとんどです
+
+---
+
+■itech32ドライバ修正。以前の64bitの修正で表示不具合があったのも修正。[Aaron Giles]
+
+■QSoundの“3スピーカー問題”修正。[Aaron Giles]
+
+■deadangのクラッシュ修正。[Aaron Giles]
+
+■5110を使うゲームでスタートできなかったのを修正(bagman, cvsドライバなど)
+ [Aaron Giles]
+
+■その他のサウンド修正。[Aaron Giles]
+* nyanpaiの初期化順の問題修正
+* othunderの未使用フィルタ削除
+* rungunの初期化順の問題修正
+* stkclmnsのクラッシュ修正
+* triplfunのリセット前にX1-010チップが確実に存在するように修正
+* outrunのサウンド
+
+■cheat.cの綴り間違いなどを修正。[Atari Ace]
+
+■batriderのクラッシュの修正を試み。[Aaron Giles]
+
+■Intel Flashの改良。[smf]
+
+■「レーザーゴースト」のタイトル画面修正。[Aaron Giles] 
+
+■ディスクリートサウンドのアップデート。[Derrick Renaud]
+
+■KonamiGXドライバのクリーンアップ開始。[R.Belmont]
+
+■DOSツールで、auto_mallocの警告を修正。[smf]
+
+■XML出力のアップデート。[Logiqx]
+
+
+新規サポートまたはGAME_NOT_WORKINGが取れたゲーム：
+--------------------------------------------------
+Excelsior [Pierpaolo Prazzoli]
+    音無し (PICが未ダンプ)
+
+Star Fire 2 [David Rolfe]
+
+テクモワールドカップ ミレニアム [smf]
+
+
+新規追加のGAME_NOT_WORKINGゲーム：
+----------------------------------
+カロリーくんvsモグラニアン [David Haywood]
+    初期版ドライバ, 基本のタイルマップとスプライトのみ実装
+
+Pipeline [David Haywood]
+    ROMロードのみ

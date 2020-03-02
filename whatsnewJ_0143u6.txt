@@ -1,0 +1,140 @@
+0.143u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 04483: [コンパイル] OpenBSDでSDLMAMEがビルドできない。(R. Belmont)
+- 04488: [サウンド] All games in ms32.c: Jaleco Mega System 32の実機では、音声がモノ
+         ラル出力のみである。(Angelo Salese)
+- 03541: [DIP/入力] victlapw: コイン1キーでコイン入力ができない。(hap)
+- 02543: [色/パレット] raveracw, raveracj, raveracja: ゲーム画面が突然暗くなる。(hap)
+- 01949: [グラフィック] cybrcycc: ハードレベルを選ぶと背景が表示されない。(hap)
+- 00136: [クラッシュ/フリーズ] acedrvrw: マシンによってはレース中にMAMEがクラッシュす
+         ることがある。(hap)
+- 02008: [クラッシュ/フリーズ] acedrvrw, victlapw: アトラクトモード中にクラッシュする。
+         (hap)
+- 04480: [その他] All sets in mpu4.c and mpu5.c: 全ゲームで"validation checks failed"
+         のメッセージが出る。(Tafoid)
+
+
+ソースの変更点
+--------------
+- nprspのM1 ROMを正しく吸い出したものと置き換え。[The Dumping Union]
+
+- m68k: 別なバッファオーバーフローバグを修正。[Belegdol, R. Belmont]
+
+- astyanax、hachoo、jitsupro、plusalph、stdragonのMCUハンドシェイクシミュレーション動
+  作の試験実装、およびROMパッチの削除。[Angelo Salese]
+
+- edfblとmonkelfの入力を実装。[Angelo Salese]
+
+-「サイバトラー」での、アトラクトモードの動作を修正。[Angelo Salese]
+
+-「Xマルチプライ」(m72)、「イメージファイト」にMCUを追加。[The Dumping Union]
+
+- Jaleco Mega System 1で、deprecat.hを使用しないように更新。[Angelo Salese]
+
+-「キングダービー」のスプライトを改良。[Angelo Salese]
+
+- MC68HC11 CPUコアのデフォルトINITレジスタを実装。Namco製、30 Test HC11の下位派生版の
+  動作に必要。[Angelo Salese]
+
+- MC68HC11 CPUでの、Free Running Counterタイマをテスト実装。[Angelo Salese]
+
+- HC11 CPUにROL、EXT、ROL INDX、ROL INDY、STS DIPオペコードを追加。[Angelo Salese]
+
+- HC11コアのセーブステートをサポート。[Angelo Salese]
+
+-「キングダービー」の7セグアートワークを追加。[Angelo Salese]
+
+- dogpatch - ショット音を追加。[Derrick Renaud, iritis]
+
+- Neo-GeoのゲームROMをさらに再構成: [Johnboy]
+ * カートリッジと使用基板についてのドキュメント化完了
+ * チップラベルとソケットラベル名の入れ換えに伴う、.bin拡張子の削除完了
+
+- Whitestar: メインCPU FIRQ追加。メイン・DMD CPU間のコミュニケーション修正、DMD VRAM
+  のポピュレート。[R. Belmont]
+
+-「雷電II」ドライバで、基板自体の情報をguru氏スタイルのreadmeに更新。[Lord Nightmare]
+
+- Super Kaneko Nova SystemのBIOSローディングを解析。[Joerg Hartenberger]
+
+- model3:「スカッドレース」「同プラス」「セガラリー2」「デイトナUSA2」用のドライブボー
+  ドROMを追加。[Andy Geezer]
+
+- naomi: f355用のドライブボードROM追加。[Andy Geezer]
+
+- Whitestar: 4MビットROMを使うゲームのサンプルロードを修正。[R. Belmont]
+
+-「ニブラー」のいろいろなクリーンアップ: [Tafoid]
+ *「ニブラー」とクローン版で、「パイオニアバルーン」のサウンドROMをオプションとして選
+   べるように改良。一部の基板でこのROMを使用していたため。ROMセットに見つからないとき
+   は、音楽無しでプレイ可能
+ *「ニブラー」とクローン版をバージョン情報に基づいて並べ替え、および改名
+ * ドライバにノートを追加
+
+- wiz.cの修正: [Tafoid]
+ * scionとクローン版のカクテルモードでの操作を修正
+ * オリジナルのscionのオーディオCPUが正しくエミュレートされていないため、scioncのROMを
+   使っているscionについて、ROM_STARTからROM_LOAD_OPTIONALを抽出。これは既知の事項で、
+   これまで、scionc用のROMを使うことでしかカバーされなかったもの
+
+- whitestar: 8MビットサンプルROMを使うゲームのサンプルROMロードを訂正。
+  [R. Belmont, Tafoid]
+
+- :で始まるリージョンタグについて、親のベースドライバROM領域にアクセスができる"絶対的
+  な"デバイスとなれるよう変更。[R. Belmont]
+
+- DECO BSMT2000サウンドボードを抽出して、Whitestarとtattassで共有。[R. Belmont]
+
+- WD17xx: Side Select Outputをサポートする派生版で、これを接続。[Curt Coder]
+
+-「雷電II」のサウンドROMのセットによる違いやバージョン順についての考察を追加。
+  [Lord Nightmare, trap15]
+
+- sp0256コアで、resromの並び順を修正; sauroドライバで正しく順序のsp0256-a12 resromを
+  使うように更新。[Huygens, Lord Nightmare]
+
+- namcos22.cの更新: [hap]
+ * acedrvrwとvictlapwのバッファオーバーフローによるクラッシュを修正
+ * pointromサイズによるdirtdashのクラッシュを修正。ただし、ゲームは未動作
+ * ディスプレイフェーダを改良(raveracwで使用)
+ * 入力系の整理と、デフォルトnvramの追加
+ * スキーゲームのステップロックモータの状態を正しくエミュレート
+
+-「Reel'N Quake!」の基本的な基板レイアウトを追加。[Brian Troha]
+
+- 複数システムのギャンブル・スロットマシンのタイトルを1700以上またまたいじり倒し。
+  [David Haywood / James Wallace]
+
+
+新規追加、またはNOT_WORKING状態から昇格したゲーム
+-------------------------------------------------
+Bingo (set 1) [Roberto Fresca, EMMA Italian Dumping Team]
+Bingo (set 2) [Roberto Fresca, The Dumping Union]
+30 Test (Remake) [Angelo Salese, Yasuhiro Ogawa]
+Candy Candy
+  [Kevin Eshbach, ranger_lennier, B. Munger, bodger319, Brian Troha, Smitdogg, The 
+   Dumping Union]
+Deluxe 5 [Steetgames, bodger319, G. Mateo, M. Rodrigo, R. Weidinger, Brian Troha, 
+   Smitdogg, The Dumping Union]
+PEPSI Man [Luca Elia]
+Super Shot [Mariusz Wojcieszek, Team Europe & fallout]
+Umi de Poker / Marine Paradise [Angelo Salese, Yasuhiro Ogawa]
+スロットポーカー西遊記 [Angelo Salese, Yasuhiro Ogawa]
+
+
+新しく追加されたクローンセット
+------------------------------
+怒3 (Japan) [briantro]
+エクスバニア (World) [Tormod, The Dumping Union]
+
+
+追加された未動作ゲーム
+----------------------
+Croupier (Playmark Roulette v.20.05) [Roberto Fresca]
+Video Poker (v1403) [Roberto Fresca]
+ファンキューブ3
+麻雀桃太郎

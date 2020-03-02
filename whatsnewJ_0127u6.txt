@@ -1,0 +1,214 @@
+0.127u6
+-------
+
+
+MAMETestersの修正バグ
+---------------------
+- 02323: [DIP/Input] geebeeb: コインが入らない。(Stephh)
+- 01090: [Crash/Freeze] invadpt2, sicv: ウォッチドッグによるリセット。(couriersud)
+- 02440: [Crash/Freeze] abcop, gprider1, rachero: 正常に動作しない。(couriersud)
+- 02442: [Core] -aviwriteで出力されるファイルがおかしい。(Aaron Giles)
+- 02441: [Crash/Freeze] rdft22kc: 黒画面のみで起動しない。(couriersud)
+- 02194: [Misc.] All Sets in othunder.c: 黒画面のみで起動しない。(couriersud)
+- 02410: [Misc.] -aviwrite: 2ギガ以上のファイルを書き出せない。(Aaron Giles)
+- 02024: [Color/Palette] pbobble3, pbobble4, ringrage and clones: 色不具合。(Nicola Salmoria)
+
+
+
+ソースの変更点
+--------------
+- NeoGeoのアップデート:  [Johnboy]
+ * NeoGeoゲームの基板情報を更新
+ * 2020bba: MVSとAES版をマーキング
+ * sonicwi2: 正しいサイズのv2追加
+ * kof95 / kof95a:
+   - kof95をkof95hに改名
+   - p1の名前を正しいチップラベルに変更
+   - ノート追加
+   - kof95aをkof95に改名
+   - p1を改名
+ * samsho3 / samsho3a:
+   - samsho3aをsamsho3に改名
+   - samsho3をsamsho3に改名
+   - p1のチップラベル名に訂正
+   - AES版にマーキング
+ * kof98 / kof98n:
+   - kof98のm1名をチップラベル名に訂正
+   - kof98nのm1名をチップラベル名に訂正
+    (kof98nが最新版のはず。カセットのシリアルが1xx.xxxと高いため)
+ * kof97: MVS版にマーキング
+ * samsho5 / samsho5h:
+   - テキストレイヤーサイズを訂正
+   - samsho5hをAES版にマーキング
+ * neogeo:
+   - システムセットをNEO-MVH MV1FSにあったものへ更新
+   - ノート追加
+ * ms5pcb:
+   - BIOS DIPを実装
+   - BIOSの名前をチップラベル名に訂正
+   - p1とp2を正しいチップ名に修正。NO_DUMPマーク
+   - ノート追加
+
+- タイルマップシステムに、タイルアトリビュートpen_maskを追加。Taito F3ドライバに、ダ
+  イナミックタイル&スプライトビット深度実装。[Nicola Salmoria]
+
+- MAKE_RGBマクロのアルファを0ではなく255に変更。palette.cで、パレット値を変更するとき
+  にアルファ値を保持するように更新。ほとんどのドライバとレンダリングでこの変更による
+  違いはわからないはずですが、システムパレットでアルファを0として判断するドライバがあ
+  るかもしれません。また、これにより、palette_set_color()関数では設定されたアルファ値
+  が保持されることになります。[Aaron Giles]
+
+-「ファイヤーフォックス」をRGB32にして、スクリーン内でのパレット変更に対応。この変更
+  により、これまで必要だったハックなアルファ操作は不要です。アルファは直接パレットの
+  エントリとしてセットされます。[Aaron Giles]
+
+- render_container_set_palette_alpha()ハックを削除。アルファ値はパレットエントリに直
+  接設定して、レーザーディスクのオーバーレイに反映されます。[Aaron Giles]
+
+- NSS/SNESのマイナーなクリーンアップ。[Fabio Priuli]
+
+- warpwarp.cドライバの更新: [stephh]
+ - geebee、navarone、warpwarpのINPUT_PORTS定義を、条件付きDIPスイッチを使って再構成
+ - geebeebのINPUT_PORTS定義を追加(このゲームは専用のReplay設定あり)
+
+- 不要なキーを削除: [stephh]
+  - UI_ON_SCREEN_DISPLAY ("Slider Controls"メニューに移動)
+  - UI_ADD_CHEAT, UI_DELETE_CHEAT, UI_SAVE_CHEAT, UI_WATCH_VALUE, 
+    UI_EDIT_CHEAT, UI_RELOAD_CHEAT (これらは、昔のチートエンジン用)
+
+- z80pioをデバイスにコンバート。[Wilbert Pol]
+
+- 8080bw.cのウォッチドッグ動作を回路図を元に確認。[couriersud]
+
+- ldverifyの改良: [Aaron Giles]
+ - CHDのために、ビットマップに対し直接バックエンドデコーディングを使用
+ - 最小最大チェックを0/255だけに変更
+ - 最小最大チェックのオフバイワンバグを修正
+ - フレーム番号検知とホワイトコード検知を分割
+ - ホワイトコードと同じくフレームナンバーでもトラックケイデンス実行
+ - 必要に応じてvbiparse.hの定数を使用
+
+- レンダラ内のmachineパラメータを再チェック。deprechat.hに依存する箇所を削除。
+  [Aaron Giles]
+
+- render_texture_set_bitmap()で、パレットオブジェクトではなくパレットインデックスを受
+  け取るように変更。レンダラはまだシステムパレットに最適化されていますが、オブジェク
+  トが独自パレットを持っていても動作します。[Aaron Giles]
+
+- レンダラで、RGBとYUYのパレットを使えるように変更。指定時には、これらのパレットは32
+  エントリ(RGB15)、または256エントリ(その他)を示し、さらに適用する明るさ、コントラス
+  ト、ガンマをテクスチャ単位を検索します。[Aaron Giles]
+
+- 再スケールの通知を削除。あまりうまく動作してなかったため。[Aaron Giles]
+
+- palette_set_brightness()をpalette_set_pen_contrast()にわかりやすく改名。
+  [Aaron Giles]
+
+- パレットオブジェクトで、グループ毎、エントリー毎の操作に加えて、グローバルな明るさ、
+  コントラスト、ガンマ操作をサポート。[Aaron Giles]
+
+- 事前にデコード済みのVBIデータを利用して、インタレース解除ロジックを簡略化。レーザー
+  ディスクビデオ全般の明るさ、コントラスト、ガンマ補正処理を追加。パレットロジックの
+  ブライトネスの値と組み合わせたときのバグを修正。[Aaron Giles]
+
+- Z80 CTCをデバイスにコンバート。全デバイスを更新。CPUのタグとしてそのベースクロックを
+  取る新インターフェイスアイテム追加。[Aaron Giles]
+
+- Z80デイジーチェーンインターフェイスで、チェーン内のデバイスリストをシンプル化。
+  割り込み関数は、共通デバイスインタフェース経由で取得し、デイジージェーンノードから
+  参照されます。[Aaron Giles]
+
+- Z80 PIO割り込みコールバックで、machineに代えてdeviceを渡すように変更。全てのデバイ
+  スコールバックはデバイスを渡すようにします。[Aaron Giles]
+
+- merit.c: [couriersud]
+ * crt 200の回路図を元にパレットとカラーデコーディングを実装
+ * 6845実装
+ * lscnblkライン実装
+ *「Phraze Craze」のグラフィックROM順序修正
+ * 回路図を元にクロック修正
+ * RAMパレットをstatic varに移動。RAM内にあってはだめです
+ * セーブステートをサポート
+
+- expro02.c: [DITraI4D0]
+ - DIPスイッチ修正
+ - グラフィックデコードルーチン追加 (もっと単純化できるでしょう)
+
+- video/kaneko16.c [DITraI4D0]
+ - タイルマップスクロール位置がexpro02で異なるので、新しい関数を追加 (既存の物を修正
+   した方がいい？)
+
+- Z80 SIOをデバイスにコンバート。ドライバも合わせて更新。[Aaron Giles]
+
+- モトローラDSP56kの追加リセット動作を追加。[Andrew Gardner]
+
+- machine/deviceハンドラの代わりとして、汎用的な入力ポート定義のメカニズムを導入。
+  ただし現在の方法は、関数コードについて、ポートタグとポインタを識別するための値に依
+  存しているため、あまりよくありません。新マクロはinptport.hで定義してあります:
+
+   DEVICE8_PORT(name) - 通常read8_device_funcを使って指定する読み込みポートの指定を行
+                        います
+
+   MACHINE8_PORT(name) - read8_machine_func以外はDEVICE8_PORTと同じです
+
+   IS_HANDLER_PORT(ptr) - read8_device_func、read8_machine_funcにアクセスし、実際の関
+                          数かポートへの参照かを判定します; DEVICE8_PORTスタイルの関
+                          数を受け取るデバイスでの使用を前提にしています
+
+   CALL_DEVICE8_READ(ptr,device,offset) - read8_device_func経由、または必要なタグを伴っ
+                          てinput_port_readを呼び出します。IS_HANDLER_PORTの結果に依
+                          存します; DEVICE8_PORTスタイルの関数を受けるデバイスでの使
+                          用が前提です
+
+   CALL_MACHINE8_READ(ptr,machine,offset) - read8_machine_func以外はCALL_DEVICE8_READ
+                                            と同じ
+
+  これらをうまく利用するためには、関数ポインタのコンシューマが、関数から直接呼び出す
+  のではなく上のCALL_*マクロを使うように拡張する必要があります。いまのところ、8255 
+  PPIでこれを使うように設定しました。これを次の項目のクリーンアップの一環です。また、
+  センチネル値が今は4連続0バイトになっていますが、将来的に変更する必要があります。[
+  [Aaron Giles]
+
+- 8255 PPIインターフェイスのクリーンアップ: [Aaron Giles]
+ - MDRV_PPI8255_ADD、MDRV_PPI8255_RECONFIG、MDRV_PPI8255_REMOVEマクロを追加; 全てのド
+   ライバでこれを使うように更新
+ - machineのリードライトハンドラを、deviceのリード・ライトハンドラに変更;
+   全てのドライバを必要に応じて更新
+ - 関数、変数名lower_udnerに統一
+ - 冗長なインタフェースをgalaxian/scramble系ゲームから削除
+
+- LD-V1000: ROMとメモリマップの情報追加。[Aaron Giles]
+
+- 68000の割り込みが、実行時のみに起こるよう変更。これにより、実行を伴わない複数の変更
+  は、アトミックと見なされます。また、PULSE_LINEはIRQの発信には使用できなくなります。
+  [Aaron Giles]
+
+- デバッグビルドで、CPUへの非NMIと非RESET入力ラインを使っても、ダイレクトな割り込み生
+  成をサポートしないというチェックを追加。今後、このリストは増える予定です。
+  [Aaron Giles]
+
+-「Cube Quest」で、ラインCPUのキャリー関係でのエッジケースバグ修正。[Matt Ownby]
+
+- sbasketbのDIPスイッチ読み込み修正。[Fabio Priuli]
+
+- System1の入力: [Sonikos]
+ - 全てのゲームDIP配置追加
+ - 汎用のCabinetDIPがダブっていたので移動
+ - 汎用入力定義を改良
+
+- NSS/SNESのロードコードについて、カートリッジ・メモリレイアウトをサポートし、MESSの
+  SNESカセット処理に合わせるように変更。[Fabio Priuli]
+
+
+
+新規サポート、またはNOT_WORKINGが取れたゲーム
+---------------------------------------------
+ギャルズパニック (US, EXPRO-02 PCB)
+Pit Boss [Couriersud]
+
+
+
+追加された未動作ゲーム
+----------------------
+20 Year Reunion (V1.04) [Johan Samuelsson]
+カプコンスポーツクラブ (EURO 971017) [Corrado Tomaselli]
