@@ -101,9 +101,9 @@ MAMETestersの修正バグ
 - r28777で起きた起動順の問題修正。[smf]
 
 - MNGの書き出しを-mngwriteと-aviwriteを同時に指定したどきだけ行うよう変更。
-  [Oliver Stoneberg]
+  [Oliver Stöneberg]
 
-- 特別な最適化コードを有効化するSSE2定義をmakefileに追加。[Oliver Stoneberg]
+- 特別な最適化コードを有効化するSSE2定義をmakefileに追加。[Oliver Stöneberg]
 
 -「Super Star '97」のグラフィックROMをTC531000マスクROMとして全て再吸い出し。
   [Siftware, Quench, Guru]
@@ -320,7 +320,7 @@ MAMETestersの修正バグ
   定。トランポリンの削除開始。[Alex Jackson]
 
 - Visual Studio 64-bitビルド用にrgbsse.hを有効化。また、デバッグビルドではrgbgen.hが
-  最速の組み合わせとなるので有効化。[Oliver Stoneberg]
+  最速の組み合わせとなるので有効化。[Oliver Stöneberg]
 
 - 88games.c: バンキングのモダン化。[Alex Jackson]
 
@@ -481,7 +481,7 @@ MAMETestersの修正バグ
 
 - SDL: 0.153で起きた-prescaleの不具合修正。[R. Belmont]
 
-- VS2013の-jコンパイルを修正。[Oliver Stoneberg]
+- VS2013の-jコンパイルを修正。[Oliver Stöneberg]
 
 - atahle: CS1のアクティブステータスレジスタ追加。[Curt Coder]
 
@@ -707,7 +707,7 @@ Bouncing Balls (Adult) [system11, The Dumping Union]
 Maya (set 3) [system11, The Dumping Union]
 プレアデス (Irecsa) [Erik De Maeyer]
 ギャングウォーズ (Japan) [jets from emufrance and Layer from neo-arcadia]
-プレアデス (Spanish 海賊版) [Basilio Garcia]
+プレアデス (Spanish 海賊版) [Basilio García]
 Quaaak (フロッガー海賊版) [Martin Ponweiser]
 Mystery Castle (alternate set) [PinMAME]
 Atari 4x4 [PinMAME]

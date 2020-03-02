@@ -85,9 +85,9 @@ MAMETestersの修正バグ
   に置き換え。talk_statusロジックで、実機同様に(TALKD || SPEN)を使うように変更。
 	[Lord Nightmare]
 
-- pet: CBM 8030フランス版ROM追加。[Herve Warin]
+- pet: CBM 8030フランス版ROM追加。[Hervé Warin]
 
-- pet_rom.xml: Edex (France, v4.4)を追加。[Herve Warin]
+- pet_rom.xml: Edex (France, v4.4)を追加。[Hervé Warin]
 
 - floppy.c: ドライブ音追加(ドライバでMCFG_FLOPPY_DRIVE_SOUND(true);として有効にする)。
   まだ単純なもので、全ドライバで同じ音となる。[Michael Zapf]
