@@ -1,1 +1,1 @@
-"# MAME WhatsNew 日本語版" 
+# MAME WhatsNew 日本語版
