@@ -153,8 +153,8 @@
 
 -「イシターの復活」で鳴っていなかったサウンドを修正。[CAB]
 
-- SNK製8bitゲーム(「ゲバラ / Guerrilla War」「サイコソルジャー」
- 「怒 / Ikari Warriors」など)。 [wwtk@mail.com]
+- SNK製8bitゲーム(「ゲバラ / ゲバラ / Guerrilla War」「サイコソルジャー」
+ 「怒 / 怒 / Ikari Warriors」など)。 [wwtk@mail.com]
 
 -「Star Cruiser」にサンプリング音追加。[Frank Palazzolo]
 
@@ -917,266 +917,269 @@ Zwackery [Aaron Giles]
 新規サポート (アルファベット順)：
 -------------------------------
 
-64th Street [Luca Elia]
-ASO [Carlos A. Lozano, Phil Stroffolino]
-Act Fancer [Bryan McPhail]
-Adventure Quiz 2 Hatena no Dai-Bouken [Nicola Salmoria]
-Aero Fighters [Nicola Salmoria]
-Air Buster [Luca Elia]
-Ali Baba and 40 Thieves [Zsolt Vasvari]
-Ambush [Zsolt Vasvari]
-Appoooh [Tatsuyuki Satoh]
-Armed Formation [Carlos A. Lozano, Phil Stroffolino]
-Armor Attack [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+64番街 [Luca Elia]
+A.S.O ＜エーエスオー＞ [Carlos A. Lozano, Phil Stroffolino]
+アクトフェンサー [Bryan McPhail]
+アドベンチャークイズ2 ハテナ？の大冒険 [Nicola Salmoria]
+ソニックウイングス / Aero Fighters [Nicola Salmoria]
+エアバスター [Luca Elia]
+アリババと40人の盗賊 / Ali Baba and 40 Thieves [Zsolt Vasvari]
+アンブッシュ [Zsolt Vasvari]
+アッポー [Tatsuyuki Satoh]
+アームドF [Carlos A. Lozano, Phil Stroffolino]
+アーモアアタック [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
 Atari Baseball [Brad Oliver]
-Atari Football [Mike Balfour, Patrick Lawrence, Brad Oliver]
-Athena [Carlos A. Lozano, Phil Stroffolino]
-Avenging Spirit [Luca Elia]
+アタリフットボール [Mike Balfour, Patrick Lawrence, Brad Oliver]
+アテナ [Carlos A. Lozano, Phil Stroffolino]
+ファンタズム / Avenging Spirit [Luca Elia]
 Azurian Attack [Zsolt Vasvari]
-Bad Lands [Aaron Giles]
-Balloon Bomber [Mike Coates]
-Battle Lane Vol. 5 (予備サポート) [Paul Leaman]
-Bermude Triangle [Carlos A. Lozano, Phil Stroffolino]
-Block Block [Nicola Salmoria]
-Boulder Dash [Bryan McPhail]
+バッドランズ [Aaron Giles]
+バルーンボンバー [Mike Coates]
+バトルレーンVol.5 (予備サポート) [Paul Leaman]
+バミューダトライアングル [Carlos A. Lozano, Phil Stroffolino]
+ブロックブロック [Nicola Salmoria]
+バルダーダッシュ [Bryan McPhail]
 Boxing Bugs [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Cabal [Carlos A. Lozano, Phil Stroffolino]
-Cadillacs and Dinosaurs [Russell Nash]
-Canyon Bomber [Brad Oliver]
-Capcom World 2 [Steve S.]
-Capcom World [Nicola Salmoria]
-Captain Silver [Bryan McPhail]
-Caveman Ninja [Bryan McPhail]
-Changes [Zsolt Vasvari]
+カベール [Carlos A. Lozano, Phil Stroffolino]
+キャディラックス -恐竜新世紀- / Cadillacs and Dinosaurs [Russell Nash]
+キャニオンボンバー [Brad Oliver]
+アドベンチャークイズ カプコンワールド2 [Steve S.]
+アドベンチャークイズ カプコンワールド[Nicola Salmoria]
+キャプテンシルバー [Bryan McPhail]
+戦え原始人 ジョー＆マック / Caveman Ninja [Bryan McPhail]
+ルーパー / Changes [Zsolt Vasvari]
 Cheyenne [Aaron Giles]
 Chiller [Aaron Giles]
-Chopper I [Carlos A. Lozano, Phil Stroffolino]
+航空騎兵物語 / Chopper I [Carlos A. Lozano, Phil Stroffolino]
 Clay Pigeon [Aaron Giles]
 Cloud 9 [Mike Balfour]
-Combat School [Manuel Abadia, Phil Stroffolino]
+コンバットスクール [Manuel Abadia, Phil Stroffolino]
 Combat [Aaron Giles]
-Cosmic Guerilla [Mike Coates]
+コスミックゲリラ [Mike Coates]
 Crackshot [Aaron Giles]
-Crossbow [Aaron Giles]
-Cyberball 2072 (2 Players) [Aaron Giles]
+クロスボウ [Aaron Giles]
+サイバーボール2072 (2 Players) [Aaron Giles]
 Demon [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Demon's World / Horror Story [Darren Olafson]
+ホラーストーリー / Demon's World [Darren Olafson]
 Devil Fish [Chris Hardy]
-Devil Zone [Mike Coates]
-Digger [Raney Eden]
-Disco No.1 [Zsolt Vasvari]
-Dog Fight [Zsolt Vasvari]
-Double Dribble [Manuel Abadia]
+デビルゾーン [Mike Coates]
+平安京エイリアン / Digger [Raney Eden]
+ディスコナンバーワン [Zsolt Vasvari]
+ドッグファイト [Zsolt Vasvari]
+ダブルドリブル [Manuel Abadia]
 Dyger [Nicola Salmoria]
-Earth Defense Force [Luca Elia]
-Extermination [Nicola Salmoria]
-Fighting Golf [Carlos A. Lozano, Phil Stroffolino]
-Fire One [Olivier Galibert]
-Flying Shark / Sky Shark [Quench]
+E.D.F. ＜アースディフェンスフォース＞ [Luca Elia]
+エクスターミネーション [Nicola Salmoria]
+ファイティングゴルフ [Carlos A. Lozano, Phil Stroffolino]
+ファイアーワン [Olivier Galibert]
+飛翔鮫 / Flying Shark / Sky Shark [Quench]
 Freeze [Nicola Salmoria]
-Funky Bee [Zsolt Vasvari]
-Gals Panic [Nicola Salmoria]
-Gaplus [Manuel Abadia, Ernesto Corvi]
-Genpei ToumaDen [Nicola Salmoria]
-Goindol [Jarek Parchanski]
-Gondomania [Bryan McPhail]
-Grobda [Manuel Abadia]
-Guerrilla War [Phil Stroffolino]
-Head On 2 [Nicola Salmoria]
-Hell Fire [Darren Olafson]
+ファンキービー [Zsolt Vasvari]
+ギャルズパニック [Nicola Salmoria]
+ギャプラス [Manuel Abadia, Ernesto Corvi]
+源平討魔伝 [Nicola Salmoria]
+ゴインドル [Jarek Parchanski]
+魔境戦士 / Gondomania [Bryan McPhail]
+グロブダー [Manuel Abadia]
+ゲバラ / Guerrilla War [Phil Stroffolino]
+ヘッドオン2 [Nicola Salmoria]
+ヘルファイヤー [Darren Olafson]
 Hit 'n Miss [Aaron Giles]
 Hoccer [Zsolt Vasvari]
 Hot Shocker [Zsolt Vasvari]
-Ikari Warriors [Jarek Parchanski]
+怒 / Ikari Warriors [Jarek Parchanski]
 Inferno [Michael Soderstrom]
-Insector X [Nicola Salmoria]
+インセクターX [Nicola Salmoria]
 Joust 2 [Michael Soderstrom]
-Last Mission [Bryan McPhail]
-Legend of Makai [Luca Elia]
+ラストミッション [Bryan McPhail]
+魔魁伝説 / Legend of Makai [Luca Elia]
 Levers [Zsolt Vasvari]
-Lode Runner II (また、ldrun2pからldrun4に改名) [Nicola Salmoria]
-Lode Runner III [Nicola Salmoria]
-Lot Lot [Nicola Salmoria]
+ロードランナーII -バンゲリング帝国の逆襲- (また、ldrun2pからldrun4に改名) [Nicola Salmoria]
+ロードランナーIII -魔神の復活- [Nicola Salmoria]
+ロットロット [Nicola Salmoria]
 Macho Mouse [Zsolt Vasvari]
-Magical Spot II [Zsolt Vasvari]
-Mahjong Gakuen 2 Gakuen-chou no Fukushuu [Nicola Salmoria]
-Mahjong Gakuen [Nicola Salmoria]
-Marine Boy [Zsolt Vasvari]
+マジカルスポットPART II [Zsolt Vasvari]
+麻雀学園2 -学園長の復讐- [Nicola Salmoria]
+麻雀学園 -卒業編- [Nicola Salmoria]
+マリンボーイ [Zsolt Vasvari]
 Mariner [Zsolt Vasvari]
 Mars [Zsolt Vasvari]
-Mega Zone [Chris Hardy]
-Minky Monkey [Zsolt Vasvari]
-Moguchan [Zsolt Vasvari]
-Muscle Bomber Duo (動作不可) [Russell Nash]
-Mutant Night [Leandro Dardini, Mirko Buffoni]
+メガゾーン [Chris Hardy]
+ミンキーモンキー [Zsolt Vasvari]
+モグチャン [Zsolt Vasvari]
+マッスルボマー Duo (動作不可) [Russell Nash]
+ミュータントナイト [Leandro Dardini, Mirko Buffoni]
 Mystic Marathon [Michael Soderstrom]
 New Sinbad 7 [Zsolt Vasvari]
-No Man's Land [Mike Coates]
-Out Zone [Darren Olafson]
+戦国の自衛隊 / No Man's Land [Mike Coates]
+アウトゾーン [Darren Olafson]
 P-47 [Luca Elia]
-Pang! 3 [Nicola Salmoria]
-Phozon [Manuel Abadia]
-Pig Newton [Mike Balfour]
-Pocket Gal [Bryan McPhail]
-Poker Ladies [Nicola Salmoria]
+パン！3 -怪盗たちの華麗な午後- [Nicola Salmoria]
+フォゾン [Manuel Abadia]
+ピッグニュートン [Mike Balfour]
+ポケットギャル [Bryan McPhail]
+ポーカーレディース [Nicola Salmoria]
 Pontoon [Zsolt Vasvari]
-Power Spikes [Nicola Salmoria]
-Prehistoric Isle in 1930 [Bryan McPhail, Carlos A. Lozano]
-Psycho Soldier [Carlos A. Lozano, Phil Stroffolino]
-Punisher [Nicola Salmoria]
-Quiz Sangokushi [Nicola Salmoria]
-Quiz Tonosama no Yabou 2 [Nicola Salmoria]
-Quiz Tonosama no Yabou [Nicola Salmoria]
-Quiz and Dragons [Steve S.]
-Radical Radial [Nicola Salmoria]
-Rally Bike / Dash Yarou [Darren Olafson]
-Rampart [Aaron Giles]
-Return of the Invaders [Jarek Parchanski]
-Rip Off [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-RodLand (Japan) [Luca Elia]
-Rolling Thunder [Jimmy Hamm, Phil Stroffolino, Ernesto Corvi]
-SAR - Search and Rescue [Bryan McPhail]
-Salamander [Bryan McPhail]
-Saturn [Nicola Salmoria]
-Senjyo [Mirko Buffoni]
-Shackled [Bryan McPhail]
-Shooting Master (プロテクトのため、動作不可) [Nicola Salmoria]
+スーパーバレー'91 / Power Spikes [Nicola Salmoria]
+原始島 / Prehistoric Isle in 1930 [Bryan McPhail, Carlos A. Lozano]
+サイコソルジャー [Carlos A. Lozano, Phil Stroffolino]
+パニッシャー [Nicola Salmoria]
+クイズ三國志 -知略の覇者- [Nicola Salmoria]
+クイズ 殿様の野望2 -全国版- [Nicola Salmoria]
+クイズ 殿様の野望 [Nicola Salmoria]
+クイズ＆ドラゴンズ [Steve S.]
+ラジカルラジアル [Nicola Salmoria]
+ダッシュ野郎 / Rally Bike [Darren Olafson]
+ランパート [Aaron Giles]
+リターン・オブ・ザ・インベーダー [Jarek Parchanski]
+リップオフ [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+妖精物語 ロッドランド (Japan) [Luca Elia]
+ローリングサンダー [Jimmy Hamm, Phil Stroffolino, Ernesto Corvi]
+SAR -サーチアンドレスキュー- [Bryan McPhail]
+沙羅曼蛇 [Bryan McPhail]
+サターン [Nicola Salmoria]
+センジョウ [Mirko Buffoni]
+ブレイウッド / Shackled [Bryan McPhail]
+シューティングマスター (プロテクトのため、動作不可) [Nicola Salmoria]
 Showdown [Aaron Giles]
 Shuuz [Aaron Giles]
-Sichuan II [Nicola Salmoria]
-Sindbad Mystery [Nicola Salmoria, Mike Balfour]
-Skull & Crossbones [Aaron Giles]
-Sky Chuter [Lee Taylor]
-Sky Diver [Brad Oliver]
-Sky Lancer [Zsolt Vasvari]
-Slam Masters (動作不可) [Nicola Salmoria]
+四川省 -女子寮編- / Sichuan II [Nicola Salmoria]
+シンドバッドミステリー [Nicola Salmoria, Mike Balfour]
+スカル&クロスボーンズ [Aaron Giles]
+スカイシューター [Lee Taylor]
+スカイダイバー [Brad Oliver]
+スカイランサー [Zsolt Vasvari]
+マッスルボマー / Saturday Night Slam Masters (動作不可) [Nicola Salmoria]
 Solar Quest [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Space Intruder [Lee Taylor]
-Space Wars [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+スペースイントルーダー [Lee Taylor]
+スペースウォーズ [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
 Speed Coin [Frank Palazzolo]
 Speed Freak [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Spelunker [Nicola Salmoria]
-Springer [Zsolt Vasvari]
+スペランカー [Nicola Salmoria]
+スプリンガー [Zsolt Vasvari]
 Star Castle [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
 Star Cruiser (予備サポート) [Frank Palazzolo]
-Star Hawk [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Street Fighter II' Champion Edition [Paul Leaman]
-Street Fighter II' Hyper Fighting [Paul Leaman]
-Street Fighter [Olivier Galibert]
-Street Smart [Bryan McPhail]
-Sundance [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Super Burger Time [Bryan McPhail]
-Super Locomotive [Zsolt Vasvari]
-Super Marukin-Ban [Nicola Salmoria]
-Super Pang (初回起動時に1キーを押しつづけて下さい) [Nicola Salmoria]
-Super Real Darwin [Bryan McPhail]
-TNK3 [Carlos A. Lozano, Phil Stroffolino]
-Tailgunner [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Terra Force [Carlos A. Lozano, Phil Stroffolino]
-The Battle-Road [Eric Hustvedt]
-The Legend of Kage [Phil Stroffolino]
-The Return of Ishtar [Nicola Salmoria]
-Three Wonders (予備サポート) [Paul Leaman]
+スターホーク [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+ストリートファイターII' -チャンピオンエディション- [Paul Leaman]
+ストリートファイターII' ターボ -ハイパーファイティング- [Paul Leaman]
+ストリートファイター [Olivier Galibert]
+ストリートスマート [Bryan McPhail]
+サンダンス [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+スーパーバーガータイム [Bryan McPhail]
+スーパーロコモーティブ [Zsolt Vasvari]
+スーパー（禁）版 [Nicola Salmoria]
+スーパーパン (初回起動時に1キーを押しつづけて下さい) [Nicola Salmoria]
+SRD ＜スーパーリアルダーウィン＞ [Bryan McPhail]
+T.A.N.K / TNK III [Carlos A. Lozano, Phil Stroffolino]
+テイルガンナー [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+テラフォース [Carlos A. Lozano, Phil Stroffolino]
+ザ・バトルロード [Eric Hustvedt]
+影の伝説 [Phil Stroffolino]
+イシターの復活 [Nicola Salmoria]
+ワンダー3 / Three Wonders (予備サポート) [Paul Leaman]
 Top Secret [Aaron Giles]
-Touchdown Fever [Phil Stroffolino]
-Tropical Angel [Phil Stroffolino]
-Truxton / Tatsujin [Darren Olafson]
-Tumble Pop [Bryan McPhail]
-Turbo Force [Nicola Salmoria]
+タッチダウンフィーバー [Phil Stroffolino]
+トロピカルエンジェル [Phil Stroffolino]
+達人 / Truxton [Darren Olafson]
+タンブルポップ [Bryan McPhail]
+ターボフォース [Nicola Salmoria]
 Turkey Shoot [Michael Soderstrom]
-Turtle Ship [Victor Trucco]
-Ufo Robo Dangar [Carlos A. Lozano]
-Van Van Car [Allard van der Bas]
+タートルシップ [Victor Trucco]
+UFOロボ ダンガー [Carlos A. Lozano]
+バンバンカー [Allard van der Bas]
 Vectorbeam [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Victory Road [Jarek Parchanski]
-Vimana [Darren Olafson]
+怒号層圏 / Victory Road [Jarek Parchanski]
+ヴィマナ [Darren Olafson]
 Vindicators part II [Aaron Giles]
 Wanted [Zsolt Vasvari]
 War of the Worlds [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Wardners Forest / Pyros [Quench]
+ワードナの森 / Pyros [Quench]
 Warrior [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
-Warriors of Fate [Russell Nash]
+天地を喰らうII -赤壁の戦い- / Warriors of Fate [Russell Nash]
 Who Dunit [Aaron Giles]
-Wiping [Allard van der Bas]
-Wonder Momo [Nicola Salmoria, Ernesto Corvi]
-World Tennis [Zsolt Vasvari]
+ワイピング [Allard van der Bas]
+ワンダーモモ [Nicola Salmoria, Ernesto Corvi]
+プロテニス / World Tennis [Zsolt Vasvari]
 Yam! Yam!? [Nicola Salmoria]
-Yamato (予備サポート) [Nicola Salmoria]
-Zero Wing [Darren Olafson]
-Zodiack [Zsolt Vasvari]
+ヤマト (予備サポート) [Nicola Salmoria]
+ゼロウイング [Darren Olafson]
+ゾディアック [Zsolt Vasvari]
 
 
 グラフィックが改善されたドライバ：
 ----------------------------------
 
--「Psychic 5」と「Toki」のタイトル画面を修正。[Jarek Parchanski]
+-「サイキック5」と「JuJu伝説 / Toki」のタイトル画面を修正。[Jarek Parchanski]
 
--「Return of the Jedi」でプレイフィールドとスプライトの優先順位とパレットシステム
-　を正しくサポート。[Nicola Salmoria]
+-「スターウォーズ -ジェダイの復讐-」でプレイフィールドとスプライトの優先順位とパレット
+  システムを正しくサポート。[Nicola Salmoria]
 
--「Spelunker II」の色再現が正確になりました。[Nicola Salmoria]
+-「スペランカーII -23の鍵-」の色再現が正確になりました。[Nicola Salmoria]
 
--「Heiankyo Alien」の色を修正。[Zsolt Vasvari]
+-「平安京エイリアン」の色を修正。[Zsolt Vasvari]
 
-- NEOGEOのパレットを修正 - it's 5 bits per gun, not 4。[Nicola Salmoria]
+- NEOGEOのパレットを修正 - ガンあたり4ビットではなく5ビット。[Nicola Salmoria]
 
--「Rally-X」でスプライトが残るバグを修正。[Larry Bank]
+-「ラリーX」でスプライトが残るバグを修正。[Larry Bank]
 
--「Metal Slug」の1面で、3つのタワーの後ろの背景が無かったのを修正。
+-「メタルスラッグ」の1面で、3つのタワーの後ろの背景が無かったのを修正。
 　[Nicola Salmoria]
 
--「Metal Slug」のイントロ部分で、タンクの砲弾の線が無くなっていたのを修正。
+-「メタルスラッグ」のイントロ部分で、タンクの砲弾の線が無くなっていたのを修正。
 　[Nicola Salmoria]
 
--「Swimmer」のサイドパネルの背景色を修正。[Gary Walton]
+-「スイマー」のサイドパネルの背景色を修正。[Gary Walton]
 
--「Bad Dudes / Dragon Ninja」と「Sly Spy」で、スプライト面と背景、また背景面同士の
-　表示順位を修正。[Bryan McPhail]
+-「ドラゴン忍者 / Bad Dudes vs. Dragonninja」と「シークレットエージェント / Sly Spy」で、
+  スプライト面と背景、また背景面同士の表示順位を修正。[Bryan McPhail]
 
--「P.O.W.」のタイトル画面を修正。[Bryan McPhail]
+-「脱獄 -Prisoners of War- / P.O.W.」のタイトル画面を修正。[Bryan McPhail]
 
--「Neo Drift Out」でのスタート/フィニッシュラインのギャップを解消。
+-「ネオドリフトアウト -NEW TECHNOLOGY-」でのスタート/フィニッシュラインのギャップを解消。
 　[Nicola Salmoria]
 
 - NeoGeoゲームで、いくつかラスタエフェクトを試してみました。IRQ2の扱いは、まだ99%
-　分かりません。しかし「Super Sidekicks 3」と「4」でフィールドが表示されます。
-　でもかなり間違っているようで、しかも非常に遅いです。F1でこの機能のON/OFFが出来ま
+　分かりません。しかし「得点王3 -栄光への道- / Super Sidekicks 3 - The Next Glory」と
+　 「4」でフィールドが表示されます。
+  でもかなり間違っているようで、しかも非常に遅いです。F1でこの機能のON/OFFが出来ま
 　す(デフォルトはONです)。[Nicola Salmoria]
 
--「Galivan」で、色を正確に。[Nicola Salmoria]
+-「コスモポリスギャリバン」で、色を正確に。[Nicola Salmoria]
 
--「Street Fighter 2」や「plus」などCPS1基板ゲームで、横スクロールを改善しました。
+-「ストリートファイターII」や「plus」などCPS1基板ゲームで、横スクロールを改善しました。
 　[Paul Leaman]
 
 -「Euro League」のスプライト色を修正。[Nicola Salmoria]
 
--「TMNT」でゲームクレジットの終りのとき、スプライトが突然消えるのを修正。
+-「T.M.N.T. -スーパー亀忍者-」でゲームクレジットの終りのとき、スプライトが突然消える
+  を修正。[Nicola Salmoria]
+
+-「チャンピオンシップスプリント」「スーパースプリント」での緑と白の旗を修正。他の
+  Atari System 2ゲームのスプライトも同様に改善。[Nicola Salmoria]
+
+-「ジャックと豆の木 / Jack the Giantkiller」の終り部分で、スプライトがやられているのを
+  修正。[Brad Oliver]
+
+-「ギャラクシアンパートX」のタイトル画面を修正、なのか？ [Nicola Salmoria]
+
+-「スクランブルフォーメーション / Tokio」での大型スプライトを修正して、
+  「ボブルボブル」と統一しました。
 　[Nicola Salmoria]
 
--「Championship Sprint / Super Sprint」での緑と白の旗を修正。他のAtari System 2
-　ゲームのスプライトも同様に改善。[Nicola Salmoria]
+- NeoGeoドライバで16bitカラーをサポート。今まで256色に減色して、特に影響のあったゲーム
+  で有効です。[Nicola Salmoria]
 
--「Jack the Giant Killer」の終り部分で、スプライトがやられているのを修正。
-　[Brad Oliver]
+-「スターファイアー」を改良。[Olivier Galibert]
 
--「Galaxian Part X」のタイトル画面を修正、なのか？ [Nicola Salmoria]
+-「ジッピーレース / Traverse USA」でのキャラとスプライトの表示順位を修正。
+  [Nicola Salmoria]
 
--「Tokio」での大型スプライトを修正して、「Bubble Bobble」と統一しました。
-　[Nicola Salmoria]
+-「コブラコマンド」で非表示だった背景レイヤーを追加。[Bryan McPhail]
 
--「NeoGeo」ドライバで16bitカラーをサポート。今まで256色に減色して、特に影響のあっ
-　たゲームで有効です。[Nicola Salmoria]
-
--「Star Fire」を改良。[Olivier Galibert]
-
--「Traverse USA」でのキャラとスプライトの表示順位を修正。[Nicola Salmoria]
-
--「Cobra Command」で非表示だった背景レイヤーを追加。[Bryan McPhail]
-
--「Lode Runner 2」「同3」「Battle Road」でキャラクタとスプライトの表示順位。
+-「ロードランナー II」「同3」「ザ・バトルロード」でキャラクタとスプライトの表示順位。
 　[Eric Hustvedt]
 
--「Tower of Druaga」で画面下のアイテムが表示されないのを修正。[Nicola Salmoria]
+-「ドルアーガの塔」で画面下のアイテムが表示されないのを修正。[Nicola Salmoria]
 
 - Galaxianタイプゲームの星空部分を修正。信じるも信じないも、これはday 1からずっと
 　壊れてました。[Nicola Salmoria]
@@ -1184,145 +1187,148 @@ Zodiack [Zsolt Vasvari]
 - System 16ドライバがタイルマップシステムを使うように変更  - 以前よりすっきりし
 　て、速くなり、画面回転をサポートしました。[Phil Stroffolino]
 
--「Birdie King 2」の色修正。[Zsolt Vasvari]
+-「バーディーキング2」の色修正。[Zsolt Vasvari]
 
 -「D-Day」でいくつか修正と改良。[Zsolt Vasvari]
 
--「Pac-Land」の19面で前面の透明度を修正。[Nicola Salmoria]
+-「パックランド」の19面で前面の透明度を修正。[Nicola Salmoria]
 
 -「Battle Zone」で背景の改善(bzone.png)。[Nathan Sturm]
 
--「Jail Break」と「Iron Horse」でスプライトの不具合修正。[Nicola Salmoria]
+-「マンハッタン24分署 / Jail Break」と「大列車強盗 / Iron Horse」でスプライトの不具合修
+  正。[Nicola Salmoria]
 
--「Rainbow Islands」でクモのグラフィックと空の色を修正。[Mike Coates]
+-「レインボーアイランド」でクモのグラフィックと空の色を修正。[Mike Coates]
 
--「Great Swordsman」の背景色を修正。[Jarek Parchanski]
+-「グレートソードマン」の背景色を修正。[Jarek Parchanski]
 
--「Blue Print」の色修正(たぶん)。[Nicola Salmoria]
+-「ブループリント」の色修正(たぶん)。[Nicola Salmoria]
 
 
 サウンドが追加・改善されたドライバ：
 ------------------------------------
 
--「Juno First」の発射音修正。[Nicola Salmoria]
+-「ジュノファースト」の発射音修正。[Nicola Salmoria]
 
 -「Ninja Kid II」にPCMサンプルを追加。[Jarek Parchanski]
 
--「TMNT」でサウンド完全サポート。[Howie Cohen]
+-「T.M.N.T. -スーパー亀忍者-」でサウンド完全サポート。[Howie Cohen]
 
--「Psycho-Nics Oscar」のサウンド。[Nicola Salmoria]
+-「サイコニクスオスカー」のサウンド。[Nicola Salmoria]
 
--「Monster Bash」に7751サウンドチップサポート追加。サンプル2つはまだ必要です(それ
+-「モンスターバッシュ」に7751サウンドチップサポート追加。サンプル2つはまだ必要です(それ
 　ぞれの回路)。[Mike Balfour]
 
-- Exidy製ゲーム(「Venture」「Pepper 2」など)のサウンドエミュレーションで、良好な進
+- Exidy製ゲーム(「ベンチャー」「ペッパーII」など)のサウンドエミュレーションで、良好な進
 　展。[Dan Boris]
 
--「Ghost Busters」のサウンド。[Bryan McPhail]
+-「迷宮ハンターG / The Real Ghostbusters」のサウンド。[Bryan McPhail]
 
--「Golden Axe」「Shinobi」「Passshtb」「Alien Syndrome」「Altered Beast」での
-　uPD7759サポート。[Howie Cohen]
+-「ゴールデンアックス」「忍」「パッシングショット」「エイリアンシンドローム」
+ 「獣王記 / Altered Beast」でのuPD7759サポート。[Howie Cohen]
 
--「Sinistar」でボイスをエミュレート。サンプルはもう要りません。
+-「シニスター」でボイスをエミュレート。サンプルはもう要りません。
 　[Alex Pasadyn]
 
--「The Main Event」でのサウンド。[Nicola Salmoria]
+-「リングの王者 / The Main Event」でのサウンド。[Nicola Salmoria]
 
-- CPS1システムでのサウンドフェードタイマポートをサポート(例として「Willow」のテス
+- CPS1システムでのサウンドフェードタイマポートをサポート(例として「ウィロー」のテス
 　トモードをみて下さい）。[Paul Leaman]
 
--「Cosmic Guerilla」でのサンプルサポート。[Mike Coates]
+-「コスミックゲリラ」でのサンプルサポート。[Mike Coates]
 
 -「Tac/Scan」での新サンプルのサポート。[Jim Hernandez]
 
--「Pac-Land」のサウンド。[Ernesto Corvi]
+-「パックランド」のサウンド。[Ernesto Corvi]
 
--「Sly Spy」「Midnight Resistance」「Dark Seal」でのサウンドフルサポート。
-　[Bryan McPhail]
+-「シークレットエージェント / Sly Spy」「ミッドナイトレジスタンス」「ダークシール」での
+  サウンドフルサポート。[Bryan McPhail]
 
--「Mario Bros」でのやられ音をエミュレート。サンプルはもう要りません。
+-「マリオブラザーズ」でのやられ音をエミュレート。サンプルはもう要りません。
   [Brian Stern]
 
-- 初期コナミゲーム(「Time Pilot」「Pooyan」など)でのRCフィルタの実行をサポート。
+- 初期コナミゲーム(「タイムパイロット」「プーヤン」など)でのRCフィルタの実行をサポート。
   [Zsolt Vasvari]
 
--「Eliminator 2/4 player」のサンプルと「Zektor」の追加サウンドサポート。
+-「Eliminator 2/4 player」のサンプルと「ゼクター」の追加サウンドサポート。
 　[Jim Hernandez]
 
--「Phoenix」のチューニングを修正。[Richard Davies]
+-「フェニックス」のチューニングを修正。[Richard Davies]
 
 -「Mad Gear」にADPCMサンプルを追加。[Bryan McPhail]
 
-- Atariゲームのサウンド(「Toobin'」のボイスなど)の大幅進歩。[Aaron Giles]
+- Atariゲームのサウンド(「ツービン」のボイスなど)の大幅進歩。[Aaron Giles]
 
--「Rainbow Islands」のサウンド。[Mike Coates]
+-「レインボーアイランド」のサウンド。[Mike Coates]
 
 -「Demolition Derby」のサウンド。[Bret Wallace]
 
--「Great Swordsman」のサウンド。「Great Swordsman」と「Gladiator」でのADPCM再生を
-　修正。[Tatsuyuki Satoh]
+-「グレートソードマン」のサウンド。「グレートソードマン」と「黄金の城 / Gladiator」での
+  ADPCM再生を修正。[Tatsuyuki Satoh]
 
--「Nemesis」「Gradius」「Twinbee」「Salamander」の改良。[Elestir]
+-「Nemesis」「グラディウス」「ツインビー」「沙羅曼蛇」の改良。[Elestir]
 
--「LED Storm / Mad Gear」のサウンド修正。[Jarek Burczynski]
+-「マッドギア / Led Storm」のサウンド修正。[Jarek Burczynski]
 
--「WBML」のサウンド修正。[Karl Stenerud]
+-「ワンダーボーイ モンスターランド」のサウンド修正。[Karl Stenerud]
 
 
 その他のドライバの変更：
 ----------------------
 
--「Sinistar」と「Blaster」でアナログジョイスティックをサポート。[Nicola Salmoria]
+-「シニスター」と「Blaster」でアナログジョイスティックをサポート。[Nicola Salmoria]
 
--「Super Punch Out」のプロテクト解除。[Tatsuyuki Satoh, Ernesto Corvi]
+-「スーパーパンチアウト!!」のプロテクト解除。[Tatsuyuki Satoh, Ernesto Corvi]
 
--「Super Sidekicks」のプロテクトハック。[Battlepriest]
+-「得点王 / Super Sidekicks」のプロテクトハック。[Battlepriest]
 
--「Phoenix」の二人プレーの修正と、「Pleiads」のプロテクト(ゲームがリセットして動かな
-　かった)のを解除。[Zsolt Vasvari]
+-「フェニックス」の二人プレーの修正と、「プレアデス」のプロテクト(ゲームがリセットして
+  動かなかった)のを解除。[Zsolt Vasvari]
 
--「Seicross」「Radical Radial」「Frisky Tom」のプロテクトをエミュレート。
-  [Nicola Salmoria]
+-「セクターゾーン / Seicross」「ラジカルラジアル」「フリスキートム」のプロテクトを
+  エミュレート。[Nicola Salmoria]
 
--「Frisky Tom」のプロテクトを修正。[Andrew Prime]
+-「フリスキートム」のプロテクトを修正。[Andrew Prime]
 
--「Tapper」のハング問題を、今度こそ本当に修正。[Juergen Buchmueller]
+-「タッパー」のハング問題を、今度こそ本当に修正。[Juergen Buchmueller]
 
--「Knights of the Round」と「Carrier Air Wing」のプロテクトをエミュレート。
-  [Paul Leaman]
+-「ナイツ・オブ・ザ・ラウンド - 円卓の騎士-」と「U.S.ネイビー / Carrier Air Wing」の
+  プロテクトをエミュレート。[Paul Leaman]
 
--「Bubble Bobble」のオリジナル版をサポート。68705コード部分は海賊版から。このバージョ
+-「ボブルボブル」のオリジナル版をサポート。68705コード部分は海賊版から。このバージョ
 　ンでは、ウィザードが石を投げます。[Nicola Salmoria]
 
--「Fatal Fury 2」のプロテクト解除。[Eugenio De Renzi]
+-「餓狼伝説2 -新たなる闘い- / Fatal Fury 2」のプロテクト解除。[Eugenio De Renzi]
 
--「Twin Cobra」のプロテクト(TMS32010)をエミュレートして、完全にプレイ可能。[Quench]
+-「究極タイガー / Twin Cobra」のプロテクト(TMS32010)をエミュレートして、完全にプレイ可
+  能。[Quench]
 
--「The Electric Yo-Yo」「Kram」「Space Dungeon」「Zoo Keeper」での68705プロテクトを正
-  確にエミュレート。[Nicola Salmoria]
+-「The Electric Yo-Yo」「Kram」「スペースダンジョン」「ズーキーパー」での68705プロテク
+  トを正確にエミュレート。[Nicola Salmoria]
 
--「F1 Dream」の8751プロテクトをシミュレート。[Eric Hustvedt]
+-「F-1ドリーム」の8751プロテクトをシミュレート。[Eric Hustvedt]
 
--「Birdie King 2」がプレイできるよう改善。[Zsolt Vasvari]
+-「バーディーキング2」がプレイできるよう改善。[Zsolt Vasvari]
 
 -「Oscar」の速度修正。[Bryan McPhail]
 
--「Sly Spy」のプロテクトをエミュレート。[Bryan McPhail]
+-「シークレットエージェント / Sly Spy」のプロテクトをエミュレート。[Bryan McPhail]
 
--「Tower of Druaga」の31面で、1Pのスタートボタンが働かなかったのを修正。
+-「ドルアーガの塔」の31面で、1Pのスタートボタンが働かなかったのを修正。
 　[Nicola Salmoria]
 
--「Jump Bug」(Rock-ola版)のプロテクトをエミュレート。ROMの一部を分割し、色が修正され
-　ました。[Zsolt Vasvari]
+-「ジャンプバグ」(Rock-ola版)のプロテクトをエミュレート。ROMの一部を分割し、色が修正さ
+  れました。[Zsolt Vasvari]
 
 - NeoGeoゲーム用のマルチボタンキー「kbmame」。これはチートが有効のとき利用可能です。
 　[Nicola Salmoria]
 
--「Hippodrome」のプロテクトをエミュレート。100%正常に動作します。[Byan McPhail]
+-「ファイティングファンタジー / Hippodrome」のプロテクトをエミュレート。100%正常に動作
+  します。[Byan McPhail]
 
 - 巨大NeoGeoゲームのロード時間を大幅に減少。[Nicola Salmoria]
 
--「Rainbow Islands」がプレイ可能(ジャンプからC-Chipダンプを使用)。[Mike Coates]
+-「レインボーアイランド」がプレイ可能(ジャンプからC-Chipダンプを使用)。[Mike Coates]
 
 - NeoGeoでメモリカードをサポート。カードデータは「MEMCARD」ディレクトリに保存されま
 　す(作成しなくてはいけません)。TABキーでメモリカードオプションのメニューを表示しま
@@ -1330,30 +1336,30 @@ Zodiack [Zsolt Vasvari]
 
 - Atariドライバで多くの改善。[Aaron Giles]
 
--「Xain'd Sleena」で、既知の問題を修正。[Nicola Salmoria]
+-「ザインドスリーナ」で、既知の問題を修正。[Nicola Salmoria]
 
--「Treasure Hunt」の暗号解読を修正。[Zsolt Vasvari]
+-「ジャックと豆の木 / Treasure hunt」の暗号解読を修正。[Zsolt Vasvari]
 
 - Atari System2ゲームにDIPスイッチを追加。[Nicola Salmoria]
 
--「Top Gunner」に回転コントロールを追加。これは「topgunbl」*だけ*で動作します -
-  回転砲塔は「jackal」と「topgunr」では回りません。これらのゲームはロータリージョイス
-　ティックをサポートしていません。[Karl Stenerud]
+-「特殊部隊ジャッカル / Top Gunner」に回転コントロールを追加。これは「topgunbl」*だけ*
+  で動作します -回転砲塔は「jackal」と「topgunr」では回りません。これらのゲームはロータ
+  リージョイスティックをサポートしていません。[Karl Stenerud]
 
 - NeoGeoの水平解像度を320に増やしました。いくつかのゲームで変に見えることがあります
-　が、私が実機でたしかに確認した値です。「Puzzle Bobble」や「Baseball Stars」などは、
-　増えた分のエリアを使用しています。一方、その他のゲームではそこに2本のバーを表示して
-　します。もしゲームが変な感じなら、余分な部分が表示されないようにモニタを調節してく
-　ださい。[Nicola Salmoria]
+　が、私が実機でたしかに確認した値です。「パズルボブル」や
+　「ベースボールスターズプロフェッショナル」などは、増えた分のエリアを使用しています。
+　一方、その他のゲームではそこに2本のバーを表示してします。もしゲームが変な感じなら、
+　余分な部分が表示されないようにモニタを調節してください。[Nicola Salmoria]
 
--「Gauntlet」「Gauntlet II」「Xybots」「Empire Strikes Back」でのエミュレーションのど
-　たばたを修正しました。「Rampart」も改良しましたが、100%ではありません。
-　[Ernesto Corvi, Nicola Salmoria]
+-「ガントレット」「ガントレットII」「ザイボット」「スターウォーズ -帝国の逆襲-」での
+  エミュレーションのどたばたを修正しました。「ランパート」も改良しましたが、100%ではあ
+  りません。[Ernesto Corvi, Nicola Salmoria]
 
--「Pinball Action」で4キーが押されたときのスクロールを追加しましたが、正確かどうかは
-　分かりません。[Nicola Salmoria]
+-「ピンボールアクション」で4キーが押されたときのスクロールを追加しましたが、正確かどう
+  かは分かりません。[Nicola Salmoria]
 
--「Arkanoid(米国版)」の後の方の面を修正。[Nicola Salmoria]
+-「アルカノイド(米国版)」の後の方の面を修正。[Nicola Salmoria]
 
 -「720 Digrees」のコントロールを修正。[Nicola Salmoria]
 
@@ -1474,8 +1480,8 @@ Zodiack [Zsolt Vasvari]
 
 - VLM5030エミュの改善。[Tatsuyuki Satoh]
 
-- 68000エミュレータのバグを2つ修正(アセンブラとCの両方)。「Power Spikes 2」と
-　「F1 Dream」で確認できます。[Mike Coates]
+- 68000エミュレータのバグを2つ修正(アセンブラとCの両方)。「パワースパイクスII」と
+　「F-1ドリーム」で確認できます。[Mike Coates]
 
 - uPD7759 ADPCMデコードを改善。[Juergen Buchmueller]
 
@@ -1503,9 +1509,9 @@ Zodiack [Zsolt Vasvari]
   [Nicola Salmoria]
 
 - [DOS] 新VGA tweakモード：384x240(CPS1システム系、「Pang」など用)、384x256(「Lode
-  Runner」など用)、336x240(「Gauntlet」などのAtariゲーム用)、320x240(NeoGeoなど用)が
-　追加されました。これらは自動的に使用されます、もしあなたのビデオカードまたはモニタが
-　対応していない場合は「-notweak」を使用(また分かる場合は「mame.cfg」のパラメータを
+  Runner」など用)、336x240(「ガントレット」などのAtariゲーム用)、320x240(NeoGeoなど用)
+  が追加されました。これらは自動的に使用されます、もしあなたのビデオカードまたはモニタ
+  が対応していない場合は「-notweak」を使用(また分かる場合は「mame.cfg」のパラメータを
 　変更して下さい。[Brian Lewis, Andrea Mazzoleni]
 
 - [DOS]「-nodouble」コマンドラインオプションを消去しました。代わりに「-nostretch」を
@@ -1553,7 +1559,7 @@ Zodiack [Zsolt Vasvari]
   読み込む必要がなくなりました。[Brad Oliver]
 
 - CPUのopcode解析がさらに強力になった恐怖のハックを追加しました。これは、本当に
-  見難いコードなので書き直さないといけないのですが、「Pocket Gal」や「The Real 
+  見難いコードなので書き直さないといけないのですが、「ポケットギャル」や「The Real 
   Ghostbusters」で十分にいい音が出ています。[Nicola Salmoria]
 
 - 68000新Cコア。[Karl Stenerud]
@@ -1562,15 +1568,15 @@ Zodiack [Zsolt Vasvari]
 
 - Z8000エミュレータ。[Juergen Buchmueller]
 
-- NEC uPD7759エミュレータ。これは「TMNT」やSystem 16、その他で使用しています。
+- NEC uPD7759エミュレータ。これは「T.M.N.T. -スーパー亀忍者-」やSystem 16、その他で使用しています。
   [Juergen Buchmueller, Mike Balfour, Howie Cohen]
 
-- CVSDエミュレーション。「Sinistar」と34010ゲーム(「Smash TV」など)で使用。
+- CVSDエミュレーション。「シニスター」と34010ゲーム(「スマッシュT.V.」など)で使用。
   [Larry Bank, Alex Pasadyn]
 
 - 6808コアに2つバグ修正。[Brad Oliver]
 
-- TMS32010エミュレータ。「Twin Cobra」で使用。[Quench]
+- TMS32010エミュレータ。「究極タイガー / Twin Cobra」で使用。[Quench]
 
 - 新タイルマップコード。これでドライバコードが簡単になり、ビデオレンダリングのパフォー
   マンスを向上してくれます。[Phil Stroffolino]
@@ -1656,7 +1662,7 @@ Bull Fight [Nicola Salmoria]
 Cop 01 (2セット、マージ済み) [Carlos A. Lozano]
 Calipso [Brad Oliver]
 Captain Commando [Paul Leaman]
-Carrier Air Wing (World) (マージ済み) [Nicola Salmoria]
+U.S.ネイビー / Carrier Air Wing (World) (マージ済み) [Nicola Salmoria]
 Checkmate [Al Kossow]
 Cheeky Mouse [Chris Moore]
 Commando (Data East) (マージ済み) [Nicola Salmoria]
@@ -1674,7 +1680,7 @@ Exciting Soccer (2セット、マージ済み) [Ernesto Corvi, Jarek Parchanski]
 Exerion (Taito) (マージ済み) [Nicola Salmoria]
 Express Raider (2セット、マージ済み) [Ernesto Corvi]
 Exterminator [Alex Pasadyn, Zsolt Vasvari]
-F1 Dream (bootleg) (マージ済み) (this one works) [Paul Leaman]
+F-1ドリーム (bootleg) (マージ済み) (this one works) [Paul Leaman]
 Fantasy Zone (動作不可) [Phil Stroffolino]
 Flash Point (動作不可) [Phil Stroffolino]
 Flicky (2セット、マージ済み) [Nicola Salmoria]
@@ -1683,7 +1689,7 @@ Frogs [Nicola Salmoria]
 Future Spy [Nicola Salmoria]
 Galactic Warriors [Andrew Prime]
 Galaxy Rescue (「Lunar Rescue」とマージ) [David Winter]
-Galivan [Luca Elia, Olivier Galibert]
+コスモポリスギャリバン [Luca Elia, Olivier Galibert]
 Gardia (まだ未解読) [Nicola Salmoria]
 Get Star [Luca Elia]
 Ghostbusters [Bryan McPhail]
@@ -1691,7 +1697,7 @@ Ghosts'n Goblins (新たに2セットマージ) [Zsolt Vasvari, Nicola Salmoria]
 Golden Castle (「gladiatr」にマージ) [Steve Ellenoff]
 Golden Star (blue version) (マージ済み) [Mirko Buffoni]
 Gradius [Andrew Prime]
-Great Swordsman [Steve Ellenoff]
+グレートソードマン [Steve Ellenoff]
 Gridiron Fight [Nicola Salmoria]
 Growl [Brad Oliver]
 Gun Dealer (set 2) [Gerald Vanderick]
@@ -1699,7 +1705,7 @@ Gunsmoke (US set 2, without the reset bug) (マージ済み) [Nicola Salmoria]
 Hard Hat [Al Kossow]
 Heavy Metal [Nicola Salmoria]
 Heavyweight Champ (動作不可) [Phil Stroffolino]
-Heiankyo Alien [Nicola Salmoria]
+平安京エイリアン [Nicola Salmoria]
 Heli Fire (set 2) [David Winter]
 Hi Impact Football [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
 HigeMaru [Mirko Buffoni]
@@ -1709,10 +1715,10 @@ I'm Sorry (2セット、マージ済み) [Nicola Salmoria]
 Intrepid [Zsolt Vasvari]
 Invader's Revenge (Dutchford) [David Winter]
 Jack Rabbit (2 new sets merged) [Nicola Salmoria]
-Jack the Giant Killer (set 2) (マージ済み) [Thierry Lescot]
-Jail Break [Ernesto Corvi]
+ジャックと豆の木 / Jack the Giantkiller (set 2) (マージ済み) [Thierry Lescot]
+マンハッタン24分署 / Jail Break [Ernesto Corvi]
 Jump Shot (プロテクトのため、動作不可) [Nicola Salmoria]
-Jumping (merged with Rainbow Islands) [Mike Coates]
+Jumping (merged with レインボーアイランド) [Mike Coates]
 Jungler (Stern) (マージ済み) [Nicola Salmoria]
 Kangaroo (bootleg) (マージ済み) [Nicola Salmoria]
 Karate Champ (1 Player) [Ernesto Corvi]
@@ -1739,7 +1745,7 @@ Maze Hunter [Bryan McPhail]
 Meadows Lanes [Juergen Buchmueller]
 Mega Man (Rockmanとマージ) [Santeri Saarimaa]
 Mercs (3 sets merged) [Paul Leaman]
-Midnight Resistance (Japan) (マージ済み) [Bryan McPhail]
+ミッドナイトレジスタンス (Japan) (マージ済み) [Bryan McPhail]
 Mikie (headbutt version) (マージ済み) [Nicola Salmoria]
 Missile Command (set 2) (マージ済み) [Nicola Salmoria]
 Mister Viking [Nicola Salmoria]
@@ -1759,14 +1765,14 @@ Pac Man Plus [Clay Cowgill, Mike Balfour]
 Pacland (set 1) (マージ済み) [Nicola Salmoria]
 Pang [Paul Leaman]
 Penguin-Kun Wars (2セット、マージ済み) [Allard van der Bas]
-Phoenix (IRECSA) (マージ済み) [David Winter]
+フェニックス (IRECSA) (マージ済み) [David Winter]
 Pickin' [Nicola Salmoria]
-Pinball Action (set 2) (マージ済み) [Marco Cassili]
+ピンボールアクション (set 2) (マージ済み) [Marco Cassili]
 Pitfall II (encrypted version) (マージ済み) [Nicola Salmoria]
 Polaris (set 2) [Victor Trucco]
-Pooyan (Konami) (マージ済み) [Nicola Salmoria]
+プーヤン (Konami) (マージ済み) [Nicola Salmoria]
 Pot of Gold [Nicola Salmoria]
-Psychic 5 [Jarek Parchanski]
+サイキック5 [Jarek Parchanski]
 Quartet II (動作不可) [Phil Stroffolino]
 Qwak (prototye) [Mike Balfour]
 RF2 [Andrew Prime]
@@ -1789,8 +1795,8 @@ Shark Attack [Victor Trucco]
 Side Track [Al Kossow]
 Sidearms (US) (マージ済み) [Nicola Salmoria]
 Silkworm (set 2) (マージ済み) [Nicola Salmoria]
-Sinistar (revision 2) (マージ済み) [Howie Cohen]
-Smash TV (2セット、マージ済み) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+シニスター (revision 2) (マージ済み) [Howie Cohen]
+スマッシュT.V. (2セット、マージ済み) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
 Snow Bros (set 1) (マージ済み) [Zsolt Vasvari]
 Space Fever (B&W) [Al Kossow]
 Space Panic (German) [Mike Coates]
@@ -1798,7 +1804,7 @@ Space Trek (cocktail version) [Nicola Salmoria]
 Speak & Rescue [Al Kossow]
 Spectar (revision 3) (マージ済み) [Al Kossow]
 Speed Ball [Joseba Epalza]
-Spelunker II [Phil Stroffolino]
+スペランカーII -23の鍵- [Phil Stroffolino]
 Star Jacker [Nicola Salmoria]
 Stinger [Nicola Salmoria]
 Street Fighter 2 (2セット、マージ済み) [Paul Leaman]
@@ -1821,23 +1827,23 @@ The Empire Strikes Back (プレイ不可) [Brad Oliver]
 The King of Dragons (2 sets) [Paul Leaman]
 The Tin Star (not complete) [Nicola Salmoria]
 Tiger Heli (4セットマージ済み、2つだけ動作) [Nicola Salmoria]
-Time Pilot (Centuri) (マージ済み) [Nicola Salmoria]
-Time Pilot 84 (set 2) (マージ済み) [Nicola Salmoria]
+タイムパイロット (Centuri) (マージ済み) [Nicola Salmoria]
+タイムパイロット'84 (set 2) (マージ済み) [Nicola Salmoria]
 Time Scanner (動作不可) [Phil Stroffolino]
 Time Tunnel [Thierry Lescot]
 Toki no Senshi [Nicola Salmoria]
-Tokio / Scramble Formation (2セット、マージ済み) 
+スクランブルフォーメーション / Tokio (2セット、マージ済み) 
   [Marcelo de G. Malheiros, Fredrik Sjostedt]
 Tomahawk 777 (2セットマージ済み) [Zsolt Vasvari]
-Top Gunner (bootleg; also fixed the original set) [Nicola Salmoria]
+特殊部隊ジャッカル / Top Gunner (bootleg; also fixed the original set) [Nicola Salmoria]
 Total Carnage (2セット、マージ済み) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
 Tough Turf (動作不可) [Phil Stroffolino]
 Track & Field (Centuri) [Nicola Salmoria]
-Treasure Hunt (プロテクトのため、動作不可) [Brad Oliver, Mike Balfour]
+ジャックと豆の木  / Treasure hunt (プロテクトのため、動作不可) [Brad Oliver, Mike Balfour]
 Trog (3 sets merged) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
 Tron (set 2) (マージ済み) [Nicola Salmoria]
 Turbo (予備サポート) (3 sets merged) [Alex Pasadyn, Howie Cohen, Frank Palazzolo]
-Twin Cobra (予備サポート) [Quench]
+究極タイガー / Twin Cobra (予備サポート) [Quench]
 TwinBee [Andrew Prime]
 Ufo Senshi Yohko Chan (プロテクトのため、動作不可) [Nicola Salmoria]
 Vanguard (Centuri) (マージ済み) [Nicola Salmoria]
@@ -1891,7 +1897,7 @@ mame -listclones neogeo
 - アーケードモードとホームモードのどちらでも、全てのゲームが動作します。もし、コピー
 　ライト画面で固まったり、コインを受け付けない場合はそのゲームの「.CFG」ファイルと
 　「.HI」ファイルを消去して下さい。これで解決します。
-  しかし「Super Sidekicks」では、2、3分経つとコントロール不能になります。
+  しかし「得点王 / Super Sidekicks」では、2、3分経つとコントロール不能になります。
 
 - サウンドサポートは99%出来ています。もし、サウンドがおかしくて「NO GOOD DUMP 
 　EXISTS」エラーが出ている場合は、エミュレーションの不具合ではなく、不良ROMのせいで起
@@ -1920,7 +1926,7 @@ mame -listclones neogeo
 
 -「Fast Freddie」で色修正。
 
--「Mario Bros.」で「POW」をたたくと画面が跳ねるように修正。[Brad Oliver]
+-「マリオブラザーズ」で「POW」をたたくと画面が跳ねるように修正。[Brad Oliver]
 
 -「Slap Fight」を改善。[Christoff Feldtmann]
 
@@ -1945,7 +1951,7 @@ mame -listclones neogeo
 
 -「Pop Flamer」のgfxバンク修正。[Brad Oliver]
 
--「Pleiads」の色が恐らく正確に。[Nicola Salmoria]
+-「プレアデス」の色が恐らく正確に。[Nicola Salmoria]
 
 -「Strategy X」の色が正確に。[Gerald Vanderick]
 
@@ -1978,9 +1984,9 @@ mame -listclones neogeo
 サウンドが追加・改善されたドライバ：
 ------------------------------------
 
--「Gladiator」のサウンド。[Steve Ellenoff]
+-「黄金の城 / Gladiator」のサウンド。[Steve Ellenoff]
 
--「Bubble Bobble」のサウンド同期。[Tatsuyuki Satoh]
+-「ボブルボブル」のサウンド同期。[Tatsuyuki Satoh]
 
 - SN76496エミュを書きなおしました。「Choplifter」のボイスに効果があります。
   [Nicola Salmoria]
@@ -2004,13 +2010,13 @@ mame -listclones neogeo
 -「Gorf」のボイス改善。不明なサンプルを除いて、ボイスが100%正確に鳴ります。
 　[Kevin Bales]
 
--「Punk Shot」の一部サウンド。[Nicola Salmoria]
+-「パンクショット」の一部サウンド。[Nicola Salmoria]
 
 -「Super Space Invaders」のサウンド。[Ernesto Corvi]
 
 -「Donkey Kong」にディケイ追加。[Andrew Scott]
 
--「Juno First」にサウンドエフェクトをいくつか追加。ショット音はまだありません。
+-「ジュノファースト」にサウンドエフェクトをいくつか追加。ショット音はまだありません。
 　[Nicola Salmoria]
 
 - Pokeyエミュレーションを改善。[Juergen Buchmueller]
@@ -2025,7 +2031,7 @@ mame -listclones neogeo
 
 - Exidy製ゲームの予備サポート。[Dan Boris]
 
--「Moon Patrol」「Traverse USA」などのIremゲームでミュージックを修正。
+-「Moon Patrol」「ジッピーレース / Traverse USA」などのIremゲームでミュージックを修正。
 　[Nicola Salmoria]
 
 -「Astro Fighter」でサンプルサポート。[Zsolt Vasvari]
@@ -2039,29 +2045,29 @@ mame -listclones neogeo
 しました。これらのゲームの以前のスコアは失われます。ハイスコアテーブルにゴミが
 あるとき、または動作がおかしいときは「.hi」ファイルを消去して下さい。
 
--「Xain'd Sleena/Solar Warrior」「Pinball Action」「Tiger Road」「Karnov」
- 「Chelnov」「Heavy Barrel」「Bad Dudes」「Robocop」「Hippodrome」「Sly Spy」
- 「Midnight Resistance」「Nemesis」[Dani Portillo]
+-「ザインドスリーナ/Solar Warrior」「ピンボールアクション」「Tiger Road」「Karnov」
+ 「Chelnov」「Heavy Barrel」「Bad Dudes」「Robocop」「ファイティングファンタジー / Hippodrome」「シークレットエージェント / Sly Spy」
+ 「ミッドナイトレジスタンス」「Nemesis」[Dani Portillo]
 
 -「Shark Attack」[Mike Balfour]
 
 -「Flicky」「Bull Fight」「I'm Sorry」「Star Jacker」「Mr Viking」「4d Warrior」
- 「TeddyBoy Blues」「Beastie Feastie」「Contra」「Cobra Command」「Super Qix」
- 「Vigilante」「Pang」「HigeMaru」「Hexa」「Terra Cresta」「Rastan」「Tiger Heli」
+ 「TeddyBoy Blues」「Beastie Feastie」「Contra」「コブラコマンド」「Super Qix」
+ 「Vigilante」「Pang」「HigeMaru」「Hexa」「Terra Cresta」「ラスタンサーガ / Rastan」「Tiger Heli」
   [Juan Carlos Lorente]
 
 -「Quantum」[Nicola Salmoria]
 
 -「Champion Baseball」「Wonder Boy」「Regulus」「SWAT」「Heavy Metal」「Brain」
  「Toki no Senshi」「Bionic Commando」「Blasto」「Tomahawk」「Astro Invader」
- 「Block Out」「Dark Seal」「Cosmic Alien」「Crazy Balloon」「Radarscope」
+ 「Block Out」「ダークシール」「Cosmic Alien」「Crazy Balloon」「Radarscope」
  「Side Track」 [Howie Cohen]
 
 -「Money Money」「Jack Rabbit」「Penguin-Kun Wars」[Roberto Fresca]
 
 -「Cloak and Dagger」「Frenzy」「Future Spy」「Cop 01」「Lode Runner」「Kid Niki」
- 「Spelunker II」「Jail Break」「The Main Event」「King of Boxer」「Express Raider」
- 「Pac Land」「Speed Ball」「TMNT」「Punk Shot」[Dave W.]
+ 「スペランカーII -23の鍵-」「マンハッタン24分署 / Jail Break」「リングの王者 / The Main Event」「King of Boxer」「Express Raider」
+ 「Pac Land」「Speed Ball」「T.M.N.T. -スーパー亀忍者-」「パンクショット」[Dave W.]
 
 -「Exciting Soccer」[Jarek Parchanski]
 
@@ -2092,7 +2098,7 @@ mame -listclones neogeo
 -「Commando」がたまに起動しないのを*ついに*修正。これはデコードルーチンのバグで、
   完全に書き換えました。[Nicola Salmoria]
 
--「Gladiator」の入力の取り扱いを改善。[Tatsuyuki Satoh]
+-「黄金の城 / Gladiator」の入力の取り扱いを改善。[Tatsuyuki Satoh]
 
 - System16ドライバを改善。[Phil Stroffolino]
 
@@ -2107,7 +2113,7 @@ mame -listclones neogeo
 
 -「srumbler2」を修正。[Paul Leaman]
 
--「Data East」の68000ゲーム(「Midnight Resistance」「Bad Dudes」「Robocop」など)に
+-「Data East」の68000ゲーム(「ミッドナイトレジスタンス」「Bad Dudes」「Robocop」など)に
   改良とバグ修正。[Bryan McPhail]
 
 -「Triple Punch」のリセットバグを修正。[Zsolt Vasvari]
@@ -2179,7 +2185,7 @@ mame -listclones neogeo
 - TABメニューで、ジョイスティックキャリブレーションができるようになりました。
   [Bernd Wiebelt]
 
--「Tapper」と「Tron」でクラッシュを引き起こしていたZ80エミュレータのバグを修正。
+-「タッパー」と「トロン」でクラッシュを引き起こしていたZ80エミュレータのバグを修正。
   [Juergen Buchmueller]
 
 
@@ -2200,7 +2206,7 @@ mame -listclones neogeo
 - 6502エミュレータを、65C02と6510をサポートする新型に置き換えました。
   Marat Fayzullin氏作のコードはもう使用していません。[Juergen Buchmueller]
 
-- 68000 BCDエミュレーションが「F1 Dream」のタイマー不調を引き起こしていたバグを修正。
+- 68000 BCDエミュレーションが「F-1ドリーム」のタイマー不調を引き起こしていたバグを修正。
   [Nicola Salmoria]
 
 - Z80ブロックI/O命令(INI, IND, INIR, INDR, OUTI, OUTD, OTIR, OTDR)のバグを修正。
@@ -2262,16 +2268,16 @@ mame -listclones neogeo
 ----------------------
 
 Faster, Harder, More Challenging Q*Bert
-Pac-Land [Ernesto Corvi]
-Punk Shot [Nicola Salmoria]
-Teenage Mutant Ninja Turtles [Alex Pasadyn]
-Lock'n'Chase [Zsolt Vasvari]
-Side Pocket [Ernesto Corvi]
+パックランド [Ernesto Corvi]
+パンクショット [Nicola Salmoria]
+T.M.N.T. -スーパー亀忍者- [Alex Pasadyn]
+ロックンチェイス [Zsolt Vasvari]
+サイドポケットt [Ernesto Corvi]
 Satan of Saturn / Zarzon [Dan Boris]
-Xain'd Sleena/Solar Warrior [Carlos A. Lozano]
+ザインドスリーナ / Solar-Warrior [Carlos A. Lozano]
 Up'n Down [Thierry Lescot]
 Magic Sword [Paul Leaman]
-Space Dungeon [Dan Boris]
+スペースダンジョン [Dan Boris]
 Slap Fight (予備サポート) [Keith Wilkins]
 Hexa [Howie Cohen]
 Space Encounters [Al Kossow, Brad Oliver]
@@ -2284,25 +2290,25 @@ Shoot Out [Ernesto Corvi]
 Curve Ball [Mike Balfour]
 Challenger [Al Kossow]
 Kaos [Chris Moore]
-F1 Dream (予備サポート) [Paul Leaman]
+F-1ドリーム (予備サポート) [Paul Leaman]
 Double Dragon / Double Dragon 2 [Carlos A. Lozano, Rob Rosenbrock,
   Phil Stroffolino, Ernesto Corvi]
 Aeroboto (予備サポート) [Carlos A. Lozano]
 Blasto [Frank Palazzolo]
-Shinobi [Mirko Buffoni]
-Golden Axe [Mirko Buffoni]
-Alien Syndrome [Mirko Buffoni]
-Altered Beast [Mirko Buffoni]
-Passing Shot (予備サポート - 回転にはSystem16ドライバが必要)
+忍 [Mirko Buffoni]
+ゴールデンアックス [Mirko Buffoni]
+エイリアンシンドローム [Mirko Buffoni]
+獣王記 / Altered Beast [Mirko Buffoni]
+パッシングショット (予備サポート - 回転にはSystem16ドライバが必要)
   [Mirko Buffoni]
-Tetris (Sega, bootleg) [Mirko Buffoni]
-Juno First [Chris Hardy]
-Darwin 4078 [Ville Laitinen]
+Tetris (Sega, 海賊版) [Mirko Buffoni]
+ジュノファースト [Chris Hardy]
+ダーウィン4078 [Ville Laitinen]
 Safari [Zsolt Vasvari]
 Pnickies [Paul Leaman]
 Ghouls and Ghosts [Paul Leaman]
-Knights of the Round (予備サポート) [Paul Leaman]
-Carrier Air Wing (予備サポート) [Paul Leaman]
+ナイツ・オブ・ザ・ラウンド - 円卓の騎士- (予備サポート) [Paul Leaman]
+U.S.ネイビー / Carrier Air Wing (予備サポート) [Paul Leaman]
 Zoar [Zsolt Vasvari]
 Klax [Aaron Giles]
 Red Alert [Mike Balfour]
@@ -2323,7 +2329,7 @@ Space Trek [Al Kossow]
 Money Money [Nicola Salmoria]
 Jack Rabbit [Nicola Salmoria]
 Blasteroids [Aaron Giles]
-Xybots [Aaron Giles]
+ザイボット [Aaron Giles]
 Escape from the Planet of Robot Monsters [Aaron Giles]
 Xenophobe [Bryan McPhail]
 Super Space Invaders '91 (予備サポート) [Howie Cohen]
@@ -2335,24 +2341,24 @@ Cosmic Alien [Lee Taylor]
 Spiders [Keith Wilkins]
 Last Duel (予備サポート：ROMセットが不足しています) [Bryan McPhail]
 Mad Gear (予備サポート：ROMセットが不足しています) [Bryan McPhail]
-Cobra Command [Bryan McPhail]
+コブラコマンド [Bryan McPhail]
 Bowl-O-Rama [Zsolt Vasvari]
 1941 [Darren Olafson]
 Nemo [Darren Olafson]
 Nova 2001 [Howie Cohen, Frank Palazzolo, Alex Pasadyn]
 Super Bond [Chris Hardy]
 Avalanche [Mike Balfour]
-Gladiator [Victor Trucco, Steve Ellenoff, Phil Stroffolino]
+黄金の城 / Gladiator [Victor Trucco, Steve Ellenoff, Phil Stroffolino]
 Lazer Command [Juergen Buchmueller]
 Dead Eye [Juergen Buchmueller]
 Gypsy Juggler [Juergen Buchmueller]
 Fax [Mike Balfour]
 Heli Fire [Al Kossow]
 Space Fever [Al Kossow]
-Birdie King 2 (予備サポート) [Ed Mueller, Mike Balfour]
+バーディーキング2 (予備サポート) [Ed Mueller, Mike Balfour]
 Lizard Wizard [Mike Balfour]
 Pioneer Balloon [Juergen Buchmueller]
-Jackal/Top Gunner [Kenneth Lin]
+特殊部隊ジャッカル / Top Gunner [Kenneth Lin]
 Contra/Gryzor [Carlos A. Lozano, Jose Tejada Gomez, Phil Stroffolino,
   Eric Hustvedt]
 Solomon's Key [Mirko Buffoni]
@@ -2362,9 +2368,9 @@ Tee'd Off (予備サポート) [Ernesto Corvi, Roberto Fresca]
 Vindicators [Aaron Giles]
 Space Tactics [Frank Palazzolo]
 Polaris [Victor Trucco]
-The Main Event [Bryan McPhail]
+リングの王者 / The Main Event [Bryan McPhail]
 Devastators (動作不可) [Bryan McPhail]
-Dark Seal / Gate of Doom [Bryan McPhail]
+ダークシール / Gate of Doom [Bryan McPhail]
 Golden Star [Mirko Buffoni]
 The Glob [Mike Balfour]
 Ninja Kid 2 [Jarek Parchanski]
@@ -2374,12 +2380,12 @@ Nibbler (alternate) 注：旧版の不良サウンドROMを入れ替え。[Nicol
 Heavy Barrel (新、完全セット) 旧版は改名して、足りなかった4つのROMを追加。
   [Bryan McPhail]
 Strider (Japanese) [Marco Cassili]
-Willow (Japanese) [Marco Cassili]
+ウィロー (Japanese) [Marco Cassili]
 Final Fight (Japanese) [Marco Cassili]
 Chicki Chicki Boys (Japanese Mega Twins) [Marco Cassili]
 MotoRace USA [Nicola Salmoria]
 1943 (Japanese) [Nicola Salmoria]
-Sinistar (報告によると1982年のラスベガスAMOAショーに出されたプロトタイプ版らしい)
+シニスター (報告によると1982年のラスベガスAMOAショーに出されたプロトタイプ版らしい)
  [Brian Deuel]
 Exerion (bootleg?) [Nicola Salmoria]
 Moon Alien Part 2 [Al Kossow]
@@ -2394,8 +2400,8 @@ Bagman (オリジナルValadon Automation版：Stern版は「bagmans」に改名
 Kicker [Nicola Salmoria]
 Tempest version 2 and 3 (「tempest」は「tempest1」に改名：「tempest」は現在バー
   ジョン3)[Darrin Redick]
-Gladiator (Japan) [Nicola Salmoria]
-Zoo Keeper (alternate) [Nicola Salmoria]
+黄金の城 / Gladiator (Japan) [Nicola Salmoria]
+ズーキーパー (alternate) [Nicola Salmoria]
 Mikie 新2セット (US/Japan) 旧版は不良のため消去。[Nicola Salmoria]
 Moon Cresta (「Galaxian」ハードで動作する海賊版) [Nicola Salmoria]
 Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u」に改名) [Tim Lindquist]
@@ -2404,7 +2410,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 グラフィックが改善されたドライバ：
 ----------------------------------
 
--「Gemini Wing」と「Rygar」のバグ修正。[Li Jih Hwa]
+-「Gemini Wing」と「アルゴスの戦士 / Rygar」のバグ修正。[Li Jih Hwa]
 
 -「Robocop」のフェードイン・アウト。 [Nicola Salmoria]
 
@@ -2457,7 +2463,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
   しました。色の濃さは落ちましたが、暗いと感じた場合、ガンマ値を上げてみて下さい。
   [Bernd Wiebelt]
 
--「Pinball Action」のタイルフリップと、スプライト表示順位を修正。[Nicola Salmoria]
+-「ピンボールアクション」のタイルフリップと、スプライト表示順位を修正。[Nicola Salmoria]
 
 -「Motos」のハイスコア表示を修正。[Zsolt Vasvari]
 
@@ -2502,7 +2508,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 
 - VLM5030エミュレータでサンプルが動作しなかったのを修正。[Tatuyuki Satoh]
 
--「Toki」のサウンド。[Nicola Salmoria]
+-「JuJu伝説 / Toki」のサウンド。[Nicola Salmoria]
 
 - YM3812エミュレータは、まだSound Blaster OPLチップにコマンドを出していますが、
   タイマーはソフトで処理しています。「osd_ym3812_status」と「osd_ym3812_read」
@@ -2510,9 +2516,9 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 
 -「Yie Ar Kung Fu」のサウンド(ボイスはまだ出ません)。[Nicola Salmoria]
 
--「Pinball Action」のサウンド。[Mirko Buffoni]
+-「ピンボールアクション」のサウンド。[Mirko Buffoni]
 
--「Midnight Resistance」と「Sly Spy」で一部サウンド。[Bryan McPhail]
+-「ミッドナイトレジスタンス」と「シークレットエージェント / Sly Spy」で一部サウンド。[Bryan McPhail]
 
 -「Carnival」のミュージックと、新サンプルセットをサポート。[Peter Clare]
 
@@ -2520,7 +2526,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 ハイスコアセーブをサポートしたドライバ：
 -------------------------------------
 
-- Swimmer, Pop Flamer [Brad Oliver]
+- スイマー, Pop Flamer [Brad Oliver]
 
 -「Wonder Boy Deluxe」を修正。 [Chris Moore]
 
@@ -2541,7 +2547,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 
 - Vastar [Dani Portillo]
 
--「Rygar」を修正(「.hi」ファイルを消して下さい)。[Dani Portillo]
+-「アルゴスの戦士 / Rygar」を修正(「.hi」ファイルを消して下さい)。[Dani Portillo]
 
 
 その他のドライバの変更：
@@ -2566,7 +2572,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 
 - ベクターゲームのタイミング調整。[Bernd Wiebelt]
 
--「Super Punch Out」動作のための進展(まだプレイは不可)。[Tatsuyuki Satoh]
+-「スーパーパンチアウト!!」動作のための進展(まだプレイは不可)。[Tatsuyuki Satoh]
 
 -「Burger Time」でのROM解読を正確にエミュレート。[Zsolt Vasvari]
 
@@ -2604,7 +2610,7 @@ Pengo (セット2のプロテクト版。プロテクト無し版は「pengo2u�
 
 -「Snow Bros.」の30面以降の扱いを修正。[Nicola Salmoria]
 
--「Tapper」のバグを修正して、うまくいけばその他MCRゲームも直っています。[Aaron Giles]
+-「タッパー」のバグを修正して、うまくいけばその他MCRゲームも直っています。[Aaron Giles]
 
 -「Quantum」にいくつか修正。[Paul Forgey]
 
@@ -2855,7 +2861,7 @@ Arkanoid (BETA bootleg) (予備サポート) [Thierry Lescot]
 Arkanoid (Tayto bootleg) (動作可) [Thierry Lescot]
 Arkanoid (bootleg) (予備サポート) [Aaron Giles]
 Speed Rumbler [Paul Leaman]
-Return of the Jedi [Dan Boris]
+スターウォーズ -ジェダイの復讐- [Dan Boris]
 Punch Out [Nicola Salmoria]
 MegaTack [Chris Moore]
 Killer Comet [Chris Moore]
@@ -2869,7 +2875,7 @@ Atari Basketball [Mike Balfour]
 Jump Coaster [Zsolt Vasvari]
 Checkman [Brad Oliver]
 Tank Battalion [Brad Oliver]
-Rainbow Islands (予備サポート) [Mike Coates]
+レインボーアイランド (予備サポート) [Mike Coates]
 Lode Runner [Lee Taylor]
 Liberator [Paul Winkler]
 Wiz [Zsolt Vasvari]
@@ -2880,11 +2886,11 @@ Fly-Boy [Brad Oliver]
 The Pit [Zsolt Vasvari]
 Trojan [Paul Leaman]
 Super Qix [Mirko Buffoni, Nicola Salmoria]
-Toki [Jarek Parchanski]
+JuJu伝説 / Toki [Jarek Parchanski]
 Ping Pong [Jarek Parchanski]
 Snow Bros [Mike Coates]
 Strider (予備サポート - 大容量メモリが必要) [Paul Leaman]
-Willow (予備サポート - 大容量メモリが必要) [Paul Leaman]
+ウィロー (予備サポート - 大容量メモリが必要) [Paul Leaman]
 Final Fight (予備サポート - 大容量メモリが必要) [Paul Leaman]
 Mega Twins (予備サポート - 大容量メモリが必要) [Paul Leaman]
 UN Squadron (予備サポート - 大容量メモリが必要) [Paul Leaman]
@@ -2898,20 +2904,20 @@ World Cup 90 [Ernesto Corvi]
 Bad Dudes [Bryan McPhail]
 Robocop [Bryan McPhail]
 Heavy Barrel (予備サポート) [Bryan McPhail]
-Sly Spy [Bryan McPhail]
-Hippodrome (予備サポート) [Bryan McPhail]
-Midnight Resistance [Bryan McPhail]
+シークレットエージェント / Sly Spy [Bryan McPhail]
+ファイティングファンタジー / Hippodrome (予備サポート) [Bryan McPhail]
+ミッドナイトレジスタンス [Bryan McPhail]
 Karnov [Bryan McPhail]
 Chelnov (予備サポート) [Bryan McPhail]
 Tiger Road [Phil Stroffolino]
-Toobin' [Aaron Giles]
+ツービン [Aaron Giles]
 Blockade/Comotion [Frank Palazzolo]
 Leprechaun [Zsolt Vasvari]
 Wonder Boy Deluxe [Jarek Parchanski]
 Wonder Boy in Monster Land (予備サポート) [Mirko Buffoni]
 Pitfall 2 [Jarek Parchanski]
 Choplifter [Jarek Parchanski]
-Jack the Giant Killer [Brad Oliver]
+ジャックと豆の木 / Jack the Giantkiller [Brad Oliver]
 Ninja Gai Den [Alex Pasadyn]
 Marble Madness [Aaron Giles]
 Peter Packrat [Aaron Giles]
@@ -2929,22 +2935,22 @@ Jungler [Nicola Salmoria]
 Lotto Fun [Mike Balfour]
 Video Hustler [Al Kossow]
 Road Fighter [Nicola Salmoria]
-Gauntlet(オリジナル版)、Gauntlet 2、2つの中間リリース
+ガントレット(オリジナル版)、ガントレット 2、2つの中間リリース
  注意：現在オリジナル版のみサポート。以前のどたばたハック物はもうありません
 　[Aaron Giles]
-Gauntlet (2 players)。[Aaron Giles]
+ガントレット (2 players)。[Aaron Giles]
 Capcom Bowling (本物版です。以前の「Coors Light Bowling」は「clbowl」に改名しました) 
 　[Michael Appolo]
-Pleiads (Tehkan) [Paul Swan]
+プレアデス (Tehkan) [Paul Swan]
 Venture (alternate) [Mike Balfour]
 Frogger (yet another alternate version) [Nicola Salmoria]
-Far West (「Iron Horse」の海賊版は別なハードで動作しているため、まだ動きません)
+Far West (「大列車強盗 / Iron Horse」の海賊版は別なハードで動作しているため、まだ動きません)
   [Nicola Salmoria]
 Scrambled Egg [Gerald Vanderick]
 Eagle [Al Kossow]
 Super Missile Attack [Mike Balfour]
 another Galaga bootleg [Marco Cassili]
-Swimmer (alternate version) [Brad Oliver]
+スイマー (alternate version) [Brad Oliver]
 Car Action [Ivan Mackintosh]
 Espial (European version) (「Espial」は正しいROMセット使うようになりました)
   [David Winter]
@@ -2964,24 +2970,24 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 
   Roc'n Rope [Paul Swan]
   Frogger [Gerald Vanderick]
-  Traverse USA [Gerald Vanderick]
+  ジッピーレース / Traverse USA [Gerald Vanderick]
   Donkey Kong 3 [Tim Lindquist]
   Minefield (apart from the background which is approximate) [Al Kossow]
   Circus Charlie [Paul Swan]
   Hyper Sports [Paul Swan]
-  Iron Horse [Paul Swan, Gerald Vanderick]
+  大列車強盗 / Iron Horse [Paul Swan, Gerald Vanderick]
   Zaxxon [Gerald Vanderick]
   Millipede [Nicola Salmoria]
   Shao-Lin's Road [Gerrit Van Goethem]
   Radarscope (probably) [Andy White, Tim Lindquist]
   Kangaroo [Mike Balfour]
-  Rally X [Gary Walton, Simon Walls]
+  ラリーX [Gary Walton, Simon Walls]
   Locomotion [Kevin Klopp]
-  Swimmer [Gary Walton, Simon Walls]
-  Pooyan [Martin Binder]
+  スイマー [Gary Walton, Simon Walls]
+  プーヤン [Martin Binder]
   Motos [Aaron Giles]
 
-- Exidy製ゲームドライバを整理。「Venture」「Mouse Trap」「Pepper 2」で色が正確。 
+- Exidy製ゲームドライバを整理。「Venture」「Mouse Trap」「ペッパーII」で色が正確。 
 　[Mike Balfour]
 
 -「Major Havoc」のアスペクト比を修正。[Al Kossow]
@@ -2992,11 +2998,11 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 
 -「Galaga」でスクリーンフリップしたときの、倍サイズスプライトを修正。[ehrhard@csd.de]
 
--「Blue Print」で色改善。[Martin Searle]
+-「ブループリント」で色改善。[Martin Searle]
 
 -「Super Zaxxon」のトンネルの終りで、背景が消えるのを修正。[Nicola Salmoria]
 
--「Swimmer」セットの完全サポート。不良グラフィックスはもう出ません。[Brad Oliver]
+-「スイマー」セットの完全サポート。不良グラフィックスはもう出ません。[Brad Oliver]
 
 -「Rescue」「Minefield」でのラスタスクロールする背景。[Mike Coates]
 
@@ -3013,19 +3019,19 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 - ベクターゲームの扱いが改善されました。「Battlezone」「Major Havoc」は正確にクリッピ
 　ングされます。[Aaron Giles, Bernd Wiebelt]
 
-- 16bitカラーが必要なゲーム(例えば「Rastan」「Gauntlet」「Black」「Tiger」その他多く)
+- 16bitカラーが必要なゲーム(例えば「ラスタンサーガ / Rastan」「ガントレット」「Black」「Tiger」その他多く)
 　で利用可能になりました。かなり見た目がよくなるので、デフォルトで設定してあります。
 　しかし、当然遅くなります。そのため、(DOS版では)「-depth 8」で、この機能をオフにして
 　以前の8bitに減色できます。[Aaron Giles]
 
--「Locomotion」が「Rally X」とほとんど同じハードで動作していることを発見しました。
-　これで、煙のグラフィックスが間違っていたのを修正しました(また「Rally X」でレーダー
+-「Locomotion」が「ラリーX」とほとんど同じハードで動作していることを発見しました。
+　これで、煙のグラフィックスが間違っていたのを修正しました(また「ラリーX」でレーダー
 　にドットをわざわざ描いていたのも修正されました)。[Nicola Salmoria]
 
-- Williams製ゲームのブリッタを改善。「Sinistar」が正確に動作します。
+- Williams製ゲームのブリッタを改善。「シニスター」が正確に動作します。
   [Aaron Giles, Brad Oliver]
 
--「Gauntlet」のスプライト修正。[Aaron Giles]
+-「ガントレット」のスプライト修正。[Aaron Giles]
 
 -「Qix」と「Zookeeper」のドライバを合体。また回転もサポート。[John Butler]
 
@@ -3033,7 +3039,7 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 サウンドが追加・改善されたドライバ：
 ------------------------------------
 
--「Rastan」その他で使用するYM2151の新エミュレータ。[Jarek Burczynski]
+-「ラスタンサーガ / Rastan」その他で使用するYM2151の新エミュレータ。[Jarek Burczynski]
 
 - YM2203とYM2151エミュレータ、DACインターフェースを改善。16Bitサンプルをサポート。 
 　(「-sb 16」で16bitサンプルが使用可能) [Tatsuyuki Satoh]
@@ -3059,7 +3065,7 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 -「Donkey Kong 3」「Punch Out」でのサウンドに最初の試み。この任天堂2作はNESと同じ
 　サウンドハードウェアを使っています。[Nicola Salmoria]
 
--「Locomotion」「Time Pilot」「Pooyan」「Tutankham」「Roc'n Rope」のミュージックテン
+-「Locomotion」「タイムパイロット」「プーヤン」「Tutankham」「Roc'n Rope」のミュージックテン
 　ポとピッチを修正して、正確になったはずです(これらが、同じサウンドハードだと信じてい
 　ます)。[Jim Hernandez]
 
@@ -3067,18 +3073,18 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 
 -「Targ」と「Spectar」のサウンド(要サンプル)。[Dan Boris]
 
--「Rastan」でADPCMの修正。[Jarek Burczynski]
+-「ラスタンサーガ / Rastan」でADPCMの修正。[Jarek Burczynski]
 
 -「Donkey Kong」のサウンドピッチとマリオのジャンプ音を修正。
 　[Howie Cohen, Brad Oliver]
 
 -「Mat Mania」のボイス。[Nicola Salmoria]
 
--「Sinistar」でのサンプルボイス。[Howie Cohen]
+-「シニスター」でのサンプルボイス。[Howie Cohen]
 
 -「Fire Trap」と「Silkworm」でのサウンド(要Sound Blaster)。[Nicola Salmoria]
 
--「Bubble Bobble」のミュージック(要Sound Blaster)。[Nicola Salmoria]
+-「ボブルボブル」のミュージック(要Sound Blaster)。[Nicola Salmoria]
 
 -「Break Thru」のサウンド(要Sound Blaster)。[Bryan McPhail]
 
@@ -3114,7 +3120,7 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 その他のドライバの変更：
 ----------------------
 
--「Iron Horse」に今まで無かった3つ目のボタンを追加。[Stuart Campbell]
+-「大列車強盗 / Iron Horse」に今まで無かった3つ目のボタンを追加。[Stuart Campbell]
 
 - いくつかのゲームでDIPスイッチと入力ポートの修正。[Marco Cassili]
 
@@ -3131,7 +3137,7 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 -「Bagman」でコピープロテクトの為に発生していた、消えていたガード部分と不具合を修正。 
   [Jarek Burczynski]
 
--「Rastan」のクラッシュを修正。[Barry Rodewald]
+-「ラスタンサーガ / Rastan」のクラッシュを修正。[Barry Rodewald]
 
 -「Food Fight」のサービスモードを修正。[Aaron Giles]
 
@@ -3157,7 +3163,7 @@ Suntory Tapper [Paul Sommers, Ruben Panossian]
 
 - ネイティブzipファイルをサポート。[John Butler]
 
-- バグ修正："Dial Joy Inc"は正常に設定できます(例「Tron」)。[Brad Oliver]
+- バグ修正："Dial Joy Inc"は正常に設定できます(例「トロン」)。[Brad Oliver]
 
 - 6805エミュレータ追加。「Arkanoid」で必要。[Aaron Giles]
 
@@ -3288,20 +3294,20 @@ MAMEライセンスに変更があります。「readme.txt」をチェックし
 新規サポート (順不同)：
 ---------------------
 
-Swimmer (ROMが足りないためグラフィックが一部だめ) [Brad Oliver]
+スイマー (ROMが足りないためグラフィックが一部だめ) [Brad Oliver]
 Astro Blaster [Mike Balfour]
 005 [Mike Balfour]
-Monster Bash [Mike Balfour]
+モンスターバッシュ [Mike Balfour]
 Space Odyssey [Mike Balfour]
 Frenzy [Brad Oliver, Keith Gerdes, Mirko Buffoni, Mike Cuddy]
 Exerion [Brad Oliver]
 Arkanoid (予備サポート) [Brad Oliver]
-Pinball Action [Nicola Salmoria]
-Gauntlet [Aaron Giles]
-Gauntlet 2 [Aaron Giles]
+ピンボールアクション [Nicola Salmoria]
+ガントレット [Aaron Giles]
+ガントレットII [Aaron Giles]
 Food Fight [Aaron Giles]
 Bump 'n Jump / Burnin' Rubber [Kevin Brisley]
-Traverse USA [Lee Taylor, John Clegg]
+ジッピーレース / Traverse USA [Lee Taylor, John Clegg]
 Circus [Mike Coates]
 Robot Bowl [Mike Coates]
 Track & Field / Hyper Olympic [Chris Hardy]
@@ -3317,7 +3323,7 @@ Mat Mania / Exciting Hour [Brad Oliver]
 Astro Fighter [Lee Taylor]
 Mikie [Allard Van Der Bas, Mirko Buffoni, Stefano Mozzi]
 Shao-Lin's Road [Allard van der Bas]
-Iron Horse [Mirko Buffoni]
+大列車強盗 / Iron Horse [Mirko Buffoni]
 Sprint 2 [Mike Balfour]
 Sarge [Brad Oliver, Aaron Giles]
 Triple Punch [Nicola Salmoria]
@@ -3325,7 +3331,7 @@ Vastar [Allard van der Bas]
 Break Thru [Phil Stroffolino]
 Fire Trap [Nicola Salmoria]
 Targ / Spectar [Dan Boris]
-Zoo Keeper [John Butler]
+ズーキーパー [John Butler]
 Jumping Jack [Mirko Buffoni]
 Super Piero [Mirko Buffoni]
 10 Yard Fight (Vs. version) [Mirko Buffoni]
@@ -3338,7 +3344,7 @@ Armored Car [Mike Balfour]
 Minefield [Mike Balfour, Nicola Salmoria]
 SEGA G-80ベクターゲーム版、オリジナルセキュリティチップを使用したもの：
   Space Fury
-  Zektor
+  ゼクター
   Tac/Scan
   Eliminator (2 and 4 players)
   Star Trek
@@ -3360,7 +3366,7 @@ Space Invaders Part 2 (Taito) [Lee Taylor]
 Mr. Du! [Lee Taylor]
 Tip Top (UK version of Congo Bongo) [Gary Walton]
 Super Pac-Man (Namco) [Gary Walton]
-Pootan (bootleg Pooyan) [Marc Vergoossen]
+Pootan (bootleg プーヤン) [Marc Vergoossen]
 Root Beer Tapper [Brad Oliver]
 Joust (White/Green) (以前のものは「joustr」に改名)
   [Valerio Verrando]
@@ -3437,7 +3443,7 @@ Bubbles (Red)  [Valerio Verrando]
 　ゲームで佐藤 達之氏のコードを使っています。このことで特に「Mr. Do!」シリーズなど
 　いくつかのものに効果があります。[Tatsuyuki Satoh, Nicola Salmoria]
 
-- 8039エミュレータ追加。「Donkey Kong」「Donkey Kong Jr.」「Mario Bros.」で
+- 8039エミュレータ追加。「Donkey Kong」「Donkey Kong Jr.」「マリオブラザーズ」で
   エミュレートされた音が鳴ります。これらのゲーム基板はそれぞれ別なサウンド生成回路
   を使用しているため、完全に音を鳴らすには、まだいくつかサンプルが必要です。
   また、「Radarscope」でも一部サウンドが鳴ります。
@@ -3466,23 +3472,23 @@ Bubbles (Red)  [Valerio Verrando]
 
 -「Super Basketball」のサウンド。[Nicola Salmoria]
 
--「Rastan」のサウンド。[Tatsuyuki Satoh]
+-「ラスタンサーガ / Rastan」のサウンド。[Tatsuyuki Satoh]
 
--「Pleiads」ドライバを使った「Naughty Boy」「Pop Flamer」でのサウンドサポート。
+-「プレアデス」ドライバを使った「Naughty Boy」「Pop Flamer」でのサウンドサポート。
 　あまり芳しくないですが、これはまだ始まりです。[Brad Oliver]
 
 -「Espial」のサウンド。[Brad Oliver]
 
 -「Missile Command」の修正。[Eric Anschuetz]
 
--「Phoenix」のサンプルサウンド。[Brad Oliver]
+-「フェニックス」のサンプルサウンド。[Brad Oliver]
 
--「Bubble Bobble」での一部サウンド(YM2203チップのみなので、サウンドエフェクトのみ
+-「ボブルボブル」での一部サウンド(YM2203チップのみなので、サウンドエフェクトのみ
 　で、ミュージックなし)[Nicola Salmoria]
 
 -「Coors Light Bowling」でのサウンド。[Nicola Salmoria]
 
--「Blue Print」で音程とテンポの改善。[Alan J McCormick]
+-「ブループリント」で音程とテンポの改善。[Alan J McCormick]
 
 
 ハイスコアセーブをサポートしたドライバ：
@@ -3733,7 +3739,7 @@ Black Tiger / ブラックドラゴン [Paul Leaman]
   イーアルカンフー
   マリオブラザーズ
   スーパーバスケットボール
-  Seicross / セクターゾーン
+  セクターゾーン / Seicross / セクターゾーン
   1943
   ドンキーコング 3 (いい感じですが、まだ不完全)
   ジャイラス
@@ -4260,7 +4266,7 @@ Eggs / スクランブルエッグ
   した。
 
 - Al Kossow氏とBrad Oliver氏がSega製ベクターゲーム(「エリミネーター」
-  「スペースフューリー」「スタートレック」「タックスキャン」「Zektor」)のドライ
+  「スペースフューリー」「スタートレック」「タックスキャン」「ゼクター」)のドライ
   バを提供してくれました。
   中には、サンプルで一部サウンド(ボイス)が鳴るものもあります。
 
@@ -4808,7 +4814,7 @@ Eggs / スクランブルエッグ
   kungfumディレクトリでサポートされます。海賊版(O.K.版)はkungfubです。テストモー
   ドは、(正式版と同じく)海賊版では動作しません。ハイスコアサポートも同様です。
 
--「Seicross / セクターゾーン」でショットが撃てるようになりました。以前の.DSWファ
+-「セクターゾーン / Seicross / セクターゾーン」でショットが撃てるようになりました。以前の.DSWファ
   イルの消去と、デモ&デバッグモードのオフ、さらにSW7Bを1にして下さい。SW7Bを0に
   するとショットなしになってしまします。
 
@@ -4890,7 +4896,7 @@ Eggs / スクランブルエッグ
 - 色の話をしている間に、「Ghosts 'n Goblins」も100%正確になりました!
   正確な配色のログファイルを送ってくれたGabrio Seccoに感謝 ;)
 
--「Seicross / セクターゾーン」がプレイできて音楽がでるように修正。以前の.DSWファ
+-「セクターゾーン / Seicross / セクターゾーン」がプレイできて音楽がでるように修正。以前の.DSWファ
   イルを消去するのと“デモ&デバッグモード”をオフにするのを忘れずに。
 
 -「ニブラー」の色も修正：100%正確と言いたいのですが、確か髪の色が緑対紫だったと
@@ -5246,7 +5252,7 @@ Eggs / スクランブルエッグ
 
 -「エレベーターアクション」の超予備サポート。プレイ不可。
 
-- Crazy Kongドライバ使用の「Seicross / セクターゾーン」予備サポート。プレイ不可。
+- Crazy Kongドライバ使用の「セクターゾーン / Seicros」予備サポート。プレイ不可。
 
 - Marc Lafontaine氏がVentureドライバのバグを修正してくれました。 さらに
  「マウストラップ」と「ペッパーII」のドライバも提供してくれました。これらは同じ
