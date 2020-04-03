@@ -1824,6 +1824,6 @@ Dyger (set 2)
 日本語版について
 ----------------
 
-MAME 0.37b1〜b16
+MAME 0.37b1～b16
 訳：Fujix
 MAME E2J : http://www.e2j.net/
