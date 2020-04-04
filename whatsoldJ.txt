@@ -741,7 +741,7 @@ Herbie at the Olympics [Mike Coates]
 ホッパーロボ [Zsolt Vasvari]
 ホッピングマッピー [Nicola Salmoria]
 ホットチェイス [Luca Elia]
-Hunchback (スクランブル and ドンキーコング conversions) [Mike Coates]
+Hunchback (スクランブルとドンキーコング改造版) [Mike Coates]
 Hydra [Aaron Giles]
 アイ，ロボット (オートフレームスキップオフがお勧め) [Dan Boris, John Dickson]
 伊賀忍術伝 -五神の書- [Luca Elia]
@@ -2491,7 +2491,7 @@ The Glob [Mike Balfour]
 
 -「帰ってきたチャンピオンベースボール」のボイス。[Nicola Salmoria]
 
--「Qバート Qubes」をサンプルを元に戻しました。[Rodimus Prime]
+-「Qバートキューブス」をサンプルを元に戻しました。[Rodimus Prime]
 
 -「ザ・スリーストゥージーズ」のミュージック。[Nicola Salmoria]
 
