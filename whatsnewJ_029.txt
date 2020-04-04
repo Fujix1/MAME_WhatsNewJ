@@ -1,0 +1,321 @@
+0.29
+
+重要：設定とハイスコアファイルが移動しました。以前のものはCFGとHIディレクトリに
+移動して下さい。これは、バッチファイルmov.batで自動的に行われますが、詳細は読ん
+で下さい。
+
+注意：「バブルボブル」が今回のリリースで動作しないのは既知です。「ボブルボブル」
+か「スーパーバブルボブル」を代わりに使って下さい。これらは今までの「バブルボブル」
+より良好に動作します。
+
+
+新規サポート(順不同)：
+----------------------
+
+アレスの翼 / Legendary Wings [Paul Leaman]
+セクションZ [Paul Leaman]
+クローク＆ダガーr [Dan Boris, Mirko Buffoni]
+Berzerk [Zsolt Vasvari, Christopher Kirmse]
+Coors Light Bowling [Zsolt Vasvari]
+ガンスモーク [Paul Leaman]
+Black Tiger / ブラックドラゴン [Paul Leaman]
+1943 [Mirko Buffoni, Paul Leaman, Nicola Salmoria]
+チャンピオンベースボール (予備サポート) [Nicola Salmoria]
+シルクワーム [Nicola Salmoria]
+サイドアーム (予備サポート) [Paul Leaman]
+レッドUFO [Nicola Salmoria]
+パルサー [Mike Coates]
+スペースインビンコ [Mike Coates]
+スペースインビンコ / ヘッドオン 2 (dual game) [Mike Coates]
+スペースアタック [Mike Coates]
+モトス [Aaron Giles]
+ドルアーガの塔 [Aaron Giles]
+ニューラリーX [Nicola Salmoria]
+レーダースコープ (不良ROMのためテスト出来なかったもの) [Nicola Salmoria]
+ラスタンサーガ (以前のリリースで足りなかったROMが必要です) [Brad Oliver]
+パックマン (海賊版でギャラクシアン基板で動作するもの) [Nicola Salmoria]
+ボスコニアン (Namco) [Toninho]
+マッピー (Japanese) [Toninho]
+ドンキーコングJr. (海賊版) (面が1-2-3-4ではなく1-4-1-3-4-1-2-3-4と進行するもの)
+  [Nicola Salmoria]
+ドンキーコングJr. (Japanese) (面が1-2-3-4と進行するオリジナル版) 
+  [Nicola Salmoria]
+ムーンクレスタ (Gremlin) [Valerio Verrando]
+ジャイラス (Konami) (以前のCenturi版は「gyruss」「gyrussce」に改名しました)
+  [Nicola Salmoria]
+スーパーバブルボブル [Brad Oliver]
+
+
+グラフィックが改善されたドライバ：
+----------------------------------
+
+- 色が正確になったもの
+
+  ドンキーコングJr.
+  Congo Bongo / ティップタップ
+  フェニックス
+  10ヤードファイト
+  ムーパトロール
+  ポップフレーマー
+  War of the Bugs
+  イスパイアル (これは確信なし - 赤と青が逆かもしれません)
+  スーパーコブラ
+  イーアルカンフー
+  マリオブラザーズ
+  スーパーバスケットボール
+  セクターゾーン / Seicross
+  1943
+  ドンキーコング 3 (いい感じですが、まだ不完全)
+  ジャイラス
+  クレイジーコング
+  ザクソン (スプライトはほとんどOK、背景はまだ)
+  [Tim Lindquist, Nicola Salmoria]
+
+-「バッグマン」と「Super Bagman」で正確な色再現。
+  [Tim Lindquist, Jarek Burczynski]
+
+-「ノーティーボーイ」で(おそらく)正確な色再現。[Virtu-Al, Nicola Salmoria]
+
+-「ドンキーコング」の色のマイナーな変更(黒だと思ったら紺色でした)。
+  [Nicola Salmoria]
+
+-「タイムパイロット」の雲が正確になりました。[Edward Massey]
+
+-「バーガータイム / ハンバーガー」の残ライフが正確に表示されるようになりました。ス
+  プライトが正確に消えるようになり、テストモードでのスイッチテストも正しくうごき
+  ます。このゲームは予想以上に「Eggs / スクランブルエッグ」のハードウェアと似て
+  いました。[Nicola Salmoria]
+
+-「10ヤードファイト」に若干の修正。[John Butler]
+
+-「フェニックス」で、背景のクリッピング位置が低すぎたのを修正。[Nicola Salmoria]
+
+-「エグゼドエグゼス」で消えていたスクロール背景を追加。[Nicola Salmoria]
+
+-「ジャイラス」でのスプライトとキャラクタの表示優先順位を修正。[Nicola Salmoria]
+
+-「ギャラガ」の星空の点滅を修正。[Martin Scragg]
+
+-「ギャラガ」で画面の回転(-rorと-rol)をサポート。[Nicola Salmoria]
+
+-「シニスター」のBlitterを改良しましたが、まだ問題あり。
+  [Sean Riddle, Pat Lawrence]
+
+
+サウンドが追加・改善されたドライバ：
+------------------------------------
+
+- Williams製ゲームで、サンプルが不要になりました。消してもかまいません。
+  [Steven Hugg, Mirko Buffoni, Nicola Salmoria]
+
+-「Qバートキューブス」で、「Qバート」のサウンドROMを使用します。これらは同じものです。
+　[Fabrice Frances]
+
+- タックスキャン (through samples)。[Brad Oliver]
+
+-「アステロイド」のサウンド問題をいくつか修正。[Andrew Scott]
+
+-「Kick」にサウンド追加。[Aaron Giles]
+
+-「ギャラクシアン」のバックで鳴るブーン音を修正。「ムークレスタ」やその他で動作
+  するものも正しく鳴ります。[Andrew Scott]
+
+- タイトー製ゲームのデジタルオーディオをサポート(サウンドエフェクトを使用したも
+  ので、「ジャングルキング」のターザンの叫び声ではっきりわかります)。「ジャング
+  ルキング」のBGM。[Nicola Salmoria]
+
+-「ムーンパトロール」「10ヤードファイト」「Kung Fu Master / スパルタンX」
+  [Aaron Giles]
+
+-「マリオブラザーズ」(一部、サンプル)。[Brad Oliver, Shane Monroe]
+
+-「Eggs / スクランブルエッグ」[Nicola Salmoria]
+
+-「オメガレース」のサウンド修正。遅すぎました。
+  Stacy Joe Dunkle、Mike Cuddy、Al Kossowに感謝。[Bernd Wiebelt]
+
+-「Congo Bongo / ティップタップ」(完全に鳴らすにはサンプルが必要)。
+  [Ville Laitinen, Tim Lindquist]
+
+
+ハイスコアセーブをサポートしたドライバ：
+-------------------------------------
+
+- ムーンパトロール, ラリーX, バンガード, スーパーコブラ, Turtles / ターピン, 
+  ゼビウス, ギャラクシーウォーズ [Valerio Verrando]
+
+-「Krull」「ドンキーコング3」を修正[Nicola Salmoria]
+
+-「ギャラガ」を修正。[Valerio Verrando]
+
+- スターフォース, ジャンプバグ, バッグマン, タイムパイロット84, ワープ＆ワープ
+  [Juan Carlos Lorente]
+
+
+その他、改良されたドライバ：
+--------------------------
+
+-「ギャラガ」のデモ画面が正常になりました。「クイックス」が速度低下なしに正常に
+  動作します。「Mr. Do's Castles」ファミリーを修正して正常に動作します(「Do's 
+  Castle」のDIPはまだ動作しません)。これらは以下にある、CPUのインターリーブ動作
+  によるものです。[Nicola Salmoria]
+
+-「テンペスト」で15万点になると固まるのを修正。正常に動作します。[Keith Gerdes]
+
+-「ファンタジー」を修正。[Brian Levine]
+
+- Williams製ゲームにいくつか修正と改良。[Aaron Giles]
+
+- Williams用ドライバに修正：「Blaster」は完成です。「シニスター」はプレイ可能で
+  すがブリッタに少々バグがあります。「Bubbles」は改善しましたが、時々リセットが
+  かかります。[Marc Lafontaine]
+
+-「ノーティボーイ」のコイン投入とゲーム開始のバグを修正。[Nicola Salmoria]
+
+-「スターウォーズ」のマスボックスに少々修正。[Aaron Giles]
+
+- Taitoゲーム(「エレベーターアクション」「ジャングルキング」「ワイルドウエスタン」
+ 「フロントライン」)のハードウェアがより正確になりました。「ジャングルキング」の
+  画面プライオリティを修正しましたが、これで「ワイルドウエスタン」が変になりまし
+  た。「フロントライン」は動作します。
+  これらのドライバはtaito.cにまとめました。[Nicola Salmoria]
+
+-「トリプルパンチ」をスクランブルドライバにプラグしてみましたが、動作しません。
+  [Nicola Salmoria]
+
+-「ニューラリーX」をサポート：色は「ニューラリーX」だけ正確です - 「ラリーX」は
+  カラーPROMを見つけるまで直りません。サウンドは両者とも正確だと思います。
+  [Nicola Salmoria]
+
+-「マッピー」の描画を最適化し増した。さらに「マッピー」「ディグダグ2」両方でテス
+  トモードが動作します。[Aaron Giles]
+
+- 一部ゲーム(「パックマン」「ギャラクシアン」「ラリーX」)でNumLockとCapsLockの
+  LEDが1プレイ/2プレイのスタートランプとして光ります。[Sean Gugler]
+
+-「ミサイルコマンド」のDIPスイッチを修正。[Marco Cassili]
+
+-「クイックス」をベースに「ズーキーパー」をやってみましたが、残念ながら動作しま
+  せん。[John Butler, Ed Mueller]
+
+-「Hunchback」ドライバをdkong.cに移動しました。ここが居場所にちょうどいいでしょ
+  う(しかし、プロテクトのため動作はしません)。[Nicola Salmoria]
+
+
+メインプログラムの変更：
+----------------------
+
+- ガンマ値の設定を追加。Shift+テンキーの+と-キーで変更します。デフォルトでは暗す
+  ぎるゲームがいくつかあり、モニタ設定を変更する代わりに画面の明るさを変更できま
+  す。ガンマ値は、「ドンキーコング」の橋げたなどの色にも影響があります。
+  [Nicola Salmoria]
+
+- "Pro Action Replay"を追加 - チートファインダに似ています。コマンドラインで
+  -cheatが設定されているときだけ有効です。[Marc Lafontaine]
+
+- 6809エミュレータを最適化。[Tatsuyuki Satoh]
+
+- 6809エミュレータを最適化して、常時RAMから直接命令コードを取り出すように変更(か
+  なり高速)。
+ 「魔界村 / Ghosts'n Goblins」「スターウォーズ」、Williams製ゲームでサポートする
+  ように更新が必要です。[Aaron Giles]
+
+- 設定とハイスコアのファイルをCFGとHIディレクトリに移動しました。これらは各ゲー
+  ムのディレクトリには保存されません。古い設定ファイルを新しいディレクトリに移動
+  するバッチファイル(MOV.BAT)を用意しましたので、自動的に更新できます。
+  MAMEディレクトリ内から実行してください。不明ファイルについてはエラーメッセージ
+  が出るかもしれませんが、心配は要りません。最後まで任せてください。
+  [Nicola Salmoria]
+
+  設定ファイルを別なディレクトリに移動することで、ROMをZIPで扱うのが簡単になりま
+  した。これは、くつかのフロントエンドで既に実現されていますが、コマンドラインか
+  らバッチファイルを使用して行うこともできます。PKUNZIPがパスに必要です。zipファ
+  イルはゲーム名にちなんだ名前(例：pacman.zip)をつけてMAMEディレクトリに配置しな
+  くてはいけません。
+
+@echo off
+md %1
+pkunzip >nul： %1 %1
+MAME.EXE %1 %2 %3 %4 %5 %6 %7 %8 %9
+deltree >nil： /y %1
+
+  しかしさらにいい方法として、もしZipFoldersかZipMagicがインストールされている場
+  合、MAMEは自動的に.zipか.zifディレクトリを検索します。
+  ZipFoldersとZipMagicはMijenix Corporationの登録商標です。www.mijenix.comから
+  トライアル版をダウンロードできます。私はMijenix Corpとは何の関係もありません
+   - 私はただの幸せな貸衣装屋です。
+
+- -trakと-mouseオプションを廃止しました。マウスは既にデフォルトでサポートされ
+  ています。使用不可にしたいときは-nomouseとして下さい。[Bernd Wiebelt]
+
+- -vesaオプションは使用可能なベストのVESAモードを選択します。新しい-vesa1は
+  強制的にVESA1.2を使用します。[Bernd Wiebelt]
+
+- -vgを廃止しました。現在デフォルトで設定されています。[Bernd Wiebelt]
+
+
+ソース：
+-------
+
+- 現在DOS版のコンパイルにはAllegroの"WIP 2.8"版を試用しています。
+  http：//www.talula.demon.co.uk/allegro/で入手できます。
+
+- OSD_KEYの定義を2つ追加：RCONTROL、ALTGRです。CONTROLはLCONTROLに置き換えました。
+
+- Marcel de Kogel氏作のZ80エミュレータVer.1.2に揃えました。
+
+- 以前より10%～30%高速なメモリハンドリング関数を追加。メモリのコードはcpuintrf.c
+  からmemory.cに移動しました。バンクされたROMは、より整理された高速な方法で扱う
+  ことが出来ます。メモリハンドラの配列で新しいMRA_BANK1...タイプを使います。また、
+  cpu_setbank()はカレントバンクを設定します。Z80とM6809エミュレータはバンクス
+  イッチングをネイティブにサポートしています。
+  重要：24bitアドレッシング(例：68000)には、single byteにメモリハンドラを関連づ
+  けることは出来ません。4つの連続したbyte、整列したlongwordを使用して下さい。
+  これにより、word(2バイト)、dword(4バイト)命令の高速化もされました。
+  [Tatsuyuki Satoh, Aaron Giles]
+
+- ROM_LOADEVENマクロとROM_LOADODDマクロを追加。[Aaron Giles]
+
+- CPU命令をインターリーブできるようになりました。MachineDriverの
+  cpu_slices_per_frameフィールドは一つのCPUから別のCPUへどのくらい制御がパスされ
+  るかをコントロールします。
+  1が最小値でそれぞれのCPUが他へ制御を渡す前に、1つのビデオフレーム全体について
+  動作することを意味します。この設定を高くすればするほど、CPUがインターリーブさ
+  れた状態に近づき、そのため、エミュレーションがさらに正確になります。しかし、高
+  い設定は低パフォーマンスを意味しています。[Nicola Salmoria]
+
+- osd_obtain_pen()を廃止しました。パレットは代わりにosd_create_display()に渡され
+  ます。また、clearbitmap()をosd_clearbitmap()に移動しました。以前の
+  clearbitmap()の動作とは少し違いがあります：ビットマップを共通的に“黒”に設定
+  して、Machine->pens[0]で塗りつぶす必要がなくなりました。
+  ドライバでosd_clearbitmmap()を使用するのは避けて、新しいfillbitmap()をかわりに
+  使って下さい。これは、ペン番号とクリップ領域を受け付けます。[Nicola Salmoria]
+
+- osd_相当の関連のある関数(fopen(), fread()など)のファイルを移動しました。Mac移
+  植時の大量のハッキングが避けられます。さらにこれで、Win95でのZipMagic/
+  ZipFoldersサポートなど、システム特有の拡張が可能になりました。
+  [Nicola Salmoria]
+
+- 入力ポートのコードを改良しました。アナログコントロール用のフィールド、clip、
+  min、maxを追加しました。また新しいアナログジョイスティックタイプIPT_AD_STICK_X
+  とIPT_AD_STICK_Yも追加しました。これらの新フィールドは、感度としてと、0～255の
+  範囲に収まるように、同じint field (arg)にパックされています。clipフィールドは、
+  一般のコールバックルーチンタスクとして、トラックボール・ダイヤル・スティックの
+  デルタ値をクリップします。MinとMaxは今のところAD_STICKタイプでのみ使用され、ス
+  ティックの動く範囲を限定します -「スターウォーズ」と「レッドバロン」で利用して
+  います。[Brad Oliver]
+  アナログ入力の追加改良として、これらは各フレームで一回以上値を更新できます。
+  ゲームによって必要です。[Bernd Wiebelt]
+
+- osd_track_center()を廃止。私たちは現在常に関連するマウス動作を使用しています。
+  [Bernd Wiebelt]
+
+- dirty rectanglesを正式にサポートしました。osd_mark_dirty()で利用します。
+  [Aaron Giles]
+  これはMacMAMEで一番使われていて、DOS版は限定付きでBernd Wiebelt氏が追加してく
+  れました。
+
+- pokyintf.cがより8910intf.cに近くなるように修正しました。変更可能なクロック周波
+  数、ポートコールバック、クリッピングパラメータ、フレーム毎の更新度合いの変更が
+  出来ます。注目すべきは、「テンペスト」でアップデート周波数を高めることで、サウ
+  ンドが改善したことです。[Brad Oliver]
