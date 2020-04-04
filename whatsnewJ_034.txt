@@ -1,0 +1,633 @@
+0.34
+
+新規サポート(アルファベット順)：
+------------------------------
+
+1942 (set 3) (マージ済み) [Nicola Salmoria]
+4-Dウォーリアーズ [Nicola Salmoria]
+600 (Turtlesとマージ) [John Dondzila]
+720 Degrees (set 2) (マージ済み) [Nicola Salmoria]
+APB ＜オールポインツバレッティン＞ (set 2) (マージ済み) (this fixes the title screen)
+アレックスキッド -ロストスターズ- (動作不可) [Phil Stroffolino]
+エイリアンストーム (動作不可) [Phil Stroffolino]
+アルペンスキー (2セット、マージ済み) [John Butler]
+エリア88 (「UN Squadron」とマージ) [Santeri Saarimaa]
+リベンジオブDOH [Luca Elia, Mirko Buffoni]
+アームレスリング [Nicola Salmoria]
+Armored Car (set 2) (マージ済み) [Nicola Salmoria]
+アストロファイター (set 3) (マージ済み) [Zsolt Vasvari]
+オーライル (動作不可) [Phil Stroffolino]
+必殺！無頼拳 / Avengers (2セット、マージ済み) (プロテクトのため、動作不可) [Paul Leaman]
+バッグマン (Stern set 1) (マージ済み) [Nicola Salmoria]
+Beastie Feastie [Clay Cowgill, Mike Balfour]
+バイオアタック (当たり判定なし) [Thierry Lescot]
+トップシークレット / Bionic Commando (2セット、マージ済み) [Steven Frew, Phil Stroffolino, Paul Leaman]
+ブラックドラゴン / Black Tiger (海賊版) (マージ済み) [Marco Cassili]
+ブロックギャル (プロテクトのため動作不可) [Nicola Salmoria]
+ブレイン [Nicola Salmoria]
+Brix (「zzyzzyxx」とマージ) [Brad Oliver]
+ブルファイター [Nicola Salmoria]
+コップ 01 (2セット、マージ済み) [Carlos A. Lozano]
+Calipso [Brad Oliver]
+キャプテンコマンドー [Paul Leaman]
+U.S.ネイビー / Carrier Air Wing (World) (マージ済み) [Nicola Salmoria]
+Checkmate [Al Kossow]
+チーキーマウス [Chris Moore]
+戦場の狼 / Commando (Data East) (マージ済み) [Nicola Salmoria]
+コックレース [Nicola Salmoria]
+クリスタルキャッスル (set 2) (マージ済み) [Nicola Salmoria]
+脱子ちゃん雀荘 (プロテクトのため、動作不可) [Nicola Salmoria]
+Defence Command [Nicola Salmoria]
+Defense Command [David Winter]
+ディスクスオブトロン (Upright) (マージ済み) [Nicola Salmoria]
+ダイナマイトダックス [Phil Stroffolino]
+天地を喰らう / Dynasty Wars (動作不可) [Paul Leaman]
+サイバーポリス E-スワット (動作不可) [Phil Stroffolino]
+Electric Yo-Yo (プロテクトのため、動作不可) [Al Kossow]
+エキサイティングサッカー (2セット、マージ済み) [Ernesto Corvi, Jarek Parchanski]
+エクセリオン (Taito) (マージ済み) [Nicola Salmoria]
+ウェスタンエクスプレス / Express Raider (2セット、マージ済み) [Ernesto Corvi]
+Exterminator [Alex Pasadyn, Zsolt Vasvari]
+F-1ドリーム (海賊版) (マージ済み) (this one works) [Paul Leaman]
+ファンタジーゾーン (動作不可) [Phil Stroffolino]
+フラッシュポイント (動作不可) [Phil Stroffolino]
+フリッキー (2セット、マージ済み) [Nicola Salmoria]
+フォーメーションZ (merged with Aeroboto) [Nicola Salmoria]
+フロッグス [Nicola Salmoria]
+フューチャースパイ [Nicola Salmoria]
+ギャラクティックウォーリアーズ [Andrew Prime]
+Galaxy Rescue (「ルナレスキュー」とマージ) [David Winter]
+コスモポリスギャリバン [Luca Elia, Olivier Galibert]
+ガルディア (まだ未解読) [Nicola Salmoria]
+ゲットスター [Luca Elia]
+迷宮ハンターG / The Real Ghostbusters [Bryan McPhail]
+魔界村 / Ghosts'n Goblins (新たに2セットマージ) [Zsolt Vasvari, Nicola Salmoria]
+黄金の城 / Golden Castle (「gladiatr」にマージ) [Steve Ellenoff]
+Golden Star (blue version) (マージ済み) [Mirko Buffoni]
+グラディウス [Andrew Prime]
+グレートソードマン [Steve Ellenoff]
+グリダイアンファイト [Nicola Salmoria]
+ルナーク / Growl [Brad Oliver]
+ガンディーラー (set 2) [Gerald Vanderick]
+ガンスモーク (US set 2, without the reset bug) (マージ済み) [Nicola Salmoria]
+Hard Hat [Al Kossow]
+ヘビーメタル [Nicola Salmoria]
+ヘビーウェイトチャンプ (動作不可) [Phil Stroffolino]
+平安京エイリアン [Nicola Salmoria]
+ヘリファイア (set 2) [David Winter]
+Hi Impact Football [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ひげ丸 [Mirko Buffoni]
+ハッスル [Frank Palazzolo]
+ハイパーオリンピック (ADPCMサンプル使用海賊版) (マージ済み) [David Winter]
+ごんべぇのあいむそ～り～ / I'm Sorry (2セット、マージ済み) [Nicola Salmoria]
+イントレピッド [Zsolt Vasvari]
+Invader's Revenge (Dutchford) [David Winter]
+Jack Rabbit (2 new sets merged) [Nicola Salmoria]
+ジャックと豆の木 / Jack the Giantkiller (set 2) (マージ済み) [Thierry Lescot]
+マンハッタン24分署 / Jail Break [Ernesto Corvi]
+Jump Shot (プロテクトのため、動作不可) [Nicola Salmoria]
+Jumping (merged with レインボーアイランド) [Mike Coates]
+ジャングラー (Stern) (マージ済み) [Nicola Salmoria]
+カンガルー (海賊版) (マージ済み) [Nicola Salmoria]
+対戦空手道 青春美少女編 / Karate Champ (1 Player) [Ernesto Corvi]
+対戦空手道 青春美少女編 / Karate Champ (「VS」と「Karatedo」にマージ) [Ernesto Corvi]
+キックマン / Kick (upright version) (マージ済み) [Nicola Salmoria]
+快傑ヤンチャ丸 / Kid Niki [Phil Stroffolino]
+キング&バルーン [Brad Oliver]
+クラックス (set 3) (マージ済み) [Nicola Salmoria]
+Kram (プレイ不可) (2セット、マージ済み)
+スパルタンX / Kung Fu Master (2 new sets merged) [Nicola Salmoria]
+レディバグ (海賊版) (マージ済み) [Marco Cassili]
+ラストデュエル (海賊版) (this fixes the graphics) [Bryan McPhail]
+アレスの翼 / Legendary Wings (US set 2) (マージ済み) [Nicola Salmoria]
+ミズバク大冒険 / Liquid Kids [Brad Oliver]
+ロードランナー (set 1) (マージ済み) [Nicola Salmoria]
+ロードランナー IV -帝国からの脱出- [Nicola Salmoria]
+Lost Tomb (hard) (マージ済み) [Michael Appolo]
+M-79アンブッシュ [Al Kossow]
+マジックソード (USA) (マージ済み) [Nicola Salmoria]
+メジャーリーグ (動作不可) [Phil Stroffolino]
+マニアチャレンジ (set 2) (マージ済み) [Nicola Salmoria]
+Max RPM (ROM不足で音無し) [Aaron Giles]
+Maze Hunter [Bryan McPhail]
+メドウズレーン [Juergen Buchmueller]
+Mega Man - The Power Battle (ロックマン・ザ・パワーバトルとマージ) [Santeri Saarimaa]
+戦場の狼II / Mercs (3 sets merged) [Paul Leaman]
+ミッドナイトレジスタンス (Japan) (マージ済み) [Bryan McPhail]
+マイキー (headbutt version) (マージ済み) [Nicola Salmoria]
+ミサイルコマンド (set 2) (マージ済み) [Nicola Salmoria]
+ミスターバイキング [Nicola Salmoria]
+Moon War II (2セット、マージ済み) [Brad Oliver]
+モータルコンバット [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+モータルコンバットII (動作不可)
+ミスターDo! 雪だるま (マージ済み) [Nicola Salmoria]
+ミスターDo! (bugfixed) (マージ済み) [Gareth Hall]
+Mr. TNT [Brad Oliver]
+青春スキャンダル / My Hero (2セット、マージ済み) [Nicola Salmoria]
+NBAジャム (動作不可)
+ナーク [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+サイコニクスオスカー (2セット、マージ済み) [Bryan McPhail]
+オズマウォーズ [Al Kossow]
+脱獄 -Prisoners of War- / P.O.W. [Bryan McPhail]
+パックマンプラス [Clay Cowgill, Mike Balfour]
+パックランド (set 1) (マージ済み) [Nicola Salmoria]
+ポンピングワールド / Pang [Paul Leaman]
+ペンギンくんウォーズ (2セット、マージ済み) [Allard van der Bas]
+フェニックス (IRECSA) (マージ済み) [David Winter]
+Pickin' [Nicola Salmoria]
+ピンボールアクション (set 2) (マージ済み) [Marco Cassili]
+ピットフォールII (encrypted version) (マージ済み) [Nicola Salmoria]
+ポラリス (set 2) [Victor Trucco]
+プーヤン (Konami) (マージ済み) [Nicola Salmoria]
+Pot of Gold [Nicola Salmoria]
+サイキック5 [Jarek Parchanski]
+カルテット2 (動作不可) [Phil Stroffolino]
+クワック (プロトタイプ) [Mike Balfour]
+RF-2 ＜レッドファイター2＞ [Andrew Prime]
+レグルス (2セット、マージ済み) [Nicola Salmoria]
+熱血硬派くにおくん / Renegade (2セット、海賊版のみ動作) [Phil Stroffolino]
+キングオブボクサー / Ring King (マージ済み) [Ernesto Corvi]
+リバーパトロール / シルバーランド [Zsolt Vasvari]
+ロードファイター (set 2) (マージ済み) [Nicola Salmoria]
+ロックマン・ザ・パワーバトル [Paul Leaman]
+アルゴスの戦士 / Rygar (US set 1) (マージ済み) [Nicola Salmoria]
+SDI ＜エスディーアイ＞ (動作不可) [Phil Stroffolino]
+スワット [Nicola Salmoria]
+サムライ [Nicola Salmoria]
+サスケVSコマンダー [Nicola Salmoria]
+サウロ [Zsolt Vasvari]
+サイオン (2セット、マージ済み) [Nicola Salmoria]
+シーファイターポセイドン (プロテクトのため、動作不可) [Nicola Salmoria]
+忍者プリンセス / Sega Ninja (マージ済み) [Jarek Parchanski, Nicola Salmoria]
+Shark Attack [Victor Trucco]
+サイドトラック [Al Kossow]
+サイドアーム -HYPER DYNE- (US) (マージ済み) [Nicola Salmoria]
+シルクワーム (set 2) (マージ済み) [Nicola Salmoria]
+シニスター (revision 2) (マージ済み) [Howie Cohen]
+スマッシュT.V. (2セット、マージ済み) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+スノーブラザーズ -Nick＆Tom- (set 1) (マージ済み) [Zsolt Vasvari]
+スペースフィーバー (B&W) [Al Kossow]
+スペースパニック (German) [Mike Coates]
+スペーストレック (cocktail version) [Nicola Salmoria]
+スピーク&レスキュー [Al Kossow]
+スペクター (revision 3) (マージ済み) [Al Kossow]
+Speed Ball [Joseba Epalza]
+スペランカーII -23の鍵- [Phil Stroffolino]
+スタージャッカー [Nicola Salmoria]
+スティンガー [Nicola Salmoria]
+スーパーストリートファイターII (2セット、マージ済み) [Paul Leaman]
+Strike Force [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+サブズ [Mike Balfour]
+Super Bagman (Valadon) (マージ済み) [Nicola Salmoria]
+Super Casino [Thierry Lescot]
+スーパーハイインパクト [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+Super Invaders [David Winter]
+ファニーマウス / Super Mouse [Brad Oliver]
+スーパーマン [Howie Cohen, Brad Oliver]
+ザ・ビッグ・プロレスリング！ / Tag Team Wrestling [Steve Ellenoff, Brad Oliver]
+ワイルドファング / Tecmo Knight [Nicola Salmoria]
+テディーボーイブルース [Nicola Salmoria]
+ターミネーター2 (プレイ不可)
+テラクレスタ (2セット、マージ済み) [Carlos A. Lozano]
+テトリス (Cocktail set 1) (マージ済み) [Zsolt Vasvari]
+ザ・ビリヤード (「ビデオハスラー」とマージ) [Nicola Salmoria]
+スターウォーズ -帝国の逆襲- (プレイ不可) [Brad Oliver]
+ザ・キング・オブ・ドラゴンズ (2 sets) [Paul Leaman]
+ティンスター (not complete) [Nicola Salmoria]
+タイガーヘリ (4セットマージ済み、2つだけ動作) [Nicola Salmoria]
+タイムパイロット (Centuri) (マージ済み) [Nicola Salmoria]
+タイムパイロット'84 (set 2) (マージ済み) [Nicola Salmoria]
+タイムスキャナー (動作不可) [Phil Stroffolino]
+タイムトンネル [Thierry Lescot]
+時の戦士 [Nicola Salmoria]
+スクランブルフォーメーション / Tokio (2セット、マージ済み) 
+  [Marcelo de G. Malheiros, Fredrik Sjostedt]
+トマホーク777 (2セットマージ済み) [Zsolt Vasvari]
+特殊部隊ジャッカル / Top Gunner (海賊版; オリジナルセットも修正) [Nicola Salmoria]
+Total Carnage (2セット、マージ済み) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+タフターフ (動作不可) [Phil Stroffolino]
+ハイパーオリンピック / Track ＆ Field (Centuri) [Nicola Salmoria]
+ジャックと豆の木  / Treasure hunt (プロテクトのため、動作不可)
+  [Brad Oliver, Mike Balfour]
+Trog (3 sets merged) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+トロン (set 2) (マージ済み) [Nicola Salmoria]
+ターボ (予備サポート) (3 sets merged) [Alex Pasadyn, Howie Cohen, Frank Palazzolo]
+究極タイガー / Twin Cobra (予備サポート) [Quench]
+ツインビー [Andrew Prime]
+UFO戦士ようこちゃん (プロテクトのため、動作不可) [Nicola Salmoria]
+バンガード (Centuri) (マージ済み) [Nicola Salmoria]
+バース -オペレーションサンダーストーム- [Paul Leaman]
+バスター (set 2) (マージ済み) [Nicola Salmoria]
+ベンチャー (version 4) (マージ済み) [Al Kossow]
+Venus (ジャイラスとマージ) [Nicola Salmoria]
+ビジランテ (2セット、マージ済み) [Mike Balfour, Phil Stroffolino]
+バルガス (set 2) (マージ済み) [Nicola Salmoria]
+ウォータースキー [Nicola Salmoria]
+ウェスタンエクスプレス (Express Raiderにマージ) [Nicola Salmoria]
+ワンダーボーイ (many new sets, all merged) [Nicola Salmoria]
+ワンダーボーイIII モンスターレア [Phil Stroffolino]
+レッスルウォー [Phil Stroffolino]
+Yankee Do! (「ミスターDo!」にマージ) [Lee Taylor]
+Zero Zone [Brad Oliver]
+ジグザグ (2セット、マージ済み) [Nicola Salmoria]
+
+
+
+NeoGeoサポート
+--------------
+
+「neogeo.zip」ファイルがROMパスに必要です。最低限、以下の3つのファイルが含まれていな
+ければなりません。
+
+neo-geo.rom (128k)
+ng-sfix.rom (128k)
+ng-sm1.rom (128k)
+
+重要! BIOSのzipファイル名は「neo-geo.zip」ではなく「neogeo.zip」です。真中にハイフン
+がないものです。
+
+ROMパスにゲームのzipファイルが必要です。プレイしたいNeoGeoゲームの8文字ファイル名が分
+からない場合は以下のように入力して下さい。
+
+mame -listclones neogeo
+
+これで現在サポートしている8文字のROM名がリスト表示されます。
+
+- サンプルROMのロードオプション：全てのサウンドROMをロードするのに必要なメモリが足り
+　ないことで動作しないゲームを特定できます。ゲームの中には、サウンドROM用にさらに16MB
+　のメモリが必要になります。ROMのロードが実行される前に、サウンド無しを指定すれば、
+　MAMEがこれらをロードしないようにできます。DOSでは以下のようにタイプします。
+
+  mame game -soundcard 0
+
+  soundcard 0を指定しないで全てのサウンドROMがロードされると、メモリ問題が起きるかも
+　しれません。
+
+- アーケードモードとホームモードのどちらでも、全てのゲームが動作します。もし、コピー
+　ライト画面で固まったり、コインを受け付けない場合はそのゲームの「.CFG」ファイルと
+　「.HI」ファイルを消去して下さい。これで解決します。
+  しかし「得点王 / Super Sidekicks」では、2、3分経つとコントロール不能になります。
+
+- サウンドサポートは99%出来ています。もし、サウンドがおかしくて「NO GOOD DUMP 
+　EXISTS」エラーが出ている場合は、エミュレーションの不具合ではなく、不良ROMのせいで起
+　こっています。不良ROMを再吸出しする以外修正法はありません。
+
+- Z80のエラーメッセージが出た場合、そのサウンドプログラムROMが壊れています。
+  音無しで走らせて下さい。
+
+- いくつかのゲームで、そう簡単には修正できそうもない、グラフィックの不具合(ラスタライ
+　ンエフェクト)があります。
+  
+- もし「ROM length mismatch」エラーが出た場合、MAMEが期待しているよりもサイズの大きい
+　ROMを使用しています。したがって、これは致命的なエラーではなく、ゲームはきちんと動作
+　します(もちろん、ROMが正常な場合)。 ROMの残り部分を消すことで「修正」することはでき
+　ますが、MAMEが使用するサイズに基準はありません。多くの場合、実際にサポートされてい
+　るROMのサイズを正確に把握するのはそう簡単ではありません。そこで、私達は可能な限り小
+　さいものを一貫して使用するように決めました。現物のROMはこれよりサイズが大きい「か
+　も」しれませんが、余分な部分はゲームには必要ないのです -
+  it is either all FF, or contains a verbatim copy of the first half.
+
+
+
+グラフィックが改善されたドライバ：
+----------------------------------
+
+-「ファーストフレディ」で色修正。
+
+-「マリオブラザーズ」で「POW」をたたくと画面が跳ねるように修正。[Brad Oliver]
+
+-「スラップファイト」を改善。[Christoff Feldtmann]
+
+-「Money Money」と「Jack Rabbit」で正確な色。[Nicola Salmoria]
+
+-「ザ・ニュージーランドストーリー」で新しいROMセットのグラフィックROMを使用して、敵が表
+  示されるように修正(未サポート)。[Chris Moore]
+
+-「ぷにっきいず」と「ニモ」でスプライトが固まるのを修正。[Paul Leaman]
+
+-「Golden Star」の背景の色が正常に変化するよう修正。[Nicola Salmoria]
+
+-「アストロファイター」の色が正確に(PROMが必要)。[Zsolt Vasvari]
+
+-「Lost Tomb」の色が正確に(PROMが必要)。[Michael Appolo]
+
+-「ソロモンの鍵 / Solomon's Key」でタイル化けを修正。[Nicola Salmoria]
+
+-「テディーボーイブルース」と「チョップリフター」で前景と背景の優先順位修正。
+  [Nicola Salmoria]
+
+-「ファイヤートラップ」の透明度修正。[Nicola Salmoria]
+
+-「ポップフレーマー」のgfxバンク修正。[Brad Oliver]
+
+-「プレアデス」の色が恐らく正確に。[Nicola Salmoria]
+
+-「ストラテジーX」の色が正確に。[Gerald Vanderick]
+
+-「ディスクスオブトロン」でバックドロップをサポート。背景イメージは
+ 「ARTWORK/DOTRON.PNG」と呼ばれているに違いない。
+  [Mathis Rosenhauer, Brandon Kirkpatrick]
+
+-「スーパークイックス」でスプライト化け修正。[Mirko Buffoni]
+
+-「ジャングラー」の色が正確に。またキャラ化けとスプライトの並びを修正。
+  [Nicola Salmoria]
+
+-「帰ってきたチャンピオンベースボール」のグラフィック不具合修正。[Nicola Salmoria]
+
+-「サイオン」で色改善(まだ未完全)。[Dick Millikan]
+
+-「ルナーランダー」にアートワークサポート追加。[Cristopher Kirmse]
+
+-「アステロイドデラックス」にアートワークサポート追加。
+  [Peter Hirschberg, Mathis Rosenhauer]
+
+-「mooncrgx」を修正。[Barry Rodewald]
+
+-「ブラステロイド」で高解像度スプライト。[Nicola Salmoria]
+
+-「MJ-12 / Super Space Invaders '91」でスプライトのちらつきを修正。[Andrew Prime]
+
+-「スペースパニック」の色が正確に。[Mike Coates]
+
+
+
+サウンドが追加・改善されたドライバ：
+------------------------------------
+
+-「黄金の城 / Gladiator」のサウンド。[Steve Ellenoff]
+
+-「ボブルボブル」のサウンド同期。[Tatsuyuki Satoh]
+
+- SN76496エミュを書きなおしました。「チョップリフター」のボイスに効果があります。
+  [Nicola Salmoria]
+
+- System8ゲームの音程を修正。[Hiromitsu Shioya]
+
+-「ジャイラス」にRCフィルタエミュレーションを追加。これは、フォースフィールドノイズなど
+  のサウンドエフェクトを改善します。[Francesco Caporali]
+
+-「ミステリアスストーンズ -Dr.キックの大冒険-」のサウンド。[Nicola Salmoria]
+
+-「ドンキーコング」のサウンドピッチとテンポ修正。[Mirko Buffoni]
+
+-「スラップファイト」のミュージックテンポを改善。[Sebastien Chevalier]
+
+- 動作中のSystem16ゲームのサウンド。[Phil Stroffolino]
+
+- Astrocadeサウンドチップのエミュレート(「Gorf」「Wizard of Wor」など)
+  [Frank Palazzolo]
+
+-「Gorf」のボイス改善。不明なサンプルを除いて、ボイスが100%正確に鳴ります。
+　[Kevin Bales]
+
+-「パンクショット」の一部サウンド。[Nicola Salmoria]
+
+-「MJ-12 / Super Space Invaders '91」のサウンド。[Ernesto Corvi]
+
+-「ドンキーコング」にディケイ追加。[Andrew Scott]
+
+-「ジュノファースト」にサウンドエフェクトをいくつか追加。ショット音はまだありません。
+　[Nicola Salmoria]
+
+- Pokeyエミュレーションを改善。[Juergen Buchmueller]
+
+- ステレオ出力のサポート。これはYM2610とTatsuyuki氏のYM2151で実行されます。
+　他のゲーム、例えばAtari System2ゲーム(「ペーパーボーイ」など)でも使用できます。
+　各チャンネルにそれぞれPokeyが割り当てられます。[Nicola Salmoria]
+
+-「スーパーピエロ / Do! Run Run」のベース部分を修正。[Jim Hernandez]
+
+-「サタンオブサターン」で一部サウンド。[Nicola Salmoria]
+
+- Exidy製ゲームの予備サポート。[Dan Boris]
+
+-「ムーンパトロール」「ジッピーレース / Traverse USA」などのIremゲームでミュージックを 
+  修正。[Nicola Salmoria]
+
+-「アストロファイター」でサンプルサポート。[Zsolt Vasvari]
+
+
+
+ハイスコアセーブをサポートしたドライバ：
+-------------------------------------
+
+注意：いくつかのゲームでクロスプラットフォームを実現するためフォーマットを変更
+しました。これらのゲームの以前のスコアは失われます。ハイスコアテーブルにゴミが
+あるとき、または動作がおかしいときは「.hi」ファイルを消去して下さい。
+
+-「ザインドスリーナ / Solar Warrior」「ピンボールアクション」「虎への道 / Tiger Road」
+ 「カルノフ」「チェルノブ -戦う人間発電所-」「ヘビーバレル」
+ 「ドラゴン忍者 / Bad Dudes vs. Dragonninja」「ロボコップ」
+ 「ファイティングファンタジー / Hippodrome」「シークレットエージェント / Sly Spy」
+ 「ミッドナイトレジスタンス」「グラディウス / Nemesis」[Dani Portillo]
+
+-「Shark Attack」[Mike Balfour]
+
+-「フリッキー」「ブルファイター」「ごんべぇのあいむそ～り～ / I'm Sorry」
+ 「スタージャッカー」「ミスターバイキング」「4-Dウォーリアーズ」
+ 「テディーボーイブルース」「Beastie Feastie」「魂斗羅」「コブラコマンド」
+ 「スーパークイックス」「ビジランテ」「ポンピングワールド / Pang」「ひげ丸」「ヘキサ」
+ 「テラクレスタ」「ラスタンサーガ / Rastan」「タイガーヘリ」 [Juan Carlos Lorente]
+
+-「Quantum」[Nicola Salmoria]
+
+-「帰ってきたチャンピオンベースボール」「ワンダーボーイ」「レグルス」「SWAT」
+ 「ヘビーメタル」「ブレイン」「時の戦士」「トップシークレット / Bionic Commando」
+ 「ブラスト」「トマホーク777」「カミカゼ / Astro Invader」「ブロックアウト」
+ 「ダークシール」「コスミックエイリアン」「クレージーバルーン」「レーダースコープ」
+ 「サイドトラック」 [Howie Cohen]
+
+-「Money Money」「Jack Rabbit」「ペンギンくんウォーズ」[Roberto Fresca]
+
+-「クローク&ダガー」「Frenzy」「フューチャースパイ」「コップ 01」「ロードランナー」
+ 「快傑ヤンチャ丸 / Kid Niki」「スペランカーII -23の鍵-」
+ 「マンハッタン24分署 / Jail Break」「リングの王者 / The Main Event」
+ 「キングオブボクサー」「ウェスタンエクスプレス / Express Raider」
+ 「パックランド」「Speed Ball」「T.M.N.T. -スーパー亀忍者-」「パンクショット」[Dave W.]
+
+-「エキサイティングサッカー」[Jarek Parchanski]
+
+-「サイオン」「スティンガー」[Zsolt Vasvari]
+
+
+
+その他のドライバの変更：
+----------------------
+
+- オリジナル版「エレベーターアクション」が動作します。足りなかった68705 mcu ROMを使って
+  動作します。そのため、エミュレートにCPUを一つ追加しているので海賊版よりも動作は
+  遅くなります。[Nicola Salmoria]
+
+-「フロントライン」を68705用ROMを含む完全セットに置き換えましたが、まだ動作はしません。
+  [Nicola Salmoria]
+
+-「Golden Star」をオリジナルの暗号化セットに置き換えました。[Mirko Buffoni]
+
+- System8ドライバを改良。[Nicola Salmoria]
+
+-「フロントライン」と「ティンスター」で標的ダイヤルをサポート(デュアルジョイスティック
+  設定が必要)しました。また、「フロントライン」で、当たり判定が有効になりましたが、完全
+  ではありません。[Nicola Salmoria]
+
+-「ロボコップ」のエンディングを修正。[JC Alexander]
+
+-「戦場の狼 / Commando」がたまに起動しないのを*ついに*修正。これはデコードルーチンのバ
+  グで、完全に書き換えました。[Nicola Salmoria]
+
+-「黄金の城 / Gladiator」の入力の取り扱いを改善。[Tatsuyuki Satoh]
+
+- System16ドライバを改善。[Phil Stroffolino]
+
+-「チェックマン」の四角の動きを修正。[Brad Oliver]
+
+-「ディスクスオブトロン」の7面で固まるのを修正。[Jim Thevenot]
+
+-「ブラスト」を修正。[Juergen Buchmueller]
+
+-「チェルノブ -戦う人間発電所-」がプレイ可能になりました! その他、「カルノフ」で速度低
+  下を起こしていた多くのバグを修正をしました。[Bryan McPhail]
+
+-「srumbler2」を修正。[Paul Leaman]
+
+- Data Eastの68000ゲーム(「ミッドナイトレジスタンス」
+ 「ドラゴン忍者 / Bad Dudes vs. Dragonninja」「ロボコップ」など)に改良とバグ修正。
+  [Bryan McPhail]
+
+-「トリプルパンチ」のリセットバグを修正。[Zsolt Vasvari]
+
+
+
+メインプログラムの変更：
+----------------------
+
+- 68000コアの命令以外のバグを修正。[Mike Coates]
+
+- "press OK to continue"の画面で、正しく「OK」と入力しないと先に進めないようにしま
+  した。またESCキーを押すと、直ちに終了できます。[Nicola Salmoria]
+
+- ベクターの透過表示は「-notranslucency」でオフにできます。[Valerio Verrando]
+
+- [DOS]「-romident」オプションの追加。「MAME -romident dirname」で、不明ROMの確認
+  ができます。
+
+- ファイルチェックをCRC-32に変更。以前のチェックサムはもう使用しません。
+  [John Butler, Bernd Wiebelt]
+
+- ZIPファイルを使う場合、ROMファイルの名前が違う場合でも、自動的に訂正して実行します
+  (もちろん、CRC-32が正確な場合に限ります)。もうファイル名を変更しなくてもよくなりま
+  した(が、ZIPファイル名は変更しなければいけないかもしれません;-) [Nicola Salmoria]
+
+- [DOS] 新コマンド「-listcrc」追加。全サポートROMのCRC-32リストを表示します。
+ 「00000000」はROMが不良であるという意味です。[Nicola Salmoria]
+
+- 68000の割り込みバグのせいで、「Rastan Saga」で正常に起動しなかったのを修正。
+  [Brad Oliver]
+
+- [DOS] プロファイラ追加。有効にするには、「-profiler」パラメータを使用します。
+  そして、左Shift+F11キーで結果を画面に表示します。プロファイラにはPentiumクラスの
+  RDTSC命令が必要です。486や古いPentium、さらにIntel以外のCPUでは動作しません。
+  [Nicola Salmoria]
+
+- ユーザーインターフェースを改良。1キーの左のキー(キーボードによっては「~」キー)を
+  押すと、画面上に音量、ガンマ値、明るさの変更画面を表示します。音量はサウンドチッ
+  プの音量から独立して設定可能です。TABキーの設定画面はまだ、同期していません。
+  [Nicola Salmoria]
+
+- [DOS] 「-fm」オプションを「-ym2203opl」に置き換え。このオプションは、SoundBlaster
+  のOPLチップの代わりに、YM3812のデジタルエミュレーションを使用するものです。
+ 「-noym3812opl」と一緒に使うと、外部ドラムサンプル音が必要になります。
+  [Nicola Salmoria]
+
+- 親セットだけがある場合、「-verifyroms」でクローンセットが不明と報告されません。
+  [John Butler]
+
+- [DOS] ステレオサウンドサポート。モノラルよりも少し遅くなります。オフにするには
+ 「-nostereo」として下さい。ステレオはゲームが対応している場合だけ動作します。
+
+- [DOS] 新「-listinfo」コマンドは全サポートゲームの詳細を表示します。
+  [Andrea Mazzoleni]
+
+- チートシステムにいくつか変更を加えました。使用には、新しいチートデータベースを
+  ダウンロードする必要があります。[Stephane Humbert]
+
+- [DOS] 現在、ダイナミックレンジが大幅に向上したSEALオーディオライブラリのベータ版
+  を使用しています。多くのゲームで音量が上がり、バランスがさらに良くなったことに気
+  づくと思います。バランスの悪くなったゲームがあったらお知らせ下さい。新ライブラリ
+  では、ENSONIQ AudioPICとCreative PCI64カードでの問題も修正されています。
+  [Nicola Salmoria]
+
+- SoundBlaster OPLチップを使用中に、YM3812コマンドは正確な周波数で鳴るように変換
+  されています。[Carl-Henrik Sk蚌stedt]
+
+- TABメニューで、ジョイスティックキャリブレーションができるようになりました。
+  [Bernd Wiebelt]
+
+-「タッパー」と「トロン」でクラッシュを引き起こしていたZ80エミュレータのバグを修正。
+  [Juergen Buchmueller]
+
+
+
+ソース：
+-------
+
+-「フリッキー」「フューチャースパイ」他多くのSEGAゲームで使用する解読コードを
+ 「machine/segacrpt.c」に移動しました。[Nicola Salmoria]
+
+- RunningMachineストラクチャに「memory_region_length」フィールドを追加。
+  これは似たようなハードで動作するいくつかのゲームを扱うドライバで有益です。
+  [Nicola Salmoria]
+
+- TMS34010エミュレータ。[Alex Pasadyn, Zsolt Vasvari]
+
+- 6502エミュレータを、65C02と6510をサポートする新型に置き換えました。
+  Marat Fayzullin氏作のコードはもう使用していません。[Juergen Buchmueller]
+
+- 68000 BCDエミュレーションが「F-1ドリーム」のタイマー不調を引き起こしていたバグを修正。
+  [Nicola Salmoria]
+
+- Z80ブロックI/O命令(INI, IND, INIR, INDR, OUTI, OUTD, OTIR, OTDR)のバグを修正。
+  [Frank Palazzolo]
+
+- [DOS] いくつかのマシンでE2BIG周りのエラーを起こしていたアーカイブを使うmakefileを
+  再アレンジしました。[Juergen Buchmueller]
+
+- 不良アーカイブを解答するときの、UNZIPコードの不安定さを改善。[John Butler]
+
+- M68000逆アセンブラのSBCDを修正。[Mike Coates]
+
+- 新UNZIPインターフェース追加。ZIPディレクトリキャッシュとファイルネームキャッシュを
+  新しく追加(DOS版のみでの文字列)。[Andrea Mazzoleni]
+
+- オーディオストリームを抽出する「streams.c」を追加。以前より簡単に効率良く作業でき
+  ます。「osd_play_streamed_sample()」はプライベート関数となり、新コードでは使用して
+  いません。[Nicola Salmoria]
+
+- I8039外部割込みハンドリングのバグを修正。[Dan Boris]
+
+-「osd_fopen()」用の新ファイルタイプ：OSD_FILETYPE_STATE、OSD_FILETYPE_ARTWORK
+
+- x86用アセンブラ68000コア追加。かなり速度が向上します。[Mike Coates, Darren Olafson]
+
+- YM3812とYM3526のソフトエミュレータ追加。DOS版ではデフォルトでは使用できません。
+  現在、SoundBlaster100%互換OPLチップを使用しているからです。
+  [Carl-Henrik Sk蚌stedt]
+
+- YM2413エミュレータの作業を開始。YM3812からデータがプッシュされます。
+  [Paul Leaman, Ernesto Corvi]
+
+- デバッガ用、I86逆アセンブラ。Robin Hilliardのコードをベースにしています。
+  [Andrea Mazzoleni]
+
+- 新関数「install_mem_read_handler()」と「install_mem_write_handler()」を追加。
+  これらは特別なメモリハンドラを導入するとき(例えば、ビジーなループをトラップしたり
+  似たようなハードで動作するゲームのメモリマップに小さい変更を加えるなど)に使用でき
+  ます。[Alex Pasadyn]
+
+- GameDriverストラクチャに新フィールド「driver_init」追加。これはオプション関数で、
+  例えば関数にメモリハンドラを追加するなど、特定の初期化に利用できます。
+  [Nicola Salmoria]
+
+- YM2610エミュレータ。これはNeoGeoゲームで使用します。[Hiromitsu Shioya]
+
+- TMS9900エミュレータ。[Andy Jones、Ton Brouwerのオリジナルコードベース]

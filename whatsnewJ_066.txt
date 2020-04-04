@@ -1,0 +1,115 @@
+0.66
+
+コードネーム "FR-34"
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+galpanib062gre   [Paul Priest]
+usclssic065red   [Kale]
+pang3065gre
+housemn2065gra   [Nomax]
+myangel065gre    [Nicola Salmoria]
+88games062yel    [Nicola Salmoria]
+glfgreat061gre   (以前に修正されました)
+robocop2064gre   [Bryan McPhail]
+dassault061gre2  [Bryan McPhail]
+jdredd060gra     [Smitdogg]
+ringdest062gra   [Smitdogg]
+spbactn061gra    [Smitdogg]
+term2064gra      [Smitdogg]
+xmen062ora       [Smitdogg]
+sotsugyo061red   [Bryan McPhail]
+tmnt065gre       [Acho A. Tang]
+astdelux059gre   [Derrick Renaud]
+gunforc2058gre_2 [Angelo Salese]
+gunforc2058gre_3 [Bryan McPhail]
+
+
+MAME Testersの要チェック項目：
+------------------------------
+
+mrheli37b2gre   - 以前に修正されたと思われます
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「パチンコセクシーリアクション」のサンプル音修正。[Suppi-Chan]
+
+- Namco NAサウンドエミュレーションの大幅改善。[cync]
+
+-「IQ Block」にサウンド追加。[David Haywood]
+
+-「Exterminator」のドラム音修正。[Steve Ellenoff, Jim Hernandez]
+
+
+その他ドライバの変更：
+----------------------
+
+- Namco NAドライバをいろいろ改善。[Phil Stroffolino]
+
+- Nintendo VSとPlaychoiceドライバの改善とゲーム追加。[Pierpaolo Prazzoli]
+
+-「スーパーリアルダーウィン」の修正をいくつか。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 新オプション-high_priority追加。これは他のプログラムと一緒にMAMEが動作する
+  場合に、スレッド優先度を上げて動作を改善します。ONにするとCPUをかなり占有する
+  ため、デフォルトではOFFです。
+
+- ディスクリートサウンドシステムが大幅に更新されました。UIからのパラメータ調整や、
+  既存ゲームの修正、canyon、polaris、sprint、ultratnkでの新規サポートなど。
+  [Derrick Renaud & Keith Wilkins]
+
+- I86/NEC CPUエミュレーションのバグを修正しました。「ジオストーム」のラスタエフェ
+  クトや「サンダーブラスター / Lethal Thunder」でクレジットが99になる問題などに
+  対応しています。[Bryan McPhail]
+
+
+ソース：
+--------
+
+- GCC 3.2.2でコンパイルをするようにしました。GCC 3.2のバグに対応するパッチは削除
+  しました。
+
+- YMF262エミュレータの初版。[Jarek Burczynski]
+
+
+新規サポートゲーム：
+--------------------
+
+Fantasy '95 [Brian A. Troha]
+華の舞 [Nicola Salmoria]
+麻雀フライデー [Nicola Salmoria]
+麻雀ダイヤルQ2 [Nicola Salmoria]
+ドンデン麻雀 [Nicola Salmoria]
+わたしはすずめちゃん [Nicola Salmoria]
+麻雀スタジオ101 [Nicola Salmoria]
+マージャンデリンジャー [Nicola Salmoria]
+華弥生 [Nicola Salmoria]
+アンタッチャブル [Nicola Salmoria]
+Rong Rong [Nicola Salmoria]
+ドンデンラバー / Vol. 1 [Nicola Salmoria]
+クイズ・チャンネルクエスチョン [Nicola Salmoria]
+Mad Donna [David Haywood]
+Dorodon [Frank Palazzolo]
+べんべろべえ [Phil Stroffolino, Acho A. Tang]
+ハレーズコメット [Phil Stroffolino, Acho A. Tang]
+Triv Quiz [MooglyGuy]
+ギガス [Tomasz Slanina]
+ギガスMK-II [Tomasz Slanina]
+マッドシャーク [Luca Elia]
+ウルトラ闘魂伝説 [Luca Elia]
+
+
+新規サポートクローン：
+----------------------
+
+セカンドアース グラティア (set 1)
+ミステリアスストーンズ (set 1)
+Cosmic Cop (= ギャロップ)

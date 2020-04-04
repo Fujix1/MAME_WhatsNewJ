@@ -1,0 +1,78 @@
+0.65
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+arbalest060gre    [Nicola Salmoria]
+arbalest37b1gre   [Nicola Salmoria] (要チェック)
+calibr50062gre    [Nicola Salmoria]
+downtown062gre    [Nicola Salmoria]
+oisipuzl061gre    [Nicola Salmoria]
+galpanic064gre    [Nicola Salmoria]
+mitchellc063gre   [Smitdogg]
+avengers061gre    [Acho A. Tang]
+avengers37b16gre  [Acho A. Tang]
+lwingsc37b7gre    [Acho A. Tang]
+pow37b5yel        [Acho A. Tang] (最初の部分だけ)
+powj36rc2gre      [Acho A. Tang]
+sidearms060red    [Acho A. Tang]
+sidearms055gre    [Acho A. Tang]
+turtship37b5yel   [Acho A. Tang]
+roadblst35b10yel  [Aaron Giles]
+kinst063red       [Aaron Giles]
+
+
+MAME Testersの要チェック項目：
+------------------------------
+
+krzybowl058gre  - まだ起きてますか？チェックお願いします。
+seta2c060yel    - まだ起きてますか？チェックお願いします。
+myangel056gre   - これは多分、2つ位前のリリースで直ってるはず。チェックお願いします。
+avengers061gre2 - US版の実機上で確認したでしょうか？オリジナルのバグのような感じです。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- CPS2のラスタエフェクト修正。[Shiriru]
+
+- 「サイドアーム」の星空表示初期版。[Acho A. Tang]
+
+- Nichibutsu麻雀ゲームのクリーンアップと、「対家麻濡感」「美女っ子夢物語」に液晶サポート
+  追加。[Nicola Salmoria]
+
+- Jaleco Mega System 32ゲームを大幅に改良。[Nicola Salmoria]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 「ファイアートラック」「Super Bug」「モンテカルロ」のサウンド修正。[Derrick Renaud]
+
+- uPD7759の問題修正（「TMNT」「88 Games」「P.O.W.」）。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- V60/V70のメモリアクセス最適化。[Aaron Giles]
+
+- X1-010エミュレーターにステレオサポート追加と、きちんとしたサウンドコアへと変更。
+  [Nicola Salmoria]
+
+
+新規サポートゲーム：
+--------------------
+
+オレンジ倶楽部 - マル秘課外授業 [Nicola Salmoria]
+麻雀好きの懲りない面々 [Nicola Salmoria]
+アイドルの秘密 [Nicola Salmoria]
+金津園のおんな [Nicola Salmoria]
+ペアーズ [MooglyGuy]
+タオ体道 [David Haywood, Stephane Humbert]
+Perestroika Girls [David Haywood]
+流星雀士キララ★スター [Malice]
+早押しクイズ王座決定戦 [Malice]
+マウサー [Frank Palazzolo]
+Ribbit! [Aaron Giles]

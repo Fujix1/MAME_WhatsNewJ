@@ -1,0 +1,714 @@
+0.35
+
+ライセンスに変更があります - 「readme.txt」をチェックして下さい。
+
+新規サポート (アルファベット順)：
+-------------------------------
+
+64番街 [Luca Elia]
+A.S.O ＜エーエスオー＞ [Carlos A. Lozano, Phil Stroffolino]
+アクトフェンサー [Bryan McPhail]
+アドベンチャークイズ2 ハテナ？の大冒険 [Nicola Salmoria]
+ソニックウイングス / Aero Fighters [Nicola Salmoria]
+エアバスター [Luca Elia]
+アリババと40人の盗賊 / Ali Baba and 40 Thieves [Zsolt Vasvari]
+アンブッシュ [Zsolt Vasvari]
+アッポー [Tatsuyuki Satoh]
+アームドF [Carlos A. Lozano, Phil Stroffolino]
+アーモアアタック [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+Atari Baseball [Brad Oliver]
+アタリフットボール [Mike Balfour, Patrick Lawrence, Brad Oliver]
+アテナ [Carlos A. Lozano, Phil Stroffolino]
+ファンタズム / Avenging Spirit [Luca Elia]
+Azurian Attack [Zsolt Vasvari]
+バッドランズ [Aaron Giles]
+バルーンボンバー [Mike Coates]
+バトルレーンVol.5 (予備サポート) [Paul Leaman]
+バミューダトライアングル [Carlos A. Lozano, Phil Stroffolino]
+ブロックブロック [Nicola Salmoria]
+バルダーダッシュ [Bryan McPhail]
+Boxing Bugs [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+カベール [Carlos A. Lozano, Phil Stroffolino]
+キャディラックス -恐竜新世紀- / Cadillacs and Dinosaurs [Russell Nash]
+キャニオンボンバー [Brad Oliver]
+アドベンチャークイズ カプコンワールド2 [Steve S.]
+アドベンチャークイズ カプコンワールド[Nicola Salmoria]
+キャプテンシルバー [Bryan McPhail]
+戦え原始人 ジョー＆マック / Caveman Ninja [Bryan McPhail]
+ルーパー / Changes [Zsolt Vasvari]
+Cheyenne [Aaron Giles]
+Chiller [Aaron Giles]
+航空騎兵物語 / Chopper I [Carlos A. Lozano, Phil Stroffolino]
+Clay Pigeon [Aaron Giles]
+Cloud 9 [Mike Balfour]
+コンバットスクール [Manuel Abadia, Phil Stroffolino]
+Combat [Aaron Giles]
+コスミックゲリラ [Mike Coates]
+Crackshot [Aaron Giles]
+クロスボウ [Aaron Giles]
+サイバーボール2072 (2 Players) [Aaron Giles]
+Demon [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+ホラーストーリー / Demon's World [Darren Olafson]
+Devil Fish [Chris Hardy]
+デビルゾーン [Mike Coates]
+平安京エイリアン / Digger [Raney Eden]
+ディスコナンバーワン [Zsolt Vasvari]
+ドッグファイト [Zsolt Vasvari]
+ダブルドリブル [Manuel Abadia]
+Dyger [Nicola Salmoria]
+E.D.F. ＜アースディフェンスフォース＞ [Luca Elia]
+エクスターミネーション [Nicola Salmoria]
+ファイティングゴルフ [Carlos A. Lozano, Phil Stroffolino]
+ファイアーワン [Olivier Galibert]
+飛翔鮫 / Flying Shark / Sky Shark [Quench]
+Freeze [Nicola Salmoria]
+ファンキービー [Zsolt Vasvari]
+ギャルズパニック [Nicola Salmoria]
+ギャプラス [Manuel Abadia, Ernesto Corvi]
+源平討魔伝 [Nicola Salmoria]
+ゴインドル [Jarek Parchanski]
+魔境戦士 / Gondomania [Bryan McPhail]
+グロブダー [Manuel Abadia]
+ゲバラ / Guerrilla War [Phil Stroffolino]
+ヘッドオン2 [Nicola Salmoria]
+ヘルファイヤー [Darren Olafson]
+Hit 'n Miss [Aaron Giles]
+Hoccer [Zsolt Vasvari]
+Hot Shocker [Zsolt Vasvari]
+怒 / Ikari Warriors [Jarek Parchanski]
+Inferno [Michael Soderstrom]
+インセクターX [Nicola Salmoria]
+Joust 2 [Michael Soderstrom]
+ラストミッション [Bryan McPhail]
+魔魁伝説 / Legend of Makai [Luca Elia]
+Levers [Zsolt Vasvari]
+ロードランナーII -バンゲリング帝国の逆襲- (また、ldrun2pからldrun4に改名) [Nicola Salmoria]
+ロードランナーIII -魔神の復活- [Nicola Salmoria]
+ロットロット [Nicola Salmoria]
+Macho Mouse [Zsolt Vasvari]
+マジカルスポットPART II [Zsolt Vasvari]
+麻雀学園2 -学園長の復讐- [Nicola Salmoria]
+麻雀学園 -卒業編- [Nicola Salmoria]
+マリンボーイ [Zsolt Vasvari]
+Mariner [Zsolt Vasvari]
+Mars [Zsolt Vasvari]
+メガゾーン [Chris Hardy]
+ミンキーモンキー [Zsolt Vasvari]
+モグチャン [Zsolt Vasvari]
+マッスルボマー Duo (動作不可) [Russell Nash]
+ミュータントナイト [Leandro Dardini, Mirko Buffoni]
+Mystic Marathon [Michael Soderstrom]
+New Sinbad 7 [Zsolt Vasvari]
+戦国の自衛隊 / No Man's Land [Mike Coates]
+アウトゾーン [Darren Olafson]
+P-47 [Luca Elia]
+パン！3 -怪盗たちの華麗な午後- [Nicola Salmoria]
+フォゾン [Manuel Abadia]
+ピッグニュートン [Mike Balfour]
+ポケットギャル [Bryan McPhail]
+ポーカーレディース [Nicola Salmoria]
+Pontoon [Zsolt Vasvari]
+スーパーバレー'91 / Power Spikes [Nicola Salmoria]
+原始島 / Prehistoric Isle in 1930 [Bryan McPhail, Carlos A. Lozano]
+サイコソルジャー [Carlos A. Lozano, Phil Stroffolino]
+パニッシャー [Nicola Salmoria]
+クイズ三國志 -知略の覇者- [Nicola Salmoria]
+クイズ 殿様の野望2 -全国版- [Nicola Salmoria]
+クイズ 殿様の野望 [Nicola Salmoria]
+クイズ＆ドラゴンズ [Steve S.]
+ラジカルラジアル [Nicola Salmoria]
+ダッシュ野郎 / Rally Bike [Darren Olafson]
+ランパート [Aaron Giles]
+リターン・オブ・ザ・インベーダー [Jarek Parchanski]
+リップオフ [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+妖精物語 ロッドランド (Japan) [Luca Elia]
+ローリングサンダー [Jimmy Hamm, Phil Stroffolino, Ernesto Corvi]
+SAR -サーチアンドレスキュー- [Bryan McPhail]
+沙羅曼蛇 [Bryan McPhail]
+サターン [Nicola Salmoria]
+センジョウ [Mirko Buffoni]
+ブレイウッド / Shackled [Bryan McPhail]
+シューティングマスター (プロテクトのため、動作不可) [Nicola Salmoria]
+Showdown [Aaron Giles]
+Shuuz [Aaron Giles]
+四川省 -女子寮編- / Sichuan II [Nicola Salmoria]
+シンドバッドミステリー [Nicola Salmoria, Mike Balfour]
+スカル&クロスボーンズ [Aaron Giles]
+スカイシューター [Lee Taylor]
+スカイダイバー [Brad Oliver]
+スカイランサー [Zsolt Vasvari]
+マッスルボマー / Saturday Night Slam Masters (動作不可) [Nicola Salmoria]
+Solar Quest [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+スペースイントルーダー [Lee Taylor]
+スペースウォーズ [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+Speed Coin [Frank Palazzolo]
+Speed Freak [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+スペランカー [Nicola Salmoria]
+スプリンガー [Zsolt Vasvari]
+Star Castle [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+Star Cruiser (予備サポート) [Frank Palazzolo]
+スターホーク [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+ストリートファイターII' -チャンピオンエディション- [Paul Leaman]
+ストリートファイターII' ターボ -ハイパーファイティング- [Paul Leaman]
+ストリートファイター [Olivier Galibert]
+ストリートスマート [Bryan McPhail]
+サンダンス [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+スーパーバーガータイム [Bryan McPhail]
+スーパーロコモーティブ [Zsolt Vasvari]
+スーパー（禁）版 [Nicola Salmoria]
+スーパーパン (初回起動時に1キーを押しつづけて下さい) [Nicola Salmoria]
+SRD ＜スーパーリアルダーウィン＞ [Bryan McPhail]
+T.A.N.K / TNK III [Carlos A. Lozano, Phil Stroffolino]
+テイルガンナー [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+テラフォース [Carlos A. Lozano, Phil Stroffolino]
+ザ・バトルロード [Eric Hustvedt]
+影の伝説 [Phil Stroffolino]
+イシターの復活 [Nicola Salmoria]
+ワンダー3 / Three Wonders (予備サポート) [Paul Leaman]
+Top Secret [Aaron Giles]
+タッチダウンフィーバー [Phil Stroffolino]
+トロピカルエンジェル [Phil Stroffolino]
+達人 / Truxton [Darren Olafson]
+タンブルポップ [Bryan McPhail]
+ターボフォース [Nicola Salmoria]
+Turkey Shoot [Michael Soderstrom]
+タートルシップ [Victor Trucco]
+UFOロボ ダンガー [Carlos A. Lozano]
+バンバンカー [Allard van der Bas]
+Vectorbeam [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+怒号層圏 / Victory Road [Jarek Parchanski]
+ヴィマナ [Darren Olafson]
+ビンジケーターズ part II [Aaron Giles]
+Wanted [Zsolt Vasvari]
+War of the Worlds [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+ワードナの森 / Pyros [Quench]
+Warrior [Aaron Giles, Zonn Moore, Jeff Mitchell, Neil Bradley]
+天地を喰らうII -赤壁の戦い- / Warriors of Fate [Russell Nash]
+Who Dunit [Aaron Giles]
+ワイピング [Allard van der Bas]
+ワンダーモモ [Nicola Salmoria, Ernesto Corvi]
+プロテニス / World Tennis [Zsolt Vasvari]
+Yam! Yam!? [Nicola Salmoria]
+ヤマト (予備サポート) [Nicola Salmoria]
+ゼロウイング [Darren Olafson]
+ゾディアック [Zsolt Vasvari]
+
+
+グラフィックが改善されたドライバ：
+----------------------------------
+
+-「サイキック5」と「JuJu伝説 / Toki」のタイトル画面を修正。[Jarek Parchanski]
+
+-「スターウォーズ -ジェダイの復讐-」でプレイフィールドとスプライトの優先順位とパレット
+  システムを正しくサポート。[Nicola Salmoria]
+
+-「スペランカーII -23の鍵-」の色再現が正確になりました。[Nicola Salmoria]
+
+-「平安京エイリアン」の色を修正。[Zsolt Vasvari]
+
+- NEOGEOのパレットを修正 - ガンあたり4ビットではなく5ビット。[Nicola Salmoria]
+
+-「ラリーX」でスプライトが残るバグを修正。[Larry Bank]
+
+-「メタルスラッグ」の1面で、3つのタワーの後ろの背景が無かったのを修正。
+　[Nicola Salmoria]
+
+-「メタルスラッグ」のイントロ部分で、タンクの砲弾の線が無くなっていたのを修正。
+　[Nicola Salmoria]
+
+-「スイマー」のサイドパネルの背景色を修正。[Gary Walton]
+
+-「ドラゴン忍者 / Bad Dudes vs. Dragonninja」と「シークレットエージェント / Sly Spy」で、
+  スプライト面と背景、また背景面同士の表示順位を修正。[Bryan McPhail]
+
+-「脱獄 -Prisoners of War- / P.O.W.」のタイトル画面を修正。[Bryan McPhail]
+
+-「ネオドリフトアウト -NEW TECHNOLOGY-」でのスタート/フィニッシュラインのギャップを解消。
+　[Nicola Salmoria]
+
+- NeoGeoゲームで、いくつかラスタエフェクトを試してみました。IRQ2の扱いは、まだ99%
+　分かりません。しかし「得点王3 -栄光への道- / Super Sidekicks 3 - The Next Glory」と
+　 「4」でフィールドが表示されます。
+  でもかなり間違っているようで、しかも非常に遅いです。F1でこの機能のON/OFFが出来ま
+　す(デフォルトはONです)。[Nicola Salmoria]
+
+-「コスモポリスギャリバン」で、色を正確に。[Nicola Salmoria]
+
+-「ストリートファイターII」や「plus」などCPS1基板ゲームで、横スクロールを改善しました。
+　[Paul Leaman]
+
+-「Euro League」のスプライト色を修正。[Nicola Salmoria]
+
+-「T.M.N.T. -スーパー亀忍者-」でゲームクレジットの終りのとき、スプライトが突然消える
+  を修正。[Nicola Salmoria]
+
+-「チャンピオンシップスプリント」「スーパースプリント」での緑と白の旗を修正。他の
+  Atari System 2ゲームのスプライトも同様に改善。[Nicola Salmoria]
+
+-「ジャックと豆の木 / Jack the Giantkiller」の終り部分で、スプライトがやられているのを
+  修正。[Brad Oliver]
+
+-「ギャラクシアンパートX」のタイトル画面を修正、なのか？ [Nicola Salmoria]
+
+-「スクランブルフォーメーション / Tokio」での大型スプライトを修正して、
+  「ボブルボブル」と統一しました。
+　[Nicola Salmoria]
+
+- NeoGeoドライバで16bitカラーをサポート。今まで256色に減色して、特に影響のあったゲーム
+  で有効です。[Nicola Salmoria]
+
+-「スターファイアー」を改良。[Olivier Galibert]
+
+-「ジッピーレース / Traverse USA」でのキャラとスプライトの表示順位を修正。
+  [Nicola Salmoria]
+
+-「コブラコマンド」で非表示だった背景レイヤーを追加。[Bryan McPhail]
+
+-「ロードランナー II」「同3」「ザ・バトルロード」でキャラクタとスプライトの表示順位。
+　[Eric Hustvedt]
+
+-「ドルアーガの塔」で画面下のアイテムが表示されないのを修正。[Nicola Salmoria]
+
+- ギャラクシアンタイプゲームの星空部分を修正。信じるも信じないも、これはday 1からずっと
+　壊れてました。[Nicola Salmoria]
+
+- System 16ドライバがタイルマップシステムを使うように変更  - 以前よりすっきりし
+　て、速くなり、画面回転をサポートしました。[Phil Stroffolino]
+
+-「バーディーキング2」の色修正。[Zsolt Vasvari]
+
+-「D-Day」でいくつか修正と改良。[Zsolt Vasvari]
+
+-「パックランド」の19面で前面の透明度を修正。[Nicola Salmoria]
+
+-「Battle Zone」で背景の改善(bzone.png)。[Nathan Sturm]
+
+-「マンハッタン24分署 / Jail Break」と「大列車強盗 / Iron Horse」でスプライトの不具合修
+  正。[Nicola Salmoria]
+
+-「レインボーアイランド」でクモのグラフィックと空の色を修正。[Mike Coates]
+
+-「グレートソードマン」の背景色を修正。[Jarek Parchanski]
+
+-「ブループリント」の色修正(たぶん)。[Nicola Salmoria]
+
+
+サウンドが追加・改善されたドライバ：
+------------------------------------
+
+-「ジュノファースト」の発射音修正。[Nicola Salmoria]
+
+-「忍者くん 阿修羅の章 / Ninja Kid II」にPCMサンプルを追加。[Jarek Parchanski]
+
+-「T.M.N.T. -スーパー亀忍者-」でサウンド完全サポート。[Howie Cohen]
+
+-「サイコニクスオスカー」のサウンド。[Nicola Salmoria]
+
+-「モンスターバッシュ」に7751サウンドチップサポート追加。サンプル2つはまだ必要です(それ
+　ぞれの回路)。[Mike Balfour]
+
+- Exidy製ゲーム(「ベンチャー」「ペッパーII」など)のサウンドエミュレーションで、良好な進
+　展。[Dan Boris]
+
+-「迷宮ハンターG / The Real Ghostbusters」のサウンド。[Bryan McPhail]
+
+-「ゴールデンアックス」「忍」「パッシングショット」「エイリアンシンドローム」
+ 「獣王記 / Altered Beast」でのuPD7759サポート。[Howie Cohen]
+
+-「シニスター」でボイスをエミュレート。サンプルはもう要りません。
+　[Alex Pasadyn]
+
+-「リングの王者 / The Main Event」でのサウンド。[Nicola Salmoria]
+
+- CPS1システムでのサウンドフェードタイマポートをサポート(例として「ウィロー」のテス
+　トモードをみて下さい）。[Paul Leaman]
+
+-「コスミックゲリラ」でのサンプルサポート。[Mike Coates]
+
+-「タックスキャン」での新サンプルのサポート。[Jim Hernandez]
+
+-「パックランド」のサウンド。[Ernesto Corvi]
+
+-「シークレットエージェント / Sly Spy」「ミッドナイトレジスタンス」「ダークシール」での
+  サウンドフルサポート。[Bryan McPhail]
+
+-「マリオブラザーズ」でのやられ音をエミュレート。サンプルはもう要りません。
+  [Brian Stern]
+
+- 初期コナミゲーム(「タイムパイロット」「プーヤン」など)でのRCフィルタの実行をサポート。
+  [Zsolt Vasvari]
+
+-「エリミネーター 2/4 player」のサンプルと「ゼクター」の追加サウンドサポート。
+　[Jim Hernandez]
+
+-「フェニックス」のチューニングを修正。[Richard Davies]
+
+-「マッドギア」にADPCMサンプルを追加。[Bryan McPhail]
+
+- Atariゲームのサウンド(「ツービン」のボイスなど)の大幅進歩。[Aaron Giles]
+
+-「レインボーアイランド」のサウンド。[Mike Coates]
+
+-「Demolition Derby」のサウンド。[Bret Wallace]
+
+-「グレートソードマン」のサウンド。「グレートソードマン」と「黄金の城 / Gladiator」での
+  ADPCM再生を修正。[Tatsuyuki Satoh]
+
+-「Nemesis」「グラディウス」「ツインビー」「沙羅曼蛇」の改良。[Elestir]
+
+-「マッドギア / Led Storm」のサウンド修正。[Jarek Burczynski]
+
+-「ワンダーボーイ モンスターランド」のサウンド修正。[Karl Stenerud]
+
+
+その他のドライバの変更：
+----------------------
+
+-「シニスター」と「Blaster」でアナログジョイスティックをサポート。[Nicola Salmoria]
+
+-「スーパーパンチアウト!!」のプロテクト解除。[Tatsuyuki Satoh, Ernesto Corvi]
+
+-「得点王 / Super Sidekicks」のプロテクトハック。[Battlepriest]
+
+-「フェニックス」の二人プレーの修正と、「プレアデス」のプロテクト(ゲームがリセットして
+  動かなかった)のを解除。[Zsolt Vasvari]
+
+-「セクターゾーン / Seicross」「ラジカルラジアル」「フリスキートム」のプロテクトを
+  エミュレート。[Nicola Salmoria]
+
+-「フリスキートム」のプロテクトを修正。[Andrew Prime]
+
+-「タッパー」のハング問題を、今度こそ本当に修正。[Juergen Buchmueller]
+
+-「ナイツ・オブ・ザ・ラウンド - 円卓の騎士-」と「U.S.ネイビー / Carrier Air Wing」の
+  プロテクトをエミュレート。[Paul Leaman]
+
+-「ボブルボブル」のオリジナル版をサポート。68705コード部分は海賊版から。このバージョ
+　ンでは、ウィザードが石を投げます。[Nicola Salmoria]
+
+-「餓狼伝説2 -新たなる闘い- / Fatal Fury 2」のプロテクト解除。[Eugenio De Renzi]
+
+-「究極タイガー / Twin Cobra」のプロテクト(TMS32010)をエミュレートして、完全にプレイ可
+  能。[Quench]
+
+-「The Electric Yo-Yo」「Kram」「スペースダンジョン」「ズーキーパー」での68705プロテク
+  トを正確にエミュレート。[Nicola Salmoria]
+
+-「F-1ドリーム」の8751プロテクトをシミュレート。[Eric Hustvedt]
+
+-「バーディーキング2」がプレイできるよう改善。[Zsolt Vasvari]
+
+-「サイコニクスオスカー」の速度修正。[Bryan McPhail]
+
+-「シークレットエージェント / Sly Spy」のプロテクトをエミュレート。[Bryan McPhail]
+
+-「ドルアーガの塔」の31面で、1Pのスタートボタンが働かなかったのを修正。
+　[Nicola Salmoria]
+
+-「ジャンプバグ」(Rock-ola版)のプロテクトをエミュレート。ROMの一部を分割し、色が修正さ
+  れました。[Zsolt Vasvari]
+
+- NeoGeoゲーム用のマルチボタンキー「kbmame」。これはチートが有効のとき利用可能です。
+　[Nicola Salmoria]
+
+-「ファイティングファンタジー / Hippodrome」のプロテクトをエミュレート。100%正常に動作
+  します。[Byan McPhail]
+
+- 巨大NeoGeoゲームのロード時間を大幅に減少。[Nicola Salmoria]
+
+-「レインボーアイランド」がプレイ可能(ジャンプからC-Chipダンプを使用)。[Mike Coates]
+
+- NeoGeoでメモリカードをサポート。カードデータは「MEMCARD」ディレクトリに保存されま
+　す(作成しなくてはいけません)。TABキーでメモリカードオプションのメニューを表示しま
+　す。[Fabrice Martinez]
+
+- Atariドライバで多くの改善。[Aaron Giles]
+
+-「ザインドスリーナ」で、既知の問題を修正。[Nicola Salmoria]
+
+-「ジャックと豆の木 / Treasure hunt」の暗号解読を修正。[Zsolt Vasvari]
+
+- Atari System2ゲームにDIPスイッチを追加。[Nicola Salmoria]
+
+-「特殊部隊ジャッカル / Top Gunner」に回転コントロールを追加。これは「topgunbl」*だけ*
+  で動作します -回転砲塔は「jackal」と「topgunr」では回りません。これらのゲームはロータ
+  リージョイスティックをサポートしていません。[Karl Stenerud]
+
+- NeoGeoの水平解像度を320に増やしました。いくつかのゲームで変に見えることがあります
+　が、私が実機でたしかに確認した値です。「パズルボブル」や
+　「ベースボールスターズプロフェッショナル」などは、増えた分のエリアを使用しています。
+　一方、その他のゲームではそこに2本のバーを表示してします。もしゲームが変な感じなら、
+　余分な部分が表示されないようにモニタを調節してください。[Nicola Salmoria]
+
+-「ガントレット」「ガントレットII」「ザイボット」「スターウォーズ -帝国の逆襲-」での
+  エミュレーションのどたばたを修正しました。「ランパート」も改良しましたが、100%ではあ
+  りません。[Ernesto Corvi, Nicola Salmoria]
+
+-「ピンボールアクション」で4キーが押されたときのスクロールを追加しましたが、正確かどう
+  かは分かりません。[Nicola Salmoria]
+
+-「アルカノイド(米国版)」の後の方の面を修正。[Nicola Salmoria]
+
+-「720 Digrees」のコントロールを修正。[Nicola Salmoria]
+
+
+メインプログラムの変更：
+----------------------
+
+- ナムコSystem1のサウンドシステムを追加。[Ernesto Corvi]
+
+- [DOS] フレームスキップの上限を広げ、0から11にしました。12は含まれません。例えば、
+　ゲームが60fpsで正常に動作しているとき、「-frameskip 2」にすると50fpsに、
+ 「-frameskip 6」にすると30fpsになります。また、1つのフレームの表示時間が、割り当てら
+　れた時間よりも長くなる場合、その時間は以降のフレームで回復されます。
+　それからさらに、オーディオストリーム方法が改良されたため、絵と音の同期がずれにくく
+　なっています。(あなたのシステムが100%のスピードでゲームを走らせられる限り)サウンド
+　が壊れることは、これからは絶対に起こらなくなります。
+　これらの変更は、(システムが十分高速ならば)今までよりも、ずっと高いフレームレートで
+　の動作を実現することを意味しています。[Nicola Salmoria]
+
+- [DOS] 自動フレームスキップを実現しました。スピードが100%を下回らないように、自動的
+　出来る限りのフレーム数を調節します。
+　これはデフォルトで、これをオフにするには、フレームスキップの値を「-frameskip 0」の
+　ように具体的に設定します。自動フレームスキップは、100%の速度でゲームが動作するくら
+　いマシンパワーがあるときだけ、うまく動作します。そうじゃないときは、固定フレームス
+　キップを使ったほうがいいです。
+  注意：自動フレームスキップをデフォルトにするには「mame.cfg」を削除して下さい(また
+　は、「frameskip = 0」の行を「frameskip = auto」に修正して下さい)。
+  [Nicola Salmoria]
+
+- [DOS] 「vmame」モードの320x480と400x600を追加。これは走査線付きVESAモードでいくつ
+  かのゲームと、これらの解像度をサポートするビデオカードを高速化します。
+　今のところ、これらのモードは自動的に検知されず、コマンドラインで「-320x480」か
+　「-400x600」オプションを指定しないといけません。
+  [Nicola Salmoria, Michael Cunanan]
+
+- [DOS] ジョイスティックの選択を、番号ではなくて名前で設定するようになりました(例え
+　ば、Wingman Extremeの指定に「-joystick wingex」を使います)。名称リストは
+　「readme.txt」を見て下さい。番号も今のところサポートしていますが、将来的には無く
+　なります。
+  パラレルポート接続のSNESのゲームパッドがサポートされました。利用には追加ハードが必
+　要です(「公式の」SNESパッドサポートサイトはhttp：//snespad.emulationworld.comです)。
+　[Bernd Wiebelt]
+
+- [DOS] 見た目を良くするため、VESA3のサポートを追加しました。mame.cfgファイルに
+  vesamode=vesa3を追加すると利用できます。これでスピードが向上することは期待でき
+  ません。[Bernd Wiebelt]
+
+- [DOS] フレームスキップの変更キーをF8からF9に変更しました。[Nicola Salmoria]
+
+- カラーフェードについてのパレット圧縮を改善。[Nicola Salmoria]
+
+- YM2610エミュレーションを改善。[Tatsuyuki Satoh]
+
+- [DOS] .inpファイルにヘッダを追加(MAME32と同じ)。ヘッダの追加によって、入力ファ
+  イルのプレイバック時にゲーム名を指定する必要がなくなりました。[Mike Haaland]
+
+- 画面上の色の合計数を表示する機能を追加しました。これは、開発時にゲームが256色
+  の表示で間に合うか、それとも16bit表示が必要かを知るのに便利です。CTRL+F11で表
+  示されます。これはデバッグビルドでのみ有効です。[Nicola Salmoria]
+
+- [DOS] 起動時の音量を指定する新オプション-volume nを追加しました。この値は、デ
+  シベルで指定します。例えば-volume -12と指定すると-12デシベルで設定されます。
+  [Nicola Salmoria]
+
+- -rolと-rorでユーザーインタフェースも回転するようにしました。[Nicola Salmoria]
+
+- YM2610のタイマーを改良して、外部ボリュームコントロールのインターフェースを追加。
+　[Tatsuyuki Satoh]
+
+- CPUインターフェースとコア全体に大幅な変更。[Juergen Buchmueller]
+
+- 新スイッチ-waitvsync /-nowaitvsync(-novsyncと一緒に使用)追加。これは、画面描画
+  まで、ビデオ同期を待ちますが、通常のMAMEスロットルを使用しています。このおかげ
+　で、(vsyncのような)スクロールゲームの表示が滑らかになりますが、リフレッシュ
+  レートの高いビデオモードで動作します。よりWINフレンドリーです。
+  [Valerio Verrando]
+
+- メニューにGame Historyを追加しました。データはHISTORY.DATから取得します。
+　Brian Deuel氏、Neil Bradley氏ら、Retrocade開発チームのおかげで、Retrocadeの
+  ゲームデータベースを使用できることになりました。[John Butler]
+
+- デバッガを一から書きなおし、完全に新しいものにしました。[Juergen Buchmueller]
+
+- [DOS] アートワークとサンプルのロードをオフにする-noartworkと-nosamplesを追加し
+  ました。[Valerio Verrando]
+
+- [DOS] 新tweak256x256VGAモード(走査線有り無し両方)が画面全体に拡大表示されるよ
+  うになりました。これは横画面のゲームでは自動的に適用され、-stretchオプションよ
+  りも高速動作ができるのでこちらを選んだほうがいいでしょう。画面を中央に正しく表
+  示するためには、もしかしたらモニタ設定をいじらないとだめかもしれません(起動時
+  の格子画面を使うと便利です)。[Valerio Verrando]
+
+- デフォルトのジョイスティック設定の調整メニューを追加しました(キーのものと同じ
+  です)。[Nicola Salmoria]
+
+- [DOS] 16-bitオーディオ選択時にスピードがかなり落ちていたのを修正しました。
+  [Nicola Salmoria]
+
+- [DOS] mame.cfgをいじって、tweak VGAモードのコントロールができます。これで、
+　ビデオボードとモニタの組み合わせに応じて、調整ができます(これらは標準モードで
+  はないので、全てのゲームで設定したからといって動作するものではありません)。も
+  し、試してみたい場合は、vgatweak.txtに確実に目を通して下さい。(注意：初心者向
+  けではありません)  [Valerio Verrando]
+
+- .wav形式のサンプルをサポートしました。カスタム.samサンプルは利用できなくなり
+　ました(sam2wavコンバータを使うと、コンバートできます)。[Aaron Giles]
+
+- [DOS] 荒削りですが、VESAモードのトリプルバッファをサポートしました。
+　-triplebufferで利用可能です。動作は保証できませんが、もし動作する場合は、
+  パフォーマンスの低下なしで、-waitvsyncと同じような効果が得られます。
+  [Nicola Salmoria]
+
+- 吸出し不良のためにROMが不充分なとき、致命的なエラーを発生しなくなりました - 
+  ファイルが足りなくてもエミュレーションをスタートできます。不足分はランダムな
+  データで補完するので、当然、ゲームは正常に動作しません。-verifyromsの出力も少
+  し変更して、00000000チェックサムではなくて、NO GOOD DUMP KNOWNと出力されます。
+　[Nicola Salmoria]
+
+- VLM5030エミュの改善。[Tatsuyuki Satoh]
+
+- 68000エミュレータのバグを2つ修正(アセンブラとCの両方)。「パワースパイクスII」と
+　「F-1ドリーム」で確認できます。[Mike Coates]
+
+- uPD7759 ADPCMデコードを改善。[Juergen Buchmueller]
+
+- ミキサーコントロールを「streams.c」から、新規「mixer.c」に移動しました。オンスク
+　リーンディスプレイが、(「streams.c」で扱われる単独ではなく)どんなチャンネルの音量変
+　更にも利用できます。調整値は終了時に保存され、次にゲームを始めるとき自動的に読み込
+　まれます。[Nicola Salmoria]
+
+-「Keys (defaults)」メニューで、ポーズキーを変更できます。[Nicola Salmoria]
+
+- グラフィックビューア(F4)に、パレットビューアを追加しました。[Nicola Salmoria]
+
+- [DOS] CabMAMEからの新ビデオモード：NTSC/PAL出力、またはアーケードモニタ用の低スキャ
+　ンレートモードです。「-monitor NNNN」でモニタタイプを選択します。
+  「standard」(デフォルト)、「ntsc」、「pal」、「arcade」を指定します。「-centerx N」
+　と「-centery N」の両方は、表示領域のセンタリングに使用します(centerxが-8から8、
+　centeryが-16から16)。「-waitinterlace」はインタレースディスプレイで、それぞれのゲー
+　ムループのために、奇数と偶数の両フィールドに強制的にアップデートをかけます。
+　[Brian Lewis]
+
+- [DOS] 現在かなりのtweak VGAモードが存在するため、一部ビデオカードとモニタで相性問
+　題が生じています。そのためデフォルトをオフにしました。デフォルトではVESAが使用され
+　ます。「-vesa」コマンドラインスイッチはもう使用しません。
+　代わりに、VGAのtweakモードを使用するには「-tweak」を使います。
+  [Nicola Salmoria]
+
+- [DOS] 新VGA tweakモード：384x240(CPS1システム系、「ポンピングワールド / Pang」など用)、384x256(「Lode
+  Runner」など用)、336x240(「ガントレット」などのAtariゲーム用)、320x240(NeoGeoなど用)
+  が追加されました。これらは自動的に使用されます、もしあなたのビデオカードまたはモニタ
+  が対応していない場合は「-notweak」を使用(また分かる場合は「mame.cfg」のパラメータを
+　変更して下さい。[Brian Lewis, Andrea Mazzoleni]
+
+- [DOS]「-nodouble」コマンドラインオプションを消去しました。代わりに「-nostretch」を
+　使用して下さい。もしベータ版の初めから使用している場合は「mame.cfg」を消去(また
+　は、手でアップデートして)して下さい。そうしないと、ストレッチは働きません。
+　[Nicola Salmoria]
+
+- キーボードコントロールとの問題を避けるため、アナログポートの扱いを変更(「Arkanoid 
+　2」など)。[Nicola Salmoria]
+
+- ROMが見つからないときのエラーメッセージを簡略化しました。単に不明ROMのリストを出力
+　するだけにして、初めのもので停止しません。[Nicola Salmoria]
+
+
+ソース：
+-------
+
+- プレイ中のゲームのフレーム数を返す新関数「cpu_getcurrentframe()」を追加。
+  これは、静的内部カウンタを使わなくても、マルチフレームを引き起こすエフェクト
+  (ちらつきなど)を制御するドライバで使用できます。これを使用するときは、ゲーム
+  ポーズ中の問題を避けるため、カスタム割り込みハンドラが必要になるでしょう。
+  [Nicola Salmoria]
+
+- フレームスキップが、完全にOS依存コードで扱われるようになりました。
+ 「osd_skip_this_frame()」は既に、「推薦」パレメータではありません。また、
+ 「osd_update_display()」と「osd_update_audio()」を一つの「osd_update_video_
+  and_audio()」に置き換えました。
+  重要：「osd_update_video_and_audio()」はメインコードから*毎フレーム*ごとに呼び出
+  されます。これで、そのフレームがスキップしなければいけないか知る手がかりになります。
+ 「osd_skip_this_frame()」は、「drv->vh_update()」を呼び出さなくてもいいかを知るため
+  だけに使用されます。[Nicola Salmoria]
+
+- 新Z80エミュレータ。[Juergen Buchmueller]
+
+- I86エミュレータのバグをいくつか修正。[Juergen Buchmueller]
+
+- 新しいCPU割り込みシステム。関数「cpu_set_irq_line()」と「cpu_set_nmi_line() 」は、
+  今までの「cpu_cause_interrupt()」によって許可されていた制限付きコントロールに代わって、
+  CPUの物理的ラインのステータスを正確に制御することが出来ます。[Juergen Buchmueller]
+
+- Konami 007232サウンドチップエミュレータ。TMNTで使用。[Hiromitsu Shioya]
+
+- ドライバの入力ポートが16bitになりました。より細かいアナログ入力(「リベンジオブDOH」)
+  を利用できます。また68000ベースのゲームは、16bitの値を得るために、8bitを2つ使用して
+  読み込む必要がなくなりました。[Brad Oliver]
+
+- CPUのopcode解析がさらに強力になった恐怖のハックを追加しました。これは、本当に
+  見難いコードなので書き直さないといけないのですが、「ポケットギャル」や「迷宮ハンターG / The Real Ghostbusters」で十分にいい音が出ています。[Nicola Salmoria]
+
+- 68000新Cコア。[Karl Stenerud]
+
+- I8039エミュレーションのバグをいくつか修正。[Brian Stern]
+
+- Z8000エミュレータ。[Juergen Buchmueller]
+
+- NEC uPD7759エミュレータ。これは「T.M.N.T. -スーパー亀忍者-」やSystem 16、その他で使用しています。
+  [Juergen Buchmueller, Mike Balfour, Howie Cohen]
+
+- CVSDエミュレーション。「シニスター」と34010ゲーム(「スマッシュT.V.」など)で使用。
+  [Larry Bank, Alex Pasadyn]
+
+- 6808コアに2つバグ修正。[Brad Oliver]
+
+- TMS32010エミュレータ。「究極タイガー / Twin Cobra」で使用。[Quench]
+
+- 新タイルマップコード。これでドライバコードが簡単になり、ビデオレンダリングのパフォー
+  マンスを向上してくれます。[Phil Stroffolino]
+
+- [DOS] Allegro 3.11でコンパイル。
+
+- 新旧Namcoサウンドサブシステムを合体して、ステレオ出力をサポート。[Aaron Giles]
+
+- H6280エミュレータ。いくつかのDetaEastゲームで使用。[Bryan McPhail]
+
+- InputPortストラクチャを小さくするため再デザイン。また、アナログ入力の定義を変更。
+  さらにこのおかげで、アナログコントロールメニューの設定の代わりに、アナログ入力を
+  デジタル入力でエミュレートする設定が、ゲームメニューで全キーに対してできます。
+  [Nicola Salmoria]
+
+- DIPスイッチ用のデフォルト文字列設定。例えば、「Cabinet」の代わりに、
+  「DEF_STR( Cabinet )」を使用。「inptport.h」で定義。
+  [Nicola Salmoria]
+
+- 4つ以上のアナログコントローラのサポート(マルチトラックボールはDOS上ではサポート
+  されていませんが、マルチジョイスティックは動作します)。[Brad Oliver]
+
+- Atariゲームを大規模にオーバーホール。68000と6502コアが正常に動作するよう修正。
+  [Aaron Giles]
+
+- メモリカード用「OSD_FILETYPE_MEMCARD」。[Fabrice Martinez]
+
+- MAME作成にzlibライブラリが必要です。以下からダウンロード可能です。
+  http：//www.cdrom.com/pub/infozip/zlib/.
+
+- PNG形式の保存サポート。「save_screen_snapshot()」は「osd_save_snapshot()」となり、
+  スタンダードなスナップを保存します。DOS上では、「.png」ファイルは「SNAP」ディレクトリ
+  に保存されます。[Mathis Rosenhauer, Mike Haaland]
+
+- GameSampleストラクチャからボリュームフィールドをはずしました(「.wav」ファイルにストア
+  されないためです)。これは、Samplesinterfaceストラクチャに、全サンプルに影響のある
+  ボリュームフィールドを追加するためです。[Nicola Salmoria]
+
+-「osd_adjust_sample()」を「osd_set_sample_freq()」に置き換え。 
+ 「osd_set_sample_volume()」と「OSD_PAN_xxx」マクロは with「MIXER_PAN_xxx」
+
+- MSM5205エミュレータにスレーブモードを追加。[Tatsuyuki Satoh]
+
+- 重要：「osd_new_bitmap()」で割り当てられる「セーフティエリア」が、8ピクセルから
+  16ピクセルになりました。これはNeoGeoドライバに必要です。
+
+- 追加：OSD_KEY_PRTSCR、OSD_KEY_LWIN、OSD_KEY_RWIN、OSD_KEY_MENU
+  移動：OSD_KEY_RCONTRO、OSD_KEY_ALTGR、OSD_KEY_PAUSE

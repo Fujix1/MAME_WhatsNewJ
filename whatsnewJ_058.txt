@@ -1,0 +1,133 @@
+0.58
+
+
+その他ドライバの変更：
+----------------------
+
+-「サンダークロス」の当たり判定を修正? [Eddie Edwards]
+
+- VLM5030エミュレーションの修正(「パンチアウト」「ハイパーオリンピック」
+  「イーアルカンフー」など)。[Tatsuyuki Satoh]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [windows] blitエフェクト「-effect sharp」追加。デフォルトよりもシャープな
+  表示ができます。[Aaron Giles]
+
+
+ソース：
+--------
+
+- 共通コールバック関数定義とネーミング規則の強制用に以下のマクロが追加されました。
+  新マクロへのコンバートは全てのドライバで完了しています。
+
+      void init_drivername()            -> DRIVER_INIT( name )
+      int generate_int()                -> INTERRUPT_GEN( func )
+      void name_init_machine()          -> MACHINE_INIT( name )
+      void nvram_handler()              -> NVRAM_HANDLER( name )
+      void name_vh_convert_color_prom() -> PALETTE_INIT( name )
+      int name_vh_start()               -> VIDEO_START( name )
+      void name_vh_stop()               -> VIDEO_STOP( name )
+      void name_vh_eof()                -> VIDEO_EOF( name )
+      void name_vh_screenrefresh()      -> VIDEO_UPDATE( name )
+
+- マシンドライバの定義について大幅な変更がされました。マシンドライバ構築系のマクロ
+  (定義はdriver.h)が使用できます。マシンドライバ内での項目順序付けは自由ですが、CPU
+  固有のデータについては直近に参照されたCPUに結びついてるため除きます。新フォーマッ
+  トによりプリミティブな継承メカニズムが提供されるため、マシンドライバを他のものの
+  変更により構築することが可能です。新フォーマットの例については各ドライバを、また
+  複雑な継承の例としてはmcr.cを参照してください。
+
+- 新関数auto_bitmap_alloc()とauto_bitmap_alloc_depth()が追加されました。これにより
+  自動管理されるビットマップを生成できます。auto_malloc()との組み合わせにより、ほと
+  んどのケースでvideo_stop関数の必要がなくなりました。全ての既存ドライバで、この機
+  能の利点を生かすように更新されています。
+
+- 旧式の割り込みシステムは廃止となりました。cpu_cause_interrupt()は今後使用できま
+  せん。代わりにcpu_set_irq_line()、またはcpu_set_irq_line_and_vector()を使います。
+  これに伴い、旧式で名称が重複していた定数も削除されました。また割り込み発生用の
+  CPUコールバックもIRQラインやベクターを返さなくなっています。この代わりとして、
+  割り込みコールバックについては、cpu_set_irq_line()を使って動的に割り込み発生をさ
+  せる必要があります。全既存ドライバで、この変更に伴う更新がされています。
+
+- 新型割り込みコールバック関数、nmi_line_pulse()、nmi_line_assert()、
+  irqn_line_hold()、irqn_line_pulse()、irqn_line_assert()が追加されました。この関数
+  は、以前のコールバック関数interrupt()とnmi_interrupt()に代わるもので、直接割り込み
+  コールバックとして使うことができます。
+
+- tilemap_set_clip()関数は削除されました。これを置き換えるものとして、tilemap_
+  draw()関数に変数'cliprect'が追加されています。全既存ドライバで、この変更に伴う
+  更新がされています。
+
+- 画面の部分更新サポートに備えて、video_updateへのパラメータが変更され、新しく
+  'cliprect'が追加されています。将来的にはこれが描画面のサブセットを指定する予定で
+  す。今のところ、このパラメータはMachine->visible_areaのみの指定です。また、
+  'full_refresh'パラメータも削除されています。update系関数は書き換え要求のあった
+  ビットマップ部分について、必ず再描画する必要があります。一部ドライバはcliprectを
+  完全にサポートするように更新されていますが、まだ更新する必要があるものも残ってい
+  ます。
+
+- タイマーシステムに新関数を2つ追加しました。timer_create()は新規に“parmanet”な
+  タイマーを生成し、timer_adjust()でそのスケジューリングを調整します。現在、タイ
+  マーを動的に操作する方法はこれだけです。以前のtimer_set()とtimer_pulse()関数も
+  残っていますが、生成したタイマーへのハンドルは返さなくなっています。
+  timer_create()では、動的ではなく、初期化時にタイマーの生成をするようにしてくだ
+  さい。また、タイマーが自動リソーストラッキングに追加されたので、明示的な処理は
+  必要ありません。既存ドライバについては、この変更に伴う更新がされています。
+
+- 基本的な汎用NVRAMハンドラを追加しました。多くのゲームでグローバル変数'generic_
+  nvram'と'generic_nvram_size'に対してNVRAM領域の位置とサイズを指定するのみで十分
+  です。またマシンドライバで汎用NVRAMハンドラのリクエストとして、'generic_0fill'、
+  または'negeric1fill'の指定ができます。両者は.nvファイルが無い場合のメモリ初期化
+  方法について示すものです。
+
+- 以下の古い関数とマクロについては廃止の方向です：
+
+     cpu_get_pc()           -> activecpu_get_pc()
+     cpu_get_sp()           -> activecpu_get_sp()
+     cpu_getpreviouspc()    -> activecpu_get_previouspc()
+     cpu_get_reg()          -> activecpu_get_reg()
+     cpu_set_reg()          -> activecpu_set_reg()
+     cpu_set_op_base()      -> activecpu_set_op_base()
+     cpu_get_pc_byte()      -> activecpu_get_pc_byte()
+     READ_WORD              -> (no equivalent)
+     WRITE_WORD             -> (no equivalent)
+
+- 新関数、force_partial_update()追加。これは指定されたスキャンラインまでを強制的に
+  部分更新します。[Aaron Giles]
+
+- ARM CPUエミュレーション [Bryan McPhail, Phil Stroffolino]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+rampart057yel
+artwork057gre
+mrgoemon36b16gre
+pigout37b4gre
+
+
+新規サポートゲーム：
+--------------------
+
+Gun Force 2 / ジオストーム [Chris Hardy]
+エンゼルキッズ [David Haywood]
+のぼらんか [Stephane Humbert]
+Steel Force [David Haywood, Stephan Humbert]
+Mug Smashers [David Haywood, Stephan Humbert]
+キャプテンアメリカ -ジ・アベンジャーズ- [Bryan McPhail]
+Lemmings [Bryan McPhail]
+Flyball [Stefan Jokisch]
+Grand Cross [David Graves]
+
+
+新規サポートクローン：
+---------------------
+
+Mayday (set 3)
+Alpha One (「メイジャーハヴォック」のプロトタイプ版)
+Blaster (kit)
+Buck Rogers (encrypted)

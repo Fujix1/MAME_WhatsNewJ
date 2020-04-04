@@ -1,0 +1,162 @@
+0.63
+
+暫定リリースのため、この2ヶ月間に寄せられたものの多くは含まれていません。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「サブロック3D」「ターボ」「Buck Rogers / ズーム909」で、LEDカウンタの表示にアート
+  ワークを使用するようになりました。[Stefan Jokish]
+
+-「ダイナミックスキー」の色修正。[Stefan Jokish]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「サブロック3D」にサンプルサポート追加。[Dave France]
+
+- Exidy製ゲームのノイズ周波数修正。[Jim Hernandez]
+
+- Namco NAサウンド、初期版追加。[Phil Stroffolino]
+
+
+その他ドライバの変更：
+----------------------
+
+-「バーディトライ」のプロテクトを一部シミュレート。[Angelo Salese]
+
+-「クイズF-1 ワンツーフィニッシュ」の解読を改善。ただし、まだ不完全。[Angelo Salese]
+
+-「ゴルフィンググレイツ」のボール位置検知を修正。[Olivier Galibert]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 起動画面をOFFにするオプション「-nodisclaimer」と「-nogameinfo」追加。
+  エミュレーションが不十分な場合の警告は表示されます。[Aaron Giles]
+
+- RDTSCをQueryPerfomanceCounterに置き換えました。これにより、SpeedStep系のノートでの
+  問題が修正されるはずです。しかし、他のマシンで問題が起こる場合があるようなので、
+  「-rdtsc」オプションで以前の方法に戻すこともできます。[smf]
+
+
+ソース：
+--------
+
+- コンパイラがMinGW 2.0/GCC 3.2になりました。新コンパイラのせいで起こるバグがあったら
+  一報ください。
+
+- YM2413エミュレーションを全面入れ替えで、クオリティ大幅向上。[Jarek Burczynski]
+
+- YM2608エミュレーションにドラムサポート追加。（「スーパーフォーミュラ」など）
+  [Jarek Burczynski]
+
+- ファイルI/Oの大部分をOS依存コードからコアへ移動しました。新しくmame_fileとosd_fileも
+  追加されています。これはタイプチェックをシステム全体で改善します（また、両者が混乱
+  するのも防ぎます）。osd_fopen、osd_fread、osd_fwriteなどを呼び出していたところは、
+  新しくmame_fopen、mame_fread、mame_fwriteなどとして下さい。osd_*系はコアにリザーブ
+  されています。
+  ZIP処理は全てmame_file関数内で行われるので、移植版でも同様に引き継ぐことができます。
+  [Aaron Giles]
+
+- [Win32] diff、snap、cfg、nvramなどのディレクトリは、MAMEがそれぞれに最初にファイルを
+  保存する際に自動的に作成されるようになりました。[Aaron Giles]
+
+- MIPS III/IV CPUコア追加。[Aaron Giles]
+
+- ADSP-2115 CPUサポート追加。[Aaron Giles]
+
+- TMS32025 CPUコア追加。[Quench]
+
+- YMF278Bエミュレーション修正。[R.Belmont]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+galaga37b8gre [Satoshi Suzuki]
+galaga37b16gre [Satoshi Suzuki]
+cutieq37b2gre [Stephane Humbert]
+crusn062gre [Aaron Giles]
+totcarn062gre [Aaron Giles]
+commsega062gra [Stephane Humbert]
+wiping062red [Stefan Jokish]
+heartatk062red [Stefan Jokish]
+polyplay060red [Stefan Jokish]
+
+
+新規サポートゲーム：
+--------------------
+
+Off Road Challenge [Aaron Giles]
+Shrike Avenger [Aaron Giles]
+War Gods [Aaron Giles]
+Grudge Match [Aaron Giles]
+Sharpshooter [Aaron Giles]
+Killer Instinct [Aaron Giles, Bryan McPhail]
+Killer Instinct 2 [Aaron Giles, Bryan McPhail]
+ドクターミクロ [Uki]
+Run & Gun / スラムダンク [R.Belmont]
+ホロシアム [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Super Visual Football / ザ・Jリーグ1994 [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+バーニングライバル [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ラッドモビール [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ラッドラリー [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+F-1エキゾーストノート [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+エイリアン3 ザ・ガン [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+ソニック・ザ・ヘッジホッグ [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Golden Axe 2 / ゴールデンアックス -デスアダーの復讐 [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+スパイダーマン [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+アラビアンファイト [David Haywood, Olivier Galibert, R. Belmont, Farfetch'd]
+Gumbo [David Haywood]
+ゴーリーゴースト [Phil Stroffolino]
+ムーンシャトル [Zsolt Vasvari]
+SF-X (スペースファイターX） [Zsolt Vasvari]
+Mighty Monkey [Zsolt Vasvari]
+Triv Two [David Haywood]
+Pirates [David Haywood, Nicola Salmoria, Paul Priest]
+フリーキック [Tomasz Slanina]
+パーフェクトビリヤード [Nicola Salmoria]
+若草物語麻雀四姉妹 [Nicola Salmoria]
+Got-cha [Nicola Salmoria]
+F-1グランプリPart II [Nicola Salmoria]
+リアル麻雀牌牌 [Nicola Salmoria]
+リアル麻雀牌牌 -人事異動編 [Nicola Salmoria]
+リアル麻雀牌牌 -成長編 [Nicola Salmoria]
+麻雀狂時代 [Nicola Salmoria]
+ザ・麻雀 [Uki]
+麻雀放浪記 PART1 -青春編 [Nicola Salmoria]
+麻雀放浪記 外伝 [Nicola Salmoria]
+麻雀放浪記 掟 [Nicola Salmoria]
+麻雀クリニック [Nicola Salmoria]
+マージャン鹿鳴館 [Nicola Salmoria]
+Tugboat [MooglyGuy, Nicola Salmoria]
+Super Triv II [MooglyGuy]
+ペンギンブラザーズ [Nicola Salmoria]
+Target Hits [Manuel Abadia]
+TH Strikes Back [Manuel Abadia]
+Alligator Hunt [Manuel Abadia]
+World Rally 2: Twin Racing [Manuel Abadia]
+Maniac Squares [Manuel Abadia]
+Snow Board Championship [Manuel Abadia]
+Bang! / ガンガバチョ [Manuel Abadia]
+Boomer Rang'r / ジェネシス [Bryan McPhail]
+Kamikaze Cabbie / イエローキャブ [Bryan McPhail]
+リバレーション [Bryan McPhail]
+P-47 Aces
+
+
+新規サポートクローン：
+----------------------
+
+ノストラダムス (Korea)
+クルージンワールド (rev L2.0)
+ターミネーター2 (LA2)
+スーパーハイインパクト (prototype)
+Mr Kougar (set 2)
+Donkey Kong Jr (bootleg on Galaxians hardware)
+Police Trainer (older)
+北派少林 飛龍の拳 (=Shanghai Kid)

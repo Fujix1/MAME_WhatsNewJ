@@ -1,0 +1,186 @@
+0.53
+
+意味が無くなってきていた「ベータ」を使った番号付けは廃止することにしました。
+0.36(最後のファイナル版)+0.16(0.37でのベータ数)=0.52となるので、このリリースの
+バージョンは、0.53となります。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「Bioship Paladin / 宇宙戦艦ゴモラ」の背景修正。[Nicola Salmoria]
+
+- TaitoBシステムでの問題をいくつか修正。[Nicola Salmoria]
+
+- Konami製ゲーム(「ハイパースポーツスペシャル」「チェッカーフラグ」「X-MEN」
+ 「アステリクス」「サプライズアタック」「サンセットライダーズ」など)で、
+　正確な影の描画をサポート。[Nicola Salmoria]
+
+- SNK製ゲーム(「怒」「怒号層圏」など)での正確な影の描画。[David Haywood]
+
+-「シスコヒート」「グランプリスター」での正確な影の描画。[Luca Elia]
+
+-「サンセットライダーズ」でのプロテクト絡みの問題を修正。[Nicola Salmoria]
+
+-「メジャータイトル2」の色修正。[Nicola Salmoria]
+
+-「ベルリンの壁」の色修正。[Nicola Salmoria]
+
+-「Aztarac」のレーダー表示修正。[Mathis Rosenhauer]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ガンフォース」「Blade Master / クロスブレイズ」「Lethal Thunder / サンダー
+  ブラスター」「アンダーカバーコップス」「Mystic Rinders / ガンホーキ」「メジャー
+  タイトル2」「フック」「R-TYPE LEO」「In the Hunt / 海底大戦争」「パーフェクト
+  ソルジャーズ」のサウンドCPUを解読。[Bryan McPhail, Nicola Salmoria]
+
+- TaitoF3とIncredible Technology製ゲームのサウンドがきちんと鳴らなかったEX550xの
+  バグを修正。[Aaron Giles]
+
+
+その他ドライバの変更：
+----------------------
+
+- Slapsticエミュレーションに残っていた問題を修正：
+  -「ピットファイター」が最後まで動作
+  -「ランパート」も最後まで動作
+  -「テトリス(Atari)」をSlapsticコードを使うように変更
+  [Aaron Giles]
+
+-「ロボコップ」オリジナル版のプロテクトを修正。[Bryan McPhail]
+
+-「ポパイ」オリジナル版の解読。[Nicola Salmoria]
+
+-「ギャラガ」のフリープレイモードを修正。[Scott Brasington]
+
+-「マッハ3」にレーザーディスクから取り出したターゲットデータのサポートを追加。
+  [Fabrice Frances]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- Windows版が「MAMEW」から「MAME」という名称になります。DOS版は「DMAME」とします。
+
+- [Windows版] コマンドラインインターフェースの改善：
+  * steadkey用のコンフィグオプション（デフォルト：OFF）
+  * デバッグビルドでのdebug.iniファイルの参照
+  * mamew \anywhere\roms\pacman.zipが動作
+  * -logオプションを改良
+  * mame.iniのかわりにargv[0].iniを参照
+    例：mameの実行ファイル名が「m37b17.exe」ならmame.iniではなく、m37b17.iniを
+        読み込みます
+  [Paul Priest, Bernd Wiebelt]
+
+- [DOS版] DB9またはTurbografixインタフェース経由接続のC64/Atari/Sinclairジョイス
+  ティックのサポート。[Aley Keprt]
+
+
+ソース：
+--------
+
+- パレットシステムに大幅な変更をしました。8-bitモードは廃止し、16-bitのみとなり
+  ます。8-bitサポートはOS依存コード部からも削除される予定で、コアからも8-bit色数
+  画面を利用しないようにする予定です。ただし、まだ一部残っているかもしれません。
+
+- パレット圧縮を削除しました。palette_recalc()、palette_transparent_pen、
+  palette_used_colors[]は今後使いません。透過処理でPALLETE_COLOR_TRANSPARENTを
+  使っているドライバでは実装部分の変更が必要です。この結果、Taito TC0480SCPビデオ
+  チップを使っているゲーム全て、またTaito F3ゲームの全部がこのリリースでは動作
+  しません。
+
+- tilemap_update()を削除しました。tilemap_draw()で全て処理されます。
+
+- 移植関係者向け重要変更項目：
+  OS依存コード部では、16bitパレットモードでのMachine->pens[i] == iについて動作を
+  確実にする必要があります。osd_allocate_colors()への“ペン”の引数はNULLになる
+  でしょう。実際にはダイレクトRGBモードだけが引数を渡すので、
+  これは“rgb_components”と名称が変更されています。
+
+- VIDEO_MODIFIES_PALETTEと、osd_allocate_colors()から“モディファイ可能”なパラ
+  メータを削除しました。
+
+- 新フラグVIDEO_HAS_SHADOWS、VIDEO_HAS_HIGHLIGHTS：影を扱う場合などのために、
+  暗い(明るい)パレットを自動的に生成するように拡張します。
+  palette_set_shadow_factor()と、palette_set_highlight_factor()で適用度合いを
+  指定します(影部分を1.0より大きい値にしてハイライト指定に使うことや、ハイライ
+  ト部分を1.0より小さい値にして影指定に使うことも可能です。関数名は便宜的なもの
+  です)。[Nicola Salmoria]
+
+- 新関数palette_set_brightness()：パレットRAMの内容とは独立して、パレットの明るさ
+  をコントロールできます。[Nicola Salmoria]
+
+- MachineDriver.color_table_lenに0を設定できるようになりました。このとき、カラー
+  テーブルとパレットが一対一の対応という意味になります。この機能は
+  TRANSPARENCY_COLORを使っているときには使用できないので注意して下さい。ただ、
+  TRANSPARENCY_COLORを使う場合、当然カラーテーブルは一対一ではないでしょう。
+
+- 新関数tilemap_draw_roz() [Phil Stroffolino]
+
+- 新関数auto_malloc()：malloc()と同じものですが、ドライバ終了時に自動的にメモリが
+  解放されます。[Aaron Giles]
+
+- osd_bitmap.lineの型を混乱を防ぐためにvoid **にしました。
+
+
+新規サポートゲーム：
+-------------------
+
+マジンガーZ [Luca Elia, Nicola Salmoria]
+美少女戦士 セーラームーン [Luca Elia, Nicola Salmoria]
+そこぬけ対戦ゲーム [Luca Elia]
+麻雀 同級生 [Luca Elia]
+麻雀 同級生スペシャル [Luca Elia]
+ビッグラン [Luca Elia]
+マジカルクリスタル [Luca Elia]
+サンドスコーピオン [Luca Elia]
+コンチネンタルサーカス [David Graves]
+チェイスHQ [David Graves]
+バトルシャーク [David Graves]
+S.C.I ＜Special Criminal Investigation＞ [David Graves]
+ナイトストライカー [David Graves]
+アクアジャック [David Graves]
+パワーホイールズ / Double Axle [David Graves]
+WGP2 [David Graves]
+スーパーリアル麻雀Part3 [Takahiro Nogi]
+麻雀遊技 / 麻雀遊戯 [Takahiro Nogi]
+ファンキージェット [Bryan McPhail, Nicola Salmoria]
+卒業証書 [Bryan McPhail, Nicola Salmoria]
+覇沙夢 [Bryan McPhail, Nicola Salmoria]
+剣豪 [Bryan McPhail, Nicola Salmoria]
+ダートフォックス
+マイティガイ [Victor Trucco]
+ウルトラタンク [Phil Stroffolino]
+
+
+新規サポートクローン：
+---------------------
+
+アストロフラッシュ (= Transformer)
+Twin Hawk (World) (= 大旋風)
+Omega (= The End)
+銀河帝国の逆襲 (海賊版, set 2)
+Point Blank (= ガンバレット)
+ロボコップ2 (World, Japan)
+ドンドコドン (US)
+サンダーフォックス (World)
+キャメルトライ (US, alt sound)
+ロボコップ (World rev 4)
+チェルノブ (World)
+スイマー (set 3)
+バルダーダッシュ (Japan)
+ロボコップ (Japan)
+グレート1000マイルズラリー (USA)
+スーパーリアルダーウィン (World)
+ピットファイター (海賊版)
+クラックス (2 prototypes)
+アップンダウン (encrypted)
+
+
+削除：
+------
+
+スピーク＆レスキュー海賊版（コピーライトをはずしたスピーク＆レスキューと同じもの）

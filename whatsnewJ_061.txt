@@ -1,0 +1,196 @@
+0.61
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「卒業証書」のタイルマップ修正。[Nicola Salmoria]
+
+-「ピンボ」のグラフィック修正。[Zsolt Vasvari]
+
+- NeoGeoゲームのラスタエフェクト改善。[Razoola]
+
+-「ハル21」のグラフィックス改善。[Acho A. Tang]
+
+- CPS2ゲームでのラスタエフェクトサポート初期型追加。[Barry Rodewald]
+
+- Psikyo製ゲームにアルファブレンディング追加。[Paul Priest]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- SNKゲームでYM3812/YM3526とY8950のコンフリクトを修正。
+  [Jarek Burczynski]
+
+-「スパイナルブレーカーズ」のサウンド修正。[Nicola Salmoria]
+
+-「ハル21」にサウンド追加。[Acho A. Tang]
+
+
+その他ドライバの変更：
+----------------------
+
+-「アウトラン」と「スペースハリアー」の操作、表示修正。[Bryan McPhail]
+
+-「S.P.Y.」のプロテクトのシミュレート。[Acho A. Tang]
+
+-「Rip Cord」修正。[Acho A. Tang]
+
+-「ラビリンスランナー」「ファストレーン」の当たり判定修正。[Acho A. Tang]
+
+-「ファンキージェット」のプロテクト修正。[Bryan mcPhail, Stephane Humbert]
+
+- F3の修正。[Shiriru, Bryan McPhail]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 光線銃サポート。[Bryan McPhail]
+
+
+ソース：
+--------
+
+- 移植用重要情報：表示更新用のOSインターフェースの大幅な変更がされています。
+  - 削除：VIDEO_SUPPORTS_DIRTYフラグ
+  - 削除：osd_mark_dirty()
+  - osd_create_display()に引数rgb_components追加
+  - 削除：osd_set_visible_area()
+  - 削除：osd_allocate_colors()
+  - 削除：osd_modify_pen()
+  - osd_update_video_and_audio()にポインタmame_display追加
+  - 削除：osd_debugger_focus()
+  - 削除：osd_set/get_gamma()
+  - 削除：osd_set/get_brightness()
+  [Aaron Giles]
+
+- アートワークを完全に再デザインされました。どんなゲームでもアートワークが使えるよ
+  うになり、個々のドライバ内でサポートする必要はありません。設定は外部の.artファイ
+  ルで行います。[Aaron Giles]
+  -[no]artcrop -- 本来のゲーム表示部分のみ表示します
+  -[no]backdrop -- 背景部分を有効/無効にします
+  -[no]overlay -- オーバーレイ部分を有効/無効にします
+  -[no]bezel -- ベゼル部分の表示を有効/無効にします
+
+- Windows版での画面回転は、今までのようにコア側ではなく、blit時に行うよになりました。
+  古いのより、こちらの方がまず速いのと、コアを大幅にシンプルにできるため、次のリリー
+  スからはblit時の回転が必須になると思われます。移植時には今の時点で実装することを
+  おすすめします。[Aaron Giles]
+
+- 新型YM-2413エミュレータ。[Fabio R. Schmidlin, Charles Mac Donald]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+mk3060gre
+ozmawars055gra
+alpine057gra     [Stephane Humbert]
+elevator057gra   [Stephane Humbert]
+tinstar36b4gra   [Stephane Humbert]
+kof94057gre      [RYO]
+tokib059red      [David Graves]
+dogyuun058yel    [Quench]
+battleg37B10gre  [Quench]
+batrider058gre   [Quench]
+cchasm1059red    [Paul Priest]
+dspirit37b6gre   [Acho A. Tang]
+rompers36rc2gre  [Acho A. Tang]
+rompers37b4gre   [Acho A. Tang]
+splatter336b6gre [Acho A. Tang]
+splatter336b9yel [Acho A. Tang]
+splatter137b5gre [Acho A. Tang]
+splatter237b5gre [Acho A. Tang]
+splatter057gre   [Acho A. Tang]
+dangseed060yel (needs checking)
+bjourney37b16gre [Acho A. Tang]
+ncombat36b3yel   [Acho A. Tang]
+ncommand37b2gre  [Acho A. Tang]
+overtop37b13red
+sdodgeb37b13yel (needs checking)
+iganinju37b14yel [Kale]
+iganinju37b1yel  [Kale]
+iganinju055yel   [Kale]
+scudhamm058gre   [Mike Herrin]
+adstick37b16gre  [Robin Merrill]
+pedal055yel      [Robin Merrill]
+toobin058yel     [Robin Merrill]
+
+
+新規サポートゲーム：
+--------------------
+
+スーパースラムズ [David Haywood]
+マクロスプラス [David Haywood]
+クイズ!! 美少女戦士セーラームーン -知力・体力・時の運 [David Haywood]
+Jump Kids [David Haywood]
+Toffy [David Haywood]
+Super Toffy [David Haywood]
+バトルクロス [David Haywood]
+ガルフウォーII [David Haywood]
+Bubble 2000 [David Haywood]
+4 Fun in 1 [David Haywood]
+Kick Goal [David Haywood, Nicola Salmoria]
+U.S. Games collections [David Haywood, Nicola Salmoria]
+ワイリータワー [Nicola Salmoria]
+Lethal Crash Race / 爆裂クラッシュレース [Nicola Salmoria]
+F-1グランプリ [Nicola Salmoria]
+Dog-Fight / バッテンオハラのスチャラカ空中戦 [Nicola Salmoria]
+Find Out [Nicola Salmoria]
+ゴルフィンググレイツ [Nicola Salmoria]
+三刻志 [Nicola Salmoria]
+スーパー上海 ドラゴンズアイ [Bryan McPhail]
+メカナイズドアタック [Bryan McPhail]
+ビーストバスターズ [Bryan McPhail]
+サンダーゾーン / Desert Assault [Bryan McPhail]
+The Next Space [Bryan McPhail, Acho A. Tang]
+爆突機銃艇 [Acho A. Tang]
+エクイテス [Acho A. Tang]
+ブルファイター [Acho A. Tang]
+ザ・高校野球 [Acho A. Tang]
+スプレンダーブラスト [Acho A. Tang]
+ハイボルテージ [Acho A. Tang]
+Red Robin [Zsolt Vasvari]
+Net Wars [Zsolt Vasvari]
+Clay Shoot [Zsolt Vasvari]
+Mr. Kougar [Zsolt Vasvari]
+Car Polo [Zsolt Vasvari]
+ディンゴ [M*A*S*H, Zsolt Vasvari]
+バーディーキング [M*A*S*H]
+Inferno [Juergen Buchmueller, Aaron Giles]
+Dribbling [Aaron Giles]
+Triple Hunt [Stefan Jokish]
+オービット [Stefan Jokish]
+モンテカルロ [Stefan Jokish]
+チューブパニック [Jarek Burczynski]
+Roller Jammer [Jarek Burczynski]
+危機一髪真由美ちゃん [Uki]
+Knights of Valour / 三国戦記 [ElSemi]
+バトルバクレイド [Quench]
+
+
+新規サポートクローン：
+----------------------
+
+エスプレイド (International Ver 1998 4/22)
+エスプレイド (Japan Ver 1998 4/21)
+アウトフォクシーズ (Japan)
+タクティシャン (set 2)
+バトルス (=ゼビウス)
+Power Spikes / スーパーバレー'91 (World)
+Condor (= フェニックス)
+Grind Stormer / V・V (set 2)
+バトルガレッガ (set 2)
+ヘルファイヤー (1 player)
+鮫！鮫！鮫！ (2 players)
+グラビター (prototype)
+Lunar Battle (= グラビター)
+スーパーコブラ (Sega)
+S.P.Y. (World)
+エアバスター (English)
+バラデューク (set 2)
+メトロクロス (set 2)
+Red Hawk (= ステッガーI)
+バッグマン (bootleg on Galaxian hardware)

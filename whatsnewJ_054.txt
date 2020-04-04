@@ -1,0 +1,70 @@
+0.54
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「フルスロットル / Top Speed」の道路ライン修正。[David Graves]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ドリームサッカー'94」のサウンドCPUを解読。[Bryan McPhail, Nicola Salmoria]
+
+-「プレミアサッカー」の歓声を修正。[Zsolt Vasvari]
+
+
+ソース：
+--------
+
+- YM2610とYM2151エミュレーションを修正。実チップで検証。
+  [Jarek Burczynski]
+
+- 新コア関数palette_get_pen()追加。削除したosd_get_pen()に置き換わるものです。
+  また、palette_change_color()の名称をpalette_set_color()に変更しました。
+
+- CPUインターフェースに大幅な変更。このため一部のゲームが一時的に動作しません。
+  特にCPS2など。[Aaron Giles]
+
+- machine_init時にauto_mallocが出来るように、またリセット時にメモリを解放する
+  ようにauto_mallocを改善。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+sidepckt37b16yel
+tumblepb37b16red
+strahl37b16ora
+rtype37b1gre
+poundfou37b1gre
+tp8437b7gre
+bloodbroc053red
+terraf37b13gre/terraf053gre
+cinemat053red
+dotrone053gre
+relief053yel
+pbancho053red
+goindolc053gre
+namcona1c053red
+hellfire053yel
+
+
+新規サポートゲーム：
+--------------------
+
+ファイヤーバレル [Bryan McPhail, Nicola Salmoria]
+タイムリミット [Ernesto Corvi]
+妖獣伝 [Nicola Salmoria]
+ガルフストーム [Nicola Salmoria]
+Minesweeper [Frank Palazzolo]
+
+
+新規サポートクローン：
+---------------------
+
+Space Force (= Meteoroids)
+ラストミッション (Japan)
+ガンディーラー'94 (= Primella)
+ブルーホーク (NTC)

@@ -1,0 +1,126 @@
+0.60
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「バツグン」の後半の面で敵が消えるのを修正。[Kale]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- M92ゲームで使用するIrem GA20エミュレーションの改善。[Acho A. Tang]
+
+
+その他ドライバの変更：
+----------------------
+
+-「奇々怪界」の問題をいろいろ修正。[Acho A. Tang]
+
+-「ウェック・ル・マン24」の色と、「ホットチェイス」のグラフィック化け修正。
+  [Acho A. Tang]
+
+- 彩京製ゲームをいろいろ修正。[Paul Priest, David Haywood]
+
+- nemesis.cに様々な修正。[Hau]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- 特別なコントローラ用の外部設定ファイルをサポートしました。"-hotrod"と"-hotrodse"
+  はこれで置き換えできます。詳しくは“ctrl.txt”ファイルを見て下さい。[Ron Fries]
+
+- チートエンジンを完全に書き換え。[Ian Patterson]
+
+
+ソース：
+--------
+
+- 新関数memory_set_unmap_value()追加。これは未マップのメモリアドレスが読み込まれた
+  ときの値を定義します。[Aaron Giles]
+
+- Y8950サンプル再生を修正。[Acho A. Tang]
+
+- 本物チップを検証したYM3812/YM3526/Y8950エミュレーションの書き換え完了。
+  [Jarek Burczynski]
+
+- osd_opl_control()とosd_opl_write()を削除：SoundBlaster OPLチップへの直接アクセスは
+  もういらないと思われます。
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+blmbycar059red
+uopoko059red
+gcpinbal059red
+jitsupro059red
+metroc059red
+phelios059red
+paclandc059red
+ncv1058red
+av2mj059red
+fromancec058red
+neogeoc37b15gre
+fround056red
+bioatack37b6gre
+crush057gre
+driverc056ora
+batsugun37b6gre
+
+
+新規サポートゲーム：
+--------------------
+
+Judge Dredd [Aaron Giles]
+Primal Rage [Aaron Giles]
+Road Riot's Revenge [Aaron Giles]
+World Class Bowling [Aaron Giles]
+タクティシャン [Nicola Salmoria, Stephane Humbert]
+The Masters of Kin [Nicola Salmoria]
+IQ Block [Nicola Salmoria, Ernesto Corvi]
+タクシードライバー [Nicola Salmoria]
+ブロックギャル [Angelo Salese]
+Drag Race [Stefan Jokisch]
+Pool Shark [Stefan Jokisch]
+アウトフォクシーズ [Phil Stroffolino]
+Oriental Legend [ElSemi, David Haywood]
+News [David Haywood]
+シャドーフォース -変身忍者 [David Haywood]
+The Legend of Silk Road [David Haywood, Stephane Humbert, R.Belmont]
+Miss Bubble 2 [David Haywood]
+ブラックハート [from Raine]
+US AAF ムスタング [from Raine]
+Many Bloc [David Haywood, Stephan Humbert]
+Xyonix [David Haywood, Stephan Humbert, Nicola Salmoria]
+Hyper Pacman [David Haywood, Stephan Humbert]
+グレート1000マイルズラリー2 [David Haywood, Stephan Humbert]
+フォーメーションZ [Acho A. Tang]
+タンクバスターズ [Jarek Burczynski]
+ハイパーデュエル [E. Watanabe]
+
+
+新規サポートクローン：
+----------------------
+
+ペンゴ (bootleg)
+Bone Crusher (= ナックルジョー)
+Fighter & Attacker (= F/A)
+ナックルヘッズ (World)
+Hero in the Castle of Doom (Donkey Kong conversion)
+Blood Storm (v1.10)
+ファイティングゴルフ (set 2)
+Clowns (rev 1)
+Magic Worm (= センチピード)
+Hot Shots Tennis (V1.0)
+Strata Bowling (V1)
+Pirate Pete (= ジャングルキング)
+ストリートファイター (prototype)
+ネビュラスレイ (World)
+ガンバード (World)
+バブルシンフォニー (Europe)
+Space Invaders '95 (US)
+C.O.W. Boys of Moo Mesa (World)
+Rタイプ LEO (World)
+ドラゴンパンチ (= Sports Match)

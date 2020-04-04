@@ -1,0 +1,59 @@
+0.64
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+spaceint061red [Stefan Jokish]
+robocop2056gre [Bryan McPhail]
+stoneage060gre [Bryan McPhail]
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- 「スカル＆クロスボーンズ」のプライオリティ修正。[Aaron Giles]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 「霊界導士」にサウンド追加。[Nicola Salmoria]
+
+
+その他ドライバの変更：
+----------------------
+
+- 「ファイヤートラップ」の8751プロテクトのシミュレート。[Bryan McPhail]
+
+
+新規サポートゲーム：
+--------------------
+
+Tickee Tickats [Aaron Giles]
+クラウンズゴルフ [Aaron Giles]
+Ultimate Tennis [Aaron Giles, Nicola Salmoria]
+Stone Ball [Aaron Giles, Nicola Salmoria]
+Cheese Chase [Aaron Giles, Nicola Salmoria]
+麻雀 個人教授 (Private Teacher) [Nicola Salmoria]
+マージャンビタミンC [Nicola Salmoria]
+麻雀用語の基礎体力 [Nicola Salmoria]
+麻雀　禁じられたあそび - イケイケ教師の欲望 [Nicola Salmoria]
+麻雀レモンエンジェル [Nicola Salmoria]
+麻雀女学園 [Nicola Salmoria]
+麻雀いかがですか [Nicola Salmoria]
+雷牙 - Strato Fighter
+エドワードランディ [Bryan McPhail]
+Mutant Fighter / デスブレイド [Bryan McPhail]
+Wizard Fire / ダークシールII [Bryan McPhail]
+Zombie Raid [David Haywood]
+エンフォース
+Shot Rider [Tomasz Slanina]
+
+
+新規サポートクローン：
+----------------------
+
+Shadow Warriors / 忍者龍剣伝 (set 2)
+Carrier Air Wing / USネイビー(US)
+七対子 (= 麻雀学園)
+麻雀ナンパストーリー (Ura)

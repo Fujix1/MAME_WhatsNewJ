@@ -1,0 +1,74 @@
+0.67
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+rocnrope37b7ora [Nicola Salmoria]
+m62sound066yel
+bladstle065gra   [Jake Stookey]
+poundfor37b14gra (2つ目の項目だけ) [Jake Stookey]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- M72ゲームのサンプル再生修正。[Nicola Salmoria]
+
+-「Battle Rangers」に音楽追加。[Charles MacDonald]
+
+
+その他ドライバの変更：
+----------------------
+
+- ゲーム名・フラグの訂正を数十本。[Toby Broyad]
+
+- 「V'BALL」でいろいろ改善。[Steve Ellenoff]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- 新オプション-autoror/-autorol追加。これは縦画面ゲームのときだけ画面を
+  回転します。回転型液晶モニタで便利です。[Paul Priest]
+
+
+ソース：
+--------
+
+- MIPS 3/4 x86ダイナミックリコンパイルコア。[Aaron Giles]
+
+- PIC16C5x CPUコア。 [Quench]
+
+- Sega 315-5560 "マルチPCM"サウンドチップエミュレーション。[R. Belmont]
+
+- HuC6280サウンドエミュレーション。[Charles MacDonald]
+
+
+新規サポートゲーム：
+--------------------
+
+ミスティックウォリアーズ [R. Belmont, Phil Stroffolino]
+ガイアポリス [R. Belmont, Phil Stroffolino]
+メタモルフィックフォース [R. Belmont, Phil Stroffolino]
+究極戦隊ダダンダーン [R. Belmont, Phil Stroffolino, Acho A. Tang]
+バイオレントストーム [R. Belmont, Phil Stroffolino, Acho A. Tang]
+ツインビーヤッホー! [R. Belmont, Phil Stroffolino, Acho A. Tang]
+マーシャルチャンピオン [R. Belmont, Phil Stroffolino, Acho A. Tang]
+リーサルエンフォーサーズ2 [R. Belmont, Phil Stroffolino, Olivier Galibert]
+対戦ぱずるだま [R. Belmont, Phil Stroffolino, Olivier Galibert]
+極上パロディウス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+セクシーパロディウス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+だい好キッス [R. Belmont, Phil Stroffolino, Olivier Galibert]
+対戦とっかえだま [R. Belmont, Phil Stroffolino, Olivier Galibert, David Haywood]
+ガーディアンズ / Denjin Makai II [Luca Elia]
+ドラゴンガン [Bryan McPhail]
+タトゥーアサシン [Bryan McPhail]
+Locked'n Loaded / ガンハード [Bryan McPhail]
+Dead Angle / リードアングル [Bryan McPhail, David Haywood]
+Dragon Master [David Haywood, Quench]
+Las Vegas Girl (Girl '94) [David Haywood]
+ハードダンク 3 on 3 [Jason Lo, R. Belmont, David Haywood]
+アウトランナーズ [Jason Lo, R. Belmont, David Haywood]
+テクモボウル [David Haywood, Tomasz Slanina]
+Complex X [Brian Crowe]

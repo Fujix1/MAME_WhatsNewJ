@@ -1,0 +1,186 @@
+0.62
+
+ライセンス変更についての注意：
+プロジェクト全体についてはGPL、CPUやサウンドコアのいくつかについてはLGPLへ、
+配布ライセンスの変更を検討しています。
+もし、あなたがMAMEにコードを提供していて、この変更に反対の場合は、今のうちに
+お知らせ下さい。
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- CPS2ゲームのラスタエフェクト改善。[Barry Rodewald]
+
+- Atari製ゲームいくつかでプライオリティ修正。[Aaron Giles]
+
+- Taito F3ゲームでの、スプライトアルファブレンディング。[Shiriru]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「アステロイド」のサウンド改善。[Ken Reneris]
+
+-「バルキューブ」「バンバンボール」、彩京ゲームにサウンド追加。[Olivier Galibert]
+
+- セタ製ゲームのサウンドサポートを書き直し。[Manbow-J]
+
+-「ブレイジングトルネード」にサウンド追加。[R.Belmont]
+
+-「バトルバクレイド」のサウンド修正。[R.Belmont]
+
+- NeoGeoゲームの一部で音がおかしくなっていたのを修正。特にkof99の“How to play”の
+  ループや、shocktroのデモ終了時の音が鳴っていなかったのなど。[ElSemi]
+
+-「ハードドライビン」にサウンド追加。[Aaron Giles]
+
+
+その他ドライバの変更：
+----------------------
+
+- ナムコ製ゲームのCusKeyシミュレーション追加。[John Wil]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- プログラム終了時に、キーボードLEDが変になるのを修正。[Paul Priest]
+
+- -romidentと-isknownの検索対象にTESTDRIVERも追加。[Nicola Salmoria]
+
+
+ソース：
+--------
+
+- 画面回転は、完全にOSレイヤーによるblit時に処理されるようになりました。コア側
+  では、ビットマップをあらかじめ回転させることはありません。[Aaron Giles]
+
+- 初期版YMF278Bエミュレーション（FM無し）。[R.Belmont]
+
+- SH7604内部タイマの実装。これにより、「ソルディバイド」とSuper Kaneko Nova 
+  Systemゲームにサウンド追加。[R.Belmont]
+
+- V70 CPUサポート。[Olivier Galibert]
+
+- DSP32 CPUエミュレーション。[Aaron Giles]
+
+- TMS32013 CPUエミュレーション。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+bjourney061gre
+doubledr36rc1gre [ElSemi]
+crosshairs061yel [Robin Merrill]
+tnzs36b16yel （要追加テスト）[Kale]
+deco8061red [Paul Priest]
+blstroidc061gra
+bking236b14yel [Stefan Jokish]
+bking237b14gre [Stefan Jokish]
+fround37b16gre [Bryan McPhail]
+vulcan37b13gre [Bryan McPhail]
+vulcan237b1gre [Bryan McPhail]
+vulcan137b1gre [Bryan McPhail]
+
+
+新規サポートゲーム：
+--------------------
+
+Fantasia II [Nicola Salmoria]
+Golden Fire II [Nicola Salmoria]
+Bouncing Balls [ElSemi]
+Dragon World II [David Haywood, ElSemi]
+Tengai / 戦国ブレード [Paul Priest]
+マジカルキャットアドベンチャー [Paul Priest, David Haywood]
+ノストラダムス [Paul Priest, David Haywood]
+ストライカーズ1945 [Olivier Galibert, R.Belmont]
+IPMインベーダー
+グリーンベレー
+エスケープキッズ [Ohsaki Masayuki]
+ソルバルウ [Phil Stroffolino]
+スターブレード [Phil Stroffolino]
+プロップサイクル [Phil Stroffolino]
+ラッキー＆ワイルド [Phil Stroffolino]
+スーパーワールドスタジアム'95 [Phil Stroffolino]
+メタルホーク [Phil Stroffolino]
+スティールガンナー2 [Phil Stroffolino]
+Amazon / アマテラス [Phil Stroffolino]
+キッドのホレホレ大作戦 [Phil Stroffolino, Stephane Humbert]
+超時迷宮レジオン [David Haywood, Phil Stroffolino]
+ドラゴンボールZ 2 -スーパーバトル- [David Haywood]
+大王 [David Haywood]
+サイヴァーン [Sylvain Glaize, David Haywood]
+線脳 [Sylvain Glaize, David Haywood]
+ギャルズパニック4 [Sylvain Glaize, David Haywood]
+ギャルズパニックS [Sylvain Glaize, David Haywood]
+ギャルズパニックS2 [Sylvain Glaize, David Haywood]
+パニックストリート [Sylvain Glaize, David Haywood]
+パズループ [Sylvain Glaize, David Haywood]
+ジャンジャンパラダイス [Sylvain Glaize, David Haywood]
+ジャンジャンパラダイス2 [Sylvain Glaize, David Haywood]
+VS麻雀 乙女繚乱 [Sylvain Glaize, David Haywood]
+TEL雀 [Sylvain Glaize, David Haywood]
+閃激ストライカー [Sylvain Glaize, David Haywood]
+Speed Ball [Aaron Giles]
+レースドライビン [Aaron Giles]
+スティールタロンズ [Aaron Giles]
+Asylum [Aaron Giles]
+Cruis'n USA [Aaron Giles]
+クルージンワールド [Aaron Giles]
+エリア51 [Aaron Giles]
+マキシマムフォース [Aaron Giles]
+Vicious Circle [Aaron Giles]
+スカイライダー [Stefan Jokish]
+Starship 1 [Frank Palazzolo, Stefan Jokish]
+Desert War / 湾岸戦争 [David Haywood, Paul Priest, Stephane Humbert]
+セカンドアース グラティア [David Haywood, Paul Priest, Stephane Humbert]
+ゲーム天国 - ザ・ゲームパラダイス- [David Haywood, Paul Priest, Stephane Humbert]
+One Shot One Kill [David Haywood, Paul Priest, Stephane Humbert]
+テトリスプラス [David Haywood, Paul Priest, Stephane Humbert]
+ベストバウトボクシング [David Haywood, Paul Priest, Stephane Humbert]
+Super Slam [David Haywood]
+アクアリウム [David Haywood]
+S.S. Mission [David Haywood]
+Fit of Fighting [David Haywood]
+The History of Martial Arts [David Haywood]
+インドアサッカー [David Haywood]
+Diver Boy [David Haywood]
+Speed Spin [David Haywood]
+仮面ライダー倶楽部 バトルレーサー [David Haywood, Stephane Humbert]
+花六 [David Haywood, Stephane Humbert]
+Fancy World - Earth of Crisis [David Haywood, Stephane Humbert]
+フラワー [InsideOutBoy, David Haywood, Stephane Humbert]
+Ace [Jarek Burczynski]
+N.Y.キャプター [Tomasz Slanina]
+ビームインベーダー [Zsolt Vasvari]
+Zarya Vostoka [Zsolt Vasvari]
+Megadon [Mike Haaland]
+Catapult [Mike Haaland]
+4 En Raya [Tomasz Slanina]
+スカイスキッパー
+五目並べ連珠 [Takahiro Nogi]
+
+
+新規サポートクローン：
+----------------------
+
+三輪サンちゃん (= Spatter)
+ニューラリーX (縦画面、海賊版)
+ロードランナー -ザ・ディグファイト- (ver. A)
+Samurai Aces (= 戦国エース)
+ビッグストライカー (海賊版)
+X-Men (US 2 Players)
+MatchIt (= 四川省 Sichuan II)
+スーパーバスケットボール (version G)
+サンダークロスII (Asia)
+Alpha Fighter / ヘッドオン
+ドンキーコング (US set 2)
+Triple Fun (= おいしいパズルはいりませんか)
+ブランディア
+センチピード (1 player, タイマー制)
+雷電 [Taiwan]
+ゴインドル (World and Japan)
+スーパーバレーボール (US)
+ストライカーズ1945 (Japan, unprotected)

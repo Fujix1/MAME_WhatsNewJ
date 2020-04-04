@@ -1,0 +1,83 @@
+0.59
+
+
+その他ドライバの変更：
+----------------------
+
+- いろんなドライバでのinput port等の修正を大量。[Stephane Humbert]
+
+-「レインボーアイランド」と「レインボーアイランドエキストラ」のc-chipエミュレーション
+  修正。[Robert Gallagher, Tormod Tjaberg]
+
+-「スーパースティングレイ」「カイロスの館」と「ゴールドメダリスト」のほとんどの問題を
+  修正。[Acho A. Tang]
+
+
+メインプログラムへの変更：
+-------------------------
+
+- [Windows] 必要の無い場合にCPUタイムの使用率を減らすように変更。
+  -nosleepオプションでゲーム中のこの機能を無効に出来ます。[Aaron Giles]
+
+- [Windows] タイルマップ描画コードにMMXを実装。ゲームによっては5〜10%の速度改善。
+  [Andrea Mazzoleni]
+
+
+ソース：
+--------
+
+- UPD7759エミュレータ(「TMNT」などで使用)を書き直し。[Olivier Galibert]
+
+- 圧縮ハードディスクイメージをサポート。[Aaron Giles]
+
+- tilemap_mark_all_tiles_dirty()を使わずにグローバルなパレットオフセットを設定
+  できる新関数tilemap_set_palette_offset()を追加。[Aaron Giles]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+eto37b9gre
+captaven058gre_2
+captaven058gre_5
+thndrx2058red
+punchoutc37b15gre
+skyadvnt136b8gre
+gangwars37b15gre
+
+
+新規サポートゲーム：
+--------------------
+
+Police Trainer [Aaron Giles]
+Pass [David Haywood, Stephan Humbert]
+スーパーピンボールアクション [David Haywood, Stephan Humbert]
+ソルディバイド [David Haywood]
+ストライカーズ1945 II [David Haywood]
+スペースボンバー [David Haywood]
+堕落天使 - THE FALLEN ANGELS- [David Haywood]
+ガンバード2 [David Haywood]
+麻雀シスターズ [Uki]
+クイズ学園パラダイス [Uki]
+クイズDNAの反乱 [Uki]
+クイズ激烈すくらんぶる(学園パラダイス2) [Uki]
+Wild West C.O.W.boys of Moo Mesa [Olivier Galibert, R.Belmont]
+バッキーオヘア [Olivier Galibert, R.Belmont]
+Super Bug [Stefan Jokisch]
+パドルマニア [Acho A. Tang]
+Scorpion [Stephane Humbert]
+
+
+新規サポートクローン：
+---------------------
+
+Dynasty Wars (World)
+キャプテンアメリカ (Japan)
+グラディウス3 (World?)
+マジカルクリスタルズ (World)
+クリスタルキャッスル (version 4)
+ムーンクレスタ (Nichibutsu set 2)
+ギャラクシアン (Midway, old rev)
+Pisces (original)
+悪魔城ドラキュラ (Japan version N)
+超絶倫人ベラボーマン (Japan version B)

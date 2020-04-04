@@ -1,0 +1,57 @@
+0.56
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「ぐるりん」を修正。[Miguel Angel Horna]
+
+- Kaneko16ゲームのラスタスクロール。[Luca Elia]
+
+-「Demon」のオーバーレイ。[Pete Ashdown]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+-「ベンチャー」他、Exidy製ゲームのサウンド修正。[Aaron Giles]
+
+
+メインプログラムへの変更：
+--------------------------
+
+- チートエンジンをアップデート。[Ian Patterson]
+
+
+ソース：
+--------
+
+- V60 CPUコア。[Farfetch'd, R.Belmont]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+-------------------------------------------
+
+quizkof37b4gre
+speedfrk055yel
+vectorsshot055gre
+chasehq055gre
+blazstar37b16gre
+mazinger053gre
+block37b14yel
+spacfury36finalgre
+
+
+新規サポートゲーム：
+--------------------
+
+ウォーターマッチ [Nicola Salmoria]
+Spatter / 三輪サンちゃん [Nicola Salmoria]
+ラフレシア [Chack'n]
+子育てクイズ マイエンジェル [Luca Elia]
+子育てクイズ マイエンジェル2 [Luca Elia]
+パズルDEボーリング [Luca Elia]
+カメレオン [Luca Elia]
+わい・ワイジョッキー ゲート・イン！ [Luca Elia]
+Metamoqester / 隠忍 -ザ・ニンジャマスター [Luca Elia]
+Star Guards [Aaron Giles]

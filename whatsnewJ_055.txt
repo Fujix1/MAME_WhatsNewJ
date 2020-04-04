@@ -1,0 +1,73 @@
+0.55
+
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+- Taito Zシステムのゲームでの初期版道路表示サポート。[David Graves]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- AY8910とYM2203の同時使用をサポート。これで「シティコネクション」のサウンド
+  が修正。[Tatsuyuki Satoh]
+
+-「Money Money」「Jack Rabbit」にサウンド追加。[Nicola Salmoria]
+
+
+ソース：
+--------
+
+- ベクターゲームでダイレクトRGBモードを使うように変更。[Mathis Rosenhauer]
+
+- 新データタイプpen_t追加。ペンとカラーテーブルを扱う際にUNIT32の代りに使用。
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+3wonders054gre
+artwork054gre
+bssoccer054gre
+bublbobl054red
+cps2c054ora
+drtoppel054gre
+galaxian053gre
+ghostb054yel
+holeland37b10gre
+konami054red
+madmotor054gre
+mrgoemon37b9gre
+offroad054gre
+sharkatt37b15red
+stfight054red
+tailg054gre
+ym2151_054yel
+
+
+新規サポートゲーム：
+--------------------
+
+Ninja Baseball Batman / 野球格闘リーグマン [Bryan McPhail]
+Sports Match / ドラゴンパンチ [Sports Match]
+ゼロアワー [David Haywood]
+スカイスマッシャー [David Graves]
+ニューヨークニューヨーク [Darren Olafson]
+Crazy Rally [Mathis Rosenhauer]
+Space Fortress [Mike Coates]
+ウルトラマン倶楽部〜戦え！ウルトラマン兄弟!!〜 [Luca Elia]
+
+
+新規サポートクローン：
+---------------------
+
+ドリームサッカー'94 (Japan)
+スペースインベーダーDX (Japan v2.0)
+Typhoon (= A-JAX)
+ランボーIII (Europe set 2)
+スペースインベーダーDX (US)
+The Hand (=Got-Ya)
+Ms. Pacman Champion Edition / Super Zola Pac Gal
+功里金団 (Japan, US)
+Blomby Car (encrypted)

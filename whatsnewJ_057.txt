@@ -1,0 +1,154 @@
+0.57
+
+グラフィックの改善したドライバ：
+--------------------------------
+
+-「Quantum」の表示色修正。[Aaron Giles]
+
+- Taito F3システムにいろいろな修正。[Bryan McPhail]
+
+-「バトルシティー」「VS. Tetris」、その他vsnesドライバの表示色修正。[Kale]
+
+-「バンバンカー」の背景色修正。[Nicola Salmoria]
+
+
+サウンドの改善したドライバ：
+----------------------------
+
+- 054539にリバーブ追加。「ゼクセクス」「ツインビーヤッホー」のサウンド改善。
+  [Olivier Galibert]
+
+-「フェアリーランドストーリー」と「バギーチャレンジ」でMSM5232のサポート。
+  [Jarek Burczynski]
+
+-「ツインビー」で鳴っていなかったボイスを修正。[Uki]
+
+-「きらめきスターロード」のサウンド修正。[Uki]
+
+
+その他ドライバの変更：
+----------------------
+
+-「Bonze Adventure / 地獄めぐり」のC-Chipシミュレーションを改善。
+  [Stefan Jokisch, Ruben Panossian]
+
+-「ポップフレーマー」のプロテクトをシミュレート。[Paul Priest]
+
+
+ソース：
+--------
+
+- 新関数get_black_pen()追加。fillbitmap()により、パレットエントリに依存せずに
+  背景を黒くすることができます。
+
+- MSM5232サウンドエミュレータ。[Jarek Burczynski, Hiromitsu Shioya]
+
+- BSMT2000サウンドエミュレータ。[Aaron Giles]
+
+- YM2203に、SSG EGタイプのサポートを追加(YM2203はこれで完成)。
+  これにより、「ヘビーバレル」1面スタート時のサウンドや、その他のゲーム(「ダー
+  クシール」など)でのSEが修正されました。[Jarek Burczynski]
+
+- Z180エミュレータ。[Juergen Buchmueller]
+
+- NEC V30逆アセンブラのバグを修正。[Bart]
+
+- I86エミュレーションでのOUTSB/OUTSWバグを修正。[Julien Frelat]
+
+
+MAME Testers 修正項目(多分もっとあるはず)：
+------------------------------------------
+
+gameplan055red
+wwfmaniab13gre
+dariusg053gre
+taitof3c053yel
+ridingf053gre
+elvactr37b15gre
+asukac37b16gre1.
+paperboy055yel
+alleymas055yel
+alpha68k055red
+brkthruc055red
+ajax056red
+champbas056gre
+msword056gre
+cvs056gre
+ironhors056gre
+gunbird056red (to be checked)
+snowbros056gre
+razmataz056yel
+exterm055red
+harddriv055red
+captcomm36b11yel
+ghouls37b11gra
+rbibb37b11red
+excitbkj37b15gre
+truxton2055gra
+
+
+新規サポートゲーム：
+-------------------
+
+クイズココロジー2 [Luca Elia]
+アクウギャレット / Air Gallet [Luca Elia]
+ドラマチックアドベンチャークイズ キース&ルーシィ [Luca Elia]
+サバイバルアーツ [Luca Elia]
+ドリフトアウト '94 - The Hard Order [Luca Elia]
+ラブリーポップ麻雀 雀々しましょ [Luca Elia]
+メオシスマジック [Luca Elia]
+麻雀ハイパーリアクション2 [Luca Elia]
+モンスタースライダー [Luca Elia]
+グルメバトルクイズ 料理王クッキング [Luca Elia]
+パチンコ セクシーリアクション [Luca Elia]
+ウィッツ [Luca Elia]
+SDガンダム -サイコサラマンダーの脅威- [Bryan McPhail]
+サブロック3D [Aaron Giles]
+Buck Rogers: Planet of Zoom [Aaron Giles]
+Revolution X [Aaron Giles]
+Battle Toads [Aaron Giles]
+Playball! [Aaron Giles]
+アクロバットミッション [Bryan McPhail]
+デストロイヤー [Stefan Jokisch]
+女三四郎 / Typhoon Gal [Uki]
+40-0　(フォーティラブ) [Uki]
+ザ・運動会 [Uki]
+ウェルトリス [David Haywood]
+ウルトラ(秘)マージャン [Takahiro Nogi]
+麻雀恋愛倶楽部 [Takahiro Nogi]
+クリスタルギャル [Takahiro Nogi]
+宇宙より愛をこめて [Takahiro Nogi]
+AV2麻雀No.2 ルージュの香り [Takahiro Nogi]
+列島縦断 熱局雀士 -東日本編- [Takahiro Nogi]
+勝ち抜き麻雀戦 お雀子館 [Takahiro Nogi]
+勝ち抜き麻雀戦 お雀子館 2番館 [Takahiro Nogi]
+チャイニーズカジノ [Takahiro Nogi]
+お雀子ハイスクール [Takahiro Nogi]
+対戦アイドル麻雀 ファイナルロマンス2 [Takahiro Nogi, Uki]
+対戦麻雀 ファイナルロマンスR [Takahiro Nogi, Uki]
+対戦麻雀 ファイナルロマンス4 [Takahiro Nogi, Uki]
+麻雀ポン珍かん [Takahiro Nogi, Uki]
+モザイク [Nicola Salmoria]
+スカイベース [inside out boy]
+カージャンボリー [inside out boy]
+ポッパー [inside out boy]
+スーパークロスII [inside out boy]
+霊界導士 -チャイニーズエクソシスト- [Phil Stroffolino]
+F/A [Phil Stroffolino]
+ニューマンアスレチックス [Phil Stroffolino]
+
+
+新規サポートクローン：
+---------------------
+
+Road Blasters (set 2)
+ブロックアウト (Japan)
+マージャン クラブ90's (set 2)
+ポップフレーマー (protected)
+ガンバード (Korea)
+ホラーストーリー / Demon's World (set 2)
+美少女戦士セーラームーン (set 2)
+Space Echo (= スピーク&レスキュー)
+ヴォルフィード (US & World)
+首領蜂 (Korea)
+Catch-22 (= Combat)
