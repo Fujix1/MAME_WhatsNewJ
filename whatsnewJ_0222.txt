@@ -1240,327 +1240,330 @@ vsmilem_cart:
    - nlwavをローカルのVS 2019ビルドに追加
 
 - raiden2.cpp: U0342 PALをROM定義に追加。[neSneSgB]
- * https://twitter.com/neSneSgB/status/1232115385303879680 Discussion starting here, I successfully dumped a .jed from a location
-    test US Raiden 2, and confirmed that the dump worked on a final Raiden 2 PCB. The .jed is downloadable from that thread, and I
-    converted it to a binary using jedutil to generate the CRC and SHA1.
+ * https://twitter.com/neSneSgB/status/1232115385303879680 議論はコチラで始まっていて、US版の「雷電II」ロケーションテスト版から.jed
+   を吸い出し成功。「雷電II」のファイナル基板で動作を確認
 
-- ht68k: Fix floppy boot for kos [AJR]
+- ht68k: kosのフロッピー起動修正。[AJR]
 
-- New working clones [braintro]
+- 新規動作クローン。[braintro]
 
-- Made World Class Bowling Deluxe & World Class Bowling Tournament v1.40 clones of World Class Bowling.  The new working World Class
- Bowling Tournament v1.30 doesn't have the flash bowling and the backgrounds are red like WCB, Deluxe and v1.40T have flash bowling
- and a blue background. [braintro]
+-「World Class Bowling Deluxe」と「World Class Bowling Tournament v1.40」を「ワールドクラスボウリング」のクローンに設定。
+　 新しい「World Class Bowling Tournament v1.30」はフラッシュボウリングが無く、WCBのように背景が赤い。Deluxeとv1.40Tはフラッシュボウ
+　 リングがあって背景が青い。[braintro]
 
-- compis.xml: Add 8 new software [FakeShemp]
+- compis.xml: 8本ソフト追加。[FakeShemp]
 
-- ncr5380n: exit infinite loop (nw) [Patrick Mackinlay]
+- ncr5380n: 無限ループから脱出。(nw) [Patrick Mackinlay]
 
-- compis.xml: fixed following validation errors (nw) [Ivan Vangelista]
+- compis.xml: 以下のバリデーションエラー修正。(nw) [Ivan Vangelista]
  * Errors: Software List device 'flop_list': compis.xml: skvallra part flop1 ROM label 'Far dataregister skvallra.mfm' contains
     invalid characters Software List device 'flop_list': compis.xml: skvallrak part flop1 ROM label 'Far dataregister skvallra
     (Komplement).mfm' contains invalid characters
 
-- z80scc: don't invent data (nw) [Patrick Mackinlay]
+- z80scc: データはでっち上げない。(nw) [Patrick Mackinlay]
 
-- Fixed regression in peps0615 introduced in 635f469c7dd0b5166455bafeddb0e898b1081165, the game writes to the page buffer then sends
- a spurious start condition before the stop condition that writes the buffer. [smf]
- * Created i2cmem sub classes for all used device types, fixed the buffer sizes that were wrong, removed the methods for modifying
-    the data & buffer sizes and changed the drivers to use the correct types. [smf]
-   - Switched aa310 & ertictac over to use device/machine/pcf8583.cpp, which is not currently based on i2cmem.cpp but might be worth
-      merging in the future. [smf]
+- 635f469c7dd0b5166455bafeddb0e898b1081165で起きたpeps0615の不具合修正。ゲームはページバッファに書き込んでから、バッファに書き込みを
+  するストップコンディションの前に、偽のスタートコンディションを送信する。[smf]
+ * 使われているすべてのデバイスタイプようにi2cmemサブクラスを作成。間違ったバッファサイズを修正。データとバッファサイズを変更するメ
+   ソッドを削除。正しいタイプを使用するようにドライバを変更。[smf]
+   - aa310とertictacで、 device/machine/pcf8583.cppを使うように切り替え。これは今の所i2cmem.cppベースではないが、将来のためにマージ
+     する価値ありである [smf]
 
-- delta1: add note (nw) [hap]
+- delta1: ノート追加。(nw) [hap]
 
-- attotime: Add to_string() to get a human-readable version of the time [O. Galibert] 6522via: Correct vocabulary, raise cb2 on shift
- in to make open-collector work correctly [O. Galibert] mackbd: Fix/partially rewrite [O. Galibert] mac128: Make emulated keyboard
- work [O. Galibert]
+- attotime: 時間が人間が読めるようにするto_string()を追加。[O. Galibert]
 
-- delta1: 1 variable was missing for savestate (nw) [hap]
+- 6522via: ボキャブラリーの訂正。オープンコレクタがただしく動作するようにシフトじにcb2をレイズ。[O. Galibert]
 
-- Thanks clang (nw) [Olivier Galibert]
+- mackbd: 修正と部分的に書き直し。[O. Galibert]
 
-- Add partial support for all IAC messages [Damian Rogers]
+- mac128: エミュレートしたキーボードが動作するように修正。[O. Galibert]
 
-- (nw) nes.xml : guardlgn and clones never worked, so marked as unsupported. [Robbbert]
+- delta1: セーブステートに変数が1個足りなかった。(nw) [hap]
 
-- m68kfpu: add fmod instruction (nw) [Patrick Mackinlay]
+- clangすごい。(nw) [Olivier Galibert]
 
-- nw: 6309 fix my fix [tim lindner]
+- 全IACメッセージの部分サポート。[Damian Rogers]
 
-- New NOT_WORKING software list additions (#6649) [ClawGrip]
+- (nw) nes.xml: guardlgnとクローンは動いたことがないので未サポートにマーク。[Robbbert]
 
-- (nw) Also added a partial dump (missing one CD) of IRIX 6.5.13 [ClawGrip]
+- m68kfpu: fmod命令追加。(nw) [Patrick Mackinlay]
+
+- nw: 6309の修正。[tim lindner]
+
+- 新しい動作不可ソフトリスト項目の追加。(#6649) [ClawGrip]
+
+- (nw) IRIX 6.5.13の部分的な吸い出し追加(CDが一枚不足)。[ClawGrip]
 
 - sgi_mips: ソフトリストの追加。[Davide Cavalca]
 
-- Fix for UI Paste with the Default Serial Terminal (#6648) [Frank Palazzolo]
- * This fixes the ability for one to use UI Paste with the Default Serial Terminal.  Without this fix, 8 characters @^&()\:" cannot
-    be pasted from the UI.
+- デフォルトシリアルターミナルとUIペーストについて修正。(#6648) [Frank Palazzolo]
+ * この修正はデフォルトシリアルターミナルでUIペースト使う人向けです。この修正が無いと、8つの文字「@^&()\:"」をUIからペーストできませ
+   ん。
 
-- New working machines [Frank Palazzolo]
+- 新規動作可能マシン。[Frank Palazzolo]
  * Grant Searle's Simple Z80
  * Grant Searle's Simple CP/M
  * Grant Searle's Simple 6502
  * Grant Searle's Simple 6809
 
-- cgenie_cass.xml:  Fixed incorrect SHA1 hash for polepos (nw) [Scott Stone]
+- cgenie_cass.xml: poleposのSHA1ハッシュ間違い修正。(nw) [Scott Stone]
 
-- sgi_mips.xml:  Fixed -validate error regarding duplicate description in use (nw) [Scott Stone]
+- sgi_mips.xml: ディスクリプションの重複に関連する-validateエラーを修正。(nw) [Scott Stone]
 
-- (nw) fixed the build. [Robbbert]
+- (nw) ビルド修正。[Robbbert]
 
-- c140.cpp updates [cam900, superctr]
- * Update data bus behavior and support 12 bit PCM, Verified from assault(namcos2) schematics Add/Update notes, Use shorter/correct
-    type values, Fix address/data bus bits, Mordernize save states, Fix spacing, Reduce unnecessary lines, duplicates, Move little
-    endian interface in c140.h namcos2.cpp, namcos21*.cpp: Fix c140 ROM loading, mirrored maps
- * Move bankswitch behaviors in each drivers, Reduce noisy sound regression in previous commit remain in vgmplay for compatiblity
- * Split C219 subclass
- * Implement some features from QuattroPlay.  Add notes, Split sound stream update and host interface
+- c140.cppを更新: [cam900, superctr]
+ * データバスの動作を更新して12ビットPCMをサポート。assault(namcos2)の回路図で検証。ノートの追加と更新。タイプ値を短縮、または訂正。
+   アドレスとデータバスビットを修正。セーブステートのモダン化。スペースの修正。不要行、重複の削除。c140.hのリトルエンディアンインタ
+   フェースをを移動
+   namcos2.cpp, namcos21*.cpp: c140 ROMのロード修正。マップのミラーリング
+ * 各ドライバのバンク切り替え処理を移動。互換性のため、以前のコミットでvgmplayでノイズが乗っていたのを低減
+ * C219サブクラスを分割
+ * QuattroPlayから機能を取り込み。ノート追加。サウンドストリームの更新とホストインタフェースを分離
 
-- Replaced Vsmile Motion BIOS with a correct dump [Sean Riddle, TeamEurope]
+- Vsmile Motion BIOS を正しく吸い出したものに置き換え。[Sean Riddle, TeamEurope]
 
-- Revert "c140.cpp updates [cam900, superctr]" [R. Belmont]
- * This reverts commit 5852df508676e7976234956434cad2905a7cf8e5.
+- "c140.cppの更新。[cam900, superctr]"を巻き戻し。 [R. Belmont]
+ * 以下のコミットを巻き戻し: 5852df508676e7976234956434cad2905a7cf8e5
 
-- netlist: add elif processing to preprocessor. [Couriersud]
+- netlist: プロプロセッサにelifの処理追加。[Couriersud]
 
-- sgi_mips.xml: Fix spacing (nw) [ClawGrip]
+- sgi_mips.xml: スペーシング修正。(nw) [ClawGrip]
 
-- mac128: cleanup and removal of keyboard HLE (nw) [arbee]
+- mac128: キーボードHLEのクリーンアップと削除。(nw) [arbee]
 
-- (nw) super80 : save state support [Robbbert]
+- (nw) super80 : セーブステートのサポート。[Robbbert]
 
-- (nw) super80: no error, but variable doesn't always exist there. [Robbbert]
+- (nw) super80: エラーはないが、変数が常にそこに存在しない。[Robbbert]
 
-- Fix focus command (nw) [AJR]
+- フォーカスコマンド修正。(nw) [AJR]
 
-- chess* misc cleanup (nw) [hap]
+- chess*のいろいろなクリーンアップ。(nw) [hap]
 
-- Fix clang nltool build [-Werror,-Wunused-private-field] (nw) [AJR]
+- clang nltoolビルドの修正。[-Werror,-Wunused-private-field] (nw) [AJR]
 
-- sf: Add the i8751 dump, remove the protection HLE [O. Galibert, FabC]
+- sf: i8751の吸い出し追加。プロテクトHLEの削除。[O. Galibert, FabC]
 
-- c140.cpp updates [cam900, superctr]
- * Update data bus behavior and support 12 bit PCM, Verified from assault(namcos2) schematics
- * Add/Update notes, Use shorter/correct type values, Fix address/data bus bits, modernize save states, Fix spacing, Reduce
-    unnecessary lines, duplicates, Move little endian interface in c140.h
- * Move bankswitch behaviors in each drivers, Reduce noisy sound regression in previous commit remain in vgmplay for compatiblity
- * Implement some features from QuattroPlay
- * Split sound stream update and host interface
+- c140.cppを更新: [cam900, superctr]
+ * データバスの動作を更新して12ビットPCMをサポート。assault(namcos2)の回路図で検証。ノートの追加と更新。タイプ値を短縮、または訂正。
+   アドレスとデータバスビットを修正。セーブステートのモダン化。スペースの修正。不要行、重複の削除。c140.hのリトルエンディアンインタ
+   フェースをを移動
+   namcos2.cpp, namcos21*.cpp: c140 ROMのロード修正。マップのミラーリング
+ * 各ドライバのバンク切り替え処理を移動。互換性のため、以前のコミットでvgmplayでノイズが乗っていたのを低減
+ * C219サブクラスを分割
+ * QuattroPlayから機能を取り込み。ノート追加。サウンドストリームの更新とホストインタフェースを分離
 
-- Debugger - add `-debuglog` option to log debug console output to file [Stephen Oberholtzer]
- * When this option is specified, all console output is echoed to a log file.
-   - Some caveats/limitations:
-     * The file-open process was copied from -log, so it has the same limits
-     * Filename is hard-coded (debug.log)
-     * File is overwritten if it exists
-     * File is opened during emulation initialization
-     * Thus, the file is cleared if you invoke the "Hard Reset" debugger command
-     * Probably some other details I don't know about
-     * Logging works as such: When a string is appended to the scrollback buffer, it is also written to the log file.
-     * Some commands forcibly wrap their output (e.g. `help` to 80 columns.) Because this wrapping is done inside the scrollback
-        buffer, the text written to the file is not wrapped.
-     * This can be seen with `help execution`.
+- デバッガ - デバッグコンソールのファイル出力-debuglogオプション追加。[Stephen Oberholtzer]
+ * このオプションを指定すると、コンソール出力はすべてファイルにログされます
+   - 注意点と制限:
+     * ファイルオープンのプロセスは -log からコピーしたので、同様の制限があります
+     * ファイル名はハードコードされてます(debug.log)
+     * 既存ファイルは上書きされます
+     * ファイルはエミュレーション初期化時にオープンされます
+     * なので、デバッガコマンドでハードリセットするとファイルはクリアされます
+     * その他にも私が知らないことがあるでしょう
+     * ログ処理は次のように動作: スクロールバックバッファに文字列が追加されると、ログファイルにも書き込まれます
+     * 一部のコマンドは強制的にラップされません(例、`help`を80カラムに)。この処理はスクロールバックバッファ内で行われるので、
+       ファイルに書き込まれるテキストはラップされません
+     * `help execution`で再現できます
 
-- fix HFE disk write [Klaus Kaempf]
- * this fixes https://mametesters.org/view.php?id=7526
+- HFEディスク書き込みの修正。[Klaus Kaempf]
+ * これを修正 https://mametesters.org/view.php?id=7526
 
-- phantom: missed one (nw) [hap]
+- phantom: 一つなかった。(nw) [hap]
 
-- nes.xml, famicom_flop.xml, msx1_car.xml: minor metadata fixes [quasiscroto]
+- nes.xml, famicom_flop.xml, msx1_car.xml: メタデータの修正。[quasiscroto]
 
-- sgi_mips.xml: Typo (nw) [ClawGrip]
- * (nw) Sorry, my fault
+- sgi_mips.xml: タイポ。(nw) [ClawGrip]
+ * (nw) すまない、私のミス
 
-- pic8259: z80/8085 slave pics need 32 bit vectors (nw) [cracyc]
+- pic8259: z80/8085スレーブPICは32ビットベクタが必要。(nw) [cracyc]
 
-- qx10: new charrom dump (nw) [cracyc]
+- qx10: charromの新規吸い出し。(nw) [cracyc]
 
-- ncr5380: minor fixes (nw) [Patrick Mackinlay]
- * phase match isn't latched
- * corrected eop handling
+- ncr5380: マイナーな修正。(nw) [Patrick Mackinlay]
+ * フェーズマッチがラッチされてない
+ * eop処理修正
 
-- netlist: move nld_power_pins to nl_base.h (nw) [couriersud]
- * This removes a large number of dependencies on nlid_system.h.
+- netlist: nld_power_pinsをnl_base.hに移動。(nw) [couriersud]
+ * これにより、nlid_system.hへの依存性を大幅解消
 
-- netlist: fix dependency building for nvcc build. (nw) [couriersud]
+- netlist: nvccビルドの依存的ビルド修正。(nw) [couriersud]
 
-- netlist: reduce usage of NETLIB_CONSTRUCTOR_DERIVED. (nw) [couriersud]
- * Reduce the usage of NETLIB_CONSTRUCTOR_DERIVED to implement dip package objects. This aligns the programmatic approach with the
-    approach used in the macro folder, i.e. using netlists.
-   - Untangle model definition and interpretation as well.
-     * This changes are a first step in aligning models and families and thus simplify the source further.
+- netlist: NETLIB_CONSTRUCTOR_DERIVEDの使用箇所削減。(nw) [couriersud]
+ * dipパッケージオブジェクトの実装のため、NETLIB_CONSTRUCTOR_DERIVEDを削減。マクロフォルダでのアプローチに対するプログラミックな
+   アプローチに連携
+   - モデル定義とインタープリテーションを整理
+ * この変更はモデルとファミリーの連携に対する最初のステップで、ソースをさらにシンプルにするものです
 
-- netlist: bug fixes and maintenace. (nw) [couriersud]
- * nlwav: remove m_channels completely
- * nltool: add more comments to static_solvers.cpp
- * clang make: add -Wunused-private-field
- * Also updated static_solvers.cpp.
+- netlist: バグ修正とメンテナンス。(nw) [couriersud]
+ * nlwav: m_channelsを完全削除
+ * nltool: static_solvers.cppにコメント追加
+ * clang make: -Wunused-private-fieldを追加
+ * static_solvers.cppも更新
 
-- z80scc: clear IUS not IP (nw) [Patrick Mackinlay]
+- z80scc: IPでなくIUSをクリア。(nw) [Patrick Mackinlay]
 
-- 6522via: Don't lose sync on edge count when the serial clock is external [O. Galibert] mac: Don't go out-of-bounds on palette
- writes [O. Galibert]
+- 6522via: シリアルクロックが外部のとき、エッジカウントで同期がずれないように修正。[O. Galibert] 
 
-- adb: Fix return when no data [O. Galibert]
+- mac: パレット書き込みでアウトオブバウンズにならないよう修正。[O. Galibert]
 
-- news_68k: wip (nw) [Patrick Mackinlay]
- * SCSI irq is probably routed through dmac, which has no eop.
+- adb: データが無いときの返り値修正。[O. Galibert]
+
+- news_68k: WIP。(nw) [Patrick Mackinlay]
+ * SCSI IRQは多分DMAC経由。EOPは持たない
 
 - コンパイル修正。(nw) [couriersud]
 
-- Fix colors in williams games. (nw) [couriersud]
- * This fixes color issue introduced by mysticm changes. I left mysticm as it was.
+- Williamsゲームの色修正。(nw) [couriersud]
+ * mysticmの変更で起きた色の問題修正。mysticmはそのままにしていた
 
-- gp9001.cpp : Fix MT 07642 [cam900]
+- gp9001.cpp : MT 07642を修正。[cam900]
 
-- netlist: Fix VCCS definition. (nw) [couriersud]
+- netlist: VCCS定義の修正。(nw) [couriersud]
 
-- CoCo: Added Disto RAM cartridge (#6664) [tim lindner]
- * adding disto ram cart
- * logging update
- * minor change stil no worky
- * DSTOTEST.BIN passed tests.
+- CoCo: Disto RAMカセット追加。(#6664) [tim lindner]
+ * disto RAMカセット追加
+ * アップデートのログ出力
+ * マイナーな変更。まだ動かん
+ * DSTOTEST.BINでテストにパス
 
-- i8085: Stop in debugger after an interrupt is taken, not immediately before [AJR]
+- i8085: 割り込み後にデバッガで一時停止。割り込み直前ではなく。[AJR]
 
-- nscsi hle: Reset on reset [O. Galibert]
+- nscsi hle: リセット時にリセット。[O. Galibert]
 
-- fp6000: Rewrite driver [Dirk Best]
- * Add and hook up interrupt controller and timer
- * Add keyboard support (HLE)
- * Clean up and improve graphics handling
- * Add initial cassette support (not working)
- * Add centronics printer support
- * Add beeper
- * More info to dip switches
+- fp6000: ドライバの書き直し。[Dirk Best]
+ * 割り込みコントローラとタイマーの追加と実装
+ * キーボードをサポート(HLE)
+ * グラフィック処理の整理と改良
+ * カセットサポート(動作せず)
+ * セントロニクスプリンタをサポート
+ * ビーパーを追加
+ * DIPスイッチの情報追加
 
-- v4dealem: Fix gfxdecode color amount (nw) [Dirk Best]
+- v4dealem: gfxdecodeの色数を修正。(nw) [Dirk Best]
 
-- pic8259: Emulate three-cycle acknowledge for non-8086 mode [AJR]
+- pic8259: 非8086モードのスリーサイクルアクナレッジをエミュレート。[AJR]
 
-- add init to convert twinbeeb bubble dump into something the driver can actually use (nw) (#6646) [David Haywood]
- * add init to convert twinbeeb bubble dump into something the driver can actually use (nw)
- * note checksum of reencoded data created by our function (nw)
+- twinbeebのバブルメモリー吸い出しをドライバで実際に使えるように変換するinit処理。(nw) (#6646) [David Haywood]
+ * この機能で生成した再エンコードデータのチェックサムをノートに追加 (nw)
 
-- xbox_nv2a.cpp: more precise implementation of rcc and rcp vertex shader instructions (nw) [yz70s]
+- xbox_nv2a.cpp: rccとrcp頂点シェーダ命令をより正確に実装。(nw) [yz70s]
 
-- Remove 2 comments about correct changes (nw) [yz70s]
+- 正しい変更についての2つのコメントを削除。(nw) [yz70s]
 
-- subsino2.cpp: MT7634 and MT7635 (nw) [Ivan Vangelista]
+- subsino2.cpp: MT7634とMT7635。(nw) [Ivan Vangelista]
 
-- circus.cpp, subsino.cpp: amendments to my previous commits (nw) [Ivan Vangelista]
+- circus.cpp, subsino.cpp: 前の自分のコミットを修正。(nw) [Ivan Vangelista]
 
-- (nw) fp6000: cassette save working [Robbbert]
+- (nw) fp6000: カセットセーブ動作可能。[Robbbert]
 
-- ladybug.cpp: MT7629 (nw) [Ivan Vangelista]
+- ladybug.cpp: MT7629。(nw) [Ivan Vangelista]
 
-- tx1.cpp: adjusted analog steering [Guru]
+- tx1.cpp: アナログステアリングの調整。[Guru]
 
-- pacman.cpp: MT7591 (nw) [Ivan Vangelista]
+- pacman.cpp: MT7591。(nw) [Ivan Vangelista]
 
-- Fix recent debugger regression with systems such as fi6845/fi8275 where a DMAC or other non-focusable executing device is scheduled
- first of all (nw) [AJR]
+- fi6845/fi8275のようなDMACや他のフォーカスできない実行中デバイスが最初にスケジュールされているシステムで最近起きたデバッガ不具合修
+  正。(nw) [AJR]
 
-- slapfght.cpp: MT07198 (nw) [Ivan Vangelista]
+- slapfght.cpp: MT07198。(nw) [Ivan Vangelista]
 
-- megadriv.xml: MT07171 (nw) [Ivan Vangelista]
+- megadriv.xml: MT07171。(nw) [Ivan Vangelista]
 
-- 8080bw.cpp: MT06898 (nw) [Ivan Vangelista]
+- 8080bw.cpp: MT06898。(nw) [Ivan Vangelista]
 
-- qx10: fix display clocks (nw) [cracyc]
+- qx10: ディスプレイクロックを修正。(nw) [cracyc]
 
-- refactor seta2.cpp in preparation for adding zooming (nw) [DavidHaywood]
+- ズーム処理追加準備としてseta2.cppをリファクタリング。(nw) [DavidHaywood]
 
-- i8085: Interrupt updates [AJR]
- * Eliminate special-casing and three-in-one loading of CALL (and JMP) vectors in favor of fetching each byte in succession like a
-    normal instruction
- * Add INTA callback, called only when INTR (and not any other interrupt) is acknowledged
- * Enforce that TRAP (NMI) must be held at a high level until acknowledgment
- * pic8259: Move recently-introduced inta_call hack down into the only Z80-based driver that still needs it. The hardware-accurate
-    way of synthesizing multiple INTA pulses in a Z80 system (which involves rerouting what would otherwise be normal memory reads)
-    is not so simple and deservedly rare. (nw)
+- i8085: 割り込み更新。[AJR]
+ * 通常の命令のように各バイトを連続で読み込みするようにするため、 CALL(とJMP)ベクターのスペシャルケーシングと、スリーインワンロード
+   を削除。
+ * INTAコールバック追加。INTRがアクナレッジされたときのみ呼び出し
+ * TRAP (NMI)はアクナレッジ前はハイレベルを強制的に保持
+ * pic8259: 最近導入されたinta_callのハックをまだ必要とするZ80ベースドライバだけに移動。実際のZ80システムで複数のINTAパルスを合成す
+   る方法はこんなに単純ではない(通常のメモリ読み込みのリルートを伴う) (nw)
 
-- c352.cpp: Allow byte accessing, Modernize save states Add notes, Use shorter/correct type/argument values [cam900]
+- c352.cpp: バイトアクセスを許可。セーブステートのモダン化。ノート追加。より短いまたは正確な型と引数値を使用。[cam900]
 
-- (nw) tdv2324: validation error [Robbbert]
+- (nw) tdv2324: バリデーションエラー。[Robbbert]
 
-- Dragon64: connected ACIA to RS232 system (#6665) [tim lindner]
- * Hooked acia to format core, and connected intruupt.
- * Fixed some spacing
- * Helpfull logging
- * removed logging
- * Comment cleaning
+- Dragon64: RS232システムにACIAを接続。(#6665) [tim lindner]
+ * フォーマットコアにacia実装。割り込み接続
+ * スペーシング修正
+ * 便利なログ出力
+ * ログ出力削除
+ * コメント整理
 
-- CoCo: added Disto no-halt disk controller (#6632) [tim lindner]
- * initial stab at the no halt floppy disk driver controller
- * removed the drive 3 and 4 like they were before
- * Clean up
- * comment fixes
- * comment fixes
+- CoCo: Disto halt無しディスクコントローラ追加。(#6632) [tim lindner]
+ * haltのないフロッピーディスクドライバコントローラ用初期スタブ追加
+ * 前のようにドライブ3と4を削除
+ * クリーンアップ
+ * コメント修正
 
-- (nw) super80: update notes [Robbbert]
+- (nw) super80: ノートを更新。[Robbbert]
 
-- (nw) jr100: added natural keyboard, updated notes. [Robbbert]
+- (nw) jr100: ナチュラルキーボード追加。ノート更新。[Robbbert]
 
-- monty, microvision: blend mode was backwards (nw) [hap]
+- monty, microvision: ブレンドモードが古かった。(nw) [hap]
 
-- (nw) jr100: corrections to the key names [Robbbert]
+- (nw) jr100: キーの名称を訂正。[Robbbert]
 
-- monty: modules were wrong way around for mmonty (nw) [hap]
+- monty: mmontyののモジュールがあべこべだった。(nw) [hap]
 
 - sgi_mips: ソフトリストの追加。[davide125]
 
-- New working software list additions (#6670) [ClawGrip]
+- 新規ソフトリスト追加項目。(#6670) [ClawGrip]
 
-- fix regression with partial revert of d3196bd99159f077316cf71e8536f41f75769ab0 (nw) [smf-]
+- d3196bd99159f077316cf71e8536f41f75769ab0の部分巻き戻しによる不具合発生を修正。(nw) [smf-]
 
-- 6801: remove hack, the real cause of adam locking up at boot was fixed recently with TCSR_OCF clear (nw) [hap]
+- 6801: ハック削除。起動時にadamが固まっていた本当の原因は最近のTCSR_OCFクリアの修正で直った。(nw) [hap]
 
-- 6801: tcsr upper 3 bits are read-only (nw) [hap]
+- 6801: tcsrの上位3ビットはリードオンリー。(nw) [hap]
 
-- Add thunderh's I/O M68k stub [Hydreigon223]
+- thunderhのI/O M68kスタブ追加。[Hydreigon223]
 
-- timers: Periodic timers are not adjustable, be a little more affirmative about it [O. Galibert]
+- timers: 周期タイマーは調整不可。[O. Galibert]
 
-- ddenlovr.cpp: rongrong dipswitches/diplocations, default palette to all_black (nw) [angelosa]
+- ddenlovr.cpp: rongrongのDIPスイッチとDIP配置。デフォルトパレットをall_blackに。(nw) [angelosa]
 
-- Various XML format fixes including some comment placement fixes (nw) [Scott Stone]
+- XMLフォーマットで、コメントの配置修正。(nw) [Scott Stone]
 
-- psion: does not need direct access to internal mcu reg (nw) [hap]
+- psion: 内部MCUレジストリに直接アクセスする必要はなし。(nw) [hap]
 
-- netlist: remove family_setter and other maintenance. (nw) [couriersud]
- * removed family_setter
- * naming alignment, family becomes model.
- * architecture cleanups.)
- * reviewed reset logic.
- * pass truthtable family as string to factory.
- * This is another set of changes on the path to align logic families and models. As a side effect, the object model now makes a
-    clear distinction between analog models and logic models.
- * The number of macros in nl_base.h has decreased significantly due to these changes.
+- netlist: family_setterの削除とその他のメンテ。(nw) [couriersud]
+ * family_setterを削除
+ * ネーミングの統一。ファミリーをモデル化
+ * アーキテクチャのクリーンアップ
+ * リセットロジックのレビュー
+ * truthtableのファミリーをファクトリーに文字列として渡す
+ * ロジックファミリーモデルを揃えるための変更。副作用として、オブジェクトモデルはアナログモデルとロジックモデル間の区別がはっきりし
+   ます
+ * nl_base.hのマクロの多くがこの変更によりかなり減少
 
-- namcos22.cpp: Redumped bad dirtdash Point ROM from a different PCB (one was internally bad on the Dirt Dash DT2 Ver.A PCB). Updated
- documentation with many changes including measuring DSP and MCU clocks. [Guru]
+- namcos22.cpp:「ダートダッシュ」の不良ポイントROMを別な基板から吸い直し(以前のはダートダッシュ DT2 Ver.A基板)。ドキュメントのDSPと
+  MCUクロックの計測値を含む多くの変更。[Guru]
 
-- mac.cpp updates: [R. Belmont]
- * For machines with Egret or Cuda, don't autostart the 68k, let the 6805 do it
- * Fix maciivx/maciivi to start up
+- mac.cppの更新: [R. Belmont]
+ * Egret、またはCudaのあるマシンでは、68kを自動スタートせずに6805に行わせる
+ * maciivx/maciiviが起動するように修正
 
-- seta2.cpp - start looking at y zooming (nw) [David Haywood]
+- seta2.cpp - Yズームの作業開始。(nw) [David Haywood]
 
-- (nw) peplus.cpp: Minor doc update for CG2294 set [braintro]
+- (nw) peplus.cpp: CG22944セットのマイナーなドキュメントの更新。[braintro]
 
-- mac.cpp updates [R. Belmont]
- * Fixed maciisi booting
- * Fixed maciivx/maciivi ID bytes, System 7.1 now shows the correct model
+- mac.cppの更新: [R. Belmont]
+ * maciisiの起動修正
+ * maciivx/maciiviのIDバイトを修正。System 7.1で正しいモデル表示
 
-- docastle.cpp: added PCB number for dowild (nw) [Ivan Vangelista]
+- docastle.cpp: dowildの基板番号追加。(nw) [Ivan Vangelista]
 
-- netlist: provide more information for warning ... [Couriersud]
- * on connecting two terminals already on the same net.
+- netlist: 警告の情報を詳細化... [Couriersud]
+ * すでに同じネットにある2つのターミナルをつなごうとしたとき
 
-- New working software list additions [ArcadeShadow]
+- 新規動作可能ソフトリスト項目: [ArcadeShadow]
  * ibm5170: Police Quest in Pursuit of the Death Angel (VGA release), Silverball 2 Plus
 
 - mame.lst: ビルドの修正。(nw) [AJR]
@@ -1579,29 +1582,29 @@ vsmilem_cart:
 
 - (nw) kramermc: クリーンアップ。サウンド追加。セーブステート追加。ナチュラルキーボード追加。[Robbbert]
 
-- ibm5170 New working software list additions [ArcadeShadow]
+- ibm5170: 新規動作可能ソフトリスト項目追加。[ArcadeShadow]
  * Speed Racer in the Challenge of Racer X, Subwar 2050 - The Underwater Combat Simulation
 
-- nes.xml: MT07551 (nw) [Ivan Vangelista]
+- nes.xml: MT07551。(nw) [Ivan Vangelista]
 
-- netlist: logic devices now support model parameter. [Couriersud]
- * This a big forward to allow reuse of code. Still a longer way to go but the foundation there.
-   - Also brings quite a number of simplifications and dead code removal.
+- netlist: ロジックデバイスでモデルパラメータをサポート。[Couriersud]
+ * コードの再利用に向けた大きな前進。まだ道は長いが、ここが出発点になります
+   - さらにかなり多くのシンプル化とデッドコードの削除になります
 
-- netlist: more family/model alignment. (nw) [couriersud]
- * Also remove dead code and dead comments.
+- netlist: ファミリーとモデルのアライメント。(nw) [couriersud]
+ * デッドコードとデッドコメントを削除.
 
-- netlist: Added undef support to the preprocessor. [Aaron Giles]
+- netlist: プリプロセッサでundefをサポート。[Aaron Giles]
 
-- dpb7000.cpp: Fix insidious coding error (nw) [AJR]
- * Leaving out the termination resulted in the following wonderfully misleading error message when trying to so much as list or
-    validate the driver on my OS X build:
+- dpb7000.cpp: 知らないうちにあったコーディングエラーを修正。(nw) [AJR]
+ * うちのOS Xビルドでドライバをリストしたりバリデートしようとすると、次のような素晴らしくミスリーディングなエラーメッセージを出す
+   ターミネーションを除外:
    - > Assertion failed: (!owner), function create_driver, file ../../../../../src/emu/device.h, line 214.
 
-- netlist: fix output stage on NE566. (nw) [couriersud]
+- netlist: NE566の出力ステージを修正。(nw) [couriersud]
 
-- sexpert/diablo: like with monty, output screen in b/w and let artwork decide lcd color, also means MAME screen brightness slider
- works with these screens now (if above 1.0) (nw) [hap]
+- sexpert/diablo: monty同様に、白黒で画面出力しアートワーク側でLCD色を反映。これにより、MAME側で画面の輝度スライダ動作する(1.0以上)。
+  (nw) [hap]
 
 - microvision: MT7586の対策。見た目の違いはなし。(nw) [hap]
 
