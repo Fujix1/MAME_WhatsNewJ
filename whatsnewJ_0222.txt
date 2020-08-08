@@ -1,8 +1,8 @@
 0.222 2020-06-26
-- ---------
+----------
 
 MAME Testersの修正バグ
-- ---------------------
+----------------------
 - 07656: [既知事項/未実装] (atarisy1.cpp) Atari System1 bad ROM dumps: Atari System1のROMが吸い出し不良。(hap)
 - 07686: [ドキュメント] (sms.cpp) gamegear [shinobi2]: [shinobi2] タイトル名が不完全。(ArcadeShadow)
 - 07536: [グラフィック] D3Dレンダラではprescaleのオプションが正しく動作しない。(Ryan Holtz)
@@ -45,7 +45,7 @@ MAME Testersの修正バグ
 
 
 新規動作可能マシン
-- -----------------
+------------------
 Black Hole (EFG Sanremo) [f205v, Ivan Vangelista]
 Fidelity Electronics Mini Sensory Chess Challenger (1982 version) [hap, Berger, Achim]
 Fidelity Electronics The Gambit (1989 version) [hap, Berger, Achim]
@@ -74,7 +74,7 @@ Zudu-go / 2udu-go [Sean Riddle, David Haywood, anonymous]
 
 
 新規動作可能クローン
-- -------------------
+--------------------
 アイレム・エアデュエル (US location test, M82 hardware) [halowarrior40]
 サーカス (bootleg) [f205v, caius]
 クレオパトラフォーチュン (Ver 2.1O 1996/09/05, bootleg) [Jorge Silva, White_Spot]
@@ -115,7 +115,7 @@ Video Pinball (4 ROMs version) [f205v]
 
 
 動作可能に昇格したマシン
-- -----------------------
+------------------------
 Bingo Time [TeamEurope, Ivan Vangelista]
 Excalibur Electronics Ford Racing [David Haywood]
 GRiD Computers Compass 1101 [usernameak]
@@ -126,7 +126,7 @@ Tetris + Cherry Master (Corsica, v8.01, set 2) [Ioannis Bampoulas]
 
 
 動作可能に昇格したクローン
-- -------------------------
+--------------------------
 キック&ラン (US) [dink, David Haywood]
 World Class Bowling Tournament (v1.30)
   [Phil Bennett, Aaron Giles, FactoryDavey, Bri Hefele, Joe Drilling, runwhiteboyrun, Christian "Ferris Bueller" Deitering,
@@ -135,7 +135,7 @@ World Class Bowling Tournament (v1.30)
 
 
 新規追加された未動作マシン
-- -------------------------
+--------------------------
 Crazy Balls [TTL] [f205v]
 Dardomania (v2.1) [Juan Romero, ClawGrip]
 電車でGO！3 -通勤編- (V2.03J) [andynumbers, The Dumping Union]
@@ -165,7 +165,7 @@ Zone 3D [Sean Riddle, David Haywood]
 
 
 新規追加された未動作クローン
-- ---------------------------
+----------------------------
 Corona Data Systems, Inc. Corona PPC-21 [rfka01]
 FreeWay (V4.31) [Cristiano-MDQ]
 G2 Systems MasterPieCe 800 Series [Ian Bradbury]
@@ -204,7 +204,7 @@ Twilight Zone (L-5) [PinMAME]
 
 
 新規追加された動作可能ソフトリスト
-- ---------------------------------
+----------------------------------
 apple2_flop_clcracked:
   Animal Watch: Tracks (cleanly cracked), Animal Watch: Whales (cleanly cracked), Animal Watch: Wolves (cleanly cracked),
   Deutsch: Aktuell 1 (Second Edition) (cleanly cracked), Deutsche Grammatik: der-die-das (cleanly cracked),
@@ -383,7 +383,7 @@ vsmile_cart:
 
 
 動作可能に昇格したソフトウェアリスト項目
-- ---------------------------------------
+----------------------------------------
 amigaocs_flop:
   Budokan - The Martial Spirit (Euro), Dragon's Lair: Escape from Singe's Castle (Euro), Dungeon Master (Euro, v3.6),
   Dylan Dog - Ritorno al Crepuscolo (Ita), Elvira - Mistress of the Dark (Euro), Escape from Colditz (Euro), F1 GP Circuits (Euro),
@@ -408,7 +408,7 @@ x68k_flop: Ajax, Dai Makaimura, Nemesis '90 Kai [Angelo Salese]
 
 
 新規追加された未動作ソフトリスト
-- -------------------------------
+--------------------------------
 apple2_flop_orig: Wortgefect [4am, Firehawke]
 bbc_rom:
   ADDER 1.01, Artist Plus (Palette Pad), Artist Plus (Userport Pad), Futures 2.0a, Replay System WD1770 1.11,
@@ -584,7 +584,7 @@ vsmilem_cart:
 
 
 マージされたプルリク
-- -------------------
+--------------------
 - 3190: Added a Nuon software list. [incog]
 - 6543: seattle.cpp, vegas.cpp: Removed unused inputs, and removed imperfect sound flag from NBA Showtime games. [Hydreigon223]
 - 6592: luaengine.cpp: Consolidated code for parsing enum strings representations. [npwoods]
@@ -804,7 +804,7 @@ vsmilem_cart:
 
 
 ソースの変更点
-- -------------
+--------------
 - (nw) battles: 起動時のクラッシュ修正。サウンドが出ないのは要検証。[Robbbert]
 
 - vs2019_clangでの警告を修正。from_ticks()は番号全体を取る。(nw) [smf-]

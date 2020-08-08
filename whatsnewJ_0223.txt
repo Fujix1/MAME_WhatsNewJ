@@ -1,0 +1,2237 @@
+0.223 2020-08-06
+----
+MAME Testersの修正バグ
+----------------------
+- 07693: [DIP/入力] (dooyong.cpp) sadari: 3つ目のボタンが実装されていない。(hap)
+- 07644: [DIP/入力] (pcipc.cpp) pcpci: シリアルポートマウス [HLE] がMS-DOSで間違った移動・クリックを生成する。(sz72)
+- 02603: [サウンド] (cinemat.cpp) tailg: サンプル音が一つ間違っている。(Aaron Giles)
+- 03307: [サウンド] (cinemat.cpp) ripoff: サンプル音再生の問題がある。(Aaron Giles)
+- 03720: [サウンド] (cinemat.cpp) speedfrk, wotw, wotwc: サンプル音の実装が不完全。(Aaron Giles)
+- 07708: [DIP/入力] (segas18.cpp) wwallyj, lghost, and clones: 操作ができない。(Osso)
+- 07608: [ゲームプレイ] (uzebox.cpp) uzebox: avr8 CPUを使うシステムが壊れている。(hap)
+- 07537: [サウンド] (nemesis.cpp) twinbee: ボイスが鳴らない。(AJR)
+- 07237: [DIP/入力] (vsmile.cpp) vsmileg [walle]: walle - 入力が動作しない。(Ryan Holtz)
+- 07687: [コンパイル] 0.222をARM向けにコンパイルできない。(belegdol)
+- 07690: [クラッシュ/フリーズ] (kingdrby.cpp) cowrace: [デバッグ限定] スタート時にアサート。(AJR)
+- 07691: [クラッシュ/フリーズ] (eprom.cpp) eprom, eprom2: デモの最後でゲームが固まる。(AJR)
+- 07696: [グラフィック] (taito_l.cpp) fhawk, fhawkj: 背景が化けている。(hap)
+- 06033: [ゲームプレイ] (sothello.cpp) sothello: うまく操作できない。(hap)
+- 07340: [DIP/入力] (vegas.cpp) nbagold, nbanfl and nbashowt: デジタルジョイスティック入力が不足。動作ステートが正しくない。(tedgreen)
+- 07689: [サウンド] (s8a.cpp) scrzy_l1: サウンドボードからのサウンドが完全に存在しない。(Robbbert)
+- 06896: [ゲームプレイ] (gottlieb.cpp) krull: Krullの3面で謎の死をとげる。(dink)
+
+
+新規動作可能マシン
+------------------
+Conny / VideoJet Dora l'exploratrice - Pocket Dream Console (VideoJet, France) [TeamEurope, David Haywood]
+Conny / VideoJet PDC150 Tactile - Pocket Dream Console (VideoJet, France) [TeamEurope, David Haywood]
+Conny / VideoJet PDC200 - Pocket Dream Console (VideoJet, France) [TeamEurope, David Haywood]
+Conny / VideoJet PDC40 Tactile - Pocket Dream Console (VideoJet, France) [TeamEurope, David Haywood]
+Conny / VideoJet PDC50 - Pocket Dream Console (VideoJet, France) [TeamEurope, David Haywood]
+Conny / VideoJet Plug Play TV Games 2 (4-in-1) (VideoJet, France) [TeamEurope, David Haywood]
+DataCash Systems / Staid CompuChess: The Second Edition [hap, Berger, Achim]
+Dice game [Aleksandr Gofman, MetalliC]
+Elektor AVR-Max Chess Computer (English) [hap]
+Fidelity Electronics Chess Challenger (model UCC10, 10 levels) [hap, Berger, Achim]
+Guitar Star (Europe, PAL) [David Haywood, TeamEurope]
+Linus Åkesson / kryo The Hardware Chiptune Project [Ryan Holtz]
+Linus Åkesson Phasor [Ryan Holtz]
+Linus Åkesson Power Ninja Action Challenge [Ryan Holtz]
+Micro Vs. System: Donkey Kong Hockey [algestam, Ryan Holtz]
+Millennium 2000 GmbH Millennium Arcade 101 (M489) (Game Station 2 101-in-1) [TeamEurope, David Haywood]
+Motorola EXORterm 155 [68bit]
+Motorola M6800 EXORciser (M68SDT) [68bit]
+Novag Micro Chess [hap, Berger, Achim]
+SciSys / Intelligent Games Intelligent Chess [hap, Berger, Achim]
+SciSys Chess Companion [hap, Berger, Achim]
+SciSys Chess Intercontinental Traveler [hap, Berger, Achim]
+Senario / Marathon - Mystery Animation Inc. Totally Spies! (France) [TeamEurope, David Haywood]
+Senario Vs Maxx 6-in-1 Casino / Senario Card & Casino Games [Sean Riddle, David Haywood]
+Subor Sports and Dance Fit Games Mat D-555 (PAL) [David Haywood, TeamEurope]
+Telko / Nintendo Bassmate Computer [algestam, Mr. Do]
+Ultimate Products Ltd. Reactor 32-in-1 (NTSC) [Sean Riddle, David Haywood]
+Ultimate Products Ltd. Zone Mini [Sean Riddle, David Haywood]
+WinFun Guitar Buster [Sean Riddle, David Haywood]
+Wireless Fitness / Dance Fit (Senario) [Sean Riddle, David Haywood, anonymous, Kev (FBN)]
+Xing Wireless Interactive TV Game 'Wi TV Zone' 48-in-1 (Europe, PAL) [David Haywood, TeamEurope]
+
+
+新規動作可能クローン
+--------------------
+4-in-1 (version SWS1-110984) [Siftware]
+アストロファイター (set 4) [Juan Romero, ClawGrip]
+Cruis'n USA (rev L4.4) [Brian Troha, The Dumping Union]
+デッド・オア・アライブ プラスプラス (Korea) [chacal231077]
+ダブルウイングス -雙翼- (set 2) [Jorge Silva]
+Elektor AVR-Max-Schachzwerg (German) [hap]
+Fidelity Electronics Elite A/S Challenger (Glasgow program, set 2) [Berger]
+ギャラクシアン (Cirsa Spanish bootleg) [Juan Romero, ClawGrip]
+大工の源さん -べらんめ町騒動記- / Hammerin' Harry (World, M84 hardware bootleg) [ClawGrip, Roberto Fresca, Recreativas.org, The Dumping Union]
+Jack Potten's Poker (set 13, ICP-1 PCB) [Roberto Fresca, Matt B]
+Jolly Joker (original program, interleaved GFX, Impera logo) [Roberto Fresca, TeamEurope]
+Jolly Joker (original program, interleaved GFX, no logo) [Roberto Fresca, TeamEurope]
+Master Boy (1987, Z80 hardware, Ichi-Funtel, set 2) [Retromaniacs, Recreativas.org]
+ミズパックマン (bootleg, set 3) [Andrew Welburn]
+ミズパックマン (Novatronic bootleg) [Juan Romero, ClawGrip]
+ニューラッキーエイトライン (set 11, W-4) [Siftware]
+フーピー!! / Pipi ＆ Bibis (Ryouta Kikaku bootleg, decrypted) [jordigahan]
+レースドライビン (compact, prototype) [andynumbers, The Dumping Union]
+ロボトロン2084 (Unidesa license) [Juan Romero, ClawGrip]
+Ultimate Products Ltd. Zone 7-in-1 Sports (PAL) [David Haywood, TeamEurope]
+スラップショット (Ver 2.2 J) [Jorge Silva]
+Space Trek (Video Game S.A., Spanish bootleg of スクランブル) [Rubén Casaña (Retro Arcadia Valencia), Isaías Hernández]
+Splash (Modular System) [jordigahan, ClawGrip, David Haywood]
+Super Forte (version C, V3.6) [Berger]
+ウィッチ / Witch Star [Brian Troha, The Dumping Union]
+Zero Time (Spanish bootleg) [Juan Romero, ClawGrip]
+
+
+動作可能に昇格したマシン
+------------------------
+Adders and Ladders (v2.1) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+Barquest (v2.6) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+Blox (SJM BLOX, 50p/20p Play, Version 2.0) (MPU4 Video) [Ryan Holtz, James Wall, David Haywood, Angelo Salese]
+Business Computer Corporation Busicom 141-PF [Robbbert]
+The Crystal Maze (v1.3) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze Team Challenge (v0.9) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Mating Game (v0.4) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+NBA Showtime / NFL Blitz 2000 (ver 2.1) [Ted Green]
+NBA Showtime Gold / NFL Blitz 2000 (ver 3.0) (SportsStation) [Ted Green]
+NBA Showtime: NBA on NBC (ver 2.0) [Ted Green]
+The New Crystal Maze Featuring Ocean Zone (v2.2) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+Nice Code Plug and Play Sudoku Game (NES based) [Sean Riddle, David Haywood, GameHistory.org]
+リアルアンドフェイク フォトY2K / 超級比一比 / 大家来找碴 (M101XX 05/25/01 11:02:54) [iq_132, dink]
+Prize Tetris (BWB) (MPU4 Video) [Ryan Holtz, James Wall, David Haywood, Angelo Salese]
+SCCH LLC-1 [Robbbert]
+Senario Guitar Star (US, Senario, NTSC) [David Haywood]
+Strike it Lucky (v0.5) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+TaiKee Rockstar Guitar / Guitar Rock (PAL) [David Haywood]
+Tetris Payout (BWB TET1 Version 2.2, set 1) (MPU4 Video) [Ryan Holtz, James Wall, David Haywood, Angelo Salese]
+unknown rocket/animal-themed poker [Roberto Fresca]
+Vegas Poker (prototype, release 2) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood, Highwayman]
+
+
+動作可能に昇格したクローン
+--------------------------
+Adders and Ladders (v2.0) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze (v0.1, AMLD) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze (v1.1) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze (v1.2) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze Team Challenge (v0.8) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The Crystal Maze Team Challenge (v1.2, AMLD) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+dreamGEAR Shredmaster Jr (NTSC) [David Haywood]
+Eurohard S.A. Dragon 200-E [Nigel Barnes]
+The New Crystal Maze Featuring Ocean Zone (v0.1, AMLD) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+The New Crystal Maze Featuring Ocean Zone (v2.0) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+リアルアンドフェイク フォトY2K / 超級比一比 / 大家来找碴 (ver. 100, Japanese Board) [iq_132, dink]
+Prize Space Invaders (BWB INV1, 50p/30p Play, Version 1.2) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood, Angelo Salese]
+Prize Tetris (BWB) (Showcase) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood, Angelo Salese]
+Sirio II (Calfesa S.L. Spanish Moon Cresta bootleg) [Ivan Vangelista]
+Strike it Lucky (v0.53) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood]
+Tetris Payout (BWB TET1 Version 2.2, set 2) (MPU4 Video) [Ryan Holtz, James Wallace, David Haywood, Angelo Salese]
+Torch Computers Torch CH240 [Nigel Barnes]
+VTech V.Smile Motion [Ryan Holtz]
+
+
+
+新規追加された未動作マシン
+--------------------------
+El auto de papa [Victor Fernandez (City Game), ClawGrip]
+Bingo Roll / Turbo Bingo? [TeamEurope, Roberto Fresca]
+Captain Lucky [Siftware]
+Destruction Derby [TTL] [Frank Palazzolo]
+Diana Olakoa [Victor Fernandez (City Game), ClawGrip]
+E-mu Systems Carnaval - Jugando con Fuego [DBWBP]
+E-mu Systems EMAX II 16-Bit Digital Sound System [DBWBP]
+E-mu Systems Orbit 9090 - The Dance Planet [DBWBP]
+E-mu Systems Planet Phatt - The Swing System [DBWBP]
+E-mu Systems Pro/Cussion Maximum Percussion Module [DBWBP]
+E-mu Systems Proteus/1 16-Bit Multi-Timbral Digital Sound Module [DBWBP]
+E-mu Systems Proteus/1 XR 16-Bit Multi-Timbral Digital Sound Module [DBWBP]
+E-mu Systems Vintage Keys Classic Analog Keyboards [DBWBP]
+Far West (Compumatic) [Victor Fernandez (City Game), ClawGrip]
+Football [PinMAME]
+JAKKS Pacific Inc / HotGen Ltd Hannah Montana G2 Deluxe - All in One (JAKKS Pacific TV Game)
+  [Sean Riddle, David Haywood, Kev (FBN), anonymous]
+JAKKS Pacific Inc / HotGen Ltd High School Musical G2 Deluxe - All in One (JAKKS Pacific TV Game)
+  [Sean Riddle, David Haywood, Kev (FBN), anonymous]
+JAKKS Pacific Inc Power Rangers Super Megaforce Hero Portal [David Haywood, Team Europe]
+Kawai Musical Instruments Manufacturing KSP10 Digital Piano [DBWBP]
+Kawai Musical Instruments Manufacturing SX-240 8-Voice Programmable Polyphonic Synthesizer [DBWBP]
+Korg microKORG Synthesizer/Vocoder [DBWBP]
+Korg WaveStation A/D [DBWBP]
+Korg WaveStation EX [DBWBP]
+Korg WaveStation SR [DBWBP]
+Lexibook Console Colour - Disney's Planes [TeamEurope]
+Lexibook Console Colour - Minnie Mouse [TeamEurope]
+Lucky 7 (Impera) [TeamEurope, Roberto Fresca]
+Macro Winners Game Sporz Wireless Duet Play Ping-Pong [Sean Riddle, David Haywood, Dave Silva]
+Marvel Avengers TV Game Console (32-bit) (Lexibook) [TeamEurope, David Haywood]
+Michael Jordan (1.30) [PinMAME]
+Millennium 2000 GmbH Millennium Arcade 250 (M527) [TeamEurope, David Haywood]
+Puzzle Me! [TeamEurope, Roberto Fresca]
+Reno Reels (JPM) [David Haywood]
+RS-70 648-in-1 [David Shah]
+Sharp Zaurus SL-5500 "Collie" [Ryan Holtz, O. Galibert]
+Sony NWS-3860 [Plamen Mihaylov, Patrick Mackinlay]
+Sport Dart TV [Victor Fernandez (City Game), ClawGrip]
+Susanita tiene un raton [Victor Fernandez (City Game), ClawGrip]
+Tecnodarts [Victor Fernandez (City Game), ClawGrip]
+Toy Story 3 (Lexibook) [Sean Riddle, Kamaal Brown, David Haywood]
+unknown 'TE06' [TeamEurope, Roberto Fresca]
+Unknown Compumatic ProSPDP based darts machine [jordigahan, ClawGrip]
+VideoJet Kiu Games [Sean Riddle, David Haywood]
+Virtual TV Ping Pong [TeamEurope, David Haywood]
+キッズ屋台村金魚すくい (4-player, China, Ver 1.000) [Darksoft]
+
+
+
+新規追加された未動作クローン
+----------------------------
+6-X (BWB) (Release 3, 20p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token) (set 3) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Fixed, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, All - Cash) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, All - Cash, Datapak) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, Cash+Token) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+6-X (BWB) (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Adders and Ladders (v2.1d) (MPU4 Video) [David Haywood]
+Anakonda [Robbbert]
+Barquest (v2.6d) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (Arcade Data) (set 1) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (Arcade Data) (set 2) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (Arcade Standard) (set 2) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (Arcade Standard) (set 3) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (Arcade Standard) (set 4) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Data + %-Key + OCDM) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Data + %-Key) (set 1) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Data + %-Key) (set 2) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Data) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Standard) (set 1) (MPU4 Video) [David Haywood]
+Big 40 Poker (BWB) (S_Site Standard) (set 2) (MPU4 Video) [David Haywood]
+Big Fruits (v2.0?) (set 2) (MPU4 Video) [David Haywood]
+Big Fruits (v2.0?) (set 3) (MPU4 Video) [David Haywood]
+Big Fruits (v2.0?) (set 4) (MPU4 Video) [David Haywood]
+Bubbly Bonk (v4.0?) (20p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+Bubbly Bonk (v4.0?) (20p Fixed, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+Bubbly Bonk (v4.0?) (20p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Bubbly Bonk (v4.0?) (20p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Bullion Blox (BWB) (Datapak) (set 1) (MPU4 Video) [David Haywood]
+Bullion Blox (BWB) (Datapak) (set 2) (MPU4 Video) [David Haywood]
+Bullion Blox (BWB) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 3) (set 1) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 3) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 10p Fixed, Cash+Token) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token) (set 3) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Showcase) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Showcase, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Fixed, Cash+Token, Showcase, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, All - Cash) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, All - Cash, Datapak)  (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 20p Switchable 20p/10p/5p, Cash+Token, Showcase) (MPU4 Video) [David Haywood]
+Cash Inferno (BWB) (Release 4, 5p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+Chase Invaders (Barcrest) (MPU4) (set 8) [David Haywood]
+Double Take (BWB) (Release 4, Arcade Data) (MPU4 Video) [David Haywood]
+Double Take (BWB) (Release 4, S_Site Data + %-Key) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 2) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 3) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 4) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 5) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 6) (MPU4 Video) [David Haywood]
+Fruit Factory (BWB) (set 7) (MPU4 Video) [David Haywood]
+Funhouse (L-2) [PinMAME]
+Funhouse (L-2, prototype PA-1 System 11 sound) [PinMAME]
+Gold Rush (BWB) (Release 8, 20p Fixed, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, All - Cash) (set 2) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Datapak) (set 1) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Datapak) (set 2) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Showcase) (Datapak) (set 1) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Showcase) (Datapak) (set 2) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Showcase) (set 1) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (Showcase) (set 2) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 20p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 25p Fixed, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, 25p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/10p/5p, All - Cash) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/10p/5p, Cash+Token) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/10p/5p, Cash+Token) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/10p/5p, Cash+Token) (Showcase) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/10p/5p, Cash+Token) (Showcase) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/25p, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Gold Rush (BWB) (Release 8, Switchable 20p/25p, All - Cash) (MPU4 Video) [David Haywood]
+Kharkovsky [Robbbert]
+Laser Ball (L-2, PROM sound) [PinMAME]
+Last Action Hero (1.04 France) [PinMAME]
+Last Action Hero (1.07) [José Renato Castro Milanez, Sergio Munemori]
+Magic Card - Wien (Sicherheitsversion 1.2) [TeamEurope, Roberto Fresca]
+Mazooma Belle (v1.5) (set 2) (MPU4 Video) [David Haywood]
+Megabucks Poker (BWB) (set 2) (MPU4 Video) [David Haywood]
+Megabucks Poker (BWB) (set 3) (MPU4 Video) [David Haywood]
+Megabucks Poker (BWB) (set 4) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 5) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Showcase, 20p-£8 Token - Fixed) (set 3) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 10p-£4 Cash - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 10p-£8 Token - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£10 Cash - Fixed) (set 1) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£10 Cash - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£4 Cash - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£8 Cash - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£8 Token - Fixed) (set 1) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 20p-£8 Token - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 25p-£10 Cash - Fixed) (set 1) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 25p-£10 Cash - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, Arcade Standard, 5p-£4 Cash - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Showcase, 20p-£8 Token - Fixed) (set 5) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£10 Cash - Fixed) (set 1) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£10 Cash - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£10 Cash - Fixed) (set 3) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£4 Cash - Fixed) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£8 Token - Fixed) (set 1) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£8 Token - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£8 Token - Fixed) (set 3) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 20p-£8 Token - Fixed) (set 4) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 25p-£10 Cash - Fixed) (set 2) (MPU4 Video) [David Haywood]
+Miami Dice (BWB) (Release 8, S/Site Standard, 25p-£10 Cash - Fixed) (set 3) (MPU4 Video) [David Haywood]
+Monte Carlo (MC  2.0 C) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MC  2.0 K) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MC  2.0 YD) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MC  3.0 C) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MC_ 3.0 K) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MC_ 3.0 YD) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MSS 1.6 C) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MX052.0 C) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MX052.0 K) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MX102.0 C) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo (MX102.0 K) (Barcrest) (MPU4) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, Arcade Special, Options 4 Cabinet, 20p Fixed, Cash and Tokens) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, Arcade Special, Options 4 Cabinet, 20p Fixed, Cash and Tokens) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, Arcade Special, Options 4 Cabinet, 20p Switchable, Cash and Tokens) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, Arcade Special, Options 4 Cabinet, 20p Switchable, Cash and Tokens) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Fixed, Cash and Tokens) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Fixed, Cash and Tokens) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Fixed, £10 All Cash) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Fixed, £10 All Cash) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Fixed, £8 All Cash) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Switchable, Cash and Tokens) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Switchable, Cash and Tokens) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Switchable, £10 All Cash) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Switchable, £10 All Cash) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 20p Switchable, £8 All Cash) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 25p Fixed, £10 All Cash) (set 1) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release 9, S/Site Standard, Options 4 Cabinet, 25p Fixed, £10 All Cash) (set 2) (MPU4 Video)
+  [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 1) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 10) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 11) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 12) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 13) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 14) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 15) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 16) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 17) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 18) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 19) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 2) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 20) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 21) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 22) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 23) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 24) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 25) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 26) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 27) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 28) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 29) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 3) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 30) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 31) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 32) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 33) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 34) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 35) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 4) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 5) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 6) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 7) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 8) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release ?, set 9) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release D, Arcade Special, 20p Fixed, Cash and Tokens) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release D, S/Site Standard, 20p Fixed, £10 All Cash) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release D, S/Site Standard, 20p Switchable, Cash and Tokens) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release D, S/Site Standard, 20p Switchable, £10 All Cash) (MPU4 Video) [David Haywood]
+Monte Carlo Or Bust (BWB) (Release D, S/Site Standard, 25p Fixed, £10 All Cash) (MPU4 Video) [David Haywood]
+Nove Diamante (bootleg) [Ioannis Bampoulas]
+Over Moon Pt3 (BWB) (20p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+Over Moon Pt3 (BWB) (20p Fixed, Cash+Token, % Key) (MPU4 Video) [David Haywood]
+Over Moon Pt3 (BWB) (20p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Over Moon Pt3 (BWB) (20p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Prize Tetris (BWB) (Datapak) (MPU4 Video) [David Haywood]
+Prize Tetris (BWB) (Showcase) (Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 C, Cash+Token, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 10p Fixed, Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Fixed, Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Switchable to 10p, Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 10p Fixed, Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Fixed, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Fixed, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Switchable to 10p, Datapak) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4 Y, Cash+Token, 1993 Awards, 20p Switchable to 10p, % Key) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Fixed) (MPU4 Video) [David Haywood]
+Red Hot Mazooma Belle (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Red Hot Poker (Arcade, Cash+Tokens, 1993 Awards, 20p Fixed, Version 1.9) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1992 copyright, 20p Fixed, Cash+Token) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, % Key) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, % Key) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copryight, 5p Fixed, Cash+Token, Datapak) (set 4) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 2, 1993 copyright, 5p Fixed, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, % Key) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, % Key) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, Datapak) (set 4) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fixed, Cash+Token, Datapak) (set 5) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 10p Fxed, All-Cash) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, % Key) (set 1)  (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, % Key) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, Datapak) (set 4) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Fixed, Cash+Token, Datapak) (set 5) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, All - Cash) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, % Key) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, % Key) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 4) (MPU4 Video) [David Haywood]
+Red Hot Poker (Release 3, 20p Switchable to 10p, Cash+Token, Datapak) (set 5) (MPU4 Video) [David Haywood]
+Red Hot Poker (unknown release) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 10) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 2) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 3) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 4) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 5) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 6) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 7) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 8) (MPU4 Video) [David Haywood]
+Reno Casino (BWB) (set 9) (MPU4 Video) [David Haywood]
+Reno Reels (Release 5) (MPU4 Video) [David Haywood]
+Reno Reels (Release 7) (MPU4 Video) [David Haywood]
+Reno Reels (Release 8, 20p Fixed, Cash+Token) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, All - Cash) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Datapak) (set 1) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Datapak) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Datapak) (set 3) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Showcase) (set 1) (Datapak) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Showcase) (set 1) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Showcase) (set 2) (Datapak) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (Showcase) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Fixed, Cash+Token) (set 3) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/10p/5p, All - Cash) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/10p/5p, Cash+Token) (Showcase) (set 1) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/10p/5p, Cash+Token) (Showcase) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/10p/5p, Cash+Token) (set 1) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/10p/5p, Cash+Token) (set 2) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/25p, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 20p Switchable 20p/25p, All - Cash) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 25p Fixed, All - Cash) (Datapak) (MPU4 Video) [David Haywood]
+Reno Reels (Release A, 25p Fixed, All - Cash) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 10p Fixed, Cash + Special BWB Token) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 10p Fixed, Cash + Special BWB Token, % Key) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 10p Fixed, Cash + Special BWB Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 10p Fixed, Cash + Special BWB Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Fixed, Cash + Special BWB Token) (set 2) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Fixed, Cash + Special BWB Token, % Key) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Fixed, Cash + Special BWB Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Fixed, Cash + Special BWB Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Fixed, Cash + Special BWB Token, Datapak) (set 3) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Switchable to 10p, Cash + Special BWB Token) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Switchable to 10p, Cash + Special BWB Token, % Key) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Switchable to 10p, Cash + Special BWB Token, Datapak) (set 1) (MPU4 Video) [David Haywood]
+Shop Window (v2.0) (Release 2, 20p Switchable to 10p, Cash + Special BWB Token, Datapak) (set 2) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 C, 1993 Awards, 10p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 C, 1993 Awards, 20p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 C, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash + Token, 1993 Awards, 10p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Fixed) (set 1) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Fixed) (set 2) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Switchable to 10p (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 D, Cash+Token, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 10p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Fixed) (set 1) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Fixed) (set 2) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 DY, Cash+Token, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 IC, 1993 Awards, 20p Switchable to 10p) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 Y, Cash+Token, 1993 Awards, 10p Fixed) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 Y, Cash+Token, 1993 Awards, 20p Fixed, % Key) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4 Y, Cash+Token, 1993 Awards, 20p Switchable to 10p, % Key) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Fixed) (set 1) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Fixed) (set 2) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Switchable to 10p) (set 1) (MPU4 Video) [David Haywood]
+Sunburst (BWB) (Version 1.4, Cash+Token, 1993 Awards, 20p Switchable to 10p) (set 2) (MPU4 Video) [David Haywood]
+Time Bandit (BWB) (Release 1, 20p Fixed, Cash + Tokens) (Datapak) (set 1) (MPU4 Video) [David Haywood]
+Time Bandit (BWB) (Release 1, 20p Fixed, Cash + Tokens) (Datapak) (set 2) (MPU4 Video) [David Haywood]
+Time Bandit (BWB) (Release 1, 20p Fixed, Cash + Tokens) (Datapak) (set 3) (MPU4 Video) [David Haywood]
+Time Bandit (BWB) (Release 1, 20p Fixed, Cash + Tokens) (set 2) (MPU4 Video) [David Haywood]
+Time Bandit (BWB) (Release 1, 20p Fixed, Cash + Tokens) (set 3) (MPU4 Video) [David Haywood]
+Time Machine (v2.0) (Issue 1 Questions) (Datapak) (MPU4 Video) [David Haywood]
+Time Machine (v2.0) (Issue 1 Questions) (MPU4 Video) [David Haywood]
+Time Machine (v2.0) (Issue 2 Questions) (Datapak) (MPU4 Video) [David Haywood]
+Time Machine (v2.0) (Issue 2 Questions) (MPU4 Video) [David Haywood]
+Time Machine (v2.0) (Issue 3 Questions) (Datapak) (MPU4 Video) [David Haywood]
+Turnover (v2.33) (MPU4 Video) [David Haywood]
+Turnover (v2.3O) (MPU4 Video) [David Haywood]
+Turnover (v?.?) (MPU4 Video) [David Haywood]
+Unga [Robbbert]
+Wize Move (v1.33) (MPU4 Video) [David Haywood]
+Wize Move (v1.3d) (Datapak) (MPU4 Video) [David Haywood]
+Wize Move (v1.3d3) (Datapak) (MPU4 Video) [David Haywood]
+Wize Move (v?.?) (MPU4 Video) [David Haywood]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+fmtowns_cd:
+  Akiko - Premium Version, Cal III - Kanketsu-hen, Chiemi & Naomi, Curse, Eikan wa Kimi ni 2 - Koukou Yakyuu Zenkoku Taikai,
+  FM Towns Application Catalog CD-ROM - Original Soft-hen, G5 (HMA-206), Gambler - Queen's Cup, Gokuraku Mandala, Hyper Fetishism,
+  Illust Hyakka - Yamashita Hideki no Ikiiki Cut-shuu, Iris-tei Serenade, Jouhou Club - Card Processor Ver. 1.1, Mahjong Musashi,
+  Manami no Doko made Iku no? 2 - Return of the Kuro Pack, The Manhole (1990-08-01), Marionette Mind,
+  Mirage 2 - Torry, Neat & Roan Fairladies in MagicLand, Noushuku Angel 120%, Shamhat - The Holy Circlet (FM Towns Marty version),
+  Tenshin Ranma, Two Shot Diary, Viper-V12 RS, Viper-V8 Turbo RS, YES! HG - Erotic Voice Version [redump.org, r09]
+gba:
+  Rayman IV (Rayman - Sunshine of Trip) (unlicensed) (protection hacked) [RibShark]
+  Crash Advance IV  (unlicensed) (protection hacked), Digimon - Ruby and Sapphire (unlicensed) (protection hacked),
+  The Lord of the Rings IV - The Fellowship of the Ring (unlicensed) (protection hacked),
+  Pokemon - Sapphire Version (unlicensed) (protection hacked),
+  Rayman IV (Rayman - Puteshestviye Solnechnogo Sveta) (unlicensed) (Russian) (protection hacked),
+  Sonic 3 - Fighter Sonic (unlicensed) (protection hacked), Super Mario DX (unlicensed) (protection hacked),
+  Teenage Mutant Ninja Turtles 2 (unlicensed) (protection hacked),
+  Ultraman - Confrontation Between Justice And Evil (Ul'traman - Konfrontatsiya mezhdu spravedlivost'yu i zlom) (unlicensed)
+  (Russian) (protection hacked), X-Man - Armour of Might (X-men) (unlicensed) (Russian) (protection hacked) [taizou]
+  Chaoji Maliou DX (unlicensed) (Chinese) (protection hacked) [yy小龙虾]
+  Leiman IV - Guangming Zhi Lv (unlicensed) (Chinese) (protection hacked) [侵蚀你的私处]
+ibm5150:
+  Bloodwych (Quest & Glory Compilation) (Euro), Bloodwych (USA), Budokan - The Martial Spirit (5.25"), The Colonel's Bequest (3.5"),
+  The Colonel's Bequest (5.25"), Dragon's Lair (5.25"), F29 Retaliator, Lakers vs Celtics and the NBA Playoffs (3.5"),
+  Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (5.25"), Leisure Suit Larry in the Land of the Lounge Lizards,
+  Mario Andretti's Racing Challenge, Speedball 2 - Brutal Deluxe (Euro, 3.5"), TV Sports Basketball (3.5", USA, EGA/TANDY version),
+  TV Sports Basketball (3.5", USA, VGA version), TV Sports Basketball (5.25", UK, EGA/TANDY version),
+  TV Sports Basketball (5.25", UK, VGA version), Xenon 2: Megablast [ArcadeShadow]
+  SCO XENIX System V Development System version 2.1.3 [archive.org, Davide Cavalca]
+  IBM Personal Computer Interactive Executive (PC/IX) 1.00 [WinWorld, Davide Cavalca]
+ibm5170:
+  B-17 Flying Fortress (5.25"), Corridor 7: Alien Invasion (demo), Maniac Mansion: Day of the Tentacle (France),
+  Out of this World (USA, 3.5" DD), Out of this World (USA, 5.25" HD), Sam & Max Hit the Road (Germany) [ArcadeShadow]
+megadriv: Starwars (Prototype 19930125) [ArcadeShadow]
+nascom_snap: Adventure 16K, Adventure 32K [The Nascom Repository]
+pc98_cd:
+  F15 Strike Eagle III, if 2 - Invitations from Fantastic Stories, Manami no Doko made Iku no? 2 - Return of the Kuro Pack, Phobos,
+  Pro Student G (ALS-0010), YES! HG - Erotic Voice Version, Yuurou - Transient Sands [redump.org, r09]
+sgi_mips:
+  Desktop Special Edition 1.0, European Language Module 1.1, European Language Module 1.3.1, Hot Mix 5, Hot Mix 7, IndiZone 1.0,
+  IRIX 5.2 for Indy R4600PC and Challenge SX, IRIX Patch 5.1.1.2, ONC3/NFS for IRIX 6.2 Version 1,
+  ONC3/NFS for IRIX 6.2 with Indigo2 IMPACT 10000 Version 1, Support Advantage 10/94, Support Advantage 6/95, SupportFolio 2/97,
+  SupportFolio 4/97 [darkstar]
+  NetBSD 1.6.2, NetBSD 2.0, NetBSD 2.0.2, NetBSD 2.1, NetBSD 3.0, NetBSD 3.0.1, NetBSD 3.0.2, NetBSD 3.1
+  [NetBSD Project, Davide Cavalca]
+sgi_mips_hdd: IRIX 5.2, IRIX 5.3, IRIX 6.2, IRIX 6.5, IRIX 6.5.22 [Davide Cavalca]
+vsmile_cart:
+  Bianfuxia - Zhengjiu Chengshi (China) [tenyuhuang]
+  Disney/Pixar Wall-E (China) [tenyuhuang, Ryan Holtz]
+  Les Bisounours - Le monde merveilleux des Bisounours (France),
+  Nickelodeon Bob L'éponge - Une journée dans la vie d'une éponge (France) [DisizDream]
+vsmilem_cart:
+  Disney/Pixar Cars 2 (France), Disney/Pixar Toy Story 3 (France), DreamWorks Kung Fu Panda - La mission de Po (France),
+  Football Challenge (France), Martin Le Dauphin (France),
+  Nickelodeon Dora L'Exploratrice - Les adventures de Dora Apprentie Mécano (France), Sporti'Folies (France)
+  [DisizDream, Ryan Holtz]
+  Action Mania (USA), Disney/Pixar Toy Story 3 (USA), Marvel Spider-Man & Friends - Secret Missions (USA), Soccer Challenge (USA)
+  [Sean Riddle, TeamEurope, Ryan Holtz]
+
+
+
+動作可能に昇格したソフトウェアリスト項目
+--------------------------------------------------
+cpc_flop:
+  Secret Agent - Sly Spy (UK), Secret Agent - Sly Spy (UK) (2 faces) (Spain retail version) [Original],
+  Sly Spy - Secret Agent (NonGoodCPC), Sly Spy - Secret Agent (Ocean Software),
+  Sly Spy - Secret Agent (Ocean Software)[cr XOR][t +2 XOR], Sly Spy - Secret Agent (UK) [a1] [Barry Rodewald]
+vsmile_cart:
+  Les aventures de imagniares d'Ernest et Bart (France), Les aventures du Petit Chaperon Rouge (France),
+  Bob The Builder - Bob's Busy Day (UK), Cranium - Freizeit Park - Ein Jahrmarkt voller Spiel- und Lernspaß (Germany),
+  Cranium - Le Parc D'Attractions (France), Cranium - Parque de Atracciones de Cranium (Spain), Dakota y su mascota (Spain),
+  Disney - Les petits Einsteins - Le bal du soulier de verre (France),
+  Disney Cenerentola - I desideri magici di Cenerentola (Italy, rev. 1), Disney La Casa de Mickey Mouse (Spain),
+  Disney La Maison De Mickey (France), Disney Manny et ses outils (France), Disney Mickey - Mickey à la Recherche De Pluto (France),
+  Disney Princesses Cendrillon - Le rêve enchanté de Cendrillon (France, rev. 105),
+  Disney Winnie the Pooh - En Busca de la Miel (Spain, rev. 122), Disney's Little Einsteins (Spain),
+  Disney's Little Einsteins (USA, rev. 5?), Disney's Winnie de Poeh - De wonderwereld van Poeh (Netherlands),
+  Disney/Pixar Cars - Quatre Roues (France, rev. 105), Disney/Pixar Cars - Rev It Up in Radiator Springs (USA, rev. 201),
+  Disney/Pixar Là-Haut (France, rev. 005), Disney/Pixar Ratatouille - Las recetas del Remy (Spain),
+  Disney/Pixar Ratatouille - Les nouvelles recettes de Rémy (France),
+  Disney/Pixar Ratatouille - Remy's Nieuwe Recepten (Netherlands), Disney/Pixar Up (Spain, rev. 022), Disney/Pixar Wall-E (France),
+  Disney/Pixar Wall-E (Italy), Disney/Pixar Wall-E (Spain), Dolphis Wasser-abenteuer (Germany),
+  Dora L'Exploratrice - Les aventures de Dora Apprentie Mécano (France, rev. 105), DreamWorks Monstres contre Aliens (France),
+  DreamWorks Monstruos contra Alienígenas (Spain), DreamWorks Shrek Le Troisième - L'aventure d'Arthur (France),
+  DreamWorks Shrek Le Troisième - L'aventure d'Arthur (France, rev. 105),
+  DreamWorks Shrek the Third - Arthur's School Day Adventure (UK),
+  DreamWorks Shrek the Third - Arthur's School Day Adventure (USA, alt), Kung Fu Panda - Aventura en el Valle de la Paz (Spain),
+  Kung Fu Panda - La Mission de Po (France), Marvel Spider-Man & Friends - Secret Missions (USA, rev. 101),
+  Marvel Spider-Man & ses amis - Missions secrètes (France, rev. 105),
+  Marvel Spider-Man & ses amis - Missions secrètes (France, rev. 305),
+  Nick Jr. Dora La Exploradora - La Aventura arregla-todo de Dora (Spain, rev. 222),
+  Nick Jr. Dora the Explorer - Dora's Fix-it Adventure (USA), Nick Jr. Go Diego Go! - Save the Animal Familes! (USA, rev. 2?),
+  Nickelodeon Dora the Explorer - Dora's Fix-it Adventure (USA, rev. 201),
+  Nickelodeon Go Diego! - À la rescousse des animaux! (France), Oui-Oui - Détective d'un Jour (France, rev. 105),
+  Scooby-Doo - Misterio en el Parque (Spain), Scooby-Doo! - Funland Frenzy (UK), Scooby-Doo! - Funland Frenzy (UK, rev. 1?),
+  Scooby-Doo! - Funland Frenzy (USA, rev. 301), Scooby-Doo! - Panique à Funland (France),
+  Scooby-Doo! - Panique à Funland (France, rev. 105), Spider-Man y Amigos - Misiones Secretas (Spain, rev. 222),
+  Thomas & Friends - Engines Working Together (UK, rev. 1?), V.Smile Art Studio (USA), V.Smile Estudio De Arte (Spain),
+  V.Smile Studio De Dessin (France), V.Smile Zeichenatelier (Germany),
+  Walt Disney Cendrillon - Le rêve enchanté de Cendrillon (France, rev. 205),
+  Walt Disney La Cenicienta - Los sueños mágicos de Cenicienta (Spain, rev. 122) [Ryan Holtz]
+vsmilem_cart:
+  Action Mania (USA, Rev. 4?), Action Mania (USA, Rev. 6?), Action Manía (Spain), Disney Handy Manny (USA, Rev. 2?),
+  Disney La Casa de Mickey Mouse (Spain), Disney La Maison de Mickey (France, Rev. 005), Disney Manny et ses outils (France),
+  Disney Meister Manny's Werkzeugkiste (Germany), Disney Mickey Mouse Clubhouse (USA), Disney Micky Maus Wunderhaus (Germany),
+  Disney Princess - Disney Küss den Frosch - Tianas großer Traum (Germany),
+  Disney Princess - Disney La Princesse Et La Grenouille - Le grand rêve de Tiana (France),
+  Disney Princess - The Princess and the Frog - Tiana's Big Dream (UK),
+  Disney Winnie L'ourson - La Chasse au miel de Winnie (France), Disney Winnie the Pooh - En busca de la miel (Spain),
+  Disney's Kleine Einsteins (Germany), Disney's Kleine Einsteins (Germany, Rev. 2?), Disney's Little Einsteins (USA, Rev. 2?),
+  Disney's Little Einsteins (USA, Rev. 5?), Disney/Pixar Cars - Acelera el Motor en Radiador Springs (Spain),
+  Disney/Pixar Cars - Quatre Roues (France), Disney/Pixar Cars - Vollgas in Radiator Springs (Germany),
+  Disney/Pixar Cars 2 (Germany), Disney/Pixar Là-Haut (France), Disney/Pixar Toy Story 3 (Germany),
+  Disney/Pixar Toy Story 3 (Spain), Disney/Pixar UP (Spain), Disney/Pixar Wall-E (France), Disney/Pixar Wall-E (Germany),
+  Disney/Pixar Wall-E (Spain), Disney/Pixar Wall-E (USA, Rev. 2?), Disneys Princess Cinderella - Lernen im Märchenland (Germany),
+  Disneys Princess Cinderella - Lernen im Märchenland (Germany, Rev. 2?), DreamWorks Kung Fu Panda - Der Weg des Panda (Germany),
+  DreamWorks Monsters vs. Aliens (Germany), DreamWorks Monsters vs. Aliens (USA, Rev. 3?),
+  DreamWorks Monstres contre Aliens (France), DreamWorks Monstruos contra Alienígenas (Spain), La fée Clochette (France),
+  Fußball Meisterschaft (Germany), Für immer Shrek (Germany), Marvel Spider-Man & Freunde - Geheime Missionen (Germany),
+  Marvel Spider-Man & ses amis - Missions Secrètes (France), Mein erster Hund (Germany), Mijn Puppy! (Netherlands),
+  Mon Youtou tout fou! (France), Le Monde de Nemo - Nemo à la decourverte de l'océan (France),
+  NASCAR Academy - Race Car Superstar (USA), Nick Dora - Doras Reparatur-Abenteuer (Germany),
+  Nick Dora - Doras Reparatur-Abenteuer (Germany, Rev. 2), Nick Jr Dora - Dora's Reparatie Avontuur (Netherlands),
+  Nickelodeon Dora the Explorer - Dora's Fix It Adventure (USA, Rev. 3?),
+  Nickelodeon Ni Hao Kai Lan - Happy Chinese New Year! (USA), Nickelodeon Ni Hao Kai Lan - Joyeux Nouvel an chinois! (France),
+  Nickelodeon Spongebob Schwammkopf - Der Tag des Schwamms (Germany), Nickelodeon Wonder Pets! - Save the Animals! (UK),
+  Oui-Oui - Détective d'un Jour (France), Scooby-Doo! - Panique à Funland (France), ¡¡Scooby-Doo!! - Misterio en el parque (Spain),
+  Shrek 4 - Il était une fin (France), Shrek Forever After (USA), Sport Games (Netherlands), Sportskanone (Germany),
+  Thomas - Freunde halten zusammen (Germany), TinkerBell (Germany), TinkerBell (USA, Rev. 2?),
+  Walt Disney Cendrillon - Le rêve enchanté de Cendrillon (France), Winnie Puuh - Die Honigjagd (Germany), Wintersport (Germany)
+  [Ryan Holtz]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+fmtowns_cd: Pro Student G (ALS-0010), Towns-Telop, True Heart [redump.org, r09]
+leapfrog_mfleappad_cart: Disney/Pixar Cars (Spain) [TeamEurope, ClawGrip]
+mobigo_cart:
+  Disney Jake and the Neverland Pirates (USA, alt), Disney Princess (USA, alt), Disney/Pixar Brave (USA),
+  Dreamworks Shrek - Forever After (US), NAND User Cartridge (unknown data, set 1), NAND User Cartridge (unknown data, set 2),
+  Sesame Street - Elmo and Abby - Nature Explorers (USA) [TeamEurope]
+novag_ssensor4: Quartz Chess Clock [Berger]
+pc98_cd:
+  DOR Special Edition '93, DOR Special Edition '93 (alt), Kanji Land 3-nen, Kyrandia II - The Hand of Fate,
+  Lemon Cocktail Collection, Lip 3 - Lipstick Adventure 3, Mirage 2 - Torry, Neat & Roan Fairladies in MagicLand [redump.org, r09]
+pi_storyreader_cart:
+  Disney Blanca Nieves y los siete enanos (Spain), Disney El Rey León (Spain), Walt Disney Peter Pan (Spain) [TeamEurope, ClawGrip]
+tvgogo:
+  Basketball (EU) [ClawGrip, TeamEurope]
+  Basketball (US) [Sean Riddle, David Haywood]
+vsmileb_cart: Teletubbies (France) [DisizDream]
+
+
+マージされたプルリク
+--------------------
+- 6825: docs: Improved analog joystick mapping documentation, and added health warnings. [Firehawke]
+- 6837: debugger: Added loadr and saver commands for loading or saving data to/from a memory region. [bombzj]
+- 6838: fmtowns_cd.xml: Added 28 new entries, and replaced 22 entries with improved dumps. [redump.org, r09]
+- 6844: gigatron: Hooked up CPU output callback, fixed program counter wrapping, and added CPU input callback. [Sterophonick]
+- 6848: startouch.cpp: Added Biostar M5ATD motherboard BIOS option to europl01. [ClawGrip]
+- 6849: armedf.cpp, ddenlovr.cpp: Improved DIP switch documentation; nes_vt.cpp: Added zudugo manufacturer. [David Haywood]
+- 6850: ibm5170.xml: Corrected floppy interface for humans_525, and corrected metadata for inca2 and goblins. [ArcadeShadow]
+- 6851: chicago.cpp, exidyttl.cpp: Corrected ROM dumps, and added a skeleton driver for Exidy Destruction Derby. [Frank Palazzolo]
+- 6852: sound/ym2151.cpp: Simplified noise frequency calculation. [cam900]
+- 6853: sound/k051649.cpp: Improved playback rate calculation, and cleaned up code. [cam900]
+- 6856: sound/saa1099.cpp: Improved sample rate and mixing behavior, and fixed stereo output routing for vgmplay. [cam900]
+- 6857: sound/k007232.cpp: Converted to use device_memory_interface and added support for clock frequency changes. [cam900]
+- 6859: megaplay.cpp: Added motherboard PLDs. [caius, ClawGrip]
+- 6860: cpu/cp1610: Ensure SDBD operations set condition flags correctly. [ElectricMagic]
+- 6862: Only build asmjit for x86 and x86-64 targets. [Belegdol]
+- 6864: Added arm64 and s390x configurations to Travis CI. [Belegdol]
+- 6865: sgi_mips_hdd.xml: Added software list with pre-installed operating system images for SGI MIPS workstations. [Davide Cavalca]
+- 6867: generalplus_gpl16250_nand.cpp, spg2xx_wiwi.cpp, tvgogo.xml: Added three machines and a software list entry. [David Haywood]
+- 6868: sgi_mips.xml: Added eight entries, and corrected some metadata. [darkstar]
+- 6870: leapfrog_mfleappad_cart.xml: Added an entry. [TeamEurope, ClawGrip]
+- 6871: pi_storyreader_cart.xml: Added three entries. [TeamEurope, ClawGrip]
+- 6872: vsmile_cart.xml: Added three entries. [tenyuhuang, DisizDream, ClawGrip]
+- 6875: ibm5150.xml: Added six entries and corrected some metadata. [ArcadeShadow]
+- 6877: sgi_mips_hdd.xml: Added an entry and improved instructions in comments. [Davide Cavalca]
+- 6879: vsmileb_cart.xml: Added one entry. [DisizDream, ClawGrip]
+- 6880: bosco.cpp: Fixed sprite/background priority. [kunikuni]
+- 6881: vsmilem_cart.xml: Added seven entries and fixed two incorrect serial numbers. [DisizDream, ClawGrip]
+- 6882: Added ten TV games, a V.Smile Motion BIOS, and several software list entries. [David Haywood, Sean Riddle, TeamEurope]
+- 6884: midyunit.cpp: Fixed sound and added PAL dumps for mkyawdim2. [TwistedTom]
+- 6885: sgi_mips_hdd.xml: Added one entry. [Davide Cavalca]
+- 6887: sound/rf5c400.cpp: Fixed loop sample loop position calculation (GitHub #6883). [cam900]
+- 6888: video/atarirle.cpp: Fixed source file name in header comment. [cam900]
+- 6889: rf5c400.cpp: Fixed regression in sample loop and end position calculations. [cam900]
+- 6890: vsmile_cart.xml: Added one entry. [tenyuhuang, ClawGrip]
+- 6891: vsmilem_cart.xml: Corrected checksum/digest for cars2mf. [ClawGrip]
+- 6892: microdar.cpp: Added skeleton driver for Compumatic Far West darts machine. [Victor Fernandez (City Game), ClawGrip]
+- 6893: machine/cop452.cpp: Added partial COP452 frequency generator/counter emulation; hp_ipc.cpp: Added beeper. [F.Ulivi]
+- 6894: machine/6821pia.cpp: Added checks for disabled side effects on read accesses. [68bit]
+- 6895: bus/rs232: Initialize serial printer RxD output high (idle state). [68bit]
+- 6896: formats/os9_dsk.cpp: Added 8" 16-sector single-density formats (used by OS9 L1 on Motorola EXORciser). [68bit]
+- 6897: formats/mdos_dsk.cpp: Added Motorola MDOS floppy format. [68bit]
+- 6898: formats/wd177x_dsk.cpp: Be tolerant of missing sectors from the third track onwards. [68bit]
+- 6899: sgi_mips.xml: Added six entries, and added missing disc dumps to one entry. [darkstar]
+- 6900: vsmilem_cart.xml: Added some serial numbers and updated notes. [ClawGrip]
+- 6902: mobigo_cart.xml: Added five entries, and corrected the checksum digest for one entry. [TeamEurope, ClawGrip]
+- 6903: sgi_mips_hdd.xml: Added one entry. [Davide Cavalca]
+- 6904: sgi_mips.xml: Replaced a badly dumped disc image added in #6868. [darkstar]
+- 6905: sgi_mips.xml: Added eight NetBSD installation/source sets. [Davide Cavalca]
+- 6906: monkey_king_3b.cpp: Added skeleton driver for systems based on Monkey King 3B system-on-a-chip. [David Shah]
+- 6908: formats/mdos_dsk.cpp: Fixed the cell size and gaps, and added notes. [68bit]
+- 6909: Added five TV games and a software list entry. [David Haywood]
+- 6910: Fixed arcade subtarget build. [MASH]
+- 6912: ibm5150.xml: Added two entries, and re-dumped on entry. [ArcadeShadow]
+- 6914: machine/cop452.cpp: Fixed timer reloading. [F.Ulivi]
+- 6915: sgi_mips_hdd.xml: Added one entry. [Davide Cavalca]
+- 6917: sound/rf5c400.cpp: Added support for clock frequency changes, flagged imperfect sound, and cleaned up code. [cam900]
+- 6918: galaxian.cpp: Added Cirsa Spanish bootleg of Galaxian. [Juan Romero, ClawGrip]
+- 6919: tourvis.cpp: Added Tourvision BIOS V4-54. [Juan Romero, ClawGrip]
+- 6920: cave.cpp: Added graphics layout for sprite lines, simplified tilemap graphics decoding, and cleaned up code. [cam900]
+- 6921: Added a TV game and a number of imperfect dumps of unlicensed Game Boy Advance cartridges. [David Haywood]
+- 6922: sound/ymz280b.cpp: Improved frequency calculation and cleaned up code. [cam900]
+- 6923: pdp11.cpp: Removed GPL dependency. [shattered]
+- 6924: williams.cpp: Added clone Robotron: 2084 (Unidesa license). [Juan Romero, ClawGrip]
+- 6927: Added Motorola EXORterm 155 terminal emulation. [68bit]
+- 6930: mpu4vid.cpp: Allow v4strike and v4barqst to decode questions, and fixed some parent/clone relationships. [David Haywood]
+- 6931: machine/mc6852.cpp: Implemented more functionality and added a byte communication interface. [68bit]
+- 6933: devcb.h: Use GCC broken friend workaround with clang 8 as well. [Tiago Pierezan Camargo]
+- 6934: pc98_cd.xml: Added 15 entries and replaced 11 entries with improved dumps. [redump.org, r09]
+- 6935: hh_sm510.cpp: Added Nintendo Micro Vs. System: Donkey Kong Hockey. [algestam, Ryan Holtz]
+- 6936: hh_sm510.cpp: Added gnw_dkong3 PCB label to comment. [algestam]
+- 6937: mpu4vid.cpp: Added layout and tweaked inputs for v4addlad, and added a protection workaround. [David Haywood, James Wallace]
+- 6938: ibm5150.xml: Fixed some data area sizes (GitHub #6876). [r09]
+- 6939: megaplay.cpp: Added two more motherboard PLDs. [Kevin Eshbach, ClawGrip]
+- 6940: cpu/gigatron: Added output callback; gigatron.cpp: Started implementing video, and added ROM V5a BIOS option. [Sterophonick]
+- 6941: 4enlinea.cpp: Added Sport Dart TV. [Victor Fernandez (City Game), ClawGrip]
+- 6942: ibm5150.xml: Added XENIX Development System. [archive.org, Davide Cavalca]
+- 6944: galaxian.cpp: Added Spanish bootleg of Zero Time. [Juan Romero, ClawGrip]
+- 6945: goldnpkr.cpp: Fixed syntax error in input port definitions. [Davide Cavalca]
+- 6946: ibm5150.xml: Added five entries. [ArcadeShadow]
+- 6947: ibm5170.xml: Added one entry. [ArcadeShadow]
+- 6949: docs: Updated RTD theme to 0.5.0 (fixes issues with links in search results). [Firehawke]
+- 6950: Improved screen aspect ratio in internal layout for EXORterm 155 terminal. [68bit]
+- 6952: vsmile.cpp: Marked V.Smile Motion as working, as the games are playable even without accelerometer controls. [ClawGrip]
+- 6953: bus/nes: Implemented FDS sound emulation. [cam900]
+- 6954: vsmilem_cart.xml: Promoted software to working, and corrected some metadata. [ClawGrip]
+- 6956: Significant improvements to Gaelco Modular System bootleg emulation, and new TV games. [David Haywood]
+- 6958: Added driver for Motorola M6800 EXORciser (M68SDT) and device for corresponding floppy controller. [68bit]
+- 6958: mw8080bw.cpp: Improved gunfight audio, including a better transistor model and noise generator. [Colin Douglas Howell]
+- 6959: Improved video emulation for several Gaelco Modular System bootlegs, and added inputs/sound for raidenm. [David Haywood]
+- 6960: plugins/autofire: Don’t save empty configuration files. [kunikuni]
+- 6961: machine/v3021.cpp: Converted to use device_rtc_interface, and implemented serial interface and more commands. [cam900]
+- 6962: ibm5150.xml: Added IBM Personal Computer Interactive Executive (PC/IX). [WinWorld, Davide Cavalca]
+- 6963: namcos2.cpp: Worked around conflicting default input assignments for fourtrax. [MASH]
+- 6964: raiden_ms.cpp: Improved raidenm emulation; spg2xx_zone.cpp: Added two TV games. [David Haywood]
+- 6967: ibm5170.xml: Added five entries. [ArcadeShadow]
+- 6969: plugins/autofire: Improved method for detecting empty configuration. [kunikuni]
+- 6970: microdar.cpp: Added skeleton driver for unknown Compumatic ProSPDP dart machine. [jordigahan, ClawGrip]
+- 6971: pgm.cpp: Cleaned up drawing code, and improved timing of intro sequences in some games. [cam900]
+- 6972: hh_sm510.cpp: Added Telko / Nintendo Bassmate Computer. [algestam, Mr. Do]
+- 6973: mpu4vid.cpp: Fixed inputs, fixed up machine ROM sets, and promoted several machines to working. [David Haywood]
+- 6977: gigatron.cpp: Added audio DAC, started hooking up OUTX port, and cleaned up code. [Sterophonick]
+- 6978: mpu4mod4yam.cpp, mpu4vid.cpp: Started untangling sets now that they boot, and tweaked inputs. [David Haywood, James Wallace]
+- 6979: Added netlist-based audio for thirteen early Cinematronics vector games, and minimal artwork for Warrior. [Aaron Giles]
+- 6980: video/imagetek_i4100.cpp, metro.cpp: Improved flip screen drawing; hyprduel.cpp: Fixed sprite delay. [cam900]
+- 6982: Added five TV games. [David Haywood]
+- 6983: sound/ics2115.cpp: Improved envelope behavior. [cam900]
+- 6984: mw8080bw.cpp: Improve 280zzzap audio emulation. [Colin Douglas Howell]
+- 6986: generalplus_gpl16250_rom.cpp: Replaced tkmag220 ROM with correct dump. [TeamEurope, David Haywood]
+- 6987: Switched AppVeyor MinGW GCC build to use -O3 (works around GitHub #6804). [Belegdol]
+- 6988: Changed Travis CI configuration for installing prerequisite packages in an attempt to speed up builds. [Belegdol]
+- 6989: microdar.cpp: Added Diana Olakoa dart machine. [Victor Fernandez (City Game), ClawGrip]
+- 6993: Added beam_dot_size for controlling the size of “dots” on vector screens. [Aaron Giles]
+- 6997: sound/k053260.cpp: Suppress read side effects on debugger accesses. [cam900]
+- 6998: microdar.cpp: Added EEPROM dump to “prospdp”. [jordigahan, ClawGrip]
+- 6999: nes_vt.cpp: Added two TV games; mpu4.cpp, mpu4vid.cpp: Split up more sets and improved descriptions. [David Haywood]
+- 7000: sound/ics2115.cpp: Resolved license issue, re-implemented envelopes and fixed ramping. [cam900]
+- 7002: Worked around issue updating MSYS2 packages from AppVeyor. [Belegdol]
+- 7005: ibm5150.xml: Added four entries. [ArcadeShadow]
+
+
+ソースの変更点
+--------------
+- gigatron: CPUにoutxコールバックを使うよう変更。[Sterophonick]
+
+- gigatron: やっちまった。[Sterophonick]
+
+- gigatron: さらに作業。[Sterophonick]
+ * jumpsにコメントを追加
+ * 必要に応じて 15 ビットの ROM 空間をマスクアウト
+ * ゲームパッドを実装
+
+- gigatron: 欠落していたプロトタイプを修正。[Sterophonick]
+
+- gigatron: 入力をvoidではなくuint8_tに設定。[Sterophonick]
+
+- gigatron: resolve を resolve_safe に変更。[Sterophonick]
+
+- gigatron: 安全なresolve (でも適切)。[Sterophonick]
+
+- gigatron: ROMマスクを16ビットではなく15ビットに修正。[Sterophonick]
+ * また、マスクのラベル化 (nw)
+
+- (nw) braiplus: メモ追加。[Robbbert]
+
+- gnw_dkong3: 小修正。(nw) [hap]
+
+- ti99_2: 拡張ポートと32K拡張モジュールをエミュレート。[Michael Zapf]
+
+- bbc.cpp: モード3と6の表示不具合再発を修正。(nw) [Nigel Barnes]
+
+- startouch.cpp: 'europl01'マザーボードBIOSの追加。[ClawGrip]
+
+- genie: mingw sdl のビルドで、LinkSupportCircularDependencies フラグオプションでエンドグループが自動追加されて失敗していた。
+  (nw) [hap]
+
+- 変更いろいろ(製造元情報、 dswsなど)。 (nw) (#6849) [David Haywood]
+ * 製造元、DIPスイッチなど (nw)
+
+- spectrum/d40.cpp: "MDOS 2" UPD765ベースのフロッピーコントローラを追加。[MetalliC]
+
+- ibm5170 - 変更。[ArcadeShadow]
+ * humans_525: フロッピーインターフェースを "floppy_5_25 "に変更 
+ * inca2: "Inca 2: Wiracocha (Europe)"から"Inca 2: Wiracocha (Euro)"に名称変更
+ * goblins: "Gobliiins (US - VGA release)"から"Gobliiins (USA, VGA version)"に名称変更
+
+- drawd3d: d3dintfをきちんと整理。(nw) [hap]
+
+- メモリ領域を操作するためのセーバーを追加。(#6837) [Jacob]
+ * メモリ領域のデバッガコマンド saver を追加
+ * メモリ領域のデバッガコマンド loadr を追加
+
+- tlcs900: MAX命令の修正。(nw) [AJR]
+
+- drcbex64: pushf/popfのバグを修正。(nw) [Patrick Mackinlay]
+
+- このフォーマットは冗長。(nw) [MetalliC]
+
+- arm7: PXA250、PXA270のプレースホルダデバイスを追加し、PXA255のCPU IDを修正。[Ryan Holtz]
+
+- pxa255: RTC、クロック、電源管理レジスタの予備サポート。[Ryan Holtz]
+
+- zaurus: SL-5500モデルの正しいダンプを追加しました。既存のSL-5500モデルを疑わしいモデル(SL-C500)に名称変更 [Ryan Holtz]
+
+- 修正のマージ。nw [mooglyguy]
+
+- (nw) (destdrby) ROMイメージの修正。 [Frank Palazzolo]
+ * 様々なPROMイメージの問題修正
+ * dmodrbcc: 512 バイトの ROM が長さ 256 に間違って設定されていた。ニブル幅ROMの一部上位ビットがデフォルト0に設定されていなかった
+ * destdrby ("new"ドライバ): Exidy PCBから新たにダンプされたROMを追加、イメージがdmodrbccからの修正イメージと一致。(chicago.cpp の 
+   dmodrbcc との冗長性がありますが、それは異なる基板レイアウトで会社も違います)
+ * deathrac: イメージ 36 と 35 が破損していたので、海賊版rhuntingの正しいイメージで修正。イメージ 36のフォーマットに関するメモを追加
+ * rhunting: イメージがdeath raceと100%一致。ドライバはdeathhracのROMイメージを使用
+
+- diexec: m_totalcycles のワークアラウンドを削除。(nw) [hap]
+
+- 以下を巻き戻し "diexec: m_totalcycles workaround doesnt apply anymore (nw)" [hap]
+ * 以下のコミットを巻き戻し 08c0e1b4b6be983d4ebbfef21b238b033c1f3c0e.
+
+- n64: burn_cyclesを変更 (nw) [hap]
+
+- diexec: m_totalcycles のワークアラウンドを削除。(nw) [hap]
+ * (cherry picked from commit 08c0e1b4b6be983d4ebbfef21b238b033c1f3c0e)
+
+- zaurus:Intel SA-1110スケルトンデバイスを追加。SL-5500用の適切なOSダンプを追加。[Ryan Holtz, O. Galibert]
+
+- k051649.cpp: 周波数の挙動を修正。セーブステートのモダン化。型の値修正。[cam900]
+
+- pc98.xml: panicbom と hldrun のセットの不一致を修正。(nw) [angelosa]
+
+- fidel_elite: easにCPU周波数の選択を追加。(nw) [hap]
+
+- novag_sexpert: デフォルトverのb/c cpuを6mhzに設定。(nw) [hap]
+
+- zaurus.cpp: zsl5500のダミーハッシュが残っていたのを修正。 (nw) [Scott Stone]
+
+- (nw) ファイルが存在しないときは、ウェブサイトからヘルプを取得。[Robbbert]
+
+- WPC以前のWilliams製ピンボールすべてで、スイッチマトリックスにioポートアレイを使用するように変更。これにより、ランタイムルックアップ
+  を削除し、1ビット以上の値がカラムセレクトに書き込まれたときのMAMEクラッシュを修正。[Lord Nightmare]
+
+- saa1099.cpp: 出力、周波数挙動の修正、ノートの追加、使われていない値の削減、重複とマクロの削減
+  gblaster.cpp, sblaster.cpp: 出力、クロック入力修正、実機で検証
+  vgmplay.cpp: SAA1099のステレオ出力サポート、参照: ピンアウト、データシート [cam900]
+
+- accomm: キーボードの改良、Stop をリセットラインにマッピング。[Nigel Barnes]
+
+- electron: パレットをシンプル化。デフォルトでPlus 1デバイスをアタッチ。 (nw) [Nigel Barnes]
+
+- bbc_acorn8271/bbc_ams3: 8271のクロックの修正。 (nw) [Nigel Barnes]
+
+- mephisto_academy: 別のドライバに移動。(nw) [hap]
+
+- SpecialistベースのハードウェアのWIPドライバ、クレジットは後で。(nw) [MetalliC]
+
+- nl (nw) [MetalliC]
+
+- special_gambl.cpp: グラフィック不具合を修正。(nw) [MetalliC]
+
+- (Grant Searle drivers) ライセンスヘッダの追加。[Frank Palazzolo]
+
+- mrrack: バージョン1.53のROMを追加。[DBWBP]
+
+- (nw) homelab: とりあえずこれで終了。[Robbbert]
+
+- (nw) llc2: おっと、間違えた。[Robbbert]
+
+- i86: NEGオペコードフラグで以前起きていた不具合を修正。[dink/fbneo]
+
+- i86: NEGオペコードのキャリーフラグを忘れた。(nw) [hap]
+
+- s3.cpp: PokerinoのサウンドPROMを修正。[PinMAME]
+
+- sdk86: デフォルトのレイアウトを強制的に選択。(nw) [hap]
+
+- windows: ウィンドウモードで非常に大きなビューのリサイズを許容。(nw) [hap]
+
+- (nw) camplynx: ROM領域をRAMとして使用しない。 [Robbbert]
+
+- schick.cpp: DIPスイッチを追加。 (nw) [Ivan Vangelista]
+
+- (nw) pk8000: クリーンアップ。[Robbbert]
+
+- SDBD操作で確実に正確な条件フラグを設定。16ビットの一時変数を使用し、COV計算に影響を与えないように2回目の読み出しからの上位8ビットを
+  破棄。 [Andrew Green]
+
+- megaplay.cpp: マザーボードのPLDを追加。[caius]
+
+- ym2151.cpp: ノイズ挙動の修正。(#6852) [cam900]
+
+- Clangビルドを修正。(nw) [arbee]
+
+- vs2019ビルドを修正。[Frank Palazzolo]
+
+- 不足ドライバエントリ、destdrbyを追加。(nw) [Frank Palazzolo]
+
+- コメント修正。[Frank Palazzolo]
+
+- (nw) zorba: 要件に合わせて調整。[Robbbert]
+
+- windows: 最低ウインドウ高を低下。(nw) [hap]
+
+- sdk86: スナップショット♪を作成しようとするとクラッシュする問題を修正ッ!!! (nw) [hap]
+
+- crshrace.cpp: 非常にマイナーなクリーンアップ。(nw) [Ivan Vangelista]
+
+- goldstar.cpp: 以前のコミットを修正。(nw) [Ivan Vangelista]
+
+- ラムダをバンクに置き換え。[Robbbert]
+
+- x86とx86_64でのみasmjitをビルド。[Julian Sikorski]
+
+- homelab: ラムダをバンクに置き換え。[Robbbert]
+
+- ラムダの沈黙。[Robbbert]
+
+- dragon200e: キャラクタROMを実装。[Nigel Barnes]
+
+- sgi_mips.xml, bbc_cass.xml: さまざまな XML フォーマットの修正。(nw) [Scott Stone]
+
+- fmtowns_cd.xml: 新規吸い出し26本、置き換え24本。 (#6838) [r09]
+ * fmtowns_cd.xml: 新規吸い出し13本、置き換え13本
+   redump.orgからの新規吸い出し(動作可能):
+   - Akiko - Premium Version Curse Gambler - Queen's Cup Gokuraku Mandala Iris-tei Serenade Marionette Mind Mirage 2 - Torry, Neat &
+      Roan Fairladies in MagicLand Noushuku Angel 120% Shamhat - The Holy Circlet (FM Towns Marty version) Tenshin Ranma The Manhole
+      (1990-08-01) Two Shot Diary
+   redump.orgからの新規吸い出し(動作不可):
+   - True Heart
+   redump.orgからの置き換え:
+   - Alshark Branmarker 2 Dragon Knight 4 Eimmy to Yobanaide Evolution Gunblaze Igo II Lesser Mern Princess Maker 2 Rayxanber
+      Vastness - Kuukyo no Ikenie-tachi Youjuu Senki 2 - Reimei no Senshi-tachi Zenith
+ * sha1修正 (nw)
+ * fmtowns_cd.xml: 新規吸い出し14本、置き換え11本
+   redump.orgからの新規吸い出し(動作可能):
+   - Cal III - Kanketsu-hen Chiemi & Naomi Eikan wa Kimi ni 2 - Koukou Yakyuu Zenkoku Taikai FM Towns Application Catalog CD-ROM -
+      Original Soft-hen G5 (HMA-206) Hyper Fetishism Illust Hyakka - Yamashita Hideki no Ikiiki Cut-shuu Jouhou Club - Card
+      Processor Ver. 1.1 Mahjong Musashi Manami no Doko made Iku no? 2 - Return of the Kuro Pack Viper-V12 RS
+   redump.orgからの新規吸い出し(動作不可):
+   - Pro Student G (ALS-0010) Towns-Telop
+   - Replaced entries with dumps from redump.org:
+   - 4D Tennis Arabesque - Shoujo-tachi no Orinasu Ai no Monogatari Ayumi-chan Monogatari Cal Towns Custom Mate 2 & Itsuka dokoka de
+      Pro Student G (ALS-0004) Space Rogue The Atlas Viper-V8 Turbo RS Viper-V10 Turbo RS YES! HG - Erotic Voice Version
+
+- travis CIにarm64とs390xを追加。 [Julian Sikorski]
+
+- s8-9-11: 古いコピペミスを修正。[Robbbert]
+
+- netlist: コードメンテナンス。[couriersud]
+ * reinterpret_castの使用を削減
+ * ttlゲームの最適化のためデフォルト変更
+ * 様々なコードのクリーンアップ
+
+- netlist: ファイルのリファクタリング。[couriersud]
+ * この継続的なエクササイズの目的は、ヘッダファイルの不必要な依存関係を取り除くことです。デバイスの実装についても同様です
+ * コアなものは今後コアのサブディレクトリに移動します
+
+- netlist: 74377のピン割り当てを修正。[couriersud]
+
+- netlist: ROMデバイスのパラメータ値の解像度を修正。[couriersud]
+ * 戻り値を単純化
+ * パラメータ値解像度をドキュメント化
+
+- MT07689: Still Crazy: サウンド出ない。[Robbbert]
+
+- ti99: datamux の debugger_write で、PEB アクセスに誤ったアドレス変数を使用していたのを修正。[Michael Zapf]
+
+- netlist: 接続されていない出力のヒントを追加。[Couriersud, Aaron Giles]
+ * ロジック出力とアナログ出力を "NC"（not connected）としてフラグを立てることができるようになりました
+ * 例: "HINT(IC13.4, NC)"
+ * これは、ログに記録される情報メッセージを抑制します
+ * HINTは既存の端末に適用する必要があります。既存の端末以外のHINTは致命的なエラーとして扱われます
+ * 未接続なターミナルやロジック入力はまだ警告として扱われます。修正が必要です
+
+- s3-11: 初期のWilliamsピンボールすべてにオーバーライドを追加。[Robbbert]
+
+- MT07340: vegasとseattleドライバーの8方向と49方向ジョイスティック選択を修正。[Ted Green]
+
+- cave: donpachijsで日本語テキストレイヤーのROMを使用。[hap]
+
+- m72: xmultiplm72 の romlabel のタイプミスを修正。[hap]
+
+- cmi2x: 修正多数でSystem Software V19が起動。音もひどいものの再生。[Ryan Holtz]
+
+- mips3: ディプリケートされたDRCフラグを削除し、ブロック内分岐を無効にするフラグを追加。[Ted Green]
+
+- spectrum/beta.cpp: このような機能を持つクローンにセントロニクスポートとジョイスティックを追加。[MetalliC]
+
+- vegas.cpp: 8WAYプレイヤー用のデフォルトポートマッピングを追加。未宣言のioポートを読もうとするとroadburn でクラッシュする問題を修正。
+  (nw) [Ted Green]
+
+- vegas.cpp: デフォルトの ioport IN2 はアナログゲームでは未使用。(nw) [Ted Green]
+
+- supercon: レイアウトにキーパッドオーバーレイを追加。[hap]
+
+- sidepcktj: ROMラベルの綴り違い修正。[hap]
+
+- H16逆アセンブラとHD641016 CPUのスケルトンデバイスを追加。[AJR]
+
+- Williams System 11/11a/11b/11cのピンボールで、maincpuとaudiocpuのIRQ入力にinput_mergerを使用するように変更し、タイマーIRQジェネ
+  レーターがハードウェアに対してより正確になるように書き直し。advanceとup/downのオペレータ入力を修正し、特定のゲームが安定するかも。
+  [Lord Nightmare]
+
+- wpc_dcs.cpp と wpc_s.cpp のクラス定義のスタイルを他のWilliamsピンボールドライバに合わせて変更。[Lord Nightmare]
+
+- 最新の変更は実際にステージングするのに役立ちます... (nw) [Lord-Nightmare]
+
+- mac128.cpp: キーボードエミュレーションが有効になってから使われなくたったvestigialの宣言と入力ポートをクリーンアップ。[Vas Crabb]
+
+- supercon, sforte: レイアウトにチェスのアイコンを追加。[hap]
+
+- voodoo: バックバッファデバッグキー(L)を無効にすると、プレーヤ3のデフォルトコントロールに干渉。[Ted Green]
+
+- 6840ptm: T3除算に関する問題を修正。[Ryan Holtz]
+
+- cmi01a: 8チャンネルすべてを同時に再生するために、1チャンネルあたりのゲインを1ビット低下。[Ryan Holtz]
+
+- various devices and drivers: 余分なセミコロンを削除。(nw) [Ivan Vangelista]
+
+- pgmprot_igs027a_type1.cpp: 「Photo Y2K2」のスプライトオフセットデコードをシミュレート。[iq_132]
+
+- royalmah.cpp: mjsenkaを解読。ゲームには進むが不具合多数。(nw) [Ivan Vangelista]
+
+- bosco.cpp: スプライトはBGよりも優先度が低い。(#6880) [kunikuni]
+
+- modena: nmiハンドラを簡略化。[hap]
+
+- tilemap: 描画関数のデフォルトフラグパラメータ。[hap]
+
+- netlist オブジェクトを解放する際のWindowsでのクラッシュを修正。[Aaron Giles]
+
+- leapfrog_mfleappad_cart.xml: バリデーション修正。(nw) [Ivan Vangelista]
+
+- atarirle.cpp: 説明文のソースファイル名を修正。(#6888) [cam900]
+
+- (nw) 2つの間違ったゲームのシリアルを修正。[ClawGrip]
+ * vsmilem_cart.xml: バリデーションエラー修正 (nw)
+
+- Williams System 11/11a/11b/11c pinballs: デバイス名と関数名の整合性をさらに修正、CVSD スピーチクロックの極性とデジタル入力ビットのマ
+  スキングを修正 (以前はいくつか見逃していました)、メモリ/デバイスのミラーリングの問題を修正、ドライバ全体で整合性をキープ。
+  [Lord Nightmare]
+
+- rf5c400.cpp: GitHub #6883を修正。 (#6887) [cam900]
+
+- mkyawdim2: サウンド修正、PAL吸い出し。(#6884) [Tom]
+
+- chessmachine: emumem初期化の高速化。[hap]
+
+- chessmachine: .mirrorを再起動してもumask32は維持。[hap]
+
+- Mac 128k/512k/512ke/Plusキーボードポートをスロット化。[Vas Crabb]
+ * 使用可能なキーボードは、us (M0110, U.S.)、gb (M0110B, British)、fr (M0110F, French)、pad (M0120F, パススルーポート付きテンキー) お
+   よび plus (M0110A, U.S., 統合テンキー) です。 mac128k、mac512k、mac512ke ドライバのデフォルトは、パススルーポートに接続されたU.S.
+   キーボードのテンキーパッドになります
+ * テンキーがおかしいと思われるかもしれないので注意してください。オペレータのうち4つはシフトを押していないとカーソル矢印として機能しま
+   す。キーの1つにカンマがありますが、System 6がリリースされる頃には、Appleは等号の方が便利だと判断していたので、新しいシステムではそ
+   れが出るようになっています。テンキーを内蔵したU.S.キーボードは、スタンドアロンのキーパッドのこうした側面をエミュレートしています - 
+   キーパッドのオペレータキーを押すと、フェイクのキーのダウン/アップイベントが送信されます。シフトを押しながら矢印キーを使用すると、テ
+   キストを選択するのではなく、オペレータの文字が生成されます
+ * ISOレイアウトキーボード(M0110BとM0110F)は、ANSIキーボード(M0110とM0110A)とは異なるスキャンコードを生成しますが、異なる識別バイ
+   トはレポートされません。 ISOキーボードを使用するには、キーボードコントロールパネルを開き、レイアウトをInternationalに変更する必要が
+    あります(ANSIキーボードに戻す場合はDomesticに戻してください)
+
+  現時点では 6522 VIA エミュレーションの問題で実際には動作しませんが、リビジョン963a2c166d080e78e6de7fe432ed7944c59a6083の上に適用すれ
+  ば、macplus sys603で動作します
+
+- vsmilem_cart.xml: 'cars2mf'のハッシュ修正。(nw) (#6891) [ClawGrip]
+
+- mac.cpp: 128k/512k/512ke/Plusキーボードコードを削除 - これらのマシンはずっと前に mac128.cpp に移動済み。[Vas Crabb]
+
+- mackbd: GI PICキーボードの吸い出しが必要なことについてメモを追加。[Vas Crabb]
+
+- namcos2.cpp: セーブステートをサポート。(nw) [Ivan Vangelista]
+
+- mackbd: M0110Tイタリア語QZERTYキーボードを追加し、ノートを更新。[Vas Crabb]
+
+- bus/mackbd: M0120Pキーパッドを追加し、ノートを更新。[Vas Crabb]
+
+- ac1: 整理と、スピーカーの追加。[Robbbert]
+
+- bus/mackbd: スキャンコード表などのメモを追加。[Vas Crabb]
+
+- bus/mackbd: M0110Aキーボードがバスピンがプルダウンされていないことを確認した場合、デバッグログは無効化。[Vas Crabb]
+
+- dooyong: sadariにボタン#3を追加。[hap]
+
+- vector4: ノート追加。[Robbbert]
+
+- wd_fdc.cpp: 割り込みコマンドでのスピンアップを修正。samcoupe.cppのフロッピー音を有効化。[MetalliC]
+
+- gotcha.cpp, zerozone.cpp: マイナーな整理。(nw) [Ivan Vangelista]
+
+- ac1: キーボードを書き換え。[Robbbert]
+
+- spectrum: Kempston Disc Interface を実装。[MetalliC]
+
+- spectrum/d40.cpp: ジョイスティックポート追加。[MetalliC]
+
+- wd_fdc.cpp: WD1770/72リセット時にRESTOREしないよう変更。[MetalliC]
+
+- 逆もまたしかり。(nw) [MetalliC]
+
+- netlist: コードのメンテナンスとバグ修正。[couriersud]
+ * palloc.h/pmatrix2d.h: 原点でのstatic_assertの警告を修正
+ * ヒントの使用範囲を広げるためのリワークとNCヒントの修正
+ * 74377: NCヒント使用
+ * plists.h: MSVCでのデバッグを修正
+ * Include cleanup: netlistsで不要なものをnl_setup.hからcore/setup.hに移動
+ * clang tidy警告を修正
+ * srcclean
+
+- namcos2.cpp: rthun2とrthun2jのROMラベルを修正。[Heihachi_73, ClawGrip]
+
+- apple3: フォントのアップロードは開始時ではなく、VBLの最後に実行。[robj]
+
+- bus/mackbd: フランス語と日本語のMac Plusキーボードとメモを追加。[Vas Crabb]
+
+- mac128.cpp: キーボードのクロック反転ハックを削除 - キーボードはmacplus、mac512k、mac512keで動作。[Vas Crabb]
+
+- drcbex64: asmjitエミッタを実装。[Patrick Mackinlay]
+ * ヘルパーを統合
+ * 以前に報告されたバグの修正
+
+- mikro80: クリーンアップ。[Robbbert]
+
+- sgi_mips.xml: 追加大量。(#6868) [Michael D]
+ * sgi_mips.xml: 新規追加
+   - European Language Module 1.3.1
+   - Desktop Special Edition 1.0
+ * sgi_mips.xml: 追加 European Language Module 1.1
+ * sgi_mips.xml: 少し更新
+ * このコミットは、欧州言語モジュール1.2のバージョン1.2のP/Nを、他の言語モジュールとより整合性のあるP/Nに変更します。このP/Nは、
+   オリジナルのディスクと照合して検証してプリントされています
+ * sgi_mips.xml: IndiZone CDのオリジナルディスク追加
+ * sgi_mips.xml: IndiZoneディスクの名前修正
+ * sgi_mips.xml: ONC3/NFSのバージョン2つ追加
+ * 既存の ONC3/NFS バージョン 1.2 chd の 2 つのタイプミスを修正 (p/n が間違っていて、名前が実際の CD ラベルと一致していませんでした)
+ * sgi_mips.xml: IRIX 5.1.1.2 patch CD 追加
+ * sgi_mips.xml: IRIX 5.2 for Indy R4600 PC　追加
+ * R4600SC/XZ用の既存のIRIX 5.2は4ヶ月後にリリースされ、P/Nが高いため、irix_5_2_bに名前を変更してください。
+ * sgi_mips.xml: deskse_1_1_1のP/Nのタイプミスを修正
+ * オリジナルCDとの照合
+
+- 6821pia: 副作用があるので、これらは無効にする必要あり。[68bit]
+
+- rs232シリアルプリンタ: データ出力をHighに初期化 [68bit]
+ * HighはRS232のrestfulステートです。低レベルにすると、接続されている機器が連続してブレークを受信することになり、一部のドライブで問題
+   が発生する可能性があります
+
+- os9 dsk: 8インチ16セクタ単一密度フォーマットを追加。[68bit]
+ * これらのフォーマットはMotorola EXORciserのOS9 L1によるもの
+
+- MDOSディスクフォーマットサポート。[68bit]
+ * Motorola DOS、EXORciserなどで使用
+
+- wd177x dsk: 後半トラックの欠落セクタを許容。[68bit]
+ * セクタが1つ欠けていると、互換性無しとしてイメージが中断していました。これを許容すると、セクタが失われた古い復元ディスクイメージの作
+   業に役立ちます
+
+- orao: クリーンアップ。[Robbbert]
+
+- sgi_mips.xml: 734行、バリデーションエラー。[Robbbert]
+
+- 最近の昇格にからむSPG関連の追加、変更、改善など。[David Haywood]
+
+- V.Smile V.Motion BIOSの別版追加。[Sean Riddle, TeamEurope]
+
+- hp_ipc: ビーパーを追加。(#6893) [fulivi]
+
+- voodoo.cpp: テクスチャコントロールが実際に変更された場合のみ、変更フラグを立てる。 [Ted Green]
+
+- netlist: pfunctionに比較演算子を追加。[couriersud]
+ * 比較演算子は0.0か1.0のどちらかで評価します。そのため「(a==1)*(b==2)」のように使うことができますが、これはaが1でbが1の場合にのみ1.0になります。公開予定のテストコードより:
+   - PFUNCEXPECT("1==1", 1.0)
+   - PFUNCEXPECT("1 *0 == 2-1-1", 1.0)
+   - PFUNCEXPECT("0!=1", 1.0)
+   - PFUNCEXPECT("0<1",  1.0)
+   - PFUNCEXPECT("1>0",  1.0)
+   - PFUNCEXPECT("0<=1", 1.0)
+   - PFUNCEXPECT("1>=0", 1.0)
+   - PFUNCEXPECT("1<=1", 1.0)
+   - PFUNCEXPECT("1>=1", 1.0)
+   - PFUNCEXPECT("if(1>0, 2, 0)", 2.0)
+   - PFUNCEXPECT("if(0>1, 2, 3)", 3.0)
+   - PFUNCEXPECT("if(sin(1)>0, 2, 3)", 3.0) // fail
+
+- voodoo: SSEでは、パースペクティブ補正の計算に256倍の浮動小数点の代わりに8倍シフトを使用。[Ted Green]
+
+- spectrum/mgt.cpp: DISCiPLE/+Dを128K Spectrumモデルで動作するように改良。[MetalliC]
+
+- big10.cpp, kas89.cpp, kurukuru.cpp, tonton.cpp: セーブステートサポート。[Ivan Vangelista]
+ * luckybal.cpp, rulechan.cpp: セーブステート修正
+
+- sothello.cpp: 0.148u2 で M6809 を書き換えてから動作しなくなったので MACHINE_NOT_WORKING に降格。(MT06033) [Ivan Vangelista]
+
+- ddragon.cpp: ddragon6809 の ROM ローディングを更新し、 ddragon6809a と一致。ddragon よりナイス。[Ivan Vangelista]
+
+- cop452: バリデーションの修正 (Device cop452.cpp(COP452) short name contains invalid characters) [Ivan Vangelista]
+
+- galeb: クリーンアップ、暫定カセット追加、メモ追加。 [Robbbert]
+
+- spectrum/mgt.cpp: インヒビットロジックとリセットのマイナー修正。[MetalliC]
+
+- devices/machine/iwm.cpp, device/machine/ncr539x.cpp, mame/machine/abc1600mac.cpp: devnoclear デバッグビルドで問題となっていた初期化
+  の問題を修正。(nw) [Ivan Vangelista]
+
+- ddragon.cpp: 実機を反映するようにddragon6809のマシンコンフィグを変更。[Ivan Vangelista]
+
+- netlist: pfunctionにlog()を追加。[Aaron Giles]
+
+- netlist: varclockにパラメータを追加。[Aaron Giles]
+
+- netlist: デザインVARCLOCKをAFUNCにアライン。[Aaron Giles]
+
+- netlist: pfunctionにコンストラクタと()演算子を追加。[couriersud]
+
+- Monkey King 3B SoCスケルトンとRS-70システムを追加。(#6906) [David Shah]
+
+- mk3b: Monkey King 3B SoC用のスケルトンドライバを追加。[David Shah]
+
+- devices/machine/6850acia.cpp, device/machine/upd4992.cpp, mame/video/jangou_blitter.cpp: devnoclear デバッグビルドで問題となっていた
+  初期化の問題を修正。 (nw) [Ivan Vangelista]
+
+- devices/video/dp8350: デバッグ devnoclear ビルドで問題となった変数を初期化。(nw) [Ivan Vangelista]
+
+- sothello: maincpu-subcpu の通信を単純化し、ゲームが再び動作。 [hap]
+
+- ビジュアルビルドを修正。 戻り値を期待通りの型に変更。[Ted Green]
+
+- devices/machine/saa1043, mame/video/k057714: デバッグ devnoclear ビルドの初期化の問題を修正。[Ivan Vangelista]
+
+- netlist: nltoolに進捗状況のインジケータを追加。[couriersud]
+ * netlist を実行中、"--progress"で進捗状況を表示
+
+- netlist:pfunction if を修正。[couriersud]
+ *  if 接尾辞の評価でスタックが破損していた
+
+- netlist:74LS125トライステート入力の極性を修正。[couriersud]
+
+- mdos dsk: セルサイズとギャップを修正し、Motorola MDOSを明確化。[68bit]
+
+- devices/cpu/h8/h8dma, devices/machine/generalplus_gpl16250soc, devices/machine/spg110_video: デバッグ devnoclear ビルドで誤動作の原
+  因となっていたいくつかの変数を初期化。(nw) [Ivan Vangelista]
+
+- taito_l: 古いデバッグロギングを削除し、fhawkのrombank マスクを修正。[hap]
+
+- naomi.cpp: マイナーなBIOSバージョンについてのメモ。[MetalliC]
+
+- eprom: MT07691を修正。[AJR]
+
+- cowrace: MT07690を修正。[AJR]
+
+- rf5c400.cpp: PR #6887のマイナーな巻き戻し。(#6889) [cam900]
+
+- devices/bus/hp_hil/hlemouse, devices/machine/arm_iomd, mame/machine/mct_adr: デバッグ devnoclear ビルドで問題を起こしていた変数を初
+  期化。[Ivan Vangelista]
+
+- ondra: クリーンアップ、サウンド追加。[Robbbert]
+
+- 'tbell'のハッシュを修正し、リストをソート。(nw) [ClawGrip]
+
+- vsmilem_cart.xml: シリアル追加、ノート更新、命名規則に従ってにセット名を変更。(nw) (#6900) [ClawGrip]
+
+- 'cfarwest'を追加。(nw) [ClawGrip]
+
+- microdar.cpp: バリデーションエラーの修正。[Ivan Vangelista]
+
+- devices/machine/8042kbdc, mame/machine/s32comm: デバッグ devnoclear ビルドで問題となった変数の初期化。[Ivan Vangelista]
+
+- アーケードビルドを修正。(#6910) [MASH]
+ * arcade.fltにspecial_gambl.cppを追加
+ * arcade.luaにaudiospecial.cpp/hを追加
+
+- bus/qbus/qbus.cpp: devnoclear デバッグビルドでクラッシュの原因となっていた初期化を修正。[Ivan Vangelista]
+
+- pentacup2用の正しいROMを追加。[PinMAME]
+
+- netlist: 基本的なユニットテストのサポート。[couriersud]
+ * Google testと構文互換性のあるユニットテストのサポート。これは Google testフレームワークの限定られたサブセットで、置き換えを意図した
+   ものではありません。必要な機能のため Google test に依存関係を追加することは、やりすぎと思われます
+ * nltool -cで、リンクされていればユニットテストを実行。これは TOOLS=1 でコンパイルした nltool のバージョンではありません
+ * plib::pfunction のユニットテストを追加
+
+- netlist: ソフトリセットのサポートを削除。[couriersud]
+ * 抵抗やコンデンサなどの電子回路やベースとなる部品にはリセットラインがありません。それらを使ってリセット回路を作ることができます。こ
+   のため、リセットボタンを押すことに相当するソフトリセットをサポートする意味はありません
+ * リセットと起動ロジックのバグを修正
+ * "scramble F3"のクラッシュも修正
+
+- ondra: 固定RAMなのでバンク2を削除。[Robbbert]
+
+- m6809: ソフトウェア割り込みでIRQアクノリッジサイクルを実行。Fairlight CMI IIx メモリマップ診断を修正。[Ryan Holtz]
+
+- cmi01a:envelopeタイマーを刻むための初期フレームワーク。[Ryan Holtz]
+
+- cmi2x: メモリマッピングを完全に作り直し。ディスクやスクリーンアクセス時にパフォーマンスが低下することがなくなりました。[Ryan Holtz]
+
+- hp_ipc: COP452 でのタイマーリロードの修正。(#6914) [fulivi]
+
+- taitogn: siannivにはzsg2のサウンドは無し。[hap]
+
+- mpu4vid.cpp: MPU4VideoボードにAY8913サウンドチップを追加し、「The Crystal Maze」の'lock in warning' 音を修正。エスケープボタンの配置
+  を修正するために内部レイアウトを調整。[James Wallace]
+ * v4mate and clones: サンプリングサウンドボードのクロック速度を調整し再生を修正。テストモードでレポートと一致するように入力を調整
+
+- netlist: pfunction が単項マイナス演算子をサポート。[couriersud]
+
+- netlist: ノイズソースについてドキュメントを更新。[couriersud]
+
+- k007232.cpp: サウンドルーチンを更新。(#6857) [cam900]
+ * k007232.cpp: 更新とクリーンアップ。[cam900]
+   - サンプルの取得にdevice_memory_interfaceを使用
+   - 周波数挙動の修正
+   - 動的なクロック変更を許可
+   - 短い/正しい型の値を使用
+   - 更新ルーチンの簡素化
+
+- Williams System 11C "background" Audio Board: PIA portbとcb2の書き込みコールバックを追加、フェンスを同期しこれらを実装。これにより
+  Williams System 11Cピンボールの "MUSIC ERROR "と、いろいろなbg-musicフィードバックトリガーサウンドが修正。また、Williams System 11C
+  ピンボールに限らず、Midway Y-unitアーケードゲームやWilliams System 11Aピンボール、Williams System 11Bピンボール(Jokerzを除く)にも同
+  じ基板が使用されているため、このデバイスを"Williams D-11581 Audio Board"に改名する準備。 [Lord Nightmare]
+
+- rf5c400.cpp: セーブステートをモダン化。クロック変更動作を許可。未エミュレートのエフェクトと検証されていないエンベロープの問題につい
+  て imperfect_features を追加。[cam900]
+
+- Williams D-11581 Audio Board デバイスにノートを追加。[Lord Nightmare]
+
+- tigeroad.cpp: セーブステートのサポート、マイナーなクリーンアップ。(nw) [Ivan Vangelista]
+
+- sfkick.cpp: bankdevに切り替え (pengadvb.cpp の実装を適応)。 セーブステートをサポート。[Ivan Vangelista]
+
+- devices/bus/amiga/zorro/a590.cpp: A2091のBIOSバージョン5.92を吸い出し。[Guru]
+
+- supertnk.cpp: セーブステートをサポート。[Ivan Vangelista]
+
+- Williams System 11B: 独自の実装ではなく、Williams D-11581 "Audio Board" デバイスを使用するように切り替え。すべてのSystem 11Bピンボー
+  ルでゲームに入るために押し続ける必要のあるスイッチをドキュメント化。System 11Bスイッチマトリックスの残りを記載し、64個のスイッチが全
+  部ヒットするよう改良。[Lord Nightmare]
+
+- Plug and Play (Wireless Fitness) + GBAのパイレート系のアレ。(#6921) [David Haywood]
+
+- System 11 Audioの更新/修正。[Lord-Nightmare]
+
+- cave.cpp: スプライトのデコードにgfxdecodeを使用。(#6920) [cam900]
+ * 4bppタイルマップに汎用的なgfxレイアウトを使用し、重複と不要な値を削減
+
+- tourvis.cpp: BIOS V4-54を追加。[Juan Romero, ClawGrip] (#6919) [ClawGrip]
+
+- pdp11: GPLコードを置き換え。(nw) (#6923) [shattered]
+
+- gba.xml: 41662行: バリデーションエラー修正。[Robbbert]
+
+- pdp11.h: enumをuint16_tに設定。[hap]
+
+- cmi01a: チェックポイントなので Phil さん見てみて。nw [Ryan Holtz]
+
+- epos: IGMOのカラーPROM追加。パレットが正確に。[Andrew Welburn, Craig Anstett]
+
+- tvgogo.xml: XMLフォーマットの修正。(nw) [Scott Stone]
+
+- ibm5150.xmlを更新。(#6912) [ArcadeShadow]
+ * Dragon's Lair (5.25"), Leisure Suit Larry Goes Looking for Love (in Several Wrong Places) (5.25"), Leisure Suit Larry Goes
+    Looking for Love (in Several Wrong Places) (3.5")
+
+- goldnpkr.cpp: クリーンアップ、修正、リンクの更新、新規追加。[Roberto Fresca]
+
+- clangエラーを修正: private field 'm_ram_indices' is not used [-Werror,-Wunused-private-field]
+
+- bishi.cpp, konmedal68k.cpp: dobouchnを前者のドライバから後者のドライバに移動し、GFXをほとんど修正。[Ivan Vangelista]
+
+- galaxian.cpp:sirio2 のプログラム ROM の一つを不良とマーク
+  bishi.h: 前回のコミットで忘れていたマシン設定を削除
+  pcat_dyn.cpp: toursol のプロテクト回避に既に使用されているのと同じ ROM パッチをsoursol1にも適用 [Ivan Vangelista]
+
+- looping.cpp: セーブステートをサポート。[Ivan Vangelista]
+
+- pcat_dyn.cpp: 間違って残っていたヘルパーを削除。[Ivan Vangelista]
+
+- polylgcy.cpp: 時代遅れになっていた統計用のMAXマクロを修正。[Ted Green]
+
+- validity.cpp: バイリニアフィルタのベクトルルーチンチェックを追加。[Ted Green]
+
+- orion, partner, radio86, mikrosha, apogee: 小掃除。[Robbbert]
+ * ondra: バグ修正。xml更新
+
+- goldnpkr.cpp: animpkrとanimpkraをマージ。これらは1つのセットで、プログラムがバンク化されている。テクニカルノートを追加。
+  [Roberto Fresca]
+
+- mpu4vid: v4strikeとv4barqstでクエスチョンのデコードを可能にし、クローンの関係を修正。(#6930) [David Haywood]
+
+- progolf.cpp: progolfa でボールの配置間違いを引き起こすオペコードの違いについてドキュメント化。(nw) [Ivan Vangelista]
+
+- llc2: クリーンアップ。カセット追加。[Robbbert]
+
+- Truco-Tron: ドライバをクリーンアップし、ドキュメントを改善。[Roberto Fresca]
+
+- simpsons: リフレッシュレートを修正。[hap]
+
+- simpsons: 黒枠部分を削除/画面のアスペクト比を改善。[hap]
+
+- hh_sm510: Micro Vs System用の共有入力ポート。[hap]
+
+- ui: タブメニューからエミュレーションの警告を表示できるように変更。[hap]
+
+- ui: 起動時の警告ポップアップのスキップを許可。[hap]
+
+- gnw_dkong3: 基板ラベル追加。(#6936) [algestam]
+
+- 冗長な#includesの削減中。(nw) [Scott Stone]
+
+- 次を巻き戻し"ui: 起動時の警告画面をスキップ可" [Vas Crabb]
+ * 以下のコミットを巻き戻し 74f456df945cd1720dc4d6bc105f64c13e62ced8.
+ * こういった機能が許可されるのは以下の条件を満たすときだけです:
+   - 赤い警告画面はスキップしないこと
+   - デバイスのショートネームと黄色の警告のキーと値のマップは.cfg ファイルに保存するべし。システムが最後に実行された時と、警告が最後に
+     表示された時のタイムスタンプも一緒に保存すること
+   - システムの起動時にデバイスのショートネームと黄色の警告のマップを作成し、.cfg ファイルから読み込まれたものと比較すること。これらが
+     一致しない場合で、過去7日以内にシステムが起動していない、または黄色の警告が過去14日間表示されていないなら、警告をスキップしては
+     いけない
+
+- drcbe: ログ問題の修正。[Patrick Mackinlay]
+
+- ui: d3d/bgfx で初期メッセージのポップアップが表示されない問題を修正。[hap]
+
+- ui: ポップアップ画面の順番を入れ替え(gameinfoが1番目、警告が2番目)、gameinfoに"press any key"を追加。[hap]
+
+- ibm5150.xml: dataareaのサイズを修正。(nw) [r09]
+
+- emu68k.cpp: マイナーな更新。[AJR]
+
+- drcbex86: asmjitエミッタを実装。[Patrick Mackinlay]
+
+- x86emit.hを削除。[AJR]
+
+- sgi_mips.xml: 吸い出し不良の修正。(nw) (#6904) [Michael D]
+
+- pc98_cd.xml: 15本新規吸い出し。11本置き換え。(#6934) [r09]
+ * redump.orgからの新規吸い出し (動作可能):
+    Chiemi & Naomi F15 Strike Eagle III if 2 - Invitations from Fantastic Stories Manami no Doko made Iku no? 2 - Return of the Kuro
+    Pack Phobos Pro Student G (ALS-0010) YES! HG - Erotic Voice Version Yuurou - Transient Sands
+ * redump.orgからの新規吸い出し (動作不可):
+    DOR Special Edition '93 DOR Special Edition '93 (alt) Kanji Land 3-nen Kyrandia II - The Hand of Fate Lemon Cocktail Collection
+    Lip 3 - Lipstick Adventure 3 Mirage 2 - Torry, Neat & Roan Fairladies in MagicLand
+ * redump.orgからの置き換え:
+    Branmarker 2 Eimmy to Yobanaide Lesser Mern - Special Director's Edition Mahjong de Pon! Saint Diary - Kiyoka-chan no Nikki
+    Takamizawa Kyousuke - Nekketsu!! Kyouiku Kenshuu The Legend of Kyrandia Tuned Heart Vastness - Kuukyo no Ikenie-tachi Youjuu
+    Senki 2 - Reimei no Senshi-tachi Zenith - Full Animation Adventure Series #1
+ * これらのほとんどのディスクはハイブリッド(PC-98x1とFM Townsの両方で動作)なので、これらのCHDはfmtowns_cd.xmlのものと同一
+
+- llc1: クリーンアップ、メモ追加、動作可能にマーク。[Robbbert]
+
+- 次を巻き戻し "ui: fix initial message popups not showing on d3d/bgfx" [hap]
+ * 以下のコミットを巻き戻し 3db9e11031c1eed826eacd12f6827d80f06413b8.
+
+- netlist: pfunction で単項マイナスと重複コードの削除をサポート。[couriersud]
+
+- netlist: makefile の警告抑制を削除。[couriersud]
+
+- netlist: ptime.h の符号属性警告を修正。[couriersud]
+
+- netlist: ユニットテストマクロの接頭辞を"P"に設定。[couriersud]
+ * googletestとCatchフレームワークの両方を使えるようにします
+ * 予期しない std::exception が発生した場合、エラーメッセージに what() を含めるようにしました
+
+- netlist: 74121デバイスを追加、74123のコードをリファクタリング。 [couriersud]
+ * 74121デバイスを追加
+ * ディップデバイスをnetlistデバイスに移行
+ * デバイス記述構造体に基づいてコードをリファクタリング
+
+- netlist: 74113デバイスを追加。[Aaron Giles]
+
+- dec8.cpp:「キャプテンシルバー」(World)のi8751 MCUを再吸い出しし検証。[Hammy & TeamEurope]
+
+- megaplay.cpp: マザーボードPLDを2つ追加。[caius] (#6939) [ClawGrip]
+
+- mpu4vidのプロテクト仮対策 + lexibook Toy Story 3 (#6937) [David Haywood]
+ * mpu4vidの更新:
+   - v4addlad の基本的なレイアウトと入力の微調整 [James Wallace]
+   - より多くのゲームで表示系が動くようにプロテクトの対策 [David Haywood]
+
+- mc6852 - 機能の追加実装と、バイトインターフェースを追加。(#6931) [68bit]
+
+- 'sprtdart'を追加。(nw) [ClawGrip]
+
+- m72.cpp:「イメージファイト」(World)のi8751 MCUを吸い出し。[Hammy, TeamEurope, The Dumping Union]
+
+- src/mame/*から冗長な#includeを削除。 (nw) [Scott Stone]
+
+- src/devices/bus/*から冗長な#includeを削除。(nw) [Scott Stone]
+
+- src/mameから冗長な#includeを削除。[AJR]
+
+- glcx.cpp: ドキュメントのタイプミスを修正。[AJR]
+
+- gigatron: さらに作業。(#6940) [Sterophonick]
+ * gigatron: さらに作業
+ * クリーンアップ、コールバック追加、ビデオ生成ロジック作業開始
+ * gigatron: ビデオ系の作業
+ * gigatron: ランダムの削除
+
+- 'robotronun'を追加。(nw) [ClawGrip]
+
+- williams.cpp: "FAMARE S.A." -> "Famaresa"に変更。 (nw) [ClawGrip]
+
+- 'galaxcirsa'を追加。(nw) [ClawGrip]
+
+- ymz280b.cpp: セーブステートのモダン化。周波数の計算を修正。(#6922) [cam900]
+ * 副作用の許容。不要な定義の削減。より短いまたは正しい型名を使用。スペースの修正。ノート追加
+
+- clangのエラー修正: unused variable 'FRAC_MASK' [-Werror,-Wunused-const-variable]
+
+- ibm5150: XENIX Development Systemを追加。[Davide Cavalca]
+
+- netlist: 74113の変更に伴い忘れていたもの。[Aaron Giles]
+
+- gigatron.cpp: バリデーション修正。[Ivan Vangelista]
+
+- src/devices/machine/* and src/frontend/mame/* にある無駄な#includesの整理。(nw) [Scott Stone]
+
+- spectrum: Speccy-DOSとFloppyOne DOSインターフェースを実装し、"IC-DOS" Beta Plusクローンを追加。[MetalliC]
+
+- tec1: ノートを更新。[Robbbert]
+
+- goldnpkr: ビルドの問題修正。(#6945) [Davide Cavalca]
+
+- ec65: クリーンアップとノートの追加。[Robbbert]
+
+- phatt: フルシステム名使用。[AJR]
+
+- midzeus: Zeus2 固有のメンバーを適切なサブクラスに移動し、状態登録を追加。[Ryan Holtz]
+
+- tsb12lv01a: TI TSB12LV01A IEEE 1394 リンク層コントローラ用のスケルトンデバイスを追加。[Ryan Holtz]
+
+- ibm21s850: IBM 21S850 IEEE 1394 PHYコントローラ用スケルトンデバイスを追加。[Ryan Holtz]
+
+- netlist: 非収束状況の処理を改善。[couriersud]
+ * お行儀の良いnetlistには変更はありません
+ * "newton loops exceeded"のメッセージが出るnetlistはメッセージが大幅に減るはずです
+ * newton-raphsonが収束しない場合、netlistはステートをタイムステップの最初に状態にリセットします。次に、巨大すぎるタイムステップによ
+   る非収束に対応するため、非常に小さいタイムステップを大量に使用します。その後、 タイムスライスが完了するまで動的タイムステッピングを
+   使用して解決を続けます
+ * この方法は以前のアプローチより遥かによいものです
+ * これはパフォーマンスを最適化するためのヘルパーです。ただしnetlistが "newton loops exceeded" のメッセージを出さないことが理想です
+ * 接続されたアナログとデジタル入力イベントは、タイムスライスが完了した後に発生します。つまり、このアプローチは以前同様に、高周波
+   (ビデオ出力など)には適しません。そのようなとき、ダイナミックタイムステッピングか固定タイムステップを減らすことが適切な解決策です
+
+- netlist: netlistログでスレッドを使用。[couriersud]
+ * これにより、出力/端末ログのパフォーマンスが大幅に向上
+ * pmulti_threading.h にセマフォクラスを追加
+
+- netlist: 74121のクロッキングロジックを修正。[Aaron Giles]
+
+- YMZ280の故障を修正。余談ですが、PRした人もマージした人もテストしていないのが悲しいですね。 [MetalliC]
+
+- ymz280b.cpp: Better fix for signed arithmetic issue [AJR]
+
+- Update RTD docs theme to 0.5.0 to fix search box. [Firehawke]
+
+- vsmile: Fixed inputs. [Ryan Holtz]
+
+- vsmile_cart: Checked all games flagged as no inputs, all that use a standard controller now work. [Ryan Holtz]
+
+- netlist: CMOSデバイスの電源ピン名を修正。 [couriersud]
+ * truthtable cmosデバイスの電源ピン名がロジックファミリに応じて設定
+ * D4538のいくつかの問題を修正
+ * "接続済み"の警告を情報レベルに変更。一部のIC(CD4538)では、内部でピンをGNDに接続し、回路を外部に再接続しています。これにより、
+   情報がプリントされます。警告はよりverboseになりました
+
+- netlist: 明示的ハンドラのバッチ第一弾。[couriersud]
+ * 現在のデバイスは、入力に対してハンドラが与えられていない場合、"update"関数を使用しています
+ * これを動作させるためには、更新関数は仮想的なものでなければなりません。これは nvcc を使用している CPU/GPU のような共有実行方式では
+   問題が発生します
+ * これは、ハンドラの解像度が静的であることを保証するための最初の変更のバッチです
+
+- netlist: nr resolutionを100回呼び出すごとに警告。[couriersud]
+
+- vsmile_ctrl: verboseログを停止。(nw) [Ryan Holtz]
+
+- mccpm: fdc、bankdev、ノート追加。[Robbbert]
+
+- exorterm: よりリアルなレイアウト画面のアスペクト比。[68bit]
+ * この変更により、マニュアルの画面写真のアスペクト比に近づけるよう調整。モニターのアスペクト比は4:3。文字領域の解像度は720×288ピクセ
+   ルで、従来の1:1ドット比は実機とはかなりかけ離れていた
+
+- netlist: 明示的ハンドラの追加バッチ。[couriersud]
+
+- netlist: 明示的ハンドラのリファクタリング用バッチ。[couriersud]
+
+- ibm21s850, tsb12lv01a: 修正いろいろ nw。「The Grid」のハング解消。[Ryan Holtz]
+
+- netlist: 非仮想ハンドラ用のバッチ。[couriersud]
+
+- netlist: 入力ハンドラのリファクタリング完了。[couriersud]
+ * すべての入力でシグナルハンドラを明示的に指定
+
+- netlist: 電源ピンの名前は必ずロジックファミリのものを使用。[couriersud]
+ * デフォルトの nmos 電源ピンは VCC と GND に設定
+ * MOS は VDD/VSS を使用 - gamemachineのnetlistを更新
+
+- spectrum: Logitek Proceed 1 C1541 ディスクインタフェースを追加(まだ不完全)。[MetalliC]
+
+- megadriv.xml: タイポの修正。[hap]
+
+- ibm21s850: 21S851のスケルトンサポートと、PHYモデルを正確に反映するためにmidzeus2に実装。[Ryan Holtz]
+
+- m68kfpu: fremの丸めモードを明示的に設定。[Patrick Mackinlay]
+
+- dac: ZN426Eデバイスの追加。[Dirk Best]
+
+- i8255: ポートaの出力モードでibfフラグを設定。[Dirk Best]
+
+- samcoupe: ドライバのリワーク(WIP)。 [Dirk Best]
+ * メモリシステムの書き換えにより、拡張デバイスのサポートとcontentionエミュレーションの準備
+ * 背面拡張、ドライブポート、マウス用の拡張インターフェイスを追加
+ * 以下の背面拡張デバイスをサポート:
+   - Blue Alpha Sound Sampler
+   - Dallas Clock
+   - 1 Mb Interface
+   - SAMBUS 4-slot Expansion Interface (with clock)
+   - SID Interface (6581 and 8580 variants)
+   - S.P.I. SAM Parallel Interface
+   - Voicebox
+ * フロッピードライブの代わりに使用されるAtom HDDインタフェースのサポート
+ * ドライバーの簡素化とクリーンアップ
+ * キーボードに干渉していたので、ジョイスティックコードを一時的に無効化
+
+- bus/bbc/userport: palette.h->palext.hに名称変更。[Nigel Barnes]
+
+- bus/bbc/tube: Acornの2つめのZ80プロセッサデバイス(Winchester)追加。[Nigel Barnes]
+
+- abc110: Z80 Tube 2.00でZ80コプロセッサを使用し、Winchesterをサポート。[Nigel Barnes]
+ * abc310: AcornマウスをUserportに接続
+
+- bus/bbc/tube: B、B+、Master用のTorch Z80コミュニケーターのバリエーションを追加。[Nigel Barnes]
+
+- いくつかのゲーム名/年度/親クローンの関係を修正。(nw) [ClawGrip]
+
+- vsmile: カートリッジCS2の選択実装を修正。[Ryan Holtz]
+
+- sgi_mips.xml: XMLフォーマットの修正。(nw) [Scott Stone]
+
+- srmp6.cpp: セーブステートをサポート。(nw) [Ivan Vangelista]
+
+- mpu4vid.cpp: Tetris PayoutとPrize Space Invadersにジョイスティックインタフェースを実装。[Angelo Salese]
+
+- netlist: NE555の不安定な周波数におけるオーバーシュートの影響を軽減。[couriersud]
+ * TRIGとTRESHが接続されている場合、オーバーシュート補正が有効になります。このアプローチは生のものですが、(放電/充電あたり5～10ステッ
+   プで)ドライバは数パーセント以内の結果になります。データシートの計算式は理想的なものであることを考慮してください。コンデンサ、抵抗、
+   内部抵抗の公差は考慮されていません。また、周囲温度やチップ温度も考慮されていません
+
+- avr8: Timer 0とTimer 1のバグを修正。[Ryan Holtz]
+
+- avr8dasm: CBI、SBI、SBIS、SBICの各オペコードの逆アセに誤りがあったのを修正。[Ryan Holtz]
+
+- avr8: 重複したノートの削除(cpp内)。[hap]
+
+- mpu4vid.cpp:「Strike it Lucky」の入力とレイアウトを追加。「Adders and Ladders」の入力修正。[James Wallace]
+ * mpu4.cpp: MPU4Videoゲームで使用される簡易LEDエクステンダーのサポート
+
+- lft: コンパイルの修正? [hap]
+
+- clang 8でも、gccのbroken friendワークアラウンド使用。(#6933) [Tiago]
+
+- lft_craft, lft_chiptune: 'craft'のソースを2つのドライバに分割、hwchiptnのアトリビュート修正、hwchiptnのプレースホルダハッシュを修正。
+  nw [Ryan Holtz]
+
+- spectrum: "SDI" VC1541ディスクインタフェイスを追加(未動作)。Logitek Proceed1のノート。[MetalliC]
+
+- trd_dsk.cpp: フォーマット追加。イメージタイプの検出を改善。[MetalliC]
+
+- twinbee: VLM5030のボイスを中途半端に修正。[AJR]
+
+- s550: RAMバンキング改善。[AJR]
+
+- lft_chiptune: ROMチェックサムを本当に修正。疲れてるときにコード書くのはダメよ。[Ryan Holtz]
+
+- blackt96.cpp, littlerb.cpp: セーブステートをサポート。[Ivan Vangelista]
+
+- segaybd.cpp:「GLOC」のドライブボードROMを吸い出し、「パワードリフト」「ギャラクシーフォース2」にプレースホルダ追加。[Guru]
+
+- nemesis.cpp: c85054ada8c86d2b8716822e0afb0f7b6b7c9eafのコピペミスを修正。[AJR]
+
+- pcm: バンキング追加。[Robbbert]
+
+- FDSサウンドエミュレーション実装。(#6953) [cam900]
+
+- mw8080bw: gunfightのnetlistオーディオで複数の改善。[Colin Douglas Howell]
+ * トランジスタのモデルを変更し、デフォルトのNPNランジスタから、実機の「ガンファイト」サウンド回路で使われいるものにより近いハイゲイン
+    NPNトランジスターに変更しました。これはショット音で明らかな効果があり、回路自体がこの効果を狙って設計されたものと思われます
+ * 全てのボリューム・ポテンショメータをユーザーが調整できるようにしました; 以前は50%固定
+ * イズジェネレーターの抽象モデルを、ジェネレーターのツェナーダイオードのモデルを含むコンポーネントレベルのモデルに置き換えました。
+   ツェナーノイズは、48kHzクロックで動作する関連するガウスホワイトノイズソースから供給されます。ツェナーダイオードとガウスホワイトノイ
+   ズソースはどちらも、最近netlistライブラリに追加されたコンポーネントモデルです
+ * 増幅トランジスタへの供給電圧を16.5ボルトから16ボルトへと下方に微調整しています。電源回路の機能とモデル化の問題点を説明した解説を多
+   数掲載しています
+ * サウンド回路の機能とモデリングの問題点について、より多くの解説を掲載
+
+- busicom,sdk86,pcm: 少しクリーンアップ。[Robbbert]
+
+- ibm5150.xmlを更新。(#6946) [ArcadeShadow]
+ * Bloodwych (USA), Bloodwych (Quest & Glory Compilation) (Euro), The Colonel's Bequest (5.25"), The Colonel's Bequest (3.5"), Xenon
+    2: Megablast
+
+-  ibm5170.xmlを更新。 (#6947) [ArcadeShadow]
+ * B-17 Flying Fortress (5.25")
+
+- mpu4vid.cpp:「Barquest」「Barquest2」に入力とレイアウト追加。「Prize Space Invaders」「Prize Tetris」にDIPスイッチ追加。
+  [James Wallace]
+ * このドライバの全ゲームは、より簡単に発見できるように、共通の入力セットにデフォルト設定
+ mpu4.cpp: ロガーのタイポ修正。
+
+- intchess: 画面追加。[hap]
+
+- intchess: レイアウトに7セグパネル追加。[hap]
+
+- tempest: andyがROMラベル訂正。[hap]
+
+- netlist: Inductorのステートセーブ修正。[couriersud]
+
+- netlist: コードのメンテ。[couriersud]
+ * ハンドラのアライメント
+ * 不要コードの削除
+ * 何もしないアップデートコールの削除
+
+- netlist: 空のリセットとアップデートコールをコメントアウト。[couriersud]
+
+- netlist:  オーバーシュート補正によるne555の発振を回避。[couriersud]
+
+- bbc_tube_z80/bbc_tube_zep100: 起動時にRAMをクリアし、セーブステートのサイズを修正。[Nigel Barnes]
+
+- avr8: Timer 1の「ICR付き高速PWM」モードに対応。[Ryan Holtz]
+
+- special: クリーンアップ。最初の画面でのカセットの読み込みを修正。pionerを改善。Specimx bios 1と2が使用可。[Robbbert]
+
+- leland.cpp:「Danger Zone」はRev.2だと判明。ROMラベルを修正、ドキュメントを更新。 [Brian Troha]
+
+- intchess: .lay ファイルのブレンドマスクのバグ修正。[hap]
+
+- nld_4066.cpp: clangのエラー修正: no matching constructor for initialization of 'analog::nld_twoterm' [AJR]
+
+- lft_chiptune.cpp, lft_craft.cpp, lft_phasor.cpp: 安全のために文字列に UTF8 エスケープを使用。[AJR]
+
+- bus/spectrum/opus.cpp: アクティベーションロジックを修正。[MetalliC]
+
+- special_gambl.cpp: 画面RAWパラメータとノート追加。[MetalliC]
+
+- spectrum: Swift DiscとSwift Disc IIのインターフェースを実装。[MetalliC]
+
+- nld_4066.cpp: 今のところ実は修正ビルド。 [AJR]
+
+- Williams System 11/A/B/CとWPC Alphanumericドライバの入力マトリックスを修正し、キーボードで可能な入力をすべてトリガーできるようにしま
+  した。Dr. DudeのWPC版におけるコインの不足(標準ではない場所にマップされている)を修正。WPC版のDr. Dudeとプロトタイプ版のFunhouseで使用
+  されているWPC S11サウンドインタフェースアダプタボードについてのノートを追加。[Lord Nightmare]
+
+- funtech.cpp: fts2in1のDIPスイッチ接続、DIPスイッチ設定、ボタンラベルをマニュアルを参考に修正。[Vas Crabb, Ioannis Bampoulas]
+
+- ibm5150: PC/IXを追加。[Davide Cavalca]
+
+- (nw) leland.cpp: Viper用の不足ROMラベルを追加。[braintro]
+
+- intchess: nmi のエッジトリガーのバグをテスト( || 1 を削除したら動作する)。 [hap]
+
+- intchess: カセットデータ入力を修正。[hap]
+
+- funtech.cpp: fts2in1でマニュアルの推奨ボタンレイアウト/ラベルを使用。コイン/クレジットカウンター出力を修正。
+  [Vas Crabb, Ioannis Bampoulas]
+
+- nanos,mod8,mc8030,konin:マイナークリーンアップ。[Robbbert]
+
+- lucky74.cpp: セーブステートを有効化。[Ivan Vangelista]
+
+- system1.cpp: blockgalのディップを修正 (MT07702の部分的な修正)。[Ivan Vangelista]
+
+- k1003: 表示修正。[Robbbert]
+
+- mpu4vid.cpp: v4psiにペイアウトシェルフオプトを追加。[James Wallace]
+
+- Modular System: 小改良。[David Haywood]
+
+- v3021.cpp: 更新。[cam900]
+ * シリアルインターフェイスをサポート
+ * RAMとアドレスコマンドを実装
+ * RTC処理にdevice_rtc_interfaceを使用
+
+- plugins/autofire: 2バイトのcfgファイルを保存しないように変更。(#6960) [kunikuni]
+
+- mm74c922: データ出力ピンはDAピンと同時にクロック。[hap]
+
+- netlist: 台形積分の統合に向けた準備。[couriersud]
+ * これは長期的な移行目標です。ソースにドキュメント化してます (NL_USE_BACKWARD_EULERを参照)
+
+- netlist: 74157デバイスを追加。[Aaron Giles]
+
+- netlist: 潜在的な不具合発生のトリガ。[couriersud]
+ * 更新プログラムとNETLIB_UPDATEを完全に削除
+ * 起動時の初期化順序が変更される可能性あり
+ * これにより、リグレッションテストが発生する可能性があります。これは予想されることです。ロジックTTLデバイスは、定義済みのパワーアップ
+   ステートを持っていません。そのため、すべての電源ラインが安定した後にリセット信号を生成するリセット回路が存在しているのです
+
+- netlist: 4066を修正。[couriersud]
+
+- mpu4vid: IPT_SPECIAL does not exist: バリデーション失敗。[Robbbert]
+
+- sapi,homez80,dms5000,bob85,a7150: マイナークリーンアップ。[Robbbert]
+
+- goldstar.cpp: rlucky8lの57C49B-35の内容をMAMEが期待するものに再編成しましたが、d13のPROMに含まれているパレットをゲームがどのように
+  生成するかはまだ不明。 [Ivan Vangelista]
+
+- Funhouse (L-2) [PinMAME] Funhouse (L-2, prototype PA-1 System 11 sound) [PinMAME]
+
+- mc8030:don't write to regions; fk1: クリーンアップ。[Robbbert]
+
+- namcos2:「フォートラックス」のデフォルトギアシフトバインディングを修正。[MASH]
+
+- ドキュメントの更新。(#6825) [Firehawke]
+   - -joystick_mapの再デザインを予備作業
+   - アナログマッピングフレージングを調整
+   - 健康への警告文
+
+- mess.lua: ビルド修正。[AJR]
+
+- tecnodar: マッピング修正; EEPROM追加。[AJR]
+
+- homez80: ナチュラルキーボード/ペースト追加。[Robbbert]
+ * irisha,sm1800,ht68k,tvc: クリーンアップ
+
+- bus/spectrum/beta128.cpp: "TR-DOS v5.02"ファームウェアを吸い出し。[haywire]
+
+- prevを修正。(nw) [MetalliC]
+
+- netlist: ニュートンラフソンループの警告にタイルマップを追加。[couriersud]
+
+- aha1542c: ASICについてノート。[AJR]
+
+- 6502: nmiはエッジトリガされる。[hap]
+
+- tecnodar: バンキング修正。[AJR]
+
+- mac128.cpp: HWのノート。[AJR]
+
+- tecnodar: 入力マトリクス追加。[AJR]
+
+- ACB-2072 BIOSダンプとスケルトンデバイスを追加。[rfka01, minuszerodegrees.net]
+
+- Williams System 11 Background Sound/Music ボードデバイスのバンクをクリーンアップし、プロトタイプの Funhouse ピンボールや
+  Midway Y-Unit ハードウェアの「High Impact Football」で使用されている 27c010 サイズの EPROM までのバンクをサポート。
+  System 11 Background Sound/Musicボードの操作/フックアップとバリエーションについての注意事項を追加。 [Lord Nightmare]
+
+- System 11サウンドハードを持つFunhouseプロトタイプのROM読み込み修正。[Lord Nightmare, pellew]
+
+- b2m: クリーンアップ。[Robbbert]
+
+- netlist: 最後のタイムスタンプのログを修正。[couriersud]
+
+- segas18.cpp: MT07708を修正。[Ivan Vangelista]
+
+- segaybd: rchaseのフリープレイについてノート追加。[hap]
+
+- cpc_flop.xml:「Sly Spy - Secret Agent」の再整理とクリーンアップ。[Barry Rodewald]
+
+- plugins/autofire: 2バイトのcfgファイルをセーブしないよう変更。(nw) (#6969) [kunikuni]
+ * autofire_save.luaを更新
+
+- plugins/autofire: 空の設定ファイルを削除する最初の試みで残ったコードを削除。[Vas Crabb]
+
+- System 11のバンキング修正時に間違って上書きした行を修正。Jokerzは他のSystem 11 ゲームとは完全に異なるサウンドボードを使っていて、
+  これはいずれコミット対象になります。[Lord Nightmare, MASH]
+
+- 標準ライブラリの#includeを復元。使われているが#includeされてないものを追加。#includeガードの整理。[Vas Crabb]
+
+- ut88,unistar,tricep: クリーンアップ。[Robbbert]
+
+- primo: 少し整理。[Robbbert]
+
+- mk85,mk90,a51xx,uknc,msbc1,sys9002: ちょっと整理。[Robbbert]
+
+- samcoupe: S D IDEアダプタをサポート。[Dirk Best]
+
+- samcoupe/atom: デフォルトでHDDをアタッチ。セーブステート。[Dirk Best]
+
+- samcoupe/blue_sampler: セーブステート。[Dirk Best]
+
+- samcoupe/dallas: m_print変数を初期化。[Dirk Best]
+
+- samcoupe/mouse: セーブステート。[Dirk Best]
+
+- geniusjr.cpp, glcx.cpp, pc2000.cpp: より多くの別バージョンをドキュメント化。[AJR]
+
+- dinetwork: デフォルトのネットワークデバイスを none に設定して、不用意にネットワークにスパムを送信しないよう改良。[Ted Green]
+
+- samcoupe: mode1/2で起きた不具合修正。セーブステート追加。[Dirk Best]
+
+- centronics: SAMDACデバイスを追加。[Dirk Best]
+
+- bus/spectrum/floppyone.cpp, bus/spectrum/sixword.cpp: シリアルとパラレルポートを追加。[MetalliC]
+
+- mpu4vidセットの整理により起動するものを判別。(#6978) [David Haywood]
+ * mpu4vidの更新:
+   - mpu4vidセットの整理と分離により起動可能。新しいクローンとセットがあるようにみえますが、新しいことは実際にはありません。
+     一部セットが正しく判別できたおかげで、あるものは所属先が違っていたり、何が欠けているのかよくわかったりした結果です。中には、完全
+     に間違ったドライバに追加されていたり、誤ったROMとペアになっていたものありました [David Haywood]
+   - MPU4 Videoの入力改善 [James Wallace]
+
+- imagetek_i4100.cpp: 画面反転の部分修正。(#6980) [cam900]
+ * imagetek_i4100.cpp: hyprduelのスプライト位置、タイルマップオフセット、不具合を修正
+ * hyprduel.cpp: スプライトの遅れを修正
+ * metro.cpp: vmetalの反転したタイルマップのオフセット修正
+
+- raidenmとの作業と新しい動作可能マシン(zone mini, reactor)。(#6964) [David Haywood]
+ * raidenm: スプライトの作業いろいろ
+
+- hiscore.dat: セット名の変更に合わせて更新。[cracyc]
+
+- device.cpp, dimemory.cpp: コメントのタイポを修正。[AJR]
+
+- kl5c80a12: CPUデバイス内のMMUをエミュレート。[AJR]
+
+- by35: blbeautyの年度訂正。空ROMについてのノート追加。[hap]
+
+- okim9810: ログ処理のモダン化。[AJR]
+
+- sigmab98.cpp: Sammyメダルゲームの更新。[AJR]
+ * PCを強制スタートするハックを削除
+ * gocowboyを正しいMMUエミュレーションを持つKL5C80A12 CPUデバイスに切り替え
+
+- Williams System 11 Background Sound/Musicボードのエミュレーションを11Cバージョンからサブデバイスに分割し、異なるミキシングを行うよう
+  に変更。11A/11Bで使われているのとは異なる抵抗をSystem 11Cでエミュレート可能。Williams System 11A 共通の Williams System 11 
+  Background Sound/Music Board デバイスに切り替え。Williams System 11 Background Sound/Musicボードに入力/RESET信号用のデバイスラインを
+  追加し、いろいろなドライバで実装。[Lord Nightmare]
+
+- itech8.cpp:「Wheel of Fortune」セットのROMラベルを訂正。[Brian Troha]
+
+- viostorm: 表示不具合修正のために必要なミラーリング追加。[dink/fbneo]
+
+- bbc_flop_torch.xml: 互換性フィルタ追加と訂正。[Nigel Barnes]
+
+- bus/bbc/1mhzbus: Torch Hard Disc Packを追加。[Nigel Barnes]
+
+- xmen6p: グラフィック不具合修正。[dink/fbneo]
+
+- lft_craft: シングルドライバコンパイルを修正(ファイルがUTF8ではなくANSIエンコードで、ジニースクリプトでエラーが起きていた)。[hap]
+
+- poly88: クリーンアップ; sys9002: 実験。[Robbbert]
+
+- 新しいオリジナルの「Jolly Joker」セット; デフォルtの初期化済みNVRAM追加。[Roberto Fresca]
+
+- bus/spectrum: 拡張デバイスチェーン修正。[MetalliC]
+
+- tkmag220 ROMをただしい吸い出しに置き換え。[TeamEurope]
+
+- jolyjokrpの改良: [Roberto Fresca]
+ * グラフィック修正。MACHINE_IMPERFECT_GRAPHICSフラグ削除
+ * ゲーム名を"Jolly Joker (original program, interleaved GFX, no logo)"に変更
+
+- 初期のCinematronics製ベクターゲームにnetlistベースの音声を追加。(#6979) [Aaron Giles]
+ * 以下のゲームでnetlistシミュレーション追加と以前のサンプルベースなサウンドを削除: 
+    Space War, Barrier, Star Hawk, Speed Freak, Star Castle, War of the Worlds,
+    Sundance, Tail Gunner, Rip Off, Armor Attack, Warrior, Solar Quest, Boxing Bugs
+    [Aaron Giles, Couriersud]
+ * Warrior用のビルトインな最小限のアートワーク追加。[Aaron Giles]
+ * スピーカーの最大サンプルトラッキングをコンパイル時の新定義、SPEAKER_TRACK_MAX_SAMPLEに基づいたものに変更 [Aaron Giles]
+ * 74164と74393 netlist TTLデバイスをモダン化 [Aaron Giles]
+
+- savant: svgの修正。[hap]
+
+- galaxy: クリーンアップ。[Robbbert]
+
+- mw8080bw: spcenctrのROMラベル訂正。[hap]
+
+- 巻き戻し "savant: small correction to svg" [hap]
+ * 以下のコミットを巻き戻し 124ae351a9b2262906332b37c06cf512f652e5c0.
+
+- misc: UTF8 文字列に u8 接頭辞を使用し、キリルブロックの末尾以下の文字はエスケープを不要に変更。[hap]
+
+- UTF8_マクロの使用を廃止。[hap]
+
+- pecom: クリーンアップ。[Robbbert]
+
+- machine/x68k_kbd.cpp: 文字列のユニコードをモダン化。[Vas Crabb]
+
+- bus/mackbd: Kanaキーのローマ字テキスト追加。[Vas Crabb]
+
+- pp01: クリーンアップ。[Robbbert]
+
+- macosビルドを高速化するために travis.yml をオーバーホール。(#6988) [Julian Sikorski]
+
+- appveyorのGCCビルドを-O3に切り替え。(issue 6804) (#6987) [Julian Sikorski]
+
+- mw8080bw: 280zzzap netlistオーディオの改善。(#6984) [Colin Douglas Howell]
+   - ノイズ系の効果音を修正。。オリジナルのツェナーノイズ電圧の強度は、このタイプのツェナーを通過する電流に対して3桁ほど低かったため、
+     ノイズ発生器が設計通りに動作せず、ノイズベースの効果音が動作しないほど弱くなってしまいました。このような効果音は、実機にかなり近
+     づきました
+   - ノイズジェネレータで、ハイレベルエミュレーションを使った高速版を実装(提案してくれたCouriersud氏に感謝)。補正ノイズ電圧では、電圧
+     スパイクなしにノイズジェネレータのコンポーネントレベルエミュレーションで正確な結果を得るために必要な最小タイムステップが小さすぎ、
+     普通のエミュレーション速度では正確に動作しませんでした。しかし、これをシンプルで効率的なAFUNC()ベースのコンパレータに置き換えるこ
+     とで、48kHzのスタティック・タイムステッピングで動作しながら、実質的に同じ出力を生成するノイズ信号発生器を得ることができます。この
+     ようにして、適切なエミュレーション速度と正しいノイズ効果音を両立させます
+   - 電圧スパイクを除去するためにクラッシュ後のサウンドに出力電圧のクリッピングを追加し、より滑らかで正確なサウンドを実現。
+     (このクリッピング方法を提案してくれたAaron Giles氏に感謝)
+   - 出力をLM3900の2番目の出力オペアンプ(反転信号)からに変更し、より滑らかな波形とより良いトーンクオリティを実現
+   - ユーザセットできるマスターボリューム・ポテンショメータを追加。デフォルトで中間に設定。出力のスケーリングとオフセットを調整
+   - 各種説明文を拡張、訂正
+
+- 'Microdar DPD'を'Diana Bifuca'に改名 ('Microdar DPD'はハードウェア名でゲーム名ではない)。[ClawGrip]
+
+- 'microdar'を'dibifuca'に改名。[ClawGrip]
+
+- Microdard-V5 PCB ASCIIレイアウト追加。[ClawGrip]
+
+- ics2115.cpp: エンベロープの動作更新。マイナーな調整。(#6983) [cam900]
+
+- misc: "680000"のタイポ修正。[hap]
+
+- sigmab98.cpp: SammyメダルゲームでKL5C80A12 CPUデバイスを使用するように変更。[AJR]
+
+- Williams System 11 Background Audio Boardのドキュメントとフォーマットを更新。セーブステートエントリ追加。s11a.hで忘れ去られた定義
+  を削除。[Lord Nightmare]
+
+- Williams System 11 BG Audio BoardデバイスとWPC Alphanumericドライバのタイポやノートの詳細修正。[Lord Nightmare]
+
+- k053260.cpp: 副作用許可。[cam900]
+
+- bk0010: クリーンアップ。[Robbbert]
+
+- ssystem3: chessunitのROM追加。[Achim, Berger]
+
+- microdar.cpp: prospdpにEEPROM吸い出し追加。[jordigahan, ClawGrip]
+ * EEPROMにマシンモデルがあることを期待していたが、"DARTS"の文字だけだった
+
+- pormat -> promat (nw) [Angelo Salese]
+
+- Hughes HLCD 0438 LCDドライバデバイスを追加。[hap]
+
+- electron: UTF8文字列にu8を使用。[Nigel Barnes]
+
+- bus/bbc/1mhzbus/torchhd: 不完全なディスクタグを削除。[Nigel Barnes]
+
+- torchh: リリース年度を調整。[Nigel Barnes]
+
+- sigmab98.cpp: SammyメダルゲームBIOSで正しく初期化されるように改良。[AJR]
+
+- dgpix: プロファイリングによると動作時間の40%はdescribe_context()を呼び出すのに使われ、その結果は使われてなかった。[O. Galibert]
+
+- electron: utf8の矢印に\u記法を使用。BOMを削除。[Nigel Barnes]
+
+- sys9002: 不要になったコメントを削除。[Robbbert]
+
+- galaxian.cpp: sirio2、sirio2aと3つ目の吸い出しを1つの正しいセットに統合。どれも不良ROMがあった。[Ivan Vangelista]
+
+- ssystem3: chessnunitの暫定版I/O。[hap]
+
+- harddriv.cpp:「Race Drivin'」(compact, prototype)セットで手書きのラベルを使用。[braintro]
+
+- 巻き戻し: "ics2115.cpp: Update envelope behavior, Minor adjusts (#6983)" (#7000) [cam900]
+ * ics2115.cpp: Constant使用、ノート追加、初期PGMゲームのノイズ修正
+
+- 新しいNOT WORKINGマシン(プラグアンドプレイ) + MPU4の説明改良、分割、utf8の使い方修正。(#6999) [David Haywood]
+
+- 起動情報をもとにmpu4vidセットの説明文を修正。[David Haywood]
+
+- 新オプションbeam_dot_sizeを追加。ベクターゲームでドットの描画サイズを制御するもの。(#6993) [Aaron Giles]
+
+- gigatron: DAC追加。(#6977) [Sterophonick]
+ * gigatron: DAC追加、クリーンアップ、OUTXポートの作業を少し
+
+- pgm.cpp: スプライトで構造体使用。画面にRAWパラメータ使用。(#6971) [cam900]
+ * pgm.cpp: 一部ゲームのイントロシーンのタイミング修正
+ * pgm.cpp: 前景に汎用グラフィックレイアウトを使用。VBlankのIRQをscreen_vblankに移動。コード重複削除。ノート追加
+
+- bus/spectrum: 共通プリンタインタフェース追加: ZX Lprint, ZX Lprint III, Kempston Centronics E Interface ('flat' and 'upright'
+ models) [MetalliC]
+
+- galaxian:sirio2: MASHさん指摘の閉じ括弧がないのを修正。[Robbbert]
+
+- Bingor.cpp: クリーンアップ、タイポの修正。[Roberto Fresca]
+
+- cinemat.cpp: 古いコメントを削除。[Ivan Vangelista]
+
+-「Space War/Barrier」のフィルタリングが効くようにノイズレベルを低減。[Aaron Giles]
+
+- 古いコメントを削除。[Aaron Giles]
+
+- electron: OS/BASICをクリーンな32K吸い出しに置き換え。[robcfg]
+
+- electron: 分割セットのROMロードオフセットを修正。[Nigel Barnes]
+
+- render: アートワークがあるときは親セットの外部アートワークを設定しないよう変更。[hap]
+
+- netlist: nld_matrix_solverをnld_solver配下に。[couriersud]
+
+- netlist: clangのtidy警告修正。[couriersud]
+
+- netlist: cinematゲームをサブターゲットnlに追加。[couriersud]
+
+- netlist: frontierのドキュメント追加。[couriersud]
+
+- netlist: スケジューラのスケジューリングを書き直し。[couriersud]
+ * すべてのソルバースケジューリングはnld_solverですべて処理
+ * これまでは、サブソルバーのダイナミックタイムステップは個別のスケジューリングに基づいていた
+   - そのためソルバーの並列使用が全く効かなかった
+ * 現在はソルバーの並列実行使用検証が可能
+ * ソルバースケジューリングでptimed_queue_linearを使用
+ * netlistのキュー実行を実装(今はテンプレート)
+ * const delegateを追加
+ * subsolver statsを追加
+ * 古いコードを削除
+
+- netlist: nl_base.hを別ヘッダファイルに分割。[couriersud]
+ * この整理によりコアコードが見やすくなるはず。長期的にはオブジェクトモデルをさらに整理するのがゴール
+
+- netlist: clang の未使用変数警告を修正。[couriersud]
+
+- netlist: gcrコードのフォーマット文字列を修正。[couriersud]
+
+- netlist: GMRESソルバーをビルドに追加。[couriersud]
+ * 大きめのマトリックス(>>100)用GMRESソルバーはガウス消去法よりパフォーマンスがよくなります
+ * 知る限りではnetlistは、GMRESソルバーを提供するSPICEライクな回路シミュレーションでしかありません
+
+- netlist: GMRESオプションのドキュメント改良。[couriersud]
+
+- netlist: スケジューリングのバグ修正。[couriersud]
+
+- netlist: サブソルバーが独自のパラメータセットを保持。[couriersud]
+ * 例: PARAM(Solver.Solver_0.METHOD, "GMRES")
+ * これはデフォルトのMAT_CRソルバーの代わりにGMRESソルバーを使うという意味
+ * 同様にすべてのSolverパラメータにも適用
+ * 注意して遣って下さい。(例えばfrontiersを使った)netlistを変更すると、ソルバーへのネットの割当てとソルバー数が変わります。そのため、
+   この種の改良はnetlistが完全に動作してから使って下さい
+
+- 8042kbdc.cpp: マウスが有効なときだけマウスのデータを生成。これによりnforcepc BIOSがクラッシュなしで使用可能。[yz70s]
+
+- toaplan2.cpp: pipibibsbl3のROMラベル残り更新。[Ivan Vangelista]
+
+- kl5c80a12: 内部RAMとクロック分周を初期化; ノート更新。[AJR]
+
+- xmen: shared_ptr_arrayを使用。[hap]
+
+- sigmab98.cpp: ドライバステートクラスを分割。[AJR]
+
+- Appveyor msys2の対策(#7002)。 [Julian Sikorski]
+ * appveyorがmsys2を更新できないので対策
+ * msys2パッケージメンテナへの変更。パッケージを異なるキーでサイン:
+    https://www.msys2.org/news/#2020-06-29-new-packagers 
+    appveyorのイメージが新しいmsys2-keyringパッケージに更新されるまでは新しいキーを手動でインポート
+ * 二回目のpacmanコール前にmsys2を明示的にキル
+
+- 0.223用のsrcclean。[Vas Crabb]
+
+- montec: ロックアップ修正。[hap]
+ * (cherry picked from commit b7edc5e9e7ecf7f8f77e5282c0403bc762b12e0f)
+
+- netlist: #7006が直ってるはず。[couriersud]
+
+- debug/debugcmd.cpp: 引数が無効でFILEオープンしたときのリーク修正。スペルミスも修正。[Vas Crabb]
+ * saver/loadrはポータビリティのためにリージョンのエンディアンを考慮
+ 
+- cpu/gigatron: 16進数の値の大文字と小文字が統一されてなかったのでMAMEに合わせて小文字に統一。[Vas Crabb]
+
+- machine/exorterm.cpp: リセット時に入力が変わる謎を修正(まだ修正必要なものあり)。[Vas Crabb]
+
+- mpu4vid.cpp: ゲーム名の訂正。[Vas Crabb]
+
+- 編集エラーを2つ修正。[Vas Crabb]
