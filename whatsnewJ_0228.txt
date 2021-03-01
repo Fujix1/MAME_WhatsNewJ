@@ -1,0 +1,1520 @@
+﻿0.228 2021-01-27
+----------
+
+MAME Testersの修正バグ
+----------------------
+- 07713: [サウンド] (ksys573.cpp) ddrs2kj: ダンスマニアの宣伝部分の音が出ない。
+- 07834: [ゲームプレイ] (gauntlet.cpp) gauntlet, gaunt2 and clones: 面クリア時にプロテクトの問題が起こる。(Olivier Galibert)
+- 05379: [DIP/入力] (xybots.cpp) xybots: コイン1を入れるとプレイヤー2に、コイン2を入れるとプレイヤー1にクレジットが入る。(Osso)
+- 07838: [グラフィック] (btoads.cpp) btoads: 表示がバグっている。(David Haywood)
+- 07830: [プラグイン] Lua Cheat Plugin: チートを有効にしようとするとエラーが出る。(crazyc)
+- 07837: [ゲームプレイ] (namcos21_c67.cpp) starblad, starbladj: コインカウンターが動作しない。(AJR)
+- 07842: [DIP/入力] (namcos2.cpp) luckywld, sgunner2: クレジットボタンが動作しない。(AJR)
+- 07846: [ゲームプレイ] (itech32.cpp) wcbowl: ゲーム中にリセットがかかる。(Osso)
+- 07841: [サウンド] (taito_f3.cpp) kaiserkn and clones: サウンドが出ない。(AJR)
+- 07843: [インターフェイス] (undrfire.cpp) cbombers: ギアシフト表示は動かないが、ゲーム内では動いている。(Tafoid)
+- 07836: [DIP/入力] (wrally.cpp) wrally: アナログ操作が動作しない。(Osso)
+- 07833: [色/パレット] (tickee.cpp) ghoshunt, mouseatk, tickee, tutstomb: 色無しで起動することがある。(AJR)
+
+
+新規動作可能マシン
+------------------
+Club Card (ver. 1.1 English) [Roberto Fresca, Ioannis Bampoulas]
+CXG Systems / Newcrest Technology Sphinx Commander (v2.00) [hap, anonymous]
+ゲッタウェイ [Sam Grech, hap, Angelo Salese]
+なめんなよ (Japan) [ShouTime, David Haywood]
+
+
+新規動作可能クローン
+--------------------
+ビートマニア 4th MIX (ver KA-A) [xuserv]
+ビッグファイト (Japan, rev F) [Phil Bennet, The Dumping Union]
+ドラムマニア 4th MIX (G*A25 VER. KAA) [xuserv]
+Facit DTC [Luxor ABC arkivet, Curt Coder]
+プチカラット -ジェムストーン王国の世界- (Ver 2.04A 1997/11/08) [TeamEurope, Ryan Holtz, The Dumping Union]
+羅媚斗 (Japan 3/6?) [coolmod, The Dumping Union]
+ステッガーI / Red Hawk (horizontal, Spain) [Victor Fernandez (City Game), ClawGrip]
+Saitek Kasparov Simultano (ver. C) [bataais]
+Treasure Quest (Protocol) [David Haywood]
+Zabavni Karti (Bulgarian, encrypted) [Roberto Fresca, Grull Osgo, Ioannis Bampoulas]
+
+
+動作可能に昇格したマシン
+------------------------
+Roller Coaster (JPM) (IMPACT) (RC11 C30, 30p Stake, £15 Jackpot) [James Wallace]
+Treasure Quest [David Haywood]
+
+
+動作可能に昇格したクローン
+--------------------------
+Cat and Mouse (type 01 program) [Paul Swan]
+Forte Card (Ver 103, English) [Grull Osgo, Roberto Fresca]
+Roller Coaster (JPM) (IMPACT) (RC10 C20, 20p Stake, £10 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC11 AC30, 30p Stake, £15 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC11 C29, 30p Stake, £15 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC11 C30, 30p Stake, £15 Jackpot, Whitbread) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC11P C30, 30p Stake, £15 Jackpot, Protocol) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC2 I L07, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC2 L07, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC4 AL15, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC4 I L15, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC4 L15, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC4P L15, 20p Stake, £8 Jackpot, Protocol) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC5 L14, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC9 AL26, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC9 L26, 20p Stake, £10 Jackpot, Whitbread) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC9 L26, 20p Stake, £8 Jackpot) [James Wallace]
+Roller Coaster (JPM) (IMPACT) (RC9P L26, 20p Stake, £8 Jackpot, Protocol) [James Wallace]
+
+
+
+新規追加された未動作マシン
+--------------------------
+ビンゴサーカス (terminal) [Phil Bennet]
+Champion Pool (v1.0) [caius]
+Data General AViiON 4600 [Plamen Mihaylov, Patrick Mackinlay]
+Diamond King [jordigahan, ClawGrip]
+餓狼伝説スペシャル / Fatal Fury Special (SNES bootleg) [Apocalypse, iq_132]
+はっぴーぴえろ [Alex Marshall]
+ヒロインズメモリー [The Dumping Union]
+High Roller (Bellfruit) (Scorpion 4) [HIGHWAYMAN]
+Hungry Hungry Hippos (redemption game) [Museo del Recreativo, The Dumping Union]
+Intelligent Peripheral Devices AlphaSmart 3000 [TeamEurope, ClawGrip]
+International Business Machines IBM RT PC Model 010 [Bitsavers]
+International Business Machines IBM RT PC Model 015 [Bitsavers]
+International Business Machines IBM RT PC Model 020 [Bitsavers]
+International Business Machines IBM RT PC Model 025 [Bitsavers]
+International Business Machines IBM RT PC Model A25 [Bitsavers]
+Mini Guay [jordigahan, ClawGrip]
+NEC EWS4800/310 [Plamen Mihaylov, Patrick Mackinlay]
+New! Cherry Plus (Ver. 3.10) [Ioannis Bampoulas]
+Pontoon (Konami) [Michel Pichot]
+Portable Game Station 268-in-1 [Takashi Omoto, TeamEurope, David Haywood]
+SM1810 [Carl, Alexander Kholodov]
+ソニックブラストマンのジャンケンバトル [Phil Bennet]
+SPRINT (Maygay) (M1A/B) [HIGHWAYMAN]
+Surprise 5 (Ver. 1.19) [Ioannis Bampoulas]
+Tab Products E-22 Display Terminal [Bitsavers]
+つるりんくん [Phil Bennet]
+unknown 'Rolla' slot machine [caius]
+
+
+
+新規追加された未動作クローン
+----------------------------
+Adults Only (Ukraine, V. 43.17) [Ivan Vangelista]
+Black Pearl (Ukraine, V. 42.01) [Ivan Vangelista]
+Black Pearl (Ukraine, V. 42.03) [Ivan Vangelista]
+Black Pearl (Ukraine, V. 43.04) [Ivan Vangelista]
+Black Pearl (Ukraine, V. 43.07) [Ivan Vangelista]
+Blits Loto (Ukraine, V. 30.08) [Ivan Vangelista]
+Crime Patrol v1.0 [Dragon’s Lair Project]
+Del's Millions (Bellfruit) (set 11, UK, ??GBP Jackpot) (Scorpion 2/3) [HIGHWAYMAN]
+Del's Millions (Bellfruit) (set 12, UK, ??GBP Jackpot) (Scorpion 2/3) [HIGHWAYMAN]
+ダートデビルズ (USA, Revision A) [Brian Troha, The Dumping Union]
+Donky Kong (Maygay) v?.? (M1A/B) [HIGHWAYMAN]
+Grand Canyon (Ukraine, V. 42.06) [Ivan Vangelista]
+Grand Canyon (Ukraine, V. 42.13) [Ivan Vangelista]
+Grand Canyon (Ukraine, V. 43.05) [Ivan Vangelista]
+The Hole (bootleg of The Pit) [caius]
+Lucky Shell (Ukraine, V. 42.10) [Ivan Vangelista]
+Maski Show (Ukraine V. 42.05) [Ivan Vangelista]
+Maski Show (Ukraine V. 42.11) [Ivan Vangelista]
+Maski Show (Ukraine V. 43.07) [Ivan Vangelista]
+New Draw 8 Lines (Version 2.1) [Ioannis Bampoulas]
+The Porter (bootleg of Port Man) [caius]
+Roland HS-80 Programmable Polyphonic Synthesizer [Andreas Markusen, DBWBP]
+Safari (Extrema, Ukraine, V. 42.04) [Ivan Vangelista]
+Safari (Extrema, Ukraine, V. 42.07) [Ivan Vangelista]
+Safari (Extrema, Ukraine, V. 43.08) [Ivan Vangelista]
+Strong Link (Ukraine, V. 43.45) [Ivan Vangelista]
+ゲットバス / Sega Bass Fishing (USA) [Brian Troha, The Dumping Union]
+The Simpsons (Maygay) (M1A/B) (set 9) [HIGHWAYMAN]
+Treasure Hunt (Extrema, Ukraine, V. 34.02) [Ivan Vangelista]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+chip8_quik:
+  Addition Problems, Airplane, Animal Race, Animal Race (fix), Astro Dodge, Astro Dodge (fix), Biorhythm, Blackjack, Blinky (fix),
+  Blitz, Bowling, Breakout, Brick, Brix, Cave, Clock Program, Craps, Deflection, Dream Invaders, Fifteen Puzzle, Figures, Filter,
+  Guess, Hi-Lo, Hidden, Hidden (fix), Kaleidoscope, Kaleidoscope (alt), Landing, Life, Lunar Lander, Mastermind FourRow, Merlin,
+  Missile, Most Dangerous Game, Nim, Paddles, Pong, Pong (1 player), Pong (alt), Programmable Spacefighters, Puzzle, Reversi,
+  Rocket, Rocket Launch, Rush Hour, Rush Hour (alt), Russian Roulette, Sequence Shoot, Shooting Stars, Slide, Snafu, Soccer,
+  Space Flight, Space Intercept, Squash, Submarine, Syzygy, Tank, Tapeworm, Tetris, Tic-Tac-Toe (fix), Timebomb, Tron, UFO, V-brix,
+  Vers, Video Display Drawing Game, Wipeoff, Worm V4, X-Mirror, X-Ray (fix) [Robbbert]
+fmtowns_cd:
+  Hyper Planet Shiki Vol. 2 [Maddog]
+  Emit Vol. 1 - Toki no Maigo (Demo), Engage Errands - Miwaku no Shito-tachi, Last Armageddon CD Special (Selon reprint), Lua,
+  Naru Mahjong, Nijiiro Denshoku Musume, Tactical Tank Corps DX, Tensen Nyannyan, Winning Post, WonPara Wars [redump.org]
+  Air Warrior V1.2L11, Engage Errands II - Hikari o Ninau Mono [redump.org, wiggy2k]
+  Kikai Jikake no Marian, Princess Danger [rockleevk]
+fmtowns_flop: Darwin's Dilemma - The Solution Is Evolution [wiggy2k]
+gamegear:
+  Andre Agassi Tennis (prototype), Bubble Bobble (prototype), CJ Elephant Fugitive (prototype),
+  Dinobasher Starring Bignose the Caveman (Euro, prototype), Dragon - The Bruce Lee Story (prototype),
+  Empire Syndicate (Chicago Syndicate) (prototype, 19950320), Kawasaki Superbike Challenge (USA), Micro Machines (prototype)
+  [smspower]
+  X-Terminator v2.1 for Game Gear (USA, Euro), X-Terminator v2.1J for Game Gear (Jpn) [Wilbert Pol, smspower]
+ibm5150: Where in America's Past is Carmen Sandiego? (3.5"), Where in America's Past is Carmen Sandiego? (5.25") [ArcadeShadow]
+ibm5170:
+  The Legend of Robin Hood - Conquests of the Longbow, Pirates! Gold (Euro), Pirates! Gold (older),
+  Tetris Classic (Windows 3.x release) [ArcadeShadow]
+psx:
+  Action Replay 2 Version 2.23 - Bonus PSone Codes! (Euro), Autumn/Christmas Releases '96 (Euro), Beatmania (Euro),
+  Chase the Express (Euro), Demo One (Version 1) (Euro), Demo One (Version 2) (Euro), Demo One (Version 4) (Ger), Depth (Jpn),
+  Disney/Pixar Monsters, Inc.: Skrämmarön (Swe), Dracula: The Resurrection (Euro), Driver 2: Back on the Streets (Euro, Rev. 1),
+  Euro Demo 21 (Euro), Euro Demo 22 (Euro), Euro Demo 28 (Euro), Euro Demo 58 (Euro), Euro Demo 60 (Euro), Euro Demo 62 (Euro),
+  Euro Demo 63 (Euro), Euro Demo 64 (Euro), Euro Demo 65 (Euro), Euro Demo 66 (Euro), Euro Demo 67 (Euro), Euro Demo 68 (Euro),
+  Euro Demo 69 (Euro), Euro Demo 70 (Euro), Euro Demo 71 (Euro), Euro Demo 72 (Euro), Euro Demo 73 (Euro), Euro Demo 74 (Euro),
+  Everybody's Golf 2 (Euro), F1 Championship Season 2000 (Euro), Front Mission 3 (Euro, Prototype 20000616), Ghoul Panic (Euro),
+  Gran Turismo (Euro), Gran Turismo 2 (Euro), Grand Theft Auto 2 (Euro, Rev. 1), Medal of Honor: Underground (Euro),
+  Metal Gear Solid (Euro), Metal Gear Solid: Special Missions (Euro), Micro Machines V3 (Euro, EDC), Moto Racer (Euro),
+  Moto Racer World Tour (Euro), Music: Music Creation for the PlayStation (Euro), Need for Speed II (Euro),
+  Need for Speed III: Hot Pursuit (Euro), No Fear Downhill Mountain Biking (Euro), Oddworld: Abe's Oddysee (Euro), Pi to Mail (Jpn),
+  Point Blank (Euro, Demo), Point Blank (Euro, Rev. 1), Point Blank 2 (Euro, Aus), Porsche Challenge (Euro), Power Source (Euro),
+  Pro Pinball: Big Race USA (Euro), Rescue Shot (Euro), Resident Evil (Euro, EDC), Resident Evil: Survivor (Euro),
+  Sentou Kokka: Air Land Battle (Jpn, Rev. 1), Silent Hill (Euro), Sphere 360° (Euro), Spider-Man (Euro), Spyro the Dragon (Euro),
+  Street Skater 2 (Euro), Tenchu: Stealth Assassins (Euro, Demo), Test Drive 6 (Euro), Theme Hospital (Euro),
+  Tomb Raider: The Last Revelation (Euro, Aus), Vanishing Point (Euro), Wares 1092: Souheiden (Jpn), Warpath: Jurassic Park (Euro),
+  WCW Mayhem (Euro) [redump.org, FakeShemp]
+rx78_cart:
+  Sekigahara, Super Motocross [Gaming Alexandria, SSJ]
+  Burger Shop, Champion Racer, Mobile Suit Gundam, Perfect Mah-jongg, The Prowrestling, Ultraman [Gaming Alexandria, SSJ, Robbbert]
+rx78_cass: Graphics Mathematics [Gaming Alexandria, SSJ]
+sg1000: San-nin Mahjong (Jpn, alt) [smspower]
+sms:
+  3D Gunner (prototype), Alex Kidd - High-Tech World (prototype), Battle Wings (Bomber Raid, prototype),
+  Cyborg Hunter (prototype), Game de Check! Koutsuu Anzen (Jpn, prototype), Hang-On (prototype), Missile Defense 3-D (prototype),
+  Out Run 3-D (prototype), Solomon no Kagi - Oujo Rihita no Namida (prototype), Super Off Road (prototype) [smspower]
+videopac: Flash Point (PAL conversion), Rash [hap]
+wscolor:
+  Digimon Adventure 02 - D1 Tamers (Rev 0), Digimon Tamers - Digimon Medley (alt), Digital Monster - D-Project (Rev 0),
+  Digital Monster Card Game - Ver. WonderSwan Color (Rev 0), From TV Animation One Piece - Treasure Wars (Rev 0),
+  Hunter X Hunter - Greed Island (Rev 0) [redump.org, Wilbert Pol]
+wswan:
+  Chocobo no Fushigi na Dungeon for WonderSwan (Rev 1), Chocobo no Fushigi na Dungeon for WonderSwan (Rev 2),
+  Digimon Adventure - Anode Tamer (Rev 0), Digimon Adventure 02 - Tag Tamers (Rev 0), Harobots (Rev 0),
+  Hunter X Hunter - Ishi o Tsugu Mono (Rev 1), Keitai Gyogun Tanchiki - WonderSwan Handy Sonar (Rev 1), Mahjong Touryuumon (Rev 1),
+  Ring Infinity (alt), SD Gundam - Emotional Jam (Rev 2), SD Gundam Gashapon Senki - Episode 1 (alt),
+  Super Robot Taisen Compact (Rev 0), Super Robot Taisen Compact (Rev 1) [redump.org, Wilbert Pol]
+
+
+
+動作可能に昇格したソフトウェアリスト項目
+--------------------------------------------------
+fmtowns_cd:
+  Sangokushi IV [akira_2020]
+  Hyper Planet for Marty, Ms. Detective File #1 - Iwami Ginzan Satsujin Jiken (FM Towns Marty version), Sensual Angels
+  [cherokee]
+  Doki Doki Vacation - Kirameku Kisetsu no Naka de [wiggy2k]
+psx:
+  007 - Tomorrow Never Dies (Jpn), 10101 - "Will" the Starship (Jpn), 70's Robot Anime - Geppy-X - The Super Boosted Armor (Jpn),
+  A5 - A Ressha de Ikou 5 (Jpn, Playstation the Best), Abe a GoGo (Jpn), Acid (Jpn), Aconcagua (Jpn),
+  Action Puzzle - Prism Land (Jpn, Honkakuha de 1300Yen Series), Ad Lib Ouji ...to Fuyukai na Nakamatachi!? (Jpn),
+  Advanced V.G. 2 (Jpn, SuperLite 1500 Series), Afraid Gear (Jpn), Airgrave (Jpn), Aitakute... Your Smiles in My Heart (Jpn),
+  Aizouban Houshin Engi (Jpn), Akagawa Jirou - Yasoukyoku 2 (Jpn), Akagawa Jirou Majo-tachi no Nemuri - Fukkatsu Matsuri (Jpn),
+  Alice in Cyberland (Jpn), Alive (Jpn), Alundra 2 - Mashinka no Nazo (Jpn), Ancient Roman - Power of the Dark Side (Jpn),
+  Angel Graffiti - Anata e no Profile (Jpn), Angelique Duet (Jpn), Angelique Special (Jpn), Angelique Special 2 (Jpn),
+  Angelique Tenkuu no Requiem (Jpn), Angolmois '99 (Jpn, SuperLite 1500 Series), Another Memories (Jpn),
+  Ao Zora to Nakama Tachi - Yume No Bouken (Jpn), Ao no Roku-gou - Antarctica (Jpn),
+  Aoki Ookami to Shiroki Mejika - Genchou Hishi (Jpn), Aqua Paradise - Boku no Suizokukan (Jpn), Aquanaut no Kyuujitsu 2 (Jpn),
+  Aquarian Age - Tokyo Wars (Jpn), Arcade Gears - Image Fight & X-Multiply (Jpn), Arcade Gears - Wonder 3 (Jpn),
+  Arcade Hits - Crazy Climber (Jpn, Major Wave Series), Armed Fighter (Jpn), Armored Core (Jpn, Demo),
+  Arthur to Astaroth no Nazo Maikamura - Incredible Toons (Jpn), Assault Suits Valken 2 - Juusou Kihei Valken 2 (Jpn),
+  Astronoka (Jpn), Asuka 120% Burning Fest. Excellent (Jpn), Asuka 120% Burning Fest. Final (Jpn),
+  Asuka 120% Burning Fest. Special (Jpn), Asuncia - Matsue no Jubaku (Jpn, XING Maru-yasu Series),
+  Athena - Awakening from the Ordinary Life (Jpn, Koei the Best), Ayakashi Ninden Kunoichiban (Jpn), Azito (Jpn), Azito 3 (Jpn),
+  Azumanga Donjara Daiou (Jpn), b.l.u.e. - Legend of Water (Jpn),
+  BackGuiner - Yomigaeru Yuusha-tachi - Hishou-hen 'Uragiri no Senjou' (Jpn), Bakumatsu Roman - Gekka no Kenshi (Jpn),
+  Bakuretsu Hunter - Mahjong Special (Jpn), Bakuryu (Jpn), Barbapapa (Jpn), Bardysh (Jpn), Baroque - Yuganda Mousou (Jpn),
+  Baroque Syndrome (Jpn), Baseball Simulation - ID Pro Yakyuu (Jpn), Bass Fisherman - Texas (Jpn),
+  Battle "Sugoroku" - The Hunter - A.R.0062 (Jpn, SuperLite 1500 Series), Battle Master (Jpn, Major Wave Series),
+  Beat Planet Music (Jpn), Beatmania - Append 3rd Mix Mini (Jpn), Beatmania - Append 5th Mix - Time to Get Down (Jpn),
+  Beatmania - Best Hits (Jpn), Beatmania Append 6th Mix + Core Remix (Jpn), Beatmania Append Gottamix 2 - Going Global (Jpn),
+  Bishi Bashi Special (Jpn, Konami the Best), Bishi Bashi Special 2 (Jpn), Bishi Bashi Special 3 - Step Champ (Jpn),
+  Bishoujo Senshi Sailormoon Super S - Shin Shuyaku Soudatsusen (Jpn, Genteiban), Black Jack vs. Matsuda Jun (Jpn),
+  Black Matrix Zero OO (Jpn, Shokai Genteiban), Blade Arts - Tasogare no Miyako R'lyeh (Jpn), BladeMaker (Jpn),
+  Blam! -MachineHead (Jpn), Blaze & Blade - Busters (Jpn), Blaze & Blade - Eternal Quest (Jpn),
+  Block Kuzushi - Kowashite Help! (Jpn), Blood Factory (Jpn), Blue Breaker Burst - Egao no Asuni (Jpn), The Blue Marlin (Jpn),
+  Boku no Choro-Q (Jpn), Boku wa Koukuu Kanseikan (Jpn), Bonogurashi (Jpn), Boundary Gate - Daughter of Kingdom (Jpn),
+  Brave Prove (Jpn), Brave Sword (Jpn), Break Volley (Jpn), Breath of Fire III (Jpn), Buckle Up! (Jpn), Bugi (Jpn),
+  Burning Road (Jpn), C1 Circuit (Jpn), Calcolo! - Ochimo no Shooting (Jpn), Carnage Heart EZ - Easy Zapping (Jpn),
+  Carom Shot 2 (Jpn), Chaos Control (Jpn), Chiisana Kyojin Microman (Jpn), Chiisana Oukoku Erutoria (Jpn),
+  Chiki Chiki Machine Mou Race - Wacky Races (Jpn), Chippoke Ralph no Daibouken - The Adventure of Little Ralph (Jpn),
+  Chocolate Kiss (Jpn), Choro-Q (Jpn), Choro-Q Wonderful! (Jpn), Chou Aniki - Kyuukyoku Muteki Ginga Saikyou Otoko (Jpn),
+  Chou Hatsumei Boy Kanipan - Hirameki Wonderland (Jpn), Choujin Gakuen Gowcaizer (Jpn), Circuit Beat (Jpn),
+  Cleopatra's Fortune (Jpn), Click Manga - Click Nohi (Jpn), Click Manga - Dynamic Robot Taisen 1 (Jpn),
+  Click Manga - Dynamic Robot Taisen 2 (Jpn), Clock Tower - Ghost Head (Jpn), Clock Tower 2 (Jpn, Taikenban), Community Pom (Jpn),
+  Community Pom - Omoide o Dakishimete (Jpn), Cosmowarrior Zero (Jpn), Crazy Climber 2000 (Jpn), Creature Shock (Jpn),
+  Crime Crackers 2 (Jpn), CRW - Counter Revolution War (Jpn), Cu-On-Pa (Jpn),
+  Cyber Daisenryaku - Shutsugeki! Harukatai (Jpn, SuperLite 1500 Series), Cybernetic Empire (Jpn),
+  Daibouken Deluxe - Harukanaru Umi (Jpn), Daikoukai Jidai Gaiden (Jpn), Daikoukai Jidai II (Jpn), Dakar '97 (Jpn),
+  Dance Dance Revolution - Best Hits (Jpn), Dancing Blade - Katteni Momotenshi! (Jpn), Dangan (Jpn),
+  Dark Hunter - Ge Youma No Mori (Jpn), Darkseed II (Jpn), Deadly Skies (Jpn), Death Wing (Jpn), Defeat Lightning (Jpn),
+  Densha Daisuki - Plarail ga Ippai (Jpn), Densha de Go! Nagoya Railroad (Jpn), Derby Jockey 2001 (Jpn), Descent (Jpn),
+  Destruction Derby 2 (Jpn), Devicereign (Jpn), Dezaemon Kids! (Jpn), Dezaemon Plus (Jpn), Digical League (Jpn),
+  Digimon Tamers - Battle Evolution (Jpn), Digimon World (Jpn), Docchi Mecha! (Jpn), Dodge de Ball! (Jpn),
+  Doki Doki Shutter Chance - Koi no Puzzle o Kumitatete (Jpn), Dokomademo Aoku... (Jpn, Limited Edition), Dolphin's Dream (Jpn),
+  Domino-kun o Tomenaide. (Jpn), DonPachi (Jpn), Doraemon - Nobita to Fukkatsu no Hoshi (Jpn),
+  Doraemon 2 - SOS! Otogi no Kuni (Jpn), Double Dragon (Jpn), Doukyuusei 2 (Jpn), Doukyuusei Mahjong (Jpn),
+  Dragon Ball Z - Idainaru Dragon Ball Densetsu (Jpn), Dragon Drive Tactics Break (Jpn), Dragon Knights Glorious (Jpn),
+  Dragon Money (Jpn), Dragon Valor (Jpn), The Drug Store - Matsumoto Kiyoshi de Okaimono! (Jpn),
+  DX Jinsei Game IV - The Game of Life (Jpn), DX Jinsei Game V - The Game of Life (Jpn), DX Monopoly (Jpn),
+  DX Okuman Chouja Game II - The Money Battle (Jpn), DX Shachou Game (Jpn), Dynamite Boxing (Jpn), Dynamite Soccer 2002 (Jpn),
+  Dynamite Soccer 2004 Final (Jpn), Eikan ha Kimini 4 (Jpn), élan (Jpn), élan plus (Jpn), Elder Gate (Jpn),
+  Elf wo Karu Mono-tachi II (Jpn), Emmyrea (Jpn), End Sector (Jpn), Engacho! (Jpn), Enigma (Jpn), EOS - Edge of Skyhigh (Jpn),
+  EVE - The Fatal Attraction (Jpn), Evergreen Avenue (Jpn), Exciting Bass (Jpn), Exciting Bass 2 (Jpn), Family Diamond (Jpn),
+  The Family Restaurant - Shijou Saikyou no Menu (Jpn), Favorite Dear - Junpaku no Yogenmono (Jpn), Fighters' Impact (Jpn),
+  Fighting Illusion - K-1 Grand Prix '98 (Jpn), Final Fantasy (Jpn), Final Fantasy Extra Collection (Jpn), Final Fantasy II (Jpn),
+  Final Round (Jpn), Fire Woman Matoigumi (Jpn), The Firemen 2 - Pete & Danny (Jpn), First Queen IV - Varcia Senki (Jpn),
+  Fish Eyes II (Jpn), Fisher's Road (Jpn), Fishing Freaks - BassRise (Jpn), Fist (Jpn), Forget me not - Palette (Jpn),
+  Formula Circus (Jpn), Formula Grand Prix 1997 - Team Unei Simulation 2 (Jpn), Formula Nippon '99 (Jpn), Fox Junction (Jpn),
+  Free Talk Studio - Mari no Kimama na Oshaberi (Jpn, Best of the Best), Fuujin Ryouiki Eretzvaju (Jpn), Fuuraiki (Jpn),
+  G-Police (Jpn), Gakkou de Atta Kowai Hanashi S (Jpn), Gakkou wo Tsukurou!! 2 (Jpn), Gakuen Sentai Solblast (Jpn),
+  Galaxy Fight - Universal Warriors (Jpn), GALEOZ (Jpn), Gallop Racer 2000 (Jpn), Gambler Jikochuushinha Ippatsu Shoubu! (Jpn),
+  The Game Maker (Jpn), Gamera 2000 (Jpn), Gamesoft wo Tsukurou - Let's Be a Super Game Creator (Jpn),
+  Ganbare Goemon - Ooedo Daikaiten (Jpn), Ganbare Goemon - Uchuu Kaizoku Akogingu (Jpn), Gangway Monsters (Jpn), Gate Keepers (Jpn),
+  GeGeGe no Kitarou (Jpn), Geki-Oh Shienryu (Jpn), Gekitotsu Toma L'Arc - Tomarunner vs. L'Arc~en~Ciel (Jpn),
+  Genei Tougi - Shadow Struggle (Jpn), Gensou Maden Saiyuuki - Harukanaru Nishi e (Jpn),
+  Gensou no Altemis - Actress School Mystery Adventure (Jpn), GetBackers Dakkanya (Jpn), GI Jockey 2000 (Jpn),
+  Ginga Eiyuu Densetsu (Jpn), Ginga Ojousama Densetsu Yuna - Final Edition (Jpn), Goemon - Shin Sedai Shuumei (Jpn),
+  Goiken Muyou II (Jpn), Gokuu Densetsu - Magic Beast Warriors (Jpn), Golgo 13 - 1 - Karairu no Yabou (Jpn), Googootrops (Jpn),
+  Granstream Denki (Jpn, Demo), The Great Battle VI (Jpn), Gritz - The Pyramid Adventure (Jpn),
+  Groove Adventure Rave - Mikan no Hiseki (Jpn), Groove Adventure Rave - Yuukyuu no Kizuna (Jpn),
+  Groove Jigoku V - Sweepstation Version (Jpn), Guilty Gear (Jpn), Guitar Freaks Append 2nd Mix (Jpn),
+  GUNbare! Game Tengoku - The Game Paradise 2 (Jpn), Hai-Shin-2 (Jpn), Hakaioh - King of Crusher (Jpn), Hanabi Fantast (Jpn),
+  Happy Hotel (Jpn), Hard Boiled (Jpn), Harmful Park (Jpn), Harukanaru Toki no Naka de (Jpn),
+  Hashiriya - Ookamitachi no Densetsu (Jpn), Hatsukoi Valentine (Jpn), Heaven's Gate (Jpn), The Heiwa Otenki Studio (Jpn),
+  Heiwa Pachinko Graffiti Vol.1 (Jpn), Heiwa Parlor! Pro Dolphin Ring Special (Jpn), Heiwa Parlor! Pro Lupin Sansei Special (Jpn),
+  Heiwa Parlor! Pro Tsunatori Monogatari Special (Jpn), Hello Kitty - White Present (Jpn), Hello Kitty's Cube De Cute (Jpn),
+  Henry Explorers (Jpn), Hermie Hopperhead - Scrap Panic (Jpn, Playstation the Best), High School of Blitz (Jpn),
+  Hikari no Shima - Seven Lithographs in Shining Island (Jpn), Himiko-Den (Jpn),
+  Hiroki Matsukata Presents - World Fishing (Jpn, BPS The Choice), Hissatsu Pachi-Slot Station 2 (Jpn),
+  Hissatsu Pachi-Slot Station 4 (Jpn), Hissatsu Pachi-Slot Station 5 (Jpn), Hissatsu Pachi-Slot Station SP (Jpn), Hit Back (Jpn),
+  Hokuto no Ken (Jpn), Hole of the Legend Monster - Densetsu Kemono no Ana - Monster Complete World Ver.2 (Jpn),
+  Honoo no Ryourinin - Cooking Fighter Tao (Jpn), Hooockey!! (Jpn, SuperLite 1500 Series),
+  Hoshi no Oka Gakuen Monogatari - Gakuensai (Jpn), Hoshigami - Shizumiyuku Aoki Daichi (Jpn),
+  Hunter X Hunter - Maboroshi no Greed Island (Jpn), Hunter X Hunter - Ubawareta Aura Stone (Jpn),
+  Hyouryuu Ki - The Reportage Beyond the Sea (Jpn), Hyper Crazy Climber (Jpn), Hyper Rally (Jpn), Ichigeki - Hagane no Hito (Jpn),
+  Ide Yousuke no Mahjong Kyoshitsu (Jpn), Idol Janshi Suchie-Pai II Limited (Jpn), Idol Janshi Suchie-Pai Limited (Jpn),
+  Inagawa Junji - Kyoufu no Yashiki (Jpn), Indy 500 (Jpn), Irem Arcade Classics (Jpn), Itadaki Street - Gorgeous King (Jpn),
+  JailBreaker (Jpn), Jaleco Collection Vol.1 (Jpn), Jellyfish - The Healing Friend (Jpn),
+  Jounetsu Nekketsu Athletes - Nakimushi Coach no Nikki (Jpn), Jungle Park (Jpn), Kaeru no Ehon - Nakushita Kioku o Motomete (Jpn),
+  Kaibutsu Para-Dice (Jpn), Kaisoku Tenshi - The Rapid Angel (Jpn), Kaitohranma Miyabi (Jpn), Kakugo no Susume (Jpn),
+  Kamen Rider (Jpn), Kamen Rider Agito (Jpn), Kamen Rider Kuuga (Jpn), Kamen Rider Ryuki (Jpn),
+  Kanako Enomoto - Junk Brain Diagnosis (Jpn), Kato Hifumi Kudan - Shogi Club (Jpn, Honkakuha de 1300Yen Series),
+  Kattobi Tune (Jpn), Keiba Eight '98 Akifuyu (Jpn), Keiba Eight '98 Haru Natsu (Jpn), Keiba Saishou no Housoku '95 (Jpn),
+  Kenki Ippatsu! Crane Master ni Narou! (Jpn), Kero Kero King (Jpn),
+  Kidou Keisatsu Patlabor - Mobile Police Patlabor - Game Edition (Jpn), Kidou Senshi Z-Gundam (Jpn, Demo),
+  Kids Station - Bishoujo Senshi Sailormoon World - Chibiusa to Tanoshii Mainichi (Jpn), Kids Station - Digimon Park (Jpn),
+  Kids Station - Kamen Rider Heroes (Jpn), Kids Station - Motto! Oja Majo Dorami - MAHO-dou Smile Party (Jpn),
+  Kids Station - Soreike! Anpanman 2 - Anpanman to Daibouken! (Jpn), Killer Bass (Jpn),
+  Kindaichi Shounen no Jikenbo 3 - Seiryuu Densetsu Satsujin Jiken (Jpn), King of Bowling 2 - Professional-Hen (Jpn),
+  The King of Fighters '95 (Jpn), The King of Fighters '96 (Jpn), The King of Fighters '98 - Dream Match Never Ends (Jpn),
+  The King of Fighters '99 (Jpn), The King of Fighters Kyo (Jpn), Kitchen Panic (Jpn), Knight & Baby (Jpn),
+  Kochira Katsushikaku Kameari Kouenzen Hashutsujo - High Tech Building Shinkou Soshi Sakusen! no Ma (Jpn), Kohni Shogun (Jpn),
+  Kojin Kyouju - La Leçon Particulière (Jpn), Komotchi (Jpn), Konami Antiques - MSX Collection Vol.1 (Jpn),
+  Konami Antiques - MSX Collection Vol.2 (Jpn), Korokoro Post Nin (Jpn), Kosodate Quiz Motto My Angel (Jpn),
+  Kotetsu Reiki - Steel Dom (Jpn), Kou Kidou Gensou - Gunparade March (Jpn), Kouklotheatro - Yuukyuu no Hitomi (Jpn),
+  Kouryuuki (Jpn), Koyasai - A Sherd of Youthful Memories (Jpn), Ku-Ron Jo - Fukyuu Ban (Jpn), Kunoichi Torimonocho (Jpn),
+  Kuro no Ken - Blade of the Darkness (Jpn), Kuroi Hitomi no Noir - Cielgris Fantasm (Jpn), Kurumi Miracle (Jpn), Kuubo Senki (Jpn),
+  Kyorochan no Purikura Daisakusen (Jpn), Lagnacure (Jpn), Lake Masters Pro - Nihon Juudan Kuro Masu Kikou (Jpn),
+  Lalala PlayStation Trial Disk 1998 Summer (Jpn, Demo), Langrisser I & II (Jpn), Langrisser IV & V Final Edition (Jpn),
+  Legaia Densetsu (Jpn, Demo), The Legend of Dragoon (Jpn), Libero Grande 2 (Jpn), Ling Rise (Jpn),
+  Little Princess +1 - Marl Oukoku no Ningyou Hime 2 (Jpn), Lode Runner 2 (Jpn, SuperLite 1500 Series), Lode Runner Extra (Jpn),
+  Lone Soldier (Jpn), Lord of Fist (Jpn), Love & Destroy (Jpn), Love Love Truck (Jpn), LSD - Dream Emulator (Jpn, Limited Edition),
+  Lucifer Ring (Jpn), Lunar 2 - Eternal Blue (Jpn), Lunar Wing - Toki o Koeta Seisen (Jpn), Lunatic Dawn III (Jpn),
+  Lunatic Dawn Odyssey (Jpn), Lup Salad - Lupupu Cube (Jpn), MTV's Beavis and Butt-Head in Virtual Stupidity (Jpn),
+  Mad Panic Coaster (Jpn), Märchen Adventure Cotton 100% (Jpn, SuperLite 1500 Series), The Maestro Music (Jpn, with Baton Stick),
+  Magical Drop F - Daibouken mo Rakujanai! (Jpn), Magical Medical (Jpn), Mahjong Yarouze! (Jpn),
+  Majokko Daisakusen - Little Witching Mischiefs (Jpn), Marionette Company (Jpn), Marionette Company 2 Chu! (Jpn),
+  Marl Jong!! (Jpn, Limited Edition), Marvel Super Heroes (Jpn), Marvel Super Heroes vs. Street Fighter - EX Edition (Jpn),
+  Marvel vs. Capcom - Clash of Super Heroes - EX Edition (Jpn), Masumon Kids - The Another World of The Master of Monsters (Jpn),
+  MaxRacer (Jpn), Maze Heroes - Meikyuu Densetsu (Jpn), Medarot R (Jpn), Medarot R - Parts Collection (Jpn), Megatudo 2096 (Jpn),
+  Meitantei Conan - Saikou no Aibou (Jpn), Meitantei Conan - Trick Trick Vol.1 (Jpn), MeltyLancer - The 3rd Planet (Jpn),
+  Memorial Star Series - Sunsoft Vol.1 - Ikki & Super Arabian (Jpn),
+  Memorial Star Series - Sunsoft Vol.2 - Route-16 Turbo & Atlantis no Nazo (Jpn),
+  Memorial Star Series - Sunsoft Vol.3 - Madoola no Tsubasa & Toukaidou Gojuusan Tsugi (Jpn),
+  Memorial Star Series - Sunsoft Vol.4 - Chou Wakusei Senki Metafight & Ripple Island (Jpn),
+  Memorial Star Series - Sunsoft Vol.5 - Raf World & Hebereke (Jpn), Menkyo o Torou (Jpn), Meremanoid (Jpn),
+  Mermaid no Kisetsu - The Season of Mermaid (Jpn), Meta-Ph-List μ.χ.2297 (Jpn), Metal Angel 3 (Jpn), Metal Fist (Jpn),
+  Mezase! Senkyuuou (Jpn), Michinoku Hitou Koi Monogatari - Bishoujo Hanafuda Kikou (Jpn), Michinoku Hitou Koi Monogatari Kai (Jpn),
+  Mini Moni. - Step Pyon Pyon Pyon (Jpn), Mini Moni. Shaker & Tambourine! Dapyon! (Jpn), Minna Atsumore! Igo Kyoushitsu (Jpn),
+  Misaki Aggressive! (Jpn), Mizzurna Falls (Jpn), Momotarou Densetsu (Jpn), Momotarou Matsuri (Jpn), Money Idol Exchanger (Jpn),
+  Monster Collection - Kamen no Madoushi (Jpn), Monster Farm - Battle Card Professional (Jpn),
+  Mouri Motonari - Chikai no Sanshi (Jpn), Mr. Driller G (Jpn),
+  Muscle Ranking - Kinniku Banzuke Vol.2 - Aratanaru Genkai e no Chousen! (Jpn),
+  My Home Dream 2 - Niwatsuki Ikkodate De, Ikou! (Jpn), Mystic Ark - Maboroshi Gekijou (Jpn), The Mystic Dragoons (Jpn),
+  Najavu no Daibouken - My Favorite Namjatown (Jpn), Naniwa no Akindo - Futte Nanbo no Saikoro Jinsei (Jpn),
+  Nankuro (Jpn, SuperLite 1500 Series), NBA Power Dunkers 4 (Jpn), Navit (Jpn), Nemuru Mayu - Sleeping Cocoon (Jpn), Neorude (Jpn),
+  Neorude 2 (Jpn), Next King - Koi no Sennen Oukoku (Jpn), Night Raid (Jpn), Nijiiro Dodgeball - Otometachi no Seishun (Jpn),
+  Ningyo no Rakuin (Jpn), Ninja Jajamaru-kun - Onigiri Ninpouchou (Jpn), Nobunaga no Yabou - Retsuupuden (Jpn),
+  NOëL 3 - Mission on the Line (Jpn), Nya Nyan ga Nyan - Light Fantasy Gaiden (Jpn), Oasis Road (Jpn), Oda Nobunaga Den (Jpn),
+  Odo Odo Oddity (Jpn), Ojamajo Doremi Dokka~n! Nijiiro Para-Dice (Jpn), Ojousama Express (Jpn),
+  Olympia Yamasa - Virtua Pachi-Slot II - Jissen! Bishoujo Kouryaku Hou (Jpn), Omise de Tensyu (Jpn), One (Jpn),
+  One Two Smash - Tanoshii Tennis (Jpn, Honkakuha de 1300Yen Series), Ongaku Tsukuru Kanadeeru 2 (Jpn),
+  Option Tuning Car Battle Spec-R (Jpn), Ore! Tomba (Jpn), Oshigotoshiki Jinsei Game - Mezase Shokugyou-oh (Jpn),
+  Ouji-sama LV1 (Jpn), Oukyuu no Hihou - Tension (Jpn), Paca Paca Passion (Jpn), Pachi-Slot Aruze Oukoku 5 (Jpn),
+  Pachi-Slot Teiou - Battle Knight & Atlantis Doom (Jpn),
+  Pachi-Slot Teiou - Maker Suishou Manual 3 - I'm Angel White 2 & I'm Angel Blue 2 (Jpn),
+  Pachi-Slot Teiou - Maker Suishou Manual 5 - Race Queen 2 & Tomcat (Jpn),
+  Pachi-Slot Teiou - Twist & Shimauta & Nankoku Monogatari (Jpn), Pachi-Slot Teiou 2 - Kagetsu & 2 Pair & Beaver X (Jpn),
+  Pachi-Slot Teiou 3 - Sea Master X & Epsilon R & Wai Wai Pulsar 2 (Jpn),
+  Pachi-Slot Teiou 6 - Kung Fu Lady & BangBang & Prelude 2 (Jpn),
+  Pachi-Slot Teiou 7 - Maker Suishou Manual 1 - Beat the Dragon 2 & Lupin Sansei & Hot Rod Queen (Jpn),
+  Pachi-Slot Teiou Maker Suishou Manual 6 - Takarabune (Jpn), Pachi-Slot Teiou Mini - Dr. A7 (Jpn), Palm Town (Jpn),
+  Panzer Bandit (Jpn), Paranoia Scape (Jpn), Parlor! Pro Jr. Collection (Jpn), PD Ultraman Invader (Jpn), Pepsiman (Jpn),
+  Perfect Fishing - Rock Fishing (Jpn), Pikinya! Excellent (Jpn), Pinball Fantasies Deluxe (Jpn),
+  Pitfall 3D - Beyond the Jungle (Jpn), Pocket Fighter (Jpn), Poitter's Point 2 - Sodom no Inbou (Jpn),
+  Policenauts - Private Collection (Jpn), Pop'n Pop (Jpn), Pop'n Tanks! (Jpn), Potestas (Jpn), Power Shovel ni Norou!! (Jpn),
+  Power Stakes (Jpn), Power Stakes Grade 1 (Jpn), Princess Maker - Go! Go! Princess (Jpn), Prism Court (Jpn), Prisoner (Jpn),
+  Pro Logic Mahjong Hai-Shin (Jpn), Pro Mahjong Kiwame Plus (Jpn), Pro Mahjong Kiwame Tengensenhen (Jpn),
+  Pro Wrestling Sengokuden - Hyper Tag Match (Jpn), Puchi Carat (Jpn), Puyo Puyo 4 - Car-kun to Issho (Jpn), Puyo Puyo Box (Jpn),
+  Puzzle Arena Toshinden (Jpn), Puzzle Bobble 3 DX (Jpn), Puzzle Bobble 4 (Jpn), Qix 2000 (Jpn, SuperLite 1500 Series),
+  Quantum Gate I - Akumu no Joshou (Jpn), Quiz Charaokedon! Toei Tokusatsu Hero Part 2 (Jpn),
+  Quiz Darake no Jinsei Game - Un to Atama de Daifuugou!? (Jpn), Quo Vadis - Iberukatsu Seneki (Jpn), Race Drivin' A Go! Go! (Jpn),
+  Rakugaki Showtime (Jpn), Rally de Africa (Jpn), Rally de Europe (Jpn),
+  Rami-Chan no Ooedo Surogoku - Keiou Yuugekitai Gaiden (Jpn), Ranma ½ - Battle Renaissance (Jpn), Ray Tracers (Jpn), Rayman (Jpn),
+  Ready Maid (Jpn), Real Bout Garou Densetsu Special - Dominated Mind (Jpn, Limited Edition), Recipro Heat 5000 (Jpn),
+  Rescue Shot Bubibo & BioHazard - Gun Survivor (Jpn, Demo), Ridegear Guybrave II (Jpn), Riot Stars (Jpn),
+  Robin Lloyd no Daibouken (Jpn), Robot X Robot (Jpn), Rock Climbing - Mitouhou e no Chousen - Alps-Hen (Jpn),
+  Roommate - Inoue Ryoko (Jpn), Sakkyoku Surundamon - Dance Remix (Jpn), Sakuma Shiki Jinsei Game (Jpn),
+  Salary Man Settai Mahjong (Jpn), Samurai Deeper Kyo (Jpn, Limited Edition), Samurai Spirits - Kenkaku Yubinan Pack (Jpn),
+  Samurai Spirits - Zankurou Musouken (Jpn, PlayStation the Best), Sangokushi - Eiketsuden (Jpn), Sangokushi - Koumeiden (Jpn),
+  Sangokushi II (Jpn), Sangokushi III (Jpn), Sangokushi Returns (Jpn), Sangokushi V (Asia), Sangokushi VI (Jpn),
+  Sanyo Pachinko Paradise 2 - Umi Monogatari Special (Jpn), SatelliTV (Jpn), Satomi no Nazo (Jpn),
+  Schrödinger no Neko - Die Katze von Schrödinger (Jpn), SD Gundam G - Generation-0 (Jpn),
+  SD Gundam G Generation-F (Jpn, Limited Edition), SD Gundam G Generation-F.I.F (Jpn), SeaBass Fishing 2 (Jpn),
+  Seikai no Monshou (Jpn), Seirei Shoukan - Princess of Darkness (Jpn), Sengoku Mugen (Jpn),
+  Senryaku Shidan - Tora! Tora! Tora! Rikusen-hen (Jpn), Sentimental Graffiti (Jpn), Sentou Kokka Kai - Improved (Jpn),
+  Shachou Eiyuuden - The Eagle Shooting Heroes (Asia), Shiibas 1-2-3 - Destiny! Unmei O Kaerusha! (Jpn),
+  Shin Masoukishin - Panzer Warfare (Jpn), Shin Megami Tensei (Jpn), Shin SD Sengokuden - Kidou Musha Taisen (Jpn, Limited Edition),
+  Shin Sedai Robot Senki - Brave Saga (Jpn), The Shinri Game (Jpn), Shinseiden Megaseed Fukkatsu-Hen (Jpn),
+  Shinsetsu Samurai Spirits - Bushidou Retsuden (Jpn), Shiritsu Justice Gakuen - Legion of Heroes (Jpn),
+  Shiritsu Justice Gakuen - Nekketsu Seishun Nikki 2 (Jpn), Shouryuu Sangoku Engi (Jpn), Shura no Mon (Jpn),
+  Side Pocket 3 - 3D Polygon Billiard Game (Jpn), Sidewinder (Jpn), Silhouette Mirage - Reprogrammed Hope (Jpn),
+  Simple 1500 Jitsuyou Series Vol.01 - Norikae Annai -2000 Edition- (Jpn), Simple 1500 Jitsuyou Series Vol.03 - Seimei Handan (Jpn),
+  Simple 1500 Jitsuyou Series Vol.04 - Ryouri (Jpn),
+  Simple 1500 Jitsuyou Series Vol.05 - Kusuri no Jiten - Pill Book 2001 Edition (Jpn),
+  Simple 1500 Jitsuyou Series Vol.06 - Cocktail no Recipe (Jpn),
+  Simple 1500 Jitsuyou Series Vol.07 - Tanoshiku Manabu Unten Menkyo (Jpn),
+  Simple 1500 Jitsuyou Series Vol.08 - 1-Jikan de Wakaru Kabushiki Toushi (Jpn),
+  Simple 1500 Jitsuyou Series Vol.09 - Watashi Style no Aromatherapy (Jpn), Simple 1500 Jitsuyou Series Vol.10 - Tarot Uranai (Jpn),
+  Simple 1500 Jitsuyou Series Vol.11 - Katei de Dekiru Tsubo Shiatsu (Jpn),
+  Simple 1500 Jitsuyou Series Vol.12 - Katei no Igaku (Jpn),
+  Simple 1500 Jitsuyou Series Vol.13 - Shinri Game - Soreike X Kokoroji (Jpn),
+  Simple 1500 Jitsuyou Series Vol.14 - Kurashi no Manner (Jpn),
+  Simple 1500 Jitsuyou Series Vol.15 - Inu no Kaikata - Sekai no Inu Catalog (Jpn),
+  Simple 1500 Jitsuyou Series Vol.16 - Neko no Kaikata - Sekai no Neko Catalog (Jpn),
+  Simple 1500 Jitsuyou Series Vol.17 - Planetarium (Jpn),
+  Simple 1500 Jitsuyou Series Vol.18 - Kanji Quiz - Kanji Keitei ni Challenge (Jpn),
+  Simple 1500 Series Hello Kitty Vol.02 - Hello Kitty Illust Puzzle (Jpn),
+  Simple 1500 Series Hello Kitty Vol.04 - Hello Kitty Trump (Jpn),
+  Simple 1500 Series Hello Kitty vol.01 - Hello Kitty Bowling (Jpn),
+  Simple 1500 Series Hello Kitty vol.03 - Hello Kitty Block Kuzushi (Jpn), Simple 1500 Series vol.51 - The Jigsaw Puzzle (Jpn),
+  Simple 1500 Series vol.63 - The Gun Shooting 2 (Jpn), Simple 1500 Series vol.67 - The Soccer - Dynamite Soccer 1500 (Jpn),
+  Simple 1500 Series vol.71 - The Ren'ai Simulation 2 (Jpn), Simple 1500 Series vol.72 - The Beach Volley (Jpn),
+  Simple 1500 Series vol.73 - The Invaders - Space Invaders 1500 (Jpn), Simple 1500 Series vol.76 - The Dodgeball (Jpn),
+  Simple 1500 Series vol.83 - The Wakeboard - BursTrick Wake Boarding!! (Jpn),
+  Simple 1500 Series vol.85 - The Sengoku Bushou - Tenka Touitsu no Yabou (Jpn),
+  Simple 1500 Series vol.89 - The Power Shovel - Power Shovel ni Norou! (Jpn),
+  Simple 1500 Series Vol.99 - The Kendo - Ken no Hanamichi (Jpn),
+  Simple 1500 Series Vol.103 - The Ganso Densha Utenshi - Densha De Go! (Jpn),
+  Simple Characters 2000 Series Vol.03 - Kamen Rider - The Bike Race (Jpn),
+  Simple Characters 2000 Series vol.05 - Highschool Kimengumi - The Table Hockey (Jpn),
+  Simple Characters 2000 Series Vol.06 - Dokonjou Gaeru - The Mahjong (Jpn),
+  Simple Characters 2000 Series Vol.09 - Tsuri Kichi Sanpei - The Tsuri (Jpn),
+  Simple Characters 2000 Series Vol.10 - Sakigake!! Otojo Juku - The Dodgeball (Jpn),
+  Simple Characters 2000 Series Vol.16 - Ganba no Bouken - The Puzzle Action (Jpn),
+  Simulation Zoo - Sekaiichi no Doubutsuen o Tsukurou (Jpn), Sister Princess - Pure Stories (Jpn), Slap Happy Rhythm Busters (Jpn),
+  Snatcher (Jpn), Snobow Kids Plus (Jpn), Sonata (Jpn), Sotsugyou Crossworld (Jpn), Sougaku Toshi - Osaka (Jpn),
+  Soukou Kihei Votoms - Lightning Slash (Jpn), Soukyugurentai - Oubushustugeki (Jpn), Spectral Blade (Jpn), Speed King (Jpn),
+  Speed Power Gunbike (Jpn), Spider-Man (Jpn), Square's Preview 5 (Jpn, Seiken Densetsu Demo), Stahlfeder - Tetsukou Hikuudan (Jpn),
+  Startling Odyssey 1 - Blue Evolution (Jpn), Street Fighter Collection (Jpn), Suiko Enbu - Outlaws of the Lost Dynasty (Jpn),
+  Super Adventure Rockman (Jpn), Super Football Champ (Jpn), T Kara Hajimaru Monogatari (Jpn),
+  Tactics Ogre - Let Us Cling Together (Jpn), Tales of Fandom Vol.1 (Jpn, Cless Version),
+  Tamamayu Monogatari - Dennou Bijutsukan (Jpn, Demo), Tantei Jinguuji Saburou - Tomoshibi ga Kienumani (Jpn),
+  Tantei Jinguuji Saburou - Yume no Owari ni (Jpn), Tatsunoko Fight (Jpn), Ten Made Jack - Odoroki Manenoki Daitoubou!! (Jpn),
+  Tenant Wars (Jpn), Tenchi wo Kurau II - Sekiheki no Tatakai (Jpn), Tennis Arena (Jpn), Tensen Nyannyan - Gekijou-ban (Jpn),
+  Tetris X (Jpn), That's QT (Jpn), Thunder Force V - Perfect System (Jpn), Time Gal & Ninja Hayate (Jpn), ToPoLo (Jpn),
+  TOCA Touring Car Championship (Jpn), Tokimeki Memorial 2 Substories Vol.1 - Dancing Summer Vacation (Jpn),
+  Tokimeki Memorial 2 Substories Vol.2 - Leaping School Festival (Jpn),
+  Tokimeki Memorial 2 Substories Vol.3 - Memories Ringing On (Jpn),
+  Tokimeki Memorial Drama Series Vol.1 - Nijiiro No Seishun (Jpn, Konami the Best), Tokimeki Memorial Taisen Puzzle-Dama (Jpn),
+  Tokyo Majin Gakuen Gehouchou (Jpn), Tomba! The Wild Adventures (Jpn), Tomica Town o Tsukurou! (Jpn), Toshinden Card Quest (Jpn),
+  Toukidenshou - Angel Eyes (Jpn), Toyota Netz Racing (Jpn), Toys Dream (Jpn), Tripuzz (Jpn), Trump Shiyouyo! (Jpn),
+  Tsun Tsun Kumi 2 - Moji Moji Bakkun (Jpn), Tsun Tsun Kumi 3 - Kanji Vader (Jpn), Tsuri Baka Nisshi (Jpn),
+  TV Animation X - Unmei no Tatakai (Jpn), TwinBee RPG (Jpn), Twins Story - Kimi ni Tsutaetakute... (Jpn), Two-Tenkaku (Jpn),
+  Ucchannanchan no Honoo no Challenger - Denryu Iraira-Bou Returns (Jpn), UFO - A Day in the Life (Jpn), Ugetsu Kitan (Jpn),
+  UkiUki Tsuri Tengoku - Uogami Densetsu wo Oe (Jpn), Ultraman Tiga & Ultraman Dyna Fighting Evolution - New Generations (Jpn),
+  Ultraman Zearth (Jpn), Umi no Nushi Tsuri - Takarajimi ni Mukatte (Jpn),
+  Umihara Kawase Shun - Second Edition (Jpn, Maruan Series 1), V-Tennis 2 (Jpn), Vampir Kyuuketsuki Densetsu (Jpn),
+  Vehicle Cavalier (Jpn), Victory Zone - Real Pachinko Simulator (Jpn), Virtual Hiryuu no Ken (Jpn), Virtual Kyoutei '98 (Jpn),
+  Virtual Pro Wrestling (Jpn), Virus - The Battle Field (Jpn), Volfoss (Jpn),
+  Wagamama Fairy Mirumo de Pon! - Mirumo no Mahou Gakkou Monogatari (Jpn), Wangan Trial (Jpn),
+  Warera Mitsubayashi Tankentai!! (Jpn), Water Summer (Jpn, Limited Edition),
+  Wedding Peach - Doki Doki Oironaoshi Fashion Daisakusen (Jpn), Weltorv Estleia (Jpn), White Diamond (Jpn),
+  Wizard's Harmony R (Jpn), Wolf Fang Kuuga 2001 (Jpn), Wonder B-Cruise - Dogiborn Daisakusen (Jpn), Wonder Trek (Jpn),
+  World League Soccer - Challenge Nippon! (Jpn, Family Price 1500), World Pro Tennis '98 (Jpn),
+  WWF Wrestlemania - The Arcade Game (Jpn), X. Racing (Jpn), Yagami Hiroki no Game-Taste - Munasawagi no Yokan (Jpn),
+  Yakitori Musume - Sugo Ude Hanjouki (Jpn), Yamagata Digital Museum (Jpn),
+  Yoshimoto Muchicco Daikessen - Minami no Umi no Gorongo Shima (Jpn), Youkai Hana Asobi (Jpn),
+  Yu-Gi-Oh! - Monster Capsule Breed & Battle (Jpn), Yukinko Burning (Jpn), Yume no Tsubasa (Jpn),
+  Yuugen Kaisha Chikyuu Boueitai - Guard of Earth Organization (Jpn), Yuukyuu no Eden - The Eternal Eden (Jpn),
+  Zap! Snowboarding Trix '98 (Jpn), Zeiramzone (Jpn), Zeitgeist (Jpn),
+  Zen-Nihon Joshi Pro Wrestling - Joou Densetsu Yume no Taikousen (Jpn), Zen-Nihon Pro Wrestling - Ouja no Kon (Jpn),
+  Zero4 Champ DooZy-J (Jpn), Zoids - Battle Card Game - Seihou Tairiku Senki (Jpn),
+  Zoids - Teikoku vs Kyouwakoku - Meka Seitai no Idenshi (Jpn), Zoku Hatsukoi Monogatari - Shuugaku Ryokou (Jpn),
+  Zork I - The Great Underground Empire (Jpn), Zutto Issho - With Me Everytime... (Jpn, Major Wave Series) [Angelo Salese]
+wscolor: Super Robot Taisen Compact for WonderSwan Color [Wilbert Pol]
+wswan:
+  Clock Tower for WonderSwan, Meitantei Conan - Nishi no Meitantei Saidai no Kiki!, Super Robot Taisen Compact (Rev 2),
+  Super Robot Taisen Compact 2 - Dai-1-bu - Chijou Gekidou Hen,
+  Super Robot Taisen Compact 2 - Dai-2-bu - Uchuu Gekishin Hen (Rev 4),
+  Super Robot Taisen Compact 2 - Dai-3-bu - Ginga Kessen Hen (Rev 2) [Wilbert Pol]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+alphasmart_kapps:
+  Accelerated Reader (1.2, English (UK)), Accelerated Reader (1.3, English (UK)), AlphaQuiz (3.1, English (UK)),
+  AlphaWord Plus (3.4, English (UK)), Beamer (1.01, English (UK)), Calculator (3.02, English (UK)),
+  Control Panel (1.04, English (UK)), Control Panel (1.07, English (UK)), KeyWords (3.6, English (UK)),
+  KeyWords Wireless (4.2, English (UK)), MathFacts in a Flash (offline) (1.0, English (UK)),
+  MathFacts in a Flash (offline) (1.2, English (UK)), MathFacts in a Flash RP (1.1, English (UK)),
+  MathFacts in a Flash RP (1.3, English (UK)), Neo Font - Extra Large (2 lines) (1.0, English (UK)),
+  Neo Font - Large (4 lines) (1.0, English (UK)), Neo Font - Medium (5 lines) (1.0, English (UK)),
+  Neo Font - Small (6 lines) (1.0, English (UK)), Neo Font - Very Large (3 lines) (1.0, English (UK)),
+  Responder (1.2, English (UK)), SpellCheck Large USA (1.02, English (UK)), SpellCheck Large USA (1.03, English (UK)),
+  SpellCheck Small USA (1.02, English (UK)), SpellCheck Small USA (1.03, English (UK)), SpellCheck Spanish (1.0, Dutch),
+  Text2Speech Updater (1.3, English (UK)), Text2Speech Updater (1.4, English (UK)), Thesaurus Large USA (1.0, English (UK)),
+  Thesaurus Large USA (1.1, English (UK)), Thesaurus Small USA (1.0, English (UK)), Thesaurus Small USA (1.1, English (UK)),
+  Thesaurus Spanish to English (1.1, English (UK)), Wireless File Transfer (1.1, English (UK)),
+  Wireless Updater (1.3, English (UK)), Wireless Updater (2.0, English (UK)) [ClawGrip]
+fmtowns_cd: Crayonnage [redump.org]
+psx:
+  Ape Escape (Euro), Crash Bash (Euro), Final Fantasy VIII (Euro, Aus), Le Mans 24 Hours (Euro), Resident Evil 3: Nemesis (Euro),
+  Spyro: Year of the Dragon (Euro, Rev. 1), Theme Park World (Euro), TOCA World Touring Cars (Euro), Urban Chaos (Euro)
+  [redump.org, FakeShemp]
+sms: Action Replay (v. 1.02) [Apocalypse]
+wscolor: mama Mitte' [redump.org, Wilbert Pol]
+
+
+マージされたプルリク
+--------------------
+- 7428: Refactored NEC V30MZ CPU core, and improved WonderSwan emulation (including preliminary WonderWitch support). [Wilbert Pol]
+- 7548: machine/intelfsh.cpp: Made Fujitsu 29F016A report status irrespective of sector address during erase. [Windy Fairy]
+- 7571: missbamby.cpp: Corrected description of DIP switches for Cirsa 810601-A PCB. [ClawGrip]
+- 7583: segas32.cpp: Added save state support, and fixed backdrop fill when screen resolution is changed. [cam900]
+- 7585: apple2_flop_misc.xml: Added parent/clone relationships for Anti-M sets. [Firehawke]
+- 7596: ibm5170.xml: Added Tetris Classic (Windows 3.x release). [ArcadeShadow]
+- 7599: galaxian.xpp: Added Namennayo (Japan). [ShouTime, David Haywood]
+- 7600: ice_hhhippos.cpp: Added ASCII PCB layout and anonymous namespace. [ClawGrip]
+- 7606: diamondking.cpp: Added skeleton driver for SegaSA Diamond King. [jordigahan, ClawGrip]
+- 7607: firebeat.cpp: Fixed wheel input ranges for Keyboardmania. [Windy Fairy]
+- 7608: Adjusted sound balance for systems using YMZ280B in conjunction with other sound chips. [David Haywood]
+- 7610: video/ef9345.cpp: Fixed attribute latching when emitting a delimiter character. [Sylvain Glaize]
+- 7625: Added HP2640 tape emulation, along with support for Manchester-encoded DC100 cassettes. [F.Ulivi]
+- 7627: Made Acorn Archimedes IOC and MEMC into devices, emulated serial keyboard, and fixed issues with RISC OS. [Sandro Ronco]
+- 7641: Fixed spelling errors in a few comments. [David Haywood]
+- 7642: imgtool: Fixed Dragon DOS Disk BASIC token conversion. [Tim Lindner]
+- 7645: jpmimpct.cpp: Hooked up DUART, RAMDAC and BACTA logger, improved inputs, and fixed many bugs. [David Haywood]
+- 7648: alphasma3k.cpp: Added skeleton driver and software list for AlphaSmart 3000. [ClawGrip, TeamEurope]
+- 7649: gamegear.xml, sg1000.xml, sms.xml: Added several entries and re-dumped one entry. [smspower, Wilbert Pol]
+- 7650: alphasmart_kapps.xml: Added Thesaurus Spanish to English (1.1, English (UK)). [ClawGrip]
+- 7651: miniguay.cpp: Added ASCII PCB layout. [ClawGrip]
+- 7653: ibm5170.xml: Added three entries. [ArcadeShadow]
+- 7654: ibm5150.xml: Added two entries. [ArcadeShadow]
+- 7656: cpu/tlcs900: Fixed disassembly of PC-relative addresses. [Devin Acker]
+- 7657: astrcorp.cpp: Derived screen timing parameters from crystal frequencies, and cleaned up code. [cam900]
+- 7659: ksys573.cpp, machine/k573mcr.cpp: Implemented System 573 JVS memory card reader. [Windy Fairy]
+- 7664: ksys573.cpp: Improved accuracy of System 573 digital I/O audio emulation. [Windy Fairy]
+- 7665: astrcorp.cpp: Fixed magibomb memory map, improved sprites, and allowed astoneag to progress a bit further. [Angelo Salese]
+- 7666: fmtowns_flop.xml: Added Darwin's Dilemma - The Solution Is Evolution. [wiggy2k, r09]
+- 7667: jpmsys5.cpp: Started refactoring and adding I/O – many sets proceed further before failing. [David Haywood]
+- 7688: fmtowns_cd.xml: Added sixteen entries, replaced thirteen entries with better dumps, and added six missing floppies.
+  [redump.org, wiggy2k, cherokee, akira_2020, r09]
+- 7669: metro.cpp: Fixed tilemap offset regression; video/imagetek_i4100.cpp: Added CRTC parameters to save state for debugging.
+  [cam900]
+- 7673: Fixed detection of PowerPC 64 on FreeBSD. [pkubaj]
+- 7674: bus/sega8: Emulated Game Gear X-Terminator cartridges. [Wilbert Pol]
+- 7675: vt1682.cpp: Added Portable Game Station 268-in-1. [Takashi Omoto, TeamEurope, David Haywood]
+- 7676: hng64.cpp: Added support for flat shaded polygons with no texture or lighting. [Happy]
+- 7677: video/k057714.cpp: Implemented display resolution register, and fixed various drawing bugs. [Windy Fairy]
+- 7682: jpmimpact.cpp, jpmimpactsw.cpp: Improved emulation of non-video fruit machines. [David Haywood]
+- 7683: jpmimpact.cpp: Corrected player inputs for all machines with accessible button test modes. [David Haywood]
+- 7684: nnk16.cpp: Added Red Hawk (horizontal, Spain). [Victor Fernandez (City Game), ClawGrip]
+- 7685: bus/a2bus: Enabled floppy sounds for Disk II floppy controller cards. [leesaudan2]
+- 7686: getaway.cpp: Emulated blitter and inputs, making the game playable. [Angelo Salese]
+- 7688: galaxian.cpp: Fixed sprite clipping on the left of the screen in namenayo. [David Haywood]
+- 7691: bgfx: Added lcd-grid screen chain. [cgwg]
+- 7692: rx78_cart.xml: Added complete serial number for Donjara. [David Silva]
+- 7694: system1.cpp: Corrected ROM labels and locations for ufosensib. [f205v]
+- 7698: alphasma3k.cpp: Added note about firmware updates. [ClawGrip]
+
+
+ソースの変更点
+--------------
+- missbamby.cpp: Cirsa 810601-A PCBのDIPスイッチは8個でなく4個。[ClawGrip]
+
+- natkeyboard: ioport_manager から削除。[AJR]
+
+- cdp1863: メンバ変数をさらに初期化。[AJR]
+
+- luareference.rst: luareferenceの入力プロパティをまとめて移動。[AJR]
+
+- aa310.cpp: i2cmem を pcf8583 RTC デバイスに置き換え。[Nigel Barnes]
+
+- cmi2x: 過剰なprintf出力の原因についてのコメント追加。[Scott Stone]
+
+- 入力マッピングの確認。[David Haywood]
+
+- ボーナスライフのDIPスイッチを追加。[David Haywood]
+
+- 4方向スティックに設定。[David Haywood]
+
+- 細かいこと。[David Haywood]
+
+- これはplugins\portnameの本来の目的のものだが、どっちにしろこのようにして欲しい。[David Haywood]
+
+- galaxian.cpp: namenayoのカスタムポート名が操作系をわかりにくくしておる。[Vas Crabb]
+
+- Apple IIのAntiMについて親子関係をドキュメント化。(#7585) [Firehawke]
+
+- segas32.cpp: セーブステートのサポート、画面解像度が変更された場合の背景色の塗りつぶしを修正。(#7583) [cam900]
+
+- supremo: ioポートのプレースホルダ。[hap]
+
+- ice_hhhippos.cpp: PCB ASCII レイアウトと匿名ネームスペースを追加。[ClawGrip]
+
+- magicard.cpp: magicardjとmagicleのPIC16F84をデキャップして吸い出し。[Caps0ff, TeamEurope]
+
+- playmark.cpp, powerbal.cpp: サブクラス化と新しいwbeachvl MCUの追加に備え、予め整理。[Ivan Vangelista]
+
+- hitpoker.cpp: 割り当てサイズの間違いを修正。[AJR]
+
+- ほとんどのDRCゲームがM1/Apple Siliconで動作するように一時的なハック追加。[R. Belmont, balr0g, Vas Crabb]
+
+- ncr5380n: 前回の変更で起きていたMAMEのフリーズを修正。[R. Belmont]
+
+- novag_snova: A-HはLEDの右側にある。[hap]
+
+- firebeat.cpp:「キーボードマニア」系のゲームでホイールの入力範囲を修正。(#7607) [987123879113]
+
+- ds1302: DS1202の派生版追加。[AJR]
+
+- v40, v50, v53: 設定レジスタの読み出しを許可。[AJR]
+
+- zt8802: 非スケルトン化。[AJR]
+
+- ymz280b変更後の音のリバランス。[DavidHaywood]
+
+- trebol: ハードウェアがほぼ同じっぽいので、misbamby.cppドライバに移行。[AJR]
+
+- atarisy1: LSI BIOS 136032.115のリグレッション修正。[hap]
+
+- playmark.cpp, powerbal.cpp: 派生クラスへの分割を開始。[Ivan Vangelista]
+
+-「インディジョーンズ」(カクテル)に画面反転設定を追加。[GadgetFreak]
+
+- a2ssc: DIPスイッチの配置を追加、ビット割り当てを修正; レジスタアドレスのミラーリング。[AJR]
+
+- a2ssc: 細かい修正。[AJR]
+
+- a2ssc: RTS出力を接続。[AJR]
+
+- am9517a: ソフトウェア要求処理を簡素化。[Patrick Mackinlay]
+
+-「ワンダースワン」の更新: (#7428) [wilbertpol]
+ * bus/wswan: wonderwitchの暫定的なサポート。[Wilbert Pol]
+ * cpu/v30mz: [Wilbert Pol]
+   - セグメントレジスタの名前を変更
+   - 割り込みベクトルを取得するためのコールバックを追加
+   - プリフェッチキューとPFPレジスタを追加
+   - アラインメントされていないアドレスからワードを読み書きする場合に1サイクルのペナルティを追加
+   - 複数のレジスタから有効アドレスを計算する際に1サイクルのペナルティを追加
+   - サポートされていないnec拡張命令を削除
+   - アドレス空間の幅をワードに変更
+ * wswan: [Wilbert Pol]
+   - DMA実行時のCPUサイクルを調整
+   - 「ワンダースワンカラー」 のデフォルトの内部 eeprom を 'WONDERSWANCOLOR' という名前に更新
+   - ウィンドウ描画のオフバイワンエラーを修正
+   -　ハードウェアとROMのラベルと配置をドキュメント化し、ソフトウェアリストを大幅に更新
+
+- VG5000µでデリミタでラッチされた属性を修正。(#7610) [Sylvain Glaize]
+ * 区切り文字をエミットする際のアンダーラインのラッチ属性を修正。文字アドレスをエミットしていた区切り文字を修正。ワードを"hided"から
+   データシートにそろえて"conseal"に変更
+
+- dim68k: DUART追加、ブートタイムバンクスイッチ用のビュー使用、少しクリーンアップ。[R. Belmont]
+
+- astrcorp.cpp: magibombのスクランブル解除には、さらに2個のアドレスビットが関与。[Ivan Vangelista]
+
+- atarittl.cpp: pongdblがpong.cppでエミュレートされたので削除。[gregf]
+
+- apple2, apple2e, apple2gs: スロットオプションとして Apricorn Super Serial Imagerのエミュレーションを追加。 
+  [AJR, Apple II Documentation Project]
+
+- laserbat.cpp: Rev.2「Cat and Mouse」のROMラベル訂正。[Brian Troha]
+
+- ncr5380n: 位相が合わないときにDMAを停止。[Patrick Mackinlay]
+
+- laserbat.cpp: 提案に基づいて「Cat and Mouse」の説明文を変更。[Brian Troha]
+
+- vgmplay.cpp: wswanの検証エラーを修正。 (nw) [Wilbert Pol]
+
+- readme: マイナーな調整。[Patrick Mackinlay]
+
+- romp: ストレージチャネルの初期実装。[Patrick Mackinlay]
+
+- champbwl.cpp: カクテルモードのコントロールを追加。[Ivan Vangelista]
+
+- simultano: プログラムのバージョンはBの模様。[hap]
+
+- plugins/cheat: Lua APIの変更のため、残りのXMLチートコードを移行。[Vas Crabb]
+
+- arm7: Windows CEのコールのロギングをオプションで追加。[Ryan Holtz]
+
+- uda1344: Philips UDA13444コーデック用のスケルトンオーディオデバイスを追加。[Ryan Holtz]
+
+- sa1111: 基本的なL3オーディオトランシーバーを実装。[Ryan Holtz]
+
+- esqpump: 不要なログエラーを削除。[hap]
+
+- util/xmlfile.cpp: C++コメント変換。[AJR]
+
+- plugins/data: history.xml使用と、それ用のxmlパーサを追加。[cracyc]
+
+- ioport.cpp: 冗長な std::string("...").c_str() パターンを削除。[AJR]
+
+- plugins/data: ロギングの削除とクエリの修正。[cracyc]
+
+- hitpoker.cpp, tlc34076: ポインタと変数をさらに初期化。[AJR]
+
+- psx.xml: メタデータをクリーンアップ。[Angelo Salese]
+ * 出所不明のダンプを不良としてマーク
+ * ソフトウェアを多くテスト
+ * サブチャンネルのデータが欠落したLibCyptディスクを未サポートしてマーク
+
+- model2.cpp:「デッド・オア・アライブ」Model 2A版のドキュメント更新。[Brian Troha]
+
+- aprissi: ROMバージョンのノート。[AJR]
+
+- hash.cpp, hashing.cpp: 文字列処理でstd::string_viewパラメータを使用するように変更; sum16 型を追加。[AJR]
+
+- std::string_viewをさらに追加。[AJR]
+ * corefile.cpp, fileio.cpp: std::string_viewパラメータを取るようにputsを変更
+ * rendlay.cpp: いろいろな関数で素のポインタの代わりにstd::string_viewを使用
+ * vecstream.h: 出力バッファ取得のためにstd::string_view変換演算子を追加し、明示的なnull終端を持つC文字列にする必要がなくなりました
+ * xmlfile.cpp: 空の文字列と属性が存在しない場合、C言語の文字列にフォールバックすることなく属性を区別するget_attribute_string_ptr
+   メソッドを追加
+
+- romcmp: すべてのファイルにハッシュと16ビットのサムを表示する-hオプションを追加。[AJR]
+
+- clifront.cpp: aa29519528cb3dbdbdbfac56819bea670ed8c56c5dで誤って削除された行をリストア。[AJR]
+
+- arm7: WinCEコールのロギングを別の.hxxファイルに移動。[Ryan Holtz]
+
+- カセットイメージの処理をクリーンアップ。[AJR]
+ * 1回に1バイトずつ読み込むcassette_image::image_read_byteメソッドを追加
+ * coco_cas.cpp: emucore.hへの依存性を解消
+ * thom_cas.cpp: テンポラリ変数を使用する場所に近い場所で宣言
+ * tvc_cas.cpp: セクタ全体を一度に読み書き
+
+- plugins/data: hiscoreのパース改良。[cracyc]
+
+- odyssey2:  -cartが動作しないゲームの読み込みを修正。[hap]
+
+- bingoc.cpp: clangビルドを修正。[Ivan Vangelista]
+
+- palette.cpp: ダーティなベクトルに対し、memsetの代わりにstd::fillを使用; 範囲チェックを追加。[AJR]
+
+- 低レベルな#includeのオーバーホール。[AJR]
+ * vecstream.h: aa29519528cb3dbdbfac56819bea670ed8c56c5d で行われた変更を巻き戻し。std::string_viewの変換を非メンバー関数化
+   (util::buf_to_string_view)して、coretmpl.hに移動
+ * strformat.h:util::string_formatをグローバルな名前空間にインポートするusing宣言を削除し、emucore.hと他のツールソースに移動; その他
+   の参照は検証済み
+ * osdcore.h:  ファイル、ディレクトリ、パスのクラスとメソッドを新しいヘッダ(osdfile.h)に分割。ドキュメントのコメントを脱酸素化
+ * 他のスタンダードやカスタムヘッダを含んでいた#includeを分割。emu.hは基本的には以前と同じものを含みますが、他のヘッダは整理されてい
+   ます。例えばemucore.hは、osdcore.hをステルスインクルードしなくなりました
+
+- disasmintf.h: 他のコンパイラでのビルドを修正する試み。[AJR]
+
+- vbiparse.cpp: 不足している#includeを追加。[AJR]
+
+- options.h:  前提条件を#includeすることについて、もっと素直になってみた。[AJR]
+
+- windir.cpp, winrtdir.cpp: string_formatの呼び出しに条件が必要。[AJR]
+
+- ARM: ADC命令のキャリーフラグを修正。[Sandro Ronco]
+
+- plugins/data: hiscore の改良。[cracyc]
+
+- snesb.cpp: 復号化の標準化に向けた見直し。[iq_132]
+
+- snesb.cpp: 残りのテーブルを削除してclangビルドを修正。[AJR]
+
+- ゲームセット名とゲームタイトルを修正: [Brian Troha]
+ * 例: bassをgetbassurに変更
+ * 日本版の「ゲットバス」セットはゲームのサブタイトルを含むように変更
+ * アメリカ版は「Sega Bass Fishing」
+ * 「ゲットバス」セットでデラックス、アップライト、スタンダードを指定
+ * Twin/DXで筐体指定を追加
+ * Game Assignmentsで複数の地域をサポートするセットについてのノートを追加
+ *  その他ドキュメントの更新/注意事項を追加
+
+- マイナーなクリーンアップ: ")"の不足とロードアドレス文の標準化。[Brian Troha]
+
+- emumem: 引数依存のベーステンプレートから継承されたメンバにアクセスするため、よりイディオマティックな方法を採用 (#7616の原因となって
+  いるGCC11のバグを回避できるとか、できないとか) 。[Vas Crabb]
+
+- coco_midi: msvcビルドを修正。[Patrick Mackinlay]
+
+- coco: インクルードガードを標準化。[Patrick Mackinlay]
+
+- abc1600: フロッピーソフトウェアリストの名前を変更。[Curt Coder]
+
+- abc1600: MACでのクリーンアップ。[Curt Coder]
+
+- odyssey2: ノート追加。[hap]
+
+- galpani2: ゲーム1本についてROM読み込み修正と、画像リストを生成。[Olivier Galibert]
+
+- odyssey2/voice: 未使用の機能を削除。[hap]
+
+- 不要な箇所で#include "rendlay.h"を削除。[AJR]
+
+- render.h, rendlay.h: 依存関係のリファクタリング。[AJR]
+ * render.h。レイアウトクラスの宣言をrendlay.hに分割し、不完全な型（std::reference_wrapperは残念ながらC++17のルール上許可されてい
+   ない）の調整
+ * rendlay.h: 古いヘッダの内容をlayout/generic.hに移動。
+
+- dragondosのDisk BASICトークンを修正。[tim lindner]
+
+- スペルの修正。[DavidHaywood]
+
+- odyssey2: サービステストカートの7セグ出力を追加。[hap]
+
+- cr16cdasm.cpp: プリコンパイルされたヘッダを使用。[AJR]
+
+- apple2c: IIcおよびIIc PlusでRdRAM2 ($C011)の戻り値を修正(Github issue #7640)。[R. Belmont]
+
+- osdwindow.cpp: 基本機能の一元化; 各種ゲッターの非仮想化。[AJR]
+
+- Windowsビルドの修正チャレンジ。[AJR]
+
+- Windowsビルドを修正チャレンジその2 (関数がベースクラスで定義されるようになった)。[AJR]
+
+- odyssey2/ktaa: 16KBサイズのサポート。[hap]
+
+- cpu: リコンパイラがW^Xポリシーで動作許可。[Vas Crabb]
+
+- osdwindow.cpp: モニタコードをもう少し安全に。AJR]
+
+- cpu: ページ保護状態の変更数を若干削減。[Vas Crabb]
+
+- ソフトウェアリストの"スロット"機能と、その関連機能を大文字小文字を区別するように変更。[AJR]
+
+- スナップショット/クイックロードのコールバックパラメータを簡素化、auto_alloc_arrayの使用を廃止。[AJR]
+
+- EmscriptenでのDRCビルドの不具合を修正。[Justin Kerk]
+
+- kopunch.cpp: コインIRQをACK。[AJR]
+
+- d6800, vip: chip8ソフトウェアリストを追加 (72 titles, curated)。[Robbbert]
+
+- tmc1800: ノート追加。[Robbbert]
+
+- mac: オプションで新しいスケルトンSWIMを実装。[Olivier Galibert]
+
+- 積み残しの整理: [Vas Crabb]
+ * WindowsのOSDコードの固定サイズバッファを修正
+ * WindowsのマニフェストでMAMEがロングパスを認識するようにマーク
+ * ボリューム名取得のため、クリーンでスレッドセーフなAPIを作成
+ * リコンパイラのW^Xモードを無効にするコンパイル時オプションを追加
+ * NuBusイメージデバイスのカレントディレクトリ固定不要
+
+- d6800: いくつか整理。[Robbbert]
+
+- wrally.cpp: MT07836を修正。[Ivan Vangelista]
+
+-「ドラムマニア (GQ881 VER. JAD)」にオーディオCDを追加。ただしゲームはまだプレイ不可。[xuserv]
+
+- videopac.xml: timelordplを吸い出し不良にマーク。[hap]
+
+- coverityさんが発見した問題を修正。[Patrick Mackinlay]
+
+- a2bus/mouse.cpp: リセット後にMCUポートCラインが高いことに起因するリグレッションを修正。[AJR]
+ * 6821pia.cpp: ポートBの3ステート出力を設定するコールバックの追加
+
+- hh_cop400: mdallasキーパッドの問題を修正。[hap]
+
+- s14001a: コンパイラの警告を解消。[hap]
+
+- odyssey2: p1/p2ジョイスティックを切り替え。[hap]
+
+- zippath.cpp: チェックポイント。[AJR]
+ * ほとんどの関数の入力パラメータ型として std::string_view を採用 (他のAPIがまだ更新されていないので、これにはいくつかの明示的な 
+   std::stringへのコピーが必要)
+ *  zippath_parent_basename を削除。この実装は完全に壊れていて、幸いなことに使われていませんでした
+
+- dim68k: ブートバンクスイッチの修正、追加のFDCとRS232の実装で、フロッピー起動をしようとするようになりました。[R. Belmont]
+
+- Coverityからの警告を修正。[Robbbert]
+
+- i82586: アドレスハッシュとマルチキャスト設定のバグを修正。[Patrick Mackinlay]
+
+- util/zippath.cpp: zipアーカイブのサフィックスを修正。[Vas Crabb]
+
+- dim68k: fdcをさらに実装で、CP/M 68Kが部分的にロード可能。[R. Belmont, O. Galibert]
+
+- miniguay.cpp: いくつかのデバイスを実装。[AJR]
+
+- dim68k: シリアルキーボードを追加。[R. Belmont]
+
+- coco_midi: 名前空間の整理。[Patrick Mackinlay]
+
+- miniguay.cpp: ノートの超マイナーな更新。[Ivan Vangelista]
+
+- rtpca25のミスを修正。[Robbbert]
+
+- abc1600: デバッグノートを追加。[Curt Coder]
+
+- rtpc: clangのコンパイルを修正。[Curt Coder]
+
+- design: アドレサブルラッチを実装。[Dirk Best]
+
+- undrfire.cpp: cbombersのシフター表示を修正 (MT#7843)。[Scott Stone]
+
+- zippath.cpp: チェックポイント2。[AJR]
+ * zippath_resolveで未初期化変数の問題を修正
+ * 内部ヘルパー機能を1つ廃止
+
+- wicat.cpp: サウンドについてのノート。[AJR]
+
+- mcs48: upi41 STSからF0/F1を分離し、upi41_master_rから読み込まれたF0フラグを修正。[hap]
+
+- wicat.cpp: nopwは揃えてください。[AJR]
+
+- mcs48.h: ノートを更新。[hap]
+
+- isbc: sm1810 が irmx を起動を試みたものの、異なるウェイクアップアドレスのため失敗。 [cracyc]
+
+- crbaloon. 正確なビデオのタイミングとウォッチドッグの追加; CPUのクロックを低下; クリーンアップいろいろ。[AJR]
+
+- ladybug: RAW画面パラメータを追加する。[AJR]
+
+- blktiger_ms.cpp: とりあえず動かそうとしたものの、道のりは長そうだ。[Ivan Vangelista]
+
+- mcs48: DA Aのバグ修正。[hap]
+
+- mcs48: コピーライトホルダを訂正。[hap]
+
+- ソフトウェアリストも修正; 誤って自分のテンポラリファイル(.os3kapp.bin)をデータエリアとして追加していました (これらのテンポラリファ
+  イルは、ヘッダからファイルのメタデータを取得するために、kappヘッダを読むのに使用するperlスクリプトが生成したものです。必要なファイ
+  ルは.kapp自身です)。 [ClawGrip]
+
+- m68000: リセット時に割込み入力状態をクリアしない。[AJR]
+
+- mcs48: c++スタイルの単一行コメント。[hap]
+
+- alphasma3k: mame.lstを修正。[Robbbert]
+
+- odyssey2: コピーライトホルダを訂正。[hap]
+
+- i8244.h: ピンアウト情報を追加。[hap]
+
+- itech32.cpp: MT07846を修正。[Ivan Vangelista]
+
+-「富士山バスター / Shogun Warriors」のDIPスイッチデフォルト設定をマニュアルで確認。 [Angelo Salese]
+
+- クリーンアップいろいろ。[Vas Crabb]
+ * audio/redbaron.cpp: セーブステートをサポート
+ * gladiatr.cpp: タイポ修正
+ * 未使用の関数が腐ってしまわないように、[[maybe_unused]]属性を使用
+
+- isbc: sm1810は80トラックドライブを搭載。[cracyc]
+
+- metro.cpp, hyprduel.cpp: 割り込み制御を(ほぼ)VDPに移動。[AJR]
+
+- フロッピーで実際に受け付けられた変種リストを作成。[Olivier Galibert]
+
+- gamegear, sg1000, smsソフトリスト追加。(#7649) [wilbertpol]
+
+- gamegear: Sports Illustrated Championship Football & Baseball (Euro, USA) を吸い直し。[smspower]
+
+- フロッピー形式への変種を提供する。[Olivier Galibert]
+
+- relief.cpp: ROMラベルに印刷されたチェックサム情報を追加。未吸い出しセットをより簡単に識別可能。[Brian Troha]
+
+- floptoolを新しいプロトタイプにアップデート。[Olivier Galibert]
+
+- m740: PLP および RTI の間に T フラグを正しくリストア。6502ベースデバイスから継承された以前のエミュレーションでは、これらの命令は常
+  にPでTを設定し、命令のデコードには全く影響しませんでした。[AJR]
+
+- miniguay.cpp: PCBのASCIIレイアウトを追加。[ClawGrip]
+
+- dim68k: フロッピードライブの種類を修正。[R. Belmont]
+
+- imd_fmt.cpp: IMDの画像が40トラックでドライブがHDの場合、ハードウェアのように偶数トラックにデータを配置。[R. Belmont]
+
+- imd_dsk: 不足ファイルを追加。 [R. Belmont]
+
+- astrcorp.cpp: magibombe用のGFX ROMを追加。[Phil Bennett]
+
+- m950x0: STmicro M950x0 SPI EEPROMシリーズの実装。[Ryan Holtz]
+
+- sa1110:  ICPとDMAブロックの初歩的なサポート。[Ryan Holtz]
+
+- sa1111: いろいろ変更。[Ryan Holtz]
+ * I2SオーディオDMAサポート
+ * IRQサポート
+ * 基本的なGPIOのサポート
+
+- uda1344: DMADACをベースとしたオーディオサポートの初期パスを追加。[Ryan Holtz]
+
+- sed1356:  BitBLT のソリッドフィルコマンドをサポート。[Ryan Holtz]
+
+- jornada: キー追加、タッチペンサポート、EEPROMアクセスを修正。[Ryan Holtz]
+
+- imd_dsk: has_variant()を使用し、80トラックのドライブとしてHDまたはQDを受入れ。[R. Belmont]
+
+- m950x0: プライベート指定子を削除し、 protectedを採用。[Ryan Holtz]
+
+- sa1111: 一部ローカルスタティックをconstではなくconstexprに変更。オーディオレジスタの処理を微調整し、ポインタよりも参照を優先。
+  [Ryan Holtz]
+
+- sed1356: 潜在的なエンディアンの問題に関するTo-doノートを追加。[Ryan Holtz]
+
+- m950x0: バリデーション修正。[Ryan Holtz]
+
+- machine/seibuspi: コピーライトホルダを訂正。[hap]
+
+- rx78: [Robbbert]
+ * 新しいカセットが動作するよう、色、キーボード、カセットロードを修正 [ロブバート]
+ * 本物のテープ読み込みを修正 [Haze]
+
+- tlcs900: PC相対アドレッシングの逆アセンブルを修正。[Devin Acker]
+
+- mcs48: 割込み中にA11とRETで発生する可能性のある問題を修正。[hap]
+
+- c64_flop_misc.xml: タイポを修正。[Angelo Salese]
+
+- 部分的に巻き戻し。意図した動作なのかはっきりさせてください。[Angelo Salese]
+
+- imd_dsk: トラック数のチェックを復元。[R. Belmont]
+
+- metro.cpp: 一部の基板ではVDPのクロックは標準的ではない。[AJR]
+
+- Zabavni Kartiの改良: [Roberto Fresca]
+ * スクラッチからの正しい入力作成
+ * DIPスイッチを整理
+ * テクニカルノートを追加
+
+- msvc windows CIを無効化。無茶なヒープ空間の問題のためのブレーク。[Olivier Galibert]
+
+- videopac.xml: カセットで販売されていたFlash Point用PAL変換ハックを再追加。[hap]
+
+- SWIM2: タイミングのキャリブレーションがうまくいくように、書き込み処理を十分に実行。[Olivier Galibert]
+
+- videopac.xml: timelordplの未修正な吸い出しを追加。[René van den Enden (Rene_G7400)]
+
+- m740: コアオーバーホール[AJR]
+ * 多くの命令のタイミングと、ダミーのフェッチパターンを6502の動作ではなくMitsubishiのドキュメントに合わせて変更
+ * 将来的なM50734エミュレーションで分離可能なデータ空間で使つオーバーライドを追加
+ * EORT $zpのアドレスにYが間違って追加されていたのを修正
+ * INCT AとDECT A命令の削除 (T=1 は INC AやDEC A には影響ない)
+ * STPとWIT命令を追加(今のところ区別なし)
+ * 汎用M740デバイスタイプの廃止 (未使用)
+
+- cps1.cpp: sf2rb(レインボーハック）のターボモードのDIPスイッチについてドキュメント化。[Rotwang]
+
+- astrcorp.cpp: magibombe用のeeprom吸い出し。[Phil Bennett]
+
+- bus/neogeo: SMA保護ビットスワップをクリーンアップ。[Vas Crabb]
+
+- konmedal.cpp: slimekunのDIPスイッチ定義を追加。[Ivan Vangelista]
+
+- Maygay M1、Scorpion 2、Scorpion 4のPLD吸い出し追加。[James Wallace]
+
+- Zabavavni Kartiの改良: PLDを追加。[Roberto Fresca]
+
+- mac/swim2: appleドライバと関連する通信を追加。[Olivier Galibert]
+
+- cps1.cpp: sf2rb(レインボーハック）のプロジェクタイルパスDIPスイッチ設定をドキュメント化。[Rotwang]
+
+- konmedal.cpp: tsurururinの入力を追加。[Ivan Vangelista]
+
+- hp2640.cppを追加しました。テープエミュレーションを追加。(#7625) [fulivi]
+ * format/hti_tape.cpp: ManchesterエンコードされたDC100カセットをサポート
+ * machine/hp2640_tape.cpp: DC100テープドライブのエミュレーション
+ * machine/hp_dc100_tape.cpp: ユニット名ディスプレイを追加
+
+- Acorn Archimedesのコード再編成: (#7627) [Sandro Ronco]
+ * Acorn IOCとMEMCをデバイスに分離
+ * 8051ベースのシリアルキーボードをエミュレート
+ * acorn_machine/memc.cpp: 論理ページと物理ページを必ず1対1でマップ
+ * RISC OSのPOST IOCレジスタテストを修正
+ * aa310.cpp. aa310.cpp: RISC OS POSTのミスを表示するためのデバッグコードを追加
+
+- machine/archimedes_keyb.cpp: Acorn Archimedesキーボードのマイクロコントローラを吸い出し。[Phil Pemberton]
+
+- astrcorp.cpp. XTALから画面タイミングを導出。コードをクリーンアップ。(#7657) [cam900]
+
+- ksys573.cpp、machine/k573mcr.cpp: System 573用のJVSメモリカードリーダデバイスを実装。(#7659) [987123879113]
+
+- jpmimpct.cppリファクタリング (#7645) [David Haywood]
+ * jpmimpct.cpp: 変更いろいろ。[David Haywood]
+   - プライマリとタッチスクリーンの両方で、エミュレートしたDUARTsを使用するようにドライバをリファクタリング
+   - アドレスとデータの不正なシフトを含む、ビデオ以外のフックアップのバグを修正
+   - BACTA_DATALOGGERを実装して、'protocol'がブートを設定するよう変更
+   - ビデオベースゲームのパレット用に実際のBt477を実装
+   - ビデオベースゲーム以外でもデフォルト入力（jackpot/stake key）を追加開始
+   - ROMの読み込みを修正
+   - 分析をもとにセットの再構成。元情報が間違っていたせいで扱いがおかしかったもの
+
+- roland_s10.cpp, roland_s50.cpp: スケルトンサンプラーデバイスの追加。[AJR]
+
+-「High Roller」のサウンドROMサイズ修正。(nw) [James Wallace]
+
+- blitz68k.cpp: TODOとメモを更新。[Ivan Vangelista]
+
+- i8244: 文字レイヤーの優先順位を変更。[hap]
+
+- jpmimpct.h: clangエラー修正: private field 'm_alpha_clock' is not used [-Werror,-Wunused-private-field]
+
+- dim68k: キーテーブルを一時的にパッチしてReturnが動作するようにし、ローレゾグラフィックを予備的にサポート。[R. Belmont]
+
+- dim68k: テキストの色を白に戻す。[R. Belmont]
+
+- dynax.cpp, hnayayoi.cpp: DIPスイッチの確認。[Vas Crabb]
+
+- 'arcade'ビルド修正 - 最近のksys572メモリカードのアップデートとjpmimpctのアップデートを修正。[Brian Troha]
+
+- blitz68k.cpp: logmacroに切り替え、surpr5の入力を調整。[Ivan Vangelista]
+
+- i8244: 巨大なscreen_update関数をいくつかに分割。[hap]
+
+- dim68k: パレットの改善、テキストレンダリングの不具合の修正。[R. Belmont]
+
+- astrcorp.cpp: magibombの起動可能。(#7665) [Angelo Salese]
+ * astrcorp.cpp: magibombが少しでも動くように改良。作業中
+ * メモリマップにvblank、DRYを追加する
+ * ステートマシンの分割、ビデオの修正、デフォルトのeeprom追加
+ * m_draw_sprites -> m_sprite_dma
+ * astoneag に肉付け作業
+ * スプライトの描画が同じであることを確認、オーバーライドは不要
+ * astoneageの復号データとramdac宣言をサブクラスに移動し、便利なように常時画面を有効化
+
+- abc800: ROMの新リビジョン、DataBoard 4106/4107用のスケルトンを追加。[Luxor ABC arkivet, Curt Coder] [Curt Coder]
+
+- dynax.cpp, hnayayoi.cpp: サービスモードで表示されるDIPスイッチの位置を追加し、hnkochou用のDIPスイッチを1つ追加。[Vas Crabb]
+
+- metro.cpp. タイルマップオフセットのリグレッションを修正。
+
+- imagetek_i4100.cpp. デバッグ用にCRTC関連値の状態を追加し、MT #07845も修正。
+
+- Zabavni Kartiの改良: [Roberto Fresca]
+ * 完全なキリル/ローマ字のセットアップ手順を追加
+ * テクニカルノートを追加
+ * クリーンアップ
+
+- abc800: ROMサイズを修正。[Curt Coder]
+
+- mame.lstを更新。[Roberto Fresca]
+
+- mpu4.cpp, nwk-tr.cpp: ゲームごとのハックはcore_stricmpの代わりにstrcmpを使用。[AJR]
+
+- rx78: ソフトウェアのリストを2つに分割。[Robbbert]
+ * 2つのメディアタイプを1本のリストに入れると、UIとCLIの混乱のもと
+
+- rtpc010, rtpc015: 起動直後のクラッシュを修正。[Robbbert]
+
+- Club Cardの改善: 入力を一から作り直し。DIPスイッチとランプのレイアウトを修正。[Roberto Fresca]
+
+- Club Cardの改善: ゲームが起動できるようにデフォルトのNVRAMを作成。[Roberto Fresca]
+
+- goldstar.cpp: met47s01デバイスの吸い出し試み。[Ioannis Bampoulas]
+
+- hikaru.cpp: aica jtagコネクタのピンアウト追加。[yz70s]
+
+- ef9340_1: ピンアウトの参照追加。[hap]
+
+- zexall: ライセンスタグを訂正。[hap]
+
+- unspdasm.h: ライセンスタグを訂正。[hap]
+
+- ews4800: clangのコンパイル修正。[Curt Coder]
+
+- bus/qbus: 明示的なCPUタグの検索をrequired_address_spaceで置き換え。[AJR]
+
+- c64/dela_ep256: required_device_arrayを使用。[AJR]
+
+- FreeBSD/powerpc64でのビルドを修正。[pkubaj]
+ * FreeBSDはLinuxでppc64と呼んでいるものをpowerpc64と呼ぶ
+
+- System 573のデジタルI/Oオーディオエミュレーションの精度を向上。(#7664) [987123879113]
+ * mas3507dとk573dio/fpgaを実機に合わせてより正確にリファクタリング
+
+- 3rdparty/minimp3: 最新のマスターに更新し、ローカルの変更を削除。[987123879113]
+
+- oricext.cpp, microdisc.cpp: デバイスファインダーを使用。[AJR]
+
+- sa1110: UDCサブデバイスの処理にスケルトン処理を追加。[Ryan Holtz]
+
+- sa1111: オーディオDMAに関連する問題を修正。[Ryan Holtz]
+
+- sed1356: Write BitBLT、Read BitBlt、Move BitBLT Negative コマンドのサポート。[Ryan Holtz]
+
+- jornada: いくつかのバッテリー関連のMCUコマンドの処理を修正しました。[Ryan Holtz]
+
+- swim2: トラック63に読み書きGcrを追加。[Olivier Galibert]
+
+- btoads.cpp: MT07838を修正。[Ivan Vangelista] 
+
+- astrcorp.cpp: magibombdを一部復号化、astoneagと同じ問題、ROMエラーでハング。[Ivan Vangelista]
+
+- tabe22: かなり動作するまでいった。[Dirk Best]
+ * 独自のドライバに移動
+ * キーボードの実装
+ * char/attr RAMスイッチの実装
+ * ビデオレンダリングの改善
+ * RS232ポートを実装
+ * gfxdecodeの追加
+
+- monty: ボタンにioport_arrayを使用。[hap]
+
+- jpmimpct.cpp. 他のドライバとの整合性のためのサービス入力の改善。[James Wallace]
+
+- applefdintf: 存在しないオプションを修正。[Olivier Galibert]
+
+- フロッピー: 書き込み時の精度の問題とキャッシュクリアがなかったのを修正。[Olivier Galibert]
+
+- i8244: 混乱しているinvalid_register関数を削除。[hap]
+
+- mess.flt: ews4800.cppを追加。[Robbbert]
+
+- videopac.xml: usa games indexを追加。[hap]
+
+- floppy: 新フロッピーでのリグレッションを修正。[O. Galibert]
+
+- dc42: 保存時のセルサイズを改善し、外部ロギングを削除。[Olivier Galibert]
+
+- osd: インラインmathユーティリティのクリーンアップ。[Vas Crabb]
+ * コンパイラがよく扱う操作のためにインラインアセンブリを削除
+ * 演算についてARMとAArch64の実装
+ * キャリーアウト演算に符号なし整数加算を追加
+
+- cpu/drccache.cpp: RWXページがサポートされているかどうかを検出。[Vas Crabb]
+
+- dynax.cppで、花札DIPスイッチの説明を少し改善。[Vas Crabb]
+
+- osd: PPC/ARM用のインラインユーティリティで、プリプロセッサの使用法をもう少し一貫性のあるものに改良。[Vas Crabb]
+
+- jpmsys5.cppのリファクタリング/リサーチを開始。(#7667) [David Haywood]
+ * いろいろなセットの起動シーケンスがさらに進むようになったもののまだ途中で止まる
+ * 追加要素 (リールランプ、7segsなど) が出力を持つようになり、フォールバックレイアウトで表現可能
+ * 最近追加されたレイアウトのリピーター機能をフォールバックレイアウトで使用
+ * jpmsys5のリファクタリング開始
+
+- videopac.xml: メインリストをapplications-educational-gamesではなく1stparty-3rdparty-unreleasedに分類。[hap]
+
+- videopac.xml: froggerも3rdpartyに移動。[hap]
+
+- naomi.cpp: 未吸い出しのゲームについてドキュメント追加。(nw) [MetalliC]
+
+- votrhv.cpp: ram タイプに関するコメントを修正。[Lord Nightmare]
+
+- swim2: mfm読み込みの追加、mfm書き込み修正、mfm検出の修正。この時点でSWIM2は終了している模様。[Olivier Galibert]
+
+- video/k057714.cpp: ディスプレイ解像度レジスタの実装と描画の各種修正。(#7677) [987123879113]
+
+- artwork/chess: チェスのシンボルをsvgに変更。[hap]
+
+- mess.lua: フルビルドを修正。[AJR]
+
+- hdc92x4.cpp, i8271.cpp: タイムログをクリーンアップ。[AJR]
+
+- in213: BIOS V2.1を追加。[MattisLind]
+
+- astrcorp.cpp: winbingoとクローン、zooの復号化の暫定版追加。また、zooの名前をzuluに変更。[Ivan Vangelista]
+
+- view: ビューが正確な2乗ブロックにまたがっていない場合の問題を修正。[Olivier Galibert]
+
+- wiping: spriteramを修正。[Olivier Galibert]
+
+- fmtowns_cd.xml、pc98.xml。Engage Errandsのタイトルを修正しました。[Vas Crabb]
+
+- ikt5a: キーボードを追加。[AJR]
+
+- astrcorp.cpp: dinodinoの暫定的な復号化。[Ivan Vangelista]
+
+- megadriv.xml: term2の年代情報を修正。[Arcade Shadow]
+
+- jpmimpact.cpp / jpmimpactsw.cpp: 非ビデオフルーツマシンの進捗状況 [David Haywood]
+ * ホッパーの調整により、より多くのセットが起動可能
+ * 未知のメモリアドレスから 0xffff を返すことで、後からゲームを起動できるように改良 (セキュリティ/タンパー対策？)
+ * より多くのセットを起動できるよう、ゲームごとのデフォルト設定を改善
+ * ACEゲームが起動できるように異なるリール設定を適用
+ * 吸い出し不良を削除
+ * 複数のセットでROMの読み込みを修正
+ * 一部セットのメーカー情報を修正
+ * インチキ検出をトリガーすることなく、確実にコインを挿入できるように、時限コインオプトを使用
+ * ゲーム毎の入力構成を追加開始
+ * 改良版の実装が必要な箇所を特定するため、実際の観察やメモ追加
+ * 過去の作業が含まれている場合は、この時点でドライバに大幅な変更を加えているため、著作権者として自分を追加
+
+- hng64: テクスチャやライティングがないフラットなシェーディングポリゴンを追加。(#7676) [Happy-yappH]
+
+- extrema.cpp: blotoの暫定的な復号化。[Ivan Vangelista]
+
+- xybots.cpp: MT05379を修正。[Ivan Vangelista]
+
+- ikt5a: gfxdecodeを追加。[AJR]
+
+- jpmimpct.cpp: リールランプを逆さにした感じ。(nw) [James Wallace]
+
+- getaway: 画面に何かが表示された。[hap]
+
+- getaway: dmaskの小さな修正。[hap]
+
+- getaway: いまのところ完全なvramが表示できた。[hap]
+
+- cosmicg: ドライバのオーバーホール。[AJR]
+ * cosmic.cppからドライバを分離
+ * MC6845 CRTCを追加し、すべてのビデオの更新で使用
+ * RAWパラメータによる画面構成
+ * カクテルモードでの表示反転に対応
+
+- cosmic.cpp:「コスミックゲリラ」を別なドライバに移動。[AJR]
+
+- cosmic.cpp: 回路図に基づいて、RAW画面タイミングパラメータを追加。[AJR]
+
+- extrema.cpp: adults, extrmth, extrmti, luckshel, strlink の暫定的な復号化。[Ivan Vangelista]
+
+- 808080bw: cosmicmoを海賊版としてマーク。[hap]
+
+- m740: NMI存在せず; ノート更新。[AJR]
+
+- Forte Cardの改良: Grull Osgoさんの徹底的なリバースエンジニアリング作業により、デフォルトのシリアルEEPROMを追加。セットとドライバー
+ をクリーンアップとリファクタリング。テクニカルノートを追加。[RobertoFresca]
+
+- extrema.cpp: 残りのセットの暫定的な復号化。[Ivan Vangelista]
+
+- コア std::string_view をさらにモダン化。[AJR]
+ * device_tからサブデバイスタグキャッシュを削除し(デバイスファインダーが推奨になったため)、直接所有するサブデバイスのみをカバーする
+   マップに置き換え
+ * 作業ディレクトリの設定メソッドをdevice_image_interfaceから取り出し (UI のみが実際にフルバージョンを使用している模様)
+ * 出力名の引数にstd::string_viewを使用するように output_managerを変更
+ * ほとんどの名前と値の引数としてstd::string_viewを受けるよう core_optionsを変更 (戻り値は今のところ C の文字列のまま)
+ * std::string_viewの引数を受けるように他のいろいろな関数を変更
+ * romload.h から、文字列アクセサマクロを削除
+ * ロギング/エラーメッセージから不要なc_str()コールを
+
+- Zabavni Karti: 入力の説明にキリル文字の名前を追加。[RobertoFresca]
+
+- spectrum_cass.xml: 多くのエントリーで年度とパブリッシャ情報を更新。[ArcadeShadow]
+
+- コンパイルを修正。[RobertoFresca]
+
+- gauntlet: 不足しているトリガーを追加。後で直す。[Olivier Galibert]
+
+- rx78: theprowrとsekiの色を修正。ノートを追加。[Robbbert]
+
+- troopy: gfx romひとつが吸い出し不良と確認。[chaneman]
+
+- kingpin: 各種アップデート。[Dirk Best]
+ * ボタンやランプを表示する基本的なレイアウトを追加
+ * ランプ出力とホッパーを実装
+ * マップにはボタンと2つ目のコインスロットが無い
+ * 設定モードのDIPスイッチにラベル追加
+ * アトラクトミュージック、2個目のコインスロット、ホッパーを有効にするため、デフォルトのNVRAMを更新
+
+- osd/windows: フォーカスを失うとフルスクリーンウィンドウを最小化。(#2997) [Vas Crabb]
+
+- osd/modules/osdwindow.cpp: ウィンドウタイトルの書式設定をクリーンアップ。[Vas Crabb]
+ * ウィンドウタイトルにデータ型モデルを表示
+ * ウィンドウタイトルの書式設定を一箇所に移動
+
+- tools/chdman.cpp: 不要な .c_str() の呼び出しを削除。[Vas Crabb]
+
+- osd: システム名を優先するようにウィンドウタイトルを再編成。[Vas Crabb]
+
+- kingpin: maxidealのNVRAMチェックサムの修正。[Dirk Best]
+
+- gauntlet2p: slapsticのコミュニケーション修正。[Olivier Galibert]
+
+- peter packrat: slapsticも修正。[Olivier Galibert]
+
+- 6522via.cpp: いくつかの異なる VIA タイプを識別。[AJR]
+
+- Firebeat: 「ポップンミュージック」のフラッシュクリアを修正。 (#7548) [987123879113]
+
+- Apple 2フロッピードライブ(diskiing, diskiing13): 音を追加。(#7685) [leesaudan2]
+
+- Forte Cardの改良: コインイン/アウトカウンターとオートプレイDIPスイッチを追加。テクニカルノート追加。[RobertoFresca]
+
+- extrema.cpp: Ukraineのスペルを修正。[Ivan Vangelista]
+
+- jungleyo.cpp: 何かが動くように最小限のハック。[Ivan Vangelista]
+
+- kpontoon: ハードウェア情報を修正。[Ivan Vangelista]
+
+- flopimg: 抽出したビットストリームを vector<bool> に変更 
+- flopimg: 抽出したセクタを vector<vector<uint8_t>> に変更
+- flopimg: Macセクター抽出apple 3.5を追加 
+- gcr: トラック作成/抽出apple 3.5を一般化 
+- gcr. 純粋なセクタフォーマットを追加
+  [Olivier Galibert]
+
+- mac: Cuda、maclc520、maccclasブートのVIA遅延を追加。[R. Belmont]
+
+- ncr5380n: フェーズの不一致があるreqの後にdrqをアサート。[Patrick Mackinlay]
+
+- galaxian.cpp. namenayoのスプライトクリッピング問題を修正。(#7688) [David Haywood]
+
+- getaway.cpp: 様々な更新で動作可能に昇格。(#7686) [Angelo Salese]
+ * getaway.cpp: 改善 [Angelo Salese]
+   - reg 7は間違いなく幅。実験的な塗りつぶし対置換を追加、ノート
+   - DIPスイッチを追加
+   - テキストレイヤーを別のエンティティに移動、入力を実装、4bit DSWの間違いを修正
+   - カラーマスクが別の場所にある場合、スクロールが実際にどのように行われているかをピンポイントで確認
+   - カラーマスクは7でxor
+   - ビットプレーン用のRMWを追加
+   - フラクショナルなXの配置を修正
+   - I/Oのクリーンアップとドキュメント
+   - ステアリングホイールのkeydelta=5に設定
+   - RGBをBGRに変更
+   - ビデオ解像度を標準の256x240に変更
+   - IMPERFECT_CONTROLSとIMPERFECT_GFXに降格
+
+- ATTR_UNUSED, C++17を心から歓迎しますか？[Olivier Galibert]
+
+- getaway: レジスタのノートをio_w関数に移動。[hap]
+
+- getaway.cpp: ステアリングコントロールを修正。[Vas Crabb]
+ * アナログスティック/ホイールでは問題なく動作しますが、キーボードやDパッドでは滑りやすい"ドット"のある路面では操作が難しいです
+
+- osd: GCC固有箇所をeminline.hの外に移動したので、MAME_NOASMによってGCCの純粋なC++の実装となります (フォールバックのテストがより簡単
+  になります)。[Vas Crabb]
+
+- 本当に不要な[[maybe_unused]]を大量に削除。[Vas Crabb]
+
+- getaway: ノート更新。[hap]
+
+- flopimg: gcrのチェックサム修正。[Olivier Galibert]
+
+- swim1: iwmの埋め込み。[Olivier Galibert]
+
+- mac128.cpp: VIAのノート追加。[AJR]
+
+- selsoft.cpp: strmakelowerの使用法を修正。[AJR]
+
+- swim1.h: clangビルドを修正。[AJR]
+
+- jungleyo.cpp: 復号化完了、入力と(不完全な)サウンドの追加。[Ivan Vangelista]
+
+- getaway: 不完全な制御フラグの再追加。[hap]
+
+- genie.lua: GCCビルドの修正を試み。[AJR]
+
+- i8244: 最近のリグレッションを修正。[hap]
+
+- rx78: RAMについてのメモを追加。[hap]
+
+- jungleyo.cpp: 2つ目のタイルマップを追加。[Ivan Vangelista]
+
+- quizshow: カセット装置を追加。[hap]
+
+- jpmimpact.cpp: 各マシンのボタンを正しくマッピングする作業。(#7683) [David Haywood]
+ * ゲームごとにさらに入力の作業
+ * 追加の入力作業、資料作成
+ * さらに入力作業
+ * もっと入力の修正
+ * j6monmadの入力配置の探索中
+ * まだj6monmadの入力を探している、多分何かが欠けている
+ * ゲームごとの入力
+ * さらにゲームごとの入力
+ * 重複行を削除
+ * 別なタイトルも見てみた
+ * もう少し入力追加
+ * ゲームの入力をさらにカバー
+ * 追加のゲーム入力
+ * 入力テストに適切に組み込まれていないセットをドキュメント化
+ * ゲーム別の追加入力
+ * さあにゲーム別の入力追加
+ * j6wldkngは珍マシン。見たことのないvfdのプレースホルダー文字列、さらにはスピンボタンの非標準的なマッピング
+ * ゲーム別の追加入力
+ * j6colの修正
+
+- sspeedr: 会社名を修正。[hap]
+
+- mac128: 新しいIWMの実装開始、まだ正しく動作せず。[R. Belmont]
+
+- bgfx: lcd-gridシェーダを追加。(#7691) [cgwg]
+ * 現在はGLSL用にのみコンパイルされていることに注意
+
+- bgfx: lcd-gridシェーダのオーバーラップしたレジスタを修正、Direct3D、SPIR-V、Metalなどでコンパイル。[Vas Crabb]
+
+- ドキュメントの更新: [Vas Crabb]
+ * マシンCFGに保存されたビューオプションが、INI/コマンドラインよりも優先されることを説明するメモを追加
+ * MSYS2とFedora LinuxでHTMLドキュメントを構築するための前提条件を追加
+ * 関連するセクションで、UbuntuがGCCを変更してデフォルトで "ソースの要塞化"を有効にすることを明示的に言及
+ * glibstdc++6への参照を削除
+ * コンパイルガイドのソースを再構成 (80カラムでのハードラップ、引用符、サンプルコマンドラインのコードブロック)
+
+- genie.lua: GCCで無視された属性の警告を表示。ただし、それに対しては失敗しないよう修正。[Vas Crabb]
+
+- mac128.cpp: マクロをPCHの後に移動して問題を回避。[Vas Crabb]
+
+- rx78_cart.xml: Donjaraの完全なシリアル番号を追加し、シーケンス上の正しい場所に移動。(#7692) [David 'Foxhack' Silva]
+
+- amstr_pc.cpp: ppc512 / ppc640用のハードウェア情報を追加。[Guru]
+
+- jungleyo.cpp: 超マイナーなコメントの訂正。[Ivan Vangelista]
+
+- iwm: motor/devselはちょっと変。これがうまくいくことを望む。[Olivier Galibert]
+
+- buggychl: ハンドル感度を低下。[hap]
+
+- raiden: OKIの音量を低下。[hap]
+
+- raiden: OKIの音量をもう少し調整。[hap]
+
+- ufosensibの正しいROMラベルと配置。[f205v]
+ * 基板をもとに、ufosensibのROMラベルと配置を訂正
+
+- getaway: ステアリングコントローラーのタイプを"ad stick"からパドルに変更。[hap]
+
+- iwm, swim1: devselの方が今は理にかなっていると思う。[Olivier Galibert]
+
+- floppy: Appleのフロッピーにdir readを追加。[Olivier Galibert]
+
+- mccpm.cpp: クロックについてのノート。[AJR]
+
+- rolla.cpp: セットをsklncr.cppに移動。[Ivan Vangelista]
+
+- alphasma3k.cpp: ファームウェアのアップデートについてのメモを追加。(#7698) [ClawGrip]
+
+- eigccarm.h: ターミネートされていない #if を修正。[R. Belmont]
+
+- getaway.cpp: ゲームコードを調べてアクセラレータの範囲が正しいことを確認。[Vas Crabb]
+
+- ブランチリリースの向けたsrccleanの準備。[Vas Crabb]
+
+- nmk16.cpp: redhawksのグラフィック不具合を修正し、未吸い出しのPROMとPLDのプレースホルダを追加。(#7696) [ClawGrip]
+
+- ファイル名がリスト名と一致するようにchip8ソフトウェアリストの名前を変更。[Vas Crabb]
+ * また、いくつかのタイトルを修正。主にpsx.xml
+
+- input.cpp, inputdev.cpp: その他の修正。[AJR]
+ * XInput DPADの入力アイテムトークン処理に関する最近のリグレッションを修正
+ * 奇妙なケースでcode_to_tokenが暴発するのを防止
+
+- wscolor.xml: ソフトウェアパーツ機能は一意とすること。[Vas Crabb]
+
+- floppy: フロッピーでフォーマットされていないトラックにヘッダが1時間10分以上留まってから読み込みが発生すると、interval_index*2+1が
+  オーバーフローする。ワオ！Colin Howellさんが見つけて解析してくれましたColin Howell によって発見され、追跡されました。
+  [Olivier Galibert]
