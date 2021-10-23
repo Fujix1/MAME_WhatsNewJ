@@ -1,4 +1,4 @@
-0.89u2
+﻿0.89u2
 ------
 
 全般的な改良点：
@@ -21,7 +21,7 @@
 
 ■Renegadeドライバを実際のMCUのデータを元に改良。[BUT]
 
-■VCコンパイラ用の修正。[René Single]
+■VCコンパイラ用の修正。[Rene Single]
 
 ■古くなったMESSのコードを削除。[Nathan Woods]
 

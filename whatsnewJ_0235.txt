@@ -1,0 +1,980 @@
+﻿0.235 2021-08-27
+----------
+
+MAME Testersの修正バグ
+----------------------
+- 07760: [システムコア] BGFX: -video bgfxをレーザーディスクゲームで使うと表示がおかしくなる。(Ryan Holtz)
+- 08051: [DIP/入力] portera: 下ボタンが動作せず、ハシゴを降りれない。(Tafoid)
+- 08053: [DIP/入力] (taito_f2.cpp) yuyugogo: 未使用DIP2-7はコンティニューの有無設定。(GoldS_TCRF)
+- 07002: [クラッシュ/フリーズ] (viper.cpp) p911 and clones: エラーで終了してしまう。(windyfairy)
+- 08050: [サウンド] (ginganin.cpp) ginganin: PCMサンプルが鳴らない。0.220では動作していた。(Robbbert)
+- 08046: [実機資料] (timelimt.cpp) progress, timelimt: 参考用の実機ビデオ。(hap)
+- 08042: [グラフィック] (namcofl.cpp) finalapr, finalapr1, finalaprj: フラッグマンが仕事をしていない。(Angelo Salese)
+- 08045: [その他] (coco12.cpp) coco, coco2, dragon32: 使用可能なメモリが1バイト足りない。(Pernod)
+
+
+新規動作可能マシン
+------------------
+Paris Dakar (31/03/87, Spanish) [Jose Marquez - Retrobytes, Recreativas.org]
+スーパーコブラ (Gakken, green version) [hap, Kevin Horton, Sean Riddle, eggs]
+Texas Instruments TI-5100 [hap, Sean Riddle]
+
+
+新規動作可能クローン
+--------------------
+Bubble Buster (USA, B-System) [CoolMod, The Dumping Union]
+エスプガルーダII (2005/11/14 MASTER VER, newer CV1000-B PCB) [BuddyC, MetalliC, rtw]
+ギターフリークス 2nd MIX (GQ883 VER. AAA) [Taro]
+ギターフリークス 2nd MIX (GQ883 VER. EAA) [Taro]
+ギターフリークス 2nd MIX (GQ883 VER. JAA) [Taro]
+ギターフリークス 2nd MIX (GQ883 VER. KAA) [Taro]
+ギターフリークス 2nd MIX (GQ883 VER. UAA) [Taro]
+ギターフリークス 2nd MIX Link Kit 1 (GE929 VER. JAA) [Windy Fairy]
+ギターフリークス 2nd MIX Link Kit 2 (GC929 VER. JBB) [Windy Fairy]
+ギターフリークス Ver 1.01 (GQ886 VER. AAD) [Taro]
+ギターフリークス Ver 1.01 (GQ886 VER. EAD) [Taro]
+ギターフリークス Ver 1.01 (GQ886 VER. JAD) [Taro]
+ギターフリークス Ver 1.01 (GQ886 VER. UAD) [Taro]
+Hockey (Mattel, export version) [hap, Sean Riddle]
+Kangaroo (Loewen-Automaten) [Virtvic]
+The Killing Blade / Ao Jian Kuang Dao (ver. 100) [XeD]
+マグマックス (set 2) [Purity]
+ラフレシア (not encrypted) [Shane Reel]
+Rescate Lunar (Spanish bootleg of Lunar Rescue) [Ricardo - Factory Arcade, Recreativas.org]
+スペクトラルVSジェネレーション / 聖魔世紀 (M68k label V101HK) (ARM label V101HK, ROM 06/20/05 S.V.G V100) [XeD]
+Sea Wolf (Tecfri) [Lorenzo, Victor Fernandez (City Game)]
+
+
+動作可能に昇格したマシン
+------------------------
+オペレーションタイガー (Ver 2.14 O) [Ville Linde]
+
+
+
+新規追加された未動作マシン
+--------------------------
+ACT Apricot XEN [John Elliott]
+Apple Computer LaserWriter [Jeff Muizelaar]
+Apple Computer LaserWriter Plus [Jeff Muizelaar]
+Baby Fruits (100 pts version) [Salvador, parramon, ClawGrip]
+Basket [jordigahan, Miguel Arcade, ClawGrip]
+Dracula's Castle (Magnet System) [Jose Marquez - Retrobytes, Recreativas.org]
+Multi Baby [jordigahan, ClawGrip]
+Radikal Darts (Diana Version 7.29.25) [jordigahan, ClawGrip]
+Smith Corona PWP System 14 [FozzTexx]
+Sony DPS-V55 Multi-Effect Processor [DBWBP]
+それいけ！アンパンマン ポップコーンこうじょう2 (Rev C) [Darksoft, Jorge Valero, MetalliC, rtw]
+Speedway [Ioannis Bampoulas]
+Suzuki (Hammond license) GM-1000 GM Sound Module [DBWBP]
+Yamaha PSR-16 [DBWBP]
+Yamaha PSR-36 [DBWBP]
+Yamaha PSR-40 [DBWBP]
+Yamaha PSS-680 [DBWBP]
+Zelos (Japan, main unit) [Phil Bennett]
+
+
+
+新規追加された未動作クローン
+----------------------------
+エアインフェルノ (World) [Trol]
+Baby Fruits (25 pts version) [Salvador, parramon, ClawGrip]
+C.Q.F.D Scientus (France) [PulkoMandy]
+ザ・警察官 -新宿24時- / Police 911 (ver AAC) [Windy Fairy]
+ザ・警察官 -新宿24時- / Police 911 (ver KAE) [Windy Fairy]
+Seoul Symphony (Bubble Symphony bootleg with OKI6295) [xuserv]
+タイムクライシス3 (TST3 Ver. A) [system11, rtw]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+amiga_hdd: Workbench 2.05, Workbench 2.1, Workbench 3.0, Workbench 3.1 [Davide Cavalca]
+amiga_workbench: AmigaOS 3.9 [archive.org]
+apple2_flop_clcracked:
+  Analogies Tutorial (Version 04.25.85) (cleanly cracked), Capitalization Practice (Version 11.04.83) (cleanly cracked),
+  Capitalization Test (Version 11.04.83) (cleanly cracked), Computer Drill and Instruction: Addition C (cleanly cracked),
+  Computer Drill and Instruction: Decimals C-1 (cleanly cracked), Computer Drill and Instruction: Division C (cleanly cracked),
+  Computer Drill and Instruction: Fractions C-1 (cleanly cracked),
+  Computer Drill and Instruction: Multiplication C (cleanly cracked),
+  Computer Drill and Instruction: Subtraction C (cleanly cracked),
+  Computer Drill and Instruction: Teacher Utilities (cleanly cracked),
+  Computer Drill and Instruction: Whole Numbers C (cleanly cracked), Fact Sheets (Version 09.19.83) (cleanly cracked),
+  Medalist Series: States (Version 08.09.83) (cleanly cracked), Memory Myth (cleanly cracked),
+  Money! Money! (Version 09.19.83) (cleanly cracked), Nouns/Pronouns (Version 09.19.83) (cleanly cracked),
+  Who-What-Where-When-Why (Version 11.04.83) (cleanly cracked), Willy Byte in the Digital Dimension (cleanly cracked),
+  Word Families (Version 11.04.83) (cleanly cracked) [4am, Firehawke]
+  Keyboard Golf (cleanly cracked) [4am, san inc., Firehawke]
+apple2_flop_orig:
+  Alge-Blaster! (Version 050187) (800K 3.5"), Arithmetic Critters (Version 1.0) (800K 3.5"),
+  Backyard Birds (Version 1.0) (800K 3.5"), Bank Street Writer Plus (800K 3.5"), BeagleWrite (Version 3.2) (800K 3.5"),
+  Car Builder (800K 3.5"), Chemistry: Balancing Equations (Version 1.0) (800K 3.5"), Circus Math (Version 1.0) (800K 3.5"),
+  Cleanwater Detectives (800K 3.5"), Clock Works (Version 1.0) (800K 3.5"),
+  Design Your Own Home: Interior Design (Version 2) (800K 3.5"), Design Your Own Railroad (Version 1.1C) (800K 3.5"),
+  Grammar Gremlins (Version 05.01.87) (800K 3.5"), Return of the Dinosaurs (800K 3.5"), VCR Companion (Version 1.1) (800K 3.5"),
+  Whomper Stomper, Willy Byte in the Digital Dimension, Word Munchers (Version 1.4) (800K 3.5") [4am, Firehawke]
+apple2gs_flop_orig:
+  Mad Libs (Version 1.0), Read-A-Rama, Reader Rabbit (Version 2.3), Reading and Me (Version 1.0), Tales From The Arabian Nights
+  [4am, Firehawke]
+c64_cass:
+  Bad Cat, Bad Dudes Vs. Dragon Ninja, Bad Dudes Vs. Dragon Ninja (Erbe), Bangkok Knights, Basket Master
+  [The Ultimate Tape Archive Team]
+entex_sag: Basketball 3 [Kevin Horton, Sean Riddle]
+fm7_cass:
+  Biotek, Elevator Game, Hitsuji Yaai, I wa Sanjutsu Nari (alt), Killer Station, Kinasai, Oozumou, Shinjuwan Kougeki, Sokoban (alt),
+  Space Warp (alt), Yume no Pro Yakyuu [Cytlan, Gaming Alexandria]
+fmtowns_cd:
+  Anne no Yume no Kuni - Anne's Country of Dreams, ARS Art RentaLease - Kaiga Fukugou Kensaku System, C-Trace, Cover Girls Vol. 1,
+  Ed Bogas' Music Machine (HME-144), Enkaiou Ver. 3 - Chikyuu Saidai no Kessen, Exciting CD (Car Marty),
+  Fouge Vol. 2 - Masuo per Masuo - Ikeda Masuo Hanga-shuu (1994-07-08), Hyper Eigo Gakushuu System - New Crown Series 2,
+  Hyper Eigo Gakushuu System - New Total English 2, Image Power, Kanji Land 3-nen (OSL-010), Kanji no Ehon 2,
+  Mayumi Yoshioka for Janis - Last Nude, Mirumiru Sagasu Konchuu Series Vol. 4 - Noyama no Kensakuka,
+  Mr. Ed Bogas' Music Machine Lite (HMD-914), My Fair Lady CAN IV. Advanced, NHK Hitori de Dekiru Mon!,
+  NHK Zoku Kiso Eigo - Dai-2-kan, Pyoko-tan no Chie Asobi Ehon - Nazo Nazo Meiro Daibouken, SSL Gallery Ver. 1,
+  To Your Health! Vol. 1 - Tsubo Relaxation, To Your Health! Vol. 2 - Wellness Yoga,
+  Towns Hyper Chiiku Ehon - Nihon Mukashibanashi Vol. 3 - Issunboushi / Kobutori Jiisan,
+  Towns Hyper Ehon VII - Sekai no Ohanashi - Alice in Wonderland / Ali Baba and Forty Thieves [redump.org]
+ibm5150_hdd:
+  AT&T Personal Computer 6300 DOS Release 2.0 (MS-DOS 2.11), IBM Personal Computer DOS (Version 2.00),
+  IBM Personal Computer DOS (Version 2.10), IBM Personal Computer DOS (Version 3.00), IBM Personal Computer DOS (Version 3.10),
+  IBM Personal Computer DOS (Version 3.20), IBM Personal Computer DOS (Version 3.30), Microsoft Windows Version 1.0,
+  MS-DOS (Version 3.30A), MS-DOS (Version 4.00), MS-DOS (Version 5.00), Multitasking MS-DOS (Version 4.00) [Davide Cavalca]
+ibm5170: Sink or Swim, Star Wars - X-Wing - Space Combat Simulator (Germany), Walls of Rome [The Good Old Days]
+ibm5170_cdrom:
+  Bad Dudes (1995 CD release), Heavy Barrel (1995 CD release), Karnov (1995 CD release), Pipe Mania (1995 CD release),
+  Tag Team Wrestling (1995 CD release) [David Silva]
+nes:
+  17 in 1 (60311C), 19 in 1 (K-3088), 21 in 1 (K-3006), 35 in 1 (K-3036), 4 in 1 (K-3131GS), 4 in 1 (K-3131SS),
+  Mario Series 4 in 1 (JY-013), Super HiK 6 in 1 (A-030) [anonymous]
+  TV Game 5 in 1 [Bisqwit]
+  FC Genjin 8 in 1 (JY-119) [CaH4e3, NewRisingSun]
+  21 in 1 (GA-003), The Lion King (pirate, alt 2) [Consolethinks]
+  1995 Super 8 in 1 (JY-050), Super 8 in 1 Gold Card Series (JY-085), Super 8 in 1 Gold Card Series (JY-086)
+  [Consolethinks, NewRisingSun]
+  1994 Ball 4 in 1 Series (JY-009), 1994 Super HiK 3 in 1 (JY-007), 1995 Super HiK 4 in 1 (JY-019), 1996 Super HiK 4 in 1 (JY-018)
+  [famiac, NewRisingSun]
+  2 in 1 - Mortal Kombat 6 & Mortal Kombat 7, 4 in 1 (KS-106C), 9 in 1 (USA, prototype) [kmg]
+  Contra (pirate) [kryzsiobal]
+  1995 Super HiK 4 in 1 (JY-023), 1996 Super HiK 4 in 1 (JY-020), 1996 Super HiK 4 in 1 (JY-072), 1997 Super HiK 4 in 1 (JY-024),
+  2 in 1 - Big Nose the Caveman & Big Nose Freaks Out [MLX]
+  The Ancient Modern Heros, Little Com 160, Powerful 250 in 1,
+  Super Mari - Mali Lugi - Mari no Daisakusen 2 (Chip 'n Dale 2 pirate), Tetris Family 5 in 1 [NewRisingSun]
+  1993 Heroe Series 4 in 1 (JY-001), 1994 Super HiK 4 in 1 (JY-001), 1994 Super HiK 4 in 1 (JY-002), 1994 Super HiK 4 in 1 (JY-003),
+  1995 Super HiK 4 in 1 (JY-008), 1995 Super HiK 4 in 1 (JY-024), 1995 Super HiK 4 in 1 (JY-038), 1995 Super HiK 4 in 1 (JY-039),
+  1995 Super HiK 4 in 1 (JY-040), 1995 Super HiK 4 in 1 (JY-043), 1995 Super HiK 4 in 1 (JY-047), 1996 Super HiK 4 in 1 (JY-057),
+  1996 Super HiK 4 in 1 (JY-058), 1997 Super HiK 4 in 1 (JY-047) [NewRisingSun, taizou]
+pc98_cd:
+  Chuushaki - Hirasawa Nurse School, if - Invitations from Fantastic Stories, if 3 - Invitations from Fantastic Stories,
+  Kousoku - Yorokobi no Aegi, Moonlight Energy 2, Tania, Waku Waku Mahjong Panic! 2 - Kokushi Musou [redump.org]
+  Kanako, Record of Lodoss War II - Goshiki no Maryuu, The Silent Service - Chinmoku no Kantai, Virtuacall [redump.org, wiggy2k]
+squale_cart: Squale Technical Demo [Jean-François DEL NERO]
+trs80_cass: Hoppy [Robbbert]
+vsmile_cart: V.Smile Jammin' Gym Class (USA) [skaman]
+
+
+
+動作可能に昇格したソフトウェアリスト項目
+--------------------------------------------------
+fmtowns_cd: Custom Mate + Denwa no Bell ga..., NHK Zoku Kiso Eigo - Dai-3-kan [wiggy2k]
+nes:
+  115 in 1, 150 in 1 Unchained Melody (Fight 150 Ver. Love), 1994 Super HIK 14 in 1 (G-136), 2 in 1 - Donkey Kong & Jungle Book,
+  2000 in 1 (No Splash, No Rev, Alt Mapper), 255 in 1, 31 in 1, 4 in 1 (411120-C), 4 in 1 (OK-411), 4 in 1 1993 (CK-001),
+  4 in 1 1993 (CK-001, Alt), 500 in 1, 500 in 1 (Alt), 6 in 1 (MGC-023), 9999 in 1 (Anim. Splash, Rev 13), 9999999 in 1 (Alt),
+  Boogerman (Rus), Earthworm Jim 2 (Asia, Hacked?), Fighting Hero (Asia), Fighting Hero III (Asia), Powerful 255 in 1,
+  Sonic & Knuckles 5 (Asia), Street Dance (Asia, Hacked?), Street Fighter II - The World Warrior (Asia),
+  Street Fighter II - The World Warrior (Asia, Alt 2), Street Fighter II - The World Warrior (Asia, Alt),
+  Super 8 in 1 (Including Rockin' Kats), Super Mario Bros. 2 (LE10), Super Mario Bros. 2 (YUNG-08),
+  Super Mario Bros. 2 (YUNG-08, no protection), Super Mario Bros. IV (Armadillo pirate), Tetris Family 12 in 1 (GS-2013),
+  Tetris Family 6 in 1 (GS-2004), Ultimate Mortal Kombat 4 (Asia) [kmg]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+amiga_workbench: AmigaOS 4.0 Classic [fsck.technology]
+cd32: Superfrog (Rev 1) [TheBoss]
+fm7_cass: Crash Ball, FM Racer [Cytlan, Gaming Alexandria]
+fmtowns_cd:
+  Akiko Gold, Game Nihonshi - Kakumeiji Oda Nobunaga, Game Nihonshi - Tenkabito Hideyoshi to Ieyasu, Kid Pix Companion [redump.org]
+  Speech Trainer V1.0 L10 [redump.org, cyo.the.vile]
+n64: PowerFlash (Europe) [TeamEurope]
+pc98_cd:
+  Moonlight-chan Rinshan, Psychic Detective Series Vol. 4 - Orgel, Syndicate, Yumeutsutsu - Dreamy [redump.org]
+  OS/2 Warp V3 - Nihongo-ban [sampson]
+vsmile_cart: Marvel Spider-Man & Friends - Where is Hulk (Smartbook) (USA) [skaman]
+vsmileb_cart:
+  Baby Einstein - World of Discoveries (USA), Baby Einstein - World of Discoveries (USA, alt), Barney - Let's Go to a Party (USA),
+  Care Bears - Play Day (USA), A Day on the Farm (USA), Discovery with Baby Mickey & Friends (USA), Mother Goose (USA),
+  Nickelodeon The Backyardigans - Big Backyard Adventure (USA), Noah's Ark - Animal Adventures (USA),
+  Teletubbies - Time for Teletubbies (USA) [skaman]
+
+
+マージされたプルリク
+--------------------
+- 8239: bus/nes: Fixed NTDEC PCB bugs, and added support for N715021 PCB. [kmg]
+- 8291: bus/nes: Fixed various issues with multi-game cartridges. [kmg]
+- 8326: bus/nes: Added support for a Contra bootleg. [kmg]
+- 8331: c64_cass.xml: Changed the format of some tape labels. [Steven Coomber]
+- 8333: qx10.cpp: Corrected video memory size and mirroring (fixes graphics scrolling). [Brian Johnson]
+- 8352: chdman: Added some additional hard disk templates. [Davide Cavalca]
+- 8354: amiga_hdd.xml: Added hard disk images with Workbench pre-installed. [Davide Cavalca]
+- 8355: nes.xml: Hooked up Donkey Kong & Jungle Book pirate cartridge. [kmg]
+- 8356: machine/hp_taco.cpp: Implemented commands to read HP9825 tapes. [F.Ulivi]
+- 8357: c64_cass.xml: Added five items. [The Ultimate Tape Archive Team, Steven Coomber]
+- 8358: amiga_workbench.xml: Added AmigaOS 3.9 and AmigaOS 4.0 Classic. [archive.org, fsck.technology, Davide Cavalca]
+- 8359: bus/nes: Added support for a Big Nose 2-in-1 cartridge. [kmg, MLX]
+- 8361: bus/nes: Fixed a Super Mario Bros. 2 FDS pirate conversion. [kmg]
+- 8362: video/n64.cpp: Improved 8 BPP frame buffer mode and VI scan-out. [Ryan Holtz, krom]
+- 8363: bus/centronics/epson_lx810l.cpp: Added a fake reset button. [Golden Child]
+- 8364: video/gime.cpp: Adjusted constant RAM setting logic for $FExx area to fix Demon Attack splash screen. [Tim Lindner]
+- 8365: video/gime.cpp: Corrected timer period calculation, exposed in Pop*Star Pilot. [Tim Lindner]
+- 8366: bus/nes: Emulated recently-added YUNG-08 Super Mario Bros. 2 FDS conversion bootlegs. [kmg]
+- 8368: bus/nes: Fixed emulation for 31 in 1 multi-game cartridge. [kmg]
+- 8369: startouch.cpp: Fixed some grammar errors in comments. [ClawGrip]
+- 8370: cedar_magnet.cpp: Added Paris Dakar and Dracula's Castle. [Jose Marquez Retrobytes, Recreativas.org, David Haywood]
+- 8371: 8080bw.cpp: Added Rescate Lunar (Spanish bootleg of Lunar Rescue) [Ricardo - Factory Arcade, Recreativas.org]
+- 8372: radikaldarts.cpp: added Radikal Darts (Diana Version 7.29.25). [jordigahan, ClawGrip]
+- 8373: bus/nes: Fixed the three non-working games in the 11 in 1 Ball Series multi-game cartridge. [kmg]
+- 8374: sauro.cpp: Added Sea Wolf (Tecfri). [Lorenzo, Victor Fernandez (City Game), ClawGrip]
+- 8376: formats/imd_dsk.cpp: Fixed segmentation fault when saving FM tracks. [Jesse Marroquin]
+- 8377: hh_sm510.cpp: Re-scanned display for Elektronika Autoslalom. [algestam]
+- 8378: bus/nes: Added support for the Little Com 160 Korean multi-game cartridge. [kmg, NewRisingSun]
+- 8372: video/upd7220.cpp: Corrected address space to use word addressing, and fixed emulation of GCHRD command. [Brian Johnson]
+- 8381: epos.cpp: Swapped the order of the buttons on Beastie Feastie to match Super Glob and The Glob. [Steven Coomber]
+- 8382: fm7_cass.xml: Added thirteen items. [Cytlan, Gaming Alexandria, TheMechasaur]
+- 8383: ibm5150.xml: Moved Windows 1.x items from ibm5170.xml as they work on XT class systems. [Davide Cavalca]
+- 8384: ibm5150_hdd.xml: Added pre-installed MS-DOS, PC-DOS and Windows 1.0 images. [Davide Cavalca]
+- 8388: bus/nes: Added support for Caltron 9 in 1 prototype. [kmg]
+- 8389: lwriter.cpp: Corrected the polarity of the SCC interrupt signal. [Jeff Muizelaar]
+- 8390: bus/nes: Added support for a Kaiser 4-in-1 multi-game cartridge. [kmg]
+- 8391: lwriter.cpp: Added support for the original LaserWriter. [Jeff Muizelaar]
+- 8392: machine/smc91c9x.cpp: Improved full duplex switched mode, and implemented auto-release mode. [Kelvin Sherlock]
+- 8394: nes.xml: Removed fancybro, as it’s a game extracted from a multi-game cartridge. [kmg]
+- 8395: Added two items, replaced two items hacked for emulators with re-dumps, and removed another hack. [NewRisingSun, kmg]
+- 8396: bus/nes: Added support for several JY Company 4-in-1 bootleg cartridges. [kmg, famiac, NewRisingSun, MLX]
+- 8397: Fixed default snapshot/recording size when using the -uesx option. [Antonio Giner]
+- 8398: bus/nes: Added support for FC Genjin 8 in 1 (JY-119) and TV Game 5 in 1 cartridges. [kmg, CaH4e3, NewRisingSun, Bisqwit]
+- 8400: clshroad.cpp: Fixed colors and improved timings. [Angelo Salese]
+- 8401: bus/nes: Added support for 21 in 1 (K-3006) and 35 in 1 (K-3036) multi-game cartridges. [kmg, anonymous]
+- 8402: naomi.cpp: Removed placeholder comment for Driving Simulator now that it has been added. [f205v]
+- 8403: lwriter.cpp: Added support for LaserWriter Plus ROM. [Jeff Muizelaar]
+- 8404: bus/nes: Fixed Powerful 255 in 1, and added Powerful 250 in 1. [kmg, NewRisingSun]
+- 8405: video/upd7220.cpp: Made FIGD drawing use ead and mask to calculate drawing location. [Brian Johnson]
+- 8406: bus/nes: Added support for 150 in 1 Unchained Melody (Fight 150 Ver. Love). [kmg]
+- 8409: mc10.cpp: Corrected screen timings and visible area. [Tim Lindner]
+- 8410: bus/nes: Fixed graphics in several multi-game cartridges, and removed an under-dump. [kmg]
+- 8412: bus/nes: Added support for Super 8 in 1 (Including Rockin' Kats). [kmg]
+- 8413: naomi.cpp: Corrected some comments. [f205v]
+- 8415: cpu/rsp: Removed recompiler and implemented more instructions; video/n64.cpp: Fixed K4/K5 YUV factor handling. [Ryan Holtz]
+- 8416: bus/nes: Fixed 411120-C board emulation, and added a compatible game. [kmg]
+- 8417: bus/nes.xml: Hooked up Magic Carpet clones to correct devices (fixes graphics), and removed duplicate magicarps2. [kmg]
+- 8418: ksys573.cpp: Added several versions of Guitar Freaks and Guitar Freaks 2nd Mix. [Windy Fairy, Taro]
+- 8419: Updated to latest version of bx, bimg and bgfx. [Miodrag Milanović]
+- 8420: megadriv.cpp: Dumped BIOS from a late-model UK Mega CD with smaller, Sony-made PCB. [TwistedTom]
+- 8421: bus/nes: Fixed graphical issues in BB Car clones; nes.xml: Marked several non-working games as unsupported. [kmg]
+- 8423: lwriter.cpp: Added notes on VIA pin connections. [Jeff Muizelaar]
+- 8424: fmtowns_cd.xml: Added 30 items, re-dumped 17 items, and added two missing floppies. [redump.org, r09, wiggy2k]
+- 8425: bus/nes: Fixed bugs in emulation of Game Start type “A” boards. [kmg]
+- 8426: missbamby.cpp: Removed obsolete comment after confirming that Lucky Player uses a Cirsa 810702 PCB. [ClawGrip]
+- 8427: nes.xml: Set correct board types for several pirate games. [kmg]
+- 8428: bus/nes: Added support for 17 in 1 (60311C) and Super HiK 6 in 1 (A-030) multi-game cartridges. [kmg]
+- 8429: gfamily.cpp: Improved hardware notes. [ClawGrip]
+- 8430: machine/apple2common.cpp: Added disassembler support for GS/OS and ProDOS 16 calls. [Kelvin Sherlock]
+- 8431: miniguay.cpp: Corrected title of miniguay, and added notes about undumped versions. [ClawGrip]
+- 8433: geniusjr.cpp: Added C.Q.F.D Scientus (France). [PulkoMandy, ClawGrip]
+- 8434: viper.cpp: Added audio support, improved inputs and DIP switches, and fixed default NVRAM contents. [Windy Fairy]
+- 8435: bus/nes: Added support for 21 in 1 (GA-003) multi-game cartridge. [kmg, Consolethinks]
+- 8436: pc98_cd.xml: Added 16 items, and replaced 21 items with better dumps. [r09, redump.org, wiggy2k, sampson]
+- 8437: bus/nes: Improved support for Super HiK 300-in-1 cartridges, and added support for 500-in-1 cartridges. [kmg]
+- 8438: video/gime.cpp: Reverted memory mapping change from #8364. [Tim Lindner]
+- 8439: ibm5170_cdrom.xml: Added five GT Interactive 1995 releases of arcade ports. [David Silva]
+- 8440: seibuspi.cpp: Updated notes for jumper JP1 based on a Raiden Fighters Jet manual. [cam900]
+- 8441: bus/nes: Added support for 4 in 1 (K-3131GS) and 4 in 1 (K-3131SS) multi-game cartridges. [kmg]
+- 8442: bus/nes: Fixed menu access for a Contra/22-in-1 combination cartridge. [kmg]
+- 8443: util/zippath.cpp: Fixed selecting the root directory on non-Windows systems in file selection menus. [Tim Lindner]
+- 8444: video/avgdvg.cpp: Enabled X/Y flip for Major Havoc, as it’s supported by the hardware despite being unused. [Jess Askey]
+- 8445: bus/nes: Added support for four multi-game cartridges using two board types. [kmg, famiac, Consolethinks, NewRisingSun]
+- 8446: bus/nes: Improved emulation of 115 in 1 and related multi-game cartridges; nes.xml: Removed corrupt dump mc_110a. [kmg]
+- 8447: nes.xml: Set correct board type for badmintn. [kmg]
+- 8450: nes.xml: Set correct board types for ejim2d, sdance, and smb8a. [kmg]
+- 8451: megadriv.xml: Trimmed under-dump for s19in1 to the size of actually dumped data and marked it as bad. [kmg]
+- 8452: sound/ics2115.cpp: Improved volume envelope emulation using logic described in patent. [nabetse]
+- 8453: bus/nes: Improved support for various RCM multi-game cartridges. [kmg, NewRisingSun]
+- 8457: missbamby.cpp: Added Basket. [jordigahan, Miguel Arcade, ClawGrip]
+- 8458: bus/nes: Improved interrupt and banking logic for Sunsoft 3 boards. [kmg]
+- 8459: vsmileb_cart.xml: Added ten items, and re-dumped one item. [skaman, ClawGrip]
+- 8460: gfamily.cpp: Added a BIOS dump found on a Pentium 4-based variant. [jordigahan, ClawGrip]
+- 8461: bus/nes: Improved emulation of two Contra multi-game cartridges. [kmg]
+- 8462: bus/nes: Improved emulation of three Super Mario Bros. 2 FDS conversion bootleg boards. [kmg]
+- 8464: vsmile_cart.xml: Added two items. [skaman, ClawGrip]
+- 8465: rfslotsmcs48.cpp: Added two versions of Recreativos Franco Baby Fruits. [Salvador, parramon, ClawGrip]
+- 8466: bus/nes: Added support for 2 in 1 - Mortal Kombat 6 & Mortal Kombat 7, and removed extracted games. [kmg]
+- 8467: apple2_flop_clcracked.xml, apple2_flop_orig.xml, apple2gs_flop_orig.xml: Added latest dumps and cracks. [4am, Firehawke]
+- 8468: opercoin.cpp: Added Multi Baby. [jordigahan, ClawGrip]
+- 8469: render/bgfx: Fixed palette and UYVY conversion shaders (MT07760), and avoided poorly supported RGBA8 format. [Ryan Holtz]
+- 8472: bus/nes: Improved Super Game bootleg emulation, and fixed a Boogerman bootleg. [kmg, Consolethinks]
+- 8473: vsmileb.cpp: Added default input assignments for the slider, and demoted to not working due to audio issues. [Ryan Holtz]
+- 8474: n64.xml: Added PowerFlash (Europe) Game Boy emulator cartridge. [TeamEurope, ClawGrip]
+- 8477: spectrum_cass.xml: Updated metadata for many items. [spectrumcomputing.co.uk, worldofspectrum.org, ArcadeShadow]
+- 8478: bus/nes: Added support for MMC3 reset-based 4-in-1 multi-game cartridges. [kmg, NewRisingSun, taizou, MLX]
+- 8479: bus/nesmmc3_clones.cpp: Fixed an issue with dangling references to temporaries. [kmg]
+- 8480: ibm5170.xml: Added three items, and replaced two items with clean dumps. [The Good Old Days, ArcadeShadow]
+
+
+ソースの変更点
+--------------
+- megasys1.cppの更新: [Ivan Vangelista]
+ * 異なるp47jのROMボード構成をドキュメント化 [CPsystem3]
+ * オーディオCPUのメモリマップを修正し、edfblが未吸い出しのPICを持つことを確認 [hammy]
+
+- c64_cass.xml: テープが使用できないため、無効なROMファイル名エントリを修正。(#8331) [Steven Coomber]
+
+- tx0_64kw: 修正いろいろ。[AJR]
+ * 複数回使用された場合にIOSが実際にI/Oを待つように変更
+ * OPRの半分を無効にするbreak文を削除
+ * マイナスのゼロサムを正規化しない(tx0_8kw にも適用)
+
+- hp_taco: HP9825のテープ読みこみコマンドを追加。[fulivi]
+
+- tx0_8kw: IOSの修正。[AJR]
+
+- apple2.cppの更新。[arbee]
+ * IIe以前のマシンでは、$C01Xの読み込みにキーダウンフラグがありません [R. Belmont]
+ * Pravetz 8Mは正しいキャラクタROMを持つようになりました [Petko Bordjukov]
+
+- bus/nes: Big Nose 2-in-1カセットをサポート。[0kmg]
+ * bignfoを非サポートに降格。多くのCamericaゲーム同様タイミングに問題があります。また追加された2-in-1では動作しません
+
+- bus/nes: 動作不可なWhirlwind LE10 SMB2 FDS変換を修正。(#8361) [0kmg]
+
+- nes.xml: 2dkjbの海賊版に正しいボードタイプを設定。(#8355) [0kmg]
+
+- f2mc16: アップデートと修正。[AJR]
+ * 命令やモードをさらにいろいろエミュレート
+ * ダイレクトアドレッシングモードのバンキングを修正
+ * CLRBのセマンティクスとSETBで消費されるバイト数の修正
+ * SUBおよびCMPのNおよびZフラグの計算ミスと、SUBでの不正な結果の書き込みを修正
+ * INC(W)(L) A および DEC(W)(L) A疑似演算を逆アセンブルで使用
+
+- system1: スペーシング。[hap]
+
+- trspacmis: 会社名をタイトル文字列に配置。galaxian.cppのspcmissionが最近追加したセットと干渉していた。[hap]
+
+- apple2gs: TrueGS SHR Linearization testをパス。[R. Belmont, Peter Ferrie, John Brooks]
+
+- dpsv55: LCDスクリーンを追加。[AJR]
+
+- 強制的に一定のRAMがROMの設定を上書きしないよう修正。[tim lindner]
+
+- coco3: GIMEタイマーが本来の2倍の速さなだったのを修正。(#8365) [tim lindner]
+
+- trs80_cass: Hoppyの使い方を修正。[Robbbert]
+
+- segas16b.cpp: 規制当局の承認文書の日付に基づいて、「The Destroyer From Jail」の年度を1991年に設定。[Vas Crabb]
+
+- N64のビデオ調整: 8bpp モード、VIスキャンアウトの改善。(#8362) [MooglyGuy]
+ * -n64: 8bppフレームバッファモードの処理を修正。VIスキャンアウトの機能を調整 [Ryan Holtz, krom]
+ * -rdp: "マジックマトリックス"のディザパターンの軸を入れ替え、ハードウェアのテストと一致 [Ryan Holtz, krom]
+ * -n64: 不要なキャストを削除
+
+- neogeo.cpp: ドキュメント内のThrash Rallyのタイポを修正。[Angelo Salese]
+
+- hh_hmcs40: gscobraのROMのシャッフルを削除。[hap]
+
+- ns32000: smr命令のバグ修正。[Patrick Mackinlay]
+
+- ns32202: カウンタの電流値の実装。[Patrick Mackinlay]
+
+- ns32kdb: 追加ファームウェア。[Vince Ibeachum]
+ * シリアル診断サポート
+ * タイマークロックの修正
+
+- ns32kdb: epromラベルの修正。[Patrick Mackinlay]
+
+- ns32202: シンタックスエラー修正。[Patrick Mackinlay]
+
+- ns32082: プログラムフロートレースサポート。[Patrick Mackinlay]
+
+- dangbar.cpp: sspanicラベルのtypo修正。[Scott Stone]
+
+- qx10.cpp: ビデオRAMサイズを訂正 - 128kのみ存在(グラフィックスクロールの修正)。(#8333) [Brian Johnson]
+
+- bus/nes: YUNG-08 SMB2 FDSの変換に対応。(#8366) [0kmg]
+
+- royalmah.cpp: rkjanoh2にもバンキングを追加。ほぼ再生可能なものの、色は不良。[Ivan Vangelista]
+
+- f2mc16: 一般的なクリーンアップ。[AJR]
+ * インクリメント，デクリメント，ショートダイレクトバンキング用のヘルパー関数を追加
+ * 一時変数の使用を合理化
+ * XOR A, #imm8で、アキュムレータの最下位8ビットのみを変更
+ * MOVW @RLx + #disp8, Aで、8ビットではなく16ビットの書き込み
+ * Sフラグが設定されている場合、@RW3または@RW7のアドレッシングにUSBではなくSSBを使用
+ * フラグ計算を多数修正
+
+- pc9801: egcの問題を引き起こすコードの無効化と、色比較をサポート。[cracyc]
+
+- bpset/wpset/rpset/mapコマンドで、インデックスや名前の前に#を付けて最初のパラメータとして渡すことで、どのcpuでも動作できるように改良。
+  [smf]
+
+- f2mc16: アップデート。[AJR]
+ * オペコードをさらにエミュレート
+ * デバッガ用の割込みコールバック追加
+ * MOVW io, Aの正しい逆アセンブル
+
+- motoxgo: 設定に"エクストラな"I/O CPUを追加。[AJR]
+
+- OSD入力モジュールをちょっとクリーンアップ。[Vas Crabb]
+ * DirectInput 7以前のサポートを削除。もう何年もテストされておらず、サポートされているOSでは関係ありません。DirectInputはバージョン8で
+   事実上終了しており、今後APIの更新が行われる可能性はありません
+ * より多くのstring[_view]、そしてより少ないC文字列を使用して、スコープの引き締め
+
+- bus/nes: BMC 31 in 1海賊版マルチゲームを修正。(#8368) [0kmg]
+
+- trs80_cass: つまらないミスを修正。[Robbbert] 
+
+- fdc37c93x.cpp: マウスIRQ用のプレースホルダルーチンを追加。[yz70s]
+
+- i82439hx.cpp: pciコンフィギュレーションスペースマップの修正とpamレジスタライトのデバッグログへのデコード。[yz70s]
+
+- i82371sb.cpp: 変更いろいろ。Windows 98はpcipcドライバでideバスマスターコントローラを認識。[yz70s]
+ * pci configuration space mapsの修正
+ * ideデバイスのcommand_w/rの無駄な再定義を削除
+ * isaブリッジのnmi、stpclk、extsmiラインのプレースホルダー
+ * idetimレジスターへの8ビット書き込みを正しくサポート
+
+- bus/nes: 11 in 1 Ball Seriesマルチカセットで3つのゲームが動作しないのを修正。(#8373) [0kmg]
+ * ゲームを修正: Volleyball, Paddle, Dynamite Bowling
+
+- maciifx: PIC(Peripheral Interface Controller)デバイスとOSSの割り込み制御を暫定的に追加。[AJR]
+ * machine/applefdintf.*: パーミッションの修正
+
+- imd_dsk.cpp: FMトラックを保存する際のセグメンテーションフォールトを修正。[Jesse Marroquin]
+ * FMトラックのセルサイズが正しくないと、ビットストリームが空になり、最終的にdata.empty()のセグメンテーションフォールトの原因となります
+
+- applepic: 918da8411db59ec376d800ae2a424344a6736a25 から不足しているデバイスファイルを追加しました。[AJR]
+
+- applepic: タイマーと残りのGPIOを追加。[AJR]
+
+- swim1: デバッグの補助のため、読み取り副作用を無効化。[AJR]
+
+- chdman: ハードディスクテンプレートをさらに追加。(#8352) [Davide Cavalca]
+
+- hh_sm510: auslalomの表示を再スキャン。(#8377) [algestam]
+
+- startouch.cpp: タイポを修正。(#8369) [ClawGrip]
+
+- mermaid.cpp: ステートセーブに足りない項目を追加、メモを更新。[Ivan Vangelista]
+
+- mermaid.cpp: 測定されたクロックを使用するよう更新、ノートを追加、mermaidとクローンを表示不完全にマーク。[Ivan Vangelista]
+
+- jantotsu.cpp: finderを使用するように更新、その他小さなクリーンアップ。[Ivan Vangelista]
+
+- epos.cpp: beastfのceiling/call のエレベーターボタンの割り当てを「super glob/the glob」に合わせて入れ替え。[Steven Coomber]
+
+- taitopjc: ロックアップの問題を修正。タイルマップのエミュレーションを改善。[Ville Linde]
+
+- OSD=macのコンパイル修正。[R. Belmont]
+
+- voodoo: coverityが言ってきたのマイナーな不満に対応。[Aaron Giles]
+
+- apple2.cpp: Pravetz 82用の正しいキャラクタROMを追加して使用。[sandacite.com, R. Belmont]
+
+- tc0780fpa: optigerのテクスチャ問題を修正。[Ville Linde]
+
+- formats/fsmgr.cpp: 文字列イテレータをインデックス化できるとの仮定を排除（reported by coverity）。[Vas Crabb]
+
+- bus/nes: Little Com 160 韓国版マルチカセットをサポート。(#8378) [0kmg]
+
+- coco12.cpp: インストールされているRAMが1バイトずれているのを修正。MT#08045を修正。[Nigel Barnes]
+
+- bus/nes: Caltron 9 in 1プロトタイプのサポート。[0kmg]
+ * PCBの動作をより正確に反映させるためCaltron 6 in 1を修正。動作していなかったゲーム(Cosmos Cop)を修正
+
+- ibm5170.xml, ibm5170_cdrom.xml: 親/クローンの問題を修正 + 一意に識別するため関連するラベルを整理。[Scott Stone]
+
+- lwriter.cpp: SCC割り込みの状態を反転。(#8389) [Jeff Muizelaar]
+
+- TMS57002用に個別のdasmヘッダ生成。[Miodrag Milanovic]
+
+- 現在のビルドシステムで正しくビルドできるようちょっとしたハック。[Miodrag Milanovic]
+
+- albazc.cpp, albazg.cpp, chanbara.cpp: オブジェクトファインダーの使用とその他のマイナーなクリーンアップ。[Ivan Vangelista]
+
+- smc91c96の更新(a2osx w/ lancegs)。[Kelvin Sherlock]
+  1. m_loopback_resultは、負のステータスコードが負のままであるように、符号つきでなければいけない
+  2. FDSE ビットがマスクアウトされていた 
+  3. 全二重のスイッチドインターネットがアクティブな場合、ディフェラルとコリジョンは使用されない
+  4. AUTO_RELEASE の実装
+
+- namcofl: ネットワークステータスエラーを修正。これによりフリーズしたフラッグマンが直ります。[Angelo Salese]
+
+- timelimt: メインcpuのnmiレートを半分にし、spriteramのout of boundsアクセスを修正。[hap]
+
+- fdc37c93x.cpp: データシートに従い、ns16450 の代わりにns16550 をRS232に使用。[yz70s]
+
+- nes.xml: fancybroのマルチカセット抽出ブツを削除。(#8394) [0kmg]
+ * このゲームのCRCは、少なくとも1本のマルチカセット mc_52gamに一致します。抽出されたゲームは、リセットするとマルチカートメニューに戻ろ
+   うとするのでクラッシュします
+
+- lwriter.cpp: オリジナルのLaserWriterをサポート。(#8391) [Jeff Muizelaar]
+
+- bus/nes: Kaiser 4-in-1カセットをサポート。(#8390) [0kmg]
+
+- ssfindo.cpp: QS1000を暫定実装。ARM_VIDC20 デバイスにバグがあるようで、ノイズやサウンド不具合あります。QS1000の音を聞くには、関連する
+  ボリュームスライダを0にします。[Ivan Vangelista]
+
+- megasys1.cppを更新。[Ivan Vangelista]
+ * edfblのXTALとクロックを検証 [caius]
+ *「ピーカブー！」Japan 1.1を吸い出し。peekabooのセットと一致 [Ricardo Gonçalves]
+ * 1Aボードで動作するゲームのPROMロケーションを標準化 [hammy]
+
+- nes.xml: 2本吸い直し、2本新規吸い出し、1本削除。(#8395) [0kmg]
+ * smb10とsmario14をカセットの吸い直したブツに置き換え - 以前のもの、大昔のエミュレータでゲームを動作させるためにROMをハックしたもので
+   した [NewRisingSun]
+ * ROMハックのsmb11aを削除 - smb11は正しい海賊版のMMC3派生版の吸い出しなので残します
+ * magicblksをスロットデバイスに実装 - グラフィックスを修正
+
+- video/upd7220.cpp: アドレス空間にワードアドレッシングを使用するようにし、 draw_charでead/dad/maskを正しくサポート。(#8379)
+ [Brian Johnson]
+
+- z8536: デイジーチェーンのサポート改良、データ書き込み時のポート割り当ての修正。[Dirk Best]
+
+- apxen: チェックポイント。画面に何か出るようになった。[Dirk Best]
+ * ビデオスロットとモノラルグラフィックビデオカードの実装
+ * CIO, SIO, RTC, PIT, SN76489を実装
+ * Z80デバイスのデイジーチェーンを追加し、PICに接続する
+ * システムコントロールポートの追加
+
+- bus/nes: JY Company 4-in-1海賊版カセットをサポート。[0kmg]
+
+- maygay1bsw.cpp: m1jbondマシンのサウンドロムを追加。[Highwayman]
+
+- ssfindo.cpp: フィードバックとマイナーコメントの更新に対応。[Ivan Vangelista]
+
+- z8536: マジックナンバーの回避。[Dirk Best]
+
+- emu/render.cpp: スナップショット/レコーディングの自動サイズ調整を修正。(#8397) [antonioginer]
+ * これは、-uesxと強制的なスケールファクタを使用した場合の、スナップショットとレコーディ ングの間違ったスケーリングを修正します
+
+- bus/nes: 8-in-1と5-in-1のマルチカセットに対応。[0kmg]
+
+- apple2gs: 80カラムのページ2表示を修正し、Applecornを修正。[Peter Ferrie, R. Belmont]
+
+- pc9801: underline attrを4ピクセル右にシフト。[cracyc]
+
+- ssfindo.cpp: ppcar用のDIPを実装。[Ivan Vangelista]
+
+- zaccaria.cpp: プログラムROMが前より大きいjackrabtセットの新しい吸い出しについてのメモを追加。[flocke]
+
+- vamphalf.cpp: yorijoriが起動するようになりましたが、今のところROMパッチが必要なので動作しないままにしてます。[Ivan Vangelista]
+
+- taito_f2.cpp: ninjakのデフォルトの残ライフを3に修正(全てのOFFの設定と一致)。[Angelo Salese]
+
+- naomi.cpp: 初期/プロトタイプのSega 837-13844 JVS I/Oボードを吸い出し。[Fabrice Arzeno]
+ * ドキュメントの追加 [MetalliC]
+
+- taitopjc: セーブステートの修正。[Ville Linde]
+
+- fdc37c93x.cpp: 実際に論理デバイスレジスタを読み込み。[yz70s]
+
+- lwriter.cpp: LaserWriter Plus ROMのサポート。(#8403) [Jeff Muizelaar]
+
+- naomi.cpp:「ドライビングシミュレーター」の重複エントリを削除。(#8402) [f205v]
+
+- bus/nes: Powerful 255 in 1を修正し、その親を追加。(#8404) [0kmg]
+
+- crystal.cpp: wulybulyのテストスイッチをドキュメント化。[Ivan Vangelista]
+
+- bus/nes: 21-in-1と35-in-1のマルチカセットのサポート。(#8401) [0kmg]
+
+- clshroad.cpp: 修正いろいろ。(#8400) [Angelo Salese]
+ * clshroad.cpp: タイルマップカラーバンクの追加、Fire Battleの稲妻の点滅とカラーサイクルの修正 
+ * clshroad.cpp: clshroadで全てのクロック周波数をハンドチューン、vblank irqレートを半分にし、ビデオとサウンドのタイミングを論理的に同期
+ * wiping.cpp, wiping.cpp: Xtalに変換し、暫定的なスクリーンのrawパラメータを追加
+ * audio/wiping.cpp: 内部で2で割らないようカスタムオーディオを作成
+ * clshroad.cpp: ドキュメントのマイナーな再構築
+
+- lwriter.cpp: マイナーな修正とクリーンアップ。[Vas Crabb]
+ * マシンコンフィグで初期信号状態を設定しない - 起動時に行う
+ * マシンのリセット時に子デバイスをリセットする必要はない
+ * マシンのマクロと同じ順序でROMを配置
+
+- bus/nes: mc_150umマルチゲームカートリッジのサポート。(#8406) [0kmg]
+
+- cv1k.cpp: futaribljのプログラムROMをクリーンな吸い出しに置き換え。以前のものはアップグレードされたfutari15のPCBから吸われたもので、
+  末尾にゴミが含まれていました。[XeD]
+
+- c64_cass.xml: ソフトウェアリストファイルの標準を推進するためのご提案。(#8357) [Steven Coomber]
+
+- bus/nes: マルチカセットmc_s8rkをサポート。(#8412) [0kmg]
+
+- bus/nes: 一部マルチカセットのグラフィックを修正、アンダーダンプを削除。(#8410) [0kmg]
+
+- ap2000: リセットをセントロニクスのinit信号に実装。(#8363) [goldnchild]
+
+- MC10: 垂直方向のリトレースラインを隠すためラスターのタイミングを修正。(#8409) [tim lindner]
+
+- tumbleb.cpp: tumblepbaようにokiの暫定的な実装。[Ivan Vangelista]
+
+- apxen: DMAとFDCを実装し、システムがフロッピーから起動可能。[Dirk Best]
+
+- bus/nes: Contraの海賊版をサポート。(#8326) [0kmg]
+
+- naomi.cpp: ノートを更新。(#8413) [f205v]
+ * 171-8132BカセットのマスクROMのPIN番号を修正
+ * ゲームを年号/番号順にソート
+
+- bus/nes: NTDECカートリッジのサポートを改善しました。(#8239) [0kmg]
+
+- ibm5150: Windows 1.xのセットをibm5170から再配置。(#8383) [Davide Cavalca]
+
+- N64の修正いろいろ。(#8415) [MooglyGuy]
+ * -rdp: 32ビットの再サンプルフレームバッファにおける不正なチャンネルスワッピングを修正 [Ryan Holtz]
+ * -rsp: LWVとVMOVの動作を修正。予約済みの命令V056、V057、V073、およびVNULLを追加 [Ryan Holtz, krom]
+ * -rdp: 一部のゲームでフレームバッファのリサンプリングが画面境界を超えないよう一時的に調整 [Ryan Holtz]
+ * -n64: ハードウェアテストに基づいてSP DMAの動作を修正 [Ryan Holtz]
+ * -rsp: 未使用のDRCおよびSIMDのサポートを削除。コードのクリーンアップ [Ryan Holtz]
+ * -n64: スレッド化された描画コードに K4 および K5 係数を渡す。Conker's Bad Fur Day の黒いジオメトリを修正 [Ryan Holtz]
+ * -aleck64: 以前のコミットで発生したコンパイルの問題を修正 [Ryan Holtz]
+
+- amiga_workbench: 部分的に巻き戻し。新しいAmigaOSは現時点でまだ製造中で販売されているため。[hap]
+
+- apxen: キーボードを実装。[Dirk Best]
+
+- bus/nes: BMC 411120-Cカートリッジのエミュレーションを修正し、互換性のあるゲームを追加。(#8416) [0kmg]
+
+- nes.xml: Magic Carpetクローンの修正。(#8417) [0kmg]
+ * magicarpとmagicarps1を適切なカートリッジデバイスに接続 - ゲーム内のグラフィックを修正
+ * magicarps1と同じ吸い出しブツであるmagicarps2を削除しました
+
+- bxを最新版に更新。[Бранимир Караџић]
+
+- bimgを最新版に更新。[Бранимир Караџић]
+
+- bgfxを最新版に更新。[Бранимир Караџић]
+
+- debugimguiを最新のimguiでコンパイルするように更新。[MooglyGuy]
+
+- bgfxをコンパイル。[Miodrag Milanovic]
+
+- shader.mkをbgfxのものに合わせて更新。[Miodrag Milanovic]
+
+- apple2: Stellation Q-68およびQ-68 Plus 68008コプロセッサカードをサポート。[Rob Justice, R. Belmont]
+
+- apple2: 2つのQ-68カードは同じROMを使用。[R. Belmont]
+
+- tryout.cpp: オブジェクトファインダの使用と、マイナーなクリーンアップ。[Ivan Vangelista]
+
+- gp32.h: drvnoclearのビルドで問題になっていた配列を初期化。[Ivan Vangelista]
+
+- mame.lst: シンプルなマシンにコメントを追加。[Scott Stone]
+
+- *mame.lst: マシンにコメントを追加。[Robbbert]
+
+- lwriter.cpp: VIAピンのドキュメントを改良。(#8423) [Jeff Muizelaar]
+
+- bus/nes: BB Carのクローンにおけるグラフィックの問題を修正。(#8421) [0kmg]
+ * mihunche, mihunchea, sccheのセットでグラフィックの問題が発生していた
+ * 動作しないゲームをサポート外に降格
+
+- bus/nes: Game Star type "A" ボードのバグを修正。(#8425) [0kmg]
+ * 一部のゲームがロードされなかったり、異なるマルチカセットで壊れたグラフィックでロードされるのを修正
+
+- fmtowns_cd.xml: 新規吸い出し30本、置き換え17本、不足フロッピーの追加。(#8424) [r09]
+ * vircall2のフロッピーディスクを吸い出し直し [wiggy2k]
+ * cm1denwaとnhkzkei2で不足していたフロッピーディスクを追加 [wiggy2k]
+
+- missbamby.cpp: 不要なコメントを削除。(#8426) [ClawGrip]
+ * missbamby.cpp: Cirsa Lucky Playerのテクニカルマニュアルを発見。このゲーム (Cirsa 810702 PCB) は確かに8155を使用しているので、コメ
+   ントを更新
+
+- naomi.cpp, segac2.cpp, 各種ソフトリスト: 日本製ゲームタイトルが一貫したローマ字表記になるように調整。[Justin Kerk]
+
+- audio/mw8080bw.cpp: ドライバとオリジナルの「スペースインベーダー」基板との比較から得られたメモを追加。[Guru]
+
+- Windowsで動作するように修正。[Miodrag Milanovic]
+
+- nes.xml: 一部の海賊版ゲームに正しいボードタイプを設定。(#8427) [0kmg]
+
+- video/upd7220.cpp: 描画位置の計算にeadとmaskを使用するようにFIGDを更新。(#8405) [Brian Johnson]
+
+- bus/nes: いろいろなマルチカセットの修正など。(#8291) [0kmg]
+ * pengseal: 製造元とタイトル画面のグラフィックを修正
+ * dongdong: これようのユニークボードのデバイスを追加 (動作不可と表示するべきでした)
+ * mc_sg20: 全ゲームでグラフィック修正、Hogan's Alleyでゲーム中にランダムにボンバーマンにリセットされることはなくなりました
+ * mc_190: コードのリファクタリング - これはmc_sg20と同じで、ミラーリングビットが付いています
+ * mc_1994: バンキングコードを修正 - すべてのゲームが動作可能
+ * mc_4ck1: Contraにはタイリングの問題があるものの、実行可能; ジャンパー設定を追加
+ * mc_6m23: 全ゲームのグラフィックを修正 (光線銃はバス以外の問題で未動作)
+ * magicdrg: 背景のタイリングを修正
+
+- bus/a2bus/q68.cpp: 様々な問題を修正。[Vas Crabb]
+ * friended派生クラスを修正
+ * 粗い名前付けのために使用されるデバイスのショートネームに "a2"プレフィックスを追加
+ * PCHなしでビルドするために、明示的にプレフィックスヘッダを追加
+ * スペースとタブが混在した奇妙なインデントを修正
+
+- bus/nes: 17-in-1 および 6-in-1 マルチカセットをサポート。[0kmg]
+
+- gfamily.cpp: ノートの改善。[ClawGrip]
+
+- tx0_64kw, tx0_8kw: 修正と改善。[AJR]
+ * OPRに標準的な名前を使用して、ディスアセンブラを完全に書き直し
+ * AMBが指定されていない場合、サイクル1でMBRをクリア
+ * COMの前にAMBを実行(tx0_64kw)
+ * Flexowriterで印刷される文字を修正（ビット順が誤って逆だった）
+ * CPUデバイスのロギングのモダン化
+ * 命令サイクルごとにデバッガフックを一度だけ呼びだし
+
+- ch376.cpp: マウントステータスとエントリのフォーマットを修正。[Peter Ferrie]
+ * BOOTiで、.DOと.POファイルを発見可能
+ * BOOTiでHDVを起動可能
+
+- apple2gsの逆アセンブラ更新: (#8430) [ksherlock]
+ * gs/os & prodos 16コールのJSLサポート
+ * JSL/JML/STAベクトルのサポート
+ * インラインデバッグネームのサポート (Apple IIgs Tech Note #103)
+
+- BGFXシェーダーの再コンパイル。[Miodrag Milanovic]
+
+- 適切なアサートを得るため、BGFX_CONFIG_DEBUGを有効化。[Miodrag Milanovic]
+
+- bgfx_backendのヘルプテキストを更新。[Robbbert]
+
+- 'scientus'を追加。[ClawGrip]
+
+- crystal.cpp: オブジェクトファインダの使用と、その他マイナーなクリーンアップ。[Ivan Vangelista]
+
+- onetwo.cpp: PCB上のXTALから周波数を算出。[Ivan Vangelista]
+
+- miniguay.cpp: ゲーム名を修正、メモを追加。(#8431) [ClawGrip]
+
+- bus/nes: マルチカセットをさらに修正。[0kmg]
+ * Super HiK 300-in-1関連のマルチカセットのサポートを改善。一部ゲームのグラフィックを修正し、9999-in-1が動作可能
+ * 500-in-1と関連マルチカセット用の不足ボードを追加。これらは.nesのローダでマッパー217に正しく割り当てられています
+
+- ti99: periboxでは19ビット幅なので、アドレスにuint16_tではなくoffs_tを使うよう変更。[Michael Zapf]
+
+- swim1, swim2: DAT1BYTE出力のコールバックを実装。[AJR]
+
+- bus/nes: 21-in-1マルチカセットをサポート。(#8435) [0kmg]
+
+- MT 08050: ginganin: PCMサンプルが欠落。[Robbbert]
+
+- MSVCの修正。[Aaron Giles]
+
+- coco3: constant RAMの修正を巻き戻し。(#8438) [Tim Lindner]
+
+- seibuspi.cpp: ジャンパーJP1のメモを追加/修正。[cam900]
+
+- apple2gs: Silpheedのような、読み込みでジョイスティックをトリガするゲームのZipGSの遅延を修正。[R. Belmont, TheKinsie]
+
+- bus/nes: Contra/22-in-1のコンボカセットでメニューアクセスを可能にしました。[0kmg]
+
+- sdl ui: ルートパスの選択を修正。(#8443) [tim lindner]
+
+- galaxian.cpp:  porteraの入力を修正 (porterとは100%同じではない)。 MT#8051に対応。[Scott Stone]
+
+- megacd2 euro 2.11 biosを吸い出し。(#8420) [Tom]
+ * megadriv.cpp: mega-cd euro v2.11 biosを追加。[TwistedTom]
+
+- サポートされていないプラットフォームを削除。[Miodrag Milanovic]
+
+- avgdvg.cpp: XY反転をサポート。(#8444) [Jess Askey]
+
+- bus/nes: 4-in-1マルチカセットを2本サポート。(#8441) [0kmg]
+
+- デバッガ関連機能の削除とクリーンアップ。[AJR]
+ * ホットスポットリードトラッカーを削除。この実装はあまり強固ではなかったものの、 メモリシステムの変更によりほとんど役目がなくなりまし
+   た。また、この機能が目的としていた"スピードアップの機会"は、 現在のエミュレーションの観点からはあまり重要ではありません
+ * CURSP/GENSPステートシンボルと汎用sp()ゲッターを削除。セマンティクスのスタックはCPUアーキテクチャによって大きく異なるため、あまり意味
+   がありません (スタックポインタが登録されていない一部のCPUコアに"SP"シンボルが追加されていた)
+ * device_state_interfaceへのキャッシュされたポインタと、state()の高速アクセサをdevice_tから削除。device_state_interfaceのほとんどの
+   ユーザは、特定のCPUデバイスタイプへのポインタをすでに保持するか、インタフェースの存在を最初に確認する必要がありました
+ * PCメモリ書き込みトラッカーを、PC履歴インデックスをピークするのではなく、命令コールバックがマスクアウトされていても動作するpcbase()を
+   使用するように変更
+ * machine.hから廃止されたウォッチポイント関連の定義を削除
+
+- divtlb.cpp: モジュラス演算子によるクラッシュの修正。オリジナルのコードでは、すべての値が符号付き整数であるため、m_dynindexがオーバー
+  フローして負になり、負の値を正の値でモジュラスすると負の結果になり、最後に次の配列を読み込むとプログラムがクラッシュします。また、
+  m_dynindexの最大値に1を加えた値は、一般的にm_dynamicの倍数ではないため、これによりliveindexの値が跳ね上がります。[yz70s]
+
+- schexx: メモリをマッピング。[AJR]
+
+- bus/nes: 2つのボードタイプで4つのマルチカセットをサポート。[0kmg]
+
+- std::clampを使うソースファイル増加。[AJR]
+
+- nes.xml: badmintnの正しいボードタイプを設定。[0kmg]
+
+- bus/nes: 115-in-1関連のマルチカートのエミュレーションを改善。(#8446) [0kmg]
+ * 2つのデバイスをマージ（同一のマッパー225と255）
+ * 大きなサイズのカセットが動作可能になりました (セットmc_110, mc_115)
+ * ゲーム内の設定に影響すると思われる4ニブルのワークRAMを追加
+ * 吸い出し不良の可能性ありとされていたセット、mc_110aを削除。これはmc_110のPRG ROMの半分（256Kのチャンク）しか含まれていませんでした
+
+- cd32.xml, k28m2.xml, megadriv.xml, msx1_cart.xml, msx2_cart.xml, neogeo.xml, timex_cass.xml - 正しいステータスを示すため、コメントさ
+  れたエントリを調整。[Scott Stone]
+
+- saitek_osa: init順序の問題を防止。[hap]
+
+- 実装不足。[Miodrag Milanovic]
+
+- NDKでサポートされていないプラットフォームのファイルを削除。[Miodrag Milanovic]
+
+- 3dom2_te.cpp: clampにC++17ライブラリ関数を使用（値が0以下になる可能性がない場所ではstd::minも使用）。[AJR]
+
+- snes.xml - rom名エントリステータスの明確化をコメント。[Scott Stone]
+
+- viper.cpp: オーディオのサポート。入力の更新。デフォルトのNVRAMコンテンツを改善。(#8434) [987123879113]
+ * 互換性リストの更新、NVRAM追加、入力とゲーム別DIPスイッチ追加
+ * ポートのDIP配置の値を修正
+ * boxingmのパッドコントローラに関するコメントを追加
+
+- dvmemory: データフォーマットを指定するマジックナンバーの代わりに、型つきenumを使用。[AJR]
+
+- debugger/win/memorywininfo.cpp: ビルドの修正。[AJR]
+
+- enigma2.cpp: dip配置のマイナーアップデート。[Ivan Vangelista]
+
+- specpls3_flop:  未吸い出し/未ハッシュエントリの検証に使用するドキュメントへのリンクを追加。[Scott Stone]
+
+- 行あたりのチャンク数が少なすぎる場合、浮動小数点フォーマットを選択してしまうデバッグメモリビューアの例外を修正。[AJR]
+
+- ics2115：ネクストステートロジックを使用したサウンドの改善。[Esteban Diez Laiz]
+
+- megadriv.xml: s19in1の吸い出しを差し替え: (#8451) [0kmg]
+ * このマルチカセットが完全動作しないのは、吸い出し不良のため -- 後半の2MBが欠落しており、前半の繰り返しになっている。新しいチェック
+   サムは最初の2MBのもの
+
+- nes.xml: ejim2d, sdance, smb8aで正しいボードタイプを設定。(#8450) [0kmg]
+
+- pico.xml - 利用できない吸い出しデータのソース、サイズメタデータを埋めるため他の吸い出しのリージョンデータを使用していることをドキュ
+  メント化。[Scott Stone]
+
+- pcipc.cpp: セカンダリide割り込みをirq15ではなくmirq0ラインに接続。[yz70s]
+
+- hh_hmcs40: bpengoのsvg改良。[hap, eggs]
+
+- bus/nes: いろいろなRCMマルチカセットのサポート改善。(#8453) [0kmg]
+ * ボードgs2004とgs2013が動作するようになり、これらを関連クラスに統合 (固定バンク番号による違いのみ)
+ * tf9in1ボードを簡素化し、グラフィックスの問題を修正 (mc_20a, mc_tf9 を設定)
+
+- Androidでのログ書き出しをダイレクトに使用。[Miodrag Milanovic]
+
+- 最近の変更に対するフォーマットの統一。[Vas Crabb]
+
+- champbas.cpp: tbasebalの一部エリアをマッピングし、ロギングを追加。[Ivan Vangelista]
+
+- taito_f2.cpp: MT08053を修正。[Ivan Vangelista]
+
+- adam_cart.xml, jazz.xml:  コメント付きromエントリのステータス修正とフォーマット修正。[Scott Stone]
+
+- 「Pooh's Hundred Acre Wood Adventure」 (USA)を吸い直し。[skaman]
+
+- pc98: moritashの修復とbaddumpにマーキング。[cracyc]
+
+- tc0780fpa: テクスチャラッピングの改善。[Naibo]
+
+- bus/nes: SMB2FDSの海賊版基板3種類をアップデート。[0kmg]
+ * IRQホールドラインのセマンティクスを正しいセット/クリアに置き換え、この海賊版の最新情報をもとにコードをクリーンアップ
+
+- decmate2: 31Z BIOS (#2)のROMファイルをパッチして、JMP I命令を修正。[AJR]
+ * pdp8dasm: 謎なOPRのマイナー修正
+
+- dmv: blink attr追加。[cracyc]
+
+- namcona1.cpp: Zelosの正しいリリース年を確認。[sjy96525]
+
+- bus/nes: Sunsoft 3ボードのIRQタイミングを修正。(#8458) [0kmg]
+
+- bus/nes: 魂斗羅マルチカセット2本のサポートを改善。(#8461) [0kmg]
+
+- bus/nes: Mortal Kombat 6/7のカセットをサポート。(#8466) [0kmg]
+ * このカセットからの抽出物となっていたMK6とMK7のセットを削除
+ * 幽遊白書ファイナルの海賊版 (MK7の実体)は、背景のグラフィックに重大な問題があるため、部分的サポートしてマーク
+
+- いろいろなバックエンド向けのBGFXの修正。(#8469) [Ryan Holtz]
+ * すべてのバックエンドのパレットとUYVY変換を修正。MT07760を修正
+ * targetmanager.cppのtypoを修正。LNさんの指摘に感謝
+
+- mame.lstを更新。[ClawGrip]
+ * 'babyfrts'と'babyfrts25'を追加
+
+- opercoin: 8mhzのZ80Aはありえない。[hap]
+
+- srcclean: JSONのクリーニングをサポートとクリーンアップ。[Vas Crabb]
+ * pbobbleをbublbustの親に設定。これはpbobbleの方が広く出回りり完全なものであるため。 また、bublbustのROMラベルも修正
+ * tbyahhooをmtwinbeeの親に設定。後者はローカライズされているというより、実質的なコンテンツが削除されており、完成度が低いため
+ * bgfxサブツリーのJSONファイルにsrccleanを適用
+
+- namcona1.cppの更新。[Ivan Vangelista]
+ * 実機をもとにドキュメントの更新 [Hammy]
+ * zelosのマイナーなアップデート
+
+- astrcorp.cpp: dinodinoもROMエラー画面になる。[Ivan Vangelista]
+
+- "enable BGFX_CONFIG_DEBUG to get proper assert"をリバート。[Miodrag Milanovic]
+ * これはコミット 4abb9da0ec7efde4254a436ec1baa9a889264109 をリバート
+
+- kncljoe: スプライトレイヤーのクリッピングを追加。[dink, hap]
+
+- vsmileb: スライダーウインドウのデフォルトの入力マッピングを追加。音声不良のためMNWに降格。[Ryan Holtz] (#8473) [MooglyGuy]
+
+- bus/nes: Boogermanの海賊版を修正。(#8472) [0kmg]
+ * sglionk (Super Game海賊版) について、レジスタ/アドレスのスクランブル用ルックアップテーブル周りを再構成
+ * Boogermanは、別のスクランブルでも機能的に同じなのでsglionkで実装
+
+- cv1k.cpp:「エスプガルーダII」プログラムROM別版を吸い出し。[BuddyC, MetalliC, rtw]
+
+- nscsi: リセット時にセンスバッファの初期化。[Michael Zapf]
+
+- bus/nes: MMC3リセットベースの4-in-1マルチカートをサポート。[0kmg]
+
+- spectrum_cass: メタデータ更新(説明文、製造元、年度、クローン元)。[ArcadeShadow]
+
+- gfamily.cpp: 新しい IOS バージョンの追加。[jordigahan] (#8460) [ClawGrip]
+
+- pc98_cd.xml: 16本新規吸い出し。21本置き換え、FMタウンズのソフトリストとの同期。(#8436) [r09]
+ * pc98_cd.xml: alt_titlesに字幕を追加
+
+- ibm5170_cdrom.xmlを更新。(#8439) [David 'Foxhack' Silva]
+
+- bus/nes: Boogermanの修正をわかりやすい方法に変更。[0kmg]
+
+- dragon_msx2: 6x09 SuperSprite FM+に改名。[Nigel Barnes]
+
+- electron: UIからのペーストを修正するために、PORT_CHARの大文字/小文字を切り替え。[Nigel Barnes]
+ * MACHINE_IMPERFECT_SOUNDを削除
+
+- bus/electron: 自作の68000セカンドプロセッサを追加。[Nigel Barnes]
+
+- 以下をリバート: "Allow the bpset/wpset/rpset & map commands to act on any cpu, by prefixing the index or name with a # and pass as 
+  the first parameter. [smf]" [Vas Crabb].
+ * コミット f4213dc209ebf2247f3c7e46f32d9bd2711bb374 をリバート
+ * 使用されているシンタックスが10進数のものと衝突するという問題は未解決のため
+
+- srccleanを次のリリース用に変更。[Vas Crabb]
+
+- srcclean: 最新の変更。[Vas Crabb]
+
+- 重複した#includeとインデントのエラーを修正。[Vas Crabb]
+
+- cv1k: espgal2のu4吸い出しを分割。[hap]
+ * (コミットf21ffcf4eb27b7bb7aa1417d9d401ebea514e609のチェリーピック)
+
+- cv1k: espgal2 PCBノートの更新。[hap]
+ * (コミットeede8a794d2cb99fc1a70d5d6843fbdfb6eb3621からのチェリーピック)
+
+- cv1k: CV1000-Bについてのメモを追加。[hap]
+ * (コミット107ca8394da870d1a40c5a40f20c2715dfe70b55からのチェリーピック)
+
+- hh_tms1k: ti5100のマシンカテゴリを修正。[hap]
+ * (コミット895ff8ef028b5597eda26300bb3e0a4e216fb6fdからのチェリーピック)
+
+- bgfx: ピクセルの丸めを使用しないようfs_blit_palette16を修正。carpolo, kncljoeなどの問題を修正。[Ryan Holtz] (#8488) [MooglyGuy]
+
+- kncljoe: スプライトレイヤークリップのoff-by-1を修正。[hap]
+ * (コミット3cadc4f688ba4172a1e19195c4999c0265bd3f53からのチェリーピック)
+
+- util/zippath.cpp: OSD_WINDOWSはWindowsターゲットの検出をする安全な方法ではありません。また、OSD_*マクロはlibocore/libosd 以外で使用し
+  ないでください。[Vas Crabb]

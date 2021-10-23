@@ -1,4 +1,4 @@
-0.93
+﻿0.93
 ----
 
 このリリースは、Aaron氏による大幅なサウンドシステムの更新がメインです。
@@ -251,7 +251,7 @@ Defense [Torsten]
 
 High Impact Football Proto v8.6 [Brian Troha]
 
-サプライズアタック (Asia Ver L.) [Andreas Thorsé]
+サプライズアタック (Asia Ver L.) [Andreas Thorse]
 
 G-ダライアス (Ver 2.02A)
 

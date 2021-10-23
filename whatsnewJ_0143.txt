@@ -1,4 +1,4 @@
-0.143
+﻿0.143
 -------
 
 
@@ -1130,7 +1130,7 @@ MAMETestersの修正バグ
 
 - OS Xでの非ネイティブSDLビルドを修正。[Paulo Cabral]
 
-- Added "Mandatory artwork is missing" error [Oliver Stöneberg]
+- Added "Mandatory artwork is missing" error [Oliver Stoneberg]
 
 - 16ビットデバイスのコールバックを実装。[Curt Coder]
 

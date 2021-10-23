@@ -1,4 +1,4 @@
-0.86u5
+﻿0.86u5
 
 その他の改良：
 --------------
@@ -15,7 +15,7 @@
 
 ■crospangのサウンド周波数調整。[Pierpaolo Prazzoli]
 
-■subsのDIPスイッチと、chelnovの入力修正。[Iñigo Luja]
+■subsのDIPスイッチと、chelnovの入力修正。[Inigo Luja]
 
 
 新規サポート、またはGAME_NOT_WORKINGが取れたゲーム：

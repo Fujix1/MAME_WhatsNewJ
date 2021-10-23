@@ -1,4 +1,4 @@
-0.71u2
+﻿0.71u2
 
 ソース全般の変更：
 ------------------
@@ -72,7 +72,7 @@
 	一応この部分をリセットしないクローンと置き換え。
 	src/drivers/nova2001.c
 
-■DIPスイッチの修正。[Iñigo Luja]
+■DIPスイッチの修正。[Inigo Luja]
 	src/drivers/rohga.c
 	src/drivers/deadang.c
 

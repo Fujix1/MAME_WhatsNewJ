@@ -1,4 +1,4 @@
-0.95u1
+﻿0.95u1
 ------
 
 ■Irem M92のDIPスイッチ修正。[Brian Troha]

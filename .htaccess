@@ -1,0 +1,2 @@
+AddType "text/plain; charset=UTF-8" .txt
+AddDefaultCharset utf-8

@@ -1,4 +1,4 @@
-0.146
+﻿0.146
 -------
 
 
@@ -95,7 +95,7 @@ MAMETestersの修正バグ
 - megadriv.cファイル全体のモダン化に伴う準備作業。まずは実際のドライバの分割
   (megadriv.c, megacd.c, mega32x.c, megasvp.c, megavdp.c)。[David Haywood]
 
-- Z8001でさらに進展。M20がメモリテストをパス可能。[Christian Grössler]
+- Z8001でさらに進展。M20がメモリテストをパス可能。[Christian Grossler]
 
 - ibm5170でi286の104エラーが起こらないように修正。[Carl]
 
@@ -116,7 +116,7 @@ MAMETestersの修正バグ
 
 - MAMEのドライバで使用するi8255を旧型から新型に変更。[Fabio Priuli]
 
-- z800x: Z8001命令の逆アセンブリをサポート。[Christian Grössler]
+- z800x: Z8001命令の逆アセンブリをサポート。[Christian Grossler]
 
 - segas16b.c:「コットン」日本版セットのROMラベル修正と、ROMボードのSega ID#追加。
   [Tormod, The Dumping Union]
@@ -126,7 +126,7 @@ MAMETestersの修正バグ
  * crimfght.c : 0.145u8で間違って適用された更新を巻き戻し
  * vendetta.c : 表示系の修正と基板コンポーネントの確認
 
-- Z8001に16ビットのI/Oポート追加。[R. Belmont, Christian Grössler]
+- Z8001に16ビットのI/Oポート追加。[R. Belmont, Christian Grossler]
 
 - 68681: タイマーを直ちに開始; カウンタとは異なり、スタートコマンドを待ちません。
   [R. Belmont]

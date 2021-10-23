@@ -1,0 +1,1232 @@
+0.230 2021-03-31
+----------
+
+MAME Testersの修正バグ
+----------------------
+- 07889: [クラッシュ/フリーズ] (ti99_4p.cpp) ti99_4p, ti99_4ev: [デバッグ限定] 起動後にアサート。(Osso)
+- 07887: [クラッシュ/フリーズ] (divebomb.cpp) divebomb: [デバッグ限定] 起動後にアサート。(Osso)
+- 07052: [ゲームプレイ] (mac128.cpp) macplus [bdrkcast]: 動作速度と音の問題がある。(Lord Nightmare)
+- 05580: [DIP/入力] (royalmah.cpp) cafetime: DIPスイッチ設定。(kamilz)
+- 07916: [クラッシュ/フリーズ] (playch10.cpp) pc_pinbt: シングルスクリーンBIOSを使おうとすると例外が起こる。(Osso)
+- 07023: [その他] (megadriv.cpp) megadriv [fatfury, fatfuryu]: fatfury - ゲーム名の不備。(ArcadeShadow)
+- 07193: [ドキュメント] (megadriv.cpp) megadriv [jellyboy]: jellyboy - リリース年度は1995。(ArcadeShadow)
+- 07767: [ドキュメント] (megadriv.cpp) [megadriv] tecmowc, tecmow92: tecmowc, tecmow92のセットは関連がある。(ArcadeShadow)
+- 05800: [サウンド] (megadriv.cpp) genesis / megadriv / megadrij [microm96] [microm96a] [micromm]: Micro Machines Turbo Tournament '96のクラクション音が間違っている。(Aaron Giles)
+- 05191: [ステート保存/再生] (megadriv.cpp) megadriv [evander,wboymw]: EEPROMの値が保存されない。(Ryan Holtz)
+- 07909: [サウンド] (tecmo16.cpp) ginkun: BGMが一部再生されなくなっている。(David Haywood)
+- 06789: [グラフィック] (namconb1.cpp) vshoot: 最初の勝利後黒画面になる。(Olivier Galibert)
+- 07898: [インターフェイス] (gaelco3d.cpp) speedup: シフターのアイコンが表示されない。(Osso)
+- 07904: [ドキュメント] (monkey_king_3b.cpp) rs70_648: 製造元が設定されていない。(AntoPISA)
+- 07831: [サウンド] (gaelco3d.cpp) surfplnt, surfplnt40, speedup: マシンスタート後にノイズ音が出続ける。(Osso)
+- 07303: [メディアサポート] (coco3.cpp) coco3 [tharogad]: [tharogad] 動作しない。(AJR)
+- 06740: [サウンド] (dec0.cpp) slyspy, bouldash: サウンドがランダムに速くなり、そのうち鳴らなくなる。(Aaron Giles)
+- 07886: [メディアサポート] (plus4.cpp) c16: カセットが認識されない。(Osso)
+- 07885: [メディアサポート] (xerox820.cpp) x820: フロッピーディスクから起動しなくなった。
+- 07389: [サウンド] (williams.cpp) inferno: 0.211からDACサウンドが間違っている。(Osso)
+- 07849: [DIP/入力] (taitosj.cpp) sfposeid: DIPスイッチ1の不明な機能について。(jkburks)
+- 07856: [システムコア] (ksys573.cpp) ddr2mla, ddrbocd, any 573 Analog DDR game exccluding JP Dancing Stage series: ゲーム中のフレームレートが半分になっている。(windyfairy)
+- 05785: [DIP/入力] (cabal.cpp) cabal and clones (except cabalbl): デモサウンドのDIP設定をOFFにするとコインが動作しない。(AJR)
+- 05875: [その他] (magictg.cpp) magictg: AddressSanitizer: heap-buffer-overflowエラー。(Robbbert)
+- 06166: [サウンド] (megadriv.cpp) megadriv [batman]: 敵を攻撃したときのSEがおかしい。(Aaron Giles)
+- 07161: [サウンド] (dec0.cpp) baddudes: 3面ボスの変身音が鳴らない。(Aaron Giles)
+- 06930: [サウンド] (dec0.cpp) robocop, robocopu, robocopw: バンの後ろドアの効果音が途切れる。(Aaron Giles)
+
+
+新規動作可能マシン
+------------------
+Andrew Holme Mark 1 FORTH Computer [AJR]
+Electronic Master Mind (Invicta) [hap, Sean Riddle]
+Football 2 (Mattel) [hap, Sean Riddle]
+Invicta Super-Sonic Electronic Master Mind [hap, Sean Riddle]
+Kmart Dunk 'n Sunk [hap, Sean Riddle]
+M.E.M. Belgium Memoquiz [hap, Sean Riddle]
+Mattel Brain Baffler [hap, Sean Riddle]
+Mattel Horoscope Computer [hap, Sean Riddle]
+Mattel World Championship Football [hap, Sean Riddle, Kevin Horton, O. Galibert]
+MSI / Bandai Namco Namco Classics Vol.1 (3-in-1) (MSI Plug & Play) [Sean Riddle]
+NSI International / Mammoth Toys (Licensed by Hasbro) TV Board Games 3-in-1: Boggle, Connect 4, Roll Over
+  [Sean Riddle, David Haywood]
+NSI International / Mammoth Toys (Licensed by Hasbro) TV Board Games 3-in-1: Silly 6 Pins, Hungry Hungry Hippos, Match 'em
+  [Sean Riddle, David Haywood]
+NSI International / Mammoth Toys (Licensed by Hasbro) TV Board Games 3-in-1: Simon, Battleship, Checkers
+  [Sean Riddle, David Haywood]
+NSI International / Mammoth Toys (Licensed by Hasbro) TV Board Games 6-in-1: Silly 6 Pins, Candy Land, Hungry Hungry Hippos,
+  Match 'em, Mixin' Pics, Checkers [Sean Riddle, David Haywood]
+NSI International / Mammoth Toys (Licensed by Hasbro) TV Board Games 6-in-1: Simon, Battleship, Mouse Trap, Checkers, Link-a-Line,
+  Roll Over [Sean Riddle, David Haywood]
+Selchow & Righter Reader's Digest Q&A - Computer Question & Answer Game [hap, Sean Riddle]
+Selchow & Righter Scrabble Sensor - Electronic Word Game [hap, Sean Riddle]
+Taikee / Oregon Scientific / V-Tac Technology Co Ltd. Teléfono interactivo de TV (Spain)
+  [ClawGrip, Sean Riddle, David Haywood, ArcadeHacker]
+Tiger Electronics Sub Wars (LED version) [hap, Sean Riddle, Rik]
+Tri-1 (Fonas) [hap, Sean Riddle]
+VTech Dora the Explorer - Dora TV Adventure Globe [Sean Riddle, David Haywood]
+VTech Dora the Explorer - Dora TV Explorer Phone / Boots's Special Day [Sean Riddle, David Haywood, Kamaal Brown]
+
+
+新規動作可能クローン
+--------------------
+ビートマニア IIDX 3rdスタイル (GC992 JAB) [Jennifer Taylor]
+ビートマニア IIDX 7thスタイル (GCB44 JAB) [Jennifer Taylor]
+ビートマニア IIDX サブストリーム (983-AA JAA) [Jennifer Taylor]
+Big 50 (JPM) (IMPACT) (BF12 L12) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 1) [James Wallace]
+Camelot (JPM) (IMPACT) (CA8 C10) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC07C L12) (set 1) [James Wallace]
+Cuore 1 (Italian, set 6) [f205v]
+Cuore 1 (Italian, set 7) [f205v]
+Genius 6 (V133F) [Arzeno Fabrice]
+Give Us A Break (JPM) (IMPACT) (GB 5 C 8) (set 1) [James Wallace]
+Go For Gold (JPM) (IMPACT) (set 1) [James Wallace]
+Happy Hour (JPM) (IMPACT) (HH2 C5) (set 1) [James Wallace]
+Keyboardheaven (Korea) [Jennifer Taylor, Windy Fairy]
+Magic 10 Nevada (bootleg of Pool 10) [f205v]
+Maze (Trog bootleg) [Jorge Silva]
+Mega Man: The Power Battle (CPS2, USA 950925, SAMPLE Version) [bdlou]
+名人戦 (set 2) [AeroCityMayor, The Dumping Union]
+大江戸ファイト (Japan, Bloodless version) [ekorz]
+Player's Edge Plus (PP0419) Standard Draw Poker (Old Chicago Casino) [Brian Troha]
+Player's Edge Plus (PP0419) Standard Draw Poker (set 1) [Brian Troha]
+Rabbit (Asia 1-28?) [twistedsymphony, The Dumping Union]
+レイダーズ5 (Japan, set 2, bootleg?) [Paul Wood]
+Saitek / Tandy Corporation Chess Champion 2150 [hap, Berger]
+サーフプラネット (Version 3.0) [jordigahan]
+タスクフォースハリアー (Lettering bootleg) [hammy, EMG]
+US AAF Mustang (Lettering bootleg) [hammy, Doctor Pinball]
+
+
+動作可能に昇格したマシン
+------------------------
+Apple Computer Macintosh 128k [R. Belmont, O. Galibert]
+Apple Computer Macintosh Classic [R. Belmont, O. Galibert]
+Apple Computer Macintosh Classic II [R. Belmont, O. Galibert]
+Apple Computer Macintosh II [R. Belmont, O. Galibert]
+Apple Computer Macintosh II (FDHD) [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIci [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIsi [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIvx [R. Belmont, O. Galibert]
+Apple Computer Macintosh LC III [R. Belmont, O. Galibert]
+Apple Computer Macintosh Plus [R. Belmont, O. Galibert, Patrick Mackinlay]
+Apple Computer Macintosh SE [R. Belmont, O. Galibert]
+Apple Computer Macintosh SE (FDHD) [R. Belmont, O. Galibert]
+ビートマニア IIDX 2ndスタイル (GC985 JAA) [Jennifer Taylor]
+ビートマニア IIDX 3rdスタイル (GC992 JAC) [Jennifer Taylor]
+ビートマニア IIDX 5thスタイル (GCA17 JAA) [Jennifer Taylor]
+ビートマニア IIDX サブストリーム (983 JAA) [Jennifer Taylor]
+ビートマニア III [Windy Fairy]
+ビートマニア III アペンド7thミックス [Windy Fairy]
+ビートマニア III ザ・ファイナル [Windy Fairy]
+キーボードマニア [Windy Fairy]
+キーボードマニア 2nd MIX [Windy Fairy]
+キーボードマニア 3rd MIX [Windy Fairy]
+パラパラパラダイス / ParaParaDancing [Windy Fairy]
+パラパラパラダイス [Windy Fairy]
+パラパラパラダイス v1.1 [Windy Fairy]
+Untouchable (JPM) (IMPACT) (UN3B LO6) [David Haywood, James Wallace]
+
+
+動作可能に昇格したクローン
+--------------------------
+Apple Computer Macintosh 512k [R. Belmont, O. Galibert]
+Apple Computer Macintosh 512ke [R. Belmont, O. Galibert]
+Apple Computer Macintosh II (w/o 68851 MMU) [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIcx [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIvi [R. Belmont, O. Galibert]
+Apple Computer Macintosh IIx [R. Belmont, O. Galibert]
+Apple Computer Macintosh SE/30 [R. Belmont, O. Galibert]
+ビートマニア IIDX 3rdスタイル (GC992 JAA) [Jennifer Taylor]
+Big 50 (JPM) (IMPACT) (BF L8) [James Wallace]
+Big 50 (JPM) (IMPACT) (BF12 AH12) [James Wallace]
+Big 50 (JPM) (IMPACT) (BF12 L12, Whitbread) [James Wallace]
+Big 50 (JPM) (IMPACT) (BF12P F12, Protocol) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 10) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 2) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 3) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 4) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 5) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 6) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 7) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 8) [James Wallace]
+Big Bucks (JPM) (IMPACT) (set 9) [James Wallace]
+bootleg (Unitron) Mac 512 [R. Belmont, O. Galibert]
+bootleg (Unitron) Unitron 1024 [R. Belmont, O. Galibert]
+Camelot (JPM) (IMPACT) (CA6 C8) [James Wallace]
+Camelot (JPM) (IMPACT) (CA8 AC10) [James Wallace]
+Camelot (JPM) (IMPACT) (CA8 C10, Whitbread) [James Wallace]
+Camelot (JPM) (IMPACT) (CA8P C10, Protocol) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC02C L08) (set 14) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC07C L12) (set 2) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC11C L16) (set 4) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC12C L17) (set 12) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC16C L23) (set 6) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC16C L23) (set 7) [James Wallace]
+Casino Crazy (JPM) (IMPACT) (CC16C L23) (set 9) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 5 C 8) (set 3, Whitbread) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 5P C 8) (set 2, Protocol) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 6 C 9) (set 4) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 6 C 9) (set 6) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 6 C 9) (set 7, Whitbread) [James Wallace]
+Give Us A Break (JPM) (IMPACT) (GB 6P C 9) (set 5, Protocol) [James Wallace]
+Go For Gold (JPM) (IMPACT) (set 2, Protocol) [James Wallace]
+Go For Gold (JPM) (IMPACT) (set 3) [James Wallace]
+Go For Gold (JPM) (IMPACT) (set 4, Whitbread) [James Wallace]
+Happy Hour (JPM) (IMPACT) (HH2 C5) (set 2) [James Wallace]
+Happy Hour (JPM) (IMPACT) (HH2 C5) (set 3) [James Wallace]
+パラパラパラダイス 1st MIX PLUS [Windy Fairy]
+Untouchable (JPM) (IMPACT) (UN3BI LO6) [David Haywood, James Wallace]
+
+
+
+新規追加された未動作マシン
+--------------------------
+Akai Electric MPC60 MIDI Production Center [DBWBP]
+Basic Fun Ms. Pac-Man (mini arcade) [Sean Riddle]
+Basic Fun Pac-Man (mini arcade) [Sean Riddle]
+Bee-Zerk [Bad A Billy, Smitdogg, The Dumping Union]
+Corsario (Cirsa slot machine) [jordigahan, ClawGrip]
+LeapFrog Turbo Twist Fact Blaster (US) [Sean Riddle, David Haywood]
+LeapFrog Turbo Twist Spelling (US) [Sean Riddle, David Haywood]
+LeapFrog Turbo Twist Vocabulator (US) [Sean Riddle, David Haywood]
+Marbella Vice (100Hz display) [Arcade Player, Recreativas.org]
+Mini Money [jordigahan, ClawGrip]
+Mushiking The King Of Beetles 2006 First (Japan) [Darksoft, rtw]
+Super Mario All-Stars (Nintendo Super System) [Mike Ortizz]
+Tierras Salvajes (100Hz display) [Arcade Planet, Recreativas.org]
+unknown VLC multigame [Bad A Billy, Smitdogg, The Dumping Union]
+
+
+
+新規追加された未動作クローン
+----------------------------
+A.G. Soccer Ball (R18u, 2.1 sound) [PinMAME]
+Bad Cats (LG-4) [PinMAME]
+電脳戦機バーチャロン (Export) [twistedsymphony]
+The Flintstones (LA-5) [PinMAME]
+Lucky Draw (pinball, set 2) [PinMAME]
+魔斬 ＜まざん＞ (Japan, MAZ1 Ver.A) [Darksoft, MetalliC, rtw]
+No Fear: Dangerous Sports (0.8X) [PinMAME]
+Scorpion (Dec 24, 1993) [jordigahan, ClawGrip]
+Theatre Of Magic (1.2A) [PinMAME]
+サンダードラゴン (bootleg, set 2) [hammy, EMG]
+バーチャストライカー2 バージョン'99.1 (Step 1.5, Export, USA, Revision B) [Brian Troha, The Dumping Union]
+バーチャストライカー2 バージョン'99.1 (Step 1.5, Japan, Revision B) [Brian Troha, The Dumping Union]
+
+
+
+新規追加された動作可能ソフトリスト
+----------------------------------
+apple2_flop_clcracked:
+  Life Story Frog (cleanly cracked), MECC-A103 Smoking: It's Up To You (cleanly cracked),
+  MECC-A104 Payroll System: A Business Simulation (cleanly cracked),
+  MECC-A106 Word Herd: Sound-Alikes (Version 1.0) (cleanly cracked), MECC-A107 Ducks (Version 1.1) (cleanly cracked),
+  MECC-A109 Circus Math (Version 1.0) (cleanly cracked), MECC-A110 Exploring Sorting Routines (Version 1.1) (cleanly cracked),
+  MECC-A111 Pets, Ltd. (Version 1.0) (cleanly cracked), MECC-A112 Word Wizards (Version 1.0) (cleanly cracked),
+  MECC-A112 Word Wizards (Version 1.2) (cleanly cracked), MECC-A112 Word Wizards (Version 1.3) (cleanly cracked),
+  MECC-A114 Writing an Opinion Paper (Version 1.0) (cleanly cracked), MECC-A115 Right of Way (Version 1.1) (cleanly cracked),
+  MECC-A116 Puzzles and Posters (Version 1.1) (cleanly cracked), MECC-A116 Puzzles and Posters (Version 1.3) (cleanly cracked),
+  MECC-A116 Puzzles and Posters (Version 1.6) (cleanly cracked), MECC-A119 Master Spell (Version 1.0) (cleanly cracked),
+  MECC-A119 Master Spell (Version 1.3) (cleanly cracked), MECC-A120 Word Herd: Look-Alikes (Version 1.0) (cleanly cracked),
+  MECC-A121 Jeux Mathematiques Classiques (Version 1.0) (cleanly cracked), MECC-A123 Prime Numbers (Version 1.0) (cleanly cracked),
+  MECC-A124 Estimation (Version 1.0) (cleanly cracked), MECC-A125 Addition Logician (Version 1.0) (cleanly cracked),
+  MECC-A126 Study Guide (Version 1.5) (cleanly cracked), MECC-A127 Salt and You (Version 1.0) (cleanly cracked),
+  MECC-A128 Discovery Lab (Version 1.0) (cleanly cracked), MECC-A129 Data Handler (Version 1.0) (cleanly cracked),
+  MECC-A130 MECC Keyboarding Primer (Version 1.0) (cleanly cracked),
+  MECC-A131 MECC Keyboarding Master: Games and Drills (Version 1.1) (cleanly cracked),
+  MECC-A132 MECC Writer (Version 1.1) (cleanly cracked), MECC-A132 MECC Writer (Version 1.2) (cleanly cracked),
+  MECC-A133 MECC Writer (Version 1.2) (cleanly cracked), MECC-A134 MECC Speller (Version 1.0) (cleanly cracked),
+  MECC-A135 MECC Editor (Version 1.0) (cleanly cracked), MECC-A136 MECC Graphing Primer (Version 1.0) (cleanly cracked),
+  MECC-A137 MECC Graph (Version 1.1) (cleanly cracked), MECC-A159 Sound Tracks (Version 1.0) (cleanly cracked),
+  MECC-A160 The Market Place (Version 1.0) (cleanly cracked), MECC-A161 Jenny's Journeys (Version 1.0) (cleanly cracked),
+  MECC-A162 Path Tactics (Version 1.0) (cleanly cracked),
+  MECC-A163 MECC Dataquest: The Fifty States (Version 1.0) (cleanly cracked),
+  MECC-A164 Fun from A to Z (Version 1.0) (cleanly cracked), MECC-A165 Counting Critters (Version 1.0) (cleanly cracked),
+  MECC-A166 Arithmetic Critters (Version 1.0) (cleanly cracked), MECC-A167 Quickflash (Version 1.0) (cleanly cracked),
+  MECC-A168 Clock Works (Version 1.0) (cleanly cracked), MECC-A169 Speedway Math (Version 1.0) (cleanly cracked),
+  MECC-A170 Number Munchers (Version 1.0) (cleanly cracked), MECC-A170 Number Munchers (Version 1.3) (cleanly cracked),
+  MECC-A171 Show Time (Version 1.0) (cleanly cracked), MECC-A171 Show Time (Version 1.1) (cleanly cracked),
+  MECC-A172 MECC Dataquest Composer (Version 1.0) (cleanly cracked),
+  MECC-A175 Phonics Prime Time: Initial Consonants (Version 1.0) (cleanly cracked),
+  MECC-A176 Phonics Prime Time: Final Consonants (Version 1.0) (cleanly cracked),
+  MECC-A177 Phonics Prime Time: Vowels I (Version 1.0) (cleanly cracked),
+  MECC-A178 Phonics Prime Time: Vowels II (Version 1.0) (cleanly cracked),
+  MECC-A179 Phonics Prime Time: Blends and Digraphs (Version 1.0) (cleanly cracked),
+  MECC-A180 Words at Work: Contraction Action (Version 1.0) (cleanly cracked),
+  MECC-A181 Words at Work: Prefix Power (Version 1.0) (cleanly cracked),
+  MECC-A182 Words at Work: Suffix Sense (Version 1.0) (cleanly cracked),
+  MECC-A183 Words at Work: Compound It (Version 1.0) (cleanly cracked),
+  MECC-A185 Those Amazing Reading Machines (Version 1.0) (cleanly cracked),
+  MECC-A186 Those Amazing Reading Machines II (Version 1.0) (cleanly cracked),
+  MECC-A187 Those Amazing Reading Machines III (Version 1.0) (cleanly cracked),
+  MECC-A188 Those Amazing Reading Machines IV (Version 1.0) (cleanly cracked), MECC-A191 Odell Lake (Version 1.0) (cleanly cracked),
+  MECC-A191 Odell Lake (Version 1.2) (cleanly cracked), MECC-A192 Coordinate Math (Version 1.0) (cleanly cracked),
+  MECC-A192 Coordinate Math (Version 1.1) (cleanly cracked), MECC-A193 Equation Math (Version 1.0) (cleanly cracked),
+  MECC-A193 Equation Math (Version 1.1) (cleanly cracked), MECC-A195 Money Works (Version 1.0) (cleanly cracked),
+  MECC-A195 Money Works (Version 1.1) (cleanly cracked), MECC-A196 Fraction Munchers (Version 1.0) (cleanly cracked),
+  MECC-A198 To Preserve, Protect and Defend (Version 1.1) (cleanly cracked), MECC-A199 Zoyon Patrol (Version 1.0) (cleanly cracked),
+  MECC-A201 Conquering Whole Numbers (Version 1.0) (cleanly cracked),
+  MECC-A201 Conquering Whole Numbers (Version 1.1) (cleanly cracked),
+  MECC-A202 Fraction Concepts, Inc. (Version 1.0) (cleanly cracked),
+  MECC-A202 Fraction Concepts, Inc. (Version 1.2) (cleanly cracked),
+  MECC-A203 Fraction Practice Unlimited (Version 1.0) (cleanly cracked),
+  MECC-A203 Fraction Practice Unlimited (Version 1.1) (cleanly cracked),
+  MECC-A204 Conquering Fractions (Addition, Subtraction) (Version 1.0) (cleanly cracked),
+  MECC-A204 Conquering Fractions (Addition, Subtraction) (Version 1.1) (cleanly cracked),
+  MECC-A205 Conquering Fractions (Multiplication, Division) (Version 1.0) (cleanly cracked),
+  MECC-A205 Conquering Fractions (Multiplication, Division) (Version 1.1) (cleanly cracked),
+  MECC-A206 Decimal Concepts (Version 1.0) (cleanly cracked),
+  MECC-A207 Conquering Decimals (Addition, Subtraction) (Version 1.0) (cleanly cracked),
+  MECC-A208 Conquering Decimals (Multiplication, Division) (Version 1.0) (cleanly cracked),
+  MECC-A208 Conquering Decimals (Multiplication, Division) (Version 1.1) (cleanly cracked),
+  MECC-A209 Conquering Ratios and Proportions (Version 1.0) (cleanly cracked),
+  MECC-A210 Conquering Percents (Version 1.0) (cleanly cracked), MECC-A210 Conquering Percents (Version 1.1) (cleanly cracked),
+  MECC-A211 Mystery Objects (Version 1.0) (cleanly cracked), MECC-A212 Mystery Matter (Version 1.0) (cleanly cracked),
+  MECC-A213 Miner's Cave (Version 1.0) (cleanly cracked), MECC-A214 Wood Car Rally (Version 1.0) (cleanly cracked),
+  MECC-A214 Wood Car Rally (Version 1.1) (cleanly cracked), MECC-A215 Lunar Greenhouse (Version 1.0) (cleanly cracked),
+  MECC-A216 Backyard Birds (Version 1.0) (cleanly cracked), MECC-A217 Weeds to Trees (Version 1.0) (cleanly cracked),
+  MECC-A218 Invisible Bugs (Version 1.0) (cleanly cracked), MECC-A219 Five-Star Forecast (Version 1.0) (cleanly cracked),
+  MECC-A220 Fossil Hunter (Version 1.0) (cleanly cracked), MECC-A221 Murphy's Minerals (Version 1.0) (cleanly cracked),
+  MECC-A222 Sun and Seasons (Version 1.0) (cleanly cracked), MECC-A224 Instant Survey (Version 1.0) (cleanly cracked),
+  MECC-A225 Time Navigator Leaps Back (Version 1.0) (cleanly cracked), MECC-A227 Patterns (Version 1.0) (cleanly cracked),
+  MECC-A227 Patterns (Version 1.2) (cleanly cracked), MECC-A228 MECC Outliner (Version 1.0) (cleanly cracked),
+  MECC-A229 Exploring Gas Laws (Version 1.0) (cleanly cracked), MECC-A230 Spelling Workout (Version 1.0) (cleanly cracked),
+  MECC-A230 Spelling Workout (Version 1.1) (cleanly cracked), MECC-A230B Spelling List Editor (Version 1.0) (cleanly cracked),
+  MECC-A230B Spelling List Editor (Version 1.1) (cleanly cracked), MECC-A230B Spelling List Editor (Version 1.2) (cleanly cracked),
+  MECC-A230B Spelling List Editor (Version 1.3) (cleanly cracked), MECC-A230B Spelling List Editor (Version 1.4) (cleanly cracked),
+  MECC-A231 Spellevator (Version 1.0) (cleanly cracked), MECC-A231 Spellevator (Version 1.2) (cleanly cracked),
+  MECC-A231 Spellevator (Version 1.3) (cleanly cracked), MECC-A232 Spelling Press (Version 1.0) (cleanly cracked),
+  MECC-A240 Computer Inspector (Version 1.0) (cleanly cracked), MECC-A241 LabelMaker (Version 1.0) (cleanly cracked),
+  MECC-A242 Teach Option Organizer (Version 1.2) (cleanly cracked),
+  MECC-A244 MECC Dataquest: The Middle East and North Africa (Version 1.0) (cleanly cracked),
+  MECC-A245 Instant Survey (Version 1.0) (cleanly cracked), MECC-A246 Measure Works (Version 1.0) (cleanly cracked),
+  MECC-A247 Time Navigator (Version 1.0) (cleanly cracked), MECC-A248 CommuniKeys (Version 1.1) (cleanly cracked),
+  MECC-A250 MECC Dataquest: North American Mammals (Version 1.0) (cleanly cracked),
+  MECC-A250 MECC Dataquest: North American Mammals (Version 1.1) (cleanly cracked),
+  MECC-A251 Chemistry: The Periodic Table (Version 1.1) (cleanly cracked),
+  MECC-A254 MECC Dataquest: Asia and Oceania (Version 1.0) (cleanly cracked),
+  MECC-A255 Picture Chompers (Version 1.0) (cleanly cracked), MECC-A256 Bluegrass Bluff (Version 1.0) (cleanly cracked),
+  MECC-A257 Problem Solving with Nim (Version 1.0) (cleanly cracked),
+  MECC-A258 Estimation: Quick Solve I (Version 1.0) (cleanly cracked),
+  MECC-A259 Estimation: Quick Solve II (Version 1.0) (cleanly cracked),
+  MECC-A260 Conquering Math Worksheet Generator (Version 1.0) (cleanly cracked),
+  MECC-A262 Probability Lab (Version 1.0) (cleanly cracked),
+  MECC-A263 Exploring Sequences and Series (Version 1.0) (cleanly cracked),
+  MECC-A271 Grammar Toy Shop (Version 1.0) (cleanly cracked), MECC-A272 Grammar Monsters (Version 1.0) (cleanly cracked),
+  MECC-A273 Grammar Gazette (Version 1.0) (cleanly cracked), MECC-A278 The Living Cell (Version 1.0) (cleanly cracked),
+  MECC-A279 Lewis and Clark Stayed Home (Version 1.0) (cleanly cracked),
+  MECC-A280 Chemistry: Balancing Equations (Version 1.0) (cleanly cracked),
+  MECC-A281 Paper Plane Pilot (Version 1.0) (cleanly cracked), MECC-A282 Cleanwater Detectives (Version 1.0) (cleanly cracked),
+  MECC-A283 Woolly Bounce (Version 1.0) (cleanly cracked), MECC-A284 Cavity Busters (Version 1.0) (cleanly cracked),
+  MECC-A290 Space Station Freedom (Version 1.0) (cleanly cracked), MECC-A291 Vacation Nation Travel (Version 1.0) (cleanly cracked),
+  MECC-A292 Littletown Zoo (Version 1.0) (cleanly cracked), MECC-A295 Estimation Strategies (Version 1.0) (cleanly cracked),
+  MECC-A296 Estimation Activities (Version 1.0) (cleanly cracked), MECC-A302 Fish School (Version 1.0) (cleanly cracked),
+  MECC-A303 Moving Museum (Version 1.0) (cleanly cracked), MECC-A304 Eerieville Library (Version 1.0) (cleanly cracked),
+  MECC-A306 Grammar Gobble (Version 1.0) (cleanly cracked), MECC-A307 Grammar Madness (Version 1.0) (cleanly cracked),
+  MECC-A309 Woolly's Garden (Version 1.0) (cleanly cracked), MECC-A310 Wonderland Puzzles (Version 1.0) (cleanly cracked),
+  MECC-A311 Picture A Story (Version 1.0) (cleanly cracked), MECC-A317 Take A Chance! (Version 1.0) (cleanly cracked),
+  MECC-A330 Nutrition Nabber (Version 1.0) (cleanly cracked), MECC-A333 Pizza to Go (Version 1.0) (cleanly cracked),
+  MECC-A334 Electrifying Adventures (Version 1.0) (cleanly cracked),
+  MECC-A336 Amazing Arithmetricks (Version 1.0) (cleanly cracked), MECC-A337 Treasures for Sale (Version 1.0) (cleanly cracked),
+  MECC-A340 CryptoQuest (Version 1.0) (cleanly cracked), MECC-A343 Science Giants (Version 1.0) (cleanly cracked),
+  MECC-A351 Get Well, Woolly! (Version 1.0) (cleanly cracked), MECC-A401 Energy House (Version 1.0) (cleanly cracked),
+  MECC-A402 Elementary Genetics (Version 1.1) (cleanly cracked), MECC-A403 Logic Gates (Version 1.0) (cleanly cracked),
+  MECC-A405 Sports Stats (Version 1.0) (cleanly cracked), MECC-A406 Create-A-Base (Version 1.0) (cleanly cracked),
+  MECC-A407 Book Worm (Version 1.0) (cleanly cracked), MECC-A712 Music Theory: Music Fundamentals (Version 1.0) (cleanly cracked),
+  MECC-A719 Elementary Volume 5: Language Arts: Prefixes (Version 1.5) (cleanly cracked),
+  MECC-A719 Elementary Volume 5: Language Arts: Prefixes (Version 1.7) (cleanly cracked),
+  MECC-A721 Business Volume 3: Accounting (Version 1.8) (cleanly cracked),
+  MECC-A726 Spelling Volume 1: Primary (Version 2.0) (cleanly cracked) [4am, Firehawke]
+ekara_japan_s: Hello Kitty Special (Japan) (SC0001-KTY) [TeamEurope]
+ekara_japan_sp: SP-05 Super Cartridge - TV POP Junior with Chibi Marukochan & Anpanman (Japan) [TeamEurope]
+fmtowns_cd:
+  Alice no Yakata 3 (1995-05-16), Battle, Ehon Writer V1.1 L10, Never Land, Oto to E no Deru Eigo Jisho No. 2 - English in Dream,
+  Populous II - Trials of the Olympian Gods - Expert, Running Girls - Hashiri Onna II + Rance 4.1 / 4.2 Hint Disk,
+  Soreike! Anpanman - Tanoshii Eigo Asobi, Toshiyuki Yoshino - Lullaby of BirdLand, True Heart (alt), Viper GTS [redump.org]
+  Half Moon ni Kawaru made - Ramiya Ryou no Nijiiro Tamatebako [redump.org, wiggy2k]
+fmtowns_flop_orig:
+  CD+Graphics Player V1.1L10, Nihongo MS-DOS V6.2 L10 (Kihon Kinou), Ponyon [cyo.the.vile]
+  AIV - A Ressha de Ikou 4 - Map Construction + Power-Up Kit, Legends of Valour - Gouyuu no Densetsu - Demonstration [wiggy2k]
+ibm5170: Museum Madness Top Gun: Danger Zone [The Good Old Days]
+sgi_mips:
+  Hot Mix Volume 12 (alternate) [nixzone.nl, Davide Cavalca]
+  IRIX 6.5.20, IRIX 6.5.24, IRIX 6.5.25 [pixelbart.net, Davide Cavalca]
+sorcerer_cass: Cosmic Fighter (ported from TRS-80) [exidyboy]
+
+
+
+動作可能に昇格したソフトウェアリスト項目
+--------------------------------------------------
+apple2_flop_clcracked: MECC-A157 Oregon Trail (Version 1.1) (cleanly cracked) [4am, Firehawke]
+fmtowns_cd:
+  Nobunaga no Yabou - Sengoku Gun'yuuden [cherokee]
+  Windows 3.1 L11 [cyo.the.vile]
+
+
+
+新規追加された未動作ソフトリスト
+--------------------------------
+ekara_japan_gk: GK-2 - Disney Princess: Princess Debut (Japan), GK-3 - Disney Tinkerbell to Tinkle Star Uranai (Japan) [TeamEurope]
+fmtowns_cd: Scavenger 4 (HME-217B) [redump.org]
+fmtowns_flop_orig:
+  Nihongo MS-DOS V5.0 L10 (Kihon Kinou) [cyo.the.vile]
+  Mah-Saiko-Jong [wiggy2k]
+leapfrog_didj_cart: Super Chicks (USA) [TeamEurope]
+leapfrog_zippity_cart:
+  Disney Princess - Magical Movement & Learning (500-13590-A) (UK), The World of Cars - Driven to Learn (500-13589-B) (UK)
+  [TeamEurope]
+pockchalw:
+  Shinkenzemi Chuugaku Kouza - Chuu 1 Eigo (S11), Shinkenzemi Chuugaku Kouza - Chuu 2 Eigo,
+  Shinkenzemi Chuugaku Kouza - Chuu 2 Eigo (N21), Shinkenzemi Chuugaku Kouza - Chuu 2 Eigo (N22),
+  Shinkenzemi Chuugaku Kouza - Chuu 2 Eigo (N24), Shinkenzemi Chuugaku Kouza - Chuu 3 Eigo (N31),
+  Shinkenzemi Chuugaku Kouza - Chuu 3 Eigo (N32), Shinkenzemi Chuugaku Kouza - Chuu 3 Eigo (N33),
+  Shinkenzemi Chuugaku Kouza - Chuu 3 Eigo (N35), Shinkenzemi Chuugaku Kouza - Chuu 3 Eigo (N37),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Chiri (C), Shinkenzemi Chuugaku Kouza - Chuugaku Chiri (NC),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Chiri - Rekishi Pack (Chiri Soft - Rekishi Soft Kanzen Taiou Ban) (CR),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Rekishi (NR), Shinkenzemi Chuugaku Kouza - Chuugaku Rekishi (R),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Rika (1-bunya) (L1), Shinkenzemi Chuugaku Kouza - Chuugaku Rika (1-bunya) (L1) (*),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Rika (2-bunya) (L2), Shinkenzemi Chuugaku Kouza - Chuugaku Rika (2-bunya) (L2) (*),
+  Shinkenzemi Chuugaku Kouza - Chuugaku Rika Pack (1-bunya - Soft 2-bunya Soft Kanzen Taiou Ban) (LP),
+  Shinkenzemi Chuugaku Kouza - Koukou Juken (Ei - Sha - Ri) (0G1), Shinkenzemi Chuugaku Kouza - Koukou Juken (Ei - Sha - Ri) (1-G1),
+  Shinkenzemi Chuugaku Kouza - Koukou Juken (Ei - Sha - Ri) (G-1), Shinkenzemi Chuugaku Kouza - Koukou Juken (Kuni - Suu) (G-2),
+  Shinkenzemi Koukou Kouza - Daigaku Juken Series - Hinshutsu Eitango (T),
+  Shinkenzemi Koukou Kouza - Daigaku Juken Series - Juuyou Eigo Koubun (B),
+  Shinkenzemi Koukou Kouza - Hinshutsu Nihonshi Kouryaku (0D), Shinkenzemi Koukou Kouza - Hinshutsu Sekaishi Kouryaku (0W),
+  Shinkenzemi Koukou Kouza - Hinshutsu Sekaishi Kouryaku (W), Shinkenzemi Koukou Kouza - Juuyou Kobun Kouryaku (A) (0BKD01) [skaman]
+sega_beena_cart:
+  1-nichi 10-pun de E ga Jouzu ni Kakeru Beena, Anpanman no Waku Waku Game Oekaki, Beena Town e Youkoso,
+  Cooking Beena: O-Ryouri Dekichatta!, Disney Tanoshii O-Benkyou Series 1: Mic de Kantan ABC,
+  Disney Tanoshii Oekaki: O-Mise-ya-san o Tsukutchaou!, Hello Kitty no Hiragana Katakana O-Namae Kaitemiyou!,
+  Kouchuu Ouja Mushiking: Mori no Tami no Densetsu: Minna de Tanken! Kouchuu no Mori,
+  Partner In TV! O-Uchi ni Wan-chan ga Yattekita, Point Gakushuu Tokei [TeamEurope]
+
+
+追加・更新された翻訳
+--------------------
+Portuguese (Brazil) [Chrystian Rafael Rubio de Melo]
+
+
+マージされたプルリク
+--------------------
+- 7695: Added synchronous I/O for RS232 port and HP98046 module。[F.Ulivi]
+- 7718: Added save state support for Namco System 21 family。[cam900]
+- 7756: machine/tc009xlvc.cpp: Integrated Z80 CPU core in device, and fixed background drawing (visible in gemcrush)。[cam900]
+- 7763: machine/fdc37c665gt.cpp: Reimplemented with added floppy and parallel port support。[Windy Fairy]
+- 7789: hng64.cpp: Implemented priority Z sort mode for sprites。[Happy]
+- 7792: hash/sgi_mips.xml: Added three entries, and missing discs for various entries。[nixzone.nl, pixelbart.net, Davide Cavalca]
+- 7800: sound/setapcm.cpp: Added preliminary 16-voice ST0032 internal sound support (used by jclub2)。[cam900]
+- 7808: sound/ymfm.cpp: Added new BSD-licensed implementation of Yamaha OPN/OPM FM synthesis emulation。[Aaron Giles]
+- 7810: hng64.cpp: Improved projection matrix calculation and 3D clipping。[Happy]
+- 7811: sound/cdda.cpp: Return LBA position as currently playing LBA (fixes issues with Konami System 573 games)。[Windy Fairy]
+- 7815: apple2gs.xml: Added descriptions for sys504 and sys601。[Kelvin Sherlock]
+- 7816: Added two TV games, and several LeapFrog and e-kara software list entries。[David Haywood]
+- 7817: twinkle.cpp: Removed periodic source for IRQ2。[Ziemas]
+- 7818: firebeat.cpp: Re-dumped CDs for two games, and added Keyboardheaven (Korea)。[Jennifer, Taylor, David Haywood]
+- 7819: neptunp2.cpp: Added Corsario (Cirsa slot machine)。[jordigahan, ClawGrip]
+- 7821: spg2xx.cpp: Added Dora the Explorer - Dora TV Adventure Globe。[Sean Riddle, David Haywood]
+- 7822: machine/t10mmc.cpp: Handle LBA zero correctly when first track is audio。[Windy Fairy]
+- 7824: elan_ep3a19a.cpp: Added two TV Board Games 6-in-1 games。[Sean Riddle, David Haywood]
+- 7825: cps2.cpp: Added Mega Man: The Power Battle (CPS2, USA 950925, SAMPLE Version)。[bdlou, r09]
+- 7826: nova2001.cpp: Added Raiders5 (Japan, set 2, bootleg?)。[Paul Wood, David Haywood]
+- 7827: Added dongle dumps, improved cabinet info register settings, and updated notes。[Jennifer Taylor]
+- 7828: firebeat.cpp: Improved IN1 values, and added notes on DIP switches。[Windy Fairy]
+- 7829: ksys573.cpp: Use ddr2ml disc as base for ddr2mc2。[Windy Fairy]
+- 7831: psikyo.cpp: Fixed crash in samuraia and clones accessing non-existent ROM region。[cam900]
+- 7832: merits.cpp: Added Scorpion (Dec 24, 1993)。[jordigahan, ClawGrip]
+- 7833: twinkle.cpp: Added all missing CD and hard disk dumps, and added three beatmania IIDX variants。[Jennifer Taylor]
+- 7834: Improved Brazilian Portuguese translation。[Chrystian Rafael Rubio de Melo]
+- 7834: firebeat.cpp: Added support for beatmania III floppy disk drive and spectrum analyzer。[Windy Fairy]
+- 7837: debugger: Added “wpsize” variable for accessing the access size that triggered a watchpoint。[moralrecordings]
+- 7838: elan_ep3a19a.cpp: Added three TV Board Games 3-in-1 variants。[Sean Riddle, David Haywood]
+- 7840: momoko.cpp: Fixed video code reading beyond the end of ROM region (caused glitches on high score table)。[David Haywood]
+- 7841: Fixed rewind functionality (GitHub #7806)。[feos]
+- 7845: alg.cpp: Added 100 Hz display versions of Tierras Salvajes and Marbella Vice。[Arcade Planet, Recreativas.org, ClawGrip]
+- 7846: video/k057714.cpp: Implemented raster timing registers (fixes timings on some Konami Firebeat games)。[Windy Fairy]
+- 7847: jpmimpct.cpp, jpmimpctsw.cpp: Fixed reel display in j6big50, and added sound ROM for j6untch。[David Haywood]
+- 7848: generalplus_gpl16250_spi_direct.cpp: Added Pac-Man (mini arcade) and Ms. Pac-Man (mini arcade)。[Sean Riddle, David Haywood]
+- 7849: midzeus.cpp: Disabled waveram drawing feature by default。[David Haywood]
+- 7850: spg2xx.cpp: Added Teléfono interactivo de TV (Spain)。[ClawGrip, Sean Riddle, David Haywood]
+- 7851: zaxxon.cpp: Fixed tilemap/sprite priority for ixion; also demoted lastfght and raccoon to not working。[David Haywood]
+- 7856: joystand.cpp: Converted cartridge access function to address_map_bank_device and cleaned up code。[cam900]
+- 7857: leapfrog_iquest.cpp: Added Turbo Twist Spelling (US) and Turbo Twist Vocabulator (US)。[Sean Riddle, David Haywood]
+- 7858: sega_beena_cart.xml: Added ten entries, and corrected pokebw scan sizes and checksums。[TeamEurope, ClawGrip]
+- 7859: apple2gs.cpp: Added checks for special key combinations to ADB GLU microcontroller simulation。[Kelvin Sherlock]
+- 7860: leapfrog_iquest.cpp: Added Turbo Twist Fact Blaster (US)。[Sean Riddle, David Haywood]
+- 7861: spectrum_cass.xml: Updated metadata for six entries。[ArcadeShadow]
+- 7864: fmtowns_flop.xml: Split into separate lists for original, cracked and miscellaneous software, and added seven entries。[r09]
+- 7866: tecmo16.cpp: Improved interrupt acknowledge mechanism; 1943.cpp: Fixed drawing past the end of sprite RAM。[David Haywood]
+- 7871: apple2gs.cpp: Check for presence of floppy drives before deselecting them。[Kelvin Sherlock]
+- 7872: bgfx: Made crt-geom and crt-geom-deluxe scan lines adjustable, and added a low-pass filter for crt-geom-deluxe。[cgwg]
+- 7873: firebeat.cpp: Replaced Keyboardmania 1st Mix and 2nd Mix CD dumps with images including subchannel data。[Windy Fairy]
+- 7874: fmtowns_cd.xml: Added thirteen entries, replaced twelve entries with better dumps, and added five missing floppies。[r09]
+- 7857: Added UI option to mute audio when emulation is not throttled (GitHub #7843)。[Ryan Holtz]
+- 7876: spectrum_cass.xml: Filled in year and publisher for many entries。[ArcadeShadow]
+- 7879: ibm5170.xml: Added Museum Madness and Top Gun: Danger Zone。[The Good Old Days, ArcadeShadow]
+- 7881: coco12.cpp: Set proper tri-state value for keyboard PIA port B (fixes MT07701)。[Tim Lindner]
+- 7882: alg.cpp: Added notes about Picmatic games。[ClawGrip]
+- 7883: machine/i2cmem.cpp: Added Xicor X24C01 support (used for save data in some Mega Drive cartridges)。[Ryan Holtz]
+- 7885: bus/megadrive/jcart.cpp: Fixed I²C read address for Codemasters games。[Ryan Holtz]
+- 7886: bus/megadrive/sk.cpp: Fixed saving in Sonic 3 & Knuckles, and allowed all cartridges to be locked on。[Ryan Holtz]
+- 7887: apple2gs.cpp: Configure SCC Baud rate generator input clocks。[Kelvin Sherlock]
+- 7889: apple2_flop_clcracked.xml: Added latest cracks, with lots of MECC software。[4am, Firehawke]
+- 7893: gaelco3d.cpp: Added Surf Planet (Version 3.0)。[jordigahan, ClawGrip]
+- 7894: apple2_flop_clcracked.xml: Fixed CRC for mcwacs10。[Firehawke]
+- 7895: ssv.cpp: Fixed gdfs (Mobile Suit Gundam Final Shooting) sound ROM loading。[David Haywood]
+
+
+ソースの変更点
+--------------
+- missile, mpz80, mz700, pockstat, pofo, proteus3, savquest: drvnoclearのデバッグビルドで不正な動作の原因となっていた変数を初期化。
+  [Ivan Vangelista]
+
+- video/hng64.cpp: スプライトのプライオリティZソートモードを実装。(#7789) [Happy-yappH]
+
+- iwm/swim: 書き込みの修正。[Olivier Galibert]
+
+- iwm: コンパイルの修正。[R. Belmont]
+
+- iwm: 修正完了。ミスしてすまんね。[Olivier Galibert]
+
+- mac: - mac: メインcpuを正しくviaに同期。フロッピーの書き込みを修正。おそらく他のハンドラーにも伝搬させる必要あり。[Olivier Galibert]
+
+- iwm/swim1: ドライブが接続されていないときのセンサー値を修正。[Olivier Galibert]
+
+- apple2gs.xml: sys504/sys601の記述を追加。[ksherlock]
+
+- sound/cdda.cpp: LBA位置を現在再生中のLBAとして返す。(#7811) [987123879113]
+
+- Setaのサウンドをリファクタリング、ST0032サウンドの暫定サポート。(#7800) [cam900]
+ * sound/nile.cppをsound/setapcm.cppに改名
+ * 16ボイスのST0032バリアントの暫定サポート
+ * jclub2.cpp: ST0032サウンドを実装
+ * jclub2.cpp, srmp6.cpp: クリスタルの周波数からサウンドクロックを導出
+
+- m3: XTALの更新。[Steve Hunt]
+
+- mac128: PWMの実装(NEW_IWMのみ)、スーパードライブのviaクロック修正。HD/DD検出を実装できたかも。[Olivier Galibert]
+
+- fromanc2, hp_ipc, hp3478a, hp80, hp9k_3xx, inder, iris3130, news_r3k, pc4: drvnoclearのデバッグビルドで不正な動作の原因となっていたい変数を初期化。[Ivan Vangelista]
+
+- simple_st0016.cpp: タグマップルックアップを廃止、その他の小さなクリーンアップ。[Ivan Vangelista]
+
+- hh_cops1: qkracermのRAMは8x12。[hap]
+
+- 68HC05EG: HCMOSのサイクルタイミングを使用。[R. Belmont, Vas Crabb]
+
+- byte8251, ccs7710: C800-CFFFのスペースを占有させない。[AJR]
+
+- addrmap: メモリマップでクリエイターを許可。[Olivier Galibert]
+
+- alphatpc16, amstr_pc, cischeat, kaypro, m72, pdp11, peplus, pt68k4, rm380z, sapi1, taito, tandy1t, tk80bs, univac, vegas, videopkr, 
+  votrpss, vsnes, williams: drvnoclearのデバッグビルドで不正な動作の原因となっていた変数を初期化。[Ivan Vangelista]
+
+- simple_st0016.cpp: セーブステートを有効化。[Ivan Vangelista]
+
+- 68hc05EG: 適切な HC05 ベースサイクルのタイミングとディスアセンブラを使用。[R. Belmont, Vas Crabb]
+
+- macのアップデート: [R. Belmont]
+ * マイクロコントローラからの実際のタイミングで動作するようにmacadbのタイミングを調整
+ * via_cyclesのタイミングハックを削除
+ * PortableとPowerBook 100でADBが暫定的に動作
+
+- mac.cpp: ほとんどのマシンで正しいフロッピードライブの種類を設定。[R. Belmont]
+
+- hng64 : 投影行列の計算と、3Dクリッピングを改善。(#7810) [Happy-yappH]
+
+- cvs, dkong, hec2hrp, igs011, namcos21_dsp, nbmj9195, realbrk, seattle, skylancr, sorcerer, subsino, superqix, trs80m3: 
+  drvnoclearのデバッグビルドで不正な動作をしていた変数を初期化。[Ivan Vangelista]
+
+- d64plus: RAMバンクをSAMアドレス空間に再実装。[Nigel Barnes]
+
+- dkong.h: 不要な変更を取り消し。[Ivan Vangelista]
+
+- x1_010: 出力サンプルを範囲内に収める。[AJR]
+
+- esqkt.cpp: ドライバには16ビットと32ビットの領域を使うセットが混在しているので、必要なポインタを使うように変更を取り消し。
+  [Ivan Vangelista]
+
+- mac: IIsiのFDCとドライブタイプを修正。[R. Belmont]
+
+- pmac6100: ブートビデオを修正。[R. Belmont]
+
+- egret, cuda: mac.hのインクルードを削除。これらは独立したデバイスになっている。[R. Belmont]
+
+- upd765_dsk, wd177x_dsk: ダメージを受けたディスクでクラッシュしないよう変更。[Olivier Galibert]
+
+- swim2: 残っていた冗長性を解消。[Olivier Galibert]
+
+- namcos21*.cpp: セーブステートのサポートと、ピクセルクロックをより明確化。(#7718) [cam900]
+ * namcos21_de.cpp: コンフィギュレーションフラグを修正 (driveyesは4つの2Mbit PCM ROMを持つ)
+ * namcos21.cpp: 不要なドライバ initを削除し、ハードウェアノートを追加
+
+- 以前に追加されたekaraの一部は、現在は機能していないalt seepromを使用しており、あちこちでロックアップするため、未サポートに設定しまし
+  た。[David Haywood]
+
+- firebeat.cpp:「キーボードマニア」と「キーボードマニア2nd Mix」のCDを吸い直しと再変換。[Jennifer Taylor]
+
+- fddebug.cpp: ビルドから削除。[AJR]
+
+- fileio.cpp: これは技術的にはemu.hを必要としない。[AJR]
+
+- 4dpi, amstrad, apple2, bebox, besta, dkong, m24: drvnoclearのデバッグビルドで不正な動作の原因となっていた変数を初期化。
+  [Ivan Vangelista]
+
+- MM76ディスアセンブラと暫定的なPPS-4/1 MCUコアを追加。[hap]
+
+- machine/t10mmc.cpp: 特殊なLBA 0の場合のCDメディアタイプチェックを追加。(#7822) [987123879113]
+ * m_lbaが0のときにm_lbaを150に設定する特殊なケースは、データおよびミックスモードメディアCDにのみ適用される
+
+- Yamaha OPN、OPM FM音源チップのBSDライセンスによる新しい実装。(#7808) [Aaron Giles]
+ * YM2203, YM2608, YM2610, YM2610B, YM2612, YM3438, YM2151用の新しいデバイスドライバとともに、Yamaha OPNとOPM FM音源チップのBSDライセン
+   スによる新しい実装
+
+- rc759: カセットのエラーを修正、キーボードを追加。[Dirk Best]
+
+- i8251：デバイスが起動する前にwrite_ctsを許可。[AJR]
+
+- tatsumi.cpp: 旧式のYM2151ハックを削除。[AJR]
+
+- swim2: 残りのデバッグ変数を削除。[Olivier Galibert]
+
+- emuview: 特定のケースでのinit_handlersの修正、ビューでのioportsのマッピングの修正。[Olivier Galibert]
+
+- coolridr.cpp: coolridr.cppのヘッダにあるドキュメントをもとに、XTALの使い方を修正。「クールライダーズ」で計測したクロックを使用。
+  [Brian Troha]
+
+- ADPCM-Bの処理ロジックを修正。YM2610の外部モードを強制的にオンにする。ネオジオサウンドの再生を修正。[Aaron Giles]
+
+- MSVCビルドを修正。[Aaron Giles]
+
+- swim: ローカル変数 bit は bool ではなく int。[hap]
+
+- 見落とされていたymsndの領域を修正。[Robbbert]
+
+- econx25: デュアルZ80コプロセッサボードを追加（不完全）。[Nigel Barnes]
+
+- 以下を巻き戻し"fileio.cpp: This doesn't technically require emu.h" [AJR]
+ * これはコミット 6d6073054b9155592a6022d66751422ff3b3a372 を巻き戻す
+
+- midtunit.cpp:「モータルコンバット」のセット2本でROMのtypoを修正。[Brian Troha]
+
+- psikyo.cpp: samuraiaとクローンセットのクラッシュを修正。(#7831) [cam900]
+
+- ksys573.cpp: ddr2mlのディスクをddr2mc2のベースとして使用。(#7829) [987123879113]
+ * ddr2mc2はメモリカードリーダーがある場合、別のCDを要求する
+
+- firebeat.cpp: ドングルの吸い出しとドキュメントの拡張。(#7827) [Jennifer Taylor]
+ * 不足しているドングルについて、自分が所有していて吸い出せるものを全て追加
+ *「キーボードマニア2ndMIX」のドングルを吸い出し [Johan Veenstra (Dexx)]
+ * いろいろなゲームの筐体情報レジスタビットの意味をドキュメント化 [Jennifer Taylor, Windy Fairy] 
+ * いろいろなゲームシリーズでドングルがどのように使用されているかをドキュメント化
+
+- tc009xlvc.cpp: Z80コアをインクルード (割り込みハンドラは未移植)。(#7756) [cam900]
+ * gemcrushで使用される不透明な背景を修正
+ * バンクされたビデオRAMハンドラを内部メモリ空間に変換
+
+- electra.cpp: WingsのPCBコードをドキュメント化。[gregf]
+
+- pacman.cpp: 昔のコメントを削除。[gregf]
+
+- pgm.cpp: 基板のスキャン画像をもとに、チップの位置を修正。[JacKc]
+
+- s11c.cpp, wpc_95.cpp: PinMAMEとセットを同期。[Ivan Vangelista]
+
+- mame.lst: Electro-Sportのスペルを修正。[gregf]
+
+- device/bus/ti99/pecb/evpc.cpp: MT07889を修正。[Ivan Vangelista]
+
+- divebomb.cpp: MT7887を修正。[Ivan Vangelista]
+
+- strings.poを更新。[Chrystian Rafael Rubio de Melo]
+ * ブラジルポルトガル語の改善
+
+- system1.cpp:「シューティングマスター」の315-5159A iC8751 MCUを吸い直して検証。
+  [Joe Magiera, TeamEurope, Brian Troha, The Dumping Union]
+
+- macquadra700.cpp: 新しいSWIM1と改良されたVIAタイミングを使用するように変換。[R. Belmont, O. Galibert]
+
+- machine/fdc37c665gt.cpp: フロッピーとパラレルをサポートして再実装。[987123879113]
+
+- mahine/upd765.cpp: リードコマンドのセクタベースの終了条件を実装。[987123879113]
+
+- flopimg: 劣化したトラックでのニブル抽出で失敗しないよう改良。[Olivier Galibert]
+
+- iwm/swim: iwmの微妙な書き込み問題を修正し、いくつかのパラノイアを追加。[Olivier Galibert]
+
+- SeibuサウンドデバイスのYM同期を修正。[Aaron Giles]
+
+- machine.lua: applefdintfファイルのポインタを修正。[hap]
+
+- floppies: フォーマット配列を関数呼び出しにする。 "mfm"、"fm"、"pc "というフォーマットのリストをデフォルトで作成します。これらの内容と、
+  どのドライバが何を使うかについては、調整が必要かもしれません。[Olivier Galibert]
+
+- balsente, dgn_beta, esripsys, fastfred, galaxian, galaxold, goldstar, mbee, model3, pcfx, pcw, prestige, royalmah, seattle, sun3,
+  system16: drvnoclearのデバッグビルドで不正な動作を引き起こしていた変数を初期化。。[Ivan Vangelista]
+
+- リバート "SeibuサウンドデバイスのYM同期を修正" [Aaron Giles]
+ * c89cbcd0e599d7baca6d294e451fcd4249b4a74eをリバート
+
+- 適切な順序を確保するため、タイマーを介してすべての割り込みの変更をスケジュール化。Seibuのサウンド問題をより一般的な方法で修正。
+  [Aaron Giles]
+
+- bw12: Coverity 140173 (バッファオーバーフロー) [Robbbert]
+
+- mastmind: ビット/バイトの順序をシャッフルして、disasmの見え具合を改善。[hap]
+
+- defaults: pcフォーマットは内, ipfは外。[Olivier Galibert]
+
+- 依存関係を修正。[Olivier Galibert]
+
+- imgtool: リンクエラーを解消。[Olivier Galibert]
+
+- konamigs.cpp: runpuppyのブートROMを吸い出し。[Houpela]
+
+- nzeroteam,nzeroteama: DIPスイッチを正しく拡張。[Barry Rodewald]
+
+- ymfm: タイマ制御ビットが同期して処理されるように、モードレジスタへの書き込みを明示的に同期。[Aaron Giles]
+
+- neogeo: Coverity 140102 (バッファオーバーフロー) [Robbbert]
+
+- avgdvg: Coverity 316107 (wrongable variable?) リグレッションテスト必要。[Robbbert]
+
+- 1942p: Coverity 180504 (未使用コード) [Robbbert]
+
+- vgmplay: Coverity 183775 (バッファオーバーフローと無意味なコード) [Robbbert]
+
+- pt68k4: Coverity 139050 (ヌルい参照) [Robbbert]
+
+- pcw16: Coverity 140126 (バッファオーバーフロー) rtcの月のテーブルを1つはみ出し。[Robbbert]
+
+- mz2500: Coverity 138615 (間違った計算) [Robbbert]
+
+- magictg: Coverity 315123 (バッファオーバーランによる起動時のクラッシュ) [Robbbert]
+
+- ymfm: LFOノイズの挙動を改善。LFOノイズが再生されたときのログ（verboseの下）を追加し、さらなる調査のためケースに特定できるようにしまし
+  た。これはリリース前に削除される予定です。[Aaron Giles]
+
+-「TMNT」のオーディオデコーディングを修正し、未定義のC++動作を呼び出さないようにしました。また、デコードされたサンプルデータをセーブす
+  るために登録する必要はありません。[Aaron Giles] 
+
+- ウォッチポイントからデータサイズにアクセスするための'wpsize'変数を追加。(#7837) [Scott Percival]
+
+- 3c505: 重複するリセットロジックを削除。[Patrick Mackinlay]
+
+- views: 重複してインストールされた場合にハンドラが停止しないようにハンドラへの参照を保持。[Olivier Galibert]
+
+- rc759: RTCとフロッピーの追加、クリーンアップ開始。[Dirk Best]
+
+- atarist, fmtowns, megadriv, model3, pc6001: drvnoclearのデバッグビルドで不正な動作の原因となっていた変数を初期化。[Ivan Vangelista]
+
+- geneve: 標準的なGeneve用のIDEカードのアドレスデコードを修正; RTCチップのデフォルトを変更。[Michael Zapf]
+
+- mastmind: romページの順番を入れ替え。[hap]
+
+- jpmimpct.cpp - フラグを修正。(nw) [James Wallace]
+
+- formats: mame_formats_full_listを作成して、サポートされているすべてのフォーマットにアクセスできるようにし、floptoolがそれを使うように
+  改良。Castoolでも使うべきかもしれませんが、私は触りたくありません。[Olivier Galibert]
+
+- ui audit: 正しいファイルを取得するようにユーザーにお知らせ。[hap]
+
+- formats: 見逃していたRC759形式を修正。[Dirk Best]
+
+- sorcerer_cass.xml: 不要なコメントを削除。[Robbbert]
+
+- pps41: MM76由来のデバイスのスケルトンを追加。[hap]
+
+- mac128: PWMを使用するドライブの回転数のみを調整。[Olivier Galibert]
+
+- apple2gs, pc9801, slapshot, viper, x68k: drvnoclearのデバッグビルドで不正な動作の原因となっていた変数を初期化。[Ivan Vangelista]
+
+- apple_gcr: 片面ドライブの800Kイメージを拒否。[Olivier Galibert]
+
+- mz2000: 純粋なmfmコンテナを追加。[Olivier Galibert]
+
+- crashrd: Coverity 315390 (未使用のコード)。また、ノートを追加。[Robbbert]
+
+- itt3030: 不足していたターミネーターを追加。[Olivier Galibert]
+
+- superdrive: 理論的に720K MFMをサポート。[Olivier Galibert]
+
+- jaleco_ms32_sysctrl.cpp: 不足していたセーブ項目を追加。[Ivan Vangelista]
+
+- audio/seibu.cpp: IRQのサービス内ロックアウトを実装; リセット後の未ACKな割り込みにより、「カベール」のサウンドCPUがロックするのを防ぎ
+  ます。[AJR]
+
+- srmp2.cpp: 未吸い出しが疑われるMCUに対してNO_DUMPエントリを追加。[AJR]
+
+- floppy: フォーマット済みフロッピーイメージのサポート開始。[Olivier Galibert]
+ * 欠けているもの:
+   - パラメータ (ディスクが存在する場合はディスク名など)
+   - ram_openとその仲間たちのクリーンアップ（しかし適切な方向性は謎）
+
+- osxのコンパイル修正にチャレンジ。[Olivier Galibert]
+
+- fs_prodos:initの説明をもっとわかりやすく変更。[Olivier Galibert]
+
+- floppy: 拡張子不明で作成に失敗しないように改良。[Olivier Galibert]
+
+- コピペ・マイ・ラブ、osx用の修正完了。[Olivier Galibert]
+
+- C++の欠点。なぜC++標準では、継承や仮想メソッドを持つクラスのデフォルトデストラクタは自動的に仮想化されるとは言えないのか？
+  でもthou shaltはちょっと困る。[Olivier Galibert] 
+
+- 混乱したマージを修正。[Olivier Galibert]
+
+- mac: 間違って設定されたNEW_SWIMを無効化。[Olivier Galibert]
+
+- フロッピーフォーマットの判定をより早期に実行。[Olivier Galibert]
+
+- #7806を修正。(#7841) [feos]
+
+- corefile.cpp: core_filename_extract_baseが不安定な場合でもより安定した動作をするようにした。[AJR]
+
+- rocnrope.cpp: セーブステートを修正し、細かいクリーンアップ。[Ivan Vangelista]
+
+- triviaquiz.cpp: 著作者のリストを更新。[Ivan Vangelista]
+
+- pps41: mm76のオペコードのうちi/oを除くほとんどを追加。[hap]
+
+- swim1: iwmのクロッキングを修正。[Olivier Galibert)
+
+- 2mg: 標準的なミスを許容。[Olivier Galibert]
+
+- fidel_cc7: bccのロムが古い。[hap]
+
+- emumem_mview.cpp: count_leading_zerosを使って幅の演算をシンプル化。[AJR]
+
+- "アーケード"ビルドの修正。[Brian Troha]
+
+- model3.cpp: set reorderingで露呈していた長年のカットアンドペーストを修正。[Brian Troha]
+
+- swim2: フロッピーディスクの書き込みを修正: superdriveのインデックスの持続時間 (20usではなく2ms) と極性を修正。[Olivier Galibert]
+
+- pps41: i/oオペコードを追加。[hap]
+
+- ap_dsk35: 更新。[R. Belmont]
+ * SuperDriveが扱えるように、2mgとdc42ディスクのフォームファクターを設定
+ * ProDOSフォーマットのdc42 3.5"ディスクを受け付け
+
+- arcade.lua: 不要なBUSデバイスを削除。[Brian Troha]
+
+- model3.cpp: スペルミスを修正。[Brian Troha]
+
+- plugins: lua apiの変更ミスを修正。[cracyc]
+
+- electra.cpp: 情報を更新。[gregf]
+
+- taitosj.cpp: MT07849を修正。[Ivan Vangelista]
+
+- ssp1601.cpp: 内部ROMを吸い出し。[Javier de Silóniz Sandino, krom / Peter Lemon]
+
+- jpmimpctsw.cpp: ディスクリールゲーム(Big 50)をoptoバグのため降格。[James Wallace]
+
+- mm58174: 小修正。[AJR]
+ * 割り込み制御レジスタの初期化 (一部ビルドでwicatの致命的なエラーを防ぐ)
+ * 制御レジスタの下位3ビットが0の場合、割り込み周期を0ではなく、attotime::neverに設定
+ * device_resetメソッドの廃止（ICにはリセット入力がないため)
+
+- device/bus/plus4: MT07886を修正。[Ivan Vangelista]
+
+- liberate.cpp: prosoccrのPCB情報を追加。[f205v]
+
+- williams.cpp: MT07389を修正。[Ivan Vangelista]
+
+- plugins: さらに食べ残し。[cracyc]
+
+- HP9845: RS232ポートとHP98046モジュールに同期I/Oを追加。(#7695) [fulivi]
+ * RS232: 同期 I/O のデバイスを追加
+ * hp9845: hp98046シリアルモジュールに外部クロックを実装
+   - 共著: ajrhacker <ajrhacker@users.noreply.github.com>
+
+- devices/bus/megadrive/svp.cpp: 内蔵ROMをssp1601のCPUコアではなくここに移動。[Ivan Vangelista]
+
+- pps41: mm78 disasmとmm77/mm78のスケルトンデバイスを追加。[hap]
+
+- pps41: mm78オペコードを追加しました（未テスト）。[hap]
+
+- naomi.cpp:「ハウス・オブ・ザ・デッド2」のコリアなBIOSを吸い出し。[xuserv]
+
+- midyunit.cpp: 「ナーク」 (rev 1.80) の正しい REV1サウンドROMを吸い出し。[Brian Troha, The Dumping Union]
+
+- netlist: 著作者の承認のもと、GPLコードをBSD-3に再ライセンスしました。主な制作者であり貢献者であるCouriersudさんをはじめ、
+   Jonathan GevaryahuさんとSergey Svishchevさんに感謝します。[Olivier Galibert]
+ * machine/NL_*の一部に残ったものがあります。特に「ブレイクアウト」と「ポンダブルス」と「リバウンド」は、DICEチームによるコピーライトで
+   す。これらは、このドライバに関係しているだけで、重要なコアシステムには影響ありません
+
+- jpmimpct.cpp: j6big50のリール表示を修正し、他のエミュレータで使われているサウンドROMをj6untchに追加。(#7847) [David Haywood]
+ * 同じホイールの2つの側面であるかのように見えるのを改善
+ * リールのオフセットを微調整
+
+- PPS41: 残りのmm78オペコードを追加。[hap]
+
+- PPS41: シリアルI/Oの追加。[hap]
+
+- alg.cpp: aplatoonの暫定的なアドレスラインのスクランブル解除。[Ivan Vangelista]
+
+- views: 代わりが常に作成されるようにする。[Olivier Galibert]
+
+- midzeus.cpp - ハードコードされた 'in video driver' デバッグキーをデフォルトでオフ。これはよくある混乱のもとです。[DavidHaywood]
+
+- zexallターゲットのコンパイルを修正。[Miodrag Milanovic]
+
+- feversoc.cpp: RS232/Ethernetの未実装ICについてノートを追加。[AJR]
+
+- firebeat.cpp:「ビートマニアIII」のFDDとスペクトラムアナライザをサポート。(#7835) [987123879113]
+ * 「ポップンミュージック」を除く全てのFirebeatマシンを、不完全な音でも動作するように変更
+
+- sound/rf5c400.cpp: エフェクト出力のチャンネルを追加。[987123879113]
+
+- swim3: power mac が起動しない原因にならない程度のエミュレーション。[Olivier Galibert]
+
+- UIコードの改善:  [Vas Crabb]
+ * UIコントロールをトグルする際のメッセージを簡素化
+ * 誤解を招くようなハードコードされたテキストではなく、実際に設定されたUIトグルキーを表示
+ * ウィンドウの活性化/非活性化イベントをUIマネージャにプッシュ
+ * SDLウィンドウイベント処理コードの簡素化 - イベントはかなり正確
+
+- コードの整理いろいろ。[Vas Crabb]
+
+- nes: ファイルに無効なヘッダーがある場合、その旨を表示。[Robbbert]
+
+- f2pbball: ダイヤモンドの形にインラインsvgを使用。[hap]
+
+- netlist: ライセンス変更のためにいくつかのファイルを削除。[hap]
+
+- suna8.cpp: auto_allorc_arrayを削除、save stateサポートの作業を開始、その他マイナーなクリーンアップ。[Ivan Vangelista]
+
+- naomi.cpp: 最新のNAOMIリビジョンドキュメント。[Darksoft, MetalliC, rtw]
+
+- タイポの修正。[Scott Stone]
+
+- pmac6100: 新しいドライバに移行。[Olivier Galibert]
+
+- macpdm.cpp: clangビルドを修正。[AJR]
+
+- namcos12.cpp:「テクノドライブ」のゲーム名をTD2から正しいTH1に変更。[Brian Troha]
+
+- zaxxon.cpp: ixionのスプライトとタイルマップのプライオリティを変更。[David Haywood]
+
+- eolith.cpp, lastfght.cpp: raccoonとlastfghtはタイミングの問題で動作しないので降格。[David Haywood]
+
+- m62.cpp: 古くなったコメントを削除。[David Haywood]
+
+- joystand.cpp: カートリッジアクセス関数を address_map_bank_device に変換。(#7856) [cam900]
+ * プリンタのエミュレーションがないため、MACHINE_NODEVICE_PRINTER フラグを追加
+ * メモを追加、コードを整理
+
+- twinkle.cpp: 暗号化されたドングル(1st、クラブ、サブストリーム)以外の不足データを追加。(#7833) [Jennifer Taylor]
+ * 不足していたハードディスクとCDのイメージをすべて追加
+ * 吸い出し不良としてマークされたCDイメージを置き換え
+ * 2nd Styleから8th Styleまでのドングルを吸い出し、手作りだった4thと5thのデータを置き換え
+
+- video/k057714.cpp: ラスタータイミングレジスターを実装。(#7846) [987123879113]
+ * Firebeatの画面用に正確なタイミングを提供
+
+- f2pbball.lay, ftri1.lay: アトリビュートはインラインスタイルよりも読みやすく、デフォルトは省略可。[Vas Crabb]
+
+- apple2gs: 8ビットビデオモードでラスター分割を有効化。[R. Belmont]
+
+- apple2gs: コントロールパネル (Ctrl-Cmd-Esc) とフラッシュ (Ctrl-Cmd-Delete) をサポート。[ksherlock]
+ * データレジスタがいっぱいになったときにadbの割り込みを発生
+ 
+- apple2gs: MouseTextのリグレッションを修正。[R. Belmont]
+
+- apple2gs: DISKREGへの書き込みでドライブを再選択しないように変更。(github issue #7852) [R. Belmont]
+
+- nes: Coverity 138925,161402: bad shift [Robbbert]
+
+- twinkle.cpp: IRQ2 の周期的ソースを削除。(#7817) [Ziemas]
+ * IRQ1のみを周期的にアサート
+ * SPUのIRQ2ハンドラに関するコメントを追加
+
+- gaelco3d.cpp: エラーログを少し削除。[AJR]
+
+- pps41: 古い関数を削除。[hap]
+
+- mpc60: 追加とノートいろいろ。[AJR]
+
+- apple2gs: 8ビットモードの境界を超えてレンダリングしないように変更。[R. Belmont]
+
+- spectrum_cass.xml: 6つのエントリーのメタデータを更新。(#7861) [ArcadeShadow]
+
+- gime: ROMマッピングを再度修正; 変数をもう一つ初期化。[AJR]
+
+- gaelco3d.cpp: MT07831を修正。[Ivan Vangelista]
+
+- machine/3dom2.cpp: auto_alloc_arrayを削除。[Ivan Vangelista]
+
+- i186: タイマーの更新。[AJR]
+ * リトリガーモードの実装
+ * 冗長な"active_count"フラグを削除、コードを少し整理
+ * セーブステートをモダン化
+
+- macpdm: タイマー、割り込みの追加、viaスピードの修正、sonoraのビットオーダー修正。[Olivier Galibert]
+
+- rc759: I82730の大幅改良、SN76489Aの実装、予備パレット。[Dirk Best]
+
+- rc759: セルフテストの動作を維持するためのタイマー入力追加。[AJR]
+
+- 音量が小さい場合、出力を消去せずにそのままにしておく。raimaisの音が出ないのを修正。[Aaron Giles]
+
+- apple2gs: 更新。[R. Belmont]
+ * 3.5"フロッピーのモーター音が消えないのを修正
+ * $C00Xと$C01Xのリードバックをハードウェアに合わせて修正 (GitHub issue #7867)
+ * マイナーなクリーンアップとモダン化
+
+- menghong.cpp, trivrus.cpp: auto_alloc_arrayとtagmapのlookupsを削除。[Ivan Vangelista]
+
+- gaelco3d.cpp: MT07898を義務化。[Ivan Vangelista]
+
+- monkey_king_3b: MT07904を修正。[Ivan Vangelista]
+
+- pmac6100: SCSI接続。[Olivier Galibert]
+
+- jpmimpctsw.cpp: Untouchablesを再度昇格、音が鳴るように。[James Wallace]
+
+- speakres (& clones): ノートの改善; DAC出力の調整。[AJR]
+
+- mess.flt: macpdm.cppを追加。[Robbbert]
+
+-「ハットリス」のADPCMの不具合を修正。[Aaron Giles]
+
+- ym2608: 以前のコア音量によりマッチするようにFM出力のブーストを削除。[Aaron Giles]
+
+- ym2610: 以前のコア音量によりマッチするようにFM出力のブーストを削除。[Aaron Giles]
+
+- tecmo16.cpp - IRQ ackメカニズムの改善。[David Haywood]
+ * riot - フレームごとに複数の割り込みをトリガしない
+ * 1943.cpp - spriteramの終端を超えて描画しない
+ * 動作観察をもとに、quaser の"フリープレイ"スイッチを反転 (フリープレイという名前は適切ではないかも)
+
+- momoko: メモリシステムアップデート後のハイスコアテーブルの不具合を修正 (リージョンの終わりを越えて読み込んでいた) 。[David Haywood]
+
+- plugins/cheat: 選択を修正。[cracyc]
+
+- hd647180x: データスペースをなくし、代わりにメモリビューを使って内部RAMをプログラムスペースにマップ。[AJR]
+
+- A7800: ジョイスティック2のリセットボタンとセレクトボタンを再配置し、looseのイメージが拒否されたときにメッセージを表示。
+
+- namconb1: クリップレジスタを符号付きにすることで、vshootのMT#6789を修正。根本的な問題はもっとヘンテコかもしれない。[Olivier Galibert]
+
+- elan_eu3a05vid: MSVCを幸せに。[Aaron Giles]
+
+- apple2gs: -fdc:3 "" のようにフロッピーが存在しない場合segfaultにならないよう変更。(#7871) [ksherlock]
+
+- wc90: ADPCMサウンドを修正。[Aaron Giles]
+
+- vgmplay.xml: MAMEに合わせていくつかのショートネームを修正。[Scott Stone].
+
+- mac128: 更新。[R. Belmont, O. Galibert, Patrick Mackinlay].
+ * レガシーのIWM/フロッピーをモダンなIWMとSWIMに置き換え
+ * SE FDHDとClassicで1.44MBフロッピーをサポート
+ * Mac 128および512でPWM 400Kフロッピードライブをサポート
+ * ドライバのモダン化
+ * Mac Plusは最新のSCSIサブシステムを使用
+
+- YM2608ゲームのメモリ領域を修正。[Aaron Giles]
+
+- firebeat.cpp: 「キーボードマニア1st」「同2nd Mix」用の適切なCDサブチャンネルデータを含める。(#7873) [987123879113]
+
+- bgfx: crt-geomおよびcrt-geom-deluxeの機能拡張。(#7872) [cgwg]
+ *  crt-geom-deluxeで、スポットサイズのパラメータを調整可能にし、サンプルを2スキャンラインから3スキャンラインに増加
+ * 水平補間の調整が可能
+ * bgfx crt-geom-deluxe: 指定されたカットオフタイムで蛍光体がスムーズにゼロに減衰
+ * bgfx crt-geom-deluxe: ローパスフィルターを追加
+
+- bgfx: crt-geom{,-deluxe}シェーダーのコンパイルを修正し、シェーダーを再コンパイル。[Vas Crabb]
+
+- pps41: mm78la/mm77laの暫定追加。[hap]
+
+- mcr.cpp: TRONセットのROMラベルを修正。[Brian Troha]
+
+- 「Disc of TRON」のプログラムROMの日付をドキュメント化。ROMラベルの一部を修正。[Brian Troha] 
+
+- a7800: BINファイルはヘッダレスなのでサポートしない方針。[Robbbert].
+
+- mac128: 昇格が早すぎなので戻す。[arbee]
+
+- lynx: カセットが拒否されたときに理由を表示。[Robbbert]
+
+- mac128: viaの同期をプリンシプル化。[Olivier Galibert]
+
+- 0.188から無効になっていたコマンドラインと.iniのオプション検証を復活させて、一部エラーを致命的でないものになるよう変更。[AJR]
+
+- ti99: 稀にしか使われないTDFフロッピーフォーマットのバラエティーを修正。[Michael Zapf]
+
+- ステップごとのログ出力をオフ。[Michael Zapf]
+
+- ymfm: パフォーマンス向上のため、アクティブなチャンネル検出をバックポート化。本格的なパフォーマンスアップは次のサイクルで行いますが、
+  より大規模な変更が必要です。[Aaron Giles]
+
+- mac128: キーボードを修正。 [O. Galibert, AJR]
+
+- via6522: 2回目のsrアクセスでシフトレジスタのタイマーを再起動しないよう変更。[Olivier Galibert]
+ * この変更は少しハックっぽいです。cb2をゼロに設定してこれを停止、さらに外部クロックモードでリスタートするのに十分な間、68kは内部クロッ
+   クモードでシフトレジスタをスタートさせます
+ * 再トリガ補正されたviaコードは、40サイクル先 (10クロック/サイクルEクロックの8エッジ) のcb2を変更が必要です。シフトレジスタを停止させ
+   る命令は、約38サイクル先から開始されますが、実際の書き込みは50サイクル後に行われます。しかし、この命令は割り込みができないので、書き
+   込みはタイマーのタイムアウトが呼ばれる前に行われます
+ * ここには2つの問題があります: まず、68kには割り込み機能がないこと。これは難しい問題で、現在取り組んではいるものの、まだ時間がかかりそ
+   う。そして、viaがcb2 (データ) を+35(えーと、+34だけどもEクロックの複雑さには触れないでおきます)で、cb1 (クロック) を+40で変更するこ
+   とになっているということです。しかし、via のシリアル出力の動作を変更することは、とても見苦しい"here be dragons"なケースであります。
+   これはやるべきではないのですけども
+ * 即効なハックは、+35でデータとクロックを変更するようにすることです。68000が命令をスタートする十分前なので、他のシステムが壊れるような
+   違いはありません。100%正しい修正はいずれ追加します
+
+- mac128: macseのiwmクロックの修正、サイクル調整の修正。[Olivier Galibert]
+
+- keyboardmania: mu100とのインターフェース。[Olivier Galibert]
+
+- キーボードのPIAポートBに適切なトライステートの値を設定。[tim lindner]
+
+- Github issue #7843 (Mute on unthrottle)に対応。(#7875) [MooglyGuy]
+
+- ui: 高度なオプションメニューに、スロットル解除時にミュートするオプションを追加。[Vas Crabb]
+ * mainの前にいくつかの初期化を行わないように少しリファクタリング
+
+- alg.cpp: Picmaticゲームについてのメモを追加。(#7882) [ClawGrip]
+
+- xt446: 本名使用。[Olivier Galibert]
+
+- via6522: リトリガー関連のモノを削除。vectrexがviaは*かなり*アホだと表示しています。[Olivier Galibert]
+
+- via6522: タイミングも調整。[Olivier Galibert]
+
+- mac128: viaのタイミングも調整。viaはアクセスの開始時に動作する必要あり。[Olivier Galibert]
+
+- hh_tms1k: cqbackの難易度スイッチが間違って逆だった。[hap]
+
+- machine/i2cmem.cpp:Xicor X24C01 のサポート。[Ryan Holtz] 
+ * bus/megadrive: Xicor X24C01でEEPROMカートリッジのバリエーションを追加
+
+- bus/megadrive: EEPROM保存カートリッジの互換性リストを更新。[Vas Crabb]
+
+- hiscore.dat: 更新。[Leezer]
+
+- bgfx: ローパスフィルターは実際のモニタータイプを考えていないので、デフォルトでは最大値に設定して無効化。将来的に、ドライバが提供する
+  モニター情報が改善されたときには、この決定を見直せばよいのです。[Aaron Giles]
+
+- jcart: Codemasters製ゲームのI2Cリードアドレスを修正。[Ryan Holtz] (#7885) [MooglyGuy]
+
+- megadriv.xml: MT07023、MT07193、MT7767を修正。[Ivan Vangelista]
+
+- hh_pps41: mwcfootbはmm78。[hap]
+
+- vgmplay.xml: メタデータの修正。[Scott Stone]
+
+- mac128: 基本的なものがすべて動作するようになったので、ドライバを再昇格。[O. Galibert, AJR]
+
+- mac.cpp: すべてのIIおよびLCシリーズのマシン用に新しいFDCとドライブを追加。[R. Belmont, O. Galibert]
+
+- asc.cpp: Apple Sound ChipにIMPERFECT_SOUNDフラグをとりあえず追加。[R. Belmont]
+
+- apple2cp: 内蔵アクセラレータのレジスタに関する解釈間違いを修正。[R. Belmont]
+
+- mac128.cpp: 不要になった#includeを整理。[R. Belmont]
+
+- macpwrbk030: 新しいSWIM1とSuperDrivesをみんなにプレゼントだ。[R. Belmont, O. Galibert]
+
+- machine/playch10.cpp: MT07916を修正。[Ivan Vangelista]
+
+- royalmah.cpp: MT05580を修正。[Ivan Vangelista]
+
+- アーケードビルドを修正。[Robbbert]
+
+- awacs: リライト。[Olivier Galibert]
+
+- awacs: 残り物処理。[Olivier Galibert]
+
+- macpdm: vblank irqを追加。[Olivier Galibert]
+
+- macpdm: vblank ackを修正。[Olivier Galibert]
+
+- bus/megadrive:ソニック&ナックルズのロックオンスロット処理修正。[Ryan Holtz]
+ * ソニック3 & ナックルズのセーブ修正
+ * すべてのMDカートリッジタイプをロックオン可能に変更
+
+- trs80: cmdのクイックローダを改善。[Robbbert]
+
+- mm78la: キャリーフラグの小修正。[hap]
+
+- swim3: rddataを修正、もう少し内容を充実。[Olivier Galibert]
+
+- sonora:コントロールレジスタを読み込み可能に変更。[Olivier Galibert]
+
+- macpdm:  フロッピーソフトリストの追加。[Olivier Galibert]
+
+- apple2gs: sccチャンネルの速度を設定。(#7887) [ksherlock]
+
+- model2.cpp: 「バーチャコップ2」のROMラベルを確認、「バーチャコップ」のSega ID番号をドキュメント化。[Brian Troha]
+
+- 2021年3月のAppleソフトウェアリスト更新。(#7889) [Firehawke]
+
+- mc146818: アップデート進行中の処理を改善。[Patrick Mackinlay]
+
+- video/segaic24.cpp: 反転クリッピングによるスプライト描画での境界外アクセスを修正 (crkdown のアトラクトモード時にクラッシュする可能性
+  があったもの)。[Vas Crabb]
+
+- swim3, pdm: MFMセクターの読み込み。[Olivier Galibert]
+
+- fmtowns: パレット変更のディレイを調整。[cracyc]
+
+- mac128: vblankの動作レート修正。遅い部分を多く修正。[Jonathan Gevaryahu]
+
+- vlc34010.cpp: CPUが暴走しないようドライバを十分に肉付け。[AJR]
+
+- trs80: フロッピーのリグレッションとカセットの問題のため、ほとんどを動作不可にマーク。[Robbbert]
+ * image.seterrorをmessageに置き換え。このインスタンスでは seterrorは無視される
+
+- VERBOSEをオフに設定。[Aaron Giles].
+
+- ppc: mcrxrのumlを修正。[Olivier Galibert]
+
+- trs80: 新しいコメントのタイポを修正。[Robbbert]
+
+- awacs: init/saveを変数に追加。[Olivier Galibert]
+
+- ppc: mmu/exceptionsデバッグメッセージを修正。[Olivier Galibert]
+
+- hh_cop400: bship82のスピーカー出力を修正。[hap].
+
+- surfplnt30を追加。[ClawGrip].
+
+- MECC-A785の不正なハッシュを修正。(#7894) [Firehawke]
+
+- ppc: stswx、lswxのumlを修正。[Olivier Galibert]
+
+- ppc: lswx/stsxwの修正を改善。[Olivier Galibert]
+
+- macpdm: scsi writeを追加。[Olivier Galibert]
+
+- vlc34010.cpp: さらに実装追加。[AJR]
+
+- mc68hc11: メモリのモダン化と更新。[AJR]
+ * データおよびI/Oスペースを排除し、メモリビューを使用してプログラムスペース内の内部RAMおよびI/Oレジスタを再マッピング
+ * MC68HC811E2タイプの追加
+ * 将来的な内部EEPROMサポートのためのベース作り
+ * RTIおよびカウンタオーバーフローフラグの追加
+ * 内部レジスタにデバッガ状態をさらに登録
+
+- msoccer: goalieのLEDを暗く変更。[hap]
+
+- 68hc11: 自分が著作者になるにはふさわしくない作業量。[hap]
+
+- fmtowns_flop.xml: 3本のリスト(original/cracked/misc)に分割、新規吸い出し7本、置き換え1本。(#7864) [r09]
+
+- spectrum_cass.xml: エントリーに製造年と製造元を追加。(#7876) [ArcadeShadow]
+
+- ssv.cpp: gdfs(「機動戦士ガンダム -ファイナルシューティング-」)のサウンドROMロードを修正。(#7895) [David Haywood]
+
+- mac.cpp: PowerMac残りのビットを整理。[R. Belmont]
+
+- mac.cpp: デッドコードをさらに削除。[R. Belmont]
+
+- リリースに向けてsrcclean。[Vas Crabb]
+
+- asma2k: メモリ関連のリグレッションを修正。[AJR]
+
+- clang 6でのビルドを修正。[Vas Crabb].
+ * 厄介なことに、clang 6 は未使用のプライベートスタティックデータメンバに対する警告を生成するものの、[[maybe_unused]]属性を認識しない
+
+- floppy: ムカつくほど微妙な書き込みバグを修正。[Olivier Galibert]
+
+- レガシーなpc_dskフロッピーをimgtoolだけでサポート復元。[AJR]

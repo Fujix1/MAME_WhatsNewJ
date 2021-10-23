@@ -1,4 +1,4 @@
-0.144
+﻿0.144
 -----
 
 
@@ -20,7 +20,7 @@ MAMETestersの修正バグ
 - 04514: [ドキュメント] mousn_l1, mousn_l4, mousn_lu, mousn_lx: ゲーム名はただしくは
                         "Mousin' Around!"
 - 00504: [グラフィック] hharryu, dkgensan: 背景の表示位置が数ドット左にずれている。
-                        (Roberto Zandonà)
+                        (Roberto Zandona)
 
 
 ソースの変更点
@@ -1262,7 +1262,7 @@ MAMETestersの修正バグ
 
 - Neo-GeoドライバゲームのROM名改良。[Johnboy]
 
-- 変数のシャドウイングに対する修正。[Oliver Stöneberg]
+- 変数のシャドウイングに対する修正。[Oliver Stoneberg]
 
 - Sega Starun / ST-V SCU DSPコアにDSPとIRQイベントを追加。[Angelo Salese]
 

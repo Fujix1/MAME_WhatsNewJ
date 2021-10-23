@@ -1,4 +1,4 @@
-0.91
+﻿0.91
 ----
 
 -「ペンゴ」修正 (u4で動作しなくなっていたもの)。[smf]
@@ -89,8 +89,8 @@
 ------------------------
 クラッシュロード (Status License) [Steve Rice, Pierpaolo Prazzoli]
 ゴールデンアックス デスアダーの復讐 (Japan) [Tormod Tjaberg]
-サンダークロス (World?) [Andreas Thorsén]
-プッシュマン (Korea) [Andreas Thorsén]
+サンダークロス (World?) [Andreas Thorsen]
+プッシュマン (Korea) [Andreas Thorsen]
 
 
 新規追加のGAME_NOT_WORKINGゲーム：

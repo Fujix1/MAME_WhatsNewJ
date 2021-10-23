@@ -1,633 +1,633 @@
-0.34
+ï»¿0.34
 
-V‹KƒTƒ|[ƒg(ƒAƒ‹ƒtƒ@ƒxƒbƒg‡)F
+æ–°è¦ã‚µãƒãƒ¼ãƒˆ(ã‚¢ãƒ«ãƒ•ã‚¡ãƒ™ãƒƒãƒˆé †)ï¼š
 ------------------------------
 
-1942 (set 3) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-4-DƒEƒH[ƒŠƒA[ƒY [Nicola Salmoria]
-600 (Turtles‚Æƒ}[ƒW) [John Dondzila]
-720 Degrees (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-APB ƒƒI[ƒ‹ƒ|ƒCƒ“ƒcƒoƒŒƒbƒeƒBƒ“„ (set 2) (ƒ}[ƒWÏ‚Ý) (this fixes the title screen)
-ƒAƒŒƒbƒNƒXƒLƒbƒh -ƒƒXƒgƒXƒ^[ƒY- (“®ì•s‰Â) [Phil Stroffolino]
-ƒGƒCƒŠƒAƒ“ƒXƒg[ƒ€ (“®ì•s‰Â) [Phil Stroffolino]
-ƒAƒ‹ƒyƒ“ƒXƒL[ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [John Butler]
-ƒGƒŠƒA88 (uUN Squadronv‚Æƒ}[ƒW) [Santeri Saarimaa]
-ƒŠƒxƒ“ƒWƒIƒuDOH [Luca Elia, Mirko Buffoni]
-ƒA[ƒ€ƒŒƒXƒŠƒ“ƒO [Nicola Salmoria]
-Armored Car (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒAƒXƒgƒƒtƒ@ƒCƒ^[ (set 3) (ƒ}[ƒWÏ‚Ý) [Zsolt Vasvari]
-ƒI[ƒ‰ƒCƒ‹ (“®ì•s‰Â) [Phil Stroffolino]
-•KŽEI–³—ŠŒ / Avengers (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Paul Leaman]
-ƒoƒbƒOƒ}ƒ“ (Stern set 1) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+1942 (set 3) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+4-Dã‚¦ã‚©ãƒ¼ãƒªã‚¢ãƒ¼ã‚º [Nicola Salmoria]
+600 (Turtlesã¨ãƒžãƒ¼ã‚¸) [John Dondzila]
+720 Degrees (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+APB ï¼œã‚ªãƒ¼ãƒ«ãƒã‚¤ãƒ³ãƒ„ãƒãƒ¬ãƒƒãƒ†ã‚£ãƒ³ï¼ž (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) (this fixes the title screen)
+ã‚¢ãƒ¬ãƒƒã‚¯ã‚¹ã‚­ãƒƒãƒ‰ -ãƒ­ã‚¹ãƒˆã‚¹ã‚¿ãƒ¼ã‚º- (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ã‚¨ã‚¤ãƒªã‚¢ãƒ³ã‚¹ãƒˆãƒ¼ãƒ  (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ã‚¢ãƒ«ãƒšãƒ³ã‚¹ã‚­ãƒ¼ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [John Butler]
+ã‚¨ãƒªã‚¢88 (ã€ŒUN Squadronã€ã¨ãƒžãƒ¼ã‚¸) [Santeri Saarimaa]
+ãƒªãƒ™ãƒ³ã‚¸ã‚ªãƒ–DOH [Luca Elia, Mirko Buffoni]
+ã‚¢ãƒ¼ãƒ ãƒ¬ã‚¹ãƒªãƒ³ã‚° [Nicola Salmoria]
+Armored Car (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¢ã‚¹ãƒˆãƒ­ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ (set 3) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Zsolt Vasvari]
+ã‚ªãƒ¼ãƒ©ã‚¤ãƒ« (å‹•ä½œä¸å¯) [Phil Stroffolino]
+å¿…æ®ºï¼ç„¡é ¼æ‹³ / Avengers (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Paul Leaman]
+ãƒãƒƒã‚°ãƒžãƒ³ (Stern set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 Beastie Feastie [Clay Cowgill, Mike Balfour]
-ƒoƒCƒIƒAƒ^ƒbƒN (“–‚½‚è”»’è‚È‚µ) [Thierry Lescot]
-ƒgƒbƒvƒV[ƒNƒŒƒbƒg / Bionic Commando (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Steven Frew, Phil Stroffolino, Paul Leaman]
-ƒuƒ‰ƒbƒNƒhƒ‰ƒSƒ“ / Black Tiger (ŠC‘¯”Å) (ƒ}[ƒWÏ‚Ý) [Marco Cassili]
-ƒuƒƒbƒNƒMƒƒƒ‹ (ƒvƒƒeƒNƒg‚Ì‚½‚ß“®ì•s‰Â) [Nicola Salmoria]
-ƒuƒŒƒCƒ“ [Nicola Salmoria]
-Brix (uzzyzzyxxv‚Æƒ}[ƒW) [Brad Oliver]
-ƒuƒ‹ƒtƒ@ƒCƒ^[ [Nicola Salmoria]
-ƒRƒbƒv 01 (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Carlos A. Lozano]
+ãƒã‚¤ã‚ªã‚¢ã‚¿ãƒƒã‚¯ (å½“ãŸã‚Šåˆ¤å®šãªã—) [Thierry Lescot]
+ãƒˆãƒƒãƒ—ã‚·ãƒ¼ã‚¯ãƒ¬ãƒƒãƒˆ / Bionic Commando (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Steven Frew, Phil Stroffolino, Paul Leaman]
+ãƒ–ãƒ©ãƒƒã‚¯ãƒ‰ãƒ©ã‚´ãƒ³ / Black Tiger (æµ·è³Šç‰ˆ) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Marco Cassili]
+ãƒ–ãƒ­ãƒƒã‚¯ã‚®ãƒ£ãƒ« (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚å‹•ä½œä¸å¯) [Nicola Salmoria]
+ãƒ–ãƒ¬ã‚¤ãƒ³ [Nicola Salmoria]
+Brix (ã€Œzzyzzyxxã€ã¨ãƒžãƒ¼ã‚¸) [Brad Oliver]
+ãƒ–ãƒ«ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ [Nicola Salmoria]
+ã‚³ãƒƒãƒ— 01 (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Carlos A. Lozano]
 Calipso [Brad Oliver]
-ƒLƒƒƒvƒeƒ“ƒRƒ}ƒ“ƒh[ [Paul Leaman]
-U.S.ƒlƒCƒr[ / Carrier Air Wing (World) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+ã‚­ãƒ£ãƒ—ãƒ†ãƒ³ã‚³ãƒžãƒ³ãƒ‰ãƒ¼ [Paul Leaman]
+U.S.ãƒã‚¤ãƒ“ãƒ¼ / Carrier Air Wing (World) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 Checkmate [Al Kossow]
-ƒ`[ƒL[ƒ}ƒEƒX [Chris Moore]
-íê‚Ì˜T / Commando (Data East) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒRƒbƒNƒŒ[ƒX [Nicola Salmoria]
-ƒNƒŠƒXƒ^ƒ‹ƒLƒƒƒbƒXƒ‹ (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-’EŽq‚¿‚á‚ñ‘‘ (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Nicola Salmoria]
+ãƒãƒ¼ã‚­ãƒ¼ãƒžã‚¦ã‚¹ [Chris Moore]
+æˆ¦å ´ã®ç‹¼ / Commando (Data East) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚³ãƒƒã‚¯ãƒ¬ãƒ¼ã‚¹ [Nicola Salmoria]
+ã‚¯ãƒªã‚¹ã‚¿ãƒ«ã‚­ãƒ£ãƒƒã‚¹ãƒ« (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+è„±å­ã¡ã‚ƒã‚“é›€è˜ (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Nicola Salmoria]
 Defence Command [Nicola Salmoria]
 Defense Command [David Winter]
-ƒfƒBƒXƒNƒXƒIƒuƒgƒƒ“ (Upright) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ_ƒCƒiƒ}ƒCƒgƒ_ƒbƒNƒX [Phil Stroffolino]
-“V’n‚ð‹ò‚ç‚¤ / Dynasty Wars (“®ì•s‰Â) [Paul Leaman]
-ƒTƒCƒo[ƒ|ƒŠƒX E-ƒXƒƒbƒg (“®ì•s‰Â) [Phil Stroffolino]
-Electric Yo-Yo (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Al Kossow]
-ƒGƒLƒTƒCƒeƒBƒ“ƒOƒTƒbƒJ[ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Ernesto Corvi, Jarek Parchanski]
-ƒGƒNƒZƒŠƒIƒ“ (Taito) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒEƒFƒXƒ^ƒ“ƒGƒNƒXƒvƒŒƒX / Express Raider (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Ernesto Corvi]
+ãƒ‡ã‚£ã‚¹ã‚¯ã‚¹ã‚ªãƒ–ãƒˆãƒ­ãƒ³ (Upright) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ€ã‚¤ãƒŠãƒžã‚¤ãƒˆãƒ€ãƒƒã‚¯ã‚¹ [Phil Stroffolino]
+å¤©åœ°ã‚’å–°ã‚‰ã† / Dynasty Wars (å‹•ä½œä¸å¯) [Paul Leaman]
+ã‚µã‚¤ãƒãƒ¼ãƒãƒªã‚¹ E-ã‚¹ãƒ¯ãƒƒãƒˆ (å‹•ä½œä¸å¯) [Phil Stroffolino]
+Electric Yo-Yo (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Al Kossow]
+ã‚¨ã‚­ã‚µã‚¤ãƒ†ã‚£ãƒ³ã‚°ã‚µãƒƒã‚«ãƒ¼ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Ernesto Corvi, Jarek Parchanski]
+ã‚¨ã‚¯ã‚»ãƒªã‚ªãƒ³ (Taito) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¦ã‚§ã‚¹ã‚¿ãƒ³ã‚¨ã‚¯ã‚¹ãƒ—ãƒ¬ã‚¹ / Express Raider (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Ernesto Corvi]
 Exterminator [Alex Pasadyn, Zsolt Vasvari]
-F-1ƒhƒŠ[ƒ€ (ŠC‘¯”Å) (ƒ}[ƒWÏ‚Ý) (this one works) [Paul Leaman]
-ƒtƒ@ƒ“ƒ^ƒW[ƒ][ƒ“ (“®ì•s‰Â) [Phil Stroffolino]
-ƒtƒ‰ƒbƒVƒ…ƒ|ƒCƒ“ƒg (“®ì•s‰Â) [Phil Stroffolino]
-ƒtƒŠƒbƒL[ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒtƒH[ƒ[ƒVƒ‡ƒ“Z (merged with Aeroboto) [Nicola Salmoria]
-ƒtƒƒbƒOƒX [Nicola Salmoria]
-ƒtƒ…[ƒ`ƒƒ[ƒXƒpƒC [Nicola Salmoria]
-ƒMƒƒƒ‰ƒNƒeƒBƒbƒNƒEƒH[ƒŠƒA[ƒY [Andrew Prime]
-Galaxy Rescue (uƒ‹ƒiƒŒƒXƒLƒ…[v‚Æƒ}[ƒW) [David Winter]
-ƒRƒXƒ‚ƒ|ƒŠƒXƒMƒƒƒŠƒoƒ“ [Luca Elia, Olivier Galibert]
-ƒKƒ‹ƒfƒBƒA (‚Ü‚¾–¢‰ð“Ç) [Nicola Salmoria]
-ƒQƒbƒgƒXƒ^[ [Luca Elia]
-–À‹{ƒnƒ“ƒ^[G / The Real Ghostbusters [Bryan McPhail]
-–‚ŠE‘º / Ghosts'n Goblins (V‚½‚É2ƒZƒbƒgƒ}[ƒW) [Zsolt Vasvari, Nicola Salmoria]
-‰©‹à‚Ìé / Golden Castle (ugladiatrv‚Éƒ}[ƒW) [Steve Ellenoff]
-Golden Star (blue version) (ƒ}[ƒWÏ‚Ý) [Mirko Buffoni]
-ƒOƒ‰ƒfƒBƒEƒX [Andrew Prime]
-ƒOƒŒ[ƒgƒ\[ƒhƒ}ƒ“ [Steve Ellenoff]
-ƒOƒŠƒ_ƒCƒAƒ“ƒtƒ@ƒCƒg [Nicola Salmoria]
-ƒ‹ƒi[ƒN / Growl [Brad Oliver]
-ƒKƒ“ƒfƒB[ƒ‰[ (set 2) [Gerald Vanderick]
-ƒKƒ“ƒXƒ‚[ƒN (US set 2, without the reset bug) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+F-1ãƒ‰ãƒªãƒ¼ãƒ  (æµ·è³Šç‰ˆ) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) (this one works) [Paul Leaman]
+ãƒ•ã‚¡ãƒ³ã‚¿ã‚¸ãƒ¼ã‚¾ãƒ¼ãƒ³ (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ãƒã‚¤ãƒ³ãƒˆ (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ãƒ•ãƒªãƒƒã‚­ãƒ¼ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ•ã‚©ãƒ¼ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³Z (merged with Aeroboto) [Nicola Salmoria]
+ãƒ•ãƒ­ãƒƒã‚°ã‚¹ [Nicola Salmoria]
+ãƒ•ãƒ¥ãƒ¼ãƒãƒ£ãƒ¼ã‚¹ãƒ‘ã‚¤ [Nicola Salmoria]
+ã‚®ãƒ£ãƒ©ã‚¯ãƒ†ã‚£ãƒƒã‚¯ã‚¦ã‚©ãƒ¼ãƒªã‚¢ãƒ¼ã‚º [Andrew Prime]
+Galaxy Rescue (ã€Œãƒ«ãƒŠãƒ¬ã‚¹ã‚­ãƒ¥ãƒ¼ã€ã¨ãƒžãƒ¼ã‚¸) [David Winter]
+ã‚³ã‚¹ãƒ¢ãƒãƒªã‚¹ã‚®ãƒ£ãƒªãƒãƒ³ [Luca Elia, Olivier Galibert]
+ã‚¬ãƒ«ãƒ‡ã‚£ã‚¢ (ã¾ã æœªè§£èª­) [Nicola Salmoria]
+ã‚²ãƒƒãƒˆã‚¹ã‚¿ãƒ¼ [Luca Elia]
+è¿·å®®ãƒãƒ³ã‚¿ãƒ¼G / The Real Ghostbusters [Bryan McPhail]
+é­”ç•Œæ‘ / Ghosts'n Goblins (æ–°ãŸã«2ã‚»ãƒƒãƒˆãƒžãƒ¼ã‚¸) [Zsolt Vasvari, Nicola Salmoria]
+é»„é‡‘ã®åŸŽ / Golden Castle (ã€Œgladiatrã€ã«ãƒžãƒ¼ã‚¸) [Steve Ellenoff]
+Golden Star (blue version) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Mirko Buffoni]
+ã‚°ãƒ©ãƒ‡ã‚£ã‚¦ã‚¹ [Andrew Prime]
+ã‚°ãƒ¬ãƒ¼ãƒˆã‚½ãƒ¼ãƒ‰ãƒžãƒ³ [Steve Ellenoff]
+ã‚°ãƒªãƒ€ã‚¤ã‚¢ãƒ³ãƒ•ã‚¡ã‚¤ãƒˆ [Nicola Salmoria]
+ãƒ«ãƒŠãƒ¼ã‚¯ / Growl [Brad Oliver]
+ã‚¬ãƒ³ãƒ‡ã‚£ãƒ¼ãƒ©ãƒ¼ (set 2) [Gerald Vanderick]
+ã‚¬ãƒ³ã‚¹ãƒ¢ãƒ¼ã‚¯ (US set 2, without the reset bug) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 Hard Hat [Al Kossow]
-ƒwƒr[ƒƒ^ƒ‹ [Nicola Salmoria]
-ƒwƒr[ƒEƒFƒCƒgƒ`ƒƒƒ“ƒv (“®ì•s‰Â) [Phil Stroffolino]
-•½ˆÀ‹žƒGƒCƒŠƒAƒ“ [Nicola Salmoria]
-ƒwƒŠƒtƒ@ƒCƒA (set 2) [David Winter]
+ãƒ˜ãƒ“ãƒ¼ãƒ¡ã‚¿ãƒ« [Nicola Salmoria]
+ãƒ˜ãƒ“ãƒ¼ã‚¦ã‚§ã‚¤ãƒˆãƒãƒ£ãƒ³ãƒ— (å‹•ä½œä¸å¯) [Phil Stroffolino]
+å¹³å®‰äº¬ã‚¨ã‚¤ãƒªã‚¢ãƒ³ [Nicola Salmoria]
+ãƒ˜ãƒªãƒ•ã‚¡ã‚¤ã‚¢ (set 2) [David Winter]
 Hi Impact Football [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-‚Ð‚°ŠÛ [Mirko Buffoni]
-ƒnƒbƒXƒ‹ [Frank Palazzolo]
-ƒnƒCƒp[ƒIƒŠƒ“ƒsƒbƒN (ADPCMƒTƒ“ƒvƒ‹Žg—pŠC‘¯”Å) (ƒ}[ƒWÏ‚Ý) [David Winter]
-‚²‚ñ‚×‚¥‚Ì‚ ‚¢‚Þ‚»`‚è` / I'm Sorry (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒCƒ“ƒgƒŒƒsƒbƒh [Zsolt Vasvari]
+ã²ã’ä¸¸ [Mirko Buffoni]
+ãƒãƒƒã‚¹ãƒ« [Frank Palazzolo]
+ãƒã‚¤ãƒ‘ãƒ¼ã‚ªãƒªãƒ³ãƒ”ãƒƒã‚¯ (ADPCMã‚µãƒ³ãƒ—ãƒ«ä½¿ç”¨æµ·è³Šç‰ˆ) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [David Winter]
+ã”ã‚“ã¹ã‡ã®ã‚ã„ã‚€ãï½žã‚Šï½ž / I'm Sorry (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¤ãƒ³ãƒˆãƒ¬ãƒ”ãƒƒãƒ‰ [Zsolt Vasvari]
 Invader's Revenge (Dutchford) [David Winter]
 Jack Rabbit (2 new sets merged) [Nicola Salmoria]
-ƒWƒƒƒbƒN‚Æ“¤‚Ì–Ø / Jack the Giantkiller (set 2) (ƒ}[ƒWÏ‚Ý) [Thierry Lescot]
-ƒ}ƒ“ƒnƒbƒ^ƒ“24•ª / Jail Break [Ernesto Corvi]
-Jump Shot (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Nicola Salmoria]
-Jumping (merged with ƒŒƒCƒ“ƒ{[ƒAƒCƒ‰ƒ“ƒh) [Mike Coates]
-ƒWƒƒƒ“ƒOƒ‰[ (Stern) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒJƒ“ƒKƒ‹[ (ŠC‘¯”Å) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-‘Îí‹óŽè“¹ Ât”ü­—•Ò / Karate Champ (1 Player) [Ernesto Corvi]
-‘Îí‹óŽè“¹ Ât”ü­—•Ò / Karate Champ (uVSv‚ÆuKaratedov‚Éƒ}[ƒW) [Ernesto Corvi]
-ƒLƒbƒNƒ}ƒ“ / Kick (upright version) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-‰õŒ†ƒ„ƒ“ƒ`ƒƒŠÛ / Kid Niki [Phil Stroffolino]
-ƒLƒ“ƒO&ƒoƒ‹[ƒ“ [Brad Oliver]
-ƒNƒ‰ƒbƒNƒX (set 3) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-Kram (ƒvƒŒƒC•s‰Â) (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý)
-ƒXƒpƒ‹ƒ^ƒ“X / Kung Fu Master (2 new sets merged) [Nicola Salmoria]
-ƒŒƒfƒBƒoƒO (ŠC‘¯”Å) (ƒ}[ƒWÏ‚Ý) [Marco Cassili]
-ƒ‰ƒXƒgƒfƒ…ƒGƒ‹ (ŠC‘¯”Å) (this fixes the graphics) [Bryan McPhail]
-ƒAƒŒƒX‚Ì—ƒ / Legendary Wings (US set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ~ƒYƒoƒN‘å–`Œ¯ / Liquid Kids [Brad Oliver]
-ƒ[ƒhƒ‰ƒ“ƒi[ (set 1) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ[ƒhƒ‰ƒ“ƒi[ IV -’é‘‚©‚ç‚Ì’Eo- [Nicola Salmoria]
-Lost Tomb (hard) (ƒ}[ƒWÏ‚Ý) [Michael Appolo]
-M-79ƒAƒ“ƒuƒbƒVƒ… [Al Kossow]
-ƒ}ƒWƒbƒNƒ\[ƒh (USA) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒƒWƒƒ[ƒŠ[ƒO (“®ì•s‰Â) [Phil Stroffolino]
-ƒ}ƒjƒAƒ`ƒƒƒŒƒ“ƒW (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-Max RPM (ROM•s‘«‚Å‰¹–³‚µ) [Aaron Giles]
+ã‚¸ãƒ£ãƒƒã‚¯ã¨è±†ã®æœ¨ / Jack the Giantkiller (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Thierry Lescot]
+ãƒžãƒ³ãƒãƒƒã‚¿ãƒ³24åˆ†ç½² / Jail Break [Ernesto Corvi]
+Jump Shot (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Nicola Salmoria]
+Jumping (merged with ãƒ¬ã‚¤ãƒ³ãƒœãƒ¼ã‚¢ã‚¤ãƒ©ãƒ³ãƒ‰) [Mike Coates]
+ã‚¸ãƒ£ãƒ³ã‚°ãƒ©ãƒ¼ (Stern) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚«ãƒ³ã‚¬ãƒ«ãƒ¼ (æµ·è³Šç‰ˆ) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+å¯¾æˆ¦ç©ºæ‰‹é“ é’æ˜¥ç¾Žå°‘å¥³ç·¨ / Karate Champ (1 Player) [Ernesto Corvi]
+å¯¾æˆ¦ç©ºæ‰‹é“ é’æ˜¥ç¾Žå°‘å¥³ç·¨ / Karate Champ (ã€ŒVSã€ã¨ã€ŒKaratedoã€ã«ãƒžãƒ¼ã‚¸) [Ernesto Corvi]
+ã‚­ãƒƒã‚¯ãƒžãƒ³ / Kick (upright version) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+å¿«å‚‘ãƒ¤ãƒ³ãƒãƒ£ä¸¸ / Kid Niki [Phil Stroffolino]
+ã‚­ãƒ³ã‚°&ãƒãƒ«ãƒ¼ãƒ³ [Brad Oliver]
+ã‚¯ãƒ©ãƒƒã‚¯ã‚¹ (set 3) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+Kram (ãƒ—ãƒ¬ã‚¤ä¸å¯) (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿)
+ã‚¹ãƒ‘ãƒ«ã‚¿ãƒ³X / Kung Fu Master (2 new sets merged) [Nicola Salmoria]
+ãƒ¬ãƒ‡ã‚£ãƒã‚° (æµ·è³Šç‰ˆ) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Marco Cassili]
+ãƒ©ã‚¹ãƒˆãƒ‡ãƒ¥ã‚¨ãƒ« (æµ·è³Šç‰ˆ) (this fixes the graphics) [Bryan McPhail]
+ã‚¢ãƒ¬ã‚¹ã®ç¿¼ / Legendary Wings (US set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒŸã‚ºãƒã‚¯å¤§å†’é™º / Liquid Kids [Brad Oliver]
+ãƒ­ãƒ¼ãƒ‰ãƒ©ãƒ³ãƒŠãƒ¼ (set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ­ãƒ¼ãƒ‰ãƒ©ãƒ³ãƒŠãƒ¼ IV -å¸å›½ã‹ã‚‰ã®è„±å‡º- [Nicola Salmoria]
+Lost Tomb (hard) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Michael Appolo]
+M-79ã‚¢ãƒ³ãƒ–ãƒƒã‚·ãƒ¥ [Al Kossow]
+ãƒžã‚¸ãƒƒã‚¯ã‚½ãƒ¼ãƒ‰ (USA) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒªãƒ¼ã‚° (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ãƒžãƒ‹ã‚¢ãƒãƒ£ãƒ¬ãƒ³ã‚¸ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+Max RPM (ROMä¸è¶³ã§éŸ³ç„¡ã—) [Aaron Giles]
 Maze Hunter [Bryan McPhail]
-ƒƒhƒEƒYƒŒ[ƒ“ [Juergen Buchmueller]
-Mega Man - The Power Battle (ƒƒbƒNƒ}ƒ“EƒUEƒpƒ[ƒoƒgƒ‹‚Æƒ}[ƒW) [Santeri Saarimaa]
-íê‚Ì˜TII / Mercs (3 sets merged) [Paul Leaman]
-ƒ~ƒbƒhƒiƒCƒgƒŒƒWƒXƒ^ƒ“ƒX (Japan) (ƒ}[ƒWÏ‚Ý) [Bryan McPhail]
-ƒ}ƒCƒL[ (headbutt version) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ~ƒTƒCƒ‹ƒRƒ}ƒ“ƒh (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ~ƒXƒ^[ƒoƒCƒLƒ“ƒO [Nicola Salmoria]
-Moon War II (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Brad Oliver]
-ƒ‚[ƒ^ƒ‹ƒRƒ“ƒoƒbƒg [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒ‚[ƒ^ƒ‹ƒRƒ“ƒoƒbƒgII (“®ì•s‰Â)
-ƒ~ƒXƒ^[Do! á‚¾‚é‚Ü (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ~ƒXƒ^[Do! (bugfixed) (ƒ}[ƒWÏ‚Ý) [Gareth Hall]
+ãƒ¡ãƒ‰ã‚¦ã‚ºãƒ¬ãƒ¼ãƒ³ [Juergen Buchmueller]
+Mega Man - The Power Battle (ãƒ­ãƒƒã‚¯ãƒžãƒ³ãƒ»ã‚¶ãƒ»ãƒ‘ãƒ¯ãƒ¼ãƒãƒˆãƒ«ã¨ãƒžãƒ¼ã‚¸) [Santeri Saarimaa]
+æˆ¦å ´ã®ç‹¼II / Mercs (3 sets merged) [Paul Leaman]
+ãƒŸãƒƒãƒ‰ãƒŠã‚¤ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿ãƒ³ã‚¹ (Japan) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Bryan McPhail]
+ãƒžã‚¤ã‚­ãƒ¼ (headbutt version) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒŸã‚µã‚¤ãƒ«ã‚³ãƒžãƒ³ãƒ‰ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒŸã‚¹ã‚¿ãƒ¼ãƒã‚¤ã‚­ãƒ³ã‚° [Nicola Salmoria]
+Moon War II (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Brad Oliver]
+ãƒ¢ãƒ¼ã‚¿ãƒ«ã‚³ãƒ³ãƒãƒƒãƒˆ [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ãƒ¢ãƒ¼ã‚¿ãƒ«ã‚³ãƒ³ãƒãƒƒãƒˆII (å‹•ä½œä¸å¯)
+ãƒŸã‚¹ã‚¿ãƒ¼Do! é›ªã ã‚‹ã¾ (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒŸã‚¹ã‚¿ãƒ¼Do! (bugfixed) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Gareth Hall]
 Mr. TNT [Brad Oliver]
-ÂtƒXƒLƒƒƒ“ƒ_ƒ‹ / My Hero (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-NBAƒWƒƒƒ€ (“®ì•s‰Â)
-ƒi[ƒN [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒTƒCƒRƒjƒNƒXƒIƒXƒJ[ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Bryan McPhail]
-ƒIƒYƒ}ƒEƒH[ƒY [Al Kossow]
-’E– -Prisoners of War- / P.O.W. [Bryan McPhail]
-ƒpƒbƒNƒ}ƒ“ƒvƒ‰ƒX [Clay Cowgill, Mike Balfour]
-ƒpƒbƒNƒ‰ƒ“ƒh (set 1) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ|ƒ“ƒsƒ“ƒOƒ[ƒ‹ƒh / Pang [Paul Leaman]
-ƒyƒ“ƒMƒ“‚­‚ñƒEƒH[ƒY (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Allard van der Bas]
-ƒtƒFƒjƒbƒNƒX (IRECSA) (ƒ}[ƒWÏ‚Ý) [David Winter]
+é’æ˜¥ã‚¹ã‚­ãƒ£ãƒ³ãƒ€ãƒ« / My Hero (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+NBAã‚¸ãƒ£ãƒ  (å‹•ä½œä¸å¯)
+ãƒŠãƒ¼ã‚¯ [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ã‚µã‚¤ã‚³ãƒ‹ã‚¯ã‚¹ã‚ªã‚¹ã‚«ãƒ¼ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Bryan McPhail]
+ã‚ªã‚ºãƒžã‚¦ã‚©ãƒ¼ã‚º [Al Kossow]
+è„±ç„ -Prisoners of War- / P.O.W. [Bryan McPhail]
+ãƒ‘ãƒƒã‚¯ãƒžãƒ³ãƒ—ãƒ©ã‚¹ [Clay Cowgill, Mike Balfour]
+ãƒ‘ãƒƒã‚¯ãƒ©ãƒ³ãƒ‰ (set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒãƒ³ãƒ”ãƒ³ã‚°ãƒ¯ãƒ¼ãƒ«ãƒ‰ / Pang [Paul Leaman]
+ãƒšãƒ³ã‚®ãƒ³ãã‚“ã‚¦ã‚©ãƒ¼ã‚º (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Allard van der Bas]
+ãƒ•ã‚§ãƒ‹ãƒƒã‚¯ã‚¹ (IRECSA) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [David Winter]
 Pickin' [Nicola Salmoria]
-ƒsƒ“ƒ{[ƒ‹ƒAƒNƒVƒ‡ƒ“ (set 2) (ƒ}[ƒWÏ‚Ý) [Marco Cassili]
-ƒsƒbƒgƒtƒH[ƒ‹II (encrypted version) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ|ƒ‰ƒŠƒX (set 2) [Victor Trucco]
-ƒv[ƒ„ƒ“ (Konami) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+ãƒ”ãƒ³ãƒœãƒ¼ãƒ«ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Marco Cassili]
+ãƒ”ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ«II (encrypted version) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒãƒ©ãƒªã‚¹ (set 2) [Victor Trucco]
+ãƒ—ãƒ¼ãƒ¤ãƒ³ (Konami) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 Pot of Gold [Nicola Salmoria]
-ƒTƒCƒLƒbƒN5 [Jarek Parchanski]
-ƒJƒ‹ƒeƒbƒg2 (“®ì•s‰Â) [Phil Stroffolino]
-ƒNƒƒbƒN (ƒvƒƒgƒ^ƒCƒv) [Mike Balfour]
-RF-2 ƒƒŒƒbƒhƒtƒ@ƒCƒ^[2„ [Andrew Prime]
-ƒŒƒOƒ‹ƒX (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-”MŒŒd”h‚­‚É‚¨‚­‚ñ / Renegade (2ƒZƒbƒgAŠC‘¯”Å‚Ì‚Ý“®ì) [Phil Stroffolino]
-ƒLƒ“ƒOƒIƒuƒ{ƒNƒT[ / Ring King (ƒ}[ƒWÏ‚Ý) [Ernesto Corvi]
-ƒŠƒo[ƒpƒgƒ[ƒ‹ / ƒVƒ‹ƒo[ƒ‰ƒ“ƒh [Zsolt Vasvari]
-ƒ[ƒhƒtƒ@ƒCƒ^[ (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒƒbƒNƒ}ƒ“EƒUEƒpƒ[ƒoƒgƒ‹ [Paul Leaman]
-ƒAƒ‹ƒSƒX‚ÌíŽm / Rygar (US set 1) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-SDI ƒƒGƒXƒfƒB[ƒAƒC„ (“®ì•s‰Â) [Phil Stroffolino]
-ƒXƒƒbƒg [Nicola Salmoria]
-ƒTƒ€ƒ‰ƒC [Nicola Salmoria]
-ƒTƒXƒPVSƒRƒ}ƒ“ƒ_[ [Nicola Salmoria]
-ƒTƒEƒ [Zsolt Vasvari]
-ƒTƒCƒIƒ“ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒV[ƒtƒ@ƒCƒ^[ƒ|ƒZƒCƒhƒ“ (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Nicola Salmoria]
-”EŽÒƒvƒŠƒ“ƒZƒX / Sega Ninja (ƒ}[ƒWÏ‚Ý) [Jarek Parchanski, Nicola Salmoria]
+ã‚µã‚¤ã‚­ãƒƒã‚¯5 [Jarek Parchanski]
+ã‚«ãƒ«ãƒ†ãƒƒãƒˆ2 (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ã‚¯ãƒ¯ãƒƒã‚¯ (ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—) [Mike Balfour]
+RF-2 ï¼œãƒ¬ãƒƒãƒ‰ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼2ï¼ž [Andrew Prime]
+ãƒ¬ã‚°ãƒ«ã‚¹ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ç†±è¡€ç¡¬æ´¾ãã«ãŠãã‚“ / Renegade (2ã‚»ãƒƒãƒˆã€æµ·è³Šç‰ˆã®ã¿å‹•ä½œ) [Phil Stroffolino]
+ã‚­ãƒ³ã‚°ã‚ªãƒ–ãƒœã‚¯ã‚µãƒ¼ / Ring King (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Ernesto Corvi]
+ãƒªãƒãƒ¼ãƒ‘ãƒˆãƒ­ãƒ¼ãƒ« / ã‚·ãƒ«ãƒãƒ¼ãƒ©ãƒ³ãƒ‰ [Zsolt Vasvari]
+ãƒ­ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ­ãƒƒã‚¯ãƒžãƒ³ãƒ»ã‚¶ãƒ»ãƒ‘ãƒ¯ãƒ¼ãƒãƒˆãƒ« [Paul Leaman]
+ã‚¢ãƒ«ã‚´ã‚¹ã®æˆ¦å£« / Rygar (US set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+SDI ï¼œã‚¨ã‚¹ãƒ‡ã‚£ãƒ¼ã‚¢ã‚¤ï¼ž (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ã‚¹ãƒ¯ãƒƒãƒˆ [Nicola Salmoria]
+ã‚µãƒ ãƒ©ã‚¤ [Nicola Salmoria]
+ã‚µã‚¹ã‚±VSã‚³ãƒžãƒ³ãƒ€ãƒ¼ [Nicola Salmoria]
+ã‚µã‚¦ãƒ­ [Zsolt Vasvari]
+ã‚µã‚¤ã‚ªãƒ³ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚·ãƒ¼ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ãƒã‚»ã‚¤ãƒ‰ãƒ³ (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Nicola Salmoria]
+å¿è€…ãƒ—ãƒªãƒ³ã‚»ã‚¹ / Sega Ninja (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Jarek Parchanski, Nicola Salmoria]
 Shark Attack [Victor Trucco]
-ƒTƒCƒhƒgƒ‰ƒbƒN [Al Kossow]
-ƒTƒCƒhƒA[ƒ€ -HYPER DYNE- (US) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒVƒ‹ƒNƒ[ƒ€ (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒVƒjƒXƒ^[ (revision 2) (ƒ}[ƒWÏ‚Ý) [Howie Cohen]
-ƒXƒ}ƒbƒVƒ…T.V. (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒXƒm[ƒuƒ‰ƒU[ƒY -Nick•Tom- (set 1) (ƒ}[ƒWÏ‚Ý) [Zsolt Vasvari]
-ƒXƒy[ƒXƒtƒB[ƒo[ (B&W) [Al Kossow]
-ƒXƒy[ƒXƒpƒjƒbƒN (German) [Mike Coates]
-ƒXƒy[ƒXƒgƒŒƒbƒN (cocktail version) [Nicola Salmoria]
-ƒXƒs[ƒN&ƒŒƒXƒLƒ…[ [Al Kossow]
-ƒXƒyƒNƒ^[ (revision 3) (ƒ}[ƒWÏ‚Ý) [Al Kossow]
+ã‚µã‚¤ãƒ‰ãƒˆãƒ©ãƒƒã‚¯ [Al Kossow]
+ã‚µã‚¤ãƒ‰ã‚¢ãƒ¼ãƒ  -HYPER DYNE- (US) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚·ãƒ«ã‚¯ãƒ¯ãƒ¼ãƒ  (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚·ãƒ‹ã‚¹ã‚¿ãƒ¼ (revision 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Howie Cohen]
+ã‚¹ãƒžãƒƒã‚·ãƒ¥T.V. (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ã‚¹ãƒŽãƒ¼ãƒ–ãƒ©ã‚¶ãƒ¼ã‚º -Nickï¼†Tom- (set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Zsolt Vasvari]
+ã‚¹ãƒšãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒãƒ¼ (B&W) [Al Kossow]
+ã‚¹ãƒšãƒ¼ã‚¹ãƒ‘ãƒ‹ãƒƒã‚¯ (German) [Mike Coates]
+ã‚¹ãƒšãƒ¼ã‚¹ãƒˆãƒ¬ãƒƒã‚¯ (cocktail version) [Nicola Salmoria]
+ã‚¹ãƒ”ãƒ¼ã‚¯&ãƒ¬ã‚¹ã‚­ãƒ¥ãƒ¼ [Al Kossow]
+ã‚¹ãƒšã‚¯ã‚¿ãƒ¼ (revision 3) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Al Kossow]
 Speed Ball [Joseba Epalza]
-ƒXƒyƒ‰ƒ“ƒJ[II -23‚ÌŒ®- [Phil Stroffolino]
-ƒXƒ^[ƒWƒƒƒbƒJ[ [Nicola Salmoria]
-ƒXƒeƒBƒ“ƒK[ [Nicola Salmoria]
-ƒX[ƒp[ƒXƒgƒŠ[ƒgƒtƒ@ƒCƒ^[II (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Paul Leaman]
+ã‚¹ãƒšãƒ©ãƒ³ã‚«ãƒ¼II -23ã®éµ- [Phil Stroffolino]
+ã‚¹ã‚¿ãƒ¼ã‚¸ãƒ£ãƒƒã‚«ãƒ¼ [Nicola Salmoria]
+ã‚¹ãƒ†ã‚£ãƒ³ã‚¬ãƒ¼ [Nicola Salmoria]
+ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¹ãƒˆãƒªãƒ¼ãƒˆãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼II (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Paul Leaman]
 Strike Force [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒTƒuƒY [Mike Balfour]
-Super Bagman (Valadon) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+ã‚µãƒ–ã‚º [Mike Balfour]
+Super Bagman (Valadon) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 Super Casino [Thierry Lescot]
-ƒX[ƒp[ƒnƒCƒCƒ“ƒpƒNƒg [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒã‚¤ã‚¤ãƒ³ãƒ‘ã‚¯ãƒˆ [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
 Super Invaders [David Winter]
-ƒtƒ@ƒj[ƒ}ƒEƒX / Super Mouse [Brad Oliver]
-ƒX[ƒp[ƒ}ƒ“ [Howie Cohen, Brad Oliver]
-ƒUEƒrƒbƒOEƒvƒƒŒƒXƒŠƒ“ƒOI / Tag Team Wrestling [Steve Ellenoff, Brad Oliver]
-ƒƒCƒ‹ƒhƒtƒ@ƒ“ƒO / Tecmo Knight [Nicola Salmoria]
-ƒeƒfƒB[ƒ{[ƒCƒuƒ‹[ƒX [Nicola Salmoria]
-ƒ^[ƒ~ƒl[ƒ^[2 (ƒvƒŒƒC•s‰Â)
-ƒeƒ‰ƒNƒŒƒXƒ^ (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Carlos A. Lozano]
-ƒeƒgƒŠƒX (Cocktail set 1) (ƒ}[ƒWÏ‚Ý) [Zsolt Vasvari]
-ƒUEƒrƒŠƒ„[ƒh (uƒrƒfƒIƒnƒXƒ‰[v‚Æƒ}[ƒW) [Nicola Salmoria]
-ƒXƒ^[ƒEƒH[ƒY -’é‘‚Ì‹tP- (ƒvƒŒƒC•s‰Â) [Brad Oliver]
-ƒUEƒLƒ“ƒOEƒIƒuEƒhƒ‰ƒSƒ“ƒY (2 sets) [Paul Leaman]
-ƒeƒBƒ“ƒXƒ^[ (not complete) [Nicola Salmoria]
-ƒ^ƒCƒK[ƒwƒŠ (4ƒZƒbƒgƒ}[ƒWÏ‚ÝA2‚Â‚¾‚¯“®ì) [Nicola Salmoria]
-ƒ^ƒCƒ€ƒpƒCƒƒbƒg (Centuri) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ^ƒCƒ€ƒpƒCƒƒbƒg'84 (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ^ƒCƒ€ƒXƒLƒƒƒi[ (“®ì•s‰Â) [Phil Stroffolino]
-ƒ^ƒCƒ€ƒgƒ“ƒlƒ‹ [Thierry Lescot]
-Žž‚ÌíŽm [Nicola Salmoria]
-ƒXƒNƒ‰ƒ“ƒuƒ‹ƒtƒH[ƒ[ƒVƒ‡ƒ“ / Tokio (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) 
+ãƒ•ã‚¡ãƒ‹ãƒ¼ãƒžã‚¦ã‚¹ / Super Mouse [Brad Oliver]
+ã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒžãƒ³ [Howie Cohen, Brad Oliver]
+ã‚¶ãƒ»ãƒ“ãƒƒã‚°ãƒ»ãƒ—ãƒ­ãƒ¬ã‚¹ãƒªãƒ³ã‚°ï¼ / Tag Team Wrestling [Steve Ellenoff, Brad Oliver]
+ãƒ¯ã‚¤ãƒ«ãƒ‰ãƒ•ã‚¡ãƒ³ã‚° / Tecmo Knight [Nicola Salmoria]
+ãƒ†ãƒ‡ã‚£ãƒ¼ãƒœãƒ¼ã‚¤ãƒ–ãƒ«ãƒ¼ã‚¹ [Nicola Salmoria]
+ã‚¿ãƒ¼ãƒŸãƒãƒ¼ã‚¿ãƒ¼2 (ãƒ—ãƒ¬ã‚¤ä¸å¯)
+ãƒ†ãƒ©ã‚¯ãƒ¬ã‚¹ã‚¿ (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Carlos A. Lozano]
+ãƒ†ãƒˆãƒªã‚¹ (Cocktail set 1) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Zsolt Vasvari]
+ã‚¶ãƒ»ãƒ“ãƒªãƒ¤ãƒ¼ãƒ‰ (ã€Œãƒ“ãƒ‡ã‚ªãƒã‚¹ãƒ©ãƒ¼ã€ã¨ãƒžãƒ¼ã‚¸) [Nicola Salmoria]
+ã‚¹ã‚¿ãƒ¼ã‚¦ã‚©ãƒ¼ã‚º -å¸å›½ã®é€†è¥²- (ãƒ—ãƒ¬ã‚¤ä¸å¯) [Brad Oliver]
+ã‚¶ãƒ»ã‚­ãƒ³ã‚°ãƒ»ã‚ªãƒ–ãƒ»ãƒ‰ãƒ©ã‚´ãƒ³ã‚º (2 sets) [Paul Leaman]
+ãƒ†ã‚£ãƒ³ã‚¹ã‚¿ãƒ¼ (not complete) [Nicola Salmoria]
+ã‚¿ã‚¤ã‚¬ãƒ¼ãƒ˜ãƒª (4ã‚»ãƒƒãƒˆãƒžãƒ¼ã‚¸æ¸ˆã¿ã€2ã¤ã ã‘å‹•ä½œ) [Nicola Salmoria]
+ã‚¿ã‚¤ãƒ ãƒ‘ã‚¤ãƒ­ãƒƒãƒˆ (Centuri) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¿ã‚¤ãƒ ãƒ‘ã‚¤ãƒ­ãƒƒãƒˆ'84 (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¿ã‚¤ãƒ ã‚¹ã‚­ãƒ£ãƒŠãƒ¼ (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ã‚¿ã‚¤ãƒ ãƒˆãƒ³ãƒãƒ« [Thierry Lescot]
+æ™‚ã®æˆ¦å£« [Nicola Salmoria]
+ã‚¹ã‚¯ãƒ©ãƒ³ãƒ–ãƒ«ãƒ•ã‚©ãƒ¼ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ / Tokio (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) 
   [Marcelo de G. Malheiros, Fredrik Sjostedt]
-ƒgƒ}ƒz[ƒN777 (2ƒZƒbƒgƒ}[ƒWÏ‚Ý) [Zsolt Vasvari]
-“ÁŽê•”‘àƒWƒƒƒbƒJƒ‹ / Top Gunner (ŠC‘¯”Å; ƒIƒŠƒWƒiƒ‹ƒZƒbƒg‚àC³) [Nicola Salmoria]
-Total Carnage (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒ^ƒtƒ^[ƒt (“®ì•s‰Â) [Phil Stroffolino]
-ƒnƒCƒp[ƒIƒŠƒ“ƒsƒbƒN / Track • Field (Centuri) [Nicola Salmoria]
-ƒWƒƒƒbƒN‚Æ“¤‚Ì–Ø  / Treasure hunt (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â)
+ãƒˆãƒžãƒ›ãƒ¼ã‚¯777 (2ã‚»ãƒƒãƒˆãƒžãƒ¼ã‚¸æ¸ˆã¿) [Zsolt Vasvari]
+ç‰¹æ®Šéƒ¨éšŠã‚¸ãƒ£ãƒƒã‚«ãƒ« / Top Gunner (æµ·è³Šç‰ˆ; ã‚ªãƒªã‚¸ãƒŠãƒ«ã‚»ãƒƒãƒˆã‚‚ä¿®æ­£) [Nicola Salmoria]
+Total Carnage (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
+ã‚¿ãƒ•ã‚¿ãƒ¼ãƒ• (å‹•ä½œä¸å¯) [Phil Stroffolino]
+ãƒã‚¤ãƒ‘ãƒ¼ã‚ªãƒªãƒ³ãƒ”ãƒƒã‚¯ / Track ï¼† Field (Centuri) [Nicola Salmoria]
+ã‚¸ãƒ£ãƒƒã‚¯ã¨è±†ã®æœ¨  / Treasure hunt (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯)
   [Brad Oliver, Mike Balfour]
 Trog (3 sets merged) [Alex Pasadyn, Zsolt Vasvari, Kurt Mahan]
-ƒgƒƒ“ (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒ^[ƒ{ (—\”õƒTƒ|[ƒg) (3 sets merged) [Alex Pasadyn, Howie Cohen, Frank Palazzolo]
-‹†‹Éƒ^ƒCƒK[ / Twin Cobra (—\”õƒTƒ|[ƒg) [Quench]
-ƒcƒCƒ“ƒr[ [Andrew Prime]
-UFOíŽm‚æ‚¤‚±‚¿‚á‚ñ (ƒvƒƒeƒNƒg‚Ì‚½‚ßA“®ì•s‰Â) [Nicola Salmoria]
-ƒoƒ“ƒK[ƒh (Centuri) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒo[ƒX -ƒIƒyƒŒ[ƒVƒ‡ƒ“ƒTƒ“ƒ_[ƒXƒg[ƒ€- [Paul Leaman]
-ƒoƒXƒ^[ (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒxƒ“ƒ`ƒƒ[ (version 4) (ƒ}[ƒWÏ‚Ý) [Al Kossow]
-Venus (ƒWƒƒƒCƒ‰ƒX‚Æƒ}[ƒW) [Nicola Salmoria]
-ƒrƒWƒ‰ƒ“ƒe (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Mike Balfour, Phil Stroffolino]
-ƒoƒ‹ƒKƒX (set 2) (ƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
-ƒEƒH[ƒ^[ƒXƒL[ [Nicola Salmoria]
-ƒEƒFƒXƒ^ƒ“ƒGƒNƒXƒvƒŒƒX (Express Raider‚Éƒ}[ƒW) [Nicola Salmoria]
-ƒƒ“ƒ_[ƒ{[ƒC (many new sets, all merged) [Nicola Salmoria]
-ƒƒ“ƒ_[ƒ{[ƒCIII ƒ‚ƒ“ƒXƒ^[ƒŒƒA [Phil Stroffolino]
-ƒŒƒbƒXƒ‹ƒEƒH[ [Phil Stroffolino]
-Yankee Do! (uƒ~ƒXƒ^[Do!v‚Éƒ}[ƒW) [Lee Taylor]
+ãƒˆãƒ­ãƒ³ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¿ãƒ¼ãƒœ (äºˆå‚™ã‚µãƒãƒ¼ãƒˆ) (3 sets merged) [Alex Pasadyn, Howie Cohen, Frank Palazzolo]
+ç©¶æ¥µã‚¿ã‚¤ã‚¬ãƒ¼ / Twin Cobra (äºˆå‚™ã‚µãƒãƒ¼ãƒˆ) [Quench]
+ãƒ„ã‚¤ãƒ³ãƒ“ãƒ¼ [Andrew Prime]
+UFOæˆ¦å£«ã‚ˆã†ã“ã¡ã‚ƒã‚“ (ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆã®ãŸã‚ã€å‹•ä½œä¸å¯) [Nicola Salmoria]
+ãƒãƒ³ã‚¬ãƒ¼ãƒ‰ (Centuri) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒãƒ¼ã‚¹ -ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚µãƒ³ãƒ€ãƒ¼ã‚¹ãƒˆãƒ¼ãƒ - [Paul Leaman]
+ãƒã‚¹ã‚¿ãƒ¼ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ãƒ™ãƒ³ãƒãƒ£ãƒ¼ (version 4) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Al Kossow]
+Venus (ã‚¸ãƒ£ã‚¤ãƒ©ã‚¹ã¨ãƒžãƒ¼ã‚¸) [Nicola Salmoria]
+ãƒ“ã‚¸ãƒ©ãƒ³ãƒ† (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Mike Balfour, Phil Stroffolino]
+ãƒãƒ«ã‚¬ã‚¹ (set 2) (ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
+ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ã‚¹ã‚­ãƒ¼ [Nicola Salmoria]
+ã‚¦ã‚§ã‚¹ã‚¿ãƒ³ã‚¨ã‚¯ã‚¹ãƒ—ãƒ¬ã‚¹ (Express Raiderã«ãƒžãƒ¼ã‚¸) [Nicola Salmoria]
+ãƒ¯ãƒ³ãƒ€ãƒ¼ãƒœãƒ¼ã‚¤ (many new sets, all merged) [Nicola Salmoria]
+ãƒ¯ãƒ³ãƒ€ãƒ¼ãƒœãƒ¼ã‚¤III ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒ¬ã‚¢ [Phil Stroffolino]
+ãƒ¬ãƒƒã‚¹ãƒ«ã‚¦ã‚©ãƒ¼ [Phil Stroffolino]
+Yankee Do! (ã€ŒãƒŸã‚¹ã‚¿ãƒ¼Do!ã€ã«ãƒžãƒ¼ã‚¸) [Lee Taylor]
 Zero Zone [Brad Oliver]
-ƒWƒOƒUƒO (2ƒZƒbƒgAƒ}[ƒWÏ‚Ý) [Nicola Salmoria]
+ã‚¸ã‚°ã‚¶ã‚° (2ã‚»ãƒƒãƒˆã€ãƒžãƒ¼ã‚¸æ¸ˆã¿) [Nicola Salmoria]
 
 
 
-NeoGeoƒTƒ|[ƒg
+NeoGeoã‚µãƒãƒ¼ãƒˆ
 --------------
 
-uneogeo.zipvƒtƒ@ƒCƒ‹‚ªROMƒpƒX‚É•K—v‚Å‚·BÅ’áŒÀAˆÈ‰º‚Ì3‚Â‚Ìƒtƒ@ƒCƒ‹‚ªŠÜ‚Ü‚ê‚Ä‚¢‚È
-‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñB
+ã€Œneogeo.zipã€ãƒ•ã‚¡ã‚¤ãƒ«ãŒROMãƒ‘ã‚¹ã«å¿…è¦ã§ã™ã€‚æœ€ä½Žé™ã€ä»¥ä¸‹ã®3ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒå«ã¾ã‚Œã¦ã„ãª
+ã‘ã‚Œã°ãªã‚Šã¾ã›ã‚“ã€‚
 
 neo-geo.rom (128k)
 ng-sfix.rom (128k)
 ng-sm1.rom (128k)
 
-d—v! BIOS‚Ìzipƒtƒ@ƒCƒ‹–¼‚Íuneo-geo.zipv‚Å‚Í‚È‚­uneogeo.zipv‚Å‚·B^’†‚ÉƒnƒCƒtƒ“
-‚ª‚È‚¢‚à‚Ì‚Å‚·B
+é‡è¦! BIOSã®zipãƒ•ã‚¡ã‚¤ãƒ«åã¯ã€Œneo-geo.zipã€ã§ã¯ãªãã€Œneogeo.zipã€ã§ã™ã€‚çœŸä¸­ã«ãƒã‚¤ãƒ•ãƒ³
+ãŒãªã„ã‚‚ã®ã§ã™ã€‚
 
-ROMƒpƒX‚ÉƒQ[ƒ€‚Ìzipƒtƒ@ƒCƒ‹‚ª•K—v‚Å‚·BƒvƒŒƒC‚µ‚½‚¢NeoGeoƒQ[ƒ€‚Ì8•¶Žšƒtƒ@ƒCƒ‹–¼‚ª•ª
-‚©‚ç‚È‚¢ê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É“ü—Í‚µ‚Ä‰º‚³‚¢B
+ROMãƒ‘ã‚¹ã«ã‚²ãƒ¼ãƒ ã®zipãƒ•ã‚¡ã‚¤ãƒ«ãŒå¿…è¦ã§ã™ã€‚ãƒ—ãƒ¬ã‚¤ã—ãŸã„NeoGeoã‚²ãƒ¼ãƒ ã®8æ–‡å­—ãƒ•ã‚¡ã‚¤ãƒ«åãŒåˆ†
+ã‹ã‚‰ãªã„å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚
 
 mame -listclones neogeo
 
-‚±‚ê‚ÅŒ»ÝƒTƒ|[ƒg‚µ‚Ä‚¢‚é8•¶Žš‚ÌROM–¼‚ªƒŠƒXƒg•\Ž¦‚³‚ê‚Ü‚·B
+ã“ã‚Œã§ç¾åœ¨ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã‚‹8æ–‡å­—ã®ROMåãŒãƒªã‚¹ãƒˆè¡¨ç¤ºã•ã‚Œã¾ã™ã€‚
 
-- ƒTƒ“ƒvƒ‹ROM‚Ìƒ[ƒhƒIƒvƒVƒ‡ƒ“F‘S‚Ä‚ÌƒTƒEƒ“ƒhROM‚ðƒ[ƒh‚·‚é‚Ì‚É•K—v‚Èƒƒ‚ƒŠ‚ª‘«‚è
-@‚È‚¢‚±‚Æ‚Å“®ì‚µ‚È‚¢ƒQ[ƒ€‚ð“Á’è‚Å‚«‚Ü‚·BƒQ[ƒ€‚Ì’†‚É‚ÍAƒTƒEƒ“ƒhROM—p‚É‚³‚ç‚É16MB
-@‚Ìƒƒ‚ƒŠ‚ª•K—v‚É‚È‚è‚Ü‚·BROM‚Ìƒ[ƒh‚ªŽÀs‚³‚ê‚é‘O‚ÉAƒTƒEƒ“ƒh–³‚µ‚ðŽw’è‚·‚ê‚ÎA
-@MAME‚ª‚±‚ê‚ç‚ðƒ[ƒh‚µ‚È‚¢‚æ‚¤‚É‚Å‚«‚Ü‚·BDOS‚Å‚ÍˆÈ‰º‚Ì‚æ‚¤‚Éƒ^ƒCƒv‚µ‚Ü‚·B
+- ã‚µãƒ³ãƒ—ãƒ«ROMã®ãƒ­ãƒ¼ãƒ‰ã‚ªãƒ—ã‚·ãƒ§ãƒ³ï¼šå…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ROMã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã®ã«å¿…è¦ãªãƒ¡ãƒ¢ãƒªãŒè¶³ã‚Š
+ã€€ãªã„ã“ã¨ã§å‹•ä½œã—ãªã„ã‚²ãƒ¼ãƒ ã‚’ç‰¹å®šã§ãã¾ã™ã€‚ã‚²ãƒ¼ãƒ ã®ä¸­ã«ã¯ã€ã‚µã‚¦ãƒ³ãƒ‰ROMç”¨ã«ã•ã‚‰ã«16MB
+ã€€ã®ãƒ¡ãƒ¢ãƒªãŒå¿…è¦ã«ãªã‚Šã¾ã™ã€‚ROMã®ãƒ­ãƒ¼ãƒ‰ãŒå®Ÿè¡Œã•ã‚Œã‚‹å‰ã«ã€ã‚µã‚¦ãƒ³ãƒ‰ç„¡ã—ã‚’æŒ‡å®šã™ã‚Œã°ã€
+ã€€MAMEãŒã“ã‚Œã‚‰ã‚’ãƒ­ãƒ¼ãƒ‰ã—ãªã„ã‚ˆã†ã«ã§ãã¾ã™ã€‚DOSã§ã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ã‚¿ã‚¤ãƒ—ã—ã¾ã™ã€‚
 
   mame game -soundcard 0
 
-  soundcard 0‚ðŽw’è‚µ‚È‚¢‚Å‘S‚Ä‚ÌƒTƒEƒ“ƒhROM‚ªƒ[ƒh‚³‚ê‚é‚ÆAƒƒ‚ƒŠ–â‘è‚ª‹N‚«‚é‚©‚à
-@‚µ‚ê‚Ü‚¹‚ñB
+  soundcard 0ã‚’æŒ‡å®šã—ãªã„ã§å…¨ã¦ã®ã‚µã‚¦ãƒ³ãƒ‰ROMãŒãƒ­ãƒ¼ãƒ‰ã•ã‚Œã‚‹ã¨ã€ãƒ¡ãƒ¢ãƒªå•é¡ŒãŒèµ·ãã‚‹ã‹ã‚‚
+ã€€ã—ã‚Œã¾ã›ã‚“ã€‚
 
-- ƒA[ƒP[ƒhƒ‚[ƒh‚Æƒz[ƒ€ƒ‚[ƒh‚Ì‚Ç‚¿‚ç‚Å‚àA‘S‚Ä‚ÌƒQ[ƒ€‚ª“®ì‚µ‚Ü‚·B‚à‚µAƒRƒs[
-@ƒ‰ƒCƒg‰æ–Ê‚ÅŒÅ‚Ü‚Á‚½‚èAƒRƒCƒ“‚ðŽó‚¯•t‚¯‚È‚¢ê‡‚Í‚»‚ÌƒQ[ƒ€‚Ìu.CFGvƒtƒ@ƒCƒ‹‚Æ
-@u.HIvƒtƒ@ƒCƒ‹‚ðÁ‹Ž‚µ‚Ä‰º‚³‚¢B‚±‚ê‚Å‰ðŒˆ‚µ‚Ü‚·B
-  ‚µ‚©‚µu“¾“_‰¤ / Super Sidekicksv‚Å‚ÍA2A3•ªŒo‚Â‚ÆƒRƒ“ƒgƒ[ƒ‹•s”\‚É‚È‚è‚Ü‚·B
+- ã‚¢ãƒ¼ã‚±ãƒ¼ãƒ‰ãƒ¢ãƒ¼ãƒ‰ã¨ãƒ›ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰ã®ã©ã¡ã‚‰ã§ã‚‚ã€å…¨ã¦ã®ã‚²ãƒ¼ãƒ ãŒå‹•ä½œã—ã¾ã™ã€‚ã‚‚ã—ã€ã‚³ãƒ”ãƒ¼
+ã€€ãƒ©ã‚¤ãƒˆç”»é¢ã§å›ºã¾ã£ãŸã‚Šã€ã‚³ã‚¤ãƒ³ã‚’å—ã‘ä»˜ã‘ãªã„å ´åˆã¯ãã®ã‚²ãƒ¼ãƒ ã®ã€Œ.CFGã€ãƒ•ã‚¡ã‚¤ãƒ«ã¨
+ã€€ã€Œ.HIã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆåŽ»ã—ã¦ä¸‹ã•ã„ã€‚ã“ã‚Œã§è§£æ±ºã—ã¾ã™ã€‚
+  ã—ã‹ã—ã€Œå¾—ç‚¹çŽ‹ / Super Sidekicksã€ã§ã¯ã€2ã€3åˆ†çµŒã¤ã¨ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ä¸èƒ½ã«ãªã‚Šã¾ã™ã€‚
 
-- ƒTƒEƒ“ƒhƒTƒ|[ƒg‚Í99%o—ˆ‚Ä‚¢‚Ü‚·B‚à‚µAƒTƒEƒ“ƒh‚ª‚¨‚©‚µ‚­‚ÄuNO GOOD DUMP 
-@EXISTSvƒGƒ‰[‚ªo‚Ä‚¢‚éê‡‚ÍAƒGƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚Ì•s‹ï‡‚Å‚Í‚È‚­A•s—ÇROM‚Ì‚¹‚¢‚Å‹N
-@‚±‚Á‚Ä‚¢‚Ü‚·B•s—ÇROM‚ðÄ‹zo‚µ‚·‚éˆÈŠOC³–@‚Í‚ ‚è‚Ü‚¹‚ñB
+- ã‚µã‚¦ãƒ³ãƒ‰ã‚µãƒãƒ¼ãƒˆã¯99%å‡ºæ¥ã¦ã„ã¾ã™ã€‚ã‚‚ã—ã€ã‚µã‚¦ãƒ³ãƒ‰ãŒãŠã‹ã—ãã¦ã€ŒNO GOOD DUMP 
+ã€€EXISTSã€ã‚¨ãƒ©ãƒ¼ãŒå‡ºã¦ã„ã‚‹å ´åˆã¯ã€ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¸å…·åˆã§ã¯ãªãã€ä¸è‰¯ROMã®ã›ã„ã§èµ·
+ã€€ã“ã£ã¦ã„ã¾ã™ã€‚ä¸è‰¯ROMã‚’å†å¸å‡ºã—ã™ã‚‹ä»¥å¤–ä¿®æ­£æ³•ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
 
-- Z80‚ÌƒGƒ‰[ƒƒbƒZ[ƒW‚ªo‚½ê‡A‚»‚ÌƒTƒEƒ“ƒhƒvƒƒOƒ‰ƒ€ROM‚ª‰ó‚ê‚Ä‚¢‚Ü‚·B
-  ‰¹–³‚µ‚Å‘–‚ç‚¹‚Ä‰º‚³‚¢B
+- Z80ã®ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå‡ºãŸå ´åˆã€ãã®ã‚µã‚¦ãƒ³ãƒ‰ãƒ—ãƒ­ã‚°ãƒ©ãƒ ROMãŒå£Šã‚Œã¦ã„ã¾ã™ã€‚
+  éŸ³ç„¡ã—ã§èµ°ã‚‰ã›ã¦ä¸‹ã•ã„ã€‚
 
-- ‚¢‚­‚Â‚©‚ÌƒQ[ƒ€‚ÅA‚»‚¤ŠÈ’P‚É‚ÍC³‚Å‚«‚»‚¤‚à‚È‚¢AƒOƒ‰ƒtƒBƒbƒN‚Ì•s‹ï‡(ƒ‰ƒXƒ^ƒ‰ƒC
-@ƒ“ƒGƒtƒFƒNƒg)‚ª‚ ‚è‚Ü‚·B
+- ã„ãã¤ã‹ã®ã‚²ãƒ¼ãƒ ã§ã€ãã†ç°¡å˜ã«ã¯ä¿®æ­£ã§ããã†ã‚‚ãªã„ã€ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ã®ä¸å…·åˆ(ãƒ©ã‚¹ã‚¿ãƒ©ã‚¤
+ã€€ãƒ³ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ)ãŒã‚ã‚Šã¾ã™ã€‚
   
-- ‚à‚µuROM length mismatchvƒGƒ‰[‚ªo‚½ê‡AMAME‚ªŠú‘Ò‚µ‚Ä‚¢‚é‚æ‚è‚àƒTƒCƒY‚Ì‘å‚«‚¢
-@ROM‚ðŽg—p‚µ‚Ä‚¢‚Ü‚·B‚µ‚½‚ª‚Á‚ÄA‚±‚ê‚Í’v–½“I‚ÈƒGƒ‰[‚Å‚Í‚È‚­AƒQ[ƒ€‚Í‚«‚¿‚ñ‚Æ“®ì
-@‚µ‚Ü‚·(‚à‚¿‚ë‚ñAROM‚ª³í‚Èê‡)B ROM‚ÌŽc‚è•”•ª‚ðÁ‚·‚±‚Æ‚ÅuC³v‚·‚é‚±‚Æ‚Í‚Å‚«
-@‚Ü‚·‚ªAMAME‚ªŽg—p‚·‚éƒTƒCƒY‚ÉŠî€‚Í‚ ‚è‚Ü‚¹‚ñB‘½‚­‚Ìê‡AŽÀÛ‚ÉƒTƒ|[ƒg‚³‚ê‚Ä‚¢
-@‚éROM‚ÌƒTƒCƒY‚ð³Šm‚É”cˆ¬‚·‚é‚Ì‚Í‚»‚¤ŠÈ’P‚Å‚Í‚ ‚è‚Ü‚¹‚ñB‚»‚±‚ÅAŽ„’B‚Í‰Â”\‚ÈŒÀ‚è¬
-@‚³‚¢‚à‚Ì‚ðˆêŠÑ‚µ‚ÄŽg—p‚·‚é‚æ‚¤‚ÉŒˆ‚ß‚Ü‚µ‚½BŒ»•¨‚ÌROM‚Í‚±‚ê‚æ‚èƒTƒCƒY‚ª‘å‚«‚¢u‚©
-@‚àv‚µ‚ê‚Ü‚¹‚ñ‚ªA—]•ª‚È•”•ª‚ÍƒQ[ƒ€‚É‚Í•K—v‚È‚¢‚Ì‚Å‚· -
+- ã‚‚ã—ã€ŒROM length mismatchã€ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸå ´åˆã€MAMEãŒæœŸå¾…ã—ã¦ã„ã‚‹ã‚ˆã‚Šã‚‚ã‚µã‚¤ã‚ºã®å¤§ãã„
+ã€€ROMã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™ã€‚ã—ãŸãŒã£ã¦ã€ã“ã‚Œã¯è‡´å‘½çš„ãªã‚¨ãƒ©ãƒ¼ã§ã¯ãªãã€ã‚²ãƒ¼ãƒ ã¯ãã¡ã‚“ã¨å‹•ä½œ
+ã€€ã—ã¾ã™(ã‚‚ã¡ã‚ã‚“ã€ROMãŒæ­£å¸¸ãªå ´åˆ)ã€‚ ROMã®æ®‹ã‚Šéƒ¨åˆ†ã‚’æ¶ˆã™ã“ã¨ã§ã€Œä¿®æ­£ã€ã™ã‚‹ã“ã¨ã¯ã§ã
+ã€€ã¾ã™ãŒã€MAMEãŒä½¿ç”¨ã™ã‚‹ã‚µã‚¤ã‚ºã«åŸºæº–ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚å¤šãã®å ´åˆã€å®Ÿéš›ã«ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„
+ã€€ã‚‹ROMã®ã‚µã‚¤ã‚ºã‚’æ­£ç¢ºã«æŠŠæ¡ã™ã‚‹ã®ã¯ãã†ç°¡å˜ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ãã“ã§ã€ç§é”ã¯å¯èƒ½ãªé™ã‚Šå°
+ã€€ã•ã„ã‚‚ã®ã‚’ä¸€è²«ã—ã¦ä½¿ç”¨ã™ã‚‹ã‚ˆã†ã«æ±ºã‚ã¾ã—ãŸã€‚ç¾ç‰©ã®ROMã¯ã“ã‚Œã‚ˆã‚Šã‚µã‚¤ã‚ºãŒå¤§ãã„ã€Œã‹
+ã€€ã‚‚ã€ã—ã‚Œã¾ã›ã‚“ãŒã€ä½™åˆ†ãªéƒ¨åˆ†ã¯ã‚²ãƒ¼ãƒ ã«ã¯å¿…è¦ãªã„ã®ã§ã™ -
   it is either all FF, or contains a verbatim copy of the first half.
 
 
 
-ƒOƒ‰ƒtƒBƒbƒN‚ª‰ü‘P‚³‚ê‚½ƒhƒ‰ƒCƒoF
+ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ãŒæ”¹å–„ã•ã‚ŒãŸãƒ‰ãƒ©ã‚¤ãƒï¼š
 ----------------------------------
 
--uƒtƒ@[ƒXƒgƒtƒŒƒfƒBv‚ÅFC³B
+-ã€Œãƒ•ã‚¡ãƒ¼ã‚¹ãƒˆãƒ•ãƒ¬ãƒ‡ã‚£ã€ã§è‰²ä¿®æ­£ã€‚
 
--uƒ}ƒŠƒIƒuƒ‰ƒU[ƒYv‚ÅuPOWv‚ð‚½‚½‚­‚Æ‰æ–Ê‚ª’µ‚Ë‚é‚æ‚¤‚ÉC³B[Brad Oliver]
+-ã€Œãƒžãƒªã‚ªãƒ–ãƒ©ã‚¶ãƒ¼ã‚ºã€ã§ã€ŒPOWã€ã‚’ãŸãŸãã¨ç”»é¢ãŒè·³ã­ã‚‹ã‚ˆã†ã«ä¿®æ­£ã€‚[Brad Oliver]
 
--uƒXƒ‰ƒbƒvƒtƒ@ƒCƒgv‚ð‰ü‘PB[Christoff Feldtmann]
+-ã€Œã‚¹ãƒ©ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒˆã€ã‚’æ”¹å–„ã€‚[Christoff Feldtmann]
 
--uMoney Moneyv‚ÆuJack Rabbitv‚Å³Šm‚ÈFB[Nicola Salmoria]
+-ã€ŒMoney Moneyã€ã¨ã€ŒJack Rabbitã€ã§æ­£ç¢ºãªè‰²ã€‚[Nicola Salmoria]
 
--uƒUEƒjƒ…[ƒW[ƒ‰ƒ“ƒhƒXƒg[ƒŠ[v‚ÅV‚µ‚¢ROMƒZƒbƒg‚ÌƒOƒ‰ƒtƒBƒbƒNROM‚ðŽg—p‚µ‚ÄA“G‚ª•\
-  Ž¦‚³‚ê‚é‚æ‚¤‚ÉC³(–¢ƒTƒ|[ƒg)B[Chris Moore]
+-ã€Œã‚¶ãƒ»ãƒ‹ãƒ¥ãƒ¼ã‚¸ãƒ¼ãƒ©ãƒ³ãƒ‰ã‚¹ãƒˆãƒ¼ãƒªãƒ¼ã€ã§æ–°ã—ã„ROMã‚»ãƒƒãƒˆã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ROMã‚’ä½¿ç”¨ã—ã¦ã€æ•µãŒè¡¨
+  ç¤ºã•ã‚Œã‚‹ã‚ˆã†ã«ä¿®æ­£(æœªã‚µãƒãƒ¼ãƒˆ)ã€‚[Chris Moore]
 
--u‚Õ‚É‚Á‚«‚¢‚¸v‚Æuƒjƒ‚v‚ÅƒXƒvƒ‰ƒCƒg‚ªŒÅ‚Ü‚é‚Ì‚ðC³B[Paul Leaman]
+-ã€Œã·ã«ã£ãã„ãšã€ã¨ã€Œãƒ‹ãƒ¢ã€ã§ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆãŒå›ºã¾ã‚‹ã®ã‚’ä¿®æ­£ã€‚[Paul Leaman]
 
--uGolden Starv‚Ì”wŒi‚ÌF‚ª³í‚É•Ï‰»‚·‚é‚æ‚¤C³B[Nicola Salmoria]
+-ã€ŒGolden Starã€ã®èƒŒæ™¯ã®è‰²ãŒæ­£å¸¸ã«å¤‰åŒ–ã™ã‚‹ã‚ˆã†ä¿®æ­£ã€‚[Nicola Salmoria]
 
--uƒAƒXƒgƒƒtƒ@ƒCƒ^[v‚ÌF‚ª³Šm‚É(PROM‚ª•K—v)B[Zsolt Vasvari]
+-ã€Œã‚¢ã‚¹ãƒˆãƒ­ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ã€ã®è‰²ãŒæ­£ç¢ºã«(PROMãŒå¿…è¦)ã€‚[Zsolt Vasvari]
 
--uLost Tombv‚ÌF‚ª³Šm‚É(PROM‚ª•K—v)B[Michael Appolo]
+-ã€ŒLost Tombã€ã®è‰²ãŒæ­£ç¢ºã«(PROMãŒå¿…è¦)ã€‚[Michael Appolo]
 
--uƒ\ƒƒ‚ƒ“‚ÌŒ® / Solomon's Keyv‚Åƒ^ƒCƒ‹‰»‚¯‚ðC³B[Nicola Salmoria]
+-ã€Œã‚½ãƒ­ãƒ¢ãƒ³ã®éµ / Solomon's Keyã€ã§ã‚¿ã‚¤ãƒ«åŒ–ã‘ã‚’ä¿®æ­£ã€‚[Nicola Salmoria]
 
--uƒeƒfƒB[ƒ{[ƒCƒuƒ‹[ƒXv‚Æuƒ`ƒ‡ƒbƒvƒŠƒtƒ^[v‚Å‘OŒi‚Æ”wŒi‚Ì—Dæ‡ˆÊC³B
+-ã€Œãƒ†ãƒ‡ã‚£ãƒ¼ãƒœãƒ¼ã‚¤ãƒ–ãƒ«ãƒ¼ã‚¹ã€ã¨ã€Œãƒãƒ§ãƒƒãƒ—ãƒªãƒ•ã‚¿ãƒ¼ã€ã§å‰æ™¯ã¨èƒŒæ™¯ã®å„ªå…ˆé †ä½ä¿®æ­£ã€‚
   [Nicola Salmoria]
 
--uƒtƒ@ƒCƒ„[ƒgƒ‰ƒbƒvv‚Ì“§–¾“xC³B[Nicola Salmoria]
+-ã€Œãƒ•ã‚¡ã‚¤ãƒ¤ãƒ¼ãƒˆãƒ©ãƒƒãƒ—ã€ã®é€æ˜Žåº¦ä¿®æ­£ã€‚[Nicola Salmoria]
 
--uƒ|ƒbƒvƒtƒŒ[ƒ}[v‚Ìgfxƒoƒ“ƒNC³B[Brad Oliver]
+-ã€Œãƒãƒƒãƒ—ãƒ•ãƒ¬ãƒ¼ãƒžãƒ¼ã€ã®gfxãƒãƒ³ã‚¯ä¿®æ­£ã€‚[Brad Oliver]
 
--uƒvƒŒƒAƒfƒXv‚ÌF‚ª‹°‚ç‚­³Šm‚ÉB[Nicola Salmoria]
+-ã€Œãƒ—ãƒ¬ã‚¢ãƒ‡ã‚¹ã€ã®è‰²ãŒæã‚‰ãæ­£ç¢ºã«ã€‚[Nicola Salmoria]
 
--uƒXƒgƒ‰ƒeƒW[Xv‚ÌF‚ª³Šm‚ÉB[Gerald Vanderick]
+-ã€Œã‚¹ãƒˆãƒ©ãƒ†ã‚¸ãƒ¼Xã€ã®è‰²ãŒæ­£ç¢ºã«ã€‚[Gerald Vanderick]
 
--uƒfƒBƒXƒNƒXƒIƒuƒgƒƒ“v‚ÅƒoƒbƒNƒhƒƒbƒv‚ðƒTƒ|[ƒgB”wŒiƒCƒ[ƒW‚Í
- uARTWORK/DOTRON.PNGv‚ÆŒÄ‚Î‚ê‚Ä‚¢‚é‚Éˆá‚¢‚È‚¢B
+-ã€Œãƒ‡ã‚£ã‚¹ã‚¯ã‚¹ã‚ªãƒ–ãƒˆãƒ­ãƒ³ã€ã§ãƒãƒƒã‚¯ãƒ‰ãƒ­ãƒƒãƒ—ã‚’ã‚µãƒãƒ¼ãƒˆã€‚èƒŒæ™¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã¯
+ ã€ŒARTWORK/DOTRON.PNGã€ã¨å‘¼ã°ã‚Œã¦ã„ã‚‹ã«é•ã„ãªã„ã€‚
   [Mathis Rosenhauer, Brandon Kirkpatrick]
 
--uƒX[ƒp[ƒNƒCƒbƒNƒXv‚ÅƒXƒvƒ‰ƒCƒg‰»‚¯C³B[Mirko Buffoni]
+-ã€Œã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ã‚¤ãƒƒã‚¯ã‚¹ã€ã§ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆåŒ–ã‘ä¿®æ­£ã€‚[Mirko Buffoni]
 
--uƒWƒƒƒ“ƒOƒ‰[v‚ÌF‚ª³Šm‚ÉB‚Ü‚½ƒLƒƒƒ‰‰»‚¯‚ÆƒXƒvƒ‰ƒCƒg‚Ì•À‚Ñ‚ðC³B
+-ã€Œã‚¸ãƒ£ãƒ³ã‚°ãƒ©ãƒ¼ã€ã®è‰²ãŒæ­£ç¢ºã«ã€‚ã¾ãŸã‚­ãƒ£ãƒ©åŒ–ã‘ã¨ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ä¸¦ã³ã‚’ä¿®æ­£ã€‚
   [Nicola Salmoria]
 
--u‹A‚Á‚Ä‚«‚½ƒ`ƒƒƒ“ƒsƒIƒ“ƒx[ƒXƒ{[ƒ‹v‚ÌƒOƒ‰ƒtƒBƒbƒN•s‹ï‡C³B[Nicola Salmoria]
+-ã€Œå¸°ã£ã¦ããŸãƒãƒ£ãƒ³ãƒ”ã‚ªãƒ³ãƒ™ãƒ¼ã‚¹ãƒœãƒ¼ãƒ«ã€ã®ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚¯ä¸å…·åˆä¿®æ­£ã€‚[Nicola Salmoria]
 
--uƒTƒCƒIƒ“v‚ÅF‰ü‘P(‚Ü‚¾–¢Š®‘S)B[Dick Millikan]
+-ã€Œã‚µã‚¤ã‚ªãƒ³ã€ã§è‰²æ”¹å–„(ã¾ã æœªå®Œå…¨)ã€‚[Dick Millikan]
 
--uƒ‹ƒi[ƒ‰ƒ“ƒ_[v‚ÉƒA[ƒgƒ[ƒNƒTƒ|[ƒg’Ç‰ÁB[Cristopher Kirmse]
+-ã€Œãƒ«ãƒŠãƒ¼ãƒ©ãƒ³ãƒ€ãƒ¼ã€ã«ã‚¢ãƒ¼ãƒˆãƒ¯ãƒ¼ã‚¯ã‚µãƒãƒ¼ãƒˆè¿½åŠ ã€‚[Cristopher Kirmse]
 
--uƒAƒXƒeƒƒCƒhƒfƒ‰ƒbƒNƒXv‚ÉƒA[ƒgƒ[ƒNƒTƒ|[ƒg’Ç‰ÁB
+-ã€Œã‚¢ã‚¹ãƒ†ãƒ­ã‚¤ãƒ‰ãƒ‡ãƒ©ãƒƒã‚¯ã‚¹ã€ã«ã‚¢ãƒ¼ãƒˆãƒ¯ãƒ¼ã‚¯ã‚µãƒãƒ¼ãƒˆè¿½åŠ ã€‚
   [Peter Hirschberg, Mathis Rosenhauer]
 
--umooncrgxv‚ðC³B[Barry Rodewald]
+-ã€Œmooncrgxã€ã‚’ä¿®æ­£ã€‚[Barry Rodewald]
 
--uƒuƒ‰ƒXƒeƒƒCƒhv‚Å‚‰ð‘œ“xƒXƒvƒ‰ƒCƒgB[Nicola Salmoria]
+-ã€Œãƒ–ãƒ©ã‚¹ãƒ†ãƒ­ã‚¤ãƒ‰ã€ã§é«˜è§£åƒåº¦ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã€‚[Nicola Salmoria]
 
--uMJ-12 / Super Space Invaders '91v‚ÅƒXƒvƒ‰ƒCƒg‚Ì‚¿‚ç‚Â‚«‚ðC³B[Andrew Prime]
+-ã€ŒMJ-12 / Super Space Invaders '91ã€ã§ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã¡ã‚‰ã¤ãã‚’ä¿®æ­£ã€‚[Andrew Prime]
 
--uƒXƒy[ƒXƒpƒjƒbƒNv‚ÌF‚ª³Šm‚ÉB[Mike Coates]
+-ã€Œã‚¹ãƒšãƒ¼ã‚¹ãƒ‘ãƒ‹ãƒƒã‚¯ã€ã®è‰²ãŒæ­£ç¢ºã«ã€‚[Mike Coates]
 
 
 
-ƒTƒEƒ“ƒh‚ª’Ç‰ÁE‰ü‘P‚³‚ê‚½ƒhƒ‰ƒCƒoF
+ã‚µã‚¦ãƒ³ãƒ‰ãŒè¿½åŠ ãƒ»æ”¹å–„ã•ã‚ŒãŸãƒ‰ãƒ©ã‚¤ãƒï¼š
 ------------------------------------
 
--u‰©‹à‚Ìé / Gladiatorv‚ÌƒTƒEƒ“ƒhB[Steve Ellenoff]
+-ã€Œé»„é‡‘ã®åŸŽ / Gladiatorã€ã®ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Steve Ellenoff]
 
--uƒ{ƒuƒ‹ƒ{ƒuƒ‹v‚ÌƒTƒEƒ“ƒh“¯ŠúB[Tatsuyuki Satoh]
+-ã€Œãƒœãƒ–ãƒ«ãƒœãƒ–ãƒ«ã€ã®ã‚µã‚¦ãƒ³ãƒ‰åŒæœŸã€‚[Tatsuyuki Satoh]
 
-- SN76496ƒGƒ~ƒ…‚ð‘‚«‚È‚¨‚µ‚Ü‚µ‚½Buƒ`ƒ‡ƒbƒvƒŠƒtƒ^[v‚Ìƒ{ƒCƒX‚ÉŒø‰Ê‚ª‚ ‚è‚Ü‚·B
+- SN76496ã‚¨ãƒŸãƒ¥ã‚’æ›¸ããªãŠã—ã¾ã—ãŸã€‚ã€Œãƒãƒ§ãƒƒãƒ—ãƒªãƒ•ã‚¿ãƒ¼ã€ã®ãƒœã‚¤ã‚¹ã«åŠ¹æžœãŒã‚ã‚Šã¾ã™ã€‚
   [Nicola Salmoria]
 
-- System8ƒQ[ƒ€‚Ì‰¹’ö‚ðC³B[Hiromitsu Shioya]
+- System8ã‚²ãƒ¼ãƒ ã®éŸ³ç¨‹ã‚’ä¿®æ­£ã€‚[Hiromitsu Shioya]
 
--uƒWƒƒƒCƒ‰ƒXv‚ÉRCƒtƒBƒ‹ƒ^ƒGƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ð’Ç‰ÁB‚±‚ê‚ÍAƒtƒH[ƒXƒtƒB[ƒ‹ƒhƒmƒCƒY‚È‚Ç
-  ‚ÌƒTƒEƒ“ƒhƒGƒtƒFƒNƒg‚ð‰ü‘P‚µ‚Ü‚·B[Francesco Caporali]
+-ã€Œã‚¸ãƒ£ã‚¤ãƒ©ã‚¹ã€ã«RCãƒ•ã‚£ãƒ«ã‚¿ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ ã€‚ã“ã‚Œã¯ã€ãƒ•ã‚©ãƒ¼ã‚¹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãƒŽã‚¤ã‚ºãªã©
+  ã®ã‚µã‚¦ãƒ³ãƒ‰ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’æ”¹å–„ã—ã¾ã™ã€‚[Francesco Caporali]
 
--uƒ~ƒXƒeƒŠƒAƒXƒXƒg[ƒ“ƒY -Dr.ƒLƒbƒN‚Ì‘å–`Œ¯-v‚ÌƒTƒEƒ“ƒhB[Nicola Salmoria]
+-ã€ŒãƒŸã‚¹ãƒ†ãƒªã‚¢ã‚¹ã‚¹ãƒˆãƒ¼ãƒ³ã‚º -Dr.ã‚­ãƒƒã‚¯ã®å¤§å†’é™º-ã€ã®ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Nicola Salmoria]
 
--uƒhƒ“ƒL[ƒRƒ“ƒOv‚ÌƒTƒEƒ“ƒhƒsƒbƒ`‚Æƒeƒ“ƒ|C³B[Mirko Buffoni]
+-ã€Œãƒ‰ãƒ³ã‚­ãƒ¼ã‚³ãƒ³ã‚°ã€ã®ã‚µã‚¦ãƒ³ãƒ‰ãƒ”ãƒƒãƒã¨ãƒ†ãƒ³ãƒä¿®æ­£ã€‚[Mirko Buffoni]
 
--uƒXƒ‰ƒbƒvƒtƒ@ƒCƒgv‚Ìƒ~ƒ…[ƒWƒbƒNƒeƒ“ƒ|‚ð‰ü‘PB[Sebastien Chevalier]
+-ã€Œã‚¹ãƒ©ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒˆã€ã®ãƒŸãƒ¥ãƒ¼ã‚¸ãƒƒã‚¯ãƒ†ãƒ³ãƒã‚’æ”¹å–„ã€‚[Sebastien Chevalier]
 
-- “®ì’†‚ÌSystem16ƒQ[ƒ€‚ÌƒTƒEƒ“ƒhB[Phil Stroffolino]
+- å‹•ä½œä¸­ã®System16ã‚²ãƒ¼ãƒ ã®ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Phil Stroffolino]
 
-- AstrocadeƒTƒEƒ“ƒhƒ`ƒbƒv‚ÌƒGƒ~ƒ…ƒŒ[ƒg(uGorfvuWizard of Worv‚È‚Ç)
+- Astrocadeã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒãƒ—ã®ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆ(ã€ŒGorfã€ã€ŒWizard of Worã€ãªã©)
   [Frank Palazzolo]
 
--uGorfv‚Ìƒ{ƒCƒX‰ü‘PB•s–¾‚ÈƒTƒ“ƒvƒ‹‚ðœ‚¢‚ÄAƒ{ƒCƒX‚ª100%³Šm‚É–Â‚è‚Ü‚·B
-@[Kevin Bales]
+-ã€ŒGorfã€ã®ãƒœã‚¤ã‚¹æ”¹å–„ã€‚ä¸æ˜Žãªã‚µãƒ³ãƒ—ãƒ«ã‚’é™¤ã„ã¦ã€ãƒœã‚¤ã‚¹ãŒ100%æ­£ç¢ºã«é³´ã‚Šã¾ã™ã€‚
+ã€€[Kevin Bales]
 
--uƒpƒ“ƒNƒVƒ‡ƒbƒgv‚Ìˆê•”ƒTƒEƒ“ƒhB[Nicola Salmoria]
+-ã€Œãƒ‘ãƒ³ã‚¯ã‚·ãƒ§ãƒƒãƒˆã€ã®ä¸€éƒ¨ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Nicola Salmoria]
 
--uMJ-12 / Super Space Invaders '91v‚ÌƒTƒEƒ“ƒhB[Ernesto Corvi]
+-ã€ŒMJ-12 / Super Space Invaders '91ã€ã®ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Ernesto Corvi]
 
--uƒhƒ“ƒL[ƒRƒ“ƒOv‚ÉƒfƒBƒPƒC’Ç‰ÁB[Andrew Scott]
+-ã€Œãƒ‰ãƒ³ã‚­ãƒ¼ã‚³ãƒ³ã‚°ã€ã«ãƒ‡ã‚£ã‚±ã‚¤è¿½åŠ ã€‚[Andrew Scott]
 
--uƒWƒ…ƒmƒtƒ@[ƒXƒgv‚ÉƒTƒEƒ“ƒhƒGƒtƒFƒNƒg‚ð‚¢‚­‚Â‚©’Ç‰ÁBƒVƒ‡ƒbƒg‰¹‚Í‚Ü‚¾‚ ‚è‚Ü‚¹‚ñB
-@[Nicola Salmoria]
+-ã€Œã‚¸ãƒ¥ãƒŽãƒ•ã‚¡ãƒ¼ã‚¹ãƒˆã€ã«ã‚µã‚¦ãƒ³ãƒ‰ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’ã„ãã¤ã‹è¿½åŠ ã€‚ã‚·ãƒ§ãƒƒãƒˆéŸ³ã¯ã¾ã ã‚ã‚Šã¾ã›ã‚“ã€‚
+ã€€[Nicola Salmoria]
 
-- PokeyƒGƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ð‰ü‘PB[Juergen Buchmueller]
+- Pokeyã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ”¹å–„ã€‚[Juergen Buchmueller]
 
-- ƒXƒeƒŒƒIo—Í‚ÌƒTƒ|[ƒgB‚±‚ê‚ÍYM2610‚ÆTatsuyukiŽ‚ÌYM2151‚ÅŽÀs‚³‚ê‚Ü‚·B
-@‘¼‚ÌƒQ[ƒ€A—á‚¦‚ÎAtari System2ƒQ[ƒ€(uƒy[ƒp[ƒ{[ƒCv‚È‚Ç)‚Å‚àŽg—p‚Å‚«‚Ü‚·B
-@Šeƒ`ƒƒƒ“ƒlƒ‹‚É‚»‚ê‚¼‚êPokey‚ªŠ„‚è“–‚Ä‚ç‚ê‚Ü‚·B[Nicola Salmoria]
+- ã‚¹ãƒ†ãƒ¬ã‚ªå‡ºåŠ›ã®ã‚µãƒãƒ¼ãƒˆã€‚ã“ã‚Œã¯YM2610ã¨Tatsuyukiæ°ã®YM2151ã§å®Ÿè¡Œã•ã‚Œã¾ã™ã€‚
+ã€€ä»–ã®ã‚²ãƒ¼ãƒ ã€ä¾‹ãˆã°Atari System2ã‚²ãƒ¼ãƒ (ã€Œãƒšãƒ¼ãƒ‘ãƒ¼ãƒœãƒ¼ã‚¤ã€ãªã©)ã§ã‚‚ä½¿ç”¨ã§ãã¾ã™ã€‚
+ã€€å„ãƒãƒ£ãƒ³ãƒãƒ«ã«ãã‚Œãžã‚ŒPokeyãŒå‰²ã‚Šå½“ã¦ã‚‰ã‚Œã¾ã™ã€‚[Nicola Salmoria]
 
--uƒX[ƒp[ƒsƒGƒ / Do! Run Runv‚Ìƒx[ƒX•”•ª‚ðC³B[Jim Hernandez]
+-ã€Œã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒ”ã‚¨ãƒ­ / Do! Run Runã€ã®ãƒ™ãƒ¼ã‚¹éƒ¨åˆ†ã‚’ä¿®æ­£ã€‚[Jim Hernandez]
 
--uƒTƒ^ƒ“ƒIƒuƒTƒ^[ƒ“v‚Åˆê•”ƒTƒEƒ“ƒhB[Nicola Salmoria]
+-ã€Œã‚µã‚¿ãƒ³ã‚ªãƒ–ã‚µã‚¿ãƒ¼ãƒ³ã€ã§ä¸€éƒ¨ã‚µã‚¦ãƒ³ãƒ‰ã€‚[Nicola Salmoria]
 
-- Exidy»ƒQ[ƒ€‚Ì—\”õƒTƒ|[ƒgB[Dan Boris]
+- Exidyè£½ã‚²ãƒ¼ãƒ ã®äºˆå‚™ã‚µãƒãƒ¼ãƒˆã€‚[Dan Boris]
 
--uƒ€[ƒ“ƒpƒgƒ[ƒ‹vuƒWƒbƒs[ƒŒ[ƒX / Traverse USAv‚È‚Ç‚ÌIremƒQ[ƒ€‚Åƒ~ƒ…[ƒWƒbƒN‚ð 
-  C³B[Nicola Salmoria]
+-ã€Œãƒ ãƒ¼ãƒ³ãƒ‘ãƒˆãƒ­ãƒ¼ãƒ«ã€ã€Œã‚¸ãƒƒãƒ”ãƒ¼ãƒ¬ãƒ¼ã‚¹ / Traverse USAã€ãªã©ã®Iremã‚²ãƒ¼ãƒ ã§ãƒŸãƒ¥ãƒ¼ã‚¸ãƒƒã‚¯ã‚’ 
+  ä¿®æ­£ã€‚[Nicola Salmoria]
 
--uƒAƒXƒgƒƒtƒ@ƒCƒ^[v‚ÅƒTƒ“ƒvƒ‹ƒTƒ|[ƒgB[Zsolt Vasvari]
+-ã€Œã‚¢ã‚¹ãƒˆãƒ­ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ã€ã§ã‚µãƒ³ãƒ—ãƒ«ã‚µãƒãƒ¼ãƒˆã€‚[Zsolt Vasvari]
 
 
 
-ƒnƒCƒXƒRƒAƒZ[ƒu‚ðƒTƒ|[ƒg‚µ‚½ƒhƒ‰ƒCƒoF
+ãƒã‚¤ã‚¹ã‚³ã‚¢ã‚»ãƒ¼ãƒ–ã‚’ã‚µãƒãƒ¼ãƒˆã—ãŸãƒ‰ãƒ©ã‚¤ãƒï¼š
 -------------------------------------
 
-’ˆÓF‚¢‚­‚Â‚©‚ÌƒQ[ƒ€‚ÅƒNƒƒXƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ðŽÀŒ»‚·‚é‚½‚ßƒtƒH[ƒ}ƒbƒg‚ð•ÏX
-‚µ‚Ü‚µ‚½B‚±‚ê‚ç‚ÌƒQ[ƒ€‚ÌˆÈ‘O‚ÌƒXƒRƒA‚ÍŽ¸‚í‚ê‚Ü‚·BƒnƒCƒXƒRƒAƒe[ƒuƒ‹‚ÉƒSƒ~‚ª
-‚ ‚é‚Æ‚«A‚Ü‚½‚Í“®ì‚ª‚¨‚©‚µ‚¢‚Æ‚«‚Íu.hivƒtƒ@ƒCƒ‹‚ðÁ‹Ž‚µ‚Ä‰º‚³‚¢B
+æ³¨æ„ï¼šã„ãã¤ã‹ã®ã‚²ãƒ¼ãƒ ã§ã‚¯ãƒ­ã‚¹ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã‚’å®Ÿç¾ã™ã‚‹ãŸã‚ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã‚’å¤‰æ›´
+ã—ã¾ã—ãŸã€‚ã“ã‚Œã‚‰ã®ã‚²ãƒ¼ãƒ ã®ä»¥å‰ã®ã‚¹ã‚³ã‚¢ã¯å¤±ã‚ã‚Œã¾ã™ã€‚ãƒã‚¤ã‚¹ã‚³ã‚¢ãƒ†ãƒ¼ãƒ–ãƒ«ã«ã‚´ãƒŸãŒ
+ã‚ã‚‹ã¨ãã€ã¾ãŸã¯å‹•ä½œãŒãŠã‹ã—ã„ã¨ãã¯ã€Œ.hiã€ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆåŽ»ã—ã¦ä¸‹ã•ã„ã€‚
 
--uƒUƒCƒ“ƒhƒXƒŠ[ƒi / Solar Warriorvuƒsƒ“ƒ{[ƒ‹ƒAƒNƒVƒ‡ƒ“vuŒÕ‚Ö‚Ì“¹ / Tiger Roadv
- uƒJƒ‹ƒmƒtvuƒ`ƒFƒ‹ƒmƒu -í‚¤lŠÔ”­“dŠ-vuƒwƒr[ƒoƒŒƒ‹v
- uƒhƒ‰ƒSƒ“”EŽÒ / Bad Dudes vs. Dragonninjavuƒƒ{ƒRƒbƒvv
- uƒtƒ@ƒCƒeƒBƒ“ƒOƒtƒ@ƒ“ƒ^ƒW[ / HippodromevuƒV[ƒNƒŒƒbƒgƒG[ƒWƒFƒ“ƒg / Sly Spyv
- uƒ~ƒbƒhƒiƒCƒgƒŒƒWƒXƒ^ƒ“ƒXvuƒOƒ‰ƒfƒBƒEƒX / Nemesisv[Dani Portillo]
+-ã€Œã‚¶ã‚¤ãƒ³ãƒ‰ã‚¹ãƒªãƒ¼ãƒŠ / Solar Warriorã€ã€Œãƒ”ãƒ³ãƒœãƒ¼ãƒ«ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã€ã€Œè™Žã¸ã®é“ / Tiger Roadã€
+ ã€Œã‚«ãƒ«ãƒŽãƒ•ã€ã€Œãƒã‚§ãƒ«ãƒŽãƒ– -æˆ¦ã†äººé–“ç™ºé›»æ‰€-ã€ã€Œãƒ˜ãƒ“ãƒ¼ãƒãƒ¬ãƒ«ã€
+ ã€Œãƒ‰ãƒ©ã‚´ãƒ³å¿è€… / Bad Dudes vs. Dragonninjaã€ã€Œãƒ­ãƒœã‚³ãƒƒãƒ—ã€
+ ã€Œãƒ•ã‚¡ã‚¤ãƒ†ã‚£ãƒ³ã‚°ãƒ•ã‚¡ãƒ³ã‚¿ã‚¸ãƒ¼ / Hippodromeã€ã€Œã‚·ãƒ¼ã‚¯ãƒ¬ãƒƒãƒˆã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆ / Sly Spyã€
+ ã€ŒãƒŸãƒƒãƒ‰ãƒŠã‚¤ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿ãƒ³ã‚¹ã€ã€Œã‚°ãƒ©ãƒ‡ã‚£ã‚¦ã‚¹ / Nemesisã€[Dani Portillo]
 
--uShark Attackv[Mike Balfour]
+-ã€ŒShark Attackã€[Mike Balfour]
 
--uƒtƒŠƒbƒL[vuƒuƒ‹ƒtƒ@ƒCƒ^[vu‚²‚ñ‚×‚¥‚Ì‚ ‚¢‚Þ‚»`‚è` / I'm Sorryv
- uƒXƒ^[ƒWƒƒƒbƒJ[vuƒ~ƒXƒ^[ƒoƒCƒLƒ“ƒOvu4-DƒEƒH[ƒŠƒA[ƒYv
- uƒeƒfƒB[ƒ{[ƒCƒuƒ‹[ƒXvuBeastie Feastievu°“l—…vuƒRƒuƒ‰ƒRƒ}ƒ“ƒhv
- uƒX[ƒp[ƒNƒCƒbƒNƒXvuƒrƒWƒ‰ƒ“ƒevuƒ|ƒ“ƒsƒ“ƒOƒ[ƒ‹ƒh / Pangvu‚Ð‚°ŠÛvuƒwƒLƒTv
- uƒeƒ‰ƒNƒŒƒXƒ^vuƒ‰ƒXƒ^ƒ“ƒT[ƒK / Rastanvuƒ^ƒCƒK[ƒwƒŠv [Juan Carlos Lorente]
+-ã€Œãƒ•ãƒªãƒƒã‚­ãƒ¼ã€ã€Œãƒ–ãƒ«ãƒ•ã‚¡ã‚¤ã‚¿ãƒ¼ã€ã€Œã”ã‚“ã¹ã‡ã®ã‚ã„ã‚€ãï½žã‚Šï½ž / I'm Sorryã€
+ ã€Œã‚¹ã‚¿ãƒ¼ã‚¸ãƒ£ãƒƒã‚«ãƒ¼ã€ã€ŒãƒŸã‚¹ã‚¿ãƒ¼ãƒã‚¤ã‚­ãƒ³ã‚°ã€ã€Œ4-Dã‚¦ã‚©ãƒ¼ãƒªã‚¢ãƒ¼ã‚ºã€
+ ã€Œãƒ†ãƒ‡ã‚£ãƒ¼ãƒœãƒ¼ã‚¤ãƒ–ãƒ«ãƒ¼ã‚¹ã€ã€ŒBeastie Feastieã€ã€Œé­‚æ–—ç¾…ã€ã€Œã‚³ãƒ–ãƒ©ã‚³ãƒžãƒ³ãƒ‰ã€
+ ã€Œã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚¯ã‚¤ãƒƒã‚¯ã‚¹ã€ã€Œãƒ“ã‚¸ãƒ©ãƒ³ãƒ†ã€ã€Œãƒãƒ³ãƒ”ãƒ³ã‚°ãƒ¯ãƒ¼ãƒ«ãƒ‰ / Pangã€ã€Œã²ã’ä¸¸ã€ã€Œãƒ˜ã‚­ã‚µã€
+ ã€Œãƒ†ãƒ©ã‚¯ãƒ¬ã‚¹ã‚¿ã€ã€Œãƒ©ã‚¹ã‚¿ãƒ³ã‚µãƒ¼ã‚¬ / Rastanã€ã€Œã‚¿ã‚¤ã‚¬ãƒ¼ãƒ˜ãƒªã€ [Juan Carlos Lorente]
 
--uQuantumv[Nicola Salmoria]
+-ã€ŒQuantumã€[Nicola Salmoria]
 
--u‹A‚Á‚Ä‚«‚½ƒ`ƒƒƒ“ƒsƒIƒ“ƒx[ƒXƒ{[ƒ‹vuƒƒ“ƒ_[ƒ{[ƒCvuƒŒƒOƒ‹ƒXvuSWATv
- uƒwƒr[ƒƒ^ƒ‹vuƒuƒŒƒCƒ“vuŽž‚ÌíŽmvuƒgƒbƒvƒV[ƒNƒŒƒbƒg / Bionic Commandov
- uƒuƒ‰ƒXƒgvuƒgƒ}ƒz[ƒN777vuƒJƒ~ƒJƒ[ / Astro InvadervuƒuƒƒbƒNƒAƒEƒgv
- uƒ_[ƒNƒV[ƒ‹vuƒRƒXƒ~ƒbƒNƒGƒCƒŠƒAƒ“vuƒNƒŒ[ƒW[ƒoƒ‹[ƒ“vuƒŒ[ƒ_[ƒXƒR[ƒvv
- uƒTƒCƒhƒgƒ‰ƒbƒNv [Howie Cohen]
+-ã€Œå¸°ã£ã¦ããŸãƒãƒ£ãƒ³ãƒ”ã‚ªãƒ³ãƒ™ãƒ¼ã‚¹ãƒœãƒ¼ãƒ«ã€ã€Œãƒ¯ãƒ³ãƒ€ãƒ¼ãƒœãƒ¼ã‚¤ã€ã€Œãƒ¬ã‚°ãƒ«ã‚¹ã€ã€ŒSWATã€
+ ã€Œãƒ˜ãƒ“ãƒ¼ãƒ¡ã‚¿ãƒ«ã€ã€Œãƒ–ãƒ¬ã‚¤ãƒ³ã€ã€Œæ™‚ã®æˆ¦å£«ã€ã€Œãƒˆãƒƒãƒ—ã‚·ãƒ¼ã‚¯ãƒ¬ãƒƒãƒˆ / Bionic Commandoã€
+ ã€Œãƒ–ãƒ©ã‚¹ãƒˆã€ã€Œãƒˆãƒžãƒ›ãƒ¼ã‚¯777ã€ã€Œã‚«ãƒŸã‚«ã‚¼ / Astro Invaderã€ã€Œãƒ–ãƒ­ãƒƒã‚¯ã‚¢ã‚¦ãƒˆã€
+ ã€Œãƒ€ãƒ¼ã‚¯ã‚·ãƒ¼ãƒ«ã€ã€Œã‚³ã‚¹ãƒŸãƒƒã‚¯ã‚¨ã‚¤ãƒªã‚¢ãƒ³ã€ã€Œã‚¯ãƒ¬ãƒ¼ã‚¸ãƒ¼ãƒãƒ«ãƒ¼ãƒ³ã€ã€Œãƒ¬ãƒ¼ãƒ€ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ—ã€
+ ã€Œã‚µã‚¤ãƒ‰ãƒˆãƒ©ãƒƒã‚¯ã€ [Howie Cohen]
 
--uMoney MoneyvuJack Rabbitvuƒyƒ“ƒMƒ“‚­‚ñƒEƒH[ƒYv[Roberto Fresca]
+-ã€ŒMoney Moneyã€ã€ŒJack Rabbitã€ã€Œãƒšãƒ³ã‚®ãƒ³ãã‚“ã‚¦ã‚©ãƒ¼ã‚ºã€[Roberto Fresca]
 
--uƒNƒ[ƒN&ƒ_ƒK[vuFrenzyvuƒtƒ…[ƒ`ƒƒ[ƒXƒpƒCvuƒRƒbƒv 01vuƒ[ƒhƒ‰ƒ“ƒi[v
- u‰õŒ†ƒ„ƒ“ƒ`ƒƒŠÛ / Kid NikivuƒXƒyƒ‰ƒ“ƒJ[II -23‚ÌŒ®-v
- uƒ}ƒ“ƒnƒbƒ^ƒ“24•ª / Jail BreakvuƒŠƒ“ƒO‚Ì‰¤ŽÒ / The Main Eventv
- uƒLƒ“ƒOƒIƒuƒ{ƒNƒT[vuƒEƒFƒXƒ^ƒ“ƒGƒNƒXƒvƒŒƒX / Express Raiderv
- uƒpƒbƒNƒ‰ƒ“ƒhvuSpeed BallvuT.M.N.T. -ƒX[ƒp[‹T”EŽÒ-vuƒpƒ“ƒNƒVƒ‡ƒbƒgv[Dave W.]
+-ã€Œã‚¯ãƒ­ãƒ¼ã‚¯&ãƒ€ã‚¬ãƒ¼ã€ã€ŒFrenzyã€ã€Œãƒ•ãƒ¥ãƒ¼ãƒãƒ£ãƒ¼ã‚¹ãƒ‘ã‚¤ã€ã€Œã‚³ãƒƒãƒ— 01ã€ã€Œãƒ­ãƒ¼ãƒ‰ãƒ©ãƒ³ãƒŠãƒ¼ã€
+ ã€Œå¿«å‚‘ãƒ¤ãƒ³ãƒãƒ£ä¸¸ / Kid Nikiã€ã€Œã‚¹ãƒšãƒ©ãƒ³ã‚«ãƒ¼II -23ã®éµ-ã€
+ ã€Œãƒžãƒ³ãƒãƒƒã‚¿ãƒ³24åˆ†ç½² / Jail Breakã€ã€Œãƒªãƒ³ã‚°ã®çŽ‹è€… / The Main Eventã€
+ ã€Œã‚­ãƒ³ã‚°ã‚ªãƒ–ãƒœã‚¯ã‚µãƒ¼ã€ã€Œã‚¦ã‚§ã‚¹ã‚¿ãƒ³ã‚¨ã‚¯ã‚¹ãƒ—ãƒ¬ã‚¹ / Express Raiderã€
+ ã€Œãƒ‘ãƒƒã‚¯ãƒ©ãƒ³ãƒ‰ã€ã€ŒSpeed Ballã€ã€ŒT.M.N.T. -ã‚¹ãƒ¼ãƒ‘ãƒ¼äº€å¿è€…-ã€ã€Œãƒ‘ãƒ³ã‚¯ã‚·ãƒ§ãƒƒãƒˆã€[Dave W.]
 
--uƒGƒLƒTƒCƒeƒBƒ“ƒOƒTƒbƒJ[v[Jarek Parchanski]
+-ã€Œã‚¨ã‚­ã‚µã‚¤ãƒ†ã‚£ãƒ³ã‚°ã‚µãƒƒã‚«ãƒ¼ã€[Jarek Parchanski]
 
--uƒTƒCƒIƒ“vuƒXƒeƒBƒ“ƒK[v[Zsolt Vasvari]
+-ã€Œã‚µã‚¤ã‚ªãƒ³ã€ã€Œã‚¹ãƒ†ã‚£ãƒ³ã‚¬ãƒ¼ã€[Zsolt Vasvari]
 
 
 
-‚»‚Ì‘¼‚Ìƒhƒ‰ƒCƒo‚Ì•ÏXF
+ãã®ä»–ã®ãƒ‰ãƒ©ã‚¤ãƒã®å¤‰æ›´ï¼š
 ----------------------
 
-- ƒIƒŠƒWƒiƒ‹”ÅuƒGƒŒƒx[ƒ^[ƒAƒNƒVƒ‡ƒ“v‚ª“®ì‚µ‚Ü‚·B‘«‚è‚È‚©‚Á‚½68705 mcu ROM‚ðŽg‚Á‚Ä
-  “®ì‚µ‚Ü‚·B‚»‚Ì‚½‚ßAƒGƒ~ƒ…ƒŒ[ƒg‚ÉCPU‚ðˆê‚Â’Ç‰Á‚µ‚Ä‚¢‚é‚Ì‚ÅŠC‘¯”Å‚æ‚è‚à“®ì‚Í
-  ’x‚­‚È‚è‚Ü‚·B[Nicola Salmoria]
+- ã‚ªãƒªã‚¸ãƒŠãƒ«ç‰ˆã€Œã‚¨ãƒ¬ãƒ™ãƒ¼ã‚¿ãƒ¼ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã€ãŒå‹•ä½œã—ã¾ã™ã€‚è¶³ã‚Šãªã‹ã£ãŸ68705 mcu ROMã‚’ä½¿ã£ã¦
+  å‹•ä½œã—ã¾ã™ã€‚ãã®ãŸã‚ã€ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆã«CPUã‚’ä¸€ã¤è¿½åŠ ã—ã¦ã„ã‚‹ã®ã§æµ·è³Šç‰ˆã‚ˆã‚Šã‚‚å‹•ä½œã¯
+  é…ããªã‚Šã¾ã™ã€‚[Nicola Salmoria]
 
--uƒtƒƒ“ƒgƒ‰ƒCƒ“v‚ð68705—pROM‚ðŠÜ‚ÞŠ®‘SƒZƒbƒg‚É’u‚«Š·‚¦‚Ü‚µ‚½‚ªA‚Ü‚¾“®ì‚Í‚µ‚Ü‚¹‚ñB
+-ã€Œãƒ•ãƒ­ãƒ³ãƒˆãƒ©ã‚¤ãƒ³ã€ã‚’68705ç”¨ROMã‚’å«ã‚€å®Œå…¨ã‚»ãƒƒãƒˆã«ç½®ãæ›ãˆã¾ã—ãŸãŒã€ã¾ã å‹•ä½œã¯ã—ã¾ã›ã‚“ã€‚
   [Nicola Salmoria]
 
--uGolden Starv‚ðƒIƒŠƒWƒiƒ‹‚ÌˆÃ†‰»ƒZƒbƒg‚É’u‚«Š·‚¦‚Ü‚µ‚½B[Mirko Buffoni]
+-ã€ŒGolden Starã€ã‚’ã‚ªãƒªã‚¸ãƒŠãƒ«ã®æš—å·åŒ–ã‚»ãƒƒãƒˆã«ç½®ãæ›ãˆã¾ã—ãŸã€‚[Mirko Buffoni]
 
-- System8ƒhƒ‰ƒCƒo‚ð‰ü—ÇB[Nicola Salmoria]
+- System8ãƒ‰ãƒ©ã‚¤ãƒã‚’æ”¹è‰¯ã€‚[Nicola Salmoria]
 
--uƒtƒƒ“ƒgƒ‰ƒCƒ“v‚ÆuƒeƒBƒ“ƒXƒ^[v‚Å•W“Iƒ_ƒCƒ„ƒ‹‚ðƒTƒ|[ƒg(ƒfƒ…ƒAƒ‹ƒWƒ‡ƒCƒXƒeƒBƒbƒN
-  Ý’è‚ª•K—v)‚µ‚Ü‚µ‚½B‚Ü‚½Auƒtƒƒ“ƒgƒ‰ƒCƒ“v‚ÅA“–‚½‚è”»’è‚ª—LŒø‚É‚È‚è‚Ü‚µ‚½‚ªAŠ®‘S
-  ‚Å‚Í‚ ‚è‚Ü‚¹‚ñB[Nicola Salmoria]
+-ã€Œãƒ•ãƒ­ãƒ³ãƒˆãƒ©ã‚¤ãƒ³ã€ã¨ã€Œãƒ†ã‚£ãƒ³ã‚¹ã‚¿ãƒ¼ã€ã§æ¨™çš„ãƒ€ã‚¤ãƒ¤ãƒ«ã‚’ã‚µãƒãƒ¼ãƒˆ(ãƒ‡ãƒ¥ã‚¢ãƒ«ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯
+  è¨­å®šãŒå¿…è¦)ã—ã¾ã—ãŸã€‚ã¾ãŸã€ã€Œãƒ•ãƒ­ãƒ³ãƒˆãƒ©ã‚¤ãƒ³ã€ã§ã€å½“ãŸã‚Šåˆ¤å®šãŒæœ‰åŠ¹ã«ãªã‚Šã¾ã—ãŸãŒã€å®Œå…¨
+  ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚[Nicola Salmoria]
 
--uƒƒ{ƒRƒbƒvv‚ÌƒGƒ“ƒfƒBƒ“ƒO‚ðC³B[JC Alexander]
+-ã€Œãƒ­ãƒœã‚³ãƒƒãƒ—ã€ã®ã‚¨ãƒ³ãƒ‡ã‚£ãƒ³ã‚°ã‚’ä¿®æ­£ã€‚[JC Alexander]
 
--uíê‚Ì˜T / Commandov‚ª‚½‚Ü‚É‹N“®‚µ‚È‚¢‚Ì‚ð*‚Â‚¢‚É*C³B‚±‚ê‚ÍƒfƒR[ƒhƒ‹[ƒ`ƒ“‚Ìƒo
-  ƒO‚ÅAŠ®‘S‚É‘‚«Š·‚¦‚Ü‚µ‚½B[Nicola Salmoria]
+-ã€Œæˆ¦å ´ã®ç‹¼ / Commandoã€ãŒãŸã¾ã«èµ·å‹•ã—ãªã„ã®ã‚’*ã¤ã„ã«*ä¿®æ­£ã€‚ã“ã‚Œã¯ãƒ‡ã‚³ãƒ¼ãƒ‰ãƒ«ãƒ¼ãƒãƒ³ã®ãƒ
+  ã‚°ã§ã€å®Œå…¨ã«æ›¸ãæ›ãˆã¾ã—ãŸã€‚[Nicola Salmoria]
 
--u‰©‹à‚Ìé / Gladiatorv‚Ì“ü—Í‚ÌŽæ‚èˆµ‚¢‚ð‰ü‘PB[Tatsuyuki Satoh]
+-ã€Œé»„é‡‘ã®åŸŽ / Gladiatorã€ã®å…¥åŠ›ã®å–ã‚Šæ‰±ã„ã‚’æ”¹å–„ã€‚[Tatsuyuki Satoh]
 
-- System16ƒhƒ‰ƒCƒo‚ð‰ü‘PB[Phil Stroffolino]
+- System16ãƒ‰ãƒ©ã‚¤ãƒã‚’æ”¹å–„ã€‚[Phil Stroffolino]
 
--uƒ`ƒFƒbƒNƒ}ƒ“v‚ÌŽlŠp‚Ì“®‚«‚ðC³B[Brad Oliver]
+-ã€Œãƒã‚§ãƒƒã‚¯ãƒžãƒ³ã€ã®å››è§’ã®å‹•ãã‚’ä¿®æ­£ã€‚[Brad Oliver]
 
--uƒfƒBƒXƒNƒXƒIƒuƒgƒƒ“v‚Ì7–Ê‚ÅŒÅ‚Ü‚é‚Ì‚ðC³B[Jim Thevenot]
+-ã€Œãƒ‡ã‚£ã‚¹ã‚¯ã‚¹ã‚ªãƒ–ãƒˆãƒ­ãƒ³ã€ã®7é¢ã§å›ºã¾ã‚‹ã®ã‚’ä¿®æ­£ã€‚[Jim Thevenot]
 
--uƒuƒ‰ƒXƒgv‚ðC³B[Juergen Buchmueller]
+-ã€Œãƒ–ãƒ©ã‚¹ãƒˆã€ã‚’ä¿®æ­£ã€‚[Juergen Buchmueller]
 
--uƒ`ƒFƒ‹ƒmƒu -í‚¤lŠÔ”­“dŠ-v‚ªƒvƒŒƒC‰Â”\‚É‚È‚è‚Ü‚µ‚½! ‚»‚Ì‘¼AuƒJƒ‹ƒmƒtv‚Å‘¬“x’á
-  ‰º‚ð‹N‚±‚µ‚Ä‚¢‚½‘½‚­‚ÌƒoƒO‚ðC³‚ð‚µ‚Ü‚µ‚½B[Bryan McPhail]
+-ã€Œãƒã‚§ãƒ«ãƒŽãƒ– -æˆ¦ã†äººé–“ç™ºé›»æ‰€-ã€ãŒãƒ—ãƒ¬ã‚¤å¯èƒ½ã«ãªã‚Šã¾ã—ãŸ! ãã®ä»–ã€ã€Œã‚«ãƒ«ãƒŽãƒ•ã€ã§é€Ÿåº¦ä½Ž
+  ä¸‹ã‚’èµ·ã“ã—ã¦ã„ãŸå¤šãã®ãƒã‚°ã‚’ä¿®æ­£ã‚’ã—ã¾ã—ãŸã€‚[Bryan McPhail]
 
--usrumbler2v‚ðC³B[Paul Leaman]
+-ã€Œsrumbler2ã€ã‚’ä¿®æ­£ã€‚[Paul Leaman]
 
-- Data East‚Ì68000ƒQ[ƒ€(uƒ~ƒbƒhƒiƒCƒgƒŒƒWƒXƒ^ƒ“ƒXv
- uƒhƒ‰ƒSƒ“”EŽÒ / Bad Dudes vs. Dragonninjavuƒƒ{ƒRƒbƒvv‚È‚Ç)‚É‰ü—Ç‚ÆƒoƒOC³B
+- Data Eastã®68000ã‚²ãƒ¼ãƒ (ã€ŒãƒŸãƒƒãƒ‰ãƒŠã‚¤ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿ãƒ³ã‚¹ã€
+ ã€Œãƒ‰ãƒ©ã‚´ãƒ³å¿è€… / Bad Dudes vs. Dragonninjaã€ã€Œãƒ­ãƒœã‚³ãƒƒãƒ—ã€ãªã©)ã«æ”¹è‰¯ã¨ãƒã‚°ä¿®æ­£ã€‚
   [Bryan McPhail]
 
--uƒgƒŠƒvƒ‹ƒpƒ“ƒ`v‚ÌƒŠƒZƒbƒgƒoƒO‚ðC³B[Zsolt Vasvari]
+-ã€Œãƒˆãƒªãƒ—ãƒ«ãƒ‘ãƒ³ãƒã€ã®ãƒªã‚»ãƒƒãƒˆãƒã‚°ã‚’ä¿®æ­£ã€‚[Zsolt Vasvari]
 
 
 
-ƒƒCƒ“ƒvƒƒOƒ‰ƒ€‚Ì•ÏXF
+ãƒ¡ã‚¤ãƒ³ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®å¤‰æ›´ï¼š
 ----------------------
 
-- 68000ƒRƒA‚Ì–½—ßˆÈŠO‚ÌƒoƒO‚ðC³B[Mike Coates]
+- 68000ã‚³ã‚¢ã®å‘½ä»¤ä»¥å¤–ã®ãƒã‚°ã‚’ä¿®æ­£ã€‚[Mike Coates]
 
-- "press OK to continue"‚Ì‰æ–Ê‚ÅA³‚µ‚­uOKv‚Æ“ü—Í‚µ‚È‚¢‚Ææ‚Éi‚ß‚È‚¢‚æ‚¤‚É‚µ‚Ü
-  ‚µ‚½B‚Ü‚½ESCƒL[‚ð‰Ÿ‚·‚ÆA’¼‚¿‚ÉI—¹‚Å‚«‚Ü‚·B[Nicola Salmoria]
+- "press OK to continue"ã®ç”»é¢ã§ã€æ­£ã—ãã€ŒOKã€ã¨å…¥åŠ›ã—ãªã„ã¨å…ˆã«é€²ã‚ãªã„ã‚ˆã†ã«ã—ã¾
+  ã—ãŸã€‚ã¾ãŸESCã‚­ãƒ¼ã‚’æŠ¼ã™ã¨ã€ç›´ã¡ã«çµ‚äº†ã§ãã¾ã™ã€‚[Nicola Salmoria]
 
-- ƒxƒNƒ^[‚Ì“§‰ß•\Ž¦‚Íu-notranslucencyv‚ÅƒIƒt‚É‚Å‚«‚Ü‚·B[Valerio Verrando]
+- ãƒ™ã‚¯ã‚¿ãƒ¼ã®é€éŽè¡¨ç¤ºã¯ã€Œ-notranslucencyã€ã§ã‚ªãƒ•ã«ã§ãã¾ã™ã€‚[Valerio Verrando]
 
-- [DOS]u-romidentvƒIƒvƒVƒ‡ƒ“‚Ì’Ç‰ÁBuMAME -romident dirnamev‚ÅA•s–¾ROM‚ÌŠm”F
-  ‚ª‚Å‚«‚Ü‚·B
+- [DOS]ã€Œ-romidentã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®è¿½åŠ ã€‚ã€ŒMAME -romident dirnameã€ã§ã€ä¸æ˜ŽROMã®ç¢ºèª
+  ãŒã§ãã¾ã™ã€‚
 
-- ƒtƒ@ƒCƒ‹ƒ`ƒFƒbƒN‚ðCRC-32‚É•ÏXBˆÈ‘O‚Ìƒ`ƒFƒbƒNƒTƒ€‚Í‚à‚¤Žg—p‚µ‚Ü‚¹‚ñB
+- ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚§ãƒƒã‚¯ã‚’CRC-32ã«å¤‰æ›´ã€‚ä»¥å‰ã®ãƒã‚§ãƒƒã‚¯ã‚µãƒ ã¯ã‚‚ã†ä½¿ç”¨ã—ã¾ã›ã‚“ã€‚
   [John Butler, Bernd Wiebelt]
 
-- ZIPƒtƒ@ƒCƒ‹‚ðŽg‚¤ê‡AROMƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ªˆá‚¤ê‡‚Å‚àAŽ©“®“I‚É’ù³‚µ‚ÄŽÀs‚µ‚Ü‚·
-  (‚à‚¿‚ë‚ñACRC-32‚ª³Šm‚Èê‡‚ÉŒÀ‚è‚Ü‚·)B‚à‚¤ƒtƒ@ƒCƒ‹–¼‚ð•ÏX‚µ‚È‚­‚Ä‚à‚æ‚­‚È‚è‚Ü
-  ‚µ‚½(‚ªAZIPƒtƒ@ƒCƒ‹–¼‚Í•ÏX‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñ;-) [Nicola Salmoria]
+- ZIPãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½¿ã†å ´åˆã€ROMãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰ãŒé•ã†å ´åˆã§ã‚‚ã€è‡ªå‹•çš„ã«è¨‚æ­£ã—ã¦å®Ÿè¡Œã—ã¾ã™
+  (ã‚‚ã¡ã‚ã‚“ã€CRC-32ãŒæ­£ç¢ºãªå ´åˆã«é™ã‚Šã¾ã™)ã€‚ã‚‚ã†ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å¤‰æ›´ã—ãªãã¦ã‚‚ã‚ˆããªã‚Šã¾
+  ã—ãŸ(ãŒã€ZIPãƒ•ã‚¡ã‚¤ãƒ«åã¯å¤‰æ›´ã—ãªã‘ã‚Œã°ã„ã‘ãªã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“;-) [Nicola Salmoria]
 
-- [DOS] VƒRƒ}ƒ“ƒhu-listcrcv’Ç‰ÁB‘SƒTƒ|[ƒgROM‚ÌCRC-32ƒŠƒXƒg‚ð•\Ž¦‚µ‚Ü‚·B
- u00000000v‚ÍROM‚ª•s—Ç‚Å‚ ‚é‚Æ‚¢‚¤ˆÓ–¡‚Å‚·B[Nicola Salmoria]
+- [DOS] æ–°ã‚³ãƒžãƒ³ãƒ‰ã€Œ-listcrcã€è¿½åŠ ã€‚å…¨ã‚µãƒãƒ¼ãƒˆROMã®CRC-32ãƒªã‚¹ãƒˆã‚’è¡¨ç¤ºã—ã¾ã™ã€‚
+ ã€Œ00000000ã€ã¯ROMãŒä¸è‰¯ã§ã‚ã‚‹ã¨ã„ã†æ„å‘³ã§ã™ã€‚[Nicola Salmoria]
 
-- 68000‚ÌŠ„‚èž‚ÝƒoƒO‚Ì‚¹‚¢‚ÅAuRastan Sagav‚Å³í‚É‹N“®‚µ‚È‚©‚Á‚½‚Ì‚ðC³B
+- 68000ã®å‰²ã‚Šè¾¼ã¿ãƒã‚°ã®ã›ã„ã§ã€ã€ŒRastan Sagaã€ã§æ­£å¸¸ã«èµ·å‹•ã—ãªã‹ã£ãŸã®ã‚’ä¿®æ­£ã€‚
   [Brad Oliver]
 
-- [DOS] ƒvƒƒtƒ@ƒCƒ‰’Ç‰ÁB—LŒø‚É‚·‚é‚É‚ÍAu-profilervƒpƒ‰ƒ[ƒ^‚ðŽg—p‚µ‚Ü‚·B
-  ‚»‚µ‚ÄA¶Shift+F11ƒL[‚ÅŒ‹‰Ê‚ð‰æ–Ê‚É•\Ž¦‚µ‚Ü‚·Bƒvƒƒtƒ@ƒCƒ‰‚É‚ÍPentiumƒNƒ‰ƒX‚Ì
-  RDTSC–½—ß‚ª•K—v‚Å‚·B486‚âŒÃ‚¢PentiumA‚³‚ç‚ÉIntelˆÈŠO‚ÌCPU‚Å‚Í“®ì‚µ‚Ü‚¹‚ñB
+- [DOS] ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ©è¿½åŠ ã€‚æœ‰åŠ¹ã«ã™ã‚‹ã«ã¯ã€ã€Œ-profilerã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚
+  ãã—ã¦ã€å·¦Shift+F11ã‚­ãƒ¼ã§çµæžœã‚’ç”»é¢ã«è¡¨ç¤ºã—ã¾ã™ã€‚ãƒ—ãƒ­ãƒ•ã‚¡ã‚¤ãƒ©ã«ã¯Pentiumã‚¯ãƒ©ã‚¹ã®
+  RDTSCå‘½ä»¤ãŒå¿…è¦ã§ã™ã€‚486ã‚„å¤ã„Pentiumã€ã•ã‚‰ã«Intelä»¥å¤–ã®CPUã§ã¯å‹•ä½œã—ã¾ã›ã‚“ã€‚
   [Nicola Salmoria]
 
-- ƒ†[ƒU[ƒCƒ“ƒ^[ƒtƒF[ƒX‚ð‰ü—ÇB1ƒL[‚Ì¶‚ÌƒL[(ƒL[ƒ{[ƒh‚É‚æ‚Á‚Ä‚Íu~vƒL[)‚ð
-  ‰Ÿ‚·‚ÆA‰æ–Êã‚É‰¹—ÊAƒKƒ“ƒ}’lA–¾‚é‚³‚Ì•ÏX‰æ–Ê‚ð•\Ž¦‚µ‚Ü‚·B‰¹—Ê‚ÍƒTƒEƒ“ƒhƒ`ƒb
-  ƒv‚Ì‰¹—Ê‚©‚ç“Æ—§‚µ‚ÄÝ’è‰Â”\‚Å‚·BTABƒL[‚ÌÝ’è‰æ–Ê‚Í‚Ü‚¾A“¯Šú‚µ‚Ä‚¢‚Ü‚¹‚ñB
+- ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’æ”¹è‰¯ã€‚1ã‚­ãƒ¼ã®å·¦ã®ã‚­ãƒ¼(ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«ã‚ˆã£ã¦ã¯ã€Œ~ã€ã‚­ãƒ¼)ã‚’
+  æŠ¼ã™ã¨ã€ç”»é¢ä¸Šã«éŸ³é‡ã€ã‚¬ãƒ³ãƒžå€¤ã€æ˜Žã‚‹ã•ã®å¤‰æ›´ç”»é¢ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚éŸ³é‡ã¯ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒƒ
+  ãƒ—ã®éŸ³é‡ã‹ã‚‰ç‹¬ç«‹ã—ã¦è¨­å®šå¯èƒ½ã§ã™ã€‚TABã‚­ãƒ¼ã®è¨­å®šç”»é¢ã¯ã¾ã ã€åŒæœŸã—ã¦ã„ã¾ã›ã‚“ã€‚
   [Nicola Salmoria]
 
-- [DOS] u-fmvƒIƒvƒVƒ‡ƒ“‚ðu-ym2203oplv‚É’u‚«Š·‚¦B‚±‚ÌƒIƒvƒVƒ‡ƒ“‚ÍASoundBlaster
-  ‚ÌOPLƒ`ƒbƒv‚Ì‘ã‚í‚è‚ÉAYM3812‚ÌƒfƒWƒ^ƒ‹ƒGƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ðŽg—p‚·‚é‚à‚Ì‚Å‚·B
- u-noym3812oplv‚Æˆê‚ÉŽg‚¤‚ÆAŠO•”ƒhƒ‰ƒ€ƒTƒ“ƒvƒ‹‰¹‚ª•K—v‚É‚È‚è‚Ü‚·B
+- [DOS] ã€Œ-fmã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã€Œ-ym2203oplã€ã«ç½®ãæ›ãˆã€‚ã“ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯ã€SoundBlaster
+  ã®OPLãƒãƒƒãƒ—ã®ä»£ã‚ã‚Šã«ã€YM3812ã®ãƒ‡ã‚¸ã‚¿ãƒ«ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä½¿ç”¨ã™ã‚‹ã‚‚ã®ã§ã™ã€‚
+ ã€Œ-noym3812oplã€ã¨ä¸€ç·’ã«ä½¿ã†ã¨ã€å¤–éƒ¨ãƒ‰ãƒ©ãƒ ã‚µãƒ³ãƒ—ãƒ«éŸ³ãŒå¿…è¦ã«ãªã‚Šã¾ã™ã€‚
   [Nicola Salmoria]
 
-- eƒZƒbƒg‚¾‚¯‚ª‚ ‚éê‡Au-verifyromsv‚ÅƒNƒ[ƒ“ƒZƒbƒg‚ª•s–¾‚Æ•ñ‚³‚ê‚Ü‚¹‚ñB
+- è¦ªã‚»ãƒƒãƒˆã ã‘ãŒã‚ã‚‹å ´åˆã€ã€Œ-verifyromsã€ã§ã‚¯ãƒ­ãƒ¼ãƒ³ã‚»ãƒƒãƒˆãŒä¸æ˜Žã¨å ±å‘Šã•ã‚Œã¾ã›ã‚“ã€‚
   [John Butler]
 
-- [DOS] ƒXƒeƒŒƒIƒTƒEƒ“ƒhƒTƒ|[ƒgBƒ‚ƒmƒ‰ƒ‹‚æ‚è‚à­‚µ’x‚­‚È‚è‚Ü‚·BƒIƒt‚É‚·‚é‚É‚Í
- u-nostereov‚Æ‚µ‚Ä‰º‚³‚¢BƒXƒeƒŒƒI‚ÍƒQ[ƒ€‚ª‘Î‰ž‚µ‚Ä‚¢‚éê‡‚¾‚¯“®ì‚µ‚Ü‚·B
+- [DOS] ã‚¹ãƒ†ãƒ¬ã‚ªã‚µã‚¦ãƒ³ãƒ‰ã‚µãƒãƒ¼ãƒˆã€‚ãƒ¢ãƒŽãƒ©ãƒ«ã‚ˆã‚Šã‚‚å°‘ã—é…ããªã‚Šã¾ã™ã€‚ã‚ªãƒ•ã«ã™ã‚‹ã«ã¯
+ ã€Œ-nostereoã€ã¨ã—ã¦ä¸‹ã•ã„ã€‚ã‚¹ãƒ†ãƒ¬ã‚ªã¯ã‚²ãƒ¼ãƒ ãŒå¯¾å¿œã—ã¦ã„ã‚‹å ´åˆã ã‘å‹•ä½œã—ã¾ã™ã€‚
 
-- [DOS] Vu-listinfovƒRƒ}ƒ“ƒh‚Í‘SƒTƒ|[ƒgƒQ[ƒ€‚ÌÚ×‚ð•\Ž¦‚µ‚Ü‚·B
+- [DOS] æ–°ã€Œ-listinfoã€ã‚³ãƒžãƒ³ãƒ‰ã¯å…¨ã‚µãƒãƒ¼ãƒˆã‚²ãƒ¼ãƒ ã®è©³ç´°ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚
   [Andrea Mazzoleni]
 
-- ƒ`[ƒgƒVƒXƒeƒ€‚É‚¢‚­‚Â‚©•ÏX‚ð‰Á‚¦‚Ü‚µ‚½BŽg—p‚É‚ÍAV‚µ‚¢ƒ`[ƒgƒf[ƒ^ƒx[ƒX‚ð
-  ƒ_ƒEƒ“ƒ[ƒh‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B[Stephane Humbert]
+- ãƒãƒ¼ãƒˆã‚·ã‚¹ãƒ†ãƒ ã«ã„ãã¤ã‹å¤‰æ›´ã‚’åŠ ãˆã¾ã—ãŸã€‚ä½¿ç”¨ã«ã¯ã€æ–°ã—ã„ãƒãƒ¼ãƒˆãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’
+  ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚[Stephane Humbert]
 
-- [DOS] Œ»ÝAƒ_ƒCƒiƒ~ƒbƒNƒŒƒ“ƒW‚ª‘å•‚ÉŒüã‚µ‚½SEALƒI[ƒfƒBƒIƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒx[ƒ^”Å
-  ‚ðŽg—p‚µ‚Ä‚¢‚Ü‚·B‘½‚­‚ÌƒQ[ƒ€‚Å‰¹—Ê‚ªã‚ª‚èAƒoƒ‰ƒ“ƒX‚ª‚³‚ç‚É—Ç‚­‚È‚Á‚½‚±‚Æ‚É‹C
-  ‚Ã‚­‚ÆŽv‚¢‚Ü‚·Bƒoƒ‰ƒ“ƒX‚Ìˆ«‚­‚È‚Á‚½ƒQ[ƒ€‚ª‚ ‚Á‚½‚ç‚¨’m‚ç‚¹‰º‚³‚¢BVƒ‰ƒCƒuƒ‰ƒŠ
-  ‚Å‚ÍAENSONIQ AudioPIC‚ÆCreative PCI64ƒJ[ƒh‚Å‚Ì–â‘è‚àC³‚³‚ê‚Ä‚¢‚Ü‚·B
+- [DOS] ç¾åœ¨ã€ãƒ€ã‚¤ãƒŠãƒŸãƒƒã‚¯ãƒ¬ãƒ³ã‚¸ãŒå¤§å¹…ã«å‘ä¸Šã—ãŸSEALã‚ªãƒ¼ãƒ‡ã‚£ã‚ªãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ãƒ™ãƒ¼ã‚¿ç‰ˆ
+  ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™ã€‚å¤šãã®ã‚²ãƒ¼ãƒ ã§éŸ³é‡ãŒä¸ŠãŒã‚Šã€ãƒãƒ©ãƒ³ã‚¹ãŒã•ã‚‰ã«è‰¯ããªã£ãŸã“ã¨ã«æ°—
+  ã¥ãã¨æ€ã„ã¾ã™ã€‚ãƒãƒ©ãƒ³ã‚¹ã®æ‚ªããªã£ãŸã‚²ãƒ¼ãƒ ãŒã‚ã£ãŸã‚‰ãŠçŸ¥ã‚‰ã›ä¸‹ã•ã„ã€‚æ–°ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+  ã§ã¯ã€ENSONIQ AudioPICã¨Creative PCI64ã‚«ãƒ¼ãƒ‰ã§ã®å•é¡Œã‚‚ä¿®æ­£ã•ã‚Œã¦ã„ã¾ã™ã€‚
   [Nicola Salmoria]
 
-- SoundBlaster OPLƒ`ƒbƒv‚ðŽg—p’†‚ÉAYM3812ƒRƒ}ƒ“ƒh‚Í³Šm‚ÈŽü”g”‚Å–Â‚é‚æ‚¤‚É•ÏŠ·
-  ‚³‚ê‚Ä‚¢‚Ü‚·B[Carl-Henrik Skårstedt]
+- SoundBlaster OPLãƒãƒƒãƒ—ã‚’ä½¿ç”¨ä¸­ã«ã€YM3812ã‚³ãƒžãƒ³ãƒ‰ã¯æ­£ç¢ºãªå‘¨æ³¢æ•°ã§é³´ã‚‹ã‚ˆã†ã«å¤‰æ›
+  ã•ã‚Œã¦ã„ã¾ã™ã€‚[Carl-Henrik SkèšŒstedt]
 
-- TABƒƒjƒ…[‚ÅAƒWƒ‡ƒCƒXƒeƒBƒbƒNƒLƒƒƒŠƒuƒŒ[ƒVƒ‡ƒ“‚ª‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚µ‚½B
+- TABãƒ¡ãƒ‹ãƒ¥ãƒ¼ã§ã€ã‚¸ãƒ§ã‚¤ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã‚­ãƒ£ãƒªãƒ–ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒã§ãã‚‹ã‚ˆã†ã«ãªã‚Šã¾ã—ãŸã€‚
   [Bernd Wiebelt]
 
--uƒ^ƒbƒp[v‚Æuƒgƒƒ“v‚ÅƒNƒ‰ƒbƒVƒ…‚ðˆø‚«‹N‚±‚µ‚Ä‚¢‚½Z80ƒGƒ~ƒ…ƒŒ[ƒ^‚ÌƒoƒO‚ðC³B
+-ã€Œã‚¿ãƒƒãƒ‘ãƒ¼ã€ã¨ã€Œãƒˆãƒ­ãƒ³ã€ã§ã‚¯ãƒ©ãƒƒã‚·ãƒ¥ã‚’å¼•ãèµ·ã“ã—ã¦ã„ãŸZ80ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã®ãƒã‚°ã‚’ä¿®æ­£ã€‚
   [Juergen Buchmueller]
 
 
 
-ƒ\[ƒXF
+ã‚½ãƒ¼ã‚¹ï¼š
 -------
 
--uƒtƒŠƒbƒL[vuƒtƒ…[ƒ`ƒƒ[ƒXƒpƒCv‘¼‘½‚­‚ÌSEGAƒQ[ƒ€‚ÅŽg—p‚·‚é‰ð“ÇƒR[ƒh‚ð
- umachine/segacrpt.cv‚ÉˆÚ“®‚µ‚Ü‚µ‚½B[Nicola Salmoria]
+-ã€Œãƒ•ãƒªãƒƒã‚­ãƒ¼ã€ã€Œãƒ•ãƒ¥ãƒ¼ãƒãƒ£ãƒ¼ã‚¹ãƒ‘ã‚¤ã€ä»–å¤šãã®SEGAã‚²ãƒ¼ãƒ ã§ä½¿ç”¨ã™ã‚‹è§£èª­ã‚³ãƒ¼ãƒ‰ã‚’
+ ã€Œmachine/segacrpt.cã€ã«ç§»å‹•ã—ã¾ã—ãŸã€‚[Nicola Salmoria]
 
-- RunningMachineƒXƒgƒ‰ƒNƒ`ƒƒ‚Éumemory_region_lengthvƒtƒB[ƒ‹ƒh‚ð’Ç‰ÁB
-  ‚±‚ê‚ÍŽ—‚½‚æ‚¤‚Èƒn[ƒh‚Å“®ì‚·‚é‚¢‚­‚Â‚©‚ÌƒQ[ƒ€‚ðˆµ‚¤ƒhƒ‰ƒCƒo‚Å—L‰v‚Å‚·B
+- RunningMachineã‚¹ãƒˆãƒ©ã‚¯ãƒãƒ£ã«ã€Œmemory_region_lengthã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’è¿½åŠ ã€‚
+  ã“ã‚Œã¯ä¼¼ãŸã‚ˆã†ãªãƒãƒ¼ãƒ‰ã§å‹•ä½œã™ã‚‹ã„ãã¤ã‹ã®ã‚²ãƒ¼ãƒ ã‚’æ‰±ã†ãƒ‰ãƒ©ã‚¤ãƒã§æœ‰ç›Šã§ã™ã€‚
   [Nicola Salmoria]
 
-- TMS34010ƒGƒ~ƒ…ƒŒ[ƒ^B[Alex Pasadyn, Zsolt Vasvari]
+- TMS34010ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã€‚[Alex Pasadyn, Zsolt Vasvari]
 
-- 6502ƒGƒ~ƒ…ƒŒ[ƒ^‚ðA65C02‚Æ6510‚ðƒTƒ|[ƒg‚·‚éVŒ^‚É’u‚«Š·‚¦‚Ü‚µ‚½B
-  Marat FayzullinŽì‚ÌƒR[ƒh‚Í‚à‚¤Žg—p‚µ‚Ä‚¢‚Ü‚¹‚ñB[Juergen Buchmueller]
+- 6502ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã‚’ã€65C02ã¨6510ã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹æ–°åž‹ã«ç½®ãæ›ãˆã¾ã—ãŸã€‚
+  Marat Fayzullinæ°ä½œã®ã‚³ãƒ¼ãƒ‰ã¯ã‚‚ã†ä½¿ç”¨ã—ã¦ã„ã¾ã›ã‚“ã€‚[Juergen Buchmueller]
 
-- 68000 BCDƒGƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“‚ªuF-1ƒhƒŠ[ƒ€v‚Ìƒ^ƒCƒ}[•s’²‚ðˆø‚«‹N‚±‚µ‚Ä‚¢‚½ƒoƒO‚ðC³B
+- 68000 BCDã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒã€ŒF-1ãƒ‰ãƒªãƒ¼ãƒ ã€ã®ã‚¿ã‚¤ãƒžãƒ¼ä¸èª¿ã‚’å¼•ãèµ·ã“ã—ã¦ã„ãŸãƒã‚°ã‚’ä¿®æ­£ã€‚
   [Nicola Salmoria]
 
-- Z80ƒuƒƒbƒNI/O–½—ß(INI, IND, INIR, INDR, OUTI, OUTD, OTIR, OTDR)‚ÌƒoƒO‚ðC³B
+- Z80ãƒ–ãƒ­ãƒƒã‚¯I/Oå‘½ä»¤(INI, IND, INIR, INDR, OUTI, OUTD, OTIR, OTDR)ã®ãƒã‚°ã‚’ä¿®æ­£ã€‚
   [Frank Palazzolo]
 
-- [DOS] ‚¢‚­‚Â‚©‚Ìƒ}ƒVƒ“‚ÅE2BIGŽü‚è‚ÌƒGƒ‰[‚ð‹N‚±‚µ‚Ä‚¢‚½ƒA[ƒJƒCƒu‚ðŽg‚¤makefile‚ð
-  ÄƒAƒŒƒ“ƒW‚µ‚Ü‚µ‚½B[Juergen Buchmueller]
+- [DOS] ã„ãã¤ã‹ã®ãƒžã‚·ãƒ³ã§E2BIGå‘¨ã‚Šã®ã‚¨ãƒ©ãƒ¼ã‚’èµ·ã“ã—ã¦ã„ãŸã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’ä½¿ã†makefileã‚’
+  å†ã‚¢ãƒ¬ãƒ³ã‚¸ã—ã¾ã—ãŸã€‚[Juergen Buchmueller]
 
-- •s—ÇƒA[ƒJƒCƒu‚ð‰ð“š‚·‚é‚Æ‚«‚ÌAUNZIPƒR[ƒh‚Ì•sˆÀ’è‚³‚ð‰ü‘PB[John Butler]
+- ä¸è‰¯ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’è§£ç­”ã™ã‚‹ã¨ãã®ã€UNZIPã‚³ãƒ¼ãƒ‰ã®ä¸å®‰å®šã•ã‚’æ”¹å–„ã€‚[John Butler]
 
-- M68000‹tƒAƒZƒ“ƒuƒ‰‚ÌSBCD‚ðC³B[Mike Coates]
+- M68000é€†ã‚¢ã‚»ãƒ³ãƒ–ãƒ©ã®SBCDã‚’ä¿®æ­£ã€‚[Mike Coates]
 
-- VUNZIPƒCƒ“ƒ^[ƒtƒF[ƒX’Ç‰ÁBZIPƒfƒBƒŒƒNƒgƒŠƒLƒƒƒbƒVƒ…‚Æƒtƒ@ƒCƒ‹ƒl[ƒ€ƒLƒƒƒbƒVƒ…‚ð
-  V‚µ‚­’Ç‰Á(DOS”Å‚Ì‚Ý‚Å‚Ì•¶Žš—ñ)B[Andrea Mazzoleni]
+- æ–°UNZIPã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹è¿½åŠ ã€‚ZIPãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚­ãƒ£ãƒƒã‚·ãƒ¥ã¨ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒ¼ãƒ ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’
+  æ–°ã—ãè¿½åŠ (DOSç‰ˆã®ã¿ã§ã®æ–‡å­—åˆ—)ã€‚[Andrea Mazzoleni]
 
-- ƒI[ƒfƒBƒIƒXƒgƒŠ[ƒ€‚ð’Šo‚·‚éustreams.cv‚ð’Ç‰ÁBˆÈ‘O‚æ‚èŠÈ’P‚ÉŒø—¦—Ç‚­ì‹Æ‚Å‚«
-  ‚Ü‚·Buosd_play_streamed_sample()v‚Íƒvƒ‰ƒCƒx[ƒgŠÖ”‚Æ‚È‚èAVƒR[ƒh‚Å‚ÍŽg—p‚µ‚Ä
-  ‚¢‚Ü‚¹‚ñB[Nicola Salmoria]
+- ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’æŠ½å‡ºã™ã‚‹ã€Œstreams.cã€ã‚’è¿½åŠ ã€‚ä»¥å‰ã‚ˆã‚Šç°¡å˜ã«åŠ¹çŽ‡è‰¯ãä½œæ¥­ã§ã
+  ã¾ã™ã€‚ã€Œosd_play_streamed_sample()ã€ã¯ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆé–¢æ•°ã¨ãªã‚Šã€æ–°ã‚³ãƒ¼ãƒ‰ã§ã¯ä½¿ç”¨ã—ã¦
+  ã„ã¾ã›ã‚“ã€‚[Nicola Salmoria]
 
-- I8039ŠO•”Š„ž‚Ýƒnƒ“ƒhƒŠƒ“ƒO‚ÌƒoƒO‚ðC³B[Dan Boris]
+- I8039å¤–éƒ¨å‰²è¾¼ã¿ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã®ãƒã‚°ã‚’ä¿®æ­£ã€‚[Dan Boris]
 
--uosd_fopen()v—p‚ÌVƒtƒ@ƒCƒ‹ƒ^ƒCƒvFOSD_FILETYPE_STATEAOSD_FILETYPE_ARTWORK
+-ã€Œosd_fopen()ã€ç”¨ã®æ–°ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ï¼šOSD_FILETYPE_STATEã€OSD_FILETYPE_ARTWORK
 
-- x86—pƒAƒZƒ“ƒuƒ‰68000ƒRƒA’Ç‰ÁB‚©‚È‚è‘¬“x‚ªŒüã‚µ‚Ü‚·B[Mike Coates, Darren Olafson]
+- x86ç”¨ã‚¢ã‚»ãƒ³ãƒ–ãƒ©68000ã‚³ã‚¢è¿½åŠ ã€‚ã‹ãªã‚Šé€Ÿåº¦ãŒå‘ä¸Šã—ã¾ã™ã€‚[Mike Coates, Darren Olafson]
 
-- YM3812‚ÆYM3526‚Ìƒ\ƒtƒgƒGƒ~ƒ…ƒŒ[ƒ^’Ç‰ÁBDOS”Å‚Å‚ÍƒfƒtƒHƒ‹ƒg‚Å‚ÍŽg—p‚Å‚«‚Ü‚¹‚ñB
-  Œ»ÝASoundBlaster100%ŒÝŠ·OPLƒ`ƒbƒv‚ðŽg—p‚µ‚Ä‚¢‚é‚©‚ç‚Å‚·B
-  [Carl-Henrik Skårstedt]
+- YM3812ã¨YM3526ã®ã‚½ãƒ•ãƒˆã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿è¿½åŠ ã€‚DOSç‰ˆã§ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ä½¿ç”¨ã§ãã¾ã›ã‚“ã€‚
+  ç¾åœ¨ã€SoundBlaster100%äº’æ›OPLãƒãƒƒãƒ—ã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ã‹ã‚‰ã§ã™ã€‚
+  [Carl-Henrik SkèšŒstedt]
 
-- YM2413ƒGƒ~ƒ…ƒŒ[ƒ^‚Ìì‹Æ‚ðŠJŽnBYM3812‚©‚çƒf[ƒ^‚ªƒvƒbƒVƒ…‚³‚ê‚Ü‚·B
+- YM2413ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã®ä½œæ¥­ã‚’é–‹å§‹ã€‚YM3812ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ãŒãƒ—ãƒƒã‚·ãƒ¥ã•ã‚Œã¾ã™ã€‚
   [Paul Leaman, Ernesto Corvi]
 
-- ƒfƒoƒbƒK—pAI86‹tƒAƒZƒ“ƒuƒ‰BRobin Hilliard‚ÌƒR[ƒh‚ðƒx[ƒX‚É‚µ‚Ä‚¢‚Ü‚·B
+- ãƒ‡ãƒãƒƒã‚¬ç”¨ã€I86é€†ã‚¢ã‚»ãƒ³ãƒ–ãƒ©ã€‚Robin Hilliardã®ã‚³ãƒ¼ãƒ‰ã‚’ãƒ™ãƒ¼ã‚¹ã«ã—ã¦ã„ã¾ã™ã€‚
   [Andrea Mazzoleni]
 
-- VŠÖ”uinstall_mem_read_handler()v‚Æuinstall_mem_write_handler()v‚ð’Ç‰ÁB
-  ‚±‚ê‚ç‚Í“Á•Ê‚Èƒƒ‚ƒŠƒnƒ“ƒhƒ‰‚ð“±“ü‚·‚é‚Æ‚«(—á‚¦‚ÎAƒrƒW[‚Èƒ‹[ƒv‚ðƒgƒ‰ƒbƒv‚µ‚½‚è
-  Ž—‚½‚æ‚¤‚Èƒn[ƒh‚Å“®ì‚·‚éƒQ[ƒ€‚Ìƒƒ‚ƒŠƒ}ƒbƒv‚É¬‚³‚¢•ÏX‚ð‰Á‚¦‚é‚È‚Ç)‚ÉŽg—p‚Å‚«
-  ‚Ü‚·B[Alex Pasadyn]
+- æ–°é–¢æ•°ã€Œinstall_mem_read_handler()ã€ã¨ã€Œinstall_mem_write_handler()ã€ã‚’è¿½åŠ ã€‚
+  ã“ã‚Œã‚‰ã¯ç‰¹åˆ¥ãªãƒ¡ãƒ¢ãƒªãƒãƒ³ãƒ‰ãƒ©ã‚’å°Žå…¥ã™ã‚‹ã¨ã(ä¾‹ãˆã°ã€ãƒ“ã‚¸ãƒ¼ãªãƒ«ãƒ¼ãƒ—ã‚’ãƒˆãƒ©ãƒƒãƒ—ã—ãŸã‚Š
+  ä¼¼ãŸã‚ˆã†ãªãƒãƒ¼ãƒ‰ã§å‹•ä½œã™ã‚‹ã‚²ãƒ¼ãƒ ã®ãƒ¡ãƒ¢ãƒªãƒžãƒƒãƒ—ã«å°ã•ã„å¤‰æ›´ã‚’åŠ ãˆã‚‹ãªã©)ã«ä½¿ç”¨ã§ã
+  ã¾ã™ã€‚[Alex Pasadyn]
 
-- GameDriverƒXƒgƒ‰ƒNƒ`ƒƒ‚ÉVƒtƒB[ƒ‹ƒhudriver_initv’Ç‰ÁB‚±‚ê‚ÍƒIƒvƒVƒ‡ƒ“ŠÖ”‚ÅA
-  —á‚¦‚ÎŠÖ”‚Éƒƒ‚ƒŠƒnƒ“ƒhƒ‰‚ð’Ç‰Á‚·‚é‚È‚ÇA“Á’è‚Ì‰Šú‰»‚É—˜—p‚Å‚«‚Ü‚·B
+- GameDriverã‚¹ãƒˆãƒ©ã‚¯ãƒãƒ£ã«æ–°ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€Œdriver_initã€è¿½åŠ ã€‚ã“ã‚Œã¯ã‚ªãƒ—ã‚·ãƒ§ãƒ³é–¢æ•°ã§ã€
+  ä¾‹ãˆã°é–¢æ•°ã«ãƒ¡ãƒ¢ãƒªãƒãƒ³ãƒ‰ãƒ©ã‚’è¿½åŠ ã™ã‚‹ãªã©ã€ç‰¹å®šã®åˆæœŸåŒ–ã«åˆ©ç”¨ã§ãã¾ã™ã€‚
   [Nicola Salmoria]
 
-- YM2610ƒGƒ~ƒ…ƒŒ[ƒ^B‚±‚ê‚ÍNeoGeoƒQ[ƒ€‚ÅŽg—p‚µ‚Ü‚·B[Hiromitsu Shioya]
+- YM2610ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã€‚ã“ã‚Œã¯NeoGeoã‚²ãƒ¼ãƒ ã§ä½¿ç”¨ã—ã¾ã™ã€‚[Hiromitsu Shioya]
 
-- TMS9900ƒGƒ~ƒ…ƒŒ[ƒ^B[Andy JonesATon Brouwer‚ÌƒIƒŠƒWƒiƒ‹ƒR[ƒhƒx[ƒX]
+- TMS9900ã‚¨ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚¿ã€‚[Andy Jonesã€Ton Brouwerã®ã‚ªãƒªã‚¸ãƒŠãƒ«ã‚³ãƒ¼ãƒ‰ãƒ™ãƒ¼ã‚¹]

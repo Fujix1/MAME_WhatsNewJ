@@ -1,4 +1,4 @@
-0.87u4
+﻿0.87u4
 
 全般的な改良点：
 ----------------
@@ -7,7 +7,7 @@
   [Olivier Galibert]
 
 ■ソース名のcfgファイルがセット名のcfgとだぶって保存されるのを変更。
-  [René Single]
+  [Rene Single]
 
 ■memory.hの静的な関数の実装をインラインに変更。[Brad Oliver]
 

@@ -1,4 +1,4 @@
-0.70u2
+﻿0.70u2
 
 ソース全般の変更：
 ------------------
@@ -65,7 +65,7 @@
 	src/cpu/nec/nec.h
 	- i86 DAAの修正。
 
-■「グリーンベレー」ROM名訂正。[Gérald]
+■「グリーンベレー」ROM名訂正。[Gerald]
 	src/drivers/gberet.c
 
 ■「Paddle 2」に初期版MCUシミュレーション追加。[Angelo Salese]
